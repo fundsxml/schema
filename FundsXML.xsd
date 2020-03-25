@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
 <!--Mit XMLSpy v2015 rel. 3 (http://www.altova.com) generiertes W3C XML-Schema-->
 <xs:schema xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML V4</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.1.1</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -6407,6 +6408,7 @@ Integer corresponding to the following closed list:
 									<xs:maxLength value="2"/>
 									<xs:enumeration value="S"/>
 									<xs:enumeration value="SF"/>
+									<xs:enumeration value="SP"/>
 									<xs:enumeration value="U"/>
 									<xs:enumeration value="N"/>
 								</xs:restriction>
@@ -6424,7 +6426,7 @@ Integer corresponding to the following closed list:
 						</xs:element>
 						<xs:element name="GuarantorName" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>00080: Name of Issuer of the financial instrument. The one who is responsible for the financial instrument management/issuance</xs:documentation>
+								<xs:documentation>00080: Name of guarantor of the financial instrument.</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -6789,12 +6791,12 @@ Neutral ... Neutral</xs:documentation>
 											<xs:documentation>07020: Maximum not acquired to the fund (ETF are excluded). Expressed as a % of the amount to be invested</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="MaxEntryCostItaly" type="xs:decimal">
+									<xs:element name="MaxEntryCostItaly" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>07030: Maximum fixed amount per subscription, not incorporated. Flat fee definied by the manufacturer</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="MaxEntryCostAcquired" type="xs:decimal">
+									<xs:element name="MaxEntryCostAcquired" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>07040: Subscription fees acquired to the fund 
 Expressed as a % of the amount to be invested</xs:documentation>
@@ -6805,12 +6807,12 @@ Expressed as a % of the amount to be invested</xs:documentation>
 											<xs:documentation>07050: Maximum not acquired to the fund  (ETF are excluded). Expressed as a % of the NAV</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="MaxExitCostItaly" type="xs:decimal">
+									<xs:element name="MaxExitCostItaly" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>07060: Maximum fixed amount per redemption, not incorporated. Flat fee defined by the manufacturer</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="MaxExitCostAcquired" type="xs:decimal">
+									<xs:element name="MaxExitCostAcquired" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>07070: Maximum (ETF are excluded). Subscription fees acquired to the fund. Expressed as a % of the NAV</xs:documentation>
 										</xs:annotation>
@@ -6866,7 +6868,7 @@ Expressed as a % of the amount to be invested</xs:documentation>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="OneOfEntryCost" type="xs:decimal">
+									<xs:element name="OneOffEntryCost" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation>07020: "Ask Price" - Fair Value (as of reporting date)</xs:documentation>
 										</xs:annotation>
@@ -8004,9 +8006,9 @@ Information stating the objectives of the PRIIP and the means for achieving thos
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="CapitalGarantee" type="YesNoType">
+			<xs:element name="CapitalGuarantee" type="YesNoType">
 				<xs:annotation>
-					<xs:documentation>04080-Capital Garantee</xs:documentation>
+					<xs:documentation>04080-Capital Guarantee</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CapitalGuaranteeLevel" type="xs:decimal" minOccurs="0">
@@ -10408,13 +10410,11 @@ of nominal amount (A19) 100%=1.0</xs:documentation>
 						</xs:element>
 						<xs:element name="Meldungstyp">
 							<xs:annotation>
-								<xs:documentation>"OFI" ... OFI/IF Meldung an OeNB
-"OFI-IMO" ... OFI/IF Meldung an OeNB für Immofonds</xs:documentation>
+								<xs:documentation>"OFI" ... OFI/IF Meldung an OeNB</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="OFI"/>
-									<xs:enumeration value="OFI-IMO"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -13197,13 +13197,13 @@ R ... Reinvesting</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundOrShareClassIdentifiersType">
-		<xs:choice>
-			<xs:element name="LEI" type="LEICodeType">
+		<xs:sequence>
+			<xs:element name="LEI" type="LEICodeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Legal Entity Identifier of fund</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ISINs">
+			<xs:element name="ISINs" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>List of ISINs for share classes</xs:documentation>
 				</xs:annotation>
@@ -13217,7 +13217,7 @@ R ... Reinvesting</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="EmailAddressType">
 		<xs:restriction base="xs:string">
@@ -13516,6 +13516,7 @@ No, Digital, Scan</xs:documentation>
 						<xs:enumeration value="4.0.0"/>
 						<xs:enumeration value="4.0.1"/>
 						<xs:enumeration value="4.1.0"/>
+						<xs:enumeration value="4.1.1"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

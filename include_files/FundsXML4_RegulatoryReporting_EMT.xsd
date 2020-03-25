@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
-<!-- edited with XMLSpy v2017 rel. 3 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Fabrice Puziak (Kneip) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -512,7 +512,7 @@ Neutral ... Neutral</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="EntryCost" type="xs:decimal">
+									<xs:element name="EntryCost" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>07020: Maximum not acquired to the fund (ETF are excluded). Expressed as a % of the amount to be invested</xs:documentation>
 										</xs:annotation>
@@ -528,7 +528,7 @@ Neutral ... Neutral</xs:documentation>
 Expressed as a % of the amount to be invested</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="MaxExitCost" type="xs:decimal">
+									<xs:element name="MaxExitCost" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>07050: Maximum not acquired to the fund  (ETF are excluded). Expressed as a % of the NAV</xs:documentation>
 										</xs:annotation>
@@ -625,7 +625,7 @@ Expressed as a % of the amount to be invested</xs:documentation>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="CostsAndChargesExPost">
+			<xs:element name="CostsAndChargesExPost" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Costs and Charges ex post</xs:documentation>
 				</xs:annotation>
@@ -637,13 +637,13 @@ Expressed as a % of the amount to be invested</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="OngoingCosts" type="xs:decimal">
+									<xs:element name="OngoingCosts" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>08030: Ongoing costs ex post
 Definition tbd as a % of NAV of the Financial Product / per annum. Occured costs over one year</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="ManagementFee" type="xs:decimal">
+									<xs:element name="ManagementFee" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>08050: Management fee ex post
 Definition tbd as a % of NAV of the Financial Product / per annum. Occured costs over one year</xs:documentation>
@@ -655,13 +655,13 @@ Definition tbd as a % of NAV of the Financial Product / per annum. Occured costs
 Definition tbd as a % of NAV of the Financial Product / per annum. Occured costs over one year</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="TransactionCosts" type="xs:decimal">
+									<xs:element name="TransactionCosts" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>08070: Transaction costs ex post
 Definition tbd as a % of NAV of the Financial Product / per annum. Occured costs over one year</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="IncidentialCosts" type="xs:decimal">
+									<xs:element name="IncidentialCosts" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>08080: Incidential costs ex post
 Definition tbd as a % of NAV of the Financial Product / per annum. Occured costs over one year</xs:documentation>
@@ -711,7 +711,7 @@ If 07010 set to U : absolute figures in product currency
 If 07010 set to P : % of Notional or NAV (not per annum)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="OngoingCosts" type="xs:decimal">
+									<xs:element name="OngoingCosts" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>08030: Ongoing costs ex post
 If 07010 set to U : absolute figures in product currency

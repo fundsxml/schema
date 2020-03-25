@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:complexType name="IdentifiersType">
 		<xs:sequence>
 			<xs:element name="ISIN" type="ISINType" minOccurs="0">
@@ -406,6 +406,12 @@ YEAR</xs:documentation>
 			<xs:element name="Ratio" type="PercentageType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Weight of the share class within the fund in percentage (sum is 100%)</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="30"/>
+							<altova:example value="70"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OtherTotalAssetValues" minOccurs="0">
@@ -966,6 +972,7 @@ R ... Reinvesting</xs:documentation>
 							<xs:enumeration value="VOEIG"/>
 							<xs:enumeration value="WM"/>
 							<xs:enumeration value="GERMAN CBCL"/>
+							<xs:enumeration value="CIC"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>

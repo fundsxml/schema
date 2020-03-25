@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (http://www.altova.com) by Fabrice Puziak (Kneip) -->
-<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Lavinia Musetoiu (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="TripartiteTemplateSolvencyIIType">
@@ -28,7 +28,7 @@ References to Club AMPERE Excel "Template for Solvency 2 reporting": Ann in Anno
 					<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TPTVersion">
+			<xs:element name="TPTVersion" default="V4.0">
 				<xs:annotation>
 					<xs:documentation>A1000 - Version number of the TPT.
 The version corresponding to the current XML schema is "V4.0"</xs:documentation>
@@ -125,7 +125,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 										<xs:sequence>
 											<xs:element name="EconomicSector" type="NACECodeType">
 												<xs:annotation>
-													<xs:documentation>A118</xs:documentation>
+													<xs:documentation>A118 - NACE code of Issuer of Fund  or Share Class</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 											<xs:element name="Country" type="ISOCountryCodeType">
@@ -565,10 +565,17 @@ Optional for Derivatives or Underlying instruments.</xs:documentation>
 					<xs:documentation>A58 - Y/N</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HedgingRolling" type="YesNoL1Type" minOccurs="0">
+			<xs:element name="HedgingRolling" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A65 - "Y" if a "Systematic roll at maturity" program exists, otherwise "N" if used for hedging but no systematic roll at maturity; missing if not used for Hedging. </xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="N"/>
+						<xs:enumeration value="EPM"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="DerivativeOrConvertible" minOccurs="0">
 				<xs:annotation>
@@ -811,10 +818,19 @@ To be specified***********</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="CollateralisedAsset" type="YesNoL1Type" minOccurs="0">
+						<xs:element name="CollateralisedAsset" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>A106 - Indicator used to identify the under-written instruments</xs:documentation>
 							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:unsignedInt">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="3"/>
+									<xs:enumeration value="4"/>
+									<xs:enumeration value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
 						<xs:element name="PlaceOfDeposit" type="xs:string" minOccurs="0">
 							<xs:annotation>
@@ -862,12 +878,12 @@ Not applicable to CIC categories 7 and 8.</xs:documentation>
 								<xs:sequence>
 									<xs:element name="RatingValue" type="xs:string">
 										<xs:annotation>
-											<xs:documentation>A112 - </xs:documentation>
+											<xs:documentation>A112 - Rating of the counterparty / issuer (cf specifications QRT) (S.06.02 - old: Assets D1)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RatingAgency" type="xs:string">
 										<xs:annotation>
-											<xs:documentation>A113 - </xs:documentation>
+											<xs:documentation>A113 - Name of the rating agency (cf specification QRT) (S.06.02 - old: Assets D1)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -934,7 +950,7 @@ When the look-through regards a Fund of funds, category “4 - Collective Invest
 								<xs:documentation>A133</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="InfrastructureInvestment">
+						<xs:element name="InfrastructureInvestment" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>A132 - Use closed list:
 0 - Not assessed
@@ -966,10 +982,18 @@ When the look-through regards a Fund of funds, category “4 - Collective Invest
 					<xs:documentation xml:lang="en">Entity name</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Code" type="SIIIssuerCodificationType">
+			<xs:element name="Code" type="LEICodeType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>LEI or internal code.</xs:documentation>
+					<xs:documentation>LEI or empty</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="CodeType">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="9"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -1032,39 +1056,6 @@ Integer corresponding to the following closed list:
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="SIIIssuerCodificationType">
-		<xs:annotation>
-			<xs:documentation>CodificationSystem (restricted list for Issuers) and Code expressed in CodificationSystem</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="CodificationSystem">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Codification system used.
-1=LEI
-9=None</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:int">
-						<xs:enumeration value="1"/>
-						<xs:enumeration value="9"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:choice>
-				<xs:element name="LEI" type="LEICodeType">
-					<xs:annotation>
-						<xs:documentation>If CodificationSystem = 1</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Code" type="xs:string" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="en">Value of code in other CodificationSystem.
-Can be omitted if CodificationSystem=9</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ContributionToSCRType">
@@ -1172,12 +1163,12 @@ or "EU" for European Union institutions</xs:documentation>
 3 non OECD.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StateGuarantee" type="YesNoL1Type">
+			<xs:element name="StateGuarantee" type="YesNoL1Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">The instrument is guaranteed by the state of issuer ('Y') or not ('N')</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CreditQualityStep" type="CQSType">
+			<xs:element name="CreditQualityStep" type="CQSType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">CQS: Synthetic issue or issuer rating.
 Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>

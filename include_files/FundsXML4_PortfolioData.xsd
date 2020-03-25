@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2013 (http://www.altova.com) von Oesterreichische Kontrollbank AG (Oesterreichische Kontrollbank AG) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_TransactionData.xsd"/>
@@ -129,6 +129,11 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 			<xs:element name="FXRates" type="FXRatesType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>FX rates used for evaluation of position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PriceDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date of pricing information taken for fund valuation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PricingSource" minOccurs="0">
@@ -928,6 +933,12 @@ negative - paying premiums</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Preis der Aktie (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation>Market value of position (without interests)</xs:documentation>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2011 rel. 3 (http://www.altova.com) by OeKB (Oesterreichische Kontrollbank AG) -->
-<!-- Mit XMLSpy v2010 rel. 2 (x64) (http://www.altova.com) von Lavinia Musetoiu (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
-<xs:schema xmlns="http://www.fundsxml.org/XMLSchema/3.0.6beta" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.fundsxml.org/XMLSchema/3.0.6beta" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.6beta" xsi:schemaLocation="http://www.fundsxml.org/XMLSchema/3.0.6beta http://www.fundsxml.org/FundsXML3.0.6beta.xsd">
+<!-- edited with XMLSpy v2011 (x64) (http://www.altova.com) by Francois VAN RENTERGHEM (FundsXML France) -->
+<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Lavinia Musetoiu (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
+<xs:schema xmlns="http://www.fundsxml.org/XMLSchema/3.0.7" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.fundsxml.org/XMLSchema/3.0.7" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.7" xsi:schemaLocation="http://www.fundsxml.org/XMLSchema/3.0.7 http://www.fundsxml.org/FundsXML3.0.7.xsd">
 	<xs:element name="FundsXML">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">This is the root element. It is the first element of the document. All other elements are below this element.</xs:documentation>
@@ -2505,8 +2505,8 @@ Corporates - CORP
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="Version" type="xs:string" use="optional" default="3.0.6"/>
-			<xs:attribute name="LastModified" type="xs:date" use="optional" default="2012-01-23"/>
+			<xs:attribute name="Version" type="xs:string" use="optional" default="3.0.7"/>
+			<xs:attribute name="LastModified" type="xs:date" use="optional" default="2013-08-13"/>
 			<xs:attribute name="task" use="optional" default="import">
 				<xs:annotation>
 					<xs:documentation>import (default), replace or delete</xs:documentation>
@@ -5523,7 +5523,7 @@ This element is mandatory if the value of "Properties" is 'Others'. </xs:documen
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
-																		<xs:element name="Maturity" maxOccurs="11">
+																		<xs:element name="Maturity" maxOccurs="12">
 																			<xs:complexType>
 																				<xs:sequence>
 																					<xs:element name="Year" type="xs:string">
@@ -6130,6 +6130,11 @@ mehr als 200 Mio. Euro</xs:documentation>
 																		</xs:element>
 																	</xs:sequence>
 																</xs:complexType>
+															</xs:element>
+															<xs:element name="EquityCommitments" type="xs:decimal" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>In Form von Zeichnungsscheinen/Verträgen befristet oder unbefristet zugesagtes Eigenkapital in Tsd Euro</xs:documentation>
+																</xs:annotation>
 															</xs:element>
 														</xs:sequence>
 													</xs:complexType>
@@ -7286,6 +7291,18 @@ Annotations include reference to articles numbers of EU Commission Regulation # 
 					<xs:documentation xml:lang="de">Landesspezifische Daten eines Fonds: Unterhalb der landesspezifischen Daten werden alle Informationen eines Fonds abgelegt, die nur fuer ein bestimmtes Land gueltig sind. Dies sind insbesondere Steuerdaten, die fuer jedes Land nicht nur andere Werte annehmen, sondern auch in einer voellig anderen Struktur dargestellt werden muessen.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="FundTexts" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Content of the commentaries for fact sheets</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<!-- The schema has only one element after the "Root" element "FundTexts". 
+					This element "Fundtext" refers to the Complex Type "FundRelatedTextType" -->
+						<xs:element name="FundText" type="FundRelatedTextType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundManagerType">
@@ -7738,7 +7755,7 @@ Annotations include reference to articles numbers of EU Commission Regulation # 
 			<xs:documentation xml:lang="de">Dieser Typ stellt eine Rufnummer dar. Sollten die Informationen nicht einzelnen vorliegen, so ist die Komplettinformation unter Rufnummer zu speichern.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Type" type="xs:string">
+			<xs:element name="Type" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">The type of the phone number</xs:documentation>
 					<xs:documentation xml:lang="de">Die Art der Rufnummer.</xs:documentation>
@@ -7746,7 +7763,7 @@ Annotations include reference to articles numbers of EU Commission Regulation # 
 			</xs:element>
 			<xs:element name="CountryCode" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Country prefix of the calling number in the form of "00XX" (for example 0049 for Germany).</xs:documentation>
+					<xs:documentation xml:lang="en">Country prefix of the calling number in the form of "+XXX" (for example +49 for Germany).</xs:documentation>
 					<xs:documentation xml:lang="de">Die Landesvorwahl einer Rufnummer in der Form "00XX" z.B. 0049 fuer Deutschland.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -7758,7 +7775,7 @@ Annotations include reference to articles numbers of EU Commission Regulation # 
 			</xs:element>
 			<xs:element name="PhoneNumber" type="xs:string">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">The contact number itself. In case other element parts of the number are not separatley specified this information can express the complete calling number including the country and area codes.</xs:documentation>
+					<xs:documentation xml:lang="en">The contact number itself. In case other element parts of the number are not separatley specified this information can express the complete calling number including the country and area codes like explained here: The telephone/fax numbers should consist of a "+" followed by the country code (from 1 to 3 characters) then a "-" and finally, any combination of numbers, "(", ")", "+" and "-" (up to 30 characters).</xs:documentation>
 					<xs:documentation xml:lang="de">Die eigentliche Rufnummer. Sollten die anderen Informationen nicht einzelnen vorliegen, so ist die Komplettinformation hier anzufuehren.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -10333,6 +10350,15 @@ negative - paying premiums</xs:documentation>
 			<xs:minLength value="3"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="ISOLanguageCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">The ISOLanguageCodeType is a type for decoding ISO 639-1 Language Code. It is of the type string and has a length from exactly two letters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="PercentageType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">The PercentageType defines the percentage-values. It is derived from decimal. To decimal there is no modification. Percentage values can be expressed in three was: For 3.5 % it can be written as 3.5 or 1.035 or 0.035. For FundsXML percentage values has to be written as 5.3!</xs:documentation>
@@ -11674,7 +11700,7 @@ C - der Fonds ist quellensteuerpflichtig - der Fondsertrag (Zinsertrag) wird ver
 			<xs:documentation>BIC Code (SWIFT)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:minLength value="8"/>
+			<xs:minLength value="3"/>
 			<xs:maxLength value="12"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -11935,39 +11961,15 @@ der Summe aus der Anzahl segmentloser Fonds und der Anzahl der Segmente</xs:docu
 			<xs:documentation>Fund Processing Passport (FPP) Type</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SecurityCodes" minOccurs="0">
+			<xs:element name="ISINCode" type="ISINType">
 				<xs:annotation>
-					<xs:documentation>(1) National, international as well as non-official codes associated with the fund or financial instrument.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:complexContent>
-						<xs:extension base="SecurityCodesType">
-							<xs:attribute name="isPartOfUK" type="xs:boolean" use="optional" fixed="true"/>
-						</xs:extension>
-					</xs:complexContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="Name" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">The name of the fund</xs:documentation>
-					<xs:documentation xml:lang="de">(2) Name of fund (or sub-fund)</xs:documentation>
+					<xs:documentation>(1) ISIN code for the class of share to which the FPP refers.
+The EFAMA document doesn't expect any code but the ISIN.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ClassType" type="xs:string" minOccurs="0">
+			<xs:element name="FundStructure" type="NameType">
 				<xs:annotation>
-					<xs:documentation>Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or
-back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes
-are typically denoted by a single character, eg, 'Class A', 'Class 2'.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="NameOfUmbrella" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>(3) Name of the umbrella fund in which financial instrument is contained</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BaseCurrency" type="ISOCurrencyCodeType">
-				<xs:annotation>
-					<xs:documentation>(48) ISO currency code for the base accounting currency of the fund.</xs:documentation>
+					<xs:documentation>Information about the fund structure</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CountryOfDomicile" type="ISOCountryCodeType">
@@ -11975,34 +11977,47 @@ are typically denoted by a single character, eg, 'Class A', 'Class 2'.</xs:docum
 					<xs:documentation>(4) ISO 2-character country code for the country in which the fund or umbrella vehicle is legally domiciled.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Date" type="xs:date">
+			<xs:element name="DateOfLastRevision" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>(5) Date of last revision to the Fund Processing Passport (=Gültigkeitsdatum)</xs:documentation>
+					<xs:documentation>(5) Enter the date on which this version of the FPP was issued by the Fund Management Company.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InformationForCountries" minOccurs="0">
+			<xs:element name="AnnexesCountries">
 				<xs:annotation>
 					<xs:documentation>(6) Specific information available in FPP annexes for the following countries</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Country" type="ISOCountryCodeType" maxOccurs="unbounded"/>
-					</xs:sequence>
+					<xs:choice>
+						<xs:element name="Country" type="ISOCountryCodeType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Enter each country individually inculding the home domicile if necessary.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="NotApplicable" type="YesNoType">
+							<xs:annotation>
+								<xs:documentation>Enter "YES" for "Not Applicable" if there is no annexe</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="RegisteredDistributionCountry" minOccurs="0">
+			<xs:element name="RegisteredDistributionCountry">
 				<xs:annotation>
 					<xs:documentation>(7) Countries where the fund is registered for distribution</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Country" type="ISOCountryCodeType" maxOccurs="unbounded"/>
+						<xs:element name="Country" type="ISOCountryCodeType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Enter each country individually including the home domicile</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="MainFundOrderDesk" type="ContactDetailsType">
 				<xs:annotation>
-					<xs:documentation>(9-13) Principal entity appointed by the fund, to which orders should be submitted. Usually located in the country
+					<xs:documentation>(8-13) Principal entity appointed by the fund, to which orders should be submitted. Usually located in the country
 of domicle</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -12026,6 +12041,11 @@ of domicle</xs:documentation>
 					<xs:documentation>(42-49 exkl. 48)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="BaseCurrency" type="ISOCurrencyCodeType">
+				<xs:annotation>
+					<xs:documentation>(48) ISO currency code for the base accounting currency of the fund.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Restrictions" type="RestrictionType">
 				<xs:annotation>
 					<xs:documentation>(55-64) Restrictions for processing an investment into the fund.</xs:documentation>
@@ -12037,12 +12057,12 @@ of domicle</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element name="SettlementDetail" type="SettlementDetailsType" maxOccurs="5"/>
 						<xs:element name="ReferToFundOrderDesk" type="YesNoType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>If settlement is possible in more than 5 currencies set this field to "Yes"</xs:documentation>
+								<xs:documentation>If settlement is possible in more than 5 currencies set this field to "YES"</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="SettlementDetail" type="SettlementDetailsType" maxOccurs="5"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -12105,20 +12125,55 @@ of domicle</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="ISINType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+			<xs:pattern value="[A-Z]{2}[A-Z0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="NameType">
+		<xs:annotation>
+			<xs:documentation>Enter the legal name of the fund or sub-fund, including class (eg. ABC European Smaller Companies Fund A Shares) as per the Prospectus.
+fund or sub-fund name + class specification : eg. ABC European Smaller Companies Fund A shares (enter English name unless one does not exist).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="NameOfFundIncludingClass" type="Text350Type">
+				<xs:annotation>
+					<xs:documentation>(2) Enter the legal name of the fund or sub-fund, including class (eg. ABC European Smaller Companies Fund A Shares) as per the Prospectus.
+(enter English name unless one does not exist).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Umbrella" type="YesNoType">
+				<xs:annotation>
+					<xs:documentation>Put "YES" if the fund is an Umbrella fund, else put "NO"</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FundName" type="Text350Type">
+				<xs:annotation>
+					<xs:documentation>(3) Official (legal) Fund Name, without Class name. In Case of umbrella fund, put the name of the umbrella fund in which financial instrument is contained. (enter English name unless one does not exist).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubFundName" type="Text350Type">
+				<xs:annotation>
+					<xs:documentation>Enter the Subfund Name in case of an umbrella structure, put N/A in if not an umbrella fund.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Class" type="Text70Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Share class detail information like : A, or B, or C, or A (USD hgd) etc...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="ContactDetailsType">
 		<xs:annotation>
 			<xs:documentation>Contact Details</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Name">
+			<xs:element name="Name" type="Text350Type">
 				<xs:annotation>
 					<xs:documentation>Name by which a party is known and which is usually used to identify that party</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="350"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Address" type="PostalAddressType">
 				<xs:annotation>
@@ -12158,7 +12213,7 @@ of domicle</xs:documentation>
 			<xs:element name="BICIdentifier" type="BicCodeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>BIC: Unique and unambiguous identification of a financial institution, as assigned under a globally recognised or
-proprietary identification scheme.</xs:documentation>
+proprietary identification scheme.Enter the BIC11 (including XXX if there is no branch code), or "N/A" if there is no BIC.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -12167,13 +12222,13 @@ proprietary identification scheme.</xs:documentation>
 		<xs:annotation>
 			<xs:documentation>Postal Adress</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Unstructured" type="xs:string" minOccurs="0">
+		<xs:choice>
+			<xs:element name="Unstructured" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>Components of the address (street, city etc.) should be separated by commas.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Structured" minOccurs="0">
+			<xs:element name="Structured">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="AddressType" minOccurs="0">
@@ -12239,7 +12294,7 @@ of mail.</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-		</xs:sequence>
+		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="FundDetailsType">
 		<xs:annotation>
@@ -12280,18 +12335,18 @@ of mail.</xs:documentation>
 						<xs:element name="DividendPolicy" type="DividendPolicyType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>(26) Where income is distributed, indicate whether it is always paid in cash [CASH], always reinvested automatically in additional units/shares allocated to the investor [UNIT], or if either are possible [BOTH]. 
-Enter "N/A" if "DistributionPolicy" above is "ACCU". (CASH | UNIT | BOTH|N/A)</xs:documentation>
+Enter "N/A" if "DistributionPolicy" (25) above is "ACCU". (CASH | UNIT | BOTH|N/A)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="DividendFrequency" type="FrequencyType" minOccurs="0">
+						<xs:element name="DistributionFrequency" type="FrequencyWithNAType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>(27) Enter the frequency with which income is allocated (or deemed to be allocated) to investors (eg. six-monthly, yearly, etc).  The valid frequency codes are provided in the pull-down list.  If a roll-up fund has no deemed dividend payment, enter "N/A".
-A frequency must be entered if "25-DistributionPolicy"above is "DIST".</xs:documentation>
+A frequency must be entered if "DistributionPolicy" (25) above is "DIST".</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ReinvestmentFrequency" type="FrequencyType" minOccurs="0">
+						<xs:element name="ReinvestmentFrequency" type="FrequencyWithNAType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>(28) If "26-DividendPolicy" above is "UNIT" or "BOTH", enter the frequency with which the reinvestment takes place (this will be the same or less frequently than the distribution frequency in "27 -DividendFrequency" above), otherwise enter "N/A".  </xs:documentation>
+								<xs:documentation>(28) If "DividendPolicy" (26) above is "UNIT" or "BOTH", enter the frequency with which the reinvestment takes place (this will be the same or less frequently than the distribution frequency in "DividendFrequency" (27) above), otherwise enter "N/A".  </xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -12299,22 +12354,22 @@ A frequency must be entered if "25-DistributionPolicy"above is "DIST".</xs:docum
 			</xs:element>
 			<xs:element name="FrontEndLoad" type="YesNoType">
 				<xs:annotation>
-					<xs:documentation>(74) Front end charge on subscription orders for this class can be applied. (YES|NO)</xs:documentation>
+					<xs:documentation>(74) Indicate whether or not the fund prospectus permits the Fund Management Company to levy a front end charge on subscription orders for this class.(YES|NO)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BackEndLoad" type="YesNoType">
 				<xs:annotation>
-					<xs:documentation>(75) Exit charge (eg. CDSC) on redemption orders for this class can be applied. (YES|NO)</xs:documentation>
+					<xs:documentation>(75) Indicate whether or not the fund prospectus permits the Fund Management Company to levy an exit charge (eg. CDSC) on redemption orders for this class. (YES|NO)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SwitchFee" type="YesNoType">
 				<xs:annotation>
-					<xs:documentation>(76) If a separate fee for switching between sub-funds of the same umbrella can be applied (YES|NO)</xs:documentation>
+					<xs:documentation>(76)Indicate whether or not the fund prospectus permits the Fund Management Company to levy a separate fee for switching between funds or sub-funds. (YES|NO)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EUSavingsDirective" type="YesNoVariableType">
 				<xs:annotation>
-					<xs:documentation>(77) Indicates whether the investment fund class is subject to the European Union Saving Directive. Enter "Variable" if the status of the fund is likely to change from time to time. (YES | NO | VARIABLE)</xs:documentation>
+					<xs:documentation>(77) Indicate whether or not the fund is subject to reporting or withholding tax on interest income under the EU Savings Directive (whether that be on the distribution of income only or also on redemption).  Enter "VARIABLE" if the status of the fund is likely to change from time to time. (YES | NO | VARIABLE)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -12326,19 +12381,21 @@ A frequency must be entered if "25-DistributionPolicy"above is "DIST".</xs:docum
 		<xs:sequence>
 			<xs:element name="DealingCurrencies">
 				<xs:annotation>
-					<xs:documentation>(50) (S:  DealgCcyAccptd) Currency in which a subscription or redemption is accepted.</xs:documentation>
+					<xs:documentation>(50) Currency in which a subscription or redemption is accepted.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:sequence>
-						<xs:choice>
-							<xs:element name="ReferToFundOrderDesk" type="YesNoType">
-								<xs:annotation>
-									<xs:documentation>Yes = Refer to Fund Order Desk</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="DealingCurrency" type="ISOCurrencyCodeType" maxOccurs="unbounded"/>
-						</xs:choice>
-					</xs:sequence>
+					<xs:choice>
+						<xs:element name="ReferToFundOrderDesk" type="YesNoType">
+							<xs:annotation>
+								<xs:documentation>"YES" = Refer to Fund Order Desk, If the accepted dealing currencies differ for subscriptions and redemptions (instead of entering the currencies).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DealingCurrency" type="ISOCurrencyCodeType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Enter one by one all ISO currency codes accepted.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Subscription">
@@ -12352,12 +12409,12 @@ A frequency must be entered if "25-DistributionPolicy"above is "DIST".</xs:docum
 								<xs:sequence>
 									<xs:element name="ApplicationForm" type="YesNoType">
 										<xs:annotation>
-											<xs:documentation>(29) Account opening and/or subscriptino form is required.</xs:documentation>
+											<xs:documentation>(29) Indicate whether or not forms are required in respect of account opening and/or initial subscription by the investor (YES|NO)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="SignatureType" type="SignaturType">
+									<xs:element name="SignatureType" type="SignatureType">
 										<xs:annotation>
-											<xs:documentation>(31) Type of signature.</xs:documentation>
+											<xs:documentation>(31) Indicate whether or not (NONE) the initial investment requires an authorized signature, either an ink ORIGINAL, ELECTRONIC copy (eg. in a fax) or DIGITAL (using algorithms and private/public keys). (ORIGINAL|ELECTRONIC|DIGITAL|NONE)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -12368,12 +12425,12 @@ A frequency must be entered if "25-DistributionPolicy"above is "DIST".</xs:docum
 								<xs:sequence>
 									<xs:element name="ApplicationForm" type="YesNoType">
 										<xs:annotation>
-											<xs:documentation>(30) Physical application form is required.</xs:documentation>
+											<xs:documentation>(30) Indicate whether or not forms are required in respect of subsequent investments by the same investor. (YES|NO)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="SignatureType" type="SignaturType">
+									<xs:element name="SignatureType" type="SignatureType">
 										<xs:annotation>
-											<xs:documentation>(32) Type of signature.</xs:documentation>
+											<xs:documentation>(32) Indicate whether or not (NONE) the initial investment requires an authorized signature, either an ink ORIGINAL, ELECTRONIC copy (eg. in a fax) or DIGITAL (using algorithms and private/public keys). (ORIGINAL|ELECTRONIC|DIGITAL|NONE)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -12381,41 +12438,55 @@ A frequency must be entered if "25-DistributionPolicy"above is "DIST".</xs:docum
 						</xs:element>
 						<xs:element name="AmountInValue" type="YesNoType">
 							<xs:annotation>
-								<xs:documentation>(51) ndicates if subscriptions  can be instructed by amount.</xs:documentation>
+								<xs:documentation>(51) Indicate whether or not it is possible to subscribe for units/shares by value. (YES|NO)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="AmountInUnits" type="YesNoType">
 							<xs:annotation>
-								<xs:documentation>(52) Indicates if subscriptions may be placed as a number of units.</xs:documentation>
+								<xs:documentation>(52) Indicate whether or not it is possible to subscribe for an amount of units/shares. (YES|NO)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DealingCutOffTime" type="DealingCutOffType">
 							<xs:annotation>
-								<xs:documentation>(65) Last date/time at which an order to subscribe or redeem can be given.</xs:documentation>
+								<xs:documentation>(65) Last date/time at which an order to subscribe can be given.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DealingFrequency" type="FrequencyWithClosedType">
 							<xs:annotation>
-								<xs:documentation>(36) Frequency at which the subscriptions are done.</xs:documentation>
+								<xs:documentation>(36) Enter the frequency with which the Fund Order Desk(s) will be open to receive subscription orders. Enter "CLOSED" if the fund is not currently open to subscriptions.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DealingFrequencyDescription" type="Text350Type">
 							<xs:annotation>
-								<xs:documentation>(37) Description of frequency at which the subscription is done.
+								<xs:documentation>(37) Provide further details regarding the dealing frequency: eg. Tuesday (for weekly dealing); last business day or 15th or 3rd Thursday (for monthly dealing); 15th of January, April, July, October (for quarterly dealing) etc.
 If dealing frequency for subscriptions (36) is daily, enter "DAIL".</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="LimitedSubscriptionPeriod" type="Text350Type" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>(38) Specific period, eg, for some guaranteed funds, during which the units/shares may be subscribed to.</xs:documentation>
+								<xs:documentation>(38) If the fund issues units/shares only during specific periods (eg. for some guaranteed funds), enter an appropriate description of those periods. Otherwise enter "N/A".</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="SettlementCycle" type="SettlementTimeFrameType">
+						<xs:element name="SettlementCycle">
 							<xs:annotation>
-								<xs:documentation>(67) An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement
-period
-Where T = the date the price is applied to a transaction.</xs:documentation>
+								<xs:documentation>(67) Enter the last business day following the day on which a subscription order is priced (T) by which settlement will be due for orders placed with the main Fund Order Desk, eg. T+3.
+Or
+Set Prepayment to "YES" (pre-payment) if cleared funds may be required before a subscription order can be executed.</xs:documentation>
 							</xs:annotation>
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="PostTradeSettlement" type="xs:nonNegativeInteger">
+										<xs:annotation>
+											<xs:documentation> Enter the last business day following the day on which a subscription order is priced (T) by which settlement will be due for orders placed with the main Fund Order Desk, eg. T+3.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Prepayment" type="YesNoType">
+										<xs:annotation>
+											<xs:documentation>Put "YES" (pre-payment) if cleared funds may be required before a subscription order can be executed.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:choice>
+							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -12428,53 +12499,68 @@ Where T = the date the price is applied to a transaction.</xs:documentation>
 					<xs:sequence>
 						<xs:element name="ApplicationForm" type="YesNoType">
 							<xs:annotation>
-								<xs:documentation>(33) Physical application form is required.</xs:documentation>
+								<xs:documentation>(33) Indicate whether or not instruction/renunciation forms are required in respect of redemptions of units/shares by the investor.(YES|NO)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="SignatureType" type="SignaturType">
+						<xs:element name="SignatureType" type="SignatureType">
 							<xs:annotation>
-								<xs:documentation>(34) Type of signature.</xs:documentation>
+								<xs:documentation>(34) Indicate whether or not (NONE) the instruction/renunciation requires an authorized signature, either an ink ORIGINAL, ELECTRONIC copy (eg. in a fax) or DIGITAL (using algorithms and private/public keys). (ORIGINAL|ELECTRONIC|DIGITAL|NONE)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="AmountInValue" type="YesNoType">
 							<xs:annotation>
-								<xs:documentation>(53) Indicates if  redemptions can be instructed by amount.</xs:documentation>
+								<xs:documentation>(53)Indicate whether or not it is possible to redeem units/shares by value.(YES|NO)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="AmountInUnits" type="YesNoType">
 							<xs:annotation>
-								<xs:documentation>(54) Indicates if redemptions  may be placed as a number of units.</xs:documentation>
+								<xs:documentation>(54) Indicate whether or not it is possible to redeem an amount of units/shares.(YES|NO)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DealingCutOffTime" type="DealingCutOffType">
 							<xs:annotation>
-								<xs:documentation>(66) Last date/time at which an order to subscribe or redeem can be given.</xs:documentation>
+								<xs:documentation>(66) Last date/time at which an order to redeem can be given.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DealingFrequency" type="FrequencyWithClosedType">
 							<xs:annotation>
-								<xs:documentation>(39) Frequency at which the redemptionss are done.</xs:documentation>
+								<xs:documentation>(39) Enter the frequency with which the Fund Order Desk(s) will be open to receive redemption orders. Enter "CLOSED" if the fund is not currently open to redemptions.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DealingFrequencyDescription" type="Text350Type">
 							<xs:annotation>
-								<xs:documentation>(40) Description of frequency at which the redemption is done.
-If dealing frequency for subscriptions (39) is daily, enter "DAIL".</xs:documentation>
+								<xs:documentation>(40) Provide further details regarding the dealing frequency: eg. Tuesday (for weekly dealing); last business day or 15th or 3rd Thursday (for monthly dealing); 15th of January, April, July, October (for quarterly dealing) etc.
+If dealing frequency for redemption (39) is daily, enter "DAIL".</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="LimitedRedemptionPeriod" type="Text350Type" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>(41) Specific period, eg, for some guaranteed funds, during which the units/shares may be redeemed.</xs:documentation>
+								<xs:documentation>(41) If the fund redeems units/shares only during specific periods (eg. for some guaranteed funds), enter an appropriate description of those periods. Otherwise enter "N/A".</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="SettlementCycle" type="SettlementTimeFrameType">
+						<xs:element name="SettlementCycle">
 							<xs:annotation>
-								<xs:documentation>(68) An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement
-period
-Where T = the date the price is applied to a transaction.
+								<xs:documentation>(68) Indicate the last business day following the day on which a redemption order is priced (T) by which settlement will be due for orders placed with the main Fund Order Desk. 
+ Alternatively, if proceeds will be paid following receipt of written renunciation, indicate the last business day following receipt of the relevant renunciation documentation by the main Fund Order Desk (R) by which the proceeds will be sent.  
+Examples of the above would be T+3, R+4 etc.
 
 For clarification redemption sometimes equals renunciation (UK)</xs:documentation>
 							</xs:annotation>
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="PostTradeSettlement" type="xs:nonNegativeInteger">
+										<xs:annotation>
+											<xs:documentation> Indicate the last business day following the day on which a redemption order is priced (T) by which settlement will be due for orders placed with the main Fund Order Desk.   e.g T+3 settlement
+period., put 3</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Renunciation" type="xs:nonNegativeInteger">
+										<xs:annotation>
+											<xs:documentation>Alternatively, if proceeds will be paid following receipt of written renunciation, indicate the last business day following receipt of the relevant renunciation documentation by the main Fund Order Desk (R) by which the proceeds will be sent.  Examples of the above would be R+4, put 4 etc...</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:choice>
+							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -12492,14 +12578,14 @@ For clarification redemption sometimes equals renunciation (UK)</xs:documentatio
 						<xs:element name="InitialInvestment">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="MinimumValue" type="CurrencyAmountType" minOccurs="0">
+									<xs:element name="MinimumValue" type="CurrencyAmountType">
 										<xs:annotation>
 											<xs:documentation>(55) Minimum initial quantity of securities, expressed as an amount that must be purchased at subscription.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="MinimumUnits" type="xs:decimal" minOccurs="0">
+									<xs:element name="MinimumUnits" type="xs:decimal">
 										<xs:annotation>
-											<xs:documentation>(56) Minimum initial number of units/shares that must be purchased.</xs:documentation>
+											<xs:documentation>(56) Minimum initial number of units/shares that must be purchased. Enter 0 if not applicable</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -12508,12 +12594,12 @@ For clarification redemption sometimes equals renunciation (UK)</xs:documentatio
 						<xs:element name="SubsequentInvestment">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="MinimumValue" type="CurrencyAmountType" minOccurs="0">
+									<xs:element name="MinimumValue" type="CurrencyAmountType">
 										<xs:annotation>
 											<xs:documentation>(57) Minimum quantity of securities, expressed as an amount that must be purchased.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="MinimumUnits" type="xs:decimal" minOccurs="0">
+									<xs:element name="MinimumUnits" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation>(58) Minimum quantity of securities, expressed as number of units/shares that must be purchased.
 Enter "0" if not applicable.</xs:documentation>
@@ -12528,27 +12614,27 @@ Enter "0" if not applicable.</xs:documentation>
 			<xs:element name="Redemption">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="MaximumValue" type="CurrencyAmountType" minOccurs="0">
+						<xs:element name="MaximumValue" type="CurrencyAmountType">
 							<xs:annotation>
-								<xs:documentation>(59) Maximum quantity of securities, expressed as an amount that can be sold.</xs:documentation>
+								<xs:documentation>(59) Enter any maximum redemption value on a single dealing day together with the relevant ISO currency code. </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MaximumUnits" type="xs:decimal" minOccurs="0">
+						<xs:element name="MaximumUnits" type="xs:decimal">
 							<xs:annotation>
-								<xs:documentation>(60) Maximum number of shares/units that may be redeemed on a single dealing day.
-Enter "0" if not applicable.</xs:documentation>
+								<xs:documentation>(60) Enter any maximum number of units/shares that may be redeemed on a single dealing day.  Enter 0 if there is no maximum applicable.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="OtherRedemptionRestrictions" minOccurs="0">
+						<xs:element name="OtherRedemptionRestrictions">
 							<xs:annotation>
-								<xs:documentation>(61) Specifies any other restrictions that may limit an investor's ability to redeem.</xs:documentation>
+								<xs:documentation>(61) Indicate whether or not there are any other restrictions that may limit an investor's ability to redeem.  
+Valid entries are "YES" for Refer to Fund Order Desk", where such restrictions exist, or "NO" for "N/A", Not applicable.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="ReferToFundOrderDesk" type="YesNoType">
 										<xs:annotation>
-											<xs:documentation>Yes = Refer to Fund Order Desk
-No = N/A</xs:documentation>
+											<xs:documentation>"YES" = Refer to Fund Order Desk
+"NO" = N/A</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -12557,21 +12643,21 @@ No = N/A</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Holding" minOccurs="0">
+			<xs:element name="Holding">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="MinimumValue" type="CurrencyAmountType" minOccurs="0">
+						<xs:element name="MinimumValue" type="CurrencyAmountType">
 							<xs:annotation>
 								<xs:documentation>(62) Minimum value of units that must be maintained to avoid automatic redemption.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MinimumUnits" type="xs:decimal" minOccurs="0">
+						<xs:element name="MinimumUnits" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation>(63) MinimumHoldingUnits
 Enter "0" if not applicable.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MinimumHoldingPeriod" type="Text350Type" minOccurs="0">
+						<xs:element name="MinimumHoldingPeriod" type="Text350Type">
 							<xs:annotation>
 								<xs:documentation>(64) Description of a period, that may be a number of days, weeks or descriptive period during which the units/
 shares must be held following their issue before redemption will be permitted.</xs:documentation>
@@ -12579,7 +12665,8 @@ shares must be held following their issue before redemption will be permitted.</
 						</xs:element>
 						<xs:element name="HoldingTransferable" type="YesNoReferType">
 							<xs:annotation>
-								<xs:documentation>(35) Indicates whether registered investors are able to transfer some or all of their holdings to third parties.</xs:documentation>
+								<xs:documentation>(35) Indicates whether registered investors are able to transfer some or all of their holdings to third parties. (YES|NO)
+If transfer is possible only in restricted circumstances, enter "REFER TO FUND ORDER DESK".</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -12591,8 +12678,8 @@ shares must be held following their issue before redemption will be permitted.</
 		<xs:annotation>
 			<xs:documentation>Cash settlement information</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Unstructured" type="Text350Type" minOccurs="0">
+		<xs:choice>
+			<xs:element name="Unstructured" type="Text350Type">
 				<xs:annotation>
 					<xs:documentation>Enter the ISO currency code (or "N/A" where it is not applicable in some CSD environments) together with the BIC of the bank or CSD and the relevant account type (eg. IBAN, BANK, CSD, ICSD) and account number (each separated by one space) for the relevant account to which payment for subscriptions to the main Fund Order Desk should be sent (or transferred within a CSD).  Where payment needs to be directed onwards to an underlying account (eg. where the actual settlement account is held with the fund's depositary, which is not a clearing bank), a second account number may be added in parentheses to identify that account (see Example #2).
 
@@ -12605,7 +12692,7 @@ Example #4: N/A SICVFRPP CSD 123 (settlement entirely in a CSD and the same acco
 Example #5: N/A CEDELULL ICSD 12345 (settlement entirely in an ICSD and the same account is used irrespective of currency).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Structured" minOccurs="0">
+			<xs:element name="Structured">
 				<xs:annotation>
 					<xs:documentation>Structured Settlement Details (like SWIFT)</xs:documentation>
 				</xs:annotation>
@@ -12684,7 +12771,7 @@ but not necessarily the bank and branch of the financial institution in which th
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-		</xs:sequence>
+		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="CurrencyAmountType">
 		<xs:annotation>
@@ -12782,10 +12869,10 @@ but not necessarily the bank and branch of the financial institution in which th
 	</xs:simpleType>
 	<xs:simpleType name="SingleDualType">
 		<xs:annotation>
-			<xs:documentation>SINGLE or DUAL</xs:documentation>
+			<xs:documentation>SING or DUAL</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="SINGLE"/>
+			<xs:enumeration value="SING"/>
 			<xs:enumeration value="DUAL"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -12798,7 +12885,7 @@ but not necessarily the bank and branch of the financial institution in which th
 			<xs:enumeration value="FORW"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="SignaturType">
+	<xs:simpleType name="SignatureType">
 		<xs:annotation>
 			<xs:documentation>Type of Signature (NONE, ORIGINAL, ELECTRONIC, DIGITAL)</xs:documentation>
 		</xs:annotation>
@@ -12821,12 +12908,56 @@ but not necessarily the bank and branch of the financial institution in which th
 					<altova:example value="TOMN"/>
 					<altova:example value="TOWK"/>
 					<altova:example value="TWMN"/>
+					<altova:example value="TWWK"/>
 					<altova:example value="WEEK"/>
 					<altova:example value="YEAR"/>
 				</altova:exampleValues>
 			</xs:appinfo>
 		</xs:annotation>
-		<xs:restriction base="xs:string"/>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAIL"/>
+			<xs:enumeration value="MNTH"/>
+			<xs:enumeration value="QURT"/>
+			<xs:enumeration value="SEMI"/>
+			<xs:enumeration value="TOMN"/>
+			<xs:enumeration value="TOWK"/>
+			<xs:enumeration value="TWMN"/>
+			<xs:enumeration value="TWWK"/>
+			<xs:enumeration value="WEEK"/>
+			<xs:enumeration value="YEAR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FrequencyWithNAType">
+		<xs:annotation>
+			<xs:documentation>Frequencys + N/A</xs:documentation>
+			<xs:appinfo>
+				<altova:exampleValues>
+					<altova:example value="DAIL"/>
+					<altova:example value="MNTH"/>
+					<altova:example value="QURT"/>
+					<altova:example value="SEMI"/>
+					<altova:example value="TOMN"/>
+					<altova:example value="TOWK"/>
+					<altova:example value="TWMN"/>
+					<altova:example value="TWWK"/>
+					<altova:example value="WEEK"/>
+					<altova:example value="YEAR"/>
+				</altova:exampleValues>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAIL"/>
+			<xs:enumeration value="MNTH"/>
+			<xs:enumeration value="QURT"/>
+			<xs:enumeration value="SEMI"/>
+			<xs:enumeration value="TOMN"/>
+			<xs:enumeration value="TOWK"/>
+			<xs:enumeration value="TWMN"/>
+			<xs:enumeration value="TWWK"/>
+			<xs:enumeration value="WEEK"/>
+			<xs:enumeration value="YEAR"/>
+			<xs:enumeration value="N/A"/>
+		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="FrequencyWithClosedType">
 		<xs:annotation>
@@ -12840,13 +12971,26 @@ but not necessarily the bank and branch of the financial institution in which th
 					<altova:example value="TOMN"/>
 					<altova:example value="TOWK"/>
 					<altova:example value="TWMN"/>
+					<altova:example value="TWWK"/>
 					<altova:example value="WEEK"/>
 					<altova:example value="YEAR"/>
 					<altova:example value="CLOSED"/>
 				</altova:exampleValues>
 			</xs:appinfo>
 		</xs:annotation>
-		<xs:restriction base="xs:string"/>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAIL"/>
+			<xs:enumeration value="MNTH"/>
+			<xs:enumeration value="QURT"/>
+			<xs:enumeration value="SEMI"/>
+			<xs:enumeration value="TOMN"/>
+			<xs:enumeration value="TOWK"/>
+			<xs:enumeration value="TWMN"/>
+			<xs:enumeration value="TWWK"/>
+			<xs:enumeration value="WEEK"/>
+			<xs:enumeration value="YEAR"/>
+			<xs:enumeration value="CLOSED"/>
+		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="DistributionPolicyType">
 		<xs:annotation>
@@ -12859,41 +13003,21 @@ but not necessarily the bank and branch of the financial institution in which th
 	</xs:simpleType>
 	<xs:simpleType name="DividendPolicyType">
 		<xs:annotation>
-			<xs:documentation>Dividend policy: CASH, UNIT or BOTH</xs:documentation>
+			<xs:documentation>Dividend policy: CASH, UNIT, BOTH or N/A</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="CASH"/>
 			<xs:enumeration value="UNIT"/>
 			<xs:enumeration value="BOTH"/>
+			<xs:enumeration value="N/A"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="SettlementTimeFrameType">
-		<xs:annotation>
-			<xs:documentation>Setllement Time Frame</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Unstructured" type="Text350Type" minOccurs="0"/>
-			<xs:element name="Structured" minOccurs="0">
-				<xs:complexType>
-					<xs:choice>
-						<xs:element name="TPlus" type="xs:unsignedLong">
-							<xs:annotation>
-								<xs:documentation>An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement
-period.
-Where = T is the date that the price is applied to a transaction.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="DealingCutOffType">
 		<xs:annotation>
 			<xs:documentation>Dealing Cut Off</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Unstructured" type="Text350Type" minOccurs="0">
+		<xs:choice>
+			<xs:element name="Unstructured" type="Text350Type">
 				<xs:annotation>
 					<xs:documentation>Enter the cut-off times for orders placed with the main Fund Order Desk using the ISO time format (hh:mm) and the day relative to the day (T) on which the price will be applied to the deal.  The location of the Fund Order Desk should be indicated.  Examples would be: 12:00 T-1 LU LUXEMBOURG or 14:00 T DE FRANKFURT.
 If the number of days between the cut-off and the pricing date change from month to month (for instance, when a fund deals on the 1st of each month and the dealing cut-off is the 24th of the previous month), or in situations that cannot be described in the above way, “Refer to Fund Order Desk”
@@ -12901,12 +13025,12 @@ If the number of days between the cut-off and the pricing date change from month
 Note that "T" is the date on which the order will be regarded as having been executed, according to the terms of the prospectus, and reported in the order confirmation.  It will not necessarily correspond to the dates on which the underlying fund assets are valued (NAV calculation day) or the price is published (NAV publication day).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Structured" minOccurs="0">
+			<xs:element name="Structured">
 				<xs:complexType>
 					<xs:choice>
 						<xs:element name="ReferToFundOrderDesk" type="YesNoType">
 							<xs:annotation>
-								<xs:documentation>Yes = Refer to fund order desk
+								<xs:documentation>YES = Refer to fund order desk
 else fill other branch</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -12936,7 +13060,7 @@ activity.</xs:documentation>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
-		</xs:sequence>
+		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="DealingTimeFrameType">
 		<xs:annotation>
@@ -12964,45 +13088,47 @@ Where = T is the date that the price is applied to a transaction,</xs:documentat
 		<xs:sequence>
 			<xs:element name="ValuationFrequency" type="FrequencyType">
 				<xs:annotation>
-					<xs:documentation>(42) Enter the frequency with which the assets of the relevant fund are normally valued for reference or dealing purposes.  The valid frequency codes are provided in the pull-down list.  </xs:documentation>
+					<xs:documentation>(42) Enter the frequency with which the assets of the relevant fund are normally valued for reference or dealing purposes. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DescriptionValuationFrequency" type="Text350Type">
+			<xs:element name="DescriptionOfValuationFrequency" type="Text350Type">
 				<xs:annotation>
 					<xs:documentation>(43) "Provide further details regarding the dealing frequency: eg. Tuesday (for weekly dealing); last business day or 15th or 3rd Thursday (for monthly dealing); 15th of January, April, July, October (for quarterly dealing) etc.
-If dealing frequency for subscriptions (42) is daily, enter "DAIL"
-</xs:documentation>
+If "Valuation frequency” (42) above is daily, enter "DAIL" (the code for daily)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NumberOfDecimalsForUnitsOrShares" type="xs:long">
+			<xs:element name="NumberOfDecimalsForUnitsOrShares" type="xs:int">
 				<xs:annotation>
 					<xs:documentation>(44) Enter the number of decimal places to which quantities of units/shares are rounded.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NumberOfDecimalsForPrices" type="xs:long">
+			<xs:element name="NumberOfDecimalsForPrices" type="xs:int">
 				<xs:annotation>
 					<xs:documentation>(45) Enter the number of decimal places to which prices of units/shares are rounded.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SingleOrDualPricing" type="SingleDualType">
 				<xs:annotation>
-					<xs:documentation>(46) Indicate whether subscription and redemption orders are dealt at a single price or separate buying and selling prices.</xs:documentation>
+					<xs:documentation>(46) Indicate whether subscription and redemption orders are dealt at a single price or separate buying and selling prices. (SING|DUAL)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="HistoricOrForwardPricing" type="HistoricForwardType">
 				<xs:annotation>
-					<xs:documentation>(47) Indicate whether orders are dealt at a price known before an order is placed (historic), or at a price calculated after the order is placed (forward).</xs:documentation>
+					<xs:documentation>(47) Indicate whether orders are dealt at a price known before an order is placed (historic), or at a price calculated after the order is placed (forward).(HIST|FORW)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PricePublicationCurrencies">
 				<xs:annotation>
-					<xs:documentation>(49) "List the currencies in which prices for the class are published by the Fund Management Company.
-Enter the relevant ISO currency codes in alphabetical order, separated by spaces: eg. EUR GBP USD."
-</xs:documentation>
+					<xs:documentation>(49) List the currencies in which prices for the class are published by the Fund Management Company.
+Add each currency individually</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="PricePublicationCurrency" type="ISOCurrencyCodeType" maxOccurs="unbounded"/>
+						<xs:element name="Currency" type="ISOCurrencyCodeType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Enter the relevant ISO currency codes, one by one</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -14900,6 +15026,45 @@ d - Currency used for calculation</xs:documentation>
 									</xs:sequence>
 								</xs:sequence>
 							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FundRelatedTextType">
+		<xs:annotation>
+			<xs:documentation>complex Element designed to describe any text or commentary related to a fund like "Investment strategy", "Management outlook", "company profile"...</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TextLanguage" type="ISOLanguageCodeType">
+				<xs:annotation>
+					<xs:documentation>ISO 639-1 Code of Language used in {TextContent} and {TextTitle}.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TextTitle" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Title for {TextContent} in {TextLanguage}</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TextContent" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The text itself in {TextLanguage}</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TextTypeDescription" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Type of Text or Commentary. Possible values in Dictionnary</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TextDate" type="xs:date"/>
+			<xs:element name="CountriesWhereApplicable" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CountryWhereApplicable" type="ISOCountryCodeType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>ISO Country Code of the Countries where {FundText} is applicable.</xs:documentation>
+							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (http://www.altova.com) by Fabrice Puziak (Kneip) -->
+<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Lavinia Musetoiu (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="TripartiteTemplateSolvencyIIType">
@@ -30,11 +31,11 @@ References to Club AMPERE Excel "Template for Solvency 2 reporting": Ann in Anno
 			<xs:element name="TPTVersion">
 				<xs:annotation>
 					<xs:documentation>A1000 - Version number of the TPT.
-The version corresponding to the current XML schema is "V3.0"</xs:documentation>
+The version corresponding to the current XML schema is "V4.0"</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:enumeration value="V3.0"/>
+						<xs:enumeration value="V4.0"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -147,7 +148,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 								<xs:documentation>A123</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="FundCustodianCountry" type="ISOCountryCodeType" minOccurs="0">
+						<xs:element name="FundCustodianCountry" type="ISOCountryCodeType">
 							<xs:annotation>
 								<xs:documentation>A123a</xs:documentation>
 							</xs:annotation>
@@ -236,7 +237,6 @@ Position market value(s).</xs:documentation>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="A"/>
 									<xs:enumeration value="L"/>
-									<xs:enumeration value="NA"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -308,31 +308,31 @@ of TotalNetAssets (including liquidity)
 50%=0.5</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MarketExposureQC" type="xs:decimal" minOccurs="0">
+						<xs:element name="MarketExposureQC" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A27 - MarketExposure in QuotationCurrency (A).
 Different from MarketValueQC for derivatives:
 valuation of the equivalent position on the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MarketExposurePC" type="xs:decimal" minOccurs="0">
+						<xs:element name="MarketExposurePC" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A28 - MarketExposure in PortfolioCurrency (B).
 Different from MarketValuePC for derivatives:
 valuation of the equivalent position on the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MarketExposureWeight" type="xs:decimal" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation xml:lang="en">A30 - MarketExposurePC 
-as percentage of TotalNetAssets.
-1.2% = 0.012</xs:documentation>
-							</xs:annotation>
-						</xs:element>
 						<xs:element name="MarketExposureUC" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>A29 - %Market exposure in QuotationCurrency (C) 
 of underlying asset</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MarketExposureWeight" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A30 - MarketExposurePC 
+as percentage of TotalNetAssets.
+1.2% = 0.012</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MarketExposureUCWeight" type="xs:decimal" minOccurs="0">
@@ -404,7 +404,8 @@ e.g. -0.5% should be written as "-0.5"</xs:documentation>
 1= annual
 2= biannual
 4= quarterly
-12= monthly</xs:documentation>
+12= monthly 
+52= weekly</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -428,15 +429,19 @@ The embedded option is described only for the first option date to come.</xs:doc
 								<xs:sequence>
 									<xs:element name="CallPutType">
 										<xs:annotation>
-											<xs:documentation xml:lang="en">A42 - For callable (C) or putable (P) bond. "B" if both</xs:documentation>
+											<xs:documentation xml:lang="en">A42 - Cal = Call
+Put = Put
+Cap = Cap
+Flr= Floor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
 												<xs:minLength value="1"/>
 												<xs:maxLength value="1"/>
-												<xs:enumeration value="C"/>
-												<xs:enumeration value="P"/>
-												<xs:enumeration value="B"/>
+												<xs:enumeration value="Cal"/>
+												<xs:enumeration value="Put"/>
+												<xs:enumeration value="Cap"/>
+												<xs:enumeration value="Flr"/>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
@@ -510,7 +515,7 @@ NACE code mandatory.
 Optional for Derivatives or Underlying instruments.</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="Covered">
+								<xs:element name="Covered" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation xml:lang="en">A55 - The instrument is covered ("C") or not ('NC')</xs:documentation>
 									</xs:annotation>
@@ -537,12 +542,13 @@ Optional for Derivatives or Underlying instruments.</xs:documentation>
 								<xs:documentation>A56 - 0=No
 1=Securitisation type 1
 2=Securitisation type 2
-3= Re-securitisation</xs:documentation>
+3= Re-securitisation 
+4=Non compliant</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
 									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="3"/>
+									<xs:maxInclusive value="4"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -679,7 +685,7 @@ CIC codification.</xs:documentation>
 														<xs:documentation xml:lang="en">A72 - Last market price known, in Currency (C).</xs:documentation>
 													</xs:annotation>
 												</xs:element>
-												<xs:element name="Country" type="ISOCountryCodeType">
+												<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A73 - Country of quotation</xs:documentation>
 													</xs:annotation>
@@ -715,7 +721,8 @@ CIC codification.</xs:documentation>
 1= annual
 2= biannual
 4= quarterly
-12= monthly</xs:documentation>
+12= monthly
+52=Weekly</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -769,8 +776,7 @@ Useless fo cash positions</xs:documentation>
 						<xs:element name="Delta" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A93 - For Convertibles and Options.
-Sensitivity to the underlying asset.
-Mandatory?? **********</xs:documentation>
+Sensitivity to the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Convexity" type="xs:decimal" minOccurs="0">
@@ -815,10 +821,18 @@ To be specified***********</xs:documentation>
 								<xs:documentation>A107 - Instrument place of deposit</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Participation" type="xs:string" minOccurs="0">
+						<xs:element name="Participation" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>A108 - Indicator used to identify the guidelines of participation in accountancy terms</xs:documentation>
+								<xs:documentation>A108 - Indicator used to identify the guidelines of participation in accountancy terms
+1 - Participation
+2 - non participation</xs:documentation>
 							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="1"/>
+									<xs:maxInclusive value="2"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
 						<xs:element name="ValorisationMethod" minOccurs="0">
 							<xs:annotation>
@@ -859,7 +873,7 @@ Not applicable to CIC categories 7 and 8.</xs:documentation>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="UnderlyingAssetCategory" minOccurs="0">
+						<xs:element name="UnderlyingAssetCategory">
 							<xs:annotation>
 								<xs:documentation>A131 - Identifies the assets categories, receivables and derivatives within the collective investment undertaking.
 Possible values are:
@@ -906,6 +920,34 @@ When the look-through regards a Fund of funds, category “4 - Collective Invest
 									<xs:enumeration value="E"/>
 									<xs:enumeration value="F"/>
 									<xs:enumeration value="L"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AdditionalInformation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FundCustodianName" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A133</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="InfrastructureInvestment">
+							<xs:annotation>
+								<xs:documentation>A132 - Use closed list:
+0 - Not assessed
+1 - Debt on eligible Infrastructure project
+2 - Equity on  eligible infrastructure project 
+3 - Debt on eligible Infrastructure corporate
+4 - Equity on eligible infrastructure corporate
+5 - Non eligible</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="5"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -1135,7 +1177,7 @@ or "EU" for European Union institutions</xs:documentation>
 					<xs:documentation xml:lang="en">The instrument is guaranteed by the state of issuer ('Y') or not ('N')</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CreditQualityStep" type="CQSType" minOccurs="0">
+			<xs:element name="CreditQualityStep" type="CQSType">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">CQS: Synthetic issue or issuer rating.
 Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
@@ -1248,6 +1290,7 @@ of nominal amount (A19) 100%=1.0</xs:documentation>
 			<xs:enumeration value="2"/>
 			<xs:enumeration value="4"/>
 			<xs:enumeration value="12"/>
+			<xs:enumeration value="52"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="CQSType">

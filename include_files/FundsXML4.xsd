@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 rel. 3 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.1.0" vc:minVersion="1.1">
+<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Thomas Koop (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.1.3" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_FundStaticData.xsd"/>
@@ -16,7 +16,7 @@
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_SolvencyII.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.1.1</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.1.3</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -334,6 +334,8 @@ No, Digital, Scan</xs:documentation>
 						<xs:enumeration value="4.0.1"/>
 						<xs:enumeration value="4.1.0"/>
 						<xs:enumeration value="4.1.1"/>
+						<xs:enumeration value="4.1.2"/>
+						<xs:enumeration value="4.1.3"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -680,7 +682,7 @@ supplementing Regulation (EU) No 648/2012 of the European Parliament and of the 
 		<xs:sequence>
 			<xs:element name="TripartiteTemplateSolvencyII" type="TripartiteTemplateSolvencyIIType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". It refers to version 3 dated 13/10/2015 of this "TPT V3" format.</xs:documentation>
+					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". It refers to version 4 dated 3/4/2018 of this "TPT V4" format.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRIIPS" type="PRIIPSType" minOccurs="0">

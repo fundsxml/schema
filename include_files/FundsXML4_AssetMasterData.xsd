@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<!-- Mit XMLSpy v2013 (http://www.altova.com) von Oesterreichische Kontrollbank AG (Oesterreichische Kontrollbank AG) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_AT.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_DE.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_DK.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_FR.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_LU.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_NL.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
 	<xs:complexType name="AssetMasterDataType">
 		<xs:sequence>
 			<xs:element name="Asset" type="AssetType" maxOccurs="unbounded"/>
@@ -280,7 +275,7 @@ CompanyType + Transparenzkennzeichnung</xs:documentation>
 			</xs:element>
 			<xs:element name="REIT" type="REITType">
 				<xs:annotation>
-					<xs:documentation>Real Estate Investment Trust - TO BE COMPLETED</xs:documentation>
+					<xs:documentation>Real Estate Investment Trust</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Loan" type="LoanType">
@@ -290,10 +285,18 @@ CompanyType + Transparenzkennzeichnung</xs:documentation>
 			</xs:element>
 			<xs:element name="Right">
 				<xs:annotation>
-					<xs:documentation>Right / Bezugsrecht - TO BE COMPLETED</xs:documentation>
+					<xs:documentation>Right / Bezugsrecht </xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:sequence/>
+					<xs:sequence>
+						<xs:element name="Type" default="xs:string" minOccurs="0"/>
+						<xs:element name="Issuer" type="CompanyType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Issuer details</xs:documentation>
+								<xs:documentation xml:lang="de">Enthaelt den Wertpapieremittenten</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 		</xs:choice>
@@ -2048,6 +2051,17 @@ Simple</xs:documentation>
 					<xs:documentation>Indicates whether call money is used as collateral</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="CollateralDirection" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Paid or received by fund</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="PAID"/>
+						<xs:enumeration value="RECEIVED"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RealEstateType">
@@ -2792,7 +2806,52 @@ fixed/variable</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="REITType">
-		<xs:sequence/>
+		<xs:sequence>
+			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Issuer details</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt den Wertpapieremittenten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Listing" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Indicator whether this equity is listed at an exchange
+A   Listed at an official market
+B   Listed at an exchange
+G   Listed on a regular market
+K   No listing
+M  Listed on a regular market inside the EU
+S   Unregulated market
+V   Securitised rights
+Y   Acceptance on unregulated market planned
+Z   New issue</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an ob das Wertpapier an einer Boerse notiert 
+
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission       </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="K"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="V"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="Z"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FeeType">
 		<xs:sequence>

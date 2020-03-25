@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.0.0" vc:minVersion="1.1">
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.1.0" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_AT.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_DE.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_DK.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_FR.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_LU.xsd"/>
-	<xs:include schemaLocation="FundsXML4_CountrySpecificData_NL.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_FundStaticData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_FundDynamicData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_ShareClassData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_AssetMasterData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_AssetMgmtCompDynData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_EMIR.xsd"/>
+	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_EMT.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_KIID.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_PRIIPS.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_SolvencyII.xsd"/>
@@ -303,7 +300,7 @@ No, Digital, Scan</xs:documentation>
 					<xs:documentation>Size of document in bytes (exact size of binary data, estimated size in case of download)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DocumentURL" type="Text1000Type" minOccurs="0">
+			<xs:element name="DocumentURL" type="xs:anyURI" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Link of document for downloading</xs:documentation>
 				</xs:annotation>
@@ -326,6 +323,18 @@ No, Digital, Scan</xs:documentation>
 				<xs:annotation>
 					<xs:documentation>Timestamp of document generation</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="4.0.0"/>
+						<xs:enumeration value="4.0.1"/>
+						<xs:enumeration value="4.1.0"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="ContentDate" type="xs:date">
 				<xs:annotation>
@@ -393,6 +402,7 @@ No, Digital, Scan</xs:documentation>
 												<xs:enumeration value="FundStaticData"/>
 												<xs:enumeration value="PortfolioData"/>
 												<xs:enumeration value="RegulatoryReporting_EMIR"/>
+												<xs:enumeration value="RegulatoryReporting_EMT"/>
 												<xs:enumeration value="RegulatoryReporting_KIID"/>
 												<xs:enumeration value="RegulatoryReporting_PRIIPS"/>
 												<xs:enumeration value="RegulatoryReporting_SolvencyII"/>
@@ -478,74 +488,6 @@ No, Digital, Scan</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CountrySpecificDataType">
-		<xs:sequence>
-			<xs:element name="AT" type="CountrySpecificDataATType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Top level data for Austria</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DE" type="CountrySpecificDataDEType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Top level data for Germany</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DK" type="CountrySpecificDataDKType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Top level data for Denmark</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="FR" type="CountrySpecificDataFRType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Top level data for France</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="LU" type="CountrySpecificDataLUType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Top level data for Luxembourg</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="NL" type="CountrySpecificDataNLType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Top level data for the Netherlands</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CountrySpecificFundDataType">
-		<xs:sequence>
-			<xs:element name="AT" type="CountrySpecificFundDataATType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Fund related data for Austria</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DE" type="CountrySpecificFundDataDEType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Fund related data for Germany</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DK" type="CountrySpecificFundDataDKType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Fund related data for Denmark</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="FR" type="CountrySpecificFundDataFRType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Fund related data for France</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="LU" type="CountrySpecificFundDataLUType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Fund related data for Luxembourg</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="NL" type="CountrySpecificFundDataNLType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Fund related data for the Netherlands</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="RegulatoryReportingsType">
 		<xs:sequence>
 			<xs:element name="DirectReporting" type="DirectReportingType" minOccurs="0">
@@ -553,24 +495,10 @@ No, Digital, Scan</xs:documentation>
 					<xs:documentation>Direct reporting according to European regulatory reporting frameworks</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IndirectReporting" minOccurs="0">
+			<xs:element name="IndirectReporting" type="IndirectReportingType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Reporting data for investors</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="TripartiteTemplateSolvencyII" type="TripartiteTemplateSolvencyIIType" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". It refers to version 3 dated 13/10/2015 of this "TPT V3" format.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="PRIIPS" type="PRIIPSType" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Draft</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -584,9 +512,9 @@ supplementing Regulation (EU) No 648/2012 of the European Parliament and of the 
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="KIIDs" type="KIIDsType" minOccurs="0"/>
-			<xs:element name="MiFIR" minOccurs="0">
+			<xs:element name="EMT" type="EMTType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>to be defined</xs:documentation>
+					<xs:documentation>According to EUROPEAN MIFID TEMPLATE - EMT V1.0 as of 2017-08-03</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -744,6 +672,21 @@ supplementing Regulation (EU) No 648/2012 of the European Parliament and of the 
 						<xs:element name="Segment" type="SegmentType" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IndirectReportingType">
+		<xs:sequence>
+			<xs:element name="TripartiteTemplateSolvencyII" type="TripartiteTemplateSolvencyIIType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". It refers to version 3 dated 13/10/2015 of this "TPT V3" format.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRIIPS" type="PRIIPSType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>EPT 20170728 DRAFT  TEMPLATE 1.1 
+CEPT - 20170621  TEMPLATE 1.0</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

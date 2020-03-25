@@ -17,6 +17,16 @@ References to Club AMPERE Excel "Template for Solvency 2 reporting": Ann in Anno
 			<xs:documentation>XML adaptation of "Tripartite Template"</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TPTVersion">
 				<xs:annotation>
 					<xs:documentation>A1000 - Version number of the TPT.

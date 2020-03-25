@@ -4,7 +4,7 @@
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="CountrySpecificDataDEType">
 		<xs:complexContent>
-			<xs:extension base="xs:anyType"/>
+			<xs:extension base="PRIIPS_DE_EPT_PiaType"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="CountrySpecificControlDataDEType">
@@ -21,5 +21,169 @@
 		<xs:complexContent>
 			<xs:extension base="xs:anyType"/>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PRIIPS_DE_EPT_PiaType">
+		<xs:sequence>
+			<xs:element name="Characteristics">
+				<xs:annotation>
+					<xs:documentation>Characteristics of the fund / portfolio</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="BondsWeight" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06010-Proportion (weight) of bonds within the fund/portfolio measured in percentage of market value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AnnualizedReturnVolatility" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06020-Annualized daily volatility of the fund / portfolio based on the last 250 trading days or, if valuation frequency is lower than daily, the volatility is based on the valuation frequency and annualized.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DurationBonds" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06030-Asset prices weighted Macaulay-Duration in years of the fund / portfolio</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CapitalPreservation">
+				<xs:annotation>
+					<xs:documentation>Additional information for capital preservation funds/portfolio</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Existing_Capital_Preservation" type="YesNoType">
+							<xs:annotation>
+								<xs:documentation>06040-Identifies if a capital preservation method is used (Y) or not (N).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CapitalPreservationLevel" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06050-100% minus the maximum possible loss in percentage of its market value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TimeIntervalMaximumLoss">
+							<xs:annotation>
+								<xs:documentation>06060-The time period in which a possible loss of a capital perservation funds is measured. 
+"1"= annual"
+"2"= biannual
+"4"=quarterly
+"12"= monthly
+"24"=bimonthly
+"52"=weekly
+"104"=biweekly
+"252"=daily</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="4"/>
+									<xs:enumeration value="12"/>
+									<xs:enumeration value="24"/>
+									<xs:enumeration value="52"/>
+									<xs:enumeration value="104"/>
+									<xs:enumeration value="252"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="UsesPI" type="YesNoType">
+							<xs:annotation>
+								<xs:documentation>06070-Identifies if PI (Portfolio Insurance including CPPI Constant Proportion Portfolio Insurance)  is used (Y) or not (N) for capital preservation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MultiplierPI" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06080-Gives the maximum multiplier value if PI algorithm is us</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountrySpecificShareClassDataDEType">
+		<xs:complexContent>
+			<xs:extension base="xs:anyType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CountrySpecificEMTDEType">
+		<xs:sequence>
+			<xs:element name="EMT_Additional">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TargetMarketInformation">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ModusApproval">
+										<xs:annotation>
+											<xs:documentation>A = Zielmarkt ohne Produktgenehmigung B = Zielmarkt mit Produktgenehmigung C = Kein Zielmarkt nur Produktgenehmigung</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:pattern value="[A-C]"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="SpecialRequirementsDescription" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Alphanumerischer Freitext bis zu 140 Zeichen. Es ist kein „#“ erlaubt“!</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="140"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="NatureProductCategory">
+										<xs:annotation>
+											<xs:documentation>A = Aktien B = Alternative Investmentfonds - Fonds analog UCITS mit physischer Rohstoffkomponente C = Alternative Investmentfonds - Closed end funds D = Alternative Investmentfonds - Offene Immobilien-fonds E = Alternative Investmentfonds - Single Hedgefonds F = Alternative Investmentfonds - Sonstige (inkl. Dach-Hedgefonds) G = Anleihen (unstrukturiert) H = Anleihen mit Zusatzrechten bzw. besonderer Besicherung I = Anleihen mit Optionsschein J = Contingent convertibles K = Genussrechte L = Gehebelte Produkte (Faktorzertifikate und ETFs mit Hebel > 2 gem.Verlustreporting, Optionsscheine, Knock-outs) M = Investmentfonds (unstrukturiert, inkl. ETF: Ak-N
+© WM Datenservice Erstellt von: V.Dinges Stand:17.08.2017 Zielmarkt_Fonds.Docx Seite 9 von 15
+Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N tien-, Renten-, Geldmarkt-, Mischfonds) N = Kuxe O = Non-lineare CLNs P = Reverse-Produkte (Zertifikate und ETFs) Q = Strukturierte Anlageprodukte (Zertifikate, struktu-rierte Anleihen, ETCs) R = Strukturierte UCITS bzw. Investmentfonds S = Swap-basierte Fonds T = Worst-of-Zertifikate U = Zertifikate mit Delta1-Abbildung von bekannten Finanzindices</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:length value="1"/>
+												<xs:pattern value="[A-U]"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ApprovalProcess">
+										<xs:annotation>
+											<xs:documentation>A = Produktgenehmigungsprozess nach MiFIDII B = Produktgenehmigungsprozess vergleichbar MiFIDII C = Produktgenehmigungsprozess nicht nach MiFI-DII D = keine Angabe des Emittenten gewünscht</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:length value="1"/>
+												<xs:pattern value="[A-D]"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CostTransparency">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="SwingPricing">
+										<xs:annotation>
+											<xs:documentation>J= Ja N= Nein</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="J"/>
+												<xs:enumeration value="N"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

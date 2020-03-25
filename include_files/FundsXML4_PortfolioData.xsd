@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
+<!-- Mit XMLSpy v2013 (http://www.altova.com) von Oesterreichische Kontrollbank AG (Oesterreichische Kontrollbank AG) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_TransactionData.xsd"/>
@@ -369,6 +369,11 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 									<xs:documentation xml:lang="de">Gibt an, ob das Wertpapier verlost wurde</xs:documentation>
 								</xs:annotation>
 							</xs:element>
+							<xs:element name="CollateralValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Current value of collateral usage (positive value if received, negative value if delivered from/to counterparty)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -405,6 +410,12 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Purchase Value</xs:documentation>
 									<xs:documentation xml:lang="de">Einstandswert</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="DividendsDue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Dividends due of position</xs:documentation>
+									<xs:documentation xml:lang="de">Dividendenforderungen fuer Aktienbestaende</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
@@ -715,6 +726,11 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation>Value of interests</xs:documentation>
 								</xs:annotation>
 							</xs:element>
+							<xs:element name="CollateralValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Current value of collateral position paid (negative value) or received from counterparty (positive value)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -864,13 +880,47 @@ negative - paying premiums</xs:documentation>
 				</xs:element>
 				<xs:element name="REIT">
 					<xs:annotation>
-						<xs:documentation>Details for real estate investment trust (empty)</xs:documentation>
+						<xs:documentation>Details for real estate investment trust</xs:documentation>
 					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:maxLength value="0"/>
-						</xs:restriction>
-					</xs:simpleType>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Units" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Units of REIT</xs:documentation>
+									<xs:documentation xml:lang="de">Stücke der Aktie im Bestand</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Preis der Aktie (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Market value of position (excluding dividends)</xs:documentation>
+									<xs:documentation xml:lang="de">Kurswert der Aktienposition (exklusive Ansprüche)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase value of position</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert der Position</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="DividendsDue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Dividends due of position</xs:documentation>
+									<xs:documentation xml:lang="de">Dividendenforderungen fuer Aktienbestaende</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
 				</xs:element>
 				<xs:element name="Loan">
 					<xs:annotation>
@@ -894,13 +944,41 @@ negative - paying premiums</xs:documentation>
 				</xs:element>
 				<xs:element name="Right">
 					<xs:annotation>
-						<xs:documentation>Details for rights (empty)</xs:documentation>
+						<xs:documentation>Details for rights</xs:documentation>
 					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:maxLength value="0"/>
-						</xs:restriction>
-					</xs:simpleType>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Units" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Units of right</xs:documentation>
+									<xs:documentation xml:lang="de">Stücke der Aktie im Bestand</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Preis der Aktie (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Market value of position (excluding dividends)</xs:documentation>
+									<xs:documentation xml:lang="de">Kurswert der Aktienposition (exklusive Ansprüche)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase value of position</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert der Position</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
 				</xs:element>
 			</xs:choice>
 			<xs:element name="CapitalYieldsTaxClaim" type="FundAmountType" minOccurs="0">

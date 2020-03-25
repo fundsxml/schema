@@ -365,7 +365,7 @@ YEAR</xs:documentation>
 					<xs:sequence>
 						<xs:element name="Name" type="Text256Type" minOccurs="0"/>
 						<xs:element name="Phone" type="Text64Type" minOccurs="0"/>
-						<xs:element name="Email" type="Text256Type" minOccurs="0"/>
+						<xs:element name="Email" type="EmailAddressType" minOccurs="0"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -585,8 +585,8 @@ R ... Reinvesting</xs:documentation>
 			<xs:element name="Country" type="ISOCountryCodeType"/>
 			<xs:element name="Phone" type="Text256Type" minOccurs="0"/>
 			<xs:element name="Fax" type="Text64Type" minOccurs="0"/>
-			<xs:element name="Email" type="Text256Type" minOccurs="0"/>
-			<xs:element name="Homepage" type="Text256Type" minOccurs="0"/>
+			<xs:element name="Email" type="EmailAddressType" minOccurs="0"/>
+			<xs:element name="Homepage" type="xs:anyURI" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundRelatedTextType">
@@ -824,6 +824,7 @@ R ... Reinvesting</xs:documentation>
 			<xs:enumeration value="FMQ SEDOL"/>
 			<xs:enumeration value="FSMA FUND CODE"/>
 			<xs:enumeration value="FSMA SUBFUND CODE"/>
+			<xs:enumeration value="GIIN CODE"/>
 			<xs:enumeration value="GLOBAL ID CODE"/>
 			<xs:enumeration value="INAV BLOOMBERG LISTING CODE"/>
 			<xs:enumeration value="INAV REUTERS LISTING CODE"/>
@@ -986,6 +987,60 @@ R ... Reinvesting</xs:documentation>
 	<xs:complexType name="ClassificationsType">
 		<xs:sequence>
 			<xs:element name="Classification" type="ClassificationType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FundOrShareClassIdentifiersType">
+		<xs:choice>
+			<xs:element name="LEI" type="LEICodeType">
+				<xs:annotation>
+					<xs:documentation>Legal Entity Identifier of fund</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ISINs">
+				<xs:annotation>
+					<xs:documentation>List of ISINs for share classes</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ISIN" type="ISINType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>ISIN of share class</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="EmailAddressType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9](\.?[\-a-zA-Z0-9]*[a-zA-Z0-9])*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DayMonthType">
+		<xs:sequence>
+			<xs:element name="Day">
+				<xs:annotation>
+					<xs:documentation>Day between 1 and 31</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="31"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Month">
+				<xs:annotation>
+					<xs:documentation>Month between 1 and 12</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

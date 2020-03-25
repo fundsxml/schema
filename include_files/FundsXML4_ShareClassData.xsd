@@ -3,6 +3,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_SolvencyII.xsd"/>
 	<xs:complexType name="ShareClassType">
 		<xs:sequence>
@@ -147,6 +148,7 @@
 					<xs:documentation>Retail only share class according to UK definition</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="TransferAgent" type="CompanyType" minOccurs="0"/>
 			<xs:element name="Investors" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>List of investors</xs:documentation>
@@ -172,6 +174,7 @@
 					<xs:documentation>Generic structure for custom specific data which cannot be stored somewhere else</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="CountrySpecificData" type="CountrySpecificShareClassDataType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ShareClassPriceType">
@@ -817,8 +820,7 @@ Only the most recent date is stored
 	</xs:complexType>
 	<xs:complexType name="InvestorType">
 		<xs:sequence>
-			<xs:element name="Date" type="xs:date" minOccurs="0">
-			</xs:element>
+			<xs:element name="Date" type="xs:date" minOccurs="0"/>
 			<xs:element name="InvestorID" type="Text256Type" minOccurs="0"/>
 			<xs:element name="InvestorName" type="Text500Type" minOccurs="0"/>
 			<xs:element name="InvestorCountry" type="ISOCountryCodeType" minOccurs="0"/>

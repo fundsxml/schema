@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_AT.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_DE.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_DK.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_FR.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_LU.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_NL.xsd"/>
+	<xs:complexType name="CountrySpecificDataType">
+		<xs:sequence>
+			<xs:element name="AT" type="CountrySpecificDataATType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Top level data for Austria</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DE" type="CountrySpecificDataDEType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Top level data for Germany</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DK" type="CountrySpecificDataDKType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Top level data for Denmark</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FR" type="CountrySpecificDataFRType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Top level data for France</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LU" type="CountrySpecificDataLUType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Top level data for Luxembourg</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NL" type="CountrySpecificDataNLType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Top level data for the Netherlands</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountrySpecificFundDataType">
+		<xs:sequence>
+			<xs:element name="AT" type="CountrySpecificFundDataATType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund related data for Austria</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DE" type="CountrySpecificFundDataDEType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund related data for Germany</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DK" type="CountrySpecificFundDataDKType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund related data for Denmark</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FR" type="CountrySpecificFundDataFRType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund related data for France</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LU" type="CountrySpecificFundDataLUType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund related data for Luxembourg</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NL" type="CountrySpecificFundDataNLType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund related data for the Netherlands</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountrySpecificShareClassDataType">
+		<xs:sequence>
+			<xs:element name="AT" type="CountrySpecificShareClassDataATType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for Austria</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DE" type="CountrySpecificShareClassDataDEType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for Germany</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DK" type="CountrySpecificShareClassDataDKType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for Denmark</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FR" type="CountrySpecificShareClassDataFRType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for France</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LU" type="CountrySpecificShareClassDataLUType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for Luxembourg</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NL" type="CountrySpecificShareClassDataNLType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for the Netherlands</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountrySpecificEMTDataType">
+		<xs:sequence>
+			<xs:element name="AT" type="CountrySpecificEMTATType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for Austria</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DE" type="CountrySpecificEMTDEType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for Germany</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DK" type="CountrySpecificEMTDKType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for Denmark</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FR" type="CountrySpecificEMTFRType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for France</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LU" type="CountrySpecificEMTLUType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for Luxembourg</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NL" type="CountrySpecificEMTNLType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Shareclass related data for the Netherlands</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

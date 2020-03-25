@@ -132,6 +132,11 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 					<xs:documentation xml:lang="de">Buchungstext der Erträgnisbuchung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="FinallySettled" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Earning finally settled or not</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:choice minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Details specific for coupons, dividends and distributions</xs:documentation>
@@ -291,6 +296,8 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 		<xs:sequence>
 			<xs:element name="Transaction" type="TransactionType" maxOccurs="unbounded"/>
 		</xs:sequence>
+		<xs:attribute name="from" type="xs:date"/>
+		<xs:attribute name="to" type="xs:date"/>
 	</xs:complexType>
 	<xs:complexType name="TransactionType">
 		<xs:sequence>
@@ -334,7 +341,7 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="TransactionKind">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">BUY, SELL, LENDING_BUY, LENDING_SELL</xs:documentation>
+					<xs:documentation xml:lang="en">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION</xs:documentation>
 					<xs:documentation xml:lang="de">BUY, SELL, LENDING_BUY, LENDING_SELL</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -343,6 +350,7 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 						<xs:enumeration value="SELL"/>
 						<xs:enumeration value="LENDING_BUY"/>
 						<xs:enumeration value="LENDING_SELL"/>
+						<xs:enumeration value="CORP_ACTION"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -488,7 +496,7 @@ and further detail related to the respective type of transaction.</xs:documentat
 			</xs:element>
 			<xs:element name="FinallySettled" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Dividend payout finally settled or not</xs:documentation>
+					<xs:documentation>Transaction finally settled or not</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -613,8 +621,7 @@ und Angabe der durch die Transaktionsart bestimmten Detail-Daten</xs:documentati
 						<xs:sequence>
 							<xs:element name="from" minOccurs="0" maxOccurs="unbounded">
 								<xs:annotation>
-									<xs:documentation>Kapitalmassnahmen
-Quelle(n)</xs:documentation>
+									<xs:documentation>Source security of corporate action</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -622,6 +629,17 @@ Quelle(n)</xs:documentation>
 											<xs:annotation>
 												<xs:documentation>Kennnummer von welcher der Bestand weggebucht wird</xs:documentation>
 											</xs:annotation>
+										</xs:element>
+										<xs:element name="AssetUniqueID" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">Link to AssetMasterData</xs:documentation>
+												<xs:documentation xml:lang="de">Referenz zu den Wertpapierstammdaten</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:IDREF">
+													<xs:maxLength value="256"/>
+												</xs:restriction>
+											</xs:simpleType>
 										</xs:element>
 										<xs:element name="SubscriptionRatio" type="xs:decimal" minOccurs="0">
 											<xs:annotation>
@@ -715,8 +733,7 @@ Valutadatum </xs:documentation>
 							</xs:element>
 							<xs:element name="to" minOccurs="0" maxOccurs="unbounded">
 								<xs:annotation>
-									<xs:documentation>Kapitalmassnahmen
-Ziel(e)</xs:documentation>
+									<xs:documentation>Destination securities of corporate action</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -724,6 +741,17 @@ Ziel(e)</xs:documentation>
 											<xs:annotation>
 												<xs:documentation>Kennnummer auf welche der Bestand gebucht wird</xs:documentation>
 											</xs:annotation>
+										</xs:element>
+										<xs:element name="AssetUniqueID" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">Link to AssetMasterData</xs:documentation>
+												<xs:documentation xml:lang="de">Referenz zu den Wertpapierstammdaten</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:IDREF">
+													<xs:maxLength value="256"/>
+												</xs:restriction>
+											</xs:simpleType>
 										</xs:element>
 										<xs:element name="SubscriptionRatio" type="xs:decimal" minOccurs="0">
 											<xs:annotation>
@@ -813,33 +841,64 @@ GenM= General Meetings</xs:documentation>
 							</xs:element>
 							<xs:element name="ExDividendDate" type="xs:date" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Extag</xs:documentation>
+									<xs:documentation xml:lang="en">Ex dividend day of the corporate action</xs:documentation>
+									<xs:documentation xml:lang="de">Extag</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ExpensesValutaDate" type="xs:date" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Gibt das Valutadatum der Spesen an</xs:documentation>
+									<xs:documentation xml:lang="en">Valuta day of expenses</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt das Valutadatum der Spesen an</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ExpensesExchangeRate" type="xs:decimal" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Enthaelt den Devisenkurs der fuer die Spesenbuchung verwendet wird</xs:documentation>
+									<xs:documentation xml:lang="en">Exchange rate applied for expenses</xs:documentation>
+									<xs:documentation xml:lang="de">Enthaelt den Devisenkurs der fuer die Spesenbuchung verwendet wird</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Expenses" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Enthaelt den Spesenbetrag in Fonds- und Fremdwaehrung</xs:documentation>
+									<xs:documentation xml:lang="en">Expenses in fund and/or foreign currency</xs:documentation>
+									<xs:documentation xml:lang="de">Enthaelt den Spesenbetrag in Fonds- und Fremdwaehrung</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="AccountNumberExpenses" type="xs:integer" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Gibt das Spesenkonto an</xs:documentation>
+									<xs:documentation xml:lang="en">Account number used for booking of expenses</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt das Spesenkonto an</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="UnitInterestEUWithholdingTax" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Gibt die StuecKZinsen fuer die Berechnung der EU-QUEST an</xs:documentation>
+									<xs:documentation xml:lang="en">Unit interests to be used for calculating EU withholding tax</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt die StuecKZinsen fuer die Berechnung der EU-QUEST an</xs:documentation>
 								</xs:annotation>
+							</xs:element>
+							<xs:element name="CorporateActionDocument" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Text document describing details of corporate action</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Format" type="Text256Type">
+											<xs:annotation>
+												<xs:documentation>Technical format of document:
+PDF, XML, Excel, Word, Image, ...</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="DocumentURL" type="Text1000Type" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Link of document for downloading</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="BinaryData" type="xs:base64Binary" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Document in xml base64Binary format</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>

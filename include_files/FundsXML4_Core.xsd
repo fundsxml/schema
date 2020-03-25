@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:complexType name="IdentifiersType">
 		<xs:sequence>
@@ -847,7 +847,7 @@ R ... Reinvesting</xs:documentation>
 					<xs:sequence>
 						<xs:element name="PriceType">
 							<xs:annotation>
-								<xs:documentation>Select the price type you would like to communicate (SWING, MATURITY, MARKET,HOLD TO MATURITY)</xs:documentation>
+								<xs:documentation>Select the price type you would like to communicate (SWING, MATURITY, MARKET,HOLD TO MATURITY, ADJUSTED GROSS, ADJUSTED NET)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -857,6 +857,8 @@ R ... Reinvesting</xs:documentation>
 									<xs:enumeration value="MATURITY"/>
 									<xs:enumeration value="MARKET"/>
 									<xs:enumeration value="HOLD TO MATURITY"/>
+									<xs:enumeration value="ADJUSTED GROSS"/>
+									<xs:enumeration value="ADJUSTED NET"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -902,10 +904,21 @@ R ... Reinvesting</xs:documentation>
 					<xs:documentation>Short name of fund or corresponding object (max. 100 characters)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PreviousName" type="Text500Type" minOccurs="0">
+			<xs:element name="PreviousName" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Previous name of fund or corresponding object</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="Text500Type">
+							<xs:attribute name="until" type="xs:date">
+								<xs:annotation>
+									<xs:documentation>Date until previous name of fund or object was valid</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="DynLenNames" type="DynLenNamesType" minOccurs="0">
 				<xs:annotation>
@@ -951,6 +964,7 @@ R ... Reinvesting</xs:documentation>
 							<xs:enumeration value="MORNINGSTAR"/>
 							<xs:enumeration value="VOEIG"/>
 							<xs:enumeration value="WM"/>
+							<xs:enumeration value="GERMAN CBCL"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>

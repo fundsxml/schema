@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ﻿FVR (Autoentrepreneur2) -->
-<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Thomas Koop (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
-<xs:schema xmlns="http://www.fundsxml.org/XMLSchema/3.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.fundsxml.org/XMLSchema/3.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.1" xsi:schemaLocation="http://www.fundsxml.org/XMLSchema/3.1 http://www.fundsxml.org/FundsXML3.1.xsd">
+<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Lavinia Musetoiu (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
+<xs:schema xmlns="http://www.fundsxml.org/XMLSchema/3.1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.fundsxml.org/XMLSchema/3.1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.1.1" xsi:schemaLocation="http://www.fundsxml.org/XMLSchema/3.1.1 http://www.fundsxml.org/FundsXML3.1.1.xsd">
 	<xs:element name="FundsXML">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">This is the root element. It is the first element of the document. All other elements are below this element.</xs:documentation>
@@ -154,8 +153,8 @@ Attribute:
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="Version" type="xs:string" use="optional" default="3.1"/>
-			<xs:attribute name="LastModified" type="xs:date" use="optional" default="2014-09-09"/>
+			<xs:attribute name="Version" type="xs:string" use="optional" default="3.1.1"/>
+			<xs:attribute name="LastModified" type="xs:date" use="optional" default="2015-04-21"/>
 			<xs:attribute name="task" use="optional" default="import">
 				<xs:annotation>
 					<xs:documentation>import (default), replace or delete</xs:documentation>
@@ -711,6 +710,9 @@ Name, unit used for each decomposition row,  Codification used (if any), exhaust
 										</xs:complexType>
 									</xs:element>
 									<xs:element name="BVIGesamtStatistik" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Deprecated</xs:documentation>
+										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="Anbieterart" minOccurs="0">
@@ -891,7 +893,11 @@ Name, unit used for each decomposition row,  Codification used (if any), exhaust
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="RIESTER-Vertraege" type="SparplanType" minOccurs="0"/>
+												<xs:element name="RIESTER-Vertraege" type="RiesterSparplanType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>RIESTER investment fund contracts</xs:documentation>
+													</xs:annotation>
+												</xs:element>
 												<xs:element name="RUERUP-Vertraege" type="SparplanType" minOccurs="0"/>
 												<xs:element name="VL-Vertraege" minOccurs="0">
 													<xs:complexType>
@@ -910,6 +916,376 @@ Name, unit used for each decomposition row,  Codification used (if any), exhaust
 														<xs:sequence>
 															<xs:element name="Anzahl" type="xs:int"/>
 															<xs:element name="Vermoegen" type="xs:decimal"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="BVIGesamtStatistikKAGB" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="OffeneFonds" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Open-ended funds</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="Publikumsfonds" minOccurs="0">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="Wertpapiere_Beteiligungen" type="GesamtStatistikType" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Securities and Holdings</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="Sachwerte" type="GesamtStatistikType" minOccurs="0"/>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="Spezialfonds" minOccurs="0">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="Wertpapiere_Beteiligungen" type="GesamtStatistikType" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Securities and Holdings</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="Sachwerte" type="GesamtStatistikType" minOccurs="0"/>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="GeschlosseneFonds" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Closed-ended funds</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="Publikumsfonds" minOccurs="0">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="Wertpapiere_Beteiligungen" type="GesamtStatistikKAGBType" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Securities and Holdings</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="Sachwerte" type="GesamtStatistikKAGBType" minOccurs="0"/>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="Spezialfonds" minOccurs="0">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="Wertpapiere_Beteiligungen" type="GesamtStatistikKAGBType" minOccurs="0"/>
+																		<xs:element name="Sachwerte" type="GesamtStatistikKAGBType" minOccurs="0"/>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="VaIF" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Discretionary Mandates (Vermoegen außerhalb von Investmentfonds; diskretionaere Vermoegensverwaltung)</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="Wertpapiere_Beteiligungen" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Securities and Holdings</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="EigeneVaIF" minOccurs="0">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="Mandatgeber">
+																						<xs:complexType>
+																							<xs:sequence>
+																								<xs:element name="Gesamt" type="MandatgeberStatistikType"/>
+																								<xs:element name="Sitz">
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Deutschland" type="MandatgeberStatistikType"/>
+																											<xs:element name="NichtDeutschland" type="MandatgeberStatistikType"/>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																								<xs:element name="Rechtsform">
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Privat" type="MandatgeberStatistikType"/>
+																											<xs:element name="Institutionell" type="MandatgeberStatistikType"/>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>
+																					<xs:element name="PortfoliomanagementDurchDritte">
+																						<xs:annotation>
+																							<xs:documentation>Angaben zur Struktur des Portfoliosmanagements oder der Beratung durch Dritte</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:sequence>
+																								<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																									<xs:annotation>
+																										<xs:documentation>insgesamt</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																								<xs:element name="InnerhalbdesKonzernkreises">
+																									<xs:annotation>
+																										<xs:documentation> durch Dritte innerhalb des Konzernverbundes</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>durch Dritte innerhalb des Konzernverbundes gesamt</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name="GesellschaftenSitzDeutschland" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>davon durch deutsche Kapitalanlagegesellschaften innerhalb des Konzernverbundes als Dritte</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																								<xs:element name="AußerhalbdesKonzernkreises">
+																									<xs:annotation>
+																										<xs:documentation> durch Dritte außerhalb des Konzernverbundes</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>durch Dritte auserhalb des Konzernverbundes gesamt</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name="GesellschaftenSitzDeutschland" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>davon durch deutsche Kapitalanlagegesellschaften außerhalb des Konzernverbundes als Dritte</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="FremdeVaIF" minOccurs="0">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="PortfoliomanagementFuerDritte">
+																						<xs:annotation>
+																							<xs:documentation>Angaben zur Struktur des Portfoliosmanagements oder der Beratung fuer Dritte</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:sequence>
+																								<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																									<xs:annotation>
+																										<xs:documentation>insgesamt</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																								<xs:element name="InnerhalbdesKonzernkreises">
+																									<xs:annotation>
+																										<xs:documentation>fuer Dritte innerhalb des Konzernverbundes</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>fuer Dritte innerhalb des Konzernverbundes gesamt</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name="GesellschaftenSitzDeutschland" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>davon fuer deutsche Kapitalanlagegesellschaften innerhalb des Konzernverbundes als Dritte</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																								<xs:element name="AußerhalbdesKonzernkreises">
+																									<xs:annotation>
+																										<xs:documentation>fuer Dritte außerhalb des Konzernverbundes</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>fuer Dritte auserhalb des Konzernverbundes gesamt</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name="GesellschaftenSitzDeutschland" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>davon fuer deutsche Kapitalanlagegesellschaften außerhalb des Konzernverbundes als Dritte</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="Sachwerte" minOccurs="0">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="EigeneVaIF" minOccurs="0">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="Mandatgeber">
+																						<xs:complexType>
+																							<xs:sequence>
+																								<xs:element name="Gesamt" type="MandatgeberStatistikType"/>
+																								<xs:element name="Sitz">
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Deutschland" type="MandatgeberStatistikType"/>
+																											<xs:element name="NichtDeutschland" type="MandatgeberStatistikType"/>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																								<xs:element name="Rechtsform">
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Privat" type="MandatgeberStatistikType"/>
+																											<xs:element name="Institutionell" type="MandatgeberStatistikType"/>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>
+																					<xs:element name="PortfoliomanagementDurchDritte">
+																						<xs:annotation>
+																							<xs:documentation>Angaben zur Struktur des Portfoliosmanagements oder der Beratung durch Dritte</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:sequence>
+																								<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																									<xs:annotation>
+																										<xs:documentation>insgesamt</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																								<xs:element name="InnerhalbdesKonzernkreises">
+																									<xs:annotation>
+																										<xs:documentation> durch Dritte innerhalb des Konzernverbundes</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>durch Dritte innerhalb des Konzernverbundes gesamt</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name="GesellschaftenSitzDeutschland" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>davon durch deutsche Kapitalanlagegesellschaften innerhalb des Konzernverbundes als Dritte</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																								<xs:element name="AußerhalbdesKonzernkreises">
+																									<xs:annotation>
+																										<xs:documentation> durch Dritte außerhalb des Konzernverbundes</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>durch Dritte auserhalb des Konzernverbundes gesamt</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name="GesellschaftenSitzDeutschland" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>davon durch deutsche Kapitalanlagegesellschaften außerhalb des Konzernverbundes als Dritte</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="FremdeVaIF" minOccurs="0">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="PortfoliomanagementFuerDritte">
+																						<xs:annotation>
+																							<xs:documentation>Angaben zur Struktur des Portfoliosmanagements oder der Beratung fuer Dritte</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:sequence>
+																								<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																									<xs:annotation>
+																										<xs:documentation>insgesamt</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																								<xs:element name="InnerhalbdesKonzernkreises">
+																									<xs:annotation>
+																										<xs:documentation>fuer Dritte innerhalb des Konzernverbundes</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>fuer Dritte innerhalb des Konzernverbundes gesamt</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name="GesellschaftenSitzDeutschland" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>davon fuer deutsche Kapitalanlagegesellschaften innerhalb des Konzernverbundes als Dritte</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																								<xs:element name="AußerhalbdesKonzernkreises">
+																									<xs:annotation>
+																										<xs:documentation>fuer Dritte außerhalb des Konzernverbundes</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="Gesamt" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>fuer Dritte auserhalb des Konzernverbundes gesamt</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name="GesellschaftenSitzDeutschland" type="MandatgeberStatistikType">
+																												<xs:annotation>
+																													<xs:documentation>davon fuer deutsche Kapitalanlagegesellschaften außerhalb des Konzernverbundes als Dritte</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
@@ -1073,7 +1449,7 @@ Name, unit used for each decomposition row,  Codification used (if any), exhaust
 			</xs:element>
 			<xs:element name="PerformanceDistribution" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Ausschuettung einschliesslich Steuerguthaben(nach Abzug der auslaendichenQuellensteuer)</xs:documentation>
+					<xs:documentation>Amount of distribution relevant for calculating the performance of a fund following the "BVI method" which is a variant of the TWR approach. It is a gross distribution covering ordinary incomes, extraordinary incomes, and capital repayments, including tax assets and refund of taxes; excluding, however, foreign withholding taxes.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Zinsertrag" type="xs:decimal" minOccurs="0"/>
@@ -1319,6 +1695,12 @@ T = Thesaurierer</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">The address details of the custodian bank</xs:documentation>
 								<xs:documentation xml:lang="de">Die Adresse der Depotbank des Fonds</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="LEI" type="LEICodeType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>LEI code of the Fund.
+Legal Entity Identifier (LEI) (ISO 17442 standard).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -4077,7 +4459,7 @@ negative - paying premiums</xs:documentation>
 						</xs:element>
 						<xs:element name="SplittingFactor" type="xs:decimal">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Conversion factor of the fond - old:new</xs:documentation>
+								<xs:documentation xml:lang="en">Conversion factor of the fund - old:new</xs:documentation>
 								<xs:documentation xml:lang="de">Umrechnungsfaktor der Anteile - Alt:Neu</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -6095,7 +6477,225 @@ der Summe aus der Anzahl segmentloser Fonds und der Anzahl der Segmente</xs:docu
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="GesamtStatistikKAGBType">
+		<xs:annotation>
+			<xs:documentation>BVI</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EigeneFonds" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Anzahl" type="xs:int">
+							<xs:annotation>
+								<xs:documentation>Anzahl verwalteter Fonds</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Bestand" type="GesamtstatistikBestandType"/>
+						<xs:element name="Absatz" type="GesamtstatistikAbsatzType">
+							<xs:annotation>
+								<xs:documentation>Netto-Mittelaufkommen im Berichtsmonat [Tsd. EUR] </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Segmentierung">
+							<xs:annotation>
+								<xs:documentation>Angaben zur Segmentierung der eigenen Fonds</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="FondsOhneUntereinheiten" type="xs:int">
+										<xs:annotation>
+											<xs:documentation>Anzahl segmentloser Fonds 
+(klassische Fonds ohne Untereinheiten)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FondsMitUntereinheiten">
+										<xs:annotation>
+											<xs:documentation>Fonds, die aus Segmenten	
+oder vergleichbaren Untereinheiten bestehen</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Anzahl" type="xs:int">
+													<xs:annotation>
+														<xs:documentation>Anzahl Fonds, die aus Segmenten	
+oder vergleichbaren Untereinheiten bestehen</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="AnzahlUntereinheiten" type="xs:int">
+													<xs:annotation>
+														<xs:documentation>Gesamtzahl von Segmenten oder vergleichbarer Untereinheiten</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Bestand" type="GesamtstatistikBestandType">
+													<xs:annotation>
+														<xs:documentation>Fondsvermögen [Tsd. EUR], das auf segmentierte Fonds entfällt:</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="GesamtzahlPortfolios" type="xs:int">
+										<xs:annotation>
+											<xs:documentation>Gesamtzahl fondsgebundener Verwaltungseinheiten, entsprechend	
+der Summe aus der Anzahl segmentloser Fonds und der Anzahl der Segmente</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PortfoliomanagementDurchDritte" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Angaben zur Struktur des Portfoliosmanagements oder der Beratung durch Dritte</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Gesamt" type="FondsStatistikClosedFundType">
+										<xs:annotation>
+											<xs:documentation>insgesamt</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="InnerhalbdesKonzernkreises" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>durch Dritte innerhalb des Konzernverbundes</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Gesamt" type="FondsStatistikClosedFundType">
+													<xs:annotation>
+														<xs:documentation>durch Dritte innerhalb des Konzernverbundes gesamt</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="GesellschaftenSitzDeutschland" type="FondsStatistikClosedFundType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>davon durch deutsche Kapitalanlagegesellschaften innerhalb des Konzernverbundes als Dritte</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AußerhalbdesKonzernkreises" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation> durch Dritte außerhalb des Konzernverbundes</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Gesamt" type="FondsStatistikClosedFundType">
+													<xs:annotation>
+														<xs:documentation>durch Dritte auserhalb des Konzernverbundes gesamt</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="GesellschaftenSitzDeutschland" type="FondsStatistikClosedFundType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>davon durch deutsche Kapitalanlagegesellschaften außerhalb des Konzernverbundes als Dritte</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FremdeFonds" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PortfoliomanagementFuerDritte">
+							<xs:annotation>
+								<xs:documentation>Angaben zur Struktur des Portfoliosmanagements oder der Beratung fuer Dritte</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Gesamt" type="FondsStatistikClosedFundType">
+										<xs:annotation>
+											<xs:documentation>insgesamt</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="InnerhalbdesKonzernkreises" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>fuer Dritte innerhalb des Konzernverbundes</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Gesamt" type="FondsStatistikClosedFundType">
+													<xs:annotation>
+														<xs:documentation>fuer Dritte innerhalb des Konzernverbundes gesamt</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="GesellschaftenSitzDeutschland" type="FondsStatistikClosedFundType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>davon fuer deutsche Kapitalanlagegesellschaften innerhalb des Konzernverbundes als Dritte</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AußerhalbdesKonzernkreises" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>fuer Dritte außerhalb des Konzernverbundes</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Gesamt" type="FondsStatistikClosedFundType">
+													<xs:annotation>
+														<xs:documentation>fuer Dritte auserhalb des Konzernverbundes gesamt</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="GesellschaftenSitzDeutschland" type="FondsStatistikClosedFundType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>davon fuer deutsche Kapitalanlagegesellschaften außerhalb des Konzernverbundes als Dritte</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GesamtstatistikAbsatzType">
+		<xs:annotation>
+			<xs:documentation>BVI</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Mittelaufkommen" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Netto-Mittelaufkommen im Berichtsmonat [Tsd. EUR] </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlatziertesEigenkapital" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Equity placed; equivalent to gross sales in open-ended funds. Refers to the month reported, given in thousands of Euro.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GesamtstatistikBestandType">
+		<xs:annotation>
+			<xs:documentation>BVI</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Fondsvermoegen" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Net assets in total, calculated on an overall basis including outstanding debts, bank loans, and other liabilities (Net Asset Value approach). In thousands of Euro.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aktivvermoegen" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Assets in total, calculated on a basis excluding outstanding debts, bank loans, and other liabilities (Gross Asset Value approach). "Aktivvermoegen" in German. In thousands of Euro.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="SparplanType">
+		<xs:annotation>
+			<xs:documentation>BVI</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Gesamt">
 				<xs:complexType>
@@ -6123,7 +6723,93 @@ der Summe aus der Anzahl segmentloser Fonds und der Anzahl der Segmente</xs:docu
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="RiesterSparplanType">
+		<xs:annotation>
+			<xs:documentation>BVI</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Gesamt">
+				<xs:annotation>
+					<xs:documentation>Contracts in total</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Anzahl" type="xs:int">
+							<xs:annotation>
+								<xs:documentation>number</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Vermoegen" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>net assets in thousands of Euro</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Neuvertraege" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>whereof new contracts: part of contracts in total that can be assigned new contracts;</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Anzahl" type="xs:int">
+							<xs:annotation>
+								<xs:documentation>number</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Vermoegen" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>net assets in thousands of Euro</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VertraegeAnsparphase" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Part of contracts within the accumulation phase (including new contracts).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Anzahl" type="xs:int">
+							<xs:annotation>
+								<xs:documentation>number</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Vermoegen" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>net assets in thousands of Euro</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VertraegeAuszahlphase" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Part of contracts within the drawdown phase.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Anzahl" type="xs:int">
+							<xs:annotation>
+								<xs:documentation>number</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Vermoegen" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>net assets in thousands of Euro</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="MandatgeberStatistikType">
+		<xs:annotation>
+			<xs:documentation>BVI</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="AnzahlVaIFMandate" type="xs:int">
 				<xs:annotation>
@@ -6143,6 +6829,9 @@ der Summe aus der Anzahl segmentloser Fonds und der Anzahl der Segmente</xs:docu
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FondsStatistikType">
+		<xs:annotation>
+			<xs:documentation>BVI</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="AnzahlPortfolios" type="xs:int">
 				<xs:annotation>
@@ -6155,6 +6844,24 @@ der Summe aus der Anzahl segmentloser Fonds und der Anzahl der Segmente</xs:docu
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Mittelaufkommen" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Netto-Mittelaufkommen im Berichtsmonat [Tsd. EUR] </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FondsStatistikClosedFundType">
+		<xs:annotation>
+			<xs:documentation>BVI</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AnzahlPortfolios" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Anzahl fondsgebundener Verwaltungseinheiten </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bestand" type="GesamtstatistikBestandType"/>
+			<xs:element name="Absatz" type="GesamtstatistikAbsatzType">
 				<xs:annotation>
 					<xs:documentation>Netto-Mittelaufkommen im Berichtsmonat [Tsd. EUR] </xs:documentation>
 				</xs:annotation>
@@ -8697,9 +9404,9 @@ d - Currency used for calculation</xs:documentation>
 			<xs:documentation> Amount for Domestic, Foreign and total information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Domestic" type="xs:int"/>
-			<xs:element name="Foreign" type="xs:int"/>
-			<xs:element name="Total" type="xs:int"/>
+			<xs:element name="Domestic" type="xs:decimal"/>
+			<xs:element name="Foreign" type="xs:decimal"/>
+			<xs:element name="Total" type="xs:decimal"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AllocationType">
@@ -11894,6 +12601,9 @@ Ja (True) / Nein (False)</xs:documentation>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Meldung10390" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Deprecated</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="FundsTypeOnInvestorGroup" minOccurs="0">
@@ -12162,7 +12872,7 @@ Ja (True) / Nein (False)</xs:documentation>
 			</xs:element>
 			<xs:element name="Meldung10391" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Meldung für Investmentfonds mit Ausnahme Geldmarktfonds</xs:documentation>
+					<xs:documentation>Deprecated             Meldung für Investmentfonds mit Ausnahme Geldmarktfonds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -12309,7 +13019,7 @@ Ja (True) / Nein (False)</xs:documentation>
 						</xs:element>
 						<xs:element name="GrossRedemptions" type="xs:decimal">
 							<xs:annotation>
-								<xs:documentation>Mittelabfluss brutto</xs:documentation>
+								<xs:documentation>Mittelabfluss brutto, depracted</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="TotalAmountDistribution" type="xs:decimal">
@@ -12322,7 +13032,7 @@ Ja (True) / Nein (False)</xs:documentation>
 			</xs:element>
 			<xs:element name="Meldung10392" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Bereinigungen</xs:documentation>
+					<xs:documentation>Deprecated          Bereinigungen</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -12399,7 +13109,7 @@ Ja (True) / Nein (False)</xs:documentation>
 			</xs:element>
 			<xs:element name="Meldung10393" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Meldung für Geldmarktfonds</xs:documentation>
+					<xs:documentation>Deprecated              Meldung für Geldmarktfonds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -13218,7 +13928,7 @@ mehr als 200 Mio. Euro</xs:documentation>
 						</xs:element>
 						<xs:element name="PurchasesAndSales" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Käuf und Verkäufe pro Quartal</xs:documentation>
+								<xs:documentation>Käufe und Verkäufe pro Quartal</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -13283,10 +13993,29 @@ mehr als 200 Mio. Euro</xs:documentation>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="EquityCommitments" type="xs:decimal" minOccurs="0">
+						<xs:element name="EquityCommitments" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>In Form von Zeichnungsscheinen/Verträgen befristet oder unbefristet zugesagtes Eigenkapital in Tsd Euro</xs:documentation>
+								<xs:documentation>Equity commitments, guaranteed either contractually or by an subscription form; limited or unlimited in time.</xs:documentation>
 							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TotalAmount" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>Equity commitments, total amount</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CalledOff" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>Cumulative sum of equity commitments that have already been called off.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="NotRequested" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>The outstanding part of equity commitments in total that hasn't been requested as yet.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -13338,18 +14067,74 @@ mehr als 200 Mio. Euro</xs:documentation>
 					<xs:documentation>Nettomittelaufkomen. Summe aus Bruttozuflüssen minus Bruttoabflüssen aus 10391 bzw. 10393</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ExchangeRates" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="GrossSales" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Mittelzufluss brutto</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="GrossRedemptions" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Mittelabfluss brutto</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Date" type="xs:date">
+						<xs:element name="TotalAmount" type="xs:decimal">
 							<xs:annotation>
-								<xs:documentation>Date of price dataset</xs:documentation>
+								<xs:documentation>Includes besides redemptions resulting from regular fund business also capital redemptions.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Currency" type="ISOCurrencyCodeType"/>
-						<xs:element name="ExchangeRate" type="xs:decimal">
+						<xs:element name="CapitalRepayments" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Devisenkurs zum Euro (1 Einheit der Währung = x EUR)</xs:documentation>
+								<xs:documentation>Part of the total amount of gross redemptions which accounts for capital repayments. Relevant in general and not limited to funds in the process of being liquidated. "Zufuehrung aus dem Sondervermoegen" in German.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GrossSalesByShare" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Anteilabsatz - brutto - (Stück)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalAmountDistribution" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Volumen der Ausschüttungen</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GrossAssets" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Assets in total, calculated on a basis excluding outstanding debts, bank loans, and other liabilities (Gross Asset Value approach). "Aktivvermoegen" in German.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClosedEndedFundsEquityIncrease" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Increase in equity (in terms of owner's equity). Type of gross sales characteristically occuring in closed ended funds after end of initial placement. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TotalAmount" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>Increase in equity in total</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AdditionalInvestments" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>Part of total increase in equity related to follow-on investments.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RepaymentLiabilities" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>Part of total increase in equity related to repayment of liabilities.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RestructuringPlan" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>Part of total increase in equity related to restructuring plans.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -13369,7 +14154,7 @@ mehr als 200 Mio. Euro</xs:documentation>
 			</xs:element>
 			<xs:element name="VLFaehig" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="DE">Angabe ob der Fonds Sparplanfaehig ist oder nicht.</xs:documentation>
+					<xs:documentation xml:lang="DE">Angabe ob der Fonds sparplanfaehig ist oder nicht.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="VLAktiv" type="xs:boolean" minOccurs="0"/>
@@ -13412,16 +14197,16 @@ mehr als 200 Mio. Euro</xs:documentation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="A"/>
-									<xs:enumeration value="R"/>
-									<xs:enumeration value="M"/>
-									<xs:enumeration value="W"/>
 									<xs:enumeration value="C"/>
 									<xs:enumeration value="G"/>
+									<xs:enumeration value="M"/>
+									<xs:enumeration value="P"/>
+									<xs:enumeration value="R"/>
 									<xs:enumeration value="S"/>
-									<xs:enumeration value="Z"/>
-									<xs:enumeration value="Y"/>
+									<xs:enumeration value="W"/>
 									<xs:enumeration value="X"/>
-									<xs:enumeration value="I"/>
+									<xs:enumeration value="Y"/>
+									<xs:enumeration value="Z"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -13502,7 +14287,6 @@ mehr als 200 Mio. Euro</xs:documentation>
 									<xs:enumeration value="GK-I"/>
 									<xs:enumeration value="G-V"/>
 									<xs:enumeration value="GK-V"/>
-									<xs:enumeration value="I"/>
 									<xs:enumeration value="M"/>
 									<xs:enumeration value="MA-D"/>
 									<xs:enumeration value="MA-EUR"/>
@@ -13516,6 +14300,14 @@ mehr als 200 Mio. Euro</xs:documentation>
 									<xs:enumeration value="MR-EUR"/>
 									<xs:enumeration value="MR-EURW"/>
 									<xs:enumeration value="MR-I"/>
+									<xs:enumeration value="P"/>
+									<xs:enumeration value="PEN"/>
+									<xs:enumeration value="PFA"/>
+									<xs:enumeration value="PFL"/>
+									<xs:enumeration value="PIF"/>
+									<xs:enumeration value="PIM"/>
+									<xs:enumeration value="PS"/>
+									<xs:enumeration value="PSF"/>
 									<xs:enumeration value="R"/>
 									<xs:enumeration value="RC"/>
 									<xs:enumeration value="RDKK"/>
@@ -13656,8 +14448,473 @@ This element is mandatory if the value of "Properties" is 'Others'. </xs:documen
 					<xs:documentation xml:lang="DE">Deutsche Reportings</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="StatusInvVermoegen" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Status of a fund according to the terminology of the German investment law KAGB.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="Publikumsfonds">
+							<xs:annotation>
+								<xs:documentation>Publikumsfonds as defined by the Kapitalanlagegesetzbuch KAGB.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="Offen">
+										<xs:annotation>
+											<xs:documentation>open ended</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:choice>
+												<xs:element name="OGAW" default="true">
+													<xs:annotation>
+														<xs:documentation>German term of UCITS</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean">
+															<xs:pattern value="true"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="AIF">
+													<xs:annotation>
+														<xs:documentation>Sub-status of open ended Publikumsfonds, as far as they are AIF; according to KAGB §§ 218ff.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Gemischtes Investmentvermoegen"/>
+															<xs:enumeration value="Sonstiges Investmentvermoegen"/>
+															<xs:enumeration value="Dach-Hedgefonds"/>
+															<xs:enumeration value="Immobilien-Sondervermoegen"/>
+															<xs:enumeration value=""/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:choice>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Geschlossen">
+										<xs:annotation>
+											<xs:documentation>closed ended</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="AIF" default="true">
+													<xs:annotation>
+														<xs:documentation>Alternative investment fund</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean">
+															<xs:pattern value="true"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Spezialfonds">
+							<xs:annotation>
+								<xs:documentation>Spezialfonds as defined by the Kapitalanlagegesetzbuch KAGB.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:choice>
+										<xs:element name="Offen">
+											<xs:annotation>
+												<xs:documentation>open ended</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="AIF">
+														<xs:annotation>
+															<xs:documentation>Sub-status of open ended Spezialfonds according to KAGB §§ 282, 283, and 284.</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="Allgemeiner offener Spezial-AIF"/>
+																<xs:enumeration value="Hedgefonds"/>
+																<xs:enumeration value="Spezial-AIF mit festen Anlagebedingungen"/>
+																<xs:enumeration value=""/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="Anteilinhaber">
+														<xs:annotation>
+															<xs:documentation>Categories of institutional investors</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:choice>
+																<xs:element name="Inlaender">
+																	<xs:annotation>
+																		<xs:documentation>Domestic investors</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Kreditinstitute"/>
+																			<xs:enumeration value="Lebensversicherungen"/>
+																			<xs:enumeration value="andere Versicherungen"/>
+																			<xs:enumeration value="Altersvorsorgeeinrichtungen"/>
+																			<xs:enumeration value="sonstige Finanzintermediaere"/>
+																			<xs:enumeration value="Kredit- und Versicherungshilfsinstitutionen"/>
+																			<xs:enumeration value="nichtfinanzielle Kapitalgesellschaften"/>
+																			<xs:enumeration value="Bund"/>
+																			<xs:enumeration value="Laender"/>
+																			<xs:enumeration value="Gemeinden"/>
+																			<xs:enumeration value="Sozialversicherungen"/>
+																			<xs:enumeration value="oeffentliche und kirchliche Zusatzversorgungseinrichtungen"/>
+																			<xs:enumeration value="private Organisationen ohne Erwerbszweck und sonstige"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="Auslaender">
+																	<xs:annotation>
+																		<xs:documentation>Foreign investors</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:boolean">
+																			<xs:pattern value="true"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Geschlossen">
+											<xs:annotation>
+												<xs:documentation>closed ended</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="AIF" default="true">
+														<xs:annotation>
+															<xs:documentation>Alternative investment fund</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:boolean">
+																<xs:pattern value="true"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+									<xs:element name="Mittelanlage">
+										<xs:annotation>
+											<xs:documentation>Asset class </xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Aktienfonds"/>
+												<xs:enumeration value="Rentenfonds"/>
+												<xs:enumeration value="Gemischter Wertpapierfonds"/>
+												<xs:enumeration value="Immobilienfonds"/>
+												<xs:enumeration value="Geldmarktfonds (ohne Geldmarktfonds mit kurzer Laufzeitstruktur)"/>
+												<xs:enumeration value="Geldmarktfonds mit kurzer Laufzeitstruktur"/>
+												<xs:enumeration value="Hedgefonds"/>
+												<xs:enumeration value="Derivatefonds"/>
+												<xs:enumeration value="Altersvorsorgefonds"/>
+												<xs:enumeration value="Infrastrukturfonds"/>
+												<xs:enumeration value="Rohstofffonds"/>
+												<xs:enumeration value="Kreditfonds"/>
+												<xs:enumeration value="Schiffsfonds"/>
+												<xs:enumeration value="Flugzeugfonds"/>
+												<xs:enumeration value="Energiefonds"/>
+												<xs:enumeration value="Private Equity Fonds (ohne Venture Capital Fonds)"/>
+												<xs:enumeration value="Venture Capital Fonds"/>
+												<xs:enumeration value="Leasingfonds"/>
+												<xs:enumeration value="Sonstiger Fonds"/>
+												<xs:enumeration value="Dachfonds - Aktienfonds"/>
+												<xs:enumeration value="Dachfonds - Rentenfonds"/>
+												<xs:enumeration value="Dachfonds - Gemischter Wertpapierfonds"/>
+												<xs:enumeration value="Dachfonds - Immobilienfonds"/>
+												<xs:enumeration value="Dachfonds - Geldmarktfonds (ohne Geldmarktfonds mit kurzer Laufzeitstruktur)"/>
+												<xs:enumeration value="Dachfonds - Geldmarktfonds mit kurzer Laufzeitstruktur"/>
+												<xs:enumeration value="Dachfonds - Hedgefonds"/>
+												<xs:enumeration value="Dachfonds - Derivatefonds"/>
+												<xs:enumeration value="Dachfonds - Altersvorsorgefonds"/>
+												<xs:enumeration value="Dachfonds - Infrastrukturfonds"/>
+												<xs:enumeration value="Dachfonds - Rohstofffonds"/>
+												<xs:enumeration value="Dachfonds - Kreditfonds"/>
+												<xs:enumeration value="Dachfonds - Schiffsfonds"/>
+												<xs:enumeration value="Dachfonds - Flugzeugfonds"/>
+												<xs:enumeration value="Dachfonds - Energiefonds"/>
+												<xs:enumeration value="Dachfonds - Private Equity Fonds (ohne Venture Capital Fonds)"/>
+												<xs:enumeration value="Dachfonds - Venture Capital Fonds"/>
+												<xs:enumeration value="Dachfonds - Leasingfonds"/>
+												<xs:enumeration value="Dachfonds - Sonstiger Fonds"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="KategorieAnleger" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Categories addressing the grade of professionality of an (mostly institutional) investor. See KAGB § 1 (19) 31., 32., and 33 for details.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="professioneller Anleger"/>
+												<xs:enumeration value="semi-professioneller Anleger"/>
+												<xs:enumeration value="Privatanleger"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OrganisationTypeInvVermoegen" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The type of corporate structure an investment portfolio is organized like; see KAGB § 1 (1) to (13) for details.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Sondervermoegen"/>
+						<xs:enumeration value="InvestmentAG mit veraenderlichem Kapital"/>
+						<xs:enumeration value="Teilgesellschaftsvermoegen einer InvestmentAG mit veraenderlichem Kapital"/>
+						<xs:enumeration value="InvestmentAG mit fixem Kapital"/>
+						<xs:enumeration value="offene InvestmentKG"/>
+						<xs:enumeration value="Teilgesellschaftsvermoegen einer offenen InvestmentKG"/>
+						<xs:enumeration value="geschlossene InvestmentKG"/>
+						<xs:enumeration value="EU-Investmentvermoegen des Vertragstyps"/>
+						<xs:enumeration value="Teilgesellschaftsvermoegen eines EU-Investmentvermoegens des Vertragstyps"/>
+						<xs:enumeration value="EU-Investmentvermoegen des Gesellschaftstyps"/>
+						<xs:enumeration value="Teilgesellschaftsvermoegen eines EU-Investmentvermoegens des Gesellschaftstyps"/>
+						<xs:enumeration value="EU-Investmentvermoegen des Trust-Typs"/>
+						<xs:enumeration value="Teilgesellschaftsvermoegen eines EU-Investmentvermoegens des Trust-Typs"/>
+						<xs:enumeration value="Auslaendisches Investmentvermoegen (Drittstaat)"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PerformanceFeeModel" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Performance fee model applied by the fund.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Benchmark absolut"/>
+						<xs:enumeration value="Benchmark relativ"/>
+						<xs:enumeration value="Hurdle Rate ohne Bezug zum Geldmarkt"/>
+						<xs:enumeration value="Hurdle Rate mit Bezug zum Geldmarkt (Geldmarktzins)"/>
+						<xs:enumeration value="Sonstiges Modell"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MasterFund" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FeederFund" type="FundIDDataDEType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Enumeration of all feeder funds assigned the very master fund.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FeederFund" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MasterFund" type="FundIDDataDEType">
+							<xs:annotation>
+								<xs:documentation>The master fund a feeder fund is assigned.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ETF" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="IndexReplication">
+							<xs:annotation>
+								<xs:documentation>Mechanism of index replication applied by the fund.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="physisch, vollstaendige Nachbildung"/>
+									<xs:enumeration value="physisch, ausgewaehlte Teilmenge"/>
+									<xs:enumeration value="synthetisch"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SpecificationsClosedEndedFunds" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Specifities and details of closed ended funds.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PortfolioStructure">
+							<xs:annotation>
+								<xs:documentation>Basic structure of the portfolio: Whether it consists of one or more properties; where properties applies for real assets in a broader sense beyond estates, including any non-securities based assets like ships, wind farms, and others.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Einobjektfonds"/>
+									<xs:enumeration value="Mehrobjektfonds"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="EndPlacementPhase" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Date of end of placement, the typically initial phase a closed ended funds collects money from the signed investors.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Properties" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Details about selected categories of real assets.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="Ships">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Category">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Container"/>
+															<xs:enumeration value="Multipurpose-Container"/>
+															<xs:enumeration value="Rohoeltanker"/>
+															<xs:enumeration value="Produkten- und Chemikalientanker"/>
+															<xs:enumeration value="Bulker"/>
+															<xs:enumeration value="Schwerguttransporter"/>
+															<xs:enumeration value="Kuehlschiffe"/>
+															<xs:enumeration value="Feeder"/>
+															<xs:enumeration value="Autofrachter"/>
+															<xs:enumeration value="Off-Shore-Schiffe"/>
+															<xs:enumeration value="Kreuzfahrt"/>
+															<xs:enumeration value="Sonstige Schiffe"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="Leasing" type="xs:boolean"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Energy">
+										<xs:annotation>
+											<xs:documentation>Addressing especially renewable energies.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Category">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Windkraft"/>
+															<xs:enumeration value="Solar"/>
+															<xs:enumeration value="Biogas"/>
+															<xs:enumeration value="Geothermie"/>
+															<xs:enumeration value="Gezeiten"/>
+															<xs:enumeration value="Sonstige"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="TargetRegion" type="TargetRegionDEType">
+													<xs:annotation>
+														<xs:documentation>Gives the region in the world most part of the properties of the fund are located.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Infrastructure">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Category">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Ver- und Entsorgung"/>
+															<xs:enumeration value="Kommunikation"/>
+															<xs:enumeration value="OEPNV"/>
+															<xs:enumeration value="Individualverkehr"/>
+															<xs:enumeration value="Bildung"/>
+															<xs:enumeration value="Dienstleistung"/>
+															<xs:enumeration value="Gesundheit/Medizin"/>
+															<xs:enumeration value="Kultur"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="TargetRegion" type="TargetRegionDEType">
+													<xs:annotation>
+														<xs:documentation>Gives the region in the world most part of the properties of the fund are located.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="PPP" type="xs:boolean">
+													<xs:annotation>
+														<xs:documentation>Public Private Partnership </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ForestryAgriculture">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="TargetRegion" type="TargetRegionDEType">
+													<xs:annotation>
+														<xs:documentation>Gives the region in the world most part of the properties of the fund are located.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Airplane">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Leasing" type="xs:boolean"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="PrivateEquity">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="VentureCapital" type="xs:boolean"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="FundIDDataDEType">
+		<xs:annotation>
+			<xs:documentation>Country Specific data - Germany</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="ISIN" type="ISINType" minOccurs="0"/>
+			<xs:element name="LEI" type="LEICodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TargetRegionDEType">
+		<xs:annotation>
+			<xs:documentation>Country Specific data - Germany</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Deutschland"/>
+			<xs:enumeration value="Euro-Raum"/>
+			<xs:enumeration value="Europa"/>
+			<xs:enumeration value="Nordamerika"/>
+			<xs:enumeration value="Lateinamerika"/>
+			<xs:enumeration value="Naher und Mittlerer Osten"/>
+			<xs:enumeration value="Fernost / ASEAN"/>
+			<xs:enumeration value="Australien / Ozeanien"/>
+			<xs:enumeration value="Afrika"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="CountrySpecificDataATType">
 		<xs:annotation>
 			<xs:documentation>Country Specific data - Austria</xs:documentation>
@@ -13915,7 +15172,7 @@ This element is mandatory if the value of "Properties" is 'Others'. </xs:documen
 			</xs:element>
 			<xs:element name="BuBaReporting" type="ReportingDE_BuBaType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="DE">Das Reporting fuer die Bundesbank. Beinhaltet die Meldungen 10390, 10391, 10392, 10393</xs:documentation>
+					<xs:documentation xml:lang="DE">Deprecated                         Das Reporting fuer die Bundesbank. Beinhaltet die Meldungen 10390, 10391, 10392, 10393</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RealEstateReporting" type="ReportingDE_RealEstateType" minOccurs="0">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2013 (http://www.altova.com) von Oesterreichische Kontrollbank AG (Oesterreichische Kontrollbank AG) bearbeitet -->
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -29,6 +29,7 @@
 			<xs:enumeration value="RT"/>
 			<xs:enumeration value="LO"/>
 			<xs:enumeration value="RI"/>
+			<xs:enumeration value="CO"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="AssetType">
@@ -78,6 +79,16 @@
 					<xs:documentation xml:lang="de">Bezeichnung des Instruments (besonders wichtig für OTC-Instrumente)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="FISN" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>ISO 18774 Name of instument</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="AssetType">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Type of security:
@@ -98,24 +109,28 @@ FE = Fee
 RE = Real Estate
 RT = Real Estate Investment Trust
 LO = Loan
-RI = Right</xs:documentation>
+RI = Right
+CO = Commodity</xs:documentation>
 					<xs:documentation xml:lang="de">Art des Wertpapieres:
 EQ = Aktie
 BO = Rente
-FU = Fonds
-DE = Derivativ
-FE = Devisentermine
-IN = Indexzertifikate
+SC = Fonds/Anteilscheinklasse
+WA = Warrants
+CE = Zertifikat
+OP = Option
+FU = Future
+FX = FX-Forward
 SW = Swap
-AC = Konten
+RP = Repos 
 FT = Festgelder
 CM = Callgelder
+AC = Konten
+FE = Gebühren
 RE = Immobilie
-CB = Convertible Bonds
-CS = Credit Default Swap
-IX = Index
-RP = Repos                
-BM = Benchmark</xs:documentation>
+RT = REIT
+LO = Darlehen
+RI = Rechte
+CO = Commodity</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="AssetTypeType">
@@ -295,6 +310,163 @@ CompanyType + Transparenzkennzeichnung</xs:documentation>
 								<xs:documentation xml:lang="en">Issuer details</xs:documentation>
 								<xs:documentation xml:lang="de">Enthaelt den Wertpapieremittenten</xs:documentation>
 							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Commodity">
+				<xs:annotation>
+					<xs:documentation>Commodity details</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Group">
+							<xs:annotation>
+								<xs:documentation>AG ... Agricultural products
+EN ... Energy
+EV ... Environmental
+EX ... Exotic
+FR ... Freights
+IN ... Index
+ME ... Metals</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="AG"/>
+									<xs:enumeration value="EN"/>
+									<xs:enumeration value="EV"/>
+									<xs:enumeration value="EX"/>
+									<xs:enumeration value="FR"/>
+									<xs:enumeration value="IN"/>
+									<xs:enumeration value="ME"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="SubGroup" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>CO ... Coal
+DA ... Dairy
+EL ... Electricity
+EM ... Emissions
+FO ... Forestry
+GO ... Grain Oilseeds
+IE ... Inter-Energy
+LI ... Livestock
+NG ... Natural Gas
+NP ... Non-Precious
+OL ... Oil
+PR ... Precious
+SO ... Softs
+WE ... Weather</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="CO"/>
+									<xs:enumeration value="DA"/>
+									<xs:enumeration value="EL"/>
+									<xs:enumeration value="EM"/>
+									<xs:enumeration value="FO"/>
+									<xs:enumeration value="GO"/>
+									<xs:enumeration value="IE"/>
+									<xs:enumeration value="LI"/>
+									<xs:enumeration value="NG"/>
+									<xs:enumeration value="NP"/>
+									<xs:enumeration value="OL"/>
+									<xs:enumeration value="PR"/>
+									<xs:enumeration value="SO"/>
+									<xs:enumeration value="WE"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Description" type="Text256Type" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Description of commodity (e.g. Gold, Copper, Meat, ...)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Exchange at which this asset is listed.</xs:documentation>
+								<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Listing" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Indicator whether this asset is listed at an exchange
+A   Listed at an official market
+B   Listed at an exchange
+G   Listed on a regular market
+K   No listing
+M  Listed on a regular market inside the EU
+O  Over the Counter (OTC)
+S   Unregulated market
+V   Securitised rights
+Y   Acceptance on unregulated market planned
+Z   New issue</xs:documentation>
+								<xs:documentation xml:lang="de">Gibt an ob das Wertpapier an einer Boerse notiert 
+
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission       </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="G"/>
+									<xs:enumeration value="K"/>
+									<xs:enumeration value="M"/>
+									<xs:enumeration value="O"/>
+									<xs:enumeration value="S"/>
+									<xs:enumeration value="V"/>
+									<xs:enumeration value="Y"/>
+									<xs:enumeration value="Z"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ListingUnit" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Listing unit:
+P ... Pieces
+U ... Units</xs:documentation>
+								<xs:documentation xml:lang="de">S = Stueck
+oder
+N = Nominale</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="P"/>
+									<xs:enumeration value="U"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="WeightSize" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Gram, Kilogram, Ounce, Carat</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Gram"/>
+									<xs:enumeration value="Kilogram"/>
+									<xs:enumeration value="Ounce"/>
+									<xs:enumeration value="Carat"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Industries" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>List of industries</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IndustryCode" type="IndustryCodeType" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>

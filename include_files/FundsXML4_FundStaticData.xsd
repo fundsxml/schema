@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 rel. 3 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
+<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Thomas Koop (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="FundStaticDataType">
@@ -118,6 +118,77 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0"/>
 			<xs:element name="Classifications" type="ClassificationsType" minOccurs="0"/>
 			<xs:element name="Companies" type="FundCompaniesType" minOccurs="0"/>
+			<xs:element name="PortfolioManagers" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about the person or persons that manage the fund</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PortfolioManager" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Name" type="Text256Type">
+										<xs:annotation>
+											<xs:documentation>Indicates the name of the person in charge of the management of the portfolio</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="StartDate" type="xs:date">
+										<xs:annotation>
+											<xs:documentation>Indicates the start date from which on the fund manager was made responsible for managing the portfolio.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Role" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>Indicates the role of the person in charge of the management of the portfolio</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="YearOfBirth" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indicates the date of birth of the person in charge of the management of the portfolio</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Gender" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indicates the gender of the person in charge of the management of the portfolio</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Male"/>
+												<xs:enumeration value="Female"/>
+												<xs:enumeration value="Diverse"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="StartOfCareer" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indicates when the person in charge of the management of the portfolio started his professional career in the financial industry</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Biography" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Biography of the Portfolio Manager</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="BriefBiography" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Indicates a brief curriculum vitae (CV) of the person in charge of the management of the portfolio</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="BiographyLanguage" type="ISOLanguageCodeType">
+													<xs:annotation>
+														<xs:documentation>Specifies the language of the Portfolio Manager's brief biography.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SubfundStaticDataType">
@@ -351,6 +422,7 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 							<xs:enumeration value="Domiciliary Agent"/>
 							<xs:enumeration value="Fund Promoter"/>
 							<xs:enumeration value="Legal Advisor"/>
+							<xs:enumeration value="Management Company"/>
 							<xs:enumeration value="Paying Agent"/>
 							<xs:enumeration value="Sub Transfer Agent"/>
 							<xs:enumeration value="Sub Investment Advisor"/>

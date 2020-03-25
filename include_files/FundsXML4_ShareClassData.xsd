@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+<!-- Mit XMLSpy v2012 sp1 (x64) (http://www.altova.com) von Thomas Koop (BVI Bundesverband Investment und Asset Managemament e.V.) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -50,7 +50,153 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="MinimumInvestment" type="FundAmountType" minOccurs="0"/>
+			<xs:element name="RegistrationCountries" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contains information where the share class is registered and distributed.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="RegistrationCountry" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CountryCode" type="ISOCountryCodeType">
+										<xs:annotation>
+											<xs:documentation>Share-class registration countries (Host countries).</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Status" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Give additional information about the registration in a specific country.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Registered"/>
+												<xs:enumeration value="De-registered"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="StatusDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Date, at which the fund or shareclass is registered or de-registered in the country</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SubStatus" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indicates if an investor limitation exist for related registration country</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Institutional Investors only"/>
+												<xs:enumeration value="Qualified Investors only"/>
+												<xs:enumeration value="Retail Investors only"/>
+												<xs:enumeration value="Authorised CIS"/>
+												<xs:enumeration value="Recognised CIS"/>
+												<xs:enumeration value="Restricted authorised CIS"/>
+												<xs:enumeration value="Restricted recognised CIS"/>
+												<xs:enumeration value="Qualifying CIS under ASEAN CIS framework"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="MarketingDistributionStatus" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Give additional information about the marketing distribution in a specific country.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Registered"/>
+												<xs:enumeration value="De-registered"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="MarketingDistributionStatusDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Date, at which the distribution of the fund or shareclass started or ended in the country</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SubscriptionRestrictions" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Specifies restrictions on the purchase of a share class</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MinSubscriptionAmount" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates the minimum initial subscription value in the relevant currency. 0 EUR means that there is no minimum applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MinSubscriptionShares" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates the minimum initial number of units/shares that must be purchased if any. 0 means that there is no minimum applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MinSubscriptionAmountSubsequent" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates the minimum subscription value for existing investors expressed in the relevant currency. 0 EUR means that there is no minimum applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MinSubscriptionSharesSubsequent" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates the minimum number of units/shares that must be purchased by existing investors if any. 0 means that there is no minimum applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MinRegularInvestmentAmount" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates  the Minimum Regular Investment amount allowed (e.g. EUR 1000). 0 EUR means that there is no Minimum Regular Investment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MinRegularInvestmentShares" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Enter the Minimum Regular Investment in units/shares allowed. Format is Numeric Value (e.g. if 1 Share then enter 1).0 means that there is no Minimum Regular Investment in units/shares applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherSubscriptionRestrictions" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicate any other restrictions that may limit an investor's ability to subscribe. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RedemptionRestrictions" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Specifies restrictions on the sale of a share class.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MaxRedemptionAmount" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates the maximum redemption value in the relevant currency. 0 EUR means that there is no maximum redemption value applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MaxRedemptionShares" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates the maximum number of units/shares that may be redeemed. 0 means that there is no maximum number of shares applicable.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MinHoldingPeriod" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates the number of months that shares must be held before redemption is permitted.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherRedemptionRestrictions" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicate any other restrictions that may limit an investor's ability to redeem.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MinimumInvestment" type="FundAmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>deprecated</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="OpenToNewInvestorsFlag" type="xs:boolean" minOccurs="0"/>
 			<xs:element name="CurrencyHedgedFlag" type="xs:boolean" minOccurs="0"/>
 			<xs:element name="IsLeveragedFlag" type="xs:boolean" minOccurs="0"/>
@@ -166,6 +312,57 @@
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Allocation" type="AllocationType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MarketPlaces" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about the market places of a share class</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MarketPlace" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="MarketIdentifierCode" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The Market Identifier Code (MIC) is a unique identification code used to identify securities trading exchanges, regulated and non-regulated trading markets. The MIC is a four alpha character code, and is defined in ISO 10383.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:length value="4"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="NAVCurrency" type="ISOCurrencyCodeType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The NAV Currency allowed on that Market Place for the related share class</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TradingCurrency" type="ISOCurrencyCodeType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The Trading Currency used on that Market place for specified NAV Currency</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MarketMaker" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Name" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Name of the Market Maker</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Identifier" type="IdentifiersType">
+													<xs:annotation>
+														<xs:documentation>Identifiers for the Market Maker</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

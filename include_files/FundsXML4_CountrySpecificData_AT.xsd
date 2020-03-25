@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
+	<xs:complexType name="CountrySpecificDataATType">
+		<xs:complexContent>
+			<xs:extension base="xs:anyType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CountrySpecificControlDataATType">
+		<xs:sequence>
+			<xs:element name="FundDataPortalContent" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Valid options defined in documentation of fund data portal by OeKB</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountrySpecificFundDataATType">
+		<xs:annotation>
+			<xs:documentation>Country specific data for Austria</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OeNB" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>ZusatzFelder fuer die monatliche OFI Meldung </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Subscription" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Mittelzufluesse aus Ausgabe von Anteilsrechten fuer den Gesamtfonds</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Redemption" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Mittelabfluesse aus Ruecknahme von Anteilsrechten fuer den Gesamtfonds</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Distribution" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Mittelabfluss aus Ausschuettung zum Ex-Tag</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TotalNetAssetPreviousMonth" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Fondsvermoegen des Vormonats (ultimo) des Gesamtfonds (sollte dem Wert der letzten Meldung entsprechen; wenns geht)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Meldungstyp">
+							<xs:annotation>
+								<xs:documentation>"OFI" ... OFI/IF Meldung an OeNB
+"OFI-IMO" ... OFI/IF Meldung an OeNB für Immofonds</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="OFI"/>
+									<xs:enumeration value="OFI-IMO"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PKG2012" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Daten für die Quartalsmeldeverordnung 2012 der FMA auf der Basis des neuen Pensionskassengesetzes</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="0">
+						<xs:element name="Details" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Einzelpositionsdaten</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Position" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Je Position zumindest ein Knoten mit einer UniqueID und der QMV-Kategorie und/oder dem zuzurechnenden Betrag. Bei Derivaten sollten hier zwei Knoten je Position angegeben werden (Bewertung + Exposure).</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Identifiers" type="IdentifiersType">
+													<xs:annotation>
+														<xs:documentation>Bezug zur Position bzw. Bezug zum Wertpapier, Derivat oder Geld</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Category">
+													<xs:annotation>
+														<xs:documentation>PKG/QMV-Kategorie (dreistellige Nummer) laut Vermögensausweis</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:totalDigits value="3"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="Value" type="AmountType">
+													<xs:annotation>
+														<xs:documentation>Betrag, der aufgrund der oben genannten Position einer Kategorie zugerechnet wird</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Summary" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Summen je Kategorie (entspricht dem Meldeformular)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Position" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Je Kategorie ein Knoten</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Category">
+													<xs:annotation>
+														<xs:documentation>PKG/QMV-Kategorie (dreistellige Nummer) laut Vermögensausweis</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:totalDigits value="3"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="Value" type="AmountType">
+													<xs:annotation>
+														<xs:documentation>Summe für obige Kategorie</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OeKBStammdatenblatt" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Enthält die Felder des OeKB Stammdatenblatts lt. Beschreibungen der OeKB</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Block1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ISIN" type="ISINType"/>
+									<xs:element name="BestehendeTranchen" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ISIN" type="ISINType" maxOccurs="unbounded"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Art">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="FONDS"/>
+												<xs:enumeration value="TECHNISCHE_ISIN"/>
+												<xs:enumeration value="C-PLAN"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Fondsbezeichnung" type="xs:string"/>
+									<xs:element name="Kapitalanlagegesellschaft">
+										<xs:annotation>
+											<xs:documentation>Data Supplier Code lt. Liste OeKB</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="100"/>
+												<xs:enumeration value="300"/>
+												<xs:enumeration value="350"/>
+												<xs:enumeration value="351"/>
+												<xs:enumeration value="400"/>
+												<xs:enumeration value="500"/>
+												<xs:enumeration value="700"/>
+												<xs:enumeration value="800"/>
+												<xs:enumeration value="900"/>
+												<xs:enumeration value="1000"/>
+												<xs:enumeration value="1050"/>
+												<xs:enumeration value="1100"/>
+												<xs:enumeration value="1110"/>
+												<xs:enumeration value="1500"/>
+												<xs:enumeration value="1600"/>
+												<xs:enumeration value="1725"/>
+												<xs:enumeration value="1750"/>
+												<xs:enumeration value="1775"/>
+												<xs:enumeration value="1900"/>
+												<xs:enumeration value="2000"/>
+												<xs:enumeration value="2200"/>
+												<xs:enumeration value="5001"/>
+												<xs:enumeration value="9100"/>
+												<xs:enumeration value="9200"/>
+												<xs:enumeration value="9300"/>
+												<xs:enumeration value="9500"/>
+												<xs:enumeration value="9600"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Depotbank">
+										<xs:annotation>
+											<xs:documentation>Depotbank Code lt. Liste OeKB</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="5"/>
+												<xs:enumeration value="14050"/>
+												<xs:enumeration value="14500"/>
+												<xs:enumeration value="19000"/>
+												<xs:enumeration value="19140"/>
+												<xs:enumeration value="19200"/>
+												<xs:enumeration value="19240"/>
+												<xs:enumeration value="20100"/>
+												<xs:enumeration value="20151"/>
+												<xs:enumeration value="20320"/>
+												<xs:enumeration value="20330"/>
+												<xs:enumeration value="20503"/>
+												<xs:enumeration value="31010"/>
+												<xs:enumeration value="32050"/>
+												<xs:enumeration value="32505"/>
+												<xs:enumeration value="58000"/>
+												<xs:enumeration value="99821"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="SteuerlicherVertreter" type="xs:string"/>
+									<xs:element name="GueltigAb" type="xs:date"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Block2">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Fondswaehrung">
+										<xs:simpleType>
+											<xs:restriction base="ISOCurrencyCodeType">
+												<xs:enumeration value="EUR"/>
+												<xs:enumeration value="AUD"/>
+												<xs:enumeration value="BGN"/>
+												<xs:enumeration value="BRL"/>
+												<xs:enumeration value="CAD"/>
+												<xs:enumeration value="CHF"/>
+												<xs:enumeration value="CLP"/>
+												<xs:enumeration value="CNY"/>
+												<xs:enumeration value="CZK"/>
+												<xs:enumeration value="DKK"/>
+												<xs:enumeration value="GBP"/>
+												<xs:enumeration value="HKD"/>
+												<xs:enumeration value="HRK"/>
+												<xs:enumeration value="HUF"/>
+												<xs:enumeration value="ILS"/>
+												<xs:enumeration value="JPY"/>
+												<xs:enumeration value="KPW"/>
+												<xs:enumeration value="KRW"/>
+												<xs:enumeration value="LTL"/>
+												<xs:enumeration value="LVL"/>
+												<xs:enumeration value="MYR"/>
+												<xs:enumeration value="NOK"/>
+												<xs:enumeration value="NZD"/>
+												<xs:enumeration value="PHP"/>
+												<xs:enumeration value="PLN"/>
+												<xs:enumeration value="RON"/>
+												<xs:enumeration value="RUB"/>
+												<xs:enumeration value="SEK"/>
+												<xs:enumeration value="SGD"/>
+												<xs:enumeration value="THB"/>
+												<xs:enumeration value="TRY"/>
+												<xs:enumeration value="USD"/>
+												<xs:enumeration value="ZAR"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="KleinsteStueckelung">
+										<xs:simpleType>
+											<xs:restriction base="xs:decimal">
+												<xs:minInclusive value="0"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="DatumErsterRechenwert" type="xs:date"/>
+									<xs:element name="Fondsende" type="xs:date" minOccurs="0"/>
+									<xs:element name="Anlageschwerpunkt" type="xs:string" minOccurs="0"/>
+									<xs:element name="GeschaeftsjahrBeginn">
+										<xs:annotation>
+											<xs:documentation>TT.MM.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Day">
+													<xs:annotation>
+														<xs:documentation>Day between 1 and 31</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="31"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="Month">
+													<xs:annotation>
+														<xs:documentation>Month between 1 and 12</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="12"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="GeschaeftsjahrEnde">
+										<xs:annotation>
+											<xs:documentation>TT.MM.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Day">
+													<xs:annotation>
+														<xs:documentation>Day between 1 and 31</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="31"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="Month">
+													<xs:annotation>
+														<xs:documentation>Month between 1 and 12</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="12"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Ausschuettungsdatum">
+										<xs:annotation>
+											<xs:documentation>TT.MM.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Day">
+													<xs:annotation>
+														<xs:documentation>Day between 1 and 31</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="31"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="Month">
+													<xs:annotation>
+														<xs:documentation>Month between 1 and 12</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="12"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Ausgabeaufschlag" type="PercentageType"/>
+									<xs:element name="VerwaltungsgebuehrPA" type="PercentageType"/>
+									<xs:element name="StaffelungVerwaltungsgebuehr" type="xs:boolean"/>
+									<xs:element name="Ruecknahmespesen" type="PercentageType" minOccurs="0"/>
+									<xs:element name="RuecknahmeAbrundung" type="xs:decimal" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Block3">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="FondsCharakteristik">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="OGAW"/>
+												<xs:enumeration value="AIFRO"/>
+												<xs:enumeration value="AIFRG"/>
+												<xs:enumeration value="AIFIO"/>
+												<xs:enumeration value="AIFIG"/>
+												<xs:enumeration value="EUSEO"/>
+												<xs:enumeration value="EUSEG"/>
+												<xs:enumeration value="EUVEO"/>
+												<xs:enumeration value="EUVEG"/>
+												<xs:enumeration value="ELTIO"/>
+												<xs:enumeration value="ELTIG"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Sondervermoegen" type="xs:boolean"/>
+									<xs:element name="Fondskategorie">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="RSHT"/>
+												<xs:enumeration value="RMED"/>
+												<xs:enumeration value="RLONG"/>
+												<xs:enumeration value="RFLEX"/>
+												<xs:enumeration value="MMFST"/>
+												<xs:enumeration value="MMF"/>
+												<xs:enumeration value="GKON"/>
+												<xs:enumeration value="GAUS"/>
+												<xs:enumeration value="GDYN"/>
+												<xs:enumeration value="AKT"/>
+												<xs:enumeration value="DHF"/>
+												<xs:enumeration value="DERF"/>
+												<xs:enumeration value="HLGBS"/>
+												<xs:enumeration value="HLGST"/>
+												<xs:enumeration value="HMTNL"/>
+												<xs:enumeration value="HSTBS"/>
+												<xs:enumeration value="HFXIA"/>
+												<xs:enumeration value="HCBAR"/>
+												<xs:enumeration value="HVLAR"/>
+												<xs:enumeration value="HDSRS"/>
+												<xs:enumeration value="HRAMA"/>
+												<xs:enumeration value="HEYSS"/>
+												<xs:enumeration value="HCLST"/>
+												<xs:enumeration value="HABLG"/>
+												<xs:enumeration value="HMACR"/>
+												<xs:enumeration value="HCTAF"/>
+												<xs:enumeration value="HCTAQ"/>
+												<xs:enumeration value="HHFND"/>
+												<xs:enumeration value="HOFND"/>
+												<xs:enumeration value="PVENT"/>
+												<xs:enumeration value="PGRTH"/>
+												<xs:enumeration value="PMZNE"/>
+												<xs:enumeration value="PMULT"/>
+												<xs:enumeration value="POTHR"/>
+												<xs:enumeration value="IRESL"/>
+												<xs:enumeration value="ICOML"/>
+												<xs:enumeration value="IINDL"/>
+												<xs:enumeration value="IMULT"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Muendelsicher" type="xs:boolean"/>
+									<xs:element name="AbfertPensionsRStFonds" type="xs:boolean"/>
+									<xs:element name="PensionskassenfondsPara25" type="xs:boolean"/>
+									<xs:element name="Pensionsinvestmentfonds">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="PIF"/>
+												<xs:enumeration value="ZVE"/>
+												<xs:enumeration value="NEIN"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ZugehoerigkeitRahmenwerk">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="RK46"/>
+												<xs:enumeration value="RK75"/>
+												<xs:enumeration value="NK166"/>
+												<xs:enumeration value="NKSP"/>
+												<xs:enumeration value="NKSPA"/>
+												<xs:enumeration value="NKSPI"/>
+												<xs:enumeration value="NKPIF"/>
+												<xs:enumeration value="NKPZV"/>
+												<xs:enumeration value="NKZVE"/>
+												<xs:enumeration value="EUSEF"/>
+												<xs:enumeration value="EUVEC"/>
+												<xs:enumeration value="ELTIF"/>
+												<xs:enumeration value="IMMO"/>
+												<xs:enumeration value="IMMOG"/>
+												<xs:enumeration value="SONST"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="MasterFeederFonds">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="MSTER"/>
+												<xs:enumeration value="FDER"/>
+												<xs:enumeration value="NEIN"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="UmbrellaFonds" type="xs:boolean"/>
+									<xs:element name="GeltendesRecht">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="AT"/>
+												<xs:enumeration value="BE"/>
+												<xs:enumeration value="DE"/>
+												<xs:enumeration value="ES"/>
+												<xs:enumeration value="FR"/>
+												<xs:enumeration value="IE"/>
+												<xs:enumeration value="IT"/>
+												<xs:enumeration value="LU"/>
+												<xs:enumeration value="NL"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Tranchenfonds" type="xs:boolean"/>
+									<xs:element name="Fondstyp">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="FOF"/>
+												<xs:enumeration value="ZIELF"/>
+												<xs:enumeration value="INVF"/>
+												<xs:enumeration value="IMMO"/>
+												<xs:enumeration value="SONST"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Ertragstyp">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="A"/>
+												<xs:enumeration value="T"/>
+												<xs:enumeration value="VTIA"/>
+												<xs:enumeration value="VTA"/>
+												<xs:enumeration value="VTI"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Zielgruppe">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="PF"/>
+												<xs:enumeration value="PFGA"/>
+												<xs:enumeration value="SF"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="PreismeldungOeKB">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="TGL"/>
+												<xs:enumeration value="NTGL"/>
+												<xs:enumeration value="NEIN"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ArtPreisberechnung">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="DAT+1"/>
+												<xs:enumeration value="DAT"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ImmobilienInvFG">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="IMM10"/>
+												<xs:enumeration value="IMM20"/>
+												<xs:enumeration value="NA"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Anlageregion">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="AT"/>
+												<xs:enumeration value="NAM"/>
+												<xs:enumeration value="LAM"/>
+												<xs:enumeration value="AP"/>
+												<xs:enumeration value="APXJ"/>
+												<xs:enumeration value="JPN"/>
+												<xs:enumeration value="SASIA"/>
+												<xs:enumeration value="EURGE"/>
+												<xs:enumeration value="EU"/>
+												<xs:enumeration value="EURO"/>
+												<xs:enumeration value="EUXUK"/>
+												<xs:enumeration value="ME"/>
+												<xs:enumeration value="AFR"/>
+												<xs:enumeration value="MEAEM"/>
+												<xs:enumeration value="LAMEM"/>
+												<xs:enumeration value="APEM"/>
+												<xs:enumeration value="CEE"/>
+												<xs:enumeration value="COMM"/>
+												<xs:enumeration value="GLDM"/>
+												<xs:enumeration value="GLEM"/>
+												<xs:enumeration value="GLAC"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Anlagewaehrung">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="EUR"/>
+												<xs:enumeration value="EURVW"/>
+												<xs:enumeration value="EURHG"/>
+												<xs:enumeration value="SICUR"/>
+												<xs:enumeration value="GLDOM"/>
+												<xs:enumeration value="GL"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="AnlagewaehrungWaehrungen">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="AUD"/>
+												<xs:enumeration value="BGN"/>
+												<xs:enumeration value="BRL"/>
+												<xs:enumeration value="CAD"/>
+												<xs:enumeration value="CHF"/>
+												<xs:enumeration value="CLP"/>
+												<xs:enumeration value="CNY"/>
+												<xs:enumeration value="CZK"/>
+												<xs:enumeration value="DKK"/>
+												<xs:enumeration value="GBP"/>
+												<xs:enumeration value="HKD"/>
+												<xs:enumeration value="HRK"/>
+												<xs:enumeration value="HUF"/>
+												<xs:enumeration value="ILS"/>
+												<xs:enumeration value="JPY"/>
+												<xs:enumeration value="KPW"/>
+												<xs:enumeration value="KRW"/>
+												<xs:enumeration value="LTL"/>
+												<xs:enumeration value="LVL"/>
+												<xs:enumeration value="MYR"/>
+												<xs:enumeration value="NOK"/>
+												<xs:enumeration value="NZD"/>
+												<xs:enumeration value="PHP"/>
+												<xs:enumeration value="PLN"/>
+												<xs:enumeration value="RON"/>
+												<xs:enumeration value="RUB"/>
+												<xs:enumeration value="SEK"/>
+												<xs:enumeration value="SGD"/>
+												<xs:enumeration value="THB"/>
+												<xs:enumeration value="TRY"/>
+												<xs:enumeration value="USD"/>
+												<xs:enumeration value="ZAR"/>
+												<xs:enumeration value="NA"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Rententypen">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="CORP"/>
+												<xs:enumeration value="GOV"/>
+												<xs:enumeration value="AGBND"/>
+												<xs:enumeration value="NA"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="DurationRentenGemFonds">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="RSHT"/>
+												<xs:enumeration value="RMED"/>
+												<xs:enumeration value="RLONG"/>
+												<xs:enumeration value="RFLEX"/>
+												<xs:enumeration value="NA"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="RisikoklasseRenten">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="MINAA"/>
+												<xs:enumeration value="INGR"/>
+												<xs:enumeration value="NINGR"/>
+												<xs:enumeration value="NA"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="KapitalisierungAktien">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="SMCAP"/>
+												<xs:enumeration value="LMCAP"/>
+												<xs:enumeration value="NA"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ActiveStyleManagement">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="GRWTH"/>
+												<xs:enumeration value="VALUE"/>
+												<xs:enumeration value="BLEND"/>
+												<xs:enumeration value="NA"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="PassiveStyleManagement" type="xs:boolean"/>
+									<xs:element name="EUROSIF" type="xs:boolean"/>
+									<xs:element name="Inflationsschutzanleihen" type="xs:boolean"/>
+									<xs:element name="Convertibles" type="xs:boolean"/>
+									<xs:element name="AbsMbs" type="xs:boolean"/>
+									<xs:element name="Laufzeitenfonds" type="xs:boolean"/>
+									<xs:element name="EinsatzDerivate">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="DERH"/>
+												<xs:enumeration value="DERHS"/>
+												<xs:enumeration value="NEIN"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="AnlageAlternativeInvestments">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="NEIN"/>
+												<xs:enumeration value="AIK10"/>
+												<xs:enumeration value="AIM10"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="SRRIKategorie">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="MARKT"/>
+												<xs:enumeration value="AR"/>
+												<xs:enumeration value="TR"/>
+												<xs:enumeration value="STRUC"/>
+												<xs:enumeration value="LIFCY"/>
+												<xs:enumeration value="NA"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ExchangeTradedFund" type="xs:boolean"/>
+									<xs:element name="Garantiefonds" type="xs:boolean"/>
+									<xs:element name="RegulatRisikomanagement">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="COMMA"/>
+												<xs:enumeration value="VARAB"/>
+												<xs:enumeration value="VARRE"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Leerverkauf" type="xs:boolean"/>
+									<xs:element name="Rohstoff" type="xs:boolean"/>
+									<xs:element name="SachwertImmobilien" type="xs:boolean"/>
+									<xs:element name="FMAWarnhinweis" type="xs:boolean"/>
+									<xs:element name="NichtVertriebUS" type="xs:boolean"/>
+									<xs:element name="FATCACompliant" type="xs:boolean"/>
+									<xs:element name="IndexLizenzhinweis" type="xs:boolean"/>
+									<xs:element name="Preisveroeffentlichung">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="A"/>
+												<xs:enumeration value="K"/>
+												<xs:enumeration value="N"/>
+												<xs:enumeration value="V"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ArtFMV2015">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="InvF"/>
+												<xs:enumeration value="ImmoInvF"/>
+												<xs:enumeration value="AIF"/>
+												<xs:enumeration value="ImmoAIF"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="KEStMeldefonds" type="xs:boolean"/>
+									<xs:element name="UnterlKEStZinsen98EStG" type="xs:boolean"/>
+									<xs:element name="KESt98EStGMeldefonds" type="xs:boolean"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Block4">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Rueckfragen" type="xs:string" minOccurs="0"/>
+									<xs:element name="EMail" type="xs:string" minOccurs="0"/>
+									<xs:element name="Telefon" type="xs:string" minOccurs="0"/>
+									<xs:element name="Anmerkungen" type="xs:string" minOccurs="0"/>
+									<xs:element name="Datum" type="xs:date"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountrySpecificAssetMasterDataATType">
+		<xs:complexContent>
+			<xs:extension base="xs:anyType"/>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

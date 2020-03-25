@@ -1,0 +1,1208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
+	<xs:include schemaLocation="FundsXML4_TransactionData.xsd"/>
+	<xs:complexType name="PortfolioType">
+		<xs:sequence>
+			<xs:element name="NavDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>NavDate for all data within this section</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Positions" type="PositionsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>All positions/holdings of fund/portfolio (including accounts, earnings and fees)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Transactions" type="TransactionsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Transactions within the portfolio (securities and other assets bought or sold)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Earnings" type="EarningsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Earnings data (coupons, dividends, distributions) resulting from security positions</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PositionsDecomposed" type="PositionsDecomposedType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Decomposed positions (holdings of share classes are replaced by the scaled down positions of the subfund)</xs:documentation>
+					<xs:documentation xml:lang="de">Aufgelöste Bestände (Anteilscheinbestände werden durch die anteiligen Bestände des Subfonds ersetzt)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BreakDowns" type="BreakDownsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>All kind of break down data (including currency exposure)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RiskCodes" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">List of risk codes (risk indicators, key risk figures)</xs:documentation>
+					<xs:documentation xml:lang="de">Risiko-Kennzahlen</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="RiskCode" type="RiskCodeType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Risk code value</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionType">
+		<xs:sequence>
+			<xs:element name="UniqueID">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Unique identifier referencing the corresponding element in the AssetMasterData block</xs:documentation>
+					<xs:documentation xml:lang="de">Eindeutige Referenznummer der Stammdaten der Position (muss unter /AssetMasterData/Asset/UniqueID vorhanden sein)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:IDREF">
+						<xs:maxLength value="256"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Identifiers" type="IdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Identifiers of instrument (like ISIN, Ticker, ...)
+</xs:documentation>
+					<xs:documentation xml:lang="en">Kennnummer des im Portfolio enthaltenen Instrumentes (ISIN, Ticker, ...)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Valuation currency (original currency of security/derivative/cash)</xs:documentation>
+					<xs:documentation xml:lang="de">Bewertungswährung (Währung des Wertpapiers/Derivates/Geldes)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalValue" type="FundAmountType">
+				<xs:annotation>
+					<xs:documentation>Total value of position (including interests ...)
+
+Sum of all total values in fund currency must be equal to fund volume (total nav of fund)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherTotalValues" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Additional total values (e.g. Hold-To-Maturity)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="OtherTotalValue" type="OtherTotalValueType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TotalPercentage" type="PercentageType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Percentage of total value based on total asset value (of fund or share class)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AveragePurchasePrice" type="FundAmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Average purchase price (considering all transactions related to this position)</xs:documentation>
+					<xs:documentation xml:lang="de">Mischeinstands-Preis</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AveragePurchaseFXRate" type="FXRatesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Average purchase fx rates (considering all transactions related to this position)</xs:documentation>
+					<xs:documentation xml:lang="de">Mischeinstands-Devisenkurs</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Exposures" type="ExposureType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Exposure of position (for different approaches)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FXRates" type="FXRatesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>FX rates used for evaluation of position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PricingSource" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Pricing source (including OTC positions)</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt die Kursquelle an (auch für OTC-Positionen)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="Listed">
+							<xs:annotation>
+								<xs:documentation>Pricing source with enumeration list</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="BARCLAYS"/>
+									<xs:enumeration value="BLOOMBERG"/>
+									<xs:enumeration value="BROKERS"/>
+									<xs:enumeration value="FACTSET"/>
+									<xs:enumeration value="JPMORGAN"/>
+									<xs:enumeration value="LPC"/>
+									<xs:enumeration value="MARKIT"/>
+									<xs:enumeration value="MERRILL"/>
+									<xs:enumeration value="NTRS"/>
+									<xs:enumeration value="REUTERS"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Unlisted" type="Text200Type">
+							<xs:annotation>
+								<xs:documentation>Free text pricing source</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="Equity">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Details for equity positions</xs:documentation>
+						<xs:documentation xml:lang="de">Details für Aktienpositionen</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Units" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Units of equity</xs:documentation>
+									<xs:documentation xml:lang="de">Stücke der Aktie im Bestand</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Preis der Aktie (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Market value of position (excluding dividends)</xs:documentation>
+									<xs:documentation xml:lang="de">Kurswert der Aktienposition (exklusive Ansprüche)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Book rate</xs:documentation>
+									<xs:documentation xml:lang="de">Buchkurs</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase value of position</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert der Position</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="DividendsDue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Dividends due of position</xs:documentation>
+									<xs:documentation xml:lang="de">Dividendenforderungen fuer Aktienbestaende</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Flag indicating that part of position is lended</xs:documentation>
+									<xs:documentation xml:lang="de">Kennzeichen, dass Teile des Bestandes verliehen wurden</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of lended equities</xs:documentation>
+									<xs:documentation xml:lang="de">Anzahl der verliehenen Stücke</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="IndicatorRaffled" type="xs:boolean" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Indicates whether security has been raffled</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt an, ob das Wertpapier verlost wurde</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Bond">
+					<xs:annotation>
+						<xs:documentation>Details for bond positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Nominal" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Nominal value (units) of bond</xs:documentation>
+									<xs:documentation xml:lang="de">Nominale/Stückzahl der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OriginalFace" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Par value of a bond when it has been bought</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Clean price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Bewertungskurs (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="DirtyPrice" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Dirty Price (including interests)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Market value of security position without interests</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="InterestClaimNet" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest claim net value</xs:documentation>
+									<xs:documentation xml:lang="de">Netto-Zinsanspruch der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="InterestClaimGross" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest claim gross value</xs:documentation>
+									<xs:documentation xml:lang="de">Brutto-Zinsanspruch der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="AccruedInterestDays" type="xs:integer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of accrued interest days</xs:documentation>
+									<xs:documentation xml:lang="de">Anzahl der Stueckzins Tage an</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ZeroBondInterestClaimNet" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest claim net value of zero bond position</xs:documentation>
+									<xs:documentation xml:lang="de">Netto-Zinsanspruch der Null-Coupon-Anleihenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ZeroBondInterestClaimGross" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest claim gross value of zero bond position</xs:documentation>
+									<xs:documentation xml:lang="de">Brutto Zinsanspruch des Zerobond an</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ZeroBondCapitalYieldsTaxClaim" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Capital yields tax claim of zero bond position</xs:documentation>
+									<xs:documentation xml:lang="de">KEST-Anspruch der Null-Coupon-Anleihenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ZeroBondYield" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Yield of zero bond (percentage)</xs:documentation>
+									<xs:documentation xml:lang="de">Null-Coupon-Anleihenrendite (in Prozent)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Indexfactor" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Index factor of bond</xs:documentation>
+									<xs:documentation xml:lang="de">Indexfaktor der Anleihe</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Poolfactor" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Pool factor of bond</xs:documentation>
+									<xs:documentation xml:lang="de">Poolfaktor der Anleihe</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Book rate</xs:documentation>
+									<xs:documentation xml:lang="de">Buchkurs</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="AcrualIndexedBond" type="xs:boolean" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Indicates whether it is an acrual indexed bond</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt an ob die Abgrenzung der Indexanleihe erfolgt</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="DateLastCouponPayment" type="xs:date" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Date when last coupon will be payed</xs:documentation>
+									<xs:documentation xml:lang="de">Datum an dem der letzte Kupon gezahlt wird</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Indicates whether (part of) position is lended</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt an, ob Bestand (teilweise) verliehen ist</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of lended units</xs:documentation>
+									<xs:documentation xml:lang="de">Verliehende Stücke</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="IndicatorRaffled" type="xs:boolean" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Indicates whether bond has been raffled</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt an, ob das Wertpapier verlost wurde</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ShareClass">
+					<xs:annotation>
+						<xs:documentation>Details for subfund positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Shares" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of shares</xs:documentation>
+									<xs:documentation xml:lang="de">Anzahl der Anteilscheine</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Clean price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Bewertungskurs (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Book rate</xs:documentation>
+									<xs:documentation xml:lang="de">Buchkurs</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Indicates whether (part of) position is lended</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt an, ob Bestand (teilweise) verliehen ist</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of lended units</xs:documentation>
+									<xs:documentation xml:lang="de">Verliehende Stücke</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="IndicatorRaffled" type="xs:boolean" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Indicates whether bond has been raffled</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt an, ob das Wertpapier verlost wurde</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Warrant">
+					<xs:annotation>
+						<xs:documentation>Details for warrant positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Units" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Units of warrant</xs:documentation>
+									<xs:documentation xml:lang="de">Stücke des Optionsscheines</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Bewertungskurs (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Book rate</xs:documentation>
+									<xs:documentation xml:lang="de">Buchkurs</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Certificate">
+					<xs:annotation>
+						<xs:documentation>Details for certificate</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Units" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Units of certificate</xs:documentation>
+									<xs:documentation xml:lang="de">Stücke der Aktie im Bestand</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Indicates whether (part of) position is lended</xs:documentation>
+									<xs:documentation xml:lang="de">Gibt an, ob Bestand (teilweise) verliehen ist</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of lended units</xs:documentation>
+									<xs:documentation xml:lang="de">Verliehende Stücke</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Option">
+					<xs:annotation>
+						<xs:documentation>Details for option positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Contracts" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation>Number of contracts (may be negative)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Bewertungskurs (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Book rate</xs:documentation>
+									<xs:documentation xml:lang="de">Buchkurs</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="HedgeRatio" type="PercentageType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Hedging ratio (percentage)</xs:documentation>
+									<xs:documentation xml:lang="de">Anteil der Position zur Absicherung in Prozent</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Future">
+					<xs:annotation>
+						<xs:documentation>Details for future positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Contracts" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of contracts (may be negative)</xs:documentation>
+									<xs:documentation xml:lang="de">Anzahl der Kontrakte (kann negativ sein)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Bewertungskurs (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PrelProfitLoss" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Preliminary Profit/Loss (current valuation of future position)</xs:documentation>
+									<xs:documentation xml:lang="de">Vorläufiger Gewinn/Verlust (aktuelle Bewertung der Future-Position)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Book rate</xs:documentation>
+									<xs:documentation xml:lang="de">Buchkurs</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="VariationMarginDaily" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Daily variation margin</xs:documentation>
+									<xs:documentation xml:lang="de">Zeigt taeglich den Wert der Variation Margin an</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="VariationMarginOverall" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Overall value of variation margin</xs:documentation>
+									<xs:documentation xml:lang="de">Zeigt den Wert der Variation Margin an</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="HedgeRatio" type="PercentageType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Hedging ratio (percentage)</xs:documentation>
+									<xs:documentation xml:lang="de">Anteil der Position zur Absicherung in Prozent</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="FXForward">
+					<xs:annotation>
+						<xs:documentation>Details for FXForward positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="HedgeRatio" type="PercentageType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Hedging ratio (percentage)</xs:documentation>
+									<xs:documentation xml:lang="de">Anteil der Position zur Absicherung in Prozent</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="FxRateForEvaluation" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>FX-Rate used for evaluation</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Swap">
+					<xs:annotation>
+						<xs:documentation>Details for swap positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="HedgeRatio" type="PercentageType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Hedging ratio (percentage)</xs:documentation>
+									<xs:documentation xml:lang="de">Anteil der Position zur Absicherung in Prozent</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="CurrentSpread" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Spread on valuation date in basis points (for Credit Default Swaps)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PresentValueOfPayments" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Present value of all paid and received premiums (for Credit Default Swaps)
+positive - receiving premiums
+negative - paying premiums</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="LegValues" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Valuations of legs</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="LegValue" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Type">
+														<xs:annotation>
+															<xs:documentation>Buy or Sell</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="BUY"/>
+																<xs:enumeration value="SELL"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="Value" type="FundAmountType">
+														<xs:annotation>
+															<xs:documentation>Current Valuation of Leg</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Repo">
+					<xs:annotation>
+						<xs:documentation>Details for repos (empty)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="0"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="FixedTimeDeposit">
+					<xs:annotation>
+						<xs:documentation>Details for fixed time deposits</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Market value of position (without interests)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Interests" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Value of interests</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CallMoney">
+					<xs:annotation>
+						<xs:documentation>Details for call money positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Market value of position (without interests)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Interests" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Value of interests</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Account">
+					<xs:annotation>
+						<xs:documentation>Details for account positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Market value of position (without interests)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Interests" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Value of interests</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fee">
+					<xs:annotation>
+						<xs:documentation>Details for fees (empty)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="0"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="RealEstate">
+					<xs:annotation>
+						<xs:documentation>Details for real estate positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Market value of position</xs:documentation>
+									<xs:documentation xml:lang="de">Aktueller Verkehrswert</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RentIncome" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Rent income</xs:documentation>
+									<xs:documentation xml:lang="de">Miete (80%) inkl. Abschlagszahlung</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RentAccruals" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Rent accruals</xs:documentation>
+									<xs:documentation xml:lang="de">Aktuelle Mietabgrenzung</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MaintenanceReserve" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Maintenance reserve (20%) for the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Instandhaltungsrücklage (20%)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MaintenanceProvision" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Maintenance provision for the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Instandhaltungsrückstellung</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="AncillaryCosts" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Ancillary costs of the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Anschaffungsnebenkosten</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Outstanding" type="FundAmountType" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">Ancillary costs outstanding</xs:documentation>
+												<xs:documentation xml:lang="de">offene ANK</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="Accrued" type="FundAmountType" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">Ancillary costs already accrued</xs:documentation>
+												<xs:documentation xml:lang="de">bereits abgegrenzte ANK</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RentDeposit" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Rent deposit for the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Kautionen</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RentReceivables" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Oustanding rent receivables</xs:documentation>
+									<xs:documentation xml:lang="de">offene Mietforderungen</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="TaxLiabilities" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Consolidated tax liabilities for the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Steuerverbindlichkeiten (Sammelposition)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="VacancyCosts" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Vacancy costs of the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Leerstands-Betriebskosten</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PlannedMaintenanceCosts" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Yearly planned costs of maintenance</xs:documentation>
+									<xs:documentation xml:lang="de">Enthaelt die jährlich geplanten Instanthaltungskosten</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherIncome" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Other income of the real estate asset; e.g.building lease charges etc.</xs:documentation>
+									<xs:documentation xml:lang="de">Pacht/Baurechtzins etc.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherAssets" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Other assets corresponding to the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Sonstige Aktiva</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherLiabilities" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Other liabilities corresponding to the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Sonstige Passiva</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherNonFinancialAssetValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Current market value of other non financial assets corresponding to the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="de">Sonstige Bewirtschaftungsgüter; Zeitwert zum Stichtag</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="REIT">
+					<xs:annotation>
+						<xs:documentation>Details for real estate investment trust (empty)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="0"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Loan">
+					<xs:annotation>
+						<xs:documentation>Details for loan positions</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Market value of position (without interests)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="InterestAccruals" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest accruals</xs:documentation>
+									<xs:documentation xml:lang="de">Zinsabgrenzung</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Right">
+					<xs:annotation>
+						<xs:documentation>Details for rights (empty)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="0"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="CapitalYieldsTaxClaim" type="FundAmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Capital yields tax claim of position</xs:documentation>
+					<xs:documentation xml:lang="de">KESt-Betrag der Position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InflationaryAdjustment" type="PercentageType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Inflationary adjustment of position</xs:documentation>
+					<xs:documentation xml:lang="de">Inflationsausgleich der Position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RiskCodes" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Risk figures of position</xs:documentation>
+					<xs:documentation xml:lang="de">Risikokennzahlen der Position</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="RiskCode" type="RiskCodeType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Risk figure</xs:documentation>
+								<xs:documentation xml:lang="de">Risikokennzahl</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Underlyings" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Details of underlyings (price, ...)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Underlying" type="PositionUnderlyingType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Additional information which does not fit into the nodes above</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionUnderlyingType">
+		<xs:annotation>
+			<xs:documentation>Position underlying details</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UniqueID" type="xs:IDREF" minOccurs="0"/>
+			<xs:element name="Identifiers" type="IdentifiersType" minOccurs="0"/>
+			<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0"/>
+			<xs:element name="Issuer" type="xs:string" minOccurs="0"/>
+			<xs:element name="Price" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Delta" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Solvability" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Weight" type="PercentageType" minOccurs="0"/>
+			<xs:element name="FXRates" type="FXRatesType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RiskCodeType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="ListedCode">
+					<xs:annotation>
+						<xs:documentation>Specific Code as defined in enumeration:
+Active Share
+Beta factor
+Correlation
+Covariance
+Delta
+Duration
+Expected Shortfall
+Gamma
+Information Ratio
+Jensen alpha
+Leverage (Gross)
+Leverage (Limit)
+Leverage (Usage)
+Liquidated within 1 day
+Modified Duration
+Net Commodity Delta
+Net CS01 (for credit default swaps)
+Net DV01 (BVBP)
+Net equity delta
+Net FX Delta
+Sharpe ratio
+Tracking error
+Treynor ratio
+VaR (commitment approach)
+VaR (gross method)
+VaR Absolute (Limit)
+VaR Absolute (UCITS Method)
+Vega
+Vega Exposure
+Volatility of prices
+Volatility of returns
+Yield
+</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="ACTIVE SHARE"/>
+							<xs:enumeration value="BETA FACTOR"/>
+							<xs:enumeration value="CORRELATION"/>
+							<xs:enumeration value="COVARIANCE"/>
+							<xs:enumeration value="DELTA"/>
+							<xs:enumeration value="DURATION"/>
+							<xs:enumeration value="EXPECTED SHORTFALL"/>
+							<xs:enumeration value="GAMMA"/>
+							<xs:enumeration value="INFORMATION RATIO"/>
+							<xs:enumeration value="JENSEN ALPHA"/>
+							<xs:enumeration value="LEVERAGE GROSS"/>
+							<xs:enumeration value="LEVERAGE LIMIT"/>
+							<xs:enumeration value="LEVERAGE USAGE"/>
+							<xs:enumeration value="LIQUIDATED WITHIN ONE DAY"/>
+							<xs:enumeration value="MODIFIED DURATION"/>
+							<xs:enumeration value="NET COMMODITY DELTA"/>
+							<xs:enumeration value="NET CS01"/>
+							<xs:enumeration value="NET DV01"/>
+							<xs:enumeration value="NET EQUITY DELTA"/>
+							<xs:enumeration value="NET FX DELTA"/>
+							<xs:enumeration value="SHARPE RATIO"/>
+							<xs:enumeration value="TRACKING ERROR"/>
+							<xs:enumeration value="TREYNOR RATIO"/>
+							<xs:enumeration value="VAR COMMITMENT APPROACH"/>
+							<xs:enumeration value="VAR GROSS METHOD"/>
+							<xs:enumeration value="VAR ABSOLUTE LIMIT"/>
+							<xs:enumeration value="VAR ABSOLUT UCITS"/>
+							<xs:enumeration value="VEGA"/>
+							<xs:enumeration value="VEGA EXPOSURE"/>
+							<xs:enumeration value="VOLATILITY OF PRICES"/>
+							<xs:enumeration value="VOLATILITY OF RETURNS"/>
+							<xs:enumeration value="YIELD"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="UnlistedCode">
+					<xs:annotation>
+						<xs:documentation>Free code for unlisted codes</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="100"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="Value" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Value of risk code</xs:documentation>
+					<xs:documentation xml:lang="de">Wert der Risikokennzahl</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Frequency" type="FrequencyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Frequency of data used for calculation</xs:documentation>
+					<xs:documentation xml:lang="de">Bezieht sich auf die zur Berechnung verwendete Datenbasis</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateFrom" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Start of period for risk value</xs:documentation>
+					<xs:documentation xml:lang="de">Beginn des Kennzahl - Intervalles</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateTo" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">End of period for risk value</xs:documentation>
+					<xs:documentation xml:lang="de">Ende des Kennzahl - Intervalles</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Annualization" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Indicates whether risk value has been annualized (false of not applicable)</xs:documentation>
+					<xs:documentation xml:lang="de">true - annualisiert
+false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="Text1000Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Description of calculation method</xs:documentation>
+					<xs:documentation xml:lang="de">Beschreibung der Berechnungsmethode</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExposureType">
+		<xs:sequence>
+			<xs:element name="Exposure" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Type" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Type of exposure (commitment approach, AIFMD, ...)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Value" type="FundAmountType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionsType">
+		<xs:sequence>
+			<xs:element name="Position" type="PositionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BreakDownsType">
+		<xs:sequence>
+			<xs:element name="BreakDown" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Dimensions">
+							<xs:annotation>
+								<xs:documentation>Combination of dimensions (e.g. Currency+AssetType)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dimension" type="xs:string" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Currency, Country, AssetType, Duration, Rating, ...</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CalculationMethod" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Market Value, Exposure, Brutto, Netto, ...</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Values">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Value" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="DimValues">
+													<xs:annotation>
+														<xs:documentation>Combination of dimension values</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="DimValue" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:string">
+																			<xs:attribute name="dim" type="xs:string"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="Percentage" type="PercentageType">
+													<xs:annotation>
+														<xs:documentation>Percentage in relation to complete portfolio</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="BreakDowns" type="BreakDownsType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Optional breakdowns on next level</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionValuationType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="OtherTotalValueType">
+		<xs:sequence>
+			<xs:element name="Type" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Type of total value (e.g. Hold-To-Maturity)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="FundAmountType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionsDecomposedType">
+		<xs:sequence>
+			<xs:element name="LookThroughLevels" type="xs:positiveInteger">
+				<xs:annotation>
+					<xs:documentation>Number of look-through levels</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LookThroughLimit" type="PercentageType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>All share class positions above this percentage limit are decomposed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Positions" type="PositionsType">
+				<xs:annotation>
+					<xs:documentation>All positions/holdings of fund/portfolio (including accounts and fees)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

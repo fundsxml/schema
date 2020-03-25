@@ -1,0 +1,3022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_AT.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_DE.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_DK.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_FR.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_LU.xsd"/>
+	<xs:include schemaLocation="FundsXML4_CountrySpecificData_NL.xsd"/>
+	<xs:complexType name="AssetMasterDataType">
+		<xs:sequence>
+			<xs:element name="Asset" type="AssetType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="AssetTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EQ"/>
+			<xs:enumeration value="BO"/>
+			<xs:enumeration value="SC"/>
+			<xs:enumeration value="WA"/>
+			<xs:enumeration value="CE"/>
+			<xs:enumeration value="OP"/>
+			<xs:enumeration value="FU"/>
+			<xs:enumeration value="FX"/>
+			<xs:enumeration value="SW"/>
+			<xs:enumeration value="RP"/>
+			<xs:enumeration value="FT"/>
+			<xs:enumeration value="CM"/>
+			<xs:enumeration value="AC"/>
+			<xs:enumeration value="FE"/>
+			<xs:enumeration value="RE"/>
+			<xs:enumeration value="RT"/>
+			<xs:enumeration value="LO"/>
+			<xs:enumeration value="RI"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AssetType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Complete Asset data Information</xs:documentation>
+			<xs:documentation xml:lang="de"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UniqueID" type="xs:ID">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Unique identifier referencing the corresponding element in the AssetMasterData block</xs:documentation>
+					<xs:documentation xml:lang="de">Eindeutige Referenznummer der Stammdaten der Position (muss unter /AssetMasterData/Asset/UniqueID vorhanden sein)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Identifiers" type="IdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Identification codes of the asset</xs:documentation>
+					<xs:documentation xml:lang="de">Kennnummern des Instruments</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Currency" type="ISOCurrencyCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Nominal currency of instrument (three character ISO code)</xs:documentation>
+					<xs:documentation xml:lang="de">Notierungswährung des Instruments (dreistelliger ISO-Code)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncomeCurrency" type="ISOCurrencyCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Income currency of instrument</xs:documentation>
+					<xs:documentation xml:lang="de">Die Ertraegniswaehrung als ISO-Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Country of asset (two character ISO code)</xs:documentation>
+					<xs:documentation xml:lang="de">Land des Instrumentes (Emissionsland)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="Text256Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Name of the instrument (important for OTC instruments)</xs:documentation>
+					<xs:documentation xml:lang="de">Bezeichnung des Instruments (besonders wichtig für OTC-Instrumente)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssetType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Type of security:
+EQ = Equity
+BO = Bond (incl. convertibles)
+SC = Share Class (was fund)
+WA = Warrant (Optionsschein)
+CE = Certificate
+OP = Option
+FU = Future
+FX = FX-Forward
+SW = Swap
+RP = Repo
+FT = Fixed Time deposit
+CM = Call Money
+AC = Account
+FE = Fee
+RE = Real Estate
+RT = Real Estate Investment Trust
+LO = Loan
+RI = Right</xs:documentation>
+					<xs:documentation xml:lang="de">Art des Wertpapieres:
+EQ = Aktie
+BO = Rente
+FU = Fonds
+DE = Derivativ
+FE = Devisentermine
+IN = Indexzertifikate
+SW = Swap
+AC = Konten
+FT = Festgelder
+CM = Callgelder
+RE = Immobilie
+CB = Convertible Bonds
+CS = Credit Default Swap
+IX = Index
+RP = Repos                
+BM = Benchmark</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="AssetTypeType">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AssetDetails" type="AssetDetailsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Asset details for each AssetType</xs:documentation>
+					<xs:documentation xml:lang="de">Weitere Stammdaten (gegliedert nach AssetType)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountrySpecificData" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Country specific data: information about the asset relevant for a specific country only</xs:documentation>
+					<xs:documentation xml:lang="de">Landesspezifische Daten eines Asset: Unterhalb der landesspezifischen Daten werden alle Informationen eines Asset abgelegt, die nur fuer ein bestimmtes Land gueltig sind. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AT" type="CountrySpecificAssetMasterDataATType" minOccurs="0"/>
+						<xs:element name="DE" type="CountrySpecificAssetMasterDataDEType" minOccurs="0"/>
+						<xs:element name="DK" type="CountrySpecificAssetMasterDataDKType" minOccurs="0"/>
+						<xs:element name="FR" type="CountrySpecificAssetMasterDataFRType" minOccurs="0"/>
+						<xs:element name="LU" type="CountrySpecificAssetMasterDataLUType" minOccurs="0"/>
+						<xs:element name="NL" type="CountrySpecificAssetMasterDataNLType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Securitized" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Securitized (true) or non-securitized (false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ratings" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Rating details of instrument</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Rating" type="RatingsType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Rating-Informationen</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RealEstateCompany" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Corresponding real estate company</xs:documentation>
+					<xs:documentation xml:lang="de">zugehörige Grundstücksgesellschaft 
+
+CompanyType + Transparenzkennzeichnung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Classifications" type="ClassificationsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Classifications of assets</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Additional information which does not fit into the nodes above</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssetDetailsType">
+		<xs:annotation>
+			<xs:documentation>Master Data Security Details</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="Equity" type="EquityType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Equity details</xs:documentation>
+					<xs:documentation xml:lang="de">Aktie</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bond" type="BondType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Bond, Fixed Income details</xs:documentation>
+					<xs:documentation xml:lang="de">Rente</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShareClass" type="ShareClassDetailsType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Share class of fund details</xs:documentation>
+					<xs:documentation xml:lang="de">Anteilschein eines Fonds</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Warrant" type="WarrantType">
+				<xs:annotation>
+					<xs:documentation>Warrant details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Certificate" type="CertificateType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Certificate details</xs:documentation>
+					<xs:documentation xml:lang="de">Indexzertifikat</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Option" type="OptionType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Option details</xs:documentation>
+					<xs:documentation xml:lang="de">Option</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Future" type="FutureType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Future details</xs:documentation>
+					<xs:documentation xml:lang="de">Unbedingtes Termingeschäft</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FXForward" type="ForeignExchangeTradeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">FX Forward details</xs:documentation>
+					<xs:documentation xml:lang="de">Devisentermingeschäft</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Swap" type="SwapType">
+				<xs:annotation>
+					<xs:documentation>Swap details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Repo" type="ReposType">
+				<xs:annotation>
+					<xs:documentation>Repos - Sale and Repurchase Agreement Details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FixedTimeDeposit" type="FixedTimeDepositType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Fixed time deposit details</xs:documentation>
+					<xs:documentation xml:lang="de">Festgelder Details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CallMoney" type="CallCapitalType">
+				<xs:annotation>
+					<xs:documentation>Callmoney details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Account" type="AccountType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Account details</xs:documentation>
+					<xs:documentation xml:lang="de">Konten aus Fondsbuchhaltung, physische Bank- und Depotkonten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Fee" type="FeeType">
+				<xs:annotation>
+					<xs:documentation>Fee details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RealEstate" type="RealEstateType">
+				<xs:annotation>
+					<xs:documentation>Real Estate details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REIT" type="REITType">
+				<xs:annotation>
+					<xs:documentation>Real Estate Investment Trust - TO BE COMPLETED</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Loan" type="LoanType">
+				<xs:annotation>
+					<xs:documentation>Loan / Kredit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Right">
+				<xs:annotation>
+					<xs:documentation>Right / Bezugsrecht - TO BE COMPLETED</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence/>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="EquityType">
+		<xs:annotation>
+			<xs:documentation>Equity Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ClassOfBusiness" type="IndustryProviderType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Provider of economic sector classification</xs:documentation>
+					<xs:documentation xml:lang="de">Enhaelt den Anbieter</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Exchange at which this fund is listed.</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Issuer details</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt den Wertpapieremittenten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Listing" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Indicator whether this equity is listed at an exchange
+A   Listed at an official market
+B   Listed at an exchange
+G   Listed on a regular market
+K   No listing
+M  Listed on a regular market inside the EU
+S   Unregulated market
+V   Securitised rights
+Y   Acceptance on unregulated market planned
+Z   New issue</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an ob das Wertpapier an einer Boerse notiert 
+
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission       </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="K"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="V"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="Z"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParValue" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Nominal value (in "Currency" )</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den Nennwert der Aktie an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WithholdingTaxRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Withholding tax rate of equity</xs:documentation>
+					<xs:documentation xml:lang="de">Quest Satz der Aktie</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubscriptionRatioFrom" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Subscription ratio: drawn equity </xs:documentation>
+					<xs:documentation xml:lang="de">Gibt das Bezugsverhaeltnis "von" an
+
+- X:1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubscriptionRatioTo" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Subscription ratio: received equity</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt das Bezugsverhaeltnis "zu" an
+
+- 1:X</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MarketCapitalization" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Market capitalization</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Date" type="xs:date"/>
+						<xs:element name="Value" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">In Currency</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CustomMarketCapitalization" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Class of market capitalization: LargeCap, MidCap, ...</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Name">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Name of capitalization class</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Small Cap"/>
+									<xs:enumeration value="Small &amp; Mid Cap"/>
+									<xs:enumeration value="Mid Cap"/>
+									<xs:enumeration value="Mid &amp; Large Cap"/>
+									<xs:enumeration value="Large Cap"/>
+									<xs:enumeration value="All Cap"/>
+									<xs:enumeration value="Other"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Date" type="xs:date"/>
+						<xs:element name="Value" type="xs:decimal"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Industries" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of industries</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="IndustryCode" type="IndustryCodeType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BondType">
+		<xs:annotation>
+			<xs:documentation>Bond Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConvertibleFlag" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Indicates whether bond is convertible</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Issuer details</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt den Wertpapieremittenten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Exchange(s) at which this fund is listed.</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Listing" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Indicator whether this equity is listed at an exchange
+A   Listed at an official market
+B   Listed at an exchange
+G   Listed on a regular market
+K   No listing
+M  Listed on a regular market inside the EU
+S   Unregulated market
+V   Securitised rights
+Y   Acceptance on unregulated market planned
+Z   New issue</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an ob das Wertpapier an einer Boerse notiert 
+
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="K"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="V"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="Z"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ListingUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Listing unit:
+P ... pieces
+N ... nominal amount</xs:documentation>
+					<xs:documentation xml:lang="de">S = Stueck
+oder
+N = Nominale</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="P"/>
+						<xs:enumeration value="N"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="IssueDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Issue date of the bond</xs:documentation>
+					<xs:documentation xml:lang="de">Emissionsdatum bezeichnet jenes Datum, zu dem das Wertpapier aufgelegt wurde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Maturity date</xs:documentation>
+					<xs:documentation xml:lang="de">Ablaufdatum/Faelligkeitsdatum</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateFirstCoupon" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">First coupon date</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt das Datum des ersten Kupons</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateLastCoupon" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Last coupon date</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt das Datum an dem der letzte Kupon gezahlt wird</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CouponDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Coupon date</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt das Kupondatum an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Coupon" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Coupon details</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Type" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>fix/float/zero/others</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="fix"/>
+									<xs:enumeration value="float"/>
+									<xs:enumeration value="zero"/>
+									<xs:enumeration value="others"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="PaymentFrequency" type="FrequencyType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Payment frequency (e.g. yearly)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="InterestRate" type="xs:decimal" minOccurs="0"/>
+						<xs:element name="BaseIndex" type="IdentifiersType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>e.g. EURIBOR 6 Months</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OffsetBPS" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Offset in base points in addition to BaseIndex</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RedemptionRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Price at which the bond finally will be redeemded</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt den Kurs zu dem das Wertpapier getilgt wird</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Redemption" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Redemption details</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Type" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Bullet or Sinkable</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Bullet"/>
+									<xs:enumeration value="Sinkable"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Frequency" type="FrequencyType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Redemption frequency</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IssuerDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Date when issuer could cancel the issue</xs:documentation>
+								<xs:documentation xml:lang="de">Enthaelt das Datum ab dem der Emittent die Emission kuendigen kann</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OptionDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Date of next execution possibility</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OptionDirection" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Issuer, Bearer, Both</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OptionStrikePrice" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Strike price for embedded option</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InterestRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Nominal interest rate</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt einen Zinssatz</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestsStartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Start date for calculation of interests</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt das Datum ab dem ein Zinsanspruch ermittelt wird</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssueRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en"> Price at whicht the bond has been issued.
+***IssuePrice </xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt den Emissionskurs des Wertpapier</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssueYield" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Yield to maturity of the bond at the date of issue.</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt die Emissionsrendite des Wertpapier</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Yields" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Yield values</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Yield" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Method" type="xs:string"/>
+									<xs:element name="Date" type="xs:date"/>
+									<xs:element name="Value" type="xs:decimal"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EUWithholdingTaxRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">European withholding tax rate</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den EU Quest Satz an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EUWithholdingTaxCategory" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">EU withholding tax category:
+A = Exact calculation
+B = Simplified calculation
+C = No calculation</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt die EU Quest Kategorie an:
+A = Genaue Berechnung
+B = Vereinfachte Berechnung
+C = Keine Berechnung</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="C"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CapitalYieldsTaxKind" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Indicates whether incomes of a bond will be charged with capital yields tax and its kind - TO BE DISCUSSED !!!</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an ob ein Wertpapier KESt-Pflichtig ist</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CapitalYieldsTaxRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt die Hoehe des gueltigen KESt-Satzes an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GuaranteeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Type of guarantee:
+GARA ... Guarantee
+PARENT ... Guarantee by parent company
+HYPO ... Hypothek
+NEG ... Negativklausel
+NONE ... Not guaranteed
+OTHER ... Other
+STATE ... State guarantee</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="GARA"/>
+						<xs:enumeration value="HYPO"/>
+						<xs:enumeration value="NEG"/>
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="PARENT"/>
+						<xs:enumeration value="STATE"/>
+						<xs:enumeration value="OTHER"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Guarantor" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Guarantor details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndicatorAcceptableAsCollateral" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Indicates whether asset can be used as collateral</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an, ob es sich um ein Lombardfaehiges Wertpapier handelt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndicatorZoneA" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Enthaelt ein Kennzeichen, ob es sich um ein Wertpapier handelt, welches in einem Zone A Staat begeben wurde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndicatorAbsolutelySafe" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Enthaelt ein Kennzeichen, ob das Wertpapier muendelsicher ist
+Boolean: true/false</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WithholdingTaxRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt den Quest Satz an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgioFactor" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt den Zuschlagsfaktor an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Durations" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of duration values</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Duration" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Name" type="xs:string"/>
+									<xs:element name="Date" type="xs:date"/>
+									<xs:element name="Value" type="xs:decimal"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Tranche" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Number of tranche</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConvertibleBond" type="ConvertibleBondType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Details for Convertibles (Wandelanleihen)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ShareClassDetailsType">
+		<xs:annotation>
+			<xs:documentation>Master data specific for share classes (subfunds)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Issuer details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Listing" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an ob das Wertpapier an einer Boerse notiert 
+
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission       </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="K"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="V"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="Z"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ListingUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>U = Unit
+or
+N = Nominale</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="U"/>
+						<xs:enumeration value="N"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="IssueDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Emissionsdatum bezeichnet jenes Datum, zu dem das Wertpapier aufgelegt wurde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt das Tilgungsdatum an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WithholdingTaxRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Enthaelt den Quellensteuersatz dem das Wertpapier unterliegt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShareClassType" type="ShareClassTypeType" minOccurs="0"/>
+			<xs:element name="ExchangeTradedFundFlag" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OptionType">
+		<xs:annotation>
+			<xs:documentation>Derivative Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type">
+				<xs:annotation>
+					<xs:documentation>Art der Option
+- BFO   Bond Future Option
+- BO     Bond Option
+- CFO   Currency Future Option
+- EFO   Equity Future Option
+- CO    Currency Option
+- IFO   Index Future Option
+- IO     Index Option
+- IRFO Interest Rate Future Option
+- IRO   Interest Rate Option
+- OTCIB OTC Indexbasket Option
+- SO    Stock Option</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="BFO"/>
+						<xs:enumeration value="BO"/>
+						<xs:enumeration value="CFO"/>
+						<xs:enumeration value="EFO"/>
+						<xs:enumeration value="CO"/>
+						<xs:enumeration value="IFO"/>
+						<xs:enumeration value="IO"/>
+						<xs:enumeration value="IRFO"/>
+						<xs:enumeration value="IRO"/>
+						<xs:enumeration value="OTCIB"/>
+						<xs:enumeration value="SO"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Issuer details (for listed options)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Listing" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an ob das Wertpapier an einer Boerse notiert 
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- O  OTC - Over the Counter
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission       </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="K"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="O"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="V"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="Z"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BasePrice" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt den Basispreis des Derivativenprodukts an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExecutionType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Issuer, Bearer, Both</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Issuer"/>
+						<xs:enumeration value="Bearer"/>
+						<xs:enumeration value="Both"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ExecutionStyle" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an den Ausuebungsstyle an (Europe/American/Asian/Bermuda/Other)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Europe"/>
+						<xs:enumeration value="American"/>
+						<xs:enumeration value="Asian"/>
+						<xs:enumeration value="Bermuda"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ContractSize" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Gibt die Kontraktgroesze des Derivativprodukt an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Bezeichnet das Ablaufdatum des Derivativprodukts</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CallPutIndicator">
+				<xs:annotation>
+					<xs:documentation>Kennzeichnet die Art des Derivats (Call/Put)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="CALL"/>
+						<xs:enumeration value="PUT"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="StrikePrice" type="AmountType">
+				<xs:annotation>
+					<xs:documentation>Amount of the strike price</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tick" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tick -  Movement in price</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TickSize" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Minimum downward or upward movement in price</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TickValue" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Value of the tick</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ValueDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Valuation date for fixing?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FixingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Delivery/Fixed/Cash</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Delivery"/>
+						<xs:enumeration value="Fixed"/>
+						<xs:enumeration value="Cash"/>
+						<xs:enumeration value=""/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FirstFixingDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date for the first fixing date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LatestFixingDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date for the latest fixing date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Quotation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Quotation details</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="QuotationType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Price/Yield/Other</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Price"/>
+									<xs:enumeration value="Yield"/>
+									<xs:enumeration value="Other"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:choice>
+							<xs:element name="QuotationPercent" type="xs:float" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Quotation in percent</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="QuotationAmount" type="AmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Amount of Quotation</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LastTradeDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Last Trade Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MarginMethod" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>None/Daily/Weekly/Monthly/Quarterly/SemiAnnual/Annual/BiAnnual/Other</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Biannual"/>
+						<xs:enumeration value="Annual"/>
+						<xs:enumeration value="Semiannual"/>
+						<xs:enumeration value="Quarterly"/>
+						<xs:enumeration value="Monthly"/>
+						<xs:enumeration value="Weekly"/>
+						<xs:enumeration value="Daily"/>
+						<xs:enumeration value="None"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InitialMarginMethod" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Interval/Fixed/None</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Interval"/>
+						<xs:enumeration value="Fixed"/>
+						<xs:enumeration value="None"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QuoteType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>PerUnit/Percent/Permille/Pips/Points/Other</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="PerUnit"/>
+						<xs:enumeration value="Percent"/>
+						<xs:enumeration value="Permille"/>
+						<xs:enumeration value="Pips"/>
+						<xs:enumeration value="Points"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QuoteFactor" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Defines the quote factor</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuoteDecimals" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Number of decimals</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Counterparty details (for OTC options)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ParticipationRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Participation rate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Underlyings" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Underlying" type="UnderlyingType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Bezeichnet das dem Derivativprodukt unterlegte Wertpapier</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FutureType">
+		<xs:annotation>
+			<xs:documentation>Master data specific for futures</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type">
+				<xs:annotation>
+					<xs:documentation>Type of Future:
+- BF   Bond Future
+- CF   Currency Future
+- EF   Equity Future
+- FRA  Forward Rate Agreement
+- IF     Index Future
+- IRF   Interest Rate Future
+- MMF   Money Market Future</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="BF"/>
+						<xs:enumeration value="CF"/>
+						<xs:enumeration value="EF"/>
+						<xs:enumeration value="FRA"/>
+						<xs:enumeration value="IF"/>
+						<xs:enumeration value="IRF"/>
+						<xs:enumeration value="MMF"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Listing" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an ob das Wertpapier an einer Boerse notiert 
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- O  OTC - Over the Counter
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission       </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="K"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="O"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="V"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="Z"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BasePrice" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt den Basispreis des Derivativenprodukts an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContractSize" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Gibt die Kontraktgroesze des Derivativprodukt an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Bezeichnet das Ablaufdatum des Derivativprodukts</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tick" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tick -  Movement in price</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TickSize" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>Minimum downward or upward movement in price</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TickValue" type="AmountType">
+							<xs:annotation>
+								<xs:documentation>Value of the tick</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ValueDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Valuation date for fixing</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FixingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Delivery/Fixed/Cash</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Delivery"/>
+						<xs:enumeration value="Fixed"/>
+						<xs:enumeration value="Cash"/>
+						<xs:enumeration value=""/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Quotation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Quotation</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="QuotationType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Price/Yield/Other</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Price"/>
+									<xs:enumeration value="Yield"/>
+									<xs:enumeration value="Other"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:choice>
+							<xs:element name="QuotationPercent" type="xs:float" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Quotation in percent</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="QuotationAmount" type="AmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Amount of Quotation</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LastTradeDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Last Trade Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Gibt den Boerseplatz an an dem der Future notiert</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MarginMethod" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>None/Daily/Weekly/Monthly/Quarterly/SemiAnnual/Annual/BiAnnual/Other</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Biannual"/>
+						<xs:enumeration value="Annual"/>
+						<xs:enumeration value="Semiannual"/>
+						<xs:enumeration value="Quarterly"/>
+						<xs:enumeration value="Monthly"/>
+						<xs:enumeration value="Weekly"/>
+						<xs:enumeration value="Daily"/>
+						<xs:enumeration value="None"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InitialMarginMethod" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Interval/Fixed/None</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Interval"/>
+						<xs:enumeration value="Fixed"/>
+						<xs:enumeration value="None"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QuoteType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>PerUnit/Percent/Permille/Pips/Points/Other</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="PerUnit"/>
+						<xs:enumeration value="Percent"/>
+						<xs:enumeration value="Permille"/>
+						<xs:enumeration value="Pips"/>
+						<xs:enumeration value="Points"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QuoteFactor" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Defines the quote factor</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuoteDecimals" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Number of decimals</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BusinessDaysConvention" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Following/ModifiedFollowing/Preceding/None</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Following"/>
+						<xs:enumeration value="ModiifiedFollowing"/>
+						<xs:enumeration value="Preceding"/>
+						<xs:enumeration value="None"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Underlyings" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Underlying" type="UnderlyingType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Bezeichnet das dem Derivativprodukt unterlegte Wertpapier</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForeignExchangeTradeType">
+		<xs:annotation>
+			<xs:documentation>Foreign Exchange Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CurrencyBuy" type="ISOCurrencyCodeType">
+				<xs:annotation>
+					<xs:documentation>Currency bought</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountBuy" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Amount bought</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CurrencySell" type="ISOCurrencyCodeType">
+				<xs:annotation>
+					<xs:documentation>Currency sold</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountSell" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Amount sold</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgreedFxRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Agreed FX rate of trade</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Start date of trade</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Maturity / end date of FX trade</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Deliverable" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Defines whether currencies will be delivered at maturity or profit/loss will be transferred only (NDF)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CertificateType">
+		<xs:annotation>
+			<xs:documentation>Index Certificat  Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type">
+				<xs:annotation>
+					<xs:documentation>Index, Security, Currency, Commodity, Interest Rate, Future, Other</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Commodity"/>
+						<xs:enumeration value="Currency"/>
+						<xs:enumeration value="Future"/>
+						<xs:enumeration value="Index"/>
+						<xs:enumeration value="Interest Rate"/>
+						<xs:enumeration value="Security"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Underlyings" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Underlying" type="UnderlyingType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Bezeichnet das dem Derivativprodukt unterlegte Wertpapier</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Issuer details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssueDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Emissionsdatum bezeichnet jenes Datum, zu dem das Wertpapier aufgelegt wurde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Maturity / closing date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SwapType">
+		<xs:annotation>
+			<xs:documentation>SWAP Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type">
+				<xs:annotation>
+					<xs:documentation>Swap type (Currency-, Crosscurrency-, Index-, Totalreturn-, Asset-, Commodity-, Interest Rate-, Other)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Currencyswap"/>
+						<xs:enumeration value="Crosscurrencyswap"/>
+						<xs:enumeration value="Creditdefaultswap"/>
+						<xs:enumeration value="Indexswap"/>
+						<xs:enumeration value="Totalreturnswap"/>
+						<xs:enumeration value="Assetswap"/>
+						<xs:enumeration value="Commodityswap"/>
+						<xs:enumeration value="Interestrateswap"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="StartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Start date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Maturity date (Ablaufdatum)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SettlementDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="Counterparty" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Legs" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Swap leg details</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Leg" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Swap leg details</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="LegType">
+										<xs:sequence>
+											<xs:element name="Type">
+												<xs:annotation>
+													<xs:documentation>Buy or Sell</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="BUY"/>
+														<xs:enumeration value="SELL"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="Currency" type="ISOCurrencyCodeType">
+												<xs:annotation>
+													<xs:documentation>Notional Currency</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="Notional" type="xs:decimal">
+												<xs:annotation>
+													<xs:documentation>Notional Amount</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="BulletPaymentAmount" type="xs:decimal" minOccurs="0"/>
+											<xs:element name="BulletPaymentDate" type="xs:date" minOccurs="0"/>
+											<xs:element name="UpfrontPaymentAmount" type="xs:decimal" minOccurs="0"/>
+											<xs:element name="UpfrontPaymentDate" type="xs:date" minOccurs="0"/>
+											<xs:element name="AccrualDate" type="xs:date" minOccurs="0"/>
+											<xs:element name="YieldType" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Fixed rate or variable rate</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="Fixed Rate"/>
+														<xs:enumeration value="Variable Rate"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="Spread" type="xs:decimal" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Spread in basis points</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="FixedRate" type="xs:decimal" minOccurs="0"/>
+											<xs:element name="RecoveryRate" type="xs:decimal" minOccurs="0"/>
+											<xs:element name="PayFrequency" type="FrequencyType" minOccurs="0"/>
+											<xs:element name="FixingFrequency" type="FrequencyType" minOccurs="0"/>
+											<xs:element name="FirstFixingDate" type="xs:date" minOccurs="0"/>
+											<xs:element name="ResetType" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>In arrears or Upfront</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="In arrears"/>
+														<xs:enumeration value="Upfront"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="SettlementType" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Cash or Cash Netted or Notional Exchange or Physical Delivery</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="Cash"/>
+														<xs:enumeration value="Cash Netted"/>
+														<xs:enumeration value="Notional Exchange"/>
+														<xs:enumeration value="Physical Delivery"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="RollConvention" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>End of month
+Floating
+Following
+Following modified
+Preceeding
+Preceeding modified</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="End of month"/>
+														<xs:enumeration value="Floating"/>
+														<xs:enumeration value="Following"/>
+														<xs:enumeration value="Following modified"/>
+														<xs:enumeration value="Preceeding"/>
+														<xs:enumeration value="Preceeding modified"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="YieldCalculationMethod" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Average
+Compound
+Flat compounding
+Simple</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="Average"/>
+														<xs:enumeration value="Compound"/>
+														<xs:enumeration value="Flat compounding"/>
+														<xs:enumeration value="Simple"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="YieldDayConvention" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>ACT/ACT, ACT/360, ...</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="ACT/ACT"/>
+														<xs:enumeration value="ACT/360"/>
+														<xs:enumeration value="ACT/365"/>
+														<xs:enumeration value="30/360"/>
+														<xs:enumeration value="30/365"/>
+														<xs:enumeration value="30B/360"/>
+														<xs:enumeration value="30E/360"/>
+														<xs:enumeration value="30U/360"/>
+														<xs:enumeration value="BusinessDays/252"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="Underlying" type="IdentifiersType" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Underlying Index</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="ExchangeConvention" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Begin, End, Begin and end, None</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="Begin"/>
+														<xs:enumeration value="Begin+End"/>
+														<xs:enumeration value="End"/>
+														<xs:enumeration value="None"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="InitialReferenceMonth" minOccurs="0">
+												<xs:simpleType>
+													<xs:restriction base="xs:int">
+														<xs:minInclusive value="1"/>
+														<xs:maxInclusive value="12"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="FinalReferenceMonth" minOccurs="0">
+												<xs:simpleType>
+													<xs:restriction base="xs:int">
+														<xs:minInclusive value="1"/>
+														<xs:maxInclusive value="12"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="FirstCouponRate" type="xs:decimal" minOccurs="0"/>
+											<xs:element name="FirstCouponDate" type="xs:date" minOccurs="0"/>
+											<xs:element name="ShortPeriod" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Interpolation at beginning, Interpolation at the end, Interpolation at beginning and end</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="Interpolation at start"/>
+														<xs:enumeration value="Interpolation at end"/>
+														<xs:enumeration value="Interpolation at start+end"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="FixingCalendars" minOccurs="0">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="Calendar" maxOccurs="unbounded">
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:length value="3"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="PaymentCalendars" minOccurs="0">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="Calendar" maxOccurs="unbounded">
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:length value="3"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="CreditEvents" minOccurs="0">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="Event" maxOccurs="unbounded">
+															<xs:annotation>
+																<xs:documentation>Bankruptcy, Cross acceleration, Cross Default, Downgrade, Failure to pay principal, Merger, Moratorium, Obligation acceleration, Obligation default, Other, Reputation Moratorium, Restructuring, Withholding Tax</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:enumeration value="BR"/>
+																	<xs:enumeration value="CA"/>
+																	<xs:enumeration value="CD"/>
+																	<xs:enumeration value="DG"/>
+																	<xs:enumeration value="FP"/>
+																	<xs:enumeration value="ME"/>
+																	<xs:enumeration value="MO"/>
+																	<xs:enumeration value="OA"/>
+																	<xs:enumeration value="OD"/>
+																	<xs:enumeration value="OT"/>
+																	<xs:enumeration value="RM"/>
+																	<xs:enumeration value="RS"/>
+																	<xs:enumeration value="WT"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AccountType">
+		<xs:annotation>
+			<xs:documentation>Master data of accounts</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IndicatorCreditDebit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an ob das Konto default einen Soll oder Habensaldo aufweist</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Credit"/>
+						<xs:enumeration value="Debit"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AccountNumber" type="xs:integer" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt das bei einer Buchung verwendete Konto an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRateDebit" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Zinssatz Soll</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRateCredit" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Zinssatz Haben</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FixedTimeDepositType">
+		<xs:annotation>
+			<xs:documentation>Fixed Time Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="StartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Start date of deposit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Gibt das Tilgungsdatum an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MethodForCalculationOfInterest" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an, nach welcher Methode die Zinsen berechnet werden</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Enthaelt einen Zinssatz</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRateDebit" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Zinssatz Soll</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRateCredit" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Zinssatz Haben</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndicatorCreditDebit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an ob das Konto default einen Soll oder Habensaldo aufweist</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Credit"/>
+						<xs:enumeration value="Debit"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CallCapitalType">
+		<xs:annotation>
+			<xs:documentation>Call capital Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="StartDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Start date of call capital</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Gibt das Tilgungsdatum an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MethodForCalculationOfInterest" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an, nach welcher Methode die Zinsen berechnet werden</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Enthaelt einen Zinssatz</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRateDebit" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Zinssatz Soll</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRateCredit" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Zinssatz Haben</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndicatorCreditDebit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an ob das Konto default einen Soll oder Habensaldo aufweist</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Credit"/>
+						<xs:enumeration value="Debit"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CollateralFlag" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates whether call money is used as collateral</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RealEstateType">
+		<xs:annotation>
+			<xs:documentation>Real Estate Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="InvestmentCosts" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Investment costs of the real estate asset</xs:documentation>
+					<xs:documentation xml:lang="de">Investitionskosten</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PurchasePrice">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Purchase price of the real estate asset according to contract of purchase; including forward purchase contracts</xs:documentation>
+								<xs:documentation xml:lang="de">Kaufpreis der Immobilie oder Grundstück laut Vertrag inkl. Forward puchase Verträgen</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Value" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>Wert</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Currency" type="ISOCurrencyCodeType">
+										<xs:annotation>
+											<xs:documentation>Währung</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FXRate" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>FX Kurs</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ConstructionCosts">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Total construction costs excluding property purchase price (relevant only for building and construction projects)</xs:documentation>
+								<xs:documentation xml:lang="de">Gesamtinvestitionskosten exkl. Grundstückskaufpreis (nur relevant bei Bauprojekten mit laufender Zahlung)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Value" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>Wert</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Currency" type="ISOCurrencyCodeType">
+										<xs:annotation>
+											<xs:documentation>Währung</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FXRate" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>FX Kurs</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FirstRateAcrrual" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Date of the first rate accrual</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt das Datum der ersten Mietabgrenzung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateOfPropertyTransaction" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Date of the property transaction</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt das Datum des Eigentumuebergangs</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConstructionYear" type="xs:positiveInteger" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Year of construction</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt das Errichtungsjahr (Fertigstellung)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalRefurbishmentYear" type="xs:positiveInteger" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Year when the last total refurbishment was finished</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt Jahr der letzten Generalsanierung (Fertigstellung)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Zoning" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Devotement of the real estate asset</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt die Widmung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransactionType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Transaction type of the investment deal:
+
+- direct investment
+- share deal corporate
+- share deal personnel
+- other transaction type</xs:documentation>
+					<xs:documentation xml:lang="de">Art des Immobilienerwerbs:
+
+- direct investment
+- share deal corporate
+- share deal personnel
+- other transaction type</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="direct investment"/>
+						<xs:enumeration value="share deal corporate"/>
+						<xs:enumeration value="share deal personnel"/>
+						<xs:enumeration value="other transaction type"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TypeOfUse" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Type of use of the real estate asset</xs:documentation>
+					<xs:documentation xml:lang="de">Nutzungsart</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ECB" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Type of use according to ECB Investment Funds Statistics classifications</xs:documentation>
+								<xs:documentation xml:lang="de">Nutzungsart gem. EZB-IF Statistik</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="office property"/>
+									<xs:enumeration value="residential property"/>
+									<xs:enumeration value="commercial real estate"/>
+									<xs:enumeration value="other real estate"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="AIFMD" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Type of use according to AIFMD Reporting classifications</xs:documentation>
+								<xs:documentation xml:lang="de">Nutzungsart gem. AIFMD Reporting</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="PHY_RES_RESL"/>
+									<xs:enumeration value="PHY_RES_COML"/>
+									<xs:enumeration value="PHY_RES_OTHR"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Internal" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Internal type of use</xs:documentation>
+								<xs:documentation xml:lang="de">Nutzungsart intern</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalType" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Legal classification of the real estate asset</xs:documentation>
+					<xs:documentation xml:lang="de">Juristische Klassifizierung des Assets gem. ImmoInvFG (AT):
+
+- bebaute Grundstücke
+- Grundstücke im Zustand der Bebauung
+- unbebaute Grundstücke
+- Baurechte, Superädifikate
+- sonstige
+
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConvertibleBondType">
+		<xs:annotation>
+			<xs:documentation>Convertible Bond Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>MCS ... Mandatory convertible security
+COCO ... Contingent convertible bond
+EXCH ... Exchangables</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="COCO"/>
+						<xs:enumeration value="EXCH"/>
+						<xs:enumeration value="MCS"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ConversionStartdate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Startdatum der Wandlung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConversionEnddate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Enddatum der Wandlung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Underlying" type="IdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifiers of underlying security</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConversionPrice" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Preis der Wandlung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConversionRatio" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Conversion ratio (Wandlungsfaktor)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContractSize" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Kontraktgroesse</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExecutionType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Issuer, Bearer, Both</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Issuer"/>
+						<xs:enumeration value="Bearer"/>
+						<xs:enumeration value="Both"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreditDefaultSwapType">
+		<xs:annotation>
+			<xs:documentation>Credit Default Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Currency" type="ISOCurrencyCodeType"/>
+			<xs:element name="Counterparty" type="CompanyType"/>
+			<xs:element name="NotionalAmount" type="xs:decimal"/>
+			<xs:element name="ExpiryDate" type="xs:date"/>
+			<xs:element name="CouponSpread" minOccurs="0">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="fixed">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PercentValue" type="PercentageType" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="variable">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Identifiers" type="IdentifiersType" minOccurs="0"/>
+									<xs:element name="IndexName" type="xs:string" minOccurs="0"/>
+									<xs:element name="DifferenceInBasePoints" type="xs:decimal" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CouponPeriod" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an in welcher Zeiteinheit der Kupon bezahlt wird
+- M = Monthly
+- Q = Quarterly
+- B = Biannual
+- Y = Yearly</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="code" type="xs:string" use="optional"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MethodOfInterestCalculation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an, nach welcher Methode die Zinsen berechnet werden</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="code" type="xs:string" use="optional"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InterestConvention" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>zB. mod.following</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssueDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Emissionsdatum bezeichnet jenes Datum, zu dem das CDS aufgelegt wurde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RecoveryRate" type="xs:decimal" default="0.4" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Default value: 0.4</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PositionType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Buy oder Sell Protection</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="buy protection"/>
+						<xs:enumeration value="sell protection"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Basket, Single oder Portfolio</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="basket"/>
+						<xs:enumeration value="single"/>
+						<xs:enumeration value="portfolio"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PaymentSchedule" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PaymentDay" type="xs:date" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="YieldCurve" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="YieldCurveIdentifier" type="xs:string" minOccurs="0"/>
+						<xs:element name="Vertex" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>1m, 3m, 9m, 12m, 2y, 3y, ...</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="[0-9]+[m,y]"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="PercentageValue" type="PercentageType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Rating" type="RatingsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IndexType">
+		<xs:annotation>
+			<xs:documentation>Index Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SourceCompany" type="CompanyType" minOccurs="0"/>
+			<xs:element name="Market" minOccurs="0"/>
+			<xs:element name="RiskIndicator" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="high"/>
+						<xs:enumeration value="low"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReposType">
+		<xs:annotation>
+			<xs:documentation>Repos Asset data information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RepoType">
+				<xs:annotation>
+					<xs:documentation>BSB - Buy/Sell Back, SBB - Sell/Buy Back</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="BSB"/>
+						<xs:enumeration value="SBB"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="IssueDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Issue date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BaseValueQuotationCurrency" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Issue denomination of base nominal</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Maturity date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Stockmarket of the asset</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UnderlyingType">
+				<xs:annotation>
+					<xs:documentation>Bond,Equity,GDR/ADR,Future,CTD,Frau,IRF,Index,Commodity,Fund Certificate,Index Certificate,Right,US-Pools,Undecided</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Bond"/>
+						<xs:enumeration value="Equity"/>
+						<xs:enumeration value="GDR/ADR"/>
+						<xs:enumeration value="Future"/>
+						<xs:enumeration value="CTD"/>
+						<xs:enumeration value="Frau"/>
+						<xs:enumeration value="IRF"/>
+						<xs:enumeration value="Index"/>
+						<xs:enumeration value="Commodity"/>
+						<xs:enumeration value="Fund Certificate"/>
+						<xs:enumeration value="Index Certificate"/>
+						<xs:enumeration value="Rights"/>
+						<xs:enumeration value="US-Pools"/>
+						<xs:enumeration value="Undecided"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AccruedInterestCalculation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>indicates the method of interest calculation (0 - none, 1 - 30E/360, 10 - 30/360, 11 - 30EP/360, 13 - Act/AFB, 14 - Act/FRF, 15 - Act/252, 18 - Bus/252, 4 - Act/360, 5 - Act/365, 6 - Act/Act, A - act/act - ISMA-Method 251, D - German Method (30/360), E - English Method (MM/365 bzw. 366), F - French Method (MM/360), G - ZBM for french Government Bonds, H - Hungarian Method (MM/365 ohne SJ), I - ISDA Method (MM/365), T - Daily Calculation (MM/365), U - US-Method)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="10"/>
+						<xs:enumeration value="11"/>
+						<xs:enumeration value="13"/>
+						<xs:enumeration value="14"/>
+						<xs:enumeration value="18"/>
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="D"/>
+						<xs:enumeration value="E"/>
+						<xs:enumeration value="F"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="H"/>
+						<xs:enumeration value="I"/>
+						<xs:enumeration value="T"/>
+						<xs:enumeration value="U"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MarginCallFrequency" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Daily/Weekly/Monthly/Quarterly/SemiAnnual/Annual/BiAnnual</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Daily"/>
+						<xs:enumeration value="Weekly"/>
+						<xs:enumeration value="Monthly"/>
+						<xs:enumeration value="Quarterly"/>
+						<xs:enumeration value="SemiAnnual"/>
+						<xs:enumeration value="Annual"/>
+						<xs:enumeration value="BiAnnual"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MarginHaircut" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Free for Risk</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MinimumPercent" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Percentage of the minimum risk</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MinimumAbsolut" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Value of the minimum risk</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MaximumPercent" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Percentage of the maximum risk</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MaximumAbsolut" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Value of the maximum risk</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InitialMargin">
+				<xs:annotation>
+					<xs:documentation>Initially deposited margin</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MinimumPercent" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Percentage of the minimum initial margin</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MinimumAbsolut" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Value of the minimum initial margin</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MaximumPercent" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Percentage of the maximum initial margin</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MaximumAbsolut" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Value of the maximum initial margin</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MarginCallType">
+				<xs:annotation>
+					<xs:documentation>None/Contract/Pool</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="None"/>
+						<xs:enumeration value="Contract"/>
+						<xs:enumeration value="Pool"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PledgeType">
+				<xs:annotation>
+					<xs:documentation>None/Pool</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="None"/>
+						<xs:enumeration value="Pool"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SecurityIDPledge" type="IdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Security code of the pledge</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DeliveryConditions" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Delivery/Payment</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Delivery"/>
+						<xs:enumeration value="Payment"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PriceMethod" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Method of price calculation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Quotetype" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Type of quotation (absolut, percent)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="absolut"/>
+						<xs:enumeration value="percent"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QuoteFactor" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Value of the Quote Factor</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuoteDecimals" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Number of decimals</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Rate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Interest rate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BenchmarkType">
+		<xs:annotation>
+			<xs:documentation>Benchmark information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Components" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Components of a composite benchmark.</xs:documentation>
+					<xs:documentation xml:lang="de">Komponenten eines Composite Benchmarks.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ValidFrom" type="xs:date"/>
+						<xs:element name="Component" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Name" type="xs:string" minOccurs="0"/>
+									<xs:element name="Identifiers" type="IdentifiersType"/>
+									<xs:element name="Weight" type="xs:decimal"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Levels" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Benchmark levels in the Currency.</xs:documentation>
+					<xs:documentation xml:lang="de">Benchmarklevels in der definierten Währung</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Level" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Date" type="xs:date"/>
+									<xs:element name="Value" type="xs:decimal"/>
+									<xs:element name="Property" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IndustryCodeType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Sector codification (GICS,ICB, ...) 
+***"CodificationSystem" would me more relevant than "Name"</xs:documentation>
+					<xs:documentation xml:lang="de">GICS,lehman,ICB.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Date" type="xs:date"/>
+			<xs:element name="Value" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Sector value in "Name" codification system</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IndustryProviderType">
+		<xs:sequence>
+			<xs:element name="Offeror" type="xs:string"/>
+			<xs:element name="Date" type="xs:date"/>
+			<xs:element name="Value" type="xs:string"/>
+			<xs:element name="Text" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UnderlyingType">
+		<xs:sequence>
+			<xs:element name="Type">
+				<xs:annotation>
+					<xs:documentation>Currency, Security, Future, Index</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Currency"/>
+						<xs:enumeration value="Future"/>
+						<xs:enumeration value="Index"/>
+						<xs:enumeration value="Security"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UniqueID" type="xs:IDREF" minOccurs="0"/>
+			<xs:element name="Identifiers" type="IdentifiersType"/>
+			<xs:element name="Nominale" type="xs:decimal" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CounterpartyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Defines the counterparty</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="BIC" type="BicCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>BIC code of the counterparty</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of the counterparty</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LEI" type="LEICodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Legal Entity Identifer (LEI) (ISO 17442 standard) of the Entity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Country of asset (two character ISO code)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RatingsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Fund rating </xs:documentation>
+			<xs:documentation xml:lang="de">Fondsbewertungen</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RatingCompany" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Rating Company (e.g. FERI, SP, Moodys)</xs:documentation>
+					<xs:documentation xml:lang="de">Bewertungsgesellschaft (z.B. FERI, SP, Moody)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Rating" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Investment rating</xs:documentation>
+					<xs:documentation xml:lang="de">Fondsbewertung</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Date" type="xs:date">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Date of the investment rating</xs:documentation>
+								<xs:documentation xml:lang="de">Datum der Fondsbewertung</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Value" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Value of the investment rating</xs:documentation>
+								<xs:documentation xml:lang="de">Wert der Fondsbewertung</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Description" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Description/Kind of the investment rating</xs:documentation>
+								<xs:documentation xml:lang="de">Beschreibung/Art der Fondsbewertung</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LegType"/>
+	<xs:complexType name="LoanType">
+		<xs:sequence>
+			<xs:element name="Counterparty" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Gibt das Tilgungsdatum an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Collateralization" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Besicherung ja/nein;
+True = Ja
+False = Nein</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Zinssatz fix/variabel</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Fixed"/>
+						<xs:enumeration value="Variable"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InterestHedgedBy" type="xs:IDREF" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique ID des zuordenbaren Derivates zur Zinsabsicherung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FxHedgedBy" type="xs:IDREF" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique ID des zuordenbaren Derivates zur Währungsabsicherung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CorrespondingRealEstate" type="IdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Loan is used for this real estate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="REITType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="FeeType">
+		<xs:sequence>
+			<xs:element name="Type" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fee type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WarrantType">
+		<xs:sequence>
+			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Issuer details</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt den Wertpapieremittenten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Listing" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Indicator whether this equity is listed at an exchange
+A   Listed at an official market
+B   Listed at an exchange
+G   Listed on a regular market
+K   No listing
+M  Listed on a regular market inside the EU
+S   Unregulated market
+V   Securitised rights
+Y   Acceptance on unregulated market planned
+Z   New issue</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an ob das Wertpapier an einer Boerse notiert 
+
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="K"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="V"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="Z"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="IssueDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Issue date of the bond</xs:documentation>
+					<xs:documentation xml:lang="de">Emissionsdatum bezeichnet jenes Datum, zu dem das Wertpapier aufgelegt wurde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BasePrice" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt den Basispreis des Derivativenprodukts an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExecutionType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Issuer, Bearer, Both</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Issuer"/>
+						<xs:enumeration value="Bearer"/>
+						<xs:enumeration value="Both"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ExecutionStyle" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gibt an den Ausuebungsstyle an (Europe/American/Asian/Bermuda/Other)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Europe"/>
+						<xs:enumeration value="American"/>
+						<xs:enumeration value="Asian"/>
+						<xs:enumeration value="Bermuda"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ContractSize" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>Gibt die Kontraktgroesze des Derivativprodukt an</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Bezeichnet das Ablaufdatum des Derivativprodukts</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CallPutIndicator">
+				<xs:annotation>
+					<xs:documentation>Kennzeichnet die Art des Derivats (Call/Put)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="CALL"/>
+						<xs:enumeration value="PUT"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="StrikePrice" type="AmountType">
+				<xs:annotation>
+					<xs:documentation>Amount of the strike price</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tick" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tick -  Movement in price</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TickSize" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Minimum downward or upward movement in price</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TickValue" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Value of the tick</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ValueDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Valuation date for fixing?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FixingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Delivery/Fixed/Cash</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Delivery"/>
+						<xs:enumeration value="Fixed"/>
+						<xs:enumeration value="Cash"/>
+						<xs:enumeration value=""/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FirstFixingDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date for the first fixing date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LatestFixingDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date for the latest fixing date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Quotation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Quotation</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="QuotationType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Price/Yield/Other</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Price"/>
+									<xs:enumeration value="Yield"/>
+									<xs:enumeration value="Other"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:choice>
+							<xs:element name="QuotationPercent" type="xs:float" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Quotation in percent</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="QuotationAmount" type="AmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Amount of Quotation</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LastTradeDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Last Trade Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Counterparty" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Counterparty details</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Underlyings" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Underlying" type="UnderlyingType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Bezeichnet das dem Derivativprodukt unterlegte Wertpapier</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

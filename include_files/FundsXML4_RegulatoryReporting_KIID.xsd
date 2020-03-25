@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
+	<xs:complexType name="KIIDsType">
+		<xs:sequence>
+			<xs:element name="KIID" type="KIIDType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KIIDType">
+		<xs:annotation>
+			<xs:documentation>One Key Investor Information Document resuting from a merger of fixed texts (in the appropriate language) and data of a specific fund.
+Annotations include reference to articles numbers of EU Commission Regulation # 583/2010
+For fixed headings and disclaimers, an example of possible or imposed text is displayed between quotes like 'Disclaimer'</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CoverPage">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Cover page fixed texts. Art 4.2 and 4.3</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="KIIDHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Heading 'Key Investor Information'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="GlobalDisclaimer" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'This document provides you with...'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FundID">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Art.4-4 Fund or Share class(es) identification</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ShareClass" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ShareClassName" type="xs:string"/>
+									<xs:element name="ShareClassIsinHeading" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'ISIN:'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ShareClassISIN" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">ISIN code of the share class</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MainShareClassIndicator" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Indicator set to true if the current share class is the main share class.
+Performances and risk indicator are computed with the main share class data.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="UmbrellaFundName" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Umbrella fund name, if any</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SubfundName" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Subfund or compartment name</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UpdateDateHeading" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">'This key investor information is accurate as at..'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PublicationDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Art.4-13 </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssetManagementCompany">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Art.4-5 and 6 </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FundManagedByHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'This fund is managed by...'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AssetManagementCompanyName" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">4-5</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AssetManagementCompanyGroupName" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">4-6</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Language" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Language used for the current KIID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjectivesAndInvestmentPolicy">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Art.7</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Heading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'Objectives and Investment Policy'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="GeneralStrategyDescription" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-1 complement an/or 7-4</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MainAssetsHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-1a 'Main asset categories'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FinancialInstruments" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-1a Instruments categories the fund may invest in</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="InstrumentCategoryCode" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Category of eligible instruments</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="InstrumentCategoryDescription" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">1-7-1c - Description of instrument category selection criteria (geographical, economic, market, ...)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DealingFrequencyHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-1b 'Frequency of Subscription/redemtion: ' </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DealingFrequency" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-1b Dealing frequency for subscription/redemption (daily, weekly, monthly, ...)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DistributionPolicyHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-1e 'Distribution policy: '</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DistributionPolicy" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-1e Distribution or Capitalization description</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Benchmark" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-1d Reference to a benchmark</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BenchmarkHeading" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'The fund refers to the following benchmark: '</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="BenchmarkName" type="xs:string"/>
+									<xs:element name="BenchmarkPolicy" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Description of the degree of freedom in relation to the benchmark</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="OtherInformationOnStrategy" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">7-2 </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Heading" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'Additional information on strategy: '</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DebtSecuritiesDetails" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">7-2a</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="IssuersAllowed" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">7-2a Indication of issuers allowed: governments, corporate,...</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="MinimumRating" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">7-2a</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AssetChoiceCritera" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">7-2c Growth, Value or High dividends</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SpecificTechniquesHeading" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">7-2d 'Specific asset management techniques used: '</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SpecificTechniquesDescription" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">7-2d Eg. Hedging, arbitrage, leverage, etc.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TransactionsCostsStatement" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">1-7-2e Impact of portfolio transaction costs due to the fund strategy</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MinimumRecommendedTermHeading" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">7-1f 'Recommendation: this fund may not be appropriate for investors...'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MinimumRecommendedTerm" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">1-7-2f Statement on minimum holding period as an essential element</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="StructuredFundSpecialInformation" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Art.7-2b and 36 Additional information for a structured fund</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="StructuredFundExplanation" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Description of elements necessary for a correct understanding of the pay-off</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PerformanceFactors" type="xs:string"/>
+									<xs:element name="AlgorithmDescription" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">References to the details of the algorithm (reference to the prospectus)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PerformanceScenario" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Art.36</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ScenarioNumber" type="xs:int"/>
+												<xs:element name="ScenarioName" type="xs:string"/>
+												<xs:element name="ScenarioDescription" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en"/>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ScenarioResultingPay-off" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Percentage</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ScenariosWarning" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">36-6 Scenarios are just examples of possible situations</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RiskAndReturnProfile">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Art.8</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Heading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">8-1 'Risk and Return Profile'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SyntheticRiskIndicator">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="RiskIndicatorLegend">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="UpperLeft" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">'Lower risk'</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UpperRight" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">'Higher risk'</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="LowerLeft" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">'Typically lower rewards'</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="LowerRight" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">'Typically higher rewards'</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="SyntheticRiskIndicatorExplanation">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">8-4a to 8-4d</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="RiskCommentsHeading" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">'Risk indicator comments:'</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Explanation4a" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">8-4a Historical data is no indication  of future risk profile</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Explanation4b" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">8-4b Indicator value liable to change over time</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Explanation4c" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">8-4c Lowest indicator value doesn't mean risk-free</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Explanation4d" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">8-4d  Explanation of why the fund is in its risk category</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Explanation4e" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Details of capital guarantee or protection</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="IndicatorValue">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Numerical value of risk indicator (from 1 to 7)</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:int">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="7"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="IndicatorComputationDescription" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">8-3</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="RiskFactorsNotIncluded" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">8-1b and 8-5 Risk factors not included in the synthetic risk indicator (credit, liquidity,counterparty, operational, derivative risks,...).</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Heading" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'Other information about this fund's risks:'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CreditRisk" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">8-5a Credit risk for debt securities</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="LiquidityRisk" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">8-5b Liquidity risk description</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CounterpartyRisk" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">8-5c Counterparty risk description</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OperationalRisks" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">8-5d</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DerivativesRisk" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">8-5e Derivatives risk description</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Charges">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Art.10 to 14 Description of charges applicable to the fund</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Heading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'Charges for this Fund'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="EntryAndExitChargesHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'One-off charges taken before or after you invest'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="EntryCharges">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">10-2a Maximum subscription fee percentage</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="EntryChargeHeading" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'Entry charge'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MaximumPercentage" type="xs:decimal"/>
+									<xs:element name="Disclaimer" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'This percentage is a maximum.'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ExitCharges">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">10-2a Maximum redemption fee percentage</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ExitChargeHeading" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'Exit charge'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MaximumPercentage" type="xs:decimal"/>
+									<xs:element name="Disclaimer" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'This percentage is a maximum.'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="EntryAndExitChargesDisclaimer1" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'The entry and exit charges shown are maximum figures. In some cases you might pay less – you can find this out from your financial adviser.'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="EntryAndExitChargesDisclaimer2" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'These percentages are maximum figures.'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AnnualChargesGeneralHeading" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'Charges taken from the fund over a year'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OngoingCharges" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">10-2b Actual percentage of charges taken from the Fund (previous year)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="OngoingChargesHeading" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'Ongoing charges'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ActualPercentage" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Last known ongoing charges percentage</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ClosingMonth">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Last closing month for ongoing charges
+MM/YYYY</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string"/>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Disclaimer" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">11-1b Statement explaining that the ongoing charges figure is based on the last year's expenses. 
+24-2 Also used if ongoing charges are estimated</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OngoingChargesDisclaimer" type="xs:string" minOccurs="0"/>
+									<xs:element name="OngoingChargesYearHeading" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'The ongoing charges figure is based on expenses for the year ending ' [ClosingMonth]</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ChargesDisclaimer1" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">11-2a(i) Statement explaining that the charges are used to pay the running costs of the fund.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ChargesDisclaimer2" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">14 Reference to fund's prospectus for more details</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ChargesNotIncludedDisclaimer" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'This figure may vary from year to year. It excludes:
+•	Performance fees.
+•	Portfolio transaction costs, except in the case of an entry/exit charge paid by the UCITS when buying or selling units in another CIV.'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherFees" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Art.12 Other fees details</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="OtherFeesHeading" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'Charges taken from the fund under certain specific conditions'</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OtherFee" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Other fees details</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="FeeType" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Eg. Performance fee, Switch fee, Master fund fees, All-inclusive fee,...</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Description" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Description of current fee (conditions,...)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="CalculationDescription" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Calculation rules for the current fee</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="MaximumPercentage" type="xs:decimal" minOccurs="0"/>
+												<xs:element name="LastActualValue" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="Percentage" type="xs:decimal"/>
+															<xs:element name="ClosingMonth">
+																<xs:annotation>
+																	<xs:documentation xml:lang="en">Last closing month for current fee MM/YYYY</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string"/>
+																</xs:simpleType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PastPerformances" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Art.15 to 19
+Not to be provided for structured funds</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Heading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'Past performance'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Performance" minOccurs="0" maxOccurs="10">
+							<xs:annotation>
+								<xs:documentation>Zero to ten past years perfomances, according to fund existence duration.
+Only full years of existence of the fund are used.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PerformanceYear" type="xs:integer">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Four digits format YYYY</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FundPerformanceValue" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Percentage</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="BenchmarkPerformanceValue" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Benchmark performance if available (Percentage)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MaterialChangeIndicator" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">17-1 and 17-2  Indicates that a material change having an impact on performance occurred during the year (y/n)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SimulatedPerformanceIndicator" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">19-2 Indicates that the performance has been simulated</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PerformanceDisclaimer" type="xs:string" maxOccurs="5">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">15-5a to 5d 
+a - Limited value for future performance
+b - List of charges and fees included for computation
+c - Year of creation of the fund
+d - Currency used for calculation</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CurrencyUsedHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'Currency used for calculation: ' [CurrencyUsed]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CurrencyUsed" type="ISOCurrencyCodeType">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Currency used for performance calculation</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="PerformanceYearImpactHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'Event impacting performance in ' [Year with MaterialChandeIndicator="y"]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PracticalInformation">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Art.20 and 21</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Heading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'Practical information'</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DepositaryNameHeading" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">'Depositary: '</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DepositaryName" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">20-1a</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FurtherInformation">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">20-1b and 1c Where to find...</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="FurtherInformationDetails" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Where and how to obtain further information free of charge: prosectus, annual report, NAVs...</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="AdditionalInformationLanguagesHeading" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">'This information is available in the following languages: '</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FurtherInformationLanguage" type="ISOCountryCodeType" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">List of languages available</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TaxLegislationWarning" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">20-1d Impact of country of residence on taxes</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AMCompanyLiabilityDisclaimer" type="xs:string">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">20-1e </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CompartmentSwitchInformation" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">20-3 Statement on possibility of switch between compartments</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MainsShareClassInformation" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">20-3 Name of the share class used for the current KIID</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherSourcesOfInformation" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>21-1 Possible additional sources of information: prospectus, annual reports, website(s), etc.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CompartmentFundWarning" type="xs:string" minOccurs="0" maxOccurs="3">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">25-2 Specific information for compartment funds
+2a KIID describes a compartment
+2b Information on segregation of assets and liabilities of each compartment
+2c Information on switch between compartments (how to...)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MasterFundInformation" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">34 Additional information if the fund is a feeder of a master fund</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Prospectus">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">34-2a</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="WhereToFind" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Statement explaining where to find information about the master fund (prospectus, KIID, annual reports, etc.)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Language" type="ISOCountryCodeType" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">List of language(s) in which information is available</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Media" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Available media(s): paper, CD, Web, etc.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Cost" type="xs:string">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">'Free delivery' or description of fees to be paid for medias</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="CountryOfDomicile" type="ISOCountryCodeType">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Country of domicile of the master fund</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Disclaimer" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">When master fund is established in another country, statement explaining this may affect the feeder's tax treatment.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

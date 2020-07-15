@@ -485,7 +485,26 @@ N = Nominale</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="PrivateEquity"/>
+			<xs:element name="PrivateEquity">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompanyType">
+							<xs:annotation>
+								<xs:documentation xml:lang="de">Gesellschaftsform (GmbH, SICAV, ... ) </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SubEquities" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence maxOccurs="unbounded">
+									<xs:element name="UniqueID"/>
+									<xs:element name="OwnershipPercentage"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Address" type="AddressType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="InfrastructureInvestment"/>
 			<xs:element name="VentureCapital"/>
 			<xs:element name="PrivatePlacement"/>

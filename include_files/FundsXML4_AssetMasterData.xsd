@@ -112,12 +112,7 @@ RT = Real Estate Investment Trust
 LO = Loan
 RI = Right
 CO = Commodity
-PE = PrivateEquity
-II = InfrastructureInvestment
-VC = Venture Capital
-PP = Private Placement
-DI = Direct Investment
-</xs:documentation>
+PE = PrivateEquity</xs:documentation>
 					<xs:documentation xml:lang="de">Art des Wertpapieres:
 EQ = Aktie
 BO = Rente
@@ -3285,12 +3280,15 @@ Z   New issue</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OwnershipPercentage" type="PercentageType" minOccurs="0"/>
-			<xs:element name="OwnedAssets" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence maxOccurs="unbounded">
-						<xs:element name="Portfolio" type="PortfolioType"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="PrivateEquityID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Link to new file for  lookthrough</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

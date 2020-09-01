@@ -4,6 +4,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
+	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
 	<xs:complexType name="AssetMasterDataType">
 		<xs:sequence>
 			<xs:element name="Asset" type="AssetType" maxOccurs="unbounded"/>
@@ -177,7 +178,7 @@ DI = Direktinvestition
 					<xs:documentation>Securitized (true) or non-securitized (false)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InfrastructureInvestment" type="xs:boolean" minOccurs="0">
+			<xs:element name="IsInfrastructureInvestment" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Is Infrastructure Investment (true) or not (false)</xs:documentation>
 				</xs:annotation>
@@ -490,29 +491,7 @@ N = Nominale</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="PrivateEquity">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CompanyType" type="CompanyType">
-							<xs:annotation>
-								<xs:documentation xml:lang="de">Gesellschaftsform (GmbH, SICAV, ... ) </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="SubEquities" minOccurs="0">
-							<xs:complexType>
-								<xs:sequence maxOccurs="unbounded">
-									<xs:element name="UniqueID"/>
-									<xs:element name="OwnershipPercentage"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="InfrastructureInvestment"/>
-			<xs:element name="VentureCapital"/>
-			<xs:element name="PrivatePlacement"/>
-			<xs:element name="DirectInvestment"/>
+			<xs:element name="PrivateEquity" type="PrivateEquityType"/>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="EquityType">
@@ -3296,6 +3275,30 @@ Z   New issue</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PrivateEquityType">
+		<xs:sequence>
+			<xs:element name="Company" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Gesellschaftsform (GmbH, SICAV, ... ) </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OwnershipPercentage" type="PercentageType" minOccurs="0"/>
+			<xs:element name="OwnedAssets" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="Portfolio" type="PortfolioType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeneralAssetType">
+		<xs:sequence>
+			<xs:element name="UniqueID" type="xs:ID"/>
+			<xs:element name="OwnerShipPercentage" type="PercentageType"/>
+			<xs:element name="SubAssets" type="GeneralAssetType"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

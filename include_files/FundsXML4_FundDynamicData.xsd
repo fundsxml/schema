@@ -25,15 +25,20 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Benchmark" type="BenchmarkDynamicDataType" minOccurs="0">
+			<xs:element name="Benchmarks" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Benchmark Data of fund</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Benchmark" type="BenchmarkDynamicDataType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BenchmarkDynamicDataType">
-		<xs:sequence maxOccurs="unbounded">
+		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">

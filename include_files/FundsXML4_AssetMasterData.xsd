@@ -31,6 +31,7 @@
 			<xs:enumeration value="LO"/>
 			<xs:enumeration value="RI"/>
 			<xs:enumeration value="CO"/>
+			<xs:enumeration value="PO"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="AssetType">
@@ -134,10 +135,6 @@ LO = Darlehen
 RI = Rechte
 CO = Commodity
 PE = Unternehmensbeteiligung
-II = Infrastruktur Investition
-VC = Wagniskapital
-PP = Privatplazierung
-DI = Direktinvestition
 </xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -486,7 +483,12 @@ N = Nominale</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="PrivateEquity" type="PrivateEquityType"/>
+			<xs:element name="PrivateEquity" type="PrivateEquityType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Private Equity Investents</xs:documentation>
+					<xs:documentation xml:lang="de">Unternehmensbeteiligung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="EquityType">
@@ -3285,10 +3287,16 @@ Z   New issue</xs:documentation>
 					<xs:documentation xml:lang="de">Gesellschaftsform (GmbH, SICAV, ... ) </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="OwnershipPercentage" type="PercentageType" minOccurs="0"/>
+			<xs:element name="OwnershipPercentage" type="PercentageType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">How many percent of the Company (SPV) is owned by this fund</xs:documentation>
+					<xs:documentation xml:lang="de">Wie viel Prozent des Unternehmens besitzt der Fonds</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="PrivateEquityID" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Link to new file for  lookthrough</xs:documentation>
+					<xs:documentation xml:lang="en">Link to new file for  lookthrough (Assets owned by SPV). This ID has to be used in //FundsXML4/Funds/Fund/Identifiers/OtherID/[@ListedType="PRIVATE EQUITY ID"]</xs:documentation>
+					<xs:documentation xml:lang="de">Verlinkung mit neuem File für Durchrechnung (welche Assets gehören dieser Firma). Diese ID muss im neuen File unter //FundsXML4/Funds/Fund/Identifiers/OtherID/[@ListedType="PRIVATE EQUITY ID"] angegeben werden.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -3296,13 +3304,6 @@ Z   New issue</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="GeneralAssetType">
-		<xs:sequence>
-			<xs:element name="UniqueID" type="xs:ID"/>
-			<xs:element name="OwnerShipPercentage" type="PercentageType"/>
-			<xs:element name="SubAssets" type="GeneralAssetType"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

@@ -190,7 +190,13 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Benchmark" type="BenchmarkStaticDataType" minOccurs="0"/>
+			<xs:element name="Benchmarks" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Benchmark" type="BenchmarkStaticDataType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SubfundStaticDataType">
@@ -509,6 +515,16 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 				<xs:annotation>
 					<xs:documentation>official, internal, performance attribution, etc.</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ListedType" type="BenchmarkUsageType"/>
+					<xs:attribute name="FreeType">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="100"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="BenchmarkID" minOccurs="0">
 				<xs:annotation>
@@ -526,27 +542,33 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="BenchmarkComponentID" minOccurs="0">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="255"/>
-								</xs:restriction>
-							</xs:simpleType>
+						<xs:element name="BenchmarkComponent">
+							<xs:complexType>
+								<xs:sequence maxOccurs="unbounded">
+									<xs:element name="BenchmarkComponentID" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ValidFrom" type="xs:date"/>
+									<xs:element name="ValidTo" type="xs:date" minOccurs="0"/>
+									<xs:sequence>
+										<xs:element name="Name">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="255"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="Provider" type="BenchmarkProviderCompany" minOccurs="0"/>
+										<xs:element name="Identifier" type="IdentifiersType"/>
+										<xs:element name="Weight" type="PercentageType"/>
+									</xs:sequence>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
-						<xs:element name="ValidFrom" type="xs:date"/>
-						<xs:element name="ValidTo" type="xs:date" minOccurs="0"/>
-						<xs:sequence>
-							<xs:element name="Name">
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:maxLength value="255"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
-							<xs:element name="Provider" type="BenchmarkProviderCompany" minOccurs="0"/>
-							<xs:element name="Identifier" type="IdentifiersType"/>
-							<xs:element name="Weight" type="PercentageType"/>
-						</xs:sequence>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -561,4 +583,13 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:simpleType name="BenchmarkUsageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OFFICIAL"/>
+			<xs:enumeration value="INTERNAL"/>
+			<xs:enumeration value="PERFORMANCE ATTRIBUTION"/>
+			<xs:enumeration value="PRIIP KID"/>
+			<xs:enumeration value="UCITS KIID"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

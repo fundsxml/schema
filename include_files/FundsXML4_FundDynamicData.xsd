@@ -40,47 +40,56 @@
 	<xs:complexType name="BenchmarkDynamicDataType">
 		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Link from Benchmark Static Data</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="255"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="BenchmarkValues">
+			<xs:element name="Values">
 				<xs:complexType>
-					<xs:sequence maxOccurs="unbounded">
-						<xs:element name="Date" type="xs:date"/>
-						<xs:element name="ValueType">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Price"/>
-									<xs:enumeration value="Total Return"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="Value" type="AmountType"/>
-						<xs:element name="Components" minOccurs="0">
+					<xs:sequence>
+						<xs:element name="Value" maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Component">
+									<xs:element name="Date" type="xs:date"/>
+									<xs:element name="ValueType">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Price"/>
+												<xs:enumeration value="Total Return"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Value" type="AmountType"/>
+									<xs:element name="Components" minOccurs="0">
 										<xs:complexType>
-											<xs:sequence maxOccurs="unbounded">
-												<xs:element name="BenchmarkComponentID" minOccurs="0">
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:maxLength value="255"/>
-														</xs:restriction>
-													</xs:simpleType>
+											<xs:sequence>
+												<xs:element name="Component" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="BenchmarkComponentID" minOccurs="0">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:maxLength value="255"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="ValueType">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="Price"/>
+																		<xs:enumeration value="Total Return"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="Value" type="AmountType"/>
+														</xs:sequence>
+													</xs:complexType>
 												</xs:element>
-												<xs:element name="ValueType">
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Price"/>
-															<xs:enumeration value="Total Return"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="Value" type="AmountType"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>

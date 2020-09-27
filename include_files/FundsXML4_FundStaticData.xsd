@@ -193,7 +193,13 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 			<xs:element name="Benchmarks" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Benchmark" type="BenchmarkStaticDataType"/>
+						<xs:element name="Benchmark" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="BenchmarkStaticDataType"/>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -486,7 +492,17 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BenchmarkStaticDataType">
-		<xs:sequence maxOccurs="unbounded">
+		<xs:sequence>
+			<xs:element name="BenchmarkID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Link to Benchmark Dynamic Data</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="Name">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -526,25 +542,15 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 					</xs:attribute>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="BenchmarkID" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Link to Benchmark Dynamic Data</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="255"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
 			<xs:element name="BenchmarkComponents" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>if blended Benchmark</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="BenchmarkComponent">
+						<xs:element name="BenchmarkComponent" maxOccurs="unbounded">
 							<xs:complexType>
-								<xs:sequence maxOccurs="unbounded">
+								<xs:sequence>
 									<xs:element name="BenchmarkComponentID" minOccurs="0">
 										<xs:simpleType>
 											<xs:restriction base="xs:string">

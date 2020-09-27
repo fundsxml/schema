@@ -1631,47 +1631,56 @@ B ... Boolean</xs:documentation>
 	<xs:complexType name="BenchmarkDynamicDataType">
 		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Link from Benchmark Static Data</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="255"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="BenchmarkValues">
+			<xs:element name="Values">
 				<xs:complexType>
-					<xs:sequence maxOccurs="unbounded">
-						<xs:element name="Date" type="xs:date"/>
-						<xs:element name="ValueType">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Price"/>
-									<xs:enumeration value="Total Return"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="Value" type="AmountType"/>
-						<xs:element name="Components" minOccurs="0">
+					<xs:sequence>
+						<xs:element name="Value" maxOccurs="unbounded">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Component">
+									<xs:element name="Date" type="xs:date"/>
+									<xs:element name="ValueType">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Price"/>
+												<xs:enumeration value="Total Return"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Value" type="AmountType"/>
+									<xs:element name="Components" minOccurs="0">
 										<xs:complexType>
-											<xs:sequence maxOccurs="unbounded">
-												<xs:element name="BenchmarkComponentID" minOccurs="0">
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:maxLength value="255"/>
-														</xs:restriction>
-													</xs:simpleType>
+											<xs:sequence>
+												<xs:element name="Component" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="BenchmarkComponentID" minOccurs="0">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:maxLength value="255"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="ValueType">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="Price"/>
+																		<xs:enumeration value="Total Return"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="Value" type="AmountType"/>
+														</xs:sequence>
+													</xs:complexType>
 												</xs:element>
-												<xs:element name="ValueType">
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Price"/>
-															<xs:enumeration value="Total Return"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="Value" type="AmountType"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -1693,7 +1702,17 @@ B ... Boolean</xs:documentation>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="BenchmarkStaticDataType">
-		<xs:sequence maxOccurs="unbounded">
+		<xs:sequence>
+			<xs:element name="BenchmarkID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Link to Benchmark Dynamic Data</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="Name">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1733,25 +1752,15 @@ B ... Boolean</xs:documentation>
 					</xs:attribute>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="BenchmarkID" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Link to Benchmark Dynamic Data</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="255"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
 			<xs:element name="BenchmarkComponents" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>if blended Benchmark</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="BenchmarkComponent">
+						<xs:element name="BenchmarkComponent" maxOccurs="unbounded">
 							<xs:complexType>
-								<xs:sequence maxOccurs="unbounded">
+								<xs:sequence>
 									<xs:element name="BenchmarkComponentID" minOccurs="0">
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -9649,7 +9658,13 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 			<xs:element name="Benchmarks" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Benchmark" type="BenchmarkStaticDataType"/>
+						<xs:element name="Benchmark" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="BenchmarkStaticDataType"/>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -11257,9 +11272,8 @@ d - Currency used for calculation</xs:documentation>
 			</xs:element>
 			<xs:element name="Collateralization" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Indicates whether the loan is collateralized
-Boolean: true/flas</xs:documentation>
-					<xs:documentation xml:lang="de">Besicherung ja/nein;
+					<xs:documentation xml:lang="en">Indicates whether the loan is collateralized. Boolean: true/false</xs:documentation>
+					<xs:documentation xml:lang="de">Besicherung ja/nein; 
 True = Ja
 False = Nein</xs:documentation>
 				</xs:annotation>
@@ -15775,8 +15789,6 @@ Flr= Floor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:minLength value="1"/>
-												<xs:maxLength value="1"/>
 												<xs:enumeration value="Cal"/>
 												<xs:enumeration value="Put"/>
 												<xs:enumeration value="Cap"/>
@@ -15942,7 +15954,6 @@ Useless for single futures contract.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:length value="3"/>
 												<xs:enumeration value="Cal"/>
 												<xs:enumeration value="Put"/>
 												<xs:enumeration value="Cap"/>
@@ -16313,11 +16324,16 @@ When the look-through regards a Fund of funds, category “4 - Collective Invest
 	</xs:complexType>
 	<xs:complexType name="SIIPositionType_V5">
 		<xs:sequence>
-			<xs:element name="InstrumentCIC" type="CICCodeType">
+			<xs:element name="InstrumentCIC">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A12 - Instrument type. E.g. Equity, bond, option, swap,...
 CIC codification used.</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="CICCodeType">
+						<xs:pattern value="([A-Z]{2}([A-F]|[0-9]){1}[1-9]{1})"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="EconomicArea" type="EconomicAreaType" minOccurs="0">
 				<xs:annotation>
@@ -16335,16 +16351,26 @@ ISIN Preferred when available.
 </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="GroupID" type="xs:string" minOccurs="0">
+			<xs:element name="GroupID" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>A16 - Grouping code for operations on multi-leg instruments.
 Useless for single-leg positions.</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
-			<xs:element name="InstrumentName" type="xs:string">
+			<xs:element name="InstrumentName">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A17</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Valuation">
 				<xs:annotation>
@@ -16549,8 +16575,6 @@ Flr= Floor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:minLength value="1"/>
-												<xs:maxLength value="1"/>
 												<xs:enumeration value="Cal"/>
 												<xs:enumeration value="Put"/>
 												<xs:enumeration value="Cap"/>
@@ -19242,7 +19266,7 @@ Z   New issue</xs:documentation>
 			<xs:enumeration value="LO"/>
 			<xs:enumeration value="RI"/>
 			<xs:enumeration value="CO"/>
-			<xs:enumeration value="PO"/>
+			<xs:enumeration value="PE"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="BenchmarkUsageType">

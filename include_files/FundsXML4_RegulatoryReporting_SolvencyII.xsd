@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (http://www.altova.com) by Fabrice Puziak (Kneip) -->
-<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="TripartiteTemplateSolvencyIIType">
@@ -619,8 +619,6 @@ Flr= Floor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:minLength value="1"/>
-												<xs:maxLength value="1"/>
 												<xs:enumeration value="Cal"/>
 												<xs:enumeration value="Put"/>
 												<xs:enumeration value="Cap"/>
@@ -786,7 +784,6 @@ Useless for single futures contract.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:length value="3"/>
 												<xs:enumeration value="Cal"/>
 												<xs:enumeration value="Put"/>
 												<xs:enumeration value="Cap"/>
@@ -1157,11 +1154,16 @@ When the look-through regards a Fund of funds, category “4 - Collective Invest
 	</xs:complexType>
 	<xs:complexType name="SIIPositionType_V5">
 		<xs:sequence>
-			<xs:element name="InstrumentCIC" type="CICCodeType">
+			<xs:element name="InstrumentCIC">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A12 - Instrument type. E.g. Equity, bond, option, swap,...
 CIC codification used.</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="CICCodeType">
+						<xs:pattern value="([A-Z]{2}([A-F]|[0-9]){1}[1-9]{1})"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="EconomicArea" type="EconomicAreaType" minOccurs="0">
 				<xs:annotation>
@@ -1179,16 +1181,26 @@ ISIN Preferred when available.
 </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="GroupID" type="xs:string" minOccurs="0">
+			<xs:element name="GroupID" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>A16 - Grouping code for operations on multi-leg instruments.
 Useless for single-leg positions.</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
-			<xs:element name="InstrumentName" type="xs:string">
+			<xs:element name="InstrumentName">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A17</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Valuation">
 				<xs:annotation>
@@ -1393,8 +1405,6 @@ Flr= Floor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:minLength value="1"/>
-												<xs:maxLength value="1"/>
 												<xs:enumeration value="Cal"/>
 												<xs:enumeration value="Put"/>
 												<xs:enumeration value="Cap"/>

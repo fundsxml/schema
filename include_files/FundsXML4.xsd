@@ -36,6 +36,14 @@
 								<xs:annotation>
 									<xs:documentation>All single fund, umbrella, sicav, portfolio related data</xs:documentation>
 								</xs:annotation>
+								<xs:key name="benchmarkID">
+									<xs:selector xpath="FundStaticData/Benchmarks/Benchmark"/>
+									<xs:field xpath="BenchmarkID"/>
+								</xs:key>
+								<xs:keyref name="benchmarkDynamicRef" refer="benchmarkID">
+									<xs:selector xpath="FundDynamicData/Benchmarks/Benchmark"/>
+									<xs:field xpath="BenchmarkID"/>
+								</xs:keyref>
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>

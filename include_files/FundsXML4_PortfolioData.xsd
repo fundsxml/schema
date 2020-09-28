@@ -19,6 +19,10 @@
 				<xs:annotation>
 					<xs:documentation>Transactions within the portfolio (securities and other assets bought or sold)</xs:documentation>
 				</xs:annotation>
+				<xs:key name="transactionID">
+					<xs:selector xpath="Transaction"/>
+					<xs:field xpath="TransactionID"/>
+				</xs:key>
 			</xs:element>
 			<xs:element name="Earnings" minOccurs="0">
 				<xs:annotation>

@@ -12857,11 +12857,16 @@ negative - paying premiums</xs:documentation>
 						<xs:documentation xml:lang="en">Details for private equity (empty)</xs:documentation>
 						<xs:documentation xml:lang="de">Details zur Bewertung von Unternehmensbeteiligung (leer)</xs:documentation>
 					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:maxLength value="0"/>
-						</xs:restriction>
-					</xs:simpleType>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="OwnershipPercentage" type="PercentageType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">How many percent of the Company (SPV) is owned by this position</xs:documentation>
+									<xs:documentation xml:lang="de">Wie viel Prozent des Unternehmens besitzt der Fonds</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
 				</xs:element>
 			</xs:choice>
 			<xs:element name="CapitalYieldsTaxClaim" type="FundAmountType" minOccurs="0">
@@ -13978,12 +13983,6 @@ Integer corresponding to the following closed list:
 					<xs:documentation xml:lang="de">Gesellschaftsform (GmbH, SICAV, ... ) </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="OwnershipPercentage" type="PercentageType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">How many percent of the Company (SPV) is owned by this fund</xs:documentation>
-					<xs:documentation xml:lang="de">Wie viel Prozent des Unternehmens besitzt der Fonds</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="PrivateEquityID" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Link to new file for  lookthrough (Assets owned by SPV). This ID has to be used in //FundsXML4/Funds/Fund/Identifiers/OtherID/[@ListedType="PRIVATE EQUITY ID"]</xs:documentation>
@@ -14794,6 +14793,9 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SegmentStaticDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">All static data for Segments</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="InceptionDate" type="xs:date" minOccurs="0"/>
 			<xs:element name="LiquidationDate" type="xs:date" minOccurs="0"/>

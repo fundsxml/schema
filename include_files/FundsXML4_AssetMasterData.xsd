@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
+	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
 	<xs:complexType name="AssetMasterDataType">
 		<xs:sequence>
 			<xs:element name="Asset" type="AssetType" maxOccurs="unbounded"/>
@@ -30,6 +31,7 @@
 			<xs:enumeration value="LO"/>
 			<xs:enumeration value="RI"/>
 			<xs:enumeration value="CO"/>
+			<xs:enumeration value="PE"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="AssetType">
@@ -110,7 +112,8 @@ RE = Real Estate
 RT = Real Estate Investment Trust
 LO = Loan
 RI = Right
-CO = Commodity</xs:documentation>
+CO = Commodity
+PE = PrivateEquity</xs:documentation>
 					<xs:documentation xml:lang="de">Art des Wertpapieres:
 EQ = Aktie
 BO = Rente
@@ -130,7 +133,9 @@ RE = Immobilie
 RT = REIT
 LO = Darlehen
 RI = Rechte
-CO = Commodity</xs:documentation>
+CO = Commodity
+PE = Unternehmensbeteiligung
+</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="AssetTypeType">
@@ -163,6 +168,11 @@ CO = Commodity</xs:documentation>
 			<xs:element name="Securitized" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Securitized (true) or non-securitized (false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsInfrastructureInvestment" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Is Infrastructure Investment (true) or not (false)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Ratings" minOccurs="0">
@@ -295,12 +305,14 @@ CompanyType + Transparenzkennzeichnung</xs:documentation>
 			</xs:element>
 			<xs:element name="Loan" type="LoanType">
 				<xs:annotation>
-					<xs:documentation>Loan / Kredit</xs:documentation>
+					<xs:documentation xml:lang="en">Loan</xs:documentation>
+					<xs:documentation xml:lang="de">Kredit</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Right">
 				<xs:annotation>
-					<xs:documentation>Right / Bezugsrecht </xs:documentation>
+					<xs:documentation xml:lang="de">Bezugsrecht </xs:documentation>
+					<xs:documentation xml:lang="en">Right</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -470,6 +482,12 @@ N = Nominale</xs:documentation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="PrivateEquity" type="PrivateEquityType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Private Equity Investents</xs:documentation>
+					<xs:documentation xml:lang="de">Unternehmensbeteiligung</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
@@ -2933,9 +2951,8 @@ EXCH ... Exchangables</xs:documentation>
 			</xs:element>
 			<xs:element name="Collateralization" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Indicates whether the loan is collateralized
-Boolean: true/flas</xs:documentation>
-					<xs:documentation xml:lang="de">Besicherung ja/nein;
+					<xs:documentation xml:lang="en">Indicates whether the loan is collateralized. Boolean: true/false</xs:documentation>
+					<xs:documentation xml:lang="de">Besicherung ja/nein; 
 True = Ja
 False = Nein</xs:documentation>
 				</xs:annotation>
@@ -2973,6 +2990,12 @@ fixed/variable</xs:documentation>
 			<xs:element name="PayableOnDemand" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Loan is daily due</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Interest rate of loan</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt einen Zinssatz des Kredits</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -3253,6 +3276,26 @@ Z   New issue</xs:documentation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PrivateEquityType">
+		<xs:sequence>
+			<xs:element name="Company" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Gesellschaftsform (GmbH, SICAV, ... ) </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrivateEquityID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Link to new file for  lookthrough (Assets owned by SPV). This ID has to be used in //FundsXML4/Funds/Fund/Identifiers/OtherID/[@ListedType="PRIVATE EQUITY ID"]</xs:documentation>
+					<xs:documentation xml:lang="de">Verlinkung mit neuem File für Durchrechnung (welche Assets gehören dieser Firma). Diese ID muss im neuen File unter //FundsXML4/Funds/Fund/Identifiers/OtherID/[@ListedType="PRIVATE EQUITY ID"] angegeben werden.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Fabrice Puziak (Kneip) -->
 <!-- edited by Karl Kauc by hand -->
-<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.1.6" vc:minVersion="1.1">
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.1.8" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_FundStaticData.xsd"/>
@@ -17,7 +17,7 @@
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_SolvencyII.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.1.7</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.1.8</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -36,6 +36,14 @@
 								<xs:annotation>
 									<xs:documentation>All single fund, umbrella, sicav, portfolio related data</xs:documentation>
 								</xs:annotation>
+								<xs:key name="benchmarkID">
+									<xs:selector xpath="FundStaticData/Benchmarks/Benchmark"/>
+									<xs:field xpath="BenchmarkID"/>
+								</xs:key>
+								<xs:keyref name="benchmarkDynamicRef" refer="benchmarkID">
+									<xs:selector xpath="FundDynamicData/Benchmarks/Benchmark"/>
+									<xs:field xpath="BenchmarkID"/>
+								</xs:keyref>
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
@@ -69,6 +77,9 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:complexType name="SegmentStaticDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">All static data for Segments</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="InceptionDate" type="xs:date" minOccurs="0"/>
 			<xs:element name="LiquidationDate" type="xs:date" minOccurs="0"/>
@@ -341,6 +352,7 @@ No, Digital, Scan</xs:documentation>
 						<xs:enumeration value="4.1.5"/>
 						<xs:enumeration value="4.1.6"/>
 						<xs:enumeration value="4.1.7"/>
+						<xs:enumeration value="4.1.8"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

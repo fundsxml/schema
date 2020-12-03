@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
 <!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
@@ -502,10 +502,16 @@ N = Nominale</xs:documentation>
 					<xs:documentation xml:lang="de">Enhaelt den Anbieter</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Exchange at which this equity is listed.</xs:documentation>
+					<xs:documentation xml:lang="en">MIC of Exchange at which this equity is listed.</xs:documentation>
 					<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="WBAH"/>
+							<altova:example value="EGSI"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
@@ -650,10 +656,15 @@ Z   New issue</xs:documentation>
 					<xs:documentation xml:lang="de">Enthaelt den Wertpapieremittenten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Exchange(s) at which this bond is listed.</xs:documentation>
-					<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+					<xs:documentation xml:lang="en">MIC of the Exchange(s) at which this bond is listed.</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den MIC des Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="WBAH"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Listing" minOccurs="0">
@@ -1017,7 +1028,7 @@ Boolean: true/false</xs:documentation>
 					<xs:documentation>Issuer details</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Exchange(s) at which this share class is listed.</xs:documentation>
 					<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
@@ -1148,10 +1159,15 @@ N = Nominale</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Exchange(s) at which the instrument is listed</xs:documentation>
-					<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+					<xs:documentation xml:lang="en">MIC of Exchange(s) at which the instrument is listed</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den MIC des Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="WBAH"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
@@ -1593,10 +1609,15 @@ N = Nominale</xs:documentation>
 					<xs:documentation>Last Trade Date</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Exchange(s) at which the instrument ist listed</xs:documentation>
-					<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem der Future notiert</xs:documentation>
+					<xs:documentation xml:lang="en">MIC of the Exchange(s) at which the instrument ist listed</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den MIC des Boerseplatz an an dem der Future notiert</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="WBAH"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MarginMethod" minOccurs="0">
@@ -1764,10 +1785,15 @@ N = Nominale</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Exchange(s) at which the certificate is listed</xs:documentation>
-					<xs:documentation xml:lang="de">Gibt den Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+					<xs:documentation xml:lang="en">MIC of the Exchange(s) at which the certificate is listed</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den MIC des Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="WBAH"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
@@ -2550,9 +2576,14 @@ EXCH ... Exchangables</xs:documentation>
 					<xs:documentation>Counterparty details</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StockMarket" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Stockmarket of the asset</xs:documentation>
+					<xs:documentation>Mic of the Stockmarket of the asset</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="WBAH"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="UnderlyingType">

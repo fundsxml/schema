@@ -195,6 +195,14 @@
 			<xs:pattern value="[A-Z]{2}[A-Z0-9]{9}[0-9]{1}"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="MICCodeType">
+		<xs:annotation>
+			<xs:documentation>Market Identifier Code - ISO 10383</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="PercentageType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">The PercentageType defines the percentage-values. It is derived from decimal. To decimal there is no modification. Percentage values can be expressed in three was: For 3.5 % it can be written as 3.5 or 1.035 or 0.035. For FundsXML percentage value has to be written as 3.5</xs:documentation>
@@ -824,6 +832,9 @@ R ... Reinvesting</xs:documentation>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="CompanyListedClassificationType">
+		<xs:annotation>
+			<xs:documentation>List of company classifications</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NACE Rev 2"/>
 			<xs:enumeration value="ÖNACE 2008"/>
@@ -831,6 +842,9 @@ R ... Reinvesting</xs:documentation>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ListedIdentifierType">
+		<xs:annotation>
+			<xs:documentation>List of all public available Identifiers</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AIF CODE"/>
 			<xs:enumeration value="AIFM CODE"/>

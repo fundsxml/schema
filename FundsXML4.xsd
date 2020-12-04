@@ -19363,7 +19363,12 @@ Z   New issue</xs:documentation>
 			<xs:documentation>List of company classifications</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="NACE Rev 2"/>
+			<xs:enumeration value="NACE Rev 2">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">1 character + 4 digits. no dots. Regex: [A-Z][0-9]{4} </xs:documentation>
+					<xs:documentation xml:lang="de">5 Stelliger NACE Code. 1 Buchstabe und 4 Zahlen (ohne Punkte) Regex: [A-Z][0-9]{4} </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="ÖNACE 2008"/>
 			<xs:enumeration value="SIC"/>
 		</xs:restriction>

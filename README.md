@@ -44,7 +44,7 @@ FundsXML is already used in the following countries:
 
 
 ## Documentation
-
+Documentation can be found on the [official FundsXML Website](http://www.fundsxml.org/documentation/) or on Github Pages. 
 
 
 ## Where can I get the latest release?
@@ -55,10 +55,12 @@ We accept Pull Requests via GitHub.
 
 
 ## License
-This code is licensed under the MIT license.
-
-See the [License](https://github.com/fundsxml/schema/blob/master/LICENSE) file for required notices and attributions.
+The organisation FundsXML.org administrates the XML patterns with the aim to establish these patterns as a unified standard. For this reason each company and single person shall be allowed to download and use these file formats and the documentations and files going with them from the FundsXML website. This is why FundsXML.org decided to put all patterns, files and documentations going with them under the [Mozilla Public Licence (MPL)](https://www.mozilla.org/en-US/MPL/).
 
 
 ## Additional Resources
-.... Peter Links...
+* [FundsXML – CSV converter](http://www.xml-tools.net/fundsxml/fundsxml-csv-converter.html)
+* [Online FundsXML Schema Viewer](http://www.xml-tools.net/fundsxml/schemaviewer.html)
+* [Online Portfolio Analysis via FundsXML data](http://www.xml-tools.net/fundsxml/portfolio-analysis.html)
+* [FundsXML-EMT-Converter](https://github.com/karlkauc/FundsXML-EMT-Converter)
+* [Online FundsXML Format and Quality Check](http://www.xml-tools.net/fundsxml/fundsxml4-analysis.html)

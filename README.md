@@ -1,6 +1,6 @@
 
 # FundsXML
-==========
+
 
 
 ## The pan-European format
@@ -9,8 +9,8 @@ The development of this standard was pushed by various companies to integrate nu
 
 If you have questions about FundsXML don't hesitate to contact one of these persons: 
 
-|                                                | Country | Company                     | Contact                                          |
-| :--------------------------------------------: | :-----: | :-------------------------: | :----------------------------------------------- |
+|        | Country | Company | Contact    |
+| :----: | :-----: | :------ | :--------- |
 | ![Flag of Austria](doc/images/flag_austria.png)| AT      | Erste Asset Management GmbH | [Karl Kauc](mailto:karl.kauc@erste.am.com)       |
 | ![Flag of Austria](doc/images/flag_austria.png)| AT | Amundi Austria GmbH | [Peter Raffelsberger](mailto:peter.raffelsberger@amundi.com)  |
 | ![Flag of Austria](doc/images/flag_germany.png)| DE | BVI Bundesverband   Investment und Asset Management e. V | [Thomas Koop](mailto:Thomas.Koop@bvi.de) |
@@ -23,13 +23,12 @@ If you have questions about FundsXML don't hesitate to contact one of these pers
 
 
 
-
 ## History of FundsXML
 
+lorem ipsum...
 
 
-
-## FundsXML is a powerful XML standard format for easy exchange of fund related data between:
+## FundsXML is a powerful XML standard format for easy exchange of fund related data between
 - Asset Managers
 - Clients
 - Distributors
@@ -38,19 +37,49 @@ If you have questions about FundsXML don't hesitate to contact one of these pers
 - Vendors
 - Advisors
 
-## FundsXML is transporting:
-- Fund Static Data (Name, Identifiers, Type, Manager, Administrator, ...)
-- Fund Dynamic Data (Total Net Asset Values, Risk Figures, Break Downs, ...)
-- Portfolio Data (Holdings, Transactions, Earnings, Ö)
-- Share Class Data (ISIN, Type, Net Asset Values, Performance, Subs/Reds, ...)
-- Asset Management Company Dynamic Data
-- Asset Master Data (Details of Securities, Derivatives and OTC Instruments)
-- Regulatory Reporting (MiFID II/EMT, EMIR, KIID, PRIIPS/EPT/CEPT, Solvency II/TPT, ...)
-- Documents (Factsheet, KIID, Prospectus, Reports, ...)
-- Country Specific Data
 
-### Advantages in contrast to CSV format:
-- Clear file structure and formatting (number, dates, Ö)
+
+## XML vs CSV
+
+loprem ipsum
+\. 
+\. 
+<br/>
+<br/>
+<br/>
+<br/>
+\.   
+
+
+
+## FundsXML vs other standards
+With FundXML it is possible to transport all Fund related Data within a single file.
+
+| Topic | Description | FundsXML | other standards |
+| ----- | ----------- | :------: | :-------------: |
+| File Metadata | Metadata desc... | ![fully supported](doc/images/ok.png) | ![no support](doc/images/cancel.png) |
+| Asset manager Data | FSD | .. | .. |
+| Fund Static Data | FSD | .. | .. |
+| Fund Dynamic Data | FSD | .. | .. |
+| Shareclass Information | FSD | .. | .. |
+| Segment Data | FSD | .. | .. |
+| Holdings | FSD | .. | .. |
+| Transactions | FSD | .. | .. |
+| Benchmark Data | FSD | .. | .. |
+| Fund Documents | FSD | .. | .. |
+| Asset Master Data | FSD | .. | .. |
+| Country Specific Data | FSD | .. | .. |
+| Regulatroy Reportings | FSD | .. | .. |
+| Custom Data | FSD | .. | .. |
+
+
+
+
+
+
+
+### Advantages in contrast to CSV format
+- Clear file structure and formatting (number, dates, ...)
 - Native support for nested loops, optional fields and sections
 - Definition of fields and tree structure via XML-Schema
 - Built in documentation in multiple languages
@@ -65,12 +94,14 @@ Documentation can be found on the [official FundsXML Website](http://www.fundsxm
 ## Where can I get the latest release?
 Latest official relese can be downloaded via the [fundsxml.org](http://www.fundsxml.org/schema-definitions/) website or via [github](https://github.com/fundsxml/schema/releases).
 
+
 ## Contributing
 We accept Pull Requests via GitHub.
 
 
 ## License
 The organisation FundsXML.org administrates the XML patterns with the aim to establish these patterns as a unified standard. For this reason each company and single person shall be allowed to download and use these file formats and the documentations and files going with them from the FundsXML website. This is why FundsXML.org decided to put all patterns, files and documentations going with them under the [Mozilla Public Licence (MPL)](https://www.mozilla.org/en-US/MPL/).
+
 
 
 ## Additional Resources

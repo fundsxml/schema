@@ -52,25 +52,25 @@ loprem ipsum
 
 
 
-## FundsXML vs other standards
+## FundsXML spectrum of Data
 With FundXML it is possible to transport all Fund related Data within a single file.
 
-| Topic | Description | FundsXML | other standards |
-| ----- | ----------- | :------: | :-------------: |
-| File Metadata | Metadata desc... | ![fully supported](doc/images/ok.png) | ![no support](doc/images/cancel.png) |
-| Asset manager Data | FSD | .. | .. |
-| Fund Static Data | FSD | .. | .. |
-| Fund Dynamic Data | FSD | .. | .. |
-| Shareclass Information | FSD | .. | .. |
-| Segment Data | FSD | .. | .. |
-| Holdings | FSD | .. | .. |
-| Transactions | FSD | .. | .. |
-| Benchmark Data | FSD | .. | .. |
-| Fund Documents | FSD | .. | .. |
-| Asset Master Data | FSD | .. | .. |
-| Country Specific Data | FSD | .. | .. |
-| Regulatroy Reportings | FSD | .. | .. |
-| Custom Data | FSD | .. | .. |
+| Topic | Description | FundsXML | 
+| ----- | ----------- | :------: |
+| File Metadata | Creation Date, Data Supplier, File operation (delete, update, create), ... | ![fully supported](doc/images/ok.png) | 
+| Asset manager Data | Asset Manager data (Address, LEI, ...), Statistic Data (AuM, etc.), Parent Company, Fund Manager, ... | ![fully supported](doc/images/ok.png) | 
+| Fund Static Data | Fund name, Identifiers (LEI, Bloomberg, ...), inception date, closing date, Benchmark used, Custodian information, regulatory framework (UCITS, AIF,..), ...  | ![fully supported](doc/images/ok.png) | 
+| Fund Dynamic Data | Funds volumes (M2M and additional calculation methods), ...  | ![fully supported](doc/images/ok.png) | 
+| Shareclass Information | Identifiers (ISIN, Bloomberg, Sedol,...), Shareclass Volume, shares outstanding, Portfolio data, ... | ![fully supported](doc/images/ok.png) | 
+| Segment Data | internal Fund Segments, Portfolio Data, Transactions, Static Data,... | ![fully supported](doc/images/ok.png) | 
+| Holdings | Detailed position information | ![fully supported](doc/images/ok.png) |  
+| Transactions | Detailed transaction information | ![fully supported](doc/images/ok.png) |  
+| Benchmark Data | benchmark values, composition, index constituents, ... | ![fully supported](doc/images/ok.png) | 
+| Fund Documents | regulatory documents (KIID, prospectus, anual reports,...) and custom reports (factsheets, customer reporting, ...) in all kind of formats (either as link or direct embedded in the FundsXML file), ... | ![fully supported](doc/images/ok.png) | 
+| Asset Master Data | detailed information about assets including all kind of derivatives | ![fully supported](doc/images/ok.png) | 
+| Country Specific Data | section for country specific data | ![fully supported](doc/images/ok.png) | 
+| Regulatroy Reportings | all kind of regulatory reportings: AIFMD, MIFID, PRIPS, TPT, EMT, ... | ![fully supported](doc/images/ok.png) | 
+| Custom Data | flexible to transport additional data between sender and reciever | ![fully supported](doc/images/ok.png) | 
 
 
 

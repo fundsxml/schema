@@ -18,7 +18,7 @@ If you have questions about FundsXML don't hesitate to contact one of these pers
 | ![Flag of Austria](doc/images/flag_denmark.png)| DK | FundConnect A/S | [Daniel Heskia](mailto:dh@fundconnect.com) |
 | ![Flag of Austria](doc/images/flag_luxembourg.png)| LU | KNEIP | [Fabrice Puziak](mailto:fabrice.puziak@kneip.com) |
 | ![Flag of Austria](doc/images/flag_netherlands.png)| NL | Robeco | [Andy Chan](mailto:a.chan@robeco.nl) | 
-| ![Flag of Austria](doc/images/flag_france.png)| FR | ... | ... |
+| ![Flag of Austria](doc/images/flag_france.png)| FR | Efeso | [Pierre Maugery-Pons](mailto:pierre.maugery-pons@efeso.com) |
 
 
 
@@ -41,14 +41,13 @@ lorem ipsum...
 
 ## XML vs CSV
 
-loprem ipsum
-\. 
-\. 
-<br/>
-<br/>
-<br/>
-<br/>
-\.   
+- Clear file structure and formatting (number, dates, ...)
+- Native support for nested loops, optional fields and sections
+- Definition of fields and tree structure via XML-Schema
+- Built in documentation in multiple languages
+- Automatic validation of file structure and field content against XML-Schema
+
+You can find a lot of discussions about XML vs CSV on the internet. E.g. on [Stackoverflow](https://stackoverflow.com/questions/1820129/when-and-why-is-xml-preferable-to-csv).
 
 
 
@@ -75,28 +74,17 @@ With FundXML it is possible to transport all Fund related Data within a single f
 
 
 
-
-
-
-### Advantages in contrast to CSV format
-- Clear file structure and formatting (number, dates, ...)
-- Native support for nested loops, optional fields and sections
-- Definition of fields and tree structure via XML-Schema
-- Built in documentation in multiple languages
-- Automatic validation of file structure and field content against XML-Schema
-
-
-
 ## Documentation
 Documentation can be found on the [official FundsXML Website](http://www.fundsxml.org/documentation/) or on Github Pages. 
 
 
 ## Where can I get the latest release?
-Latest official relese can be downloaded via the [fundsxml.org](http://www.fundsxml.org/schema-definitions/) website or via [github](https://github.com/fundsxml/schema/releases).
+Latest official relese can be downloaded via the [fundsxml.org](http://www.fundsxml.org/schema-definitions/) website or via [Github](https://github.com/fundsxml/schema/releases).
 
 
 ## Contributing
-We accept Pull Requests via GitHub.
+If you want to become a Associate Member of the FundsXML organisation or active participate in one of the working groups contact the "FundsXML Standards Committee" contact the Secretary [Thomas Koop](mailto:thomas.koop@bvi.de).  
+If you have found any bugs or enhance some documentaion - we also accept Pull Requests via GitHub.
 
 
 ## License

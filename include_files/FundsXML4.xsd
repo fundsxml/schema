@@ -15,9 +15,10 @@
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_KIID.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_PRIIPS.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_SolvencyII.xsd"/>
+	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_EFT.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.1.8</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.1.9</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -353,6 +354,7 @@ No, Digital, Scan</xs:documentation>
 						<xs:enumeration value="4.1.6"/>
 						<xs:enumeration value="4.1.7"/>
 						<xs:enumeration value="4.1.8"/>
+						<xs:enumeration value="4.1.9"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -540,6 +542,11 @@ supplementing Regulation (EU) No 648/2012 of the European Parliament and of the 
 			<xs:element name="EMT_V3" type="EMTType_V3" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>According to FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 as of 2019-11-25</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFTs" type="EFTType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>According to FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

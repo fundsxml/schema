@@ -1028,6 +1028,61 @@ negative - paying premiums</xs:documentation>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
+				<xs:element name="CommercialPaper">
+					<xs:annotation>
+						<xs:documentation>Commercial Paper and Certificate of Deposit</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Nominal" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Nominal value (units) of CP or CD</xs:documentation>
+									<xs:documentation xml:lang="de">Nominale/Stückzahl der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Clean price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Bewertungskurs (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="DirtyPrice" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Dirty Price (including interests)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Market value of security position without interests</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="InterestClaimNet" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest claim net value</xs:documentation>
+									<xs:documentation xml:lang="de">Netto-Zinsanspruch der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="InterestClaimGross" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest claim gross value</xs:documentation>
+									<xs:documentation xml:lang="de">Brutto-Zinsanspruch der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="AccruedInterestDays" type="xs:integer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of accrued interest days</xs:documentation>
+									<xs:documentation xml:lang="de">Anzahl der Stueckzins Tage an</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
 			</xs:choice>
 			<xs:element name="CapitalYieldsTaxClaim" type="FundAmountType" minOccurs="0">
 				<xs:annotation>

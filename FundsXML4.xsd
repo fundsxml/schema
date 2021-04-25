@@ -433,6 +433,11 @@ N = Nominale</xs:documentation>
 					<xs:documentation xml:lang="de">Unternehmensbeteiligung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="CommercialPaper" type="CommercialPaperType">
+				<xs:annotation>
+					<xs:documentation>Commercial Paper and Certificate of Deposit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="AssetManagementClosedDataType">
@@ -1475,7 +1480,9 @@ RT = Real Estate Investment Trust
 LO = Loan
 RI = Right
 CO = Commodity
-PE = PrivateEquity</xs:documentation>
+PE = PrivateEquity
+CP = CommercialPaper
+</xs:documentation>
 					<xs:documentation xml:lang="de">Art des Wertpapieres:
 EQ = Aktie
 BO = Rente
@@ -1497,6 +1504,7 @@ LO = Darlehen
 RI = Rechte
 CO = Commodity
 PE = Unternehmensbeteiligung
+CP = Geldmarktpapier
 </xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -2770,6 +2778,147 @@ The amounts shown here are the cumulative costs of the product itself, for three
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialPaperType">
+		<xs:annotation>
+			<xs:documentation>Commercial Paper and Certificate of Deposit Master Data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Issuer" type="CompanyType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Issuer details</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt den Wertpapieremittenten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">MIC of the Exchange(s) at which this bond is listed.</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt den MIC des Boerseplatz an an dem das Wertpapier notiert</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="WBAH"/>
+						</altova:exampleValues>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Listing" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Indicator whether this bond is listed at an exchange
+A   Listed at an official market
+B   Listed at an exchange
+G   Listed on a regular market
+K   No listing
+M  Listed on a regular market inside the EU
+S   Unregulated market
+V   Securitised rights
+Y   Acceptance on unregulated market planned
+Z   New issue</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an ob das Wertpapier an einer Boerse notiert 
+
+- A  Amtlicher Handel 
+- B  Boersennotierung Ausland
+- G  Geregelter Freiverkehr
+- K  Keine Boersenotierung
+- M  Geregelter Markt id. EU
+- S  Sonstiger Handel
+- V  Verbriefte Rechte
+- Y  Zulassung zum sonst. Handel vorges.
+- Z  Neuemission</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="G"/>
+						<xs:enumeration value="K"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="S"/>
+						<xs:enumeration value="V"/>
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="Z"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ListingUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Listing unit:
+P ... pieces
+N ... nominal amount</xs:documentation>
+					<xs:documentation xml:lang="de">S = Stueck
+oder
+N = Nominale</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="P"/>
+						<xs:enumeration value="N"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="IssueDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Issue date of the bond</xs:documentation>
+					<xs:documentation xml:lang="de">Emissionsdatum bezeichnet jenes Datum, zu dem das Wertpapier aufgelegt wurde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Maturity date</xs:documentation>
+					<xs:documentation xml:lang="de">Ablaufdatum/Faelligkeitsdatum</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RedemptionRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Price at which the bond finally will be redeemded</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt den Kurs zu dem das Wertpapier getilgt wird</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Coupon" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Coupon details</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Type" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>fix/float/zero/others</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="fix"/>
+									<xs:enumeration value="float"/>
+									<xs:enumeration value="zero"/>
+									<xs:enumeration value="others"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="PaymentFrequency" type="FrequencyType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Payment frequency (e.g. yearly)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="InterestRate" type="xs:decimal" minOccurs="0"/>
+						<xs:element name="BaseIndex" type="IdentifiersType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>e.g. EURIBOR 6 Months</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OffsetBPS" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Offset in base points in addition to BaseIndex</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InterestRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Nominal interest rate</xs:documentation>
+					<xs:documentation xml:lang="de">Enthaelt einen Zinssatz</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsAssetBacked" type="YesNoType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CompanyType">
@@ -13284,6 +13433,61 @@ negative - paying premiums</xs:documentation>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
+				<xs:element name="CommercialPaper">
+					<xs:annotation>
+						<xs:documentation>Commercial Paper and Certificate of Deposit</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Nominal" type="xs:decimal">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Nominal value (units) of CP or CD</xs:documentation>
+									<xs:documentation xml:lang="de">Nominale/Stückzahl der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Price" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Clean price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="de">Bewertungskurs (in verschiedenen Währungen)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="DirtyPrice" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Dirty Price (including interests)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Market value of security position without interests</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="InterestClaimNet" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest claim net value</xs:documentation>
+									<xs:documentation xml:lang="de">Netto-Zinsanspruch der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="InterestClaimGross" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Interest claim gross value</xs:documentation>
+									<xs:documentation xml:lang="de">Brutto-Zinsanspruch der Rentenposition</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="AccruedInterestDays" type="xs:integer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Number of accrued interest days</xs:documentation>
+									<xs:documentation xml:lang="de">Anzahl der Stueckzins Tage an</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="de">Einstandswert</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
 			</xs:choice>
 			<xs:element name="CapitalYieldsTaxClaim" type="FundAmountType" minOccurs="0">
 				<xs:annotation>
@@ -19690,6 +19894,7 @@ Z   New issue</xs:documentation>
 			<xs:enumeration value="RI"/>
 			<xs:enumeration value="CO"/>
 			<xs:enumeration value="PE"/>
+			<xs:enumeration value="CP"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="BenchmarkUsageType">

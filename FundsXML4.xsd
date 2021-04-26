@@ -2856,9 +2856,9 @@ N = Nominale</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="IssueDate" type="xs:date">
+			<xs:element name="IssueDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Issue date of the bond</xs:documentation>
+					<xs:documentation xml:lang="en">Issue date of the CP/CD</xs:documentation>
 					<xs:documentation xml:lang="de">Emissionsdatum bezeichnet jenes Datum, zu dem das Wertpapier aufgelegt wurde</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -6665,7 +6665,7 @@ Means total number of transactions expressed in absolute number. Includes volume
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Sales_OTN_NTM" minOccurs="0">
+						<xs:element name="Sales_OTM_NTM" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Sales Outside Target Market (OTM) and/or in Negative Target Market (NTM) - Reported as Number of Transactions</xs:documentation>
 							</xs:annotation>
@@ -6735,7 +6735,7 @@ In reference to ESMA Product Governance Guidelines Article 51 this field is used
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Sales_OTN_NTM" minOccurs="0">
+						<xs:element name="Sales_OTM_NTM" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="RetailInvestorTypeAndSelfServiceVsDistributorTM_Italy" type="xs:int" minOccurs="0">

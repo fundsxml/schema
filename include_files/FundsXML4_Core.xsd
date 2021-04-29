@@ -99,12 +99,12 @@
 			</xs:element>
 			<xs:element name="SEDOL" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Stock Exchange Daily Official List (6 chars)</xs:documentation>
+					<xs:documentation>Stock Exchange Daily Official List (7 chars)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:length value="6"/>
-						<xs:pattern value="[0-9]{6}"/>
+						<xs:maxLength value="7"/>
+						<xs:minLength value="6"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

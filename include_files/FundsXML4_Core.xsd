@@ -2,12 +2,7 @@
 <!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:complexType name="IdentifiersType">
-		<xs:sequence>
-			<xs:element name="ISIN" type="ISINType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>International Securities Identification Number (12 chars)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
 			<xs:element name="Bloomberg" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Bloomberg identifiers</xs:documentation>
@@ -105,6 +100,7 @@
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="7"/>
 						<xs:minLength value="6"/>
+						<xs:pattern value="^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]{1}$"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -130,6 +126,11 @@
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="ISIN" type="ISINType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>International Securities Identification Number (12 chars)</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

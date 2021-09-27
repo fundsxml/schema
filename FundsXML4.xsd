@@ -10614,12 +10614,7 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IdentifiersType">
-		<xs:sequence>
-			<xs:element name="ISIN" type="ISINType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>International Securities Identification Number (12 chars)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+		<xs:sequence maxOccurs="unbounded">
 			<xs:element name="Bloomberg" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Bloomberg identifiers</xs:documentation>
@@ -10717,6 +10712,7 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="7"/>
 						<xs:minLength value="6"/>
+						<xs:pattern value="^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]{1}$"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -10742,6 +10738,11 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="ISIN" type="ISINType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>International Securities Identification Number (12 chars)</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -15268,6 +15269,8 @@ Active Share
 Beta factor
 Correlation
 Covariance
+CRR 2 Value (absolute value)
+CRR 2 relative (percentace value)
 Delta
 Duration
 Duration to next Call
@@ -15308,6 +15311,8 @@ Yield
 							<xs:enumeration value="BETA FACTOR"/>
 							<xs:enumeration value="CORRELATION"/>
 							<xs:enumeration value="COVARIANCE"/>
+							<xs:enumeration value="CRR II ABSOLUT"/>
+							<xs:enumeration value="CRR II PERCENTACE"/>
 							<xs:enumeration value="DELTA"/>
 							<xs:enumeration value="DURATION"/>
 							<xs:enumeration value="DURATION TO CALL"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -1830,7 +1830,7 @@ N = Nominale</xs:documentation>
 		<xs:sequence>
 			<xs:element name="Type">
 				<xs:annotation>
-					<xs:documentation>Swap type (Currency-, Crosscurrency-, Index-, Totalreturn-, Asset-, Commodity-, Interest Rate-, Other)</xs:documentation>
+					<xs:documentation>Swap type (Currency-, Crosscurrency-, Index-, Totalreturn-, Asset-, Commodity-, Interest Rate-, Inflation-, Other)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1842,6 +1842,7 @@ N = Nominale</xs:documentation>
 						<xs:enumeration value="Assetswap"/>
 						<xs:enumeration value="Commodityswap"/>
 						<xs:enumeration value="Interestrateswap"/>
+						<xs:enumeration value="Inflationswap"/>
 						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -2886,6 +2887,7 @@ EXCH ... Exchangables</xs:documentation>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="UniqueID" type="xs:IDREF" minOccurs="0"/>
+			<xs:element name="Name" type="Text256Type" minOccurs="0"/>
 			<xs:element name="Identifiers" type="IdentifiersType"/>
 			<xs:element name="Nominale" type="xs:decimal" minOccurs="0"/>
 		</xs:sequence>

@@ -15271,7 +15271,7 @@ Beta factor
 Correlation
 Covariance
 CRR 2 Value (absolute value)
-CRR 2 relative (percentace value)
+CRR 2 relative (percentage value)
 Delta
 Duration
 Duration to next Call
@@ -18585,7 +18585,7 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 		<xs:sequence>
 			<xs:element name="Type">
 				<xs:annotation>
-					<xs:documentation>Swap type (Currency-, Crosscurrency-, Index-, Totalreturn-, Asset-, Commodity-, Interest Rate-, Other)</xs:documentation>
+					<xs:documentation>Swap type (Currency-, Crosscurrency-, Index-, Totalreturn-, Asset-, Commodity-, Interest Rate-, Inflation-, Other)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -18597,6 +18597,7 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 						<xs:enumeration value="Assetswap"/>
 						<xs:enumeration value="Commodityswap"/>
 						<xs:enumeration value="Interestrateswap"/>
+						<xs:enumeration value="Inflationswap"/>
 						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -19659,6 +19660,7 @@ References to Club AMPERE Excel "Template for Solvency 2 reporting": Ann in Anno
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="UniqueID" type="xs:IDREF" minOccurs="0"/>
+			<xs:element name="Name" type="Text256Type" minOccurs="0"/>
 			<xs:element name="Identifiers" type="IdentifiersType"/>
 			<xs:element name="Nominale" type="xs:decimal" minOccurs="0"/>
 		</xs:sequence>

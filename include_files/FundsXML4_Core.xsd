@@ -3,6 +3,11 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:complexType name="IdentifiersType">
 		<xs:sequence minOccurs="1">
+			<xs:element name="ISIN" type="ISINType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>International Securities Identification Number (12 chars)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Bloomberg" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Bloomberg identifiers</xs:documentation>
@@ -126,11 +131,6 @@
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
-			</xs:element>
-			<xs:element name="ISIN" type="ISINType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>International Securities Identification Number (12 chars)</xs:documentation>
-				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

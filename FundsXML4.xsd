@@ -4,7 +4,7 @@
 <xs:schema xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.1.10</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.1.11</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -3156,6 +3156,7 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 						<xs:enumeration value="4.1.8"/>
 						<xs:enumeration value="4.1.9"/>
 						<xs:enumeration value="4.1.10"/>
+						<xs:enumeration value="4.1.11"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -10782,6 +10783,11 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 CEPT - 20170621  TEMPLATE 1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="EPT_V20" type="PRIIPSType_V20" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>EUROPEAN PRIIPs TEMPLATE - EPT V2.0 </xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IndustryCodeType">
@@ -14590,12 +14596,955 @@ Integer corresponding to the following closed list:
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="PRIIPS_V2_Country_Specific_DE">
+		<xs:sequence>
+			<xs:element name="Characteristics">
+				<xs:annotation>
+					<xs:documentation>Characteristics of the fund / portfolio</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GermanMOPsReferenceDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>06005 - Date to which the specific data for underlying options within German MOPs of category 4 refer</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BondsWeight" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06010-Proportion (weight) of bonds within the fund/portfolio measured in percentage of market value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AnnualizedReturnVolatility" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06020-Annualized daily volatility of the fund / portfolio based on the last 1250 trading days or, if valuation frequency is lower than daily, the volatility is based on the valuation frequency and annualized.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DurationBonds" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06030-Asset prices weighted Macaulay-Duration in years of the fund / portfolio</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CapitalPreservation">
+				<xs:annotation>
+					<xs:documentation>Additional information for capital preservation funds/portfolio</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Existing_Capital_Preservation" type="YesNoType">
+							<xs:annotation>
+								<xs:documentation>06040-Identifies if a capital preservation method is used (Y) or not (N).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CapitalPreservationLevel" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>06050-100% minus the maximum possible loss in percentage of its market value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TimeIntervalMaximumLoss" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>06060-The time period in which a possible loss of a capital perservation funds is measured. 
+"1"= annual"
+"2"= biannual
+"4"=quarterly
+"12"= monthly
+"24"=bimonthly
+"52"=weekly
+"104"=biweekly
+"252"=daily</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="4"/>
+									<xs:enumeration value="12"/>
+									<xs:enumeration value="24"/>
+									<xs:enumeration value="52"/>
+									<xs:enumeration value="104"/>
+									<xs:enumeration value="252"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="UsesPI" type="YesNoType">
+							<xs:annotation>
+								<xs:documentation>06070-Identifies if PI (Portfolio Insurance including CPPI Constant Proportion Portfolio Insurance)  is used (Y) or not (N) for capital preservation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MultiplierPI" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>06080-Gives the maximum multiplier value if PI algorithm is us</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PRIIPS_V2_NarrativesType">
+		<xs:sequence>
+			<xs:element name="ComprehensionAlert" type="YesNoType">
+				<xs:annotation>
+					<xs:documentation>04020-Flag Comprehension Alert</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IntendedTargetMarketRetailInvestor">
+				<xs:annotation>
+					<xs:documentation>04030-Text in reference language:
+
+The description of the type of retail investor to whom the PRIIP is intended to be marketed in the section entitled ‘What is this product?’ of the key information document shall include information on the target retail investors identified by the PRIIP manufacturer, in particular depending on the needs, characteristics and objectives of the type of client for whom the PRIIPs is compatible. This determination shall be based upon the ability of retail investors to bear investment loss and their investment horizon preferences, their theoretical knowledge of, and past experience with PRIIPs, the financial markets as well as the needs, characteristics and objectives of potential end clients.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InvestmentObjective">
+				<xs:annotation>
+					<xs:documentation>04040-Text in reference language:
+
+Information stating the objectives of the PRIIP and the means for achieving those objectives in the section entitled ‘What is this product?’ of the key information document shall be summarised in a brief, clear and easily understandable manner. That information shall identify the main factors upon which return depends, the underlying investment assets or reference values, and how the return is determined, as well as the relationship between the PRIIP’s return and that of the underlying investment assets or reference values.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="8000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RiskNarrative" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04050-Text in reference language:
+[insert a brief explanation of the classification of the product with a maximum of 300 characters in plain language]</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OtherMaterialyRelevantRiskNarrative">
+				<xs:annotation>
+					<xs:documentation>04060-Text in reference language (Element E)
+
+[Where applicable: element h] [Other risks materially relevant to the PRIIP not included in the summary risk indicator to be explained with a maximum of 200 characters]</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TypeUnderlyingInvestmentOption">
+				<xs:annotation>
+					<xs:documentation>04070-Legal Form like SICAV, OEIC, ... Understable to te customer</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CapitalGuarantee" type="YesNoType">
+				<xs:annotation>
+					<xs:documentation>04080-Capital Guarantee</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CapitalGuaranteeLevel" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04081-Capital Guarantee level. Minimum amount will be paid at redemption in%. Cf annex 3, point 7, Element F</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CapitalGuaranteeLimitations" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04082-The field shall contain well-formulated text which can be used directly by the insurer in the KID according to article 14 of the regulation.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CapitalGuaranteeEarlyExitConditions" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04083-Date before which the early exit conditions apply. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CapitalGuaranteePortfolio" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04084-characteristics of the guarantee: open ended or fixed maturity, daily or monthly lockin, monthly reset, constant guarantee, reference value (highest NAV, NAV of start period,…), other particularities, name of the guarantor</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PossibleMaxLoss" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04085-Possible maximium loss</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DescriptionPastInterval" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04086 - 04089</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UnfavorableScenario" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>04086 - Describes the historical time period the unfavourable scernario corresponds to</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="300"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ModerateScenario" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>04087 - Describes the historical time period the moderate scernario corresponds to</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="300"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="FavorableScenario" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00489 - Describes the historical time period the favourable scernario corresponds to</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="300"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PerformanceFeesCarriedInterestNarrative" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04090 - Describes the outperformance of your product and shall be a well-formulated text.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OneOffCostPortfolioEntryCostDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04120 - Description of the entry cost, not more than 300 characters.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OneOffCostPortfolioExitCostDescription">
+				<xs:annotation>
+					<xs:documentation>04130 - Description of exit cost, not more than 300 characters.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OngoingCostsPortfolioManagementCostsDescription">
+				<xs:annotation>
+					<xs:documentation>04140 - Description of the ongoing cost, not more than 150 characters.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="150"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DoCostsDependOnInvestedAmount" type="YesNoType">
+				<xs:annotation>
+					<xs:documentation>04150 - Indicates whether the costs depend on the invested amount.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CostDepenanceExplanation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>04160 - Describes the dependence of consts on the invested amount, not more than 300 characters</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="150"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PRIIPS_V2_ReturnScenarioType">
+		<xs:sequence>
+			<xs:element name="OneYear" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>After one year.  Mandotory if RHP >1 year. For autocallables only if called after 1y</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HalfRHP" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>After half of the RHP. Mandatory if the RHP</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RHPOrFirstCallDateOrFirstCallDate" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>At the RHP   </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AutocallDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>End date of the product, call date or maturity corresponding to the moderate scenario of autocallables</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="PRIIPSType">
 		<xs:annotation>
 			<xs:documentation>XML adaptation of "PRIIPS Pan European Data Exchange Template"</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="PRIIPS_Report" type="PRIIPS_ReportType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PRIIPSType_V20">
+		<xs:sequence>
+			<xs:element name="PRIIPS_Report">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DataSetInformation">
+							<xs:annotation>
+								<xs:documentation>PRIIPs Data Set Information</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Version">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="V21"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Data_ReportingNarratives" type="YesNoType"/>
+									<xs:element name="DataReportingCosts" type="YesNoType"/>
+									<xs:element name="DataReportingAdditionalRequirementsGermanMOPs" type="YesNoType"/>
+									<xs:element name="AdditionalInformationStructuredProductsRIY" type="YesNoType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="GeneralPortfolioInformation">
+							<xs:annotation>
+								<xs:documentation>EPT 00 / CEPT PRICES 10 / CEPT RHP 30 </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PortfolioManufacturerName">
+										<xs:annotation>
+											<xs:documentation>EPT 00010 - (a)  entity that manufactures PRIIPs;
+(b)  entity that makes changes to an existing PRIIP including, but not limited to, altering its risk and reward profile or the costs associated with an investment in a PRIIP</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="PortfolioManufacturerGroupName">
+										<xs:annotation>
+											<xs:documentation>EPT 00015 - Name of the group PRIIPs manufacturer belongs to</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="PortfolioManufacturerLEI" type="LEICodeType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>00016 - Legal Entity Identifier, LEI of the manufacturer of the portfolio</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PortfolioManufacturerEmail" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>00017 - Contact entry point for communication with the manufacturer to either provide feed back reporting or to retrieve details on how to provide feed back reporting.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Portfolio_Guarantor_Name" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>EPT 00020 - Name of Guarantor of the financial instrument ... i.e. the entity to which the end investor has counterparty risk </xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="PortfolioID" type="PRIIPS_SecurityCodificationType">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">EPT 00030 / CEPT PRICES 10020 / CEPT RHP  30020 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
+ISIN Preferred when available.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PortfolioName" type="Text256Type">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">EPT 00050 / CEPT PRICES 10040 / CEPT RHP 30040 - Name of the Portfolio or name of the CIS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">EPT 00060 - Denomination currency of the portfolio</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="GeneralReferenceDate" type="xs:date">
+										<xs:annotation>
+											<xs:documentation>EPT 00070- Date to which the general data within the EPT refer</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PortfolioPRIIPSCategory">
+										<xs:annotation>
+											<xs:documentation>EPT 00080 / CEPT PRICES 10070 / CEPT RHP 30070 - PRIIPS Category of the Portfolio (1 to 4)</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:short">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+												<xs:enumeration value="3"/>
+												<xs:enumeration value="4"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="FundCICCode" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>EPT 00090 - CIC code - Fund   (4 digits)</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:length value="4"/>
+												<xs:pattern value="[A-Z]{2}[0-9]{2}"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="IsAnAutocallableProduct" type="YesNoType">
+										<xs:annotation>
+											<xs:documentation>00110 - indication of whether the product is an autocallable </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReferenceLanguage" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>00120 - Language in which the linked website with past performance, the historical performance (02190_Past_Performance_Link and 02200_Previous_Performance_Scenarios_Calculation_Link) and all narratives/texts of this set of data are written</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="RiskAssessment">
+							<xs:annotation>
+								<xs:documentation>01</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ValuationFrequency" type="PRIIPSFrequencyType">
+										<xs:annotation>
+											<xs:documentation>01010-Number of valuation days per year for the portfolio or fund or share class. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="VEV_Reference" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>01020-VEV of the Portfolio/Share Class. Mandatory for cat 2 and 3 / Optional for cat 1 and 4</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="IS_Flexible" type="YesNoType">
+										<xs:annotation>
+											<xs:documentation>01030-Indicator to alert if the fund is flexible. If the annex 2 section 14 of the regulation applies</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Flex_VEV_Historical" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>01040-Var Equivalent Volatility of the portfolio. Mandatory if IS-Flexible is set to Yes</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Flex_VEV_Ref_Asset_Allocation" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>01050-Var Equivalent of the reference asset allocation of the portfolio. Mandatory if IS-Flexible is set to Yes</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="IS_Risk_Limit_Relevant" type="YesNoType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>01060-Indicator to alert if there is a relevant risk limit for flexible funds</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Flex_VEV_Risk_Limit" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>01070-Var Equivalent volatility of the risk limit of the portfolio</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Existing_Credit_Risk" type="YesNoType">
+										<xs:annotation>
+											<xs:documentation>01080-Indicator to alert if there is a credit risk</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SRI">
+										<xs:annotation>
+											<xs:documentation>01090-Summary Indicator Risk of the fund or the portfolio (1 to 7)</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:short">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+												<xs:enumeration value="3"/>
+												<xs:enumeration value="4"/>
+												<xs:enumeration value="5"/>
+												<xs:enumeration value="6"/>
+												<xs:enumeration value="7"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="IsSRIAdjusted" type="YesNoType">
+										<xs:annotation>
+											<xs:documentation>010095 - whether or not the manufacturer increased the SRI</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MRM">
+										<xs:annotation>
+											<xs:documentation>01100-Market Risk Measure of the fund or portfolio (1 to 7)</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:short">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+												<xs:enumeration value="3"/>
+												<xs:enumeration value="4"/>
+												<xs:enumeration value="5"/>
+												<xs:enumeration value="6"/>
+												<xs:enumeration value="7"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="CRM" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>01110-Credit Risk measure of the fund or the portfolio (1 to 6)</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:short">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+												<xs:enumeration value="3"/>
+												<xs:enumeration value="4"/>
+												<xs:enumeration value="5"/>
+												<xs:enumeration value="6"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Recommended_Holding_Period" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>01120-Recommended holding period of the fund (in years (not an integer))</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="HasAContractualMaturityDate" type="YesNoType">
+										<xs:annotation>
+											<xs:documentation>01125 - Indicates the existence of a contractual maturiy date of the portfolio</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>01130 - Required only for fixed maturity financial instruments in ordrer to calculate the remaining time to maturity as a RHP. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Liquidity_Risk">
+										<xs:annotation>
+											<xs:documentation>01140 - Risk of Liquidity at the level of the fund or the portfolio
+M = material liquidity risk, I = illiquid, L = no liquidity issue. </xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="M"/>
+												<xs:enumeration value="I"/>
+												<xs:enumeration value="L"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PerformanceScenario">
+							<xs:annotation>
+								<xs:documentation>02</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ReturnUnfavorable" type="PRIIPS_ReturnScenarioType">
+										<xs:annotation>
+											<xs:documentation>02010-02020-02030 Annual return  of the portfolio, fund, share class corresponding to the unfavorable scenario.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="AutocallDateUnfavorableScenario" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02035 - End date of the product, call date or maturity corresponding to the unfavourable scenario of autocallables</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReturnModerate" type="PRIIPS_V2_ReturnScenarioType">
+										<xs:annotation>
+											<xs:documentation>02040-02050-02060 Return of the portfolio, fund, share class corresponding to the moderate scenario</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReturnFavorable" type="PRIIPS_ReturnScenarioType">
+										<xs:annotation>
+											<xs:documentation>02070-02080-02090 Annual return  of the portfolio, fund, share class corresponding to the favorable scenario</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReturnStress" type="PRIIPS_ReturnScenarioType">
+										<xs:annotation>
+											<xs:documentation>02100-02110-02120 Annual return  of the portfolio, fund, share class corresponding to the stress scenario</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="NumberOfObservedReturn_M0" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02130-See PRIIPS regulation. 
+Mandatory for PRIIPS cat equals to 2</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MeanObservedReturns_M1" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02140-See PRIIPS Regulation.
+M1. Mandatory for PRIIPS cat equals to 2</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ObservedSigma" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02150-See PRIIPS Regulation. Square root of M2. Mandatory for PRIIPS cat equals to 2</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ObservedSkewness" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02160-See PRIIPS Regulation. Mandatory for PRIIPS cat equals to 2</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ObservedExcessKurtosis" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02170-See PRIIPS Regulation. Mandatory for PRIIPS cat equals to 2</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ObservedStressedVolatility" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02180-Volatility used to calculate stress scenario
+stressed volatility applied for stress scenario calculations for >1y</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PastPerformanceLink" type="xs:anyURI" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02190 - link to the past performance of the fund</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PreviousPerformanceScenariosCalculationLink" type="xs:anyURI" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02200 - Link to the previous calculations</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PastPerformanceNumberOfYears" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02210 - Number of years for which past performance is presented</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:decimal">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="10"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="InvestedAmountOtherCurrency" type="xs:int" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02220 - invested amount if the currency of the PRIIP is not EUR as shown in the performance scenarios.
+Mandatory if the share class in 00060_Share_Class_Currency is not in EUR.  </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Costs">
+							<xs:annotation>
+								<xs:documentation>03</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="OneOff">
+										<xs:annotation>
+											<xs:documentation>03010-03050</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="EntryCost">
+													<xs:annotation>
+														<xs:documentation>03010-Subscription fees not acquired to the fund or the share class or portfolio mandate. Expressed as a % of the amount to be invested</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:minInclusive value="0"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="EntryCostsAcquired" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>03015-Subscription fees acquired to the fund or the share class or portfolio mandate. Expressed as a % of the amount to be invested</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ExitCostAtRHP">
+													<xs:annotation>
+														<xs:documentation>03020-Exit fees at the end of RHP for the portfolio or fund or share class. It is expressed as a % of net asset value.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:minInclusive value="0"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="ExitCostOneYear" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>03030-Exit fees after one year for the portfolio or fund or shar class. It is expressed as a % of net asset value. Mandatory if datapoint Sliding exit cost is Yes.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:minInclusive value="0"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="ExitCostHalfRHP" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>03040-Exit fees after half of the RHP for the portfolio or fund or shar class. It is expressed as a % of net asset value. Mandatory if datapoint Sliding exit cost is Yes.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:minInclusive value="0"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="SlidingExitCostIndicator" type="YesNoType">
+													<xs:annotation>
+														<xs:documentation>03050-Sliding exit cost indicator</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Ongoing">
+										<xs:annotation>
+											<xs:documentation>03060-03070</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="OtherCost">
+													<xs:annotation>
+														<xs:documentation>03060-See PRIIPS definition as a % of NAV of the portfolio, the funds or the share class / per annum.
+Maximum  fees, including look through for fund of funds / custodian fees / management fees. </xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:minInclusive value="0"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="ManagementCosts">
+													<xs:annotation>
+														<xs:documentation>03070-Maximum fee. Can be submitted to reduction for some specific commercial agreement between insurers and structurers. </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Transaction">
+													<xs:annotation>
+														<xs:documentation>03080-See PRIIPS definition as a % of NAV of the portfolio, the funds or the share class / per annum</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:minInclusive value="0"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Incidental">
+										<xs:annotation>
+											<xs:documentation>03080-03100</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ExistringIncidentalCostsPortfolio" type="YesNoType">
+													<xs:annotation>
+														<xs:documentation>03090-Indicates whether there are existing performance fees or carried interest or not</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="IncidentalCostsPortfolio" type="xs:decimal" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>03095-See PRIIPS definition as a % of NAV of the portfolio, the funds or the share class / per annum</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ExistingIncidentalCostsPortfolio" type="YesNoType">
+													<xs:annotation>
+														<xs:documentation>03100 - Indicates whether there are existing performance fees or carried interest or not</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Narratives" type="PRIIPS_V2_NarrativesType">
+							<xs:annotation>
+								<xs:documentation>04 - Narratives - mandatory section for underlying options offered in German or Italian MOPs </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AdditionalInformationRequiredForStructuredPRIIPs" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>07-Additional information required for structured PRIIPs: RIY Costs </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="FirstPossibleCallDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07005 - date of the first possible call for autocallable products</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TotalCost1YearOrFirstCall" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07010-Total cost in 00060_Share_Class_Currency terms in case the investor cashes in after one year, as requested in the "Costs over time" table. Rebased to 1. </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="RIY_1_YearOrFirstCall" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07020-RIY in case the investor cashes in after one year, as requested in the "Costs over time" table.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TotalCostHalfRHP" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07030-Total cost in 00060_Share_Class_Currency terms in case the investor cashes in at the middle of the RHP, as requested in the "Costs over time" table.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="RIYHalfRHP" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07040-RIY in case the investor cashes in at the middle of the RHP, as requested in the "Costs over time" table.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TotalCostRHP" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07050-Total cost in 00060_Share_Class_Currency terms in case the investor cashes in at the RHP, as requested in the "Costs over time" table.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="RIY_RHP" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07060-RIY in case the investor cashes in at the RHP, as requested in the "Costs over time" table.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="One-off_costs_Portfolio_entry_cost" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07070 - The entry cost in percentage term at 1Year</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="One-off_costs_Portfolio_exit_cost_RIY" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07080-The exit cost in RIY terms, as requested in the "Composition of costs" table.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Ongoing_costs_Portfolio_transaction_costs" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07090-The portfolio transaction costs in RIY terms, as requested in the "Composition of costs" table.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OngoingCostsManagementFeesAndOtherAdministrativeOrOperatingCosts" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07100-The other ongoing costs in RIY terms  in percentage term at 1Year (or at RHP if RHP less 1 year), as requested in the narrative part of the "Composition of costs" table</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="IncidentalCostsPortfolioPerformanceFeesCarriedInterest" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>07110-The performance fees in RIY terms, as requested in the "Composition of costs" table.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CountrySpecificData" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="AT" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="0"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="DE" type="PRIIPS_V2_Country_Specific_DE" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Specific data for German CAT IV PRIIPs (PIA model)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DK" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="0"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="FR" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="0"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="LU" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="0"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="NL" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="0"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PrivateEquityType">

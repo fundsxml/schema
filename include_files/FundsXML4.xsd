@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Fabrice Puziak (Kneip) -->
 <!-- edited by Karl Kauc by hand -->
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.1.10" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -18,7 +18,7 @@
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_EFT.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.1.10</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.1.11</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -356,6 +356,7 @@ No, Digital, Scan</xs:documentation>
 						<xs:enumeration value="4.1.8"/>
 						<xs:enumeration value="4.1.9"/>
 						<xs:enumeration value="4.1.10"/>
+						<xs:enumeration value="4.1.11"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -724,6 +725,11 @@ supplementing Regulation (EU) No 648/2012 of the European Parliament and of the 
 				<xs:annotation>
 					<xs:documentation>EPT 20170728 DRAFT  TEMPLATE 1.1 
 CEPT - 20170621  TEMPLATE 1.0</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EPT_V20" type="PRIIPSType_V20" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>EUROPEAN PRIIPs TEMPLATE - EPT V2.0 </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

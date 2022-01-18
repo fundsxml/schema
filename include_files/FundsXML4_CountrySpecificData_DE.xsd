@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="CountrySpecificDataDEType">
@@ -95,6 +95,93 @@
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MultiplierPI" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06080-Gives the maximum multiplier value if PI algorithm is us</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PRIIPS_V2_Country_Specific_DE">
+		<xs:sequence>
+			<xs:element name="Characteristics">
+				<xs:annotation>
+					<xs:documentation>Characteristics of the fund / portfolio</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GermanMOPsReferenceDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>06005 - Date to which the specific data for underlying options within German MOPs of category 4 refer</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BondsWeight" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06010-Proportion (weight) of bonds within the fund/portfolio measured in percentage of market value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AnnualizedReturnVolatility" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06020-Annualized daily volatility of the fund / portfolio based on the last 1250 trading days or, if valuation frequency is lower than daily, the volatility is based on the valuation frequency and annualized.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DurationBonds" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>06030-Asset prices weighted Macaulay-Duration in years of the fund / portfolio</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CapitalPreservation">
+				<xs:annotation>
+					<xs:documentation>Additional information for capital preservation funds/portfolio</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Existing_Capital_Preservation" type="YesNoType">
+							<xs:annotation>
+								<xs:documentation>06040-Identifies if a capital preservation method is used (Y) or not (N).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CapitalPreservationLevel" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>06050-100% minus the maximum possible loss in percentage of its market value.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TimeIntervalMaximumLoss" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>06060-The time period in which a possible loss of a capital perservation funds is measured. 
+"1"= annual"
+"2"= biannual
+"4"=quarterly
+"12"= monthly
+"24"=bimonthly
+"52"=weekly
+"104"=biweekly
+"252"=daily</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="4"/>
+									<xs:enumeration value="12"/>
+									<xs:enumeration value="24"/>
+									<xs:enumeration value="52"/>
+									<xs:enumeration value="104"/>
+									<xs:enumeration value="252"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="UsesPI" type="YesNoType">
+							<xs:annotation>
+								<xs:documentation>06070-Identifies if PI (Portfolio Insurance including CPPI Constant Proportion Portfolio Insurance)  is used (Y) or not (N) for capital preservation.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MultiplierPI" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>06080-Gives the maximum multiplier value if PI algorithm is us</xs:documentation>
 							</xs:annotation>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
+<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData_AT.xsd"/>
@@ -31,6 +31,11 @@
 			<xs:element name="RHPOrFirstCallDateOrFirstCallDate" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation>At the RHP   </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AutoCallApplied" type="YesNoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicate if the call has been applied</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AutocallDate" type="xs:date" minOccurs="0">
@@ -1745,14 +1750,9 @@ M = material liquidity risk, I = illiquid, L = no liquidity issue. </xs:document
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ReturnUnfavorable" type="PRIIPS_ReturnScenarioType">
+									<xs:element name="ReturnUnfavorable" type="PRIIPS_V2_ReturnScenarioType">
 										<xs:annotation>
 											<xs:documentation>02010-02020-02030 Annual return  of the portfolio, fund, share class corresponding to the unfavorable scenario.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="AutocallDateUnfavorableScenario" type="xs:date" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>02035 - End date of the product, call date or maturity corresponding to the unfavourable scenario of autocallables</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ReturnModerate" type="PRIIPS_V2_ReturnScenarioType">
@@ -1760,12 +1760,12 @@ M = material liquidity risk, I = illiquid, L = no liquidity issue. </xs:document
 											<xs:documentation>02040-02050-02060 Return of the portfolio, fund, share class corresponding to the moderate scenario</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="ReturnFavorable" type="PRIIPS_ReturnScenarioType">
+									<xs:element name="ReturnFavorable" type="PRIIPS_V2_ReturnScenarioType">
 										<xs:annotation>
 											<xs:documentation>02070-02080-02090 Annual return  of the portfolio, fund, share class corresponding to the favorable scenario</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="ReturnStress" type="PRIIPS_ReturnScenarioType">
+									<xs:element name="ReturnStress" type="PRIIPS_V2_ReturnScenarioType">
 										<xs:annotation>
 											<xs:documentation>02100-02110-02120 Annual return  of the portfolio, fund, share class corresponding to the stress scenario</xs:documentation>
 										</xs:annotation>
@@ -1801,6 +1801,11 @@ M1. Mandatory for PRIIPS cat equals to 2</xs:documentation>
 										<xs:annotation>
 											<xs:documentation>02180-Volatility used to calculate stress scenario
 stressed volatility applied for stress scenario calculations for >1y</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PortfolioPastPerformanceDisclosureRequired" type="YesNoType">
+										<xs:annotation>
+											<xs:documentation>02185-Does this product fulfil conditions sets in  Annex VIII number 1 a and b</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="PastPerformanceLink" type="xs:anyURI" minOccurs="0">

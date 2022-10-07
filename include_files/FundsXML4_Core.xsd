@@ -291,6 +291,35 @@ B ... Boolean</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="PositiveAmountType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Amount in different currencies - only positive values</xs:documentation>
+			<xs:documentation xml:lang="de">Betrag in verschiedenen Waehrungen - nur positive Werte erlaubt</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Amount" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Amounts in currency as defined in attribute - only positive values</xs:documentation>
+					<xs:documentation xml:lang="de">Betrag in frei waehlbarer Waehrung - nur positive Werte erlaubt</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="positiveDecimals">
+							<xs:attribute name="ccy" type="ISOCurrencyCodeType" use="required"/>
+							<xs:attribute name="isFundCcy" type="xs:boolean"/>
+							<xs:attribute name="isSubfundCcy" type="xs:boolean"/>
+							<xs:attribute name="isShareClassCcy" type="xs:boolean"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="positiveDecimals">
+		<xs:restriction base="xs:decimal">
+			<xs:minExclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="FundAmountType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Amount in different currencies</xs:documentation>
@@ -1093,6 +1122,29 @@ R ... Reinvesting</xs:documentation>
 					<xs:restriction base="xs:positiveInteger">
 						<xs:minInclusive value="1"/>
 						<xs:maxInclusive value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HedingStrategieType">
+		<xs:sequence>
+			<xs:element name="HedgingStrategie">
+				<xs:annotation>
+					<xs:documentation>A net asset value (NAV) hedge: This aims to minimise the effect of currency movements between the base currency of a fund and 
+the currency of the relevant hedged share class.
+A portfolio hedge: This aims to minimise the effect of currency movements between the currencies of the assets of the fund and the 
+currency of the relevant hedged share class with the exception of currencies where it is impractical or not cost effective to do so. In 
+other words, it looks through to the underlying currency exposures of the fund. 
+Full hedge: minimum of 90% hedging
+Partial hedge: below 90% hedge</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="No hedge"/>
+						<xs:enumeration value="Full NAV hedge"/>
+						<xs:enumeration value="Full Portfolio hedge"/>
+						<xs:enumeration value="Partial hedge"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

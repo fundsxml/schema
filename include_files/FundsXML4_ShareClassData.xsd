@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
@@ -199,6 +199,7 @@
 			</xs:element>
 			<xs:element name="OpenToNewInvestorsFlag" type="xs:boolean" minOccurs="0"/>
 			<xs:element name="CurrencyHedgedFlag" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="FundHedgingStrategie" type="HedingStrategieType" minOccurs="0"/>
 			<xs:element name="IsLeveragedFlag" type="xs:boolean" minOccurs="0"/>
 			<xs:element name="IsReferenceShareClass" type="xs:boolean" minOccurs="0"/>
 			<xs:element name="IsPublicFlag" type="xs:boolean" minOccurs="0">
@@ -1089,12 +1090,12 @@ Only the most recent date is stored
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Total" type="FundAmountType" minOccurs="0">
+						<xs:element name="Total" type="PositiveAmountType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Gross dividend amount total value</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="PerShare" type="FundAmountType">
+						<xs:element name="PerShare" type="PositiveAmountType">
 							<xs:annotation>
 								<xs:documentation>Gross dividend amount per share</xs:documentation>
 							</xs:annotation>
@@ -1108,12 +1109,12 @@ Only the most recent date is stored
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Total" type="FundAmountType" minOccurs="0">
+						<xs:element name="Total" type="PositiveAmountType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Net dividend amount total value</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="PerShare" type="FundAmountType">
+						<xs:element name="PerShare" type="PositiveAmountType">
 							<xs:annotation>
 								<xs:documentation>Net dividend amount per share</xs:documentation>
 							</xs:annotation>

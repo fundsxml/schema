@@ -4,7 +4,7 @@
 <xs:schema xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.2.1</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.2.2</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -3628,6 +3628,7 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 						<xs:enumeration value="4.1.11"/>
 						<xs:enumeration value="4.2.0"/>
 						<xs:enumeration value="4.2.1"/>
+						<xs:enumeration value="4.2.2"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -16174,10 +16175,24 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 								<xs:documentation>Bloomberg exchange</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Market" type="Text16Type" minOccurs="0">
+						<xs:element name="Market" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Bloomberg market</xs:documentation>
 							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="Text16Type">
+									<xs:enumeration value="Govt"/>
+									<xs:enumeration value="Corp"/>
+									<xs:enumeration value="Mtge"/>
+									<xs:enumeration value="Mmkt"/>
+									<xs:enumeration value="Muni"/>
+									<xs:enumeration value="Pfd"/>
+									<xs:enumeration value="Equity"/>
+									<xs:enumeration value="Comdty"/>
+									<xs:enumeration value="Index"/>
+									<xs:enumeration value="Curncy"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
 						<xs:element name="BBGID" minOccurs="0">
 							<xs:annotation>

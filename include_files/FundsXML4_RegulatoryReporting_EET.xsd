@@ -3850,20 +3850,20 @@ Date and Time of the creation of the EET file</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="SFDR_PreContractual" type="EETYesNoType">
+												<xs:element name="SFDRPreContractual" type="EETYesNoType">
 													<xs:annotation>
 														<xs:documentation>00060_EET_Data_Reporting_SFDR_Pre_Contractual
 </xs:documentation>
 													</xs:annotation>
 												</xs:element>
-												<xs:element name="SFDR_Periodic" type="EETYesNoType">
+												<xs:element name="SFDRPeriodic" type="EETYesNoType">
 													<xs:annotation>
 														<xs:documentation>00070_EET_Data_Reporting_SFDR_Periodic
 No means that there is not yet a periodic reporting. The M related fields have not to be fullfiled"
 </xs:documentation>
 													</xs:annotation>
 												</xs:element>
-												<xs:element name="SFDR_EntityLevel" type="EETYesNoType">
+												<xs:element name="SFDREntityLevel" type="EETYesNoType">
 													<xs:annotation>
 														<xs:documentation>00080_EET_Data_Reporting_SFDR_Entity_Level
 </xs:documentation>
@@ -3968,26 +3968,56 @@ Notation of the Manufacturer by the PRI on the Investment and Stewardship policy
 The manufacturer is a subsidary of a PRI/PRB entity</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="PRI_Or_PRB_Like" type="EETYesNoType" minOccurs="0">
+									<xs:element name="PRIOrPRBLike" type="EETYesNoType" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>11030_Manufacturer_PRI_Or_PRB_Like
 The Manufacturer is not a PRI/PRB signatory but considers it follows PRI/PRB rules</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="OtherCommitments" type="xs:string" minOccurs="0">
+									<xs:element name="OtherCommitments" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation>11040_Manufacturer_Other_Commitments
 Other Commitments by Manufacturers</xs:documentation>
 										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="A"/>
+												<xs:enumeration value="B"/>
+												<xs:enumeration value="C"/>
+												<xs:enumeration value="D"/>
+												<xs:enumeration value="E"/>
+												<xs:enumeration value="F"/>
+											</xs:restriction>
+										</xs:simpleType>
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="ManufacturerStewardshipCodeSignatory" type="xs:string" minOccurs="0">
+						<xs:element name="ManufacturerStewardshipCodeSignatory" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>12000_Manufacturer_Stewardship_Code_Signatory
 Disclosure of the applicable Stewardship Code</xs:documentation>
 							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="C"/>
+									<xs:enumeration value="D"/>
+									<xs:enumeration value="E"/>
+									<xs:enumeration value="F"/>
+									<xs:enumeration value="G"/>
+									<xs:enumeration value="H"/>
+									<xs:enumeration value="I"/>
+									<xs:enumeration value="J"/>
+									<xs:enumeration value="K"/>
+									<xs:enumeration value="L"/>
+									<xs:enumeration value="M"/>
+									<xs:enumeration value="N"/>
+									<xs:enumeration value="O"/>
+									<xs:enumeration value="ZZ"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
 						<xs:element name="ManufacturerWebsiteInformationStewardshipAndEngagement" type="xs:string">
 							<xs:annotation>
@@ -4080,10 +4110,12 @@ Denomination Currency of the Financial Instrument</xs:documentation>
 						<xs:element name="SFDRProductType">
 							<xs:annotation>
 								<xs:documentation>20040_Financial_Instrument_SFDR_Product_Type
-Reference of the article of SFDR european regulation applying to the product (art 6, art 8 or art 9)
-6= no product acc. to Art. 8/9
-8= Art. 8 SFDR Product (ESG characteristics)
-9= Art. 9 SFDR product (ESG objective)</xs:documentation>
+Reference of the article of SFDR european regulation applying to the product (art 6, art 8 or art 9). 
+0= product is not in SFDR scope
+6= product not Art8/9
+8=Art. 8 SFDR Product (ESG characteristics); 
+9=Art. 9 SFDR product (ESG objective)
+</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -4097,7 +4129,13 @@ Reference of the article of SFDR european regulation applying to the product (ar
 						<xs:element name="SFDRProductTypeEligible" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20050_Financial_Instrument_SFDR_Product_Type_Eligible
-Funds not being in SFDR scope and structured products. Art 8 like, art 9 like</xs:documentation>
+Conditional to 20040 set to 0
+For funds and products not being in SFDR scope, which includes structured products
+0= product does not follow any SFDR guideline 
+6= product follows Art6 guidelines
+8= product is Art 8 like
+9= product is Art 9 like
+</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -4108,11 +4146,43 @@ Funds not being in SFDR scope and structured products. Art 8 like, art 9 like</x
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="ESGLabelOrStandard" type="xs:string" minOccurs="0">
+						<xs:element name="ESGLabelOrStandard" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>20060_Financial_Instrument_ESG_Label_Or_Standard
 Disclosure of applicable ESG Label/s</xs:documentation>
 							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="C"/>
+									<xs:enumeration value="D"/>
+									<xs:enumeration value="E"/>
+									<xs:enumeration value="F"/>
+									<xs:enumeration value="G"/>
+									<xs:enumeration value="H"/>
+									<xs:enumeration value="I"/>
+									<xs:enumeration value="J"/>
+									<xs:enumeration value="K"/>
+									<xs:enumeration value="L"/>
+									<xs:enumeration value="M"/>
+									<xs:enumeration value="N"/>
+									<xs:enumeration value="O"/>
+									<xs:enumeration value="P"/>
+									<xs:enumeration value="Q"/>
+									<xs:enumeration value="R"/>
+									<xs:enumeration value="S"/>
+									<xs:enumeration value="T"/>
+									<xs:enumeration value="U"/>
+									<xs:enumeration value="V"/>
+									<xs:enumeration value="X"/>
+									<xs:enumeration value="Y"/>
+									<xs:enumeration value="AA"/>
+									<xs:enumeration value="AB"/>
+									<xs:enumeration value="AC"/>
+									<xs:enumeration value="AD"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
 						<xs:element name="PercentageMinimumSFDRArt8Funds" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
@@ -4145,7 +4215,8 @@ Indication of the "main focus" of the Financial_Instrument ( for example E for g
 						</xs:element>
 						<xs:element name="ConsidersPrincipleAdverseImpact" type="EETYesNoType">
 							<xs:annotation>
-								<xs:documentation>20100_Financial_Instrument_Does_This_Product_Consider_Principle_Adverse_Impact_In_Their_Investment</xs:documentation>
+								<xs:documentation>20100_Financial_Instrument_Does_This_Product_Consider_Principle_Adverse_Impact_In_Their_Investment                                         Consideration of PAI is commitment to reduce or mitigate adverse impacts and can be done quantitative or qualitatively
+</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -4163,31 +4234,31 @@ Indication of the "main focus" of the Financial_Instrument ( for example E for g
 Each insurance company needs to have the documents translated and published in the language of the countries of distribution. This field allows to list the languages in which the annexes documents are translated</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Link_To_PCDFP_For_MOP" type="xs:anyURI" minOccurs="0">
+						<xs:element name="LinkToPCDFPForMOP" type="xs:anyURI" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20120_Financial_Instrument_Link_To_PCDFP_For_MOP
-Pre Contractual Disclosure for Financial Products referred to in  Article 8(1) and 9(1), (2) and (3) (EU) 2019/2088 as stand alone document PDF for underlying investment options in Multi Option Products. Annex I, Annex II (EU) 2019/2088.</xs:documentation>
+Pre Contractual Disclosure for Financial Products referred to in  Article 8(1) and 9(1), (2) and (3) (EU) 2019/2088 as stand alone document PDF for underlying investment options in Multi Option Products. Annex I, Annex II (EU) 2019/2088</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ProductionDate_PCDFP" type="xs:date" minOccurs="0">
+						<xs:element name="ProductionDatePCDFP" type="xs:date" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20130_Financial_Instrument_Production_Date_PCDFP
 Date of production of PCDFP</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Link_To_PDFP_for_MOP" type="xs:anyURI" minOccurs="0">
+						<xs:element name="LinkToPDFPforMOP" type="xs:anyURI" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20140_Financial_Instrument_Link_To_PDFP_for_MOP
 Periodic Disclosure for Financial Products referred to in  Article 8(1) and 9(1), (2) and (3) (EU) 2019/2088 as stand alone document PDF for underlying investment options in Multi Option Products. Annex III, Annex IV (EU) 2019/2088.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="EndDateOfReportingPeriod_PDFP" type="xs:date" minOccurs="0">
+						<xs:element name="EndDateOfReportingPeriodPDFP" type="xs:date" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20150_Financial_Instrument_End_Date_Of_Reporting_Period_PDFP
 End Date Of Reporting Period PDFP (based on 12 months reporting report market usage)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="LinkTo_SFDR_WebsiteProductDisclosures" type="xs:anyURI" minOccurs="0">
+						<xs:element name="LinkToSFDRWebsiteProductDisclosures" type="xs:anyURI" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20160_Financial_Instrument_Link_To_SFDR_Website_Product_Disclosures Art 10 SFDR - 24 RTS u 37 RTS
 </xs:documentation>
@@ -4240,8 +4311,7 @@ For art 9 products, the minimum proportion of sustainable investments.</xs:docum
 						<xs:element name="EnvironmentallySustainableInvestmentEUTaxonomyArt9" type="EETYesNoType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20230_Financial_Instrument_Environmentally_Sustainable_Investment_EU_Taxonomy_Art.9
-Does the minimum specified in field 20220 include EU Taxonomy Environmental sustainable investment? 
-</xs:documentation>
+Does the minimum specified in field 20220 include EU Taxonomy Environmental sustainable investment?</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="EnvironmentallySustainableInvestmentNotEUTaxonomyArt9" type="EETYesNoType" minOccurs="0">
@@ -4259,7 +4329,7 @@ Does the minimum specified in field 20210 include sustainable investments with s
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="ESG_ThematicInvestingDescription" minOccurs="0">
+			<xs:element name="ESGThematicInvestingDescription" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This part describes investment strategy, and is not linked to Taxonomy
 20260 - 20300</xs:documentation>
@@ -4272,7 +4342,7 @@ Does the minimum specified in field 20210 include sustainable investments with s
 Does this Financial_Instrument incorporate ESG factors through ESG thematic approach ?</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="EnvironmentalThematicCharacteristics" type="xs:string" minOccurs="0">
+						<xs:element name="EnvironmentalThematicCharacteristics" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>20270_Financial_Instrument_Environmental_Thematic_Characteristics
 Description of the product environment thematic investment strategy, according to SFDR art 2(17). Multiple answers fields.
@@ -4285,10 +4355,54 @@ F - greenhouse gas emissions
 G - biodiversity 
 H - circular economy
 I - environment other
-J - none</xs:documentation>
+J - none
+</xs:documentation>
 							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="C"/>
+									<xs:enumeration value="D"/>
+									<xs:enumeration value="E"/>
+									<xs:enumeration value="F"/>
+									<xs:enumeration value="G"/>
+									<xs:enumeration value="H"/>
+									<xs:enumeration value="I"/>
+									<xs:enumeration value="J"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
-						<xs:element name="SocialThematicCharacteristics" type="xs:string" minOccurs="0">
+						<xs:element name="SocialThematicCharacteristics" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>20280_Financial_Instrument_Social_Thematic_Characteristics
+Description of the product social thematic investment strategy, according to SFDR art 2(17)
+Multiple answers fields.
+
+A - inequality 
+B - social cohesion 
+C - social integration 
+D - labour relations
+E - investment in human capital 
+F - economically or socially disadvantaged communities
+G - social other
+H - none
+</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="C"/>
+									<xs:enumeration value="D"/>
+									<xs:enumeration value="E"/>
+									<xs:enumeration value="F"/>
+									<xs:enumeration value="G"/>
+									<xs:enumeration value="H"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="GovernanceThematicCharacteristics" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>20290_Financial_Instrument_Governance_Thematic_Characteristics
 Description of the product thematic investment strategy, according to SFDR art 2(17)
@@ -4300,50 +4414,69 @@ C - remuneration of staff
 D - tax compliance
 E - governance other
 F - none
-
 </xs:documentation>
 							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="C"/>
+									<xs:enumeration value="D"/>
+									<xs:enumeration value="E"/>
+									<xs:enumeration value="F"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
-						<xs:element name="GovernanceThematicCharacteristics" type="xs:string" minOccurs="0">
+						<xs:element name="AlignmentWithSustainableDevelopmentGoals" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>20290_Financial_Instrument_Governance_Thematic
-Description of the product thematic investment strategy, according to SFDR art 2(17)
-Multiple answers field
-A - sound management structures
-B - employee relations
-C - remuneration of staff 
-D - tax compliance
-E - governance other
-F - none</xs:documentation>
+								<xs:documentation>20300_Financial_Instrument_Alignment_With_Sustainable_Development_Goals               Alignment with SDG means that SDG are used in the investment process (screening) or targeted by the fund. Multiple answers field.
+A - No Poverty
+B - Zero Hunger
+C - Good Health and Well-Being
+D - Quality Education
+E - Gender Equality
+F - Clean Water and Sanitaion
+G - Affordable and Clean Energy
+H - Decent Work and Economic Growth
+I - Industry, Innovation and Infrastructure
+J - Reduced Inequality
+K - Sustainable Cities and Communities
+L - Responsible Consumption and Production
+M - Climate Action
+N - Life Below Water
+O - Life on Land
+P - Peace and Justice, Strong Institutions
+Q - Partnerships to achive to Goal
+R - None
+</xs:documentation>
 							</xs:annotation>
-						</xs:element>
-						<xs:element name="SustainableDevelopmentGoals" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>20300_Financial_Instrument_Alignment_With_Sustainable_Development_Goals
-Alignment with SDG means that SDG are used in the investment process (screening) or targeted by the fund. Multiple answers field.
-1 - No Poverty
-2 - Zero Hunger
-3 - Good Health and Well-Being
-4 - Quality Education
-5 - Gender Equality
-6 - Clean Water and Sanitaion
-7 - Affordable and Clean Energy
-8 - Decent Work and Economic Growth
-9 - Industry, Innovation and Infrastructure
-10 - Reduced Inequality
-11 - Sustainable Cities and Communities
-12 - Responsible Consumption and Production
-13 - Climate Action
-14 - Life Below Water
-15 - Life on Land
-16 - Peace and Justice, Strong Institutions
-17 - Partnerships to achive to Goal</xs:documentation>
-							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="C"/>
+									<xs:enumeration value="D"/>
+									<xs:enumeration value="E"/>
+									<xs:enumeration value="F"/>
+									<xs:enumeration value="G"/>
+									<xs:enumeration value="H"/>
+									<xs:enumeration value="I"/>
+									<xs:enumeration value="J"/>
+									<xs:enumeration value="K"/>
+									<xs:enumeration value="L"/>
+									<xs:enumeration value="M"/>
+									<xs:enumeration value="N"/>
+									<xs:enumeration value="O"/>
+									<xs:enumeration value="P"/>
+									<xs:enumeration value="Q"/>
+									<xs:enumeration value="R"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="ESG_EngagementCoverage" minOccurs="0">
+			<xs:element name="ESGEngagementCoverage" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>20310 - 20360</xs:documentation>
 				</xs:annotation>
@@ -4355,7 +4488,7 @@ Alignment with SDG means that SDG are used in the investment process (screening)
 20320_Financial_Instrument_Number_Of_Eligible_Issuers </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ESG_CoveredIssuers" type="EETWeightNumberType1.1" minOccurs="0">
+						<xs:element name="ESGCoveredIssuers" type="EETWeightNumberType1.1" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20330_Financial_Instrument_Weight_Of_ESG_Covered_Issuers
 20340_Financial_Instrument_Number_Of_ESG_Covered_Issuers</xs:documentation>
@@ -4370,13 +4503,13 @@ Alignment with SDG means that SDG are used in the investment process (screening)
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="ESG_Benchmark" minOccurs="0">
+			<xs:element name="ESGBenchmark" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>20370 - 20380</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="HasReference_ESG_Benchmark" type="EETYesNoType">
+						<xs:element name="HasReferenceESGBenchmark" type="EETYesNoType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>20370_Financial_Instrument_Has_A_Reference_ESG_Benchmark
 Has a reference benchmark been designated for the purpose of attaining the environmental or social characteristics promoted by the financial product?</xs:documentation>
@@ -4408,7 +4541,7 @@ The date to which the disclosure refer</xs:documentation>
 								<xs:documentation>20400_Financial_Instrument_EU_SFDR_Minimum_Or_Planned_Investments_With_Environmental_Or_Social_Characteristics</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="MethodologyForSustainableInvestmentsCalculation" minOccurs="0">
+						<xs:element name="MethodologyForSustainableInvestmentsCalculation" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>20410_Financial_Instrument_EU_SFDR_Methodology_For_Sustainable_Investments_Calculation
 Revenue(R), Capex(C), Opex(O), other approach(A)</xs:documentation>
@@ -4531,13 +4664,13 @@ Is the Financial Instrument Aligned with the Paris Agreement?</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="MiFID_IDD_TargetMarket">
+			<xs:element name="MiFIDIDDTargetMarket">
 				<xs:annotation>
 					<xs:documentation>20590</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="End_Client_Sustainability_Preferences_Considered" type="EETYesNeutralType">
+						<xs:element name="EndClientSustainabilityPreferences_Considered" type="EETYesNeutralType">
 							<xs:annotation>
 								<xs:documentation>MIFID: COMMISSION DELEGATED REGULATION (EU) 2021/1253 Art. 1 
 IDD: COMMISSION DELEGATED DIRECTIVE (EU) 2021/1257 Art. 2
@@ -5536,7 +5669,7 @@ N - None</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="SustainabilityRiskIsDemedToBeRelevant" minOccurs="0">
+									<xs:element name="FrenchAMFDoctrineApproach" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>60400_French_AMF_Doctrine_Approach:
 Which approach of the AMF position/recommendation 2020-03 does your fund comply with?
@@ -5553,12 +5686,18 @@ Which approach of the AMF position/recommendation 2020-03 does your fund comply 
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="EnvironmentalTopicOrConsideredIndicators" minOccurs="0">
+									<xs:element name="EnvironmentalTopicOrConsideredIndicators" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation>60410_Financial_Instrument_Environmental_Topic_Or_Considered_Indicators_For_French_MiFID_Market
-
 Description of the Environmental topics integrated in the investment process of the fund,
-Multiple answers field. 
+Multiple answers field.
+
+A - Transition to low carbon economy
+B - Natural resources preservation or consumption
+C - Land and Ocean preservation
+D - Waste
+E - Biodiversity preservation
+F - none
 </xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
@@ -5572,15 +5711,17 @@ Multiple answers field.
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="SocialTopicOrConsideredIndicatorsForFrenchMiFIDMarket" minOccurs="0">
+									<xs:element name="SocialTopicOrConsideredIndicatorsForFrenchMiFIDMarket" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation>60420_Financial_Instrument_Social_Topic_Or_Considered_Indicators_For_French_MiFID_Market:
 Description of the social topics integrated in the investment strategy, 
 Multiple answers fields.
+
 A - Social and human rights
 B - labour relations
 C - investment in human capital (including health)
-D - none</xs:documentation>
+D - none
+</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -5591,7 +5732,7 @@ D - none</xs:documentation>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="GovernanceTopicOrConsideredIndicatorsForFrenchMiFIDMarket" minOccurs="0">
+									<xs:element name="GovernanceTopicOrConsideredIndicatorsForFrenchMiFIDMarket" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation>60430_Financial_Instrument_Governance_Topic_Or_Considered_Indicators_For_French_MiFID_Market:
 Description of the governance topic integrated in the investment strategy, 
@@ -5617,7 +5758,7 @@ C - none</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="SustainableIndicatorsForGermanMiFIDMarket" minOccurs="0">
+									<xs:element name="SustainableIndicatorsForGermanMiFIDMarket" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation>60440_Financial_Instrument_Sustainable_Indicators_For_German_MiFID_Market:
 O, B, E, P, Q, R, S, T, U or V</xs:documentation>
@@ -5678,11 +5819,10 @@ AUM for a fund and Notional for structured products at PAI_End_Of_Reference_Peri
 					<xs:sequence>
 						<xs:element name="UseOfProceedsAssetPooling" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>80000 "Defines if use of proceeds constitute
+								<xs:documentation>80000 Defines if use of proceeds constitute
 S - Segregated Sustainable Asset Pool (SAP)
 U - Unsegregated Sustainable Asset Pool (USAP)
-N - Not a pooled approach (N) and therefore a general part of the balance sheet of the Issuer/Manufacturer"
-</xs:documentation>
+N - Not a pooled approach (N) and therefore a general part of the balance sheet of the Issuer/Manufacturer"</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -5884,7 +6024,7 @@ N - Not a pooled approach (N) and therefore a general part of the balance sheet 
 						<xs:element name="Social" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ListOfCountriesSubjectToSocialViolations" minOccurs="0">
+									<xs:element name="ListOfCountriesSubjectToSocialViolations" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation>100000_List_Of_Countries_Subject_To_Social_Violations</xs:documentation>
 										</xs:annotation>
@@ -6042,7 +6182,7 @@ N - Not a pooled approach (N) and therefore a general part of the balance sheet 
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="RelativeThreshold" type="xs:decimal" minOccurs="0"/>
-			<xs:element name="PartOfValueChain" minOccurs="0">
+			<xs:element name="PartOfValueChain" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Upstream/Production/Downstream</xs:documentation>
 				</xs:annotation>
@@ -6051,9 +6191,6 @@ N - Not a pooled approach (N) and therefore a general part of the balance sheet 
 						<xs:enumeration value="U"/>
 						<xs:enumeration value="P"/>
 						<xs:enumeration value="D"/>
-						<xs:enumeration value="PD"/>
-						<xs:enumeration value="UP"/>
-						<xs:enumeration value="UPD"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

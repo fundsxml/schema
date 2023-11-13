@@ -4,7 +4,7 @@
 <xs:schema xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.2.3</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.2.4</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -3630,6 +3630,7 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 						<xs:enumeration value="4.2.1"/>
 						<xs:enumeration value="4.2.2"/>
 						<xs:enumeration value="4.2.3"/>
+						<xs:enumeration value="4.2.4"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -19283,6 +19284,62 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="FundHedgingStrategy" type="HedgingStrategyType" minOccurs="0"/>
+			<xs:element name="OngoingCosts" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fee Structure according to prospectus</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="OngoingCost">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CostType">
+										<xs:annotation>
+											<xs:documentation>OGC (= "Management fees and other administrative or operating cost")
+Performance Fee
+Transaction Costs</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Ongoing Costs"/>
+												<xs:enumeration value="Ongoing Charges"/>
+												<xs:enumeration value="Performance Fee"/>
+												<xs:enumeration value="Transaction Costs"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="PublicationDate" type="xs:date"/>
+									<xs:element name="ValidFrom" type="xs:date" minOccurs="0"/>
+									<xs:element name="ValidTo" type="xs:date" minOccurs="0"/>
+									<xs:element name="Percentage" type="PercentageType"/>
+									<xs:element name="YearlyAmount" type="AmountType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Absolute Amount per 10.000 in Fund CCY</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SFDRProductType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Financial Instrument SFDR Product Type 
+Reference of the article of SFDR european regulation applying to the product (art 6, art 8 or art 9)
+6= no product acc. to Art. 8/9
+8= Art. 8 SFDR Product (ESG characteristics)
+9= Art. 9 SFDR product (ESG objective)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="9"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundStatisticClosedFundType">
@@ -30557,6 +30614,16 @@ Simple</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Closing date (trade date)</xs:documentation>
 					<xs:documentation xml:lang="de">Gibt das Datum an, an dem das Geschaefts abgeschlossen wurde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrderTimestamp" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>for PRIIPs/MiFID II transaction costs calucation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrderPrice" type="AmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>for PRIIPs/MiFID II transaction costs calucation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NominalOrUnitsOrContracts" type="xs:decimal">

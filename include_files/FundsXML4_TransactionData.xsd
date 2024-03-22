@@ -383,6 +383,11 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 					<xs:documentation>for PRIIPs/MiFID II transaction costs calucation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="ExecutionTimestamp" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>for PRIIPs/MiFID II transaction costs calucation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="OrderPrice" type="AmountType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>for PRIIPs/MiFID II transaction costs calucation</xs:documentation>
@@ -490,8 +495,13 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="Counterparty" type="CompanyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Counterparty details of transaction</xs:documentation>
+					<xs:documentation xml:lang="en">Counterparty details of transaction (OTC)</xs:documentation>
 					<xs:documentation xml:lang="de">Kontrahent der Transaktion</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Exchange" type="MICCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Exchange where trade was placed </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ProfitLoss" type="FundAmountType" minOccurs="0">

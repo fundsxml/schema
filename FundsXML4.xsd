@@ -86,6 +86,7 @@
 					<xs:documentation xml:lang="de">Gibt das bei einer Buchung verwendete Konto an</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="IBAN" type="IBANType" minOccurs="0"/>
 			<xs:element name="InterestRateDebit" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Debit rate</xs:documentation>
@@ -547,6 +548,16 @@ N = Nominale</xs:documentation>
 			<xs:element name="CommercialPaper" type="CommercialPaperType">
 				<xs:annotation>
 					<xs:documentation>Commercial Paper and Certificate of Deposit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Index" type="IndexType">
+				<xs:annotation>
+					<xs:documentation>Indices</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Crypto" type="CryptoType">
+				<xs:annotation>
+					<xs:documentation>Crypto-asset means a digital representation of value or rights which may be transferred and stored electronically, using distributed ledger technology or similar technology</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
@@ -1593,6 +1604,8 @@ RI = Right
 CO = Commodity
 PE = PrivateEquity
 CP = CommercialPaper
+IX = Index
+CR = Crypto
 </xs:documentation>
 					<xs:documentation xml:lang="de">Art des Wertpapieres:
 EQ = Aktie
@@ -1616,6 +1629,8 @@ RI = Rechte
 CO = Commodity
 PE = Unternehmensbeteiligung
 CP = Geldmarktpapier
+IX = Index
+CR = Crypto
 </xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -1655,6 +1670,35 @@ CP = Geldmarktpapier
 				<xs:annotation>
 					<xs:documentation>Is Infrastructure Investment (true) or not (false)</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="InfrastructureInvestementType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>according to Commission Delegated Regulation (EU) 2015/35
+					1 – No infrastructure investment
+					2 – Non-qualified infrastructure: State guarantee (the government, the central bank or a regional or local authority)
+					3 – Non-qualified infrastructure: Government support including public-private partnerships (the government, the central bank or a regional or local authority)
+					4 – Non-qualified infrastructure: Supranational guarantee/support (ECB, multilateral development bank, international organization)
+					9 – Non-qualified infrastructure: Other non-qualified infrastructure loans or investments not classified in the above categories
+					12 – Qualified infrastructure: State guarantee (the government, the central bank or a regional or local authority)
+					13 – Qualified infrastructure: Government support including public-private partnerships (the government, the central bank or a regional or local authority)
+					14 – Qualified infrastructure: Supranational guarantee/support (ECB, multilateral development bank, international organization)
+					19 – Qualified infrastructure: Other qualified infrastructure investments not classified in the above categories
+					20 – European long-term investment fund (ELTIF investing in infrastructure assets and ELTIF investing in other – non-infrastructure – assets)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="12"/>
+						<xs:enumeration value="13"/>
+						<xs:enumeration value="14"/>
+						<xs:enumeration value="19"/>
+						<xs:enumeration value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Ratings" minOccurs="0">
 				<xs:annotation>
@@ -6928,6 +6972,30 @@ or "EU" for European Union institutions</xs:documentation>
 					<xs:documentation xml:lang="en">CQS: Synthetic issue or issuer rating.
 Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CryptoType">
+		<xs:sequence>
+			<xs:element name="Type">
+				<xs:annotation>
+					<xs:documentation>1 – Electronic money token - a type of cryptoasset the main purpose of which is to be used as a means of exchange and that purports to maintain a stable value by referring to the value of a fiat currency that is legal tender; 
+
+2 – Asset-referenced token - a type of cryptoasset that purports to maintain a stable value by referring to the value of several fiat currencies that are legal tender, one or several commodities or one or several cryptoassets, or a combination of such assets; 
+
+3- Utility token - a type of crypto-asset which is intended to provide digital access to a good or service, available on DLT, and is only accepted by the issuer of that token; 
+
+4 – Other crypto-assets 
+</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Electronic money token"/>
+						<xs:enumeration value="Asset-referenced token"/>
+						<xs:enumeration value="Utility token"/>
+						<xs:enumeration value="Other crypto-asset"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -22905,13 +22973,46 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			<xs:documentation>Index Asset data information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SourceCompany" type="CompanyType" minOccurs="0"/>
-			<xs:element name="Market" minOccurs="0"/>
+			<xs:element name="IndexProvider" type="CompanyType" minOccurs="0"/>
+			<xs:element name="Category" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Currency"/>
+						<xs:enumeration value="Equity"/>
+						<xs:enumeration value="Fixed Income"/>
+						<xs:enumeration value="Commodities"/>
+						<xs:enumeration value="Dividends and Factors"/>
+						<xs:enumeration value="Multi-Asset"/>
+						<xs:enumeration value="ESG"/>
+						<xs:enumeration value="Thematics"/>
+						<xs:enumeration value="Digital Assets"/>
+						<xs:enumeration value="Indicators"/>
+						<xs:enumeration value="Other Strategies"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="RiskIndicator" minOccurs="0">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="high"/>
 						<xs:enumeration value="low"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Region" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Emerging Markets"/>
+						<xs:enumeration value="Developed Markets"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Size" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="large cap"/>
+						<xs:enumeration value="mid cap"/>
+						<xs:enumeration value="small cap"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -28300,6 +28401,21 @@ Maximum  fees, including look through for fund of funds / custodian fees / manag
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
+						<xs:element name="ESRB" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>european systemic Risk Board</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Residential properties"/>
+									<xs:enumeration value="Retail"/>
+									<xs:enumeration value="Office space"/>
+									<xs:enumeration value="industrial use"/>
+									<xs:enumeration value="other types of commercial real estate"/>
+									<xs:enumeration value="not applicable"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
 						<xs:element name="Internal" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Internal type of use</xs:documentation>
@@ -28322,6 +28438,28 @@ Maximum  fees, including look through for fund of funds / custodian fees / manag
 
 </xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="UsableArea" type="xs:positiveInteger" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>usable area in square meters</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="AddressType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Address of Real Estate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LocationType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>according to ESRB/2016/14</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Prime Location"/>
+						<xs:enumeration value="Non-Prime Location"/>
+						<xs:enumeration value="Not applicable"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -34645,6 +34783,8 @@ Z   New issue</xs:documentation>
 			<xs:enumeration value="CO"/>
 			<xs:enumeration value="PE"/>
 			<xs:enumeration value="CP"/>
+			<xs:enumeration value="IX"/>
+			<xs:enumeration value="CR"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="BenchmarkUsageType">
@@ -34847,6 +34987,16 @@ YEAR</xs:documentation>
 			<xs:enumeration value="TWWK"/>
 			<xs:enumeration value="WEEK"/>
 			<xs:enumeration value="YEAR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IBANType">
+		<xs:annotation>
+			<xs:documentation>IBAN as defined in ISO 13616-1:2020 (no blanks)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="18"/>
+			<xs:maxLength value="32"/>
+			<xs:pattern value="[A-Z]{2}([A-Z]|[0-9]){18,32}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="IdentnummerType" final="restriction">

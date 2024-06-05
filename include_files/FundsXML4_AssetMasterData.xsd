@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -1893,8 +1893,15 @@ Z   New issue</xs:documentation>
 			<xs:documentation>Index Asset data information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IndexProvider" type="CompanyType" minOccurs="0"/>
+			<xs:element name="IndexProvider" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about Index Provider</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Category" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Main Index Category</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Currency"/>
@@ -1912,6 +1919,9 @@ Z   New issue</xs:documentation>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="RiskIndicator" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about Index Component Risk</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="high"/>
@@ -1920,6 +1930,9 @@ Z   New issue</xs:documentation>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Region" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about Index Compontnt Region</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Emerging Markets"/>
@@ -1928,6 +1941,9 @@ Z   New issue</xs:documentation>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Size" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about Index Component Size</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="large cap"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
-<!--Mit XMLSpy v2015 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
-<xs:schema xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<!--Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:element name="FundsXML4">
 		<xs:annotation>
 			<xs:documentation>Root element of FundsXML 4.2.7</xs:documentation>
@@ -22974,8 +22974,15 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			<xs:documentation>Index Asset data information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IndexProvider" type="CompanyType" minOccurs="0"/>
+			<xs:element name="IndexProvider" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about Index Provider</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Category" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Main Index Category</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Currency"/>
@@ -22993,6 +23000,9 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="RiskIndicator" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about Index Component Risk</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="high"/>
@@ -23001,6 +23011,9 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Region" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about Index Compontnt Region</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Emerging Markets"/>
@@ -23009,6 +23022,9 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Size" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about Index Component Size</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="large cap"/>

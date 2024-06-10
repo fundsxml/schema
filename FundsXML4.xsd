@@ -7099,6 +7099,11 @@ supplementing Regulation (EU) No 648/2012 of the European Parliament and of the 
 					<xs:documentation>According to FinDatEx MiFID TEMPLATE - EMT V4.1 as of 2023-03-07</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="EMT_V4_2" type="EMTType_V42" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>According to FinDatEx MiFID TEMPLATE - EMT V4.2 as of 2024-04-05</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="EFTs" type="EFTType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>According to FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
@@ -20703,6 +20708,1236 @@ O – Other local requirements or procedures"
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="EMT_V42_FinancialInstrumentType">
+		<xs:sequence>
+			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSetInformation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Version">
+							<xs:annotation>
+								<xs:documentation>00001 EMT Version (V3 or V3S1 or V3S2 or V4 or V4S1 or V4S2)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="2"/>
+									<xs:maxLength value="4"/>
+									<xs:enumeration value="V3"/>
+									<xs:enumeration value="V3S1"/>
+									<xs:enumeration value="V3S2"/>
+									<xs:enumeration value="V4"/>
+									<xs:enumeration value="V4S1"/>
+									<xs:enumeration value="V4S2"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ProducerName" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00002 If the Manufacturer/Issuer have chosen to outsource the production of an EMT posting to another party responsible for the production and publication of the EMT data set, such party name should be entered in this field.
+This field enables firms to report EMT on behalf of an Issuer/Manufacturer</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="255"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ProducerLEI" type="LEICodeType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00003 If the Manufacturer/Issuer have chosen to outsource the production of an EMT posting to another party responsible for the production and publication of the EMT data set, such party LEI should be entered in this field.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ProducerEmail" type="EmailAddressType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00004 Contact entry point for distributors regarding EMT</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FileGenerationDateTime" type="xs:dateTime">
+							<xs:annotation>
+								<xs:documentation>00005 Date and Time of the creation of the EMT file
+YYYY-MM-DD  hh:mm:ss       ISO 8601     (UTC+0)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DataReportingTargetMarket" type="EMTYesNoType">
+							<xs:annotation>
+								<xs:documentation>00006 Specifies if the Target Market section is filled in the current EMT posting.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DataReportingExAnte" type="EMTYesNoType">
+							<xs:annotation>
+								<xs:documentation>00007 Specifies if the Ex-Ante Cost and Charges section is filled in the current EMT posting.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DataReportingExPost" type="EMTYesNoType">
+							<xs:annotation>
+								<xs:documentation>00008 Specifies if the Ex-Post Cost and Charges section is filled in the current EMT posting.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GeneralInformation">
+				<xs:annotation>
+					<xs:documentation>General Financial Instrument Information</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Code">
+							<xs:annotation>
+								<xs:documentation>00010: Use the following priority:
+  - ISO 6166 code of ISIN when available
+  - Other recognised codes (e.g.: CUSIP, Bloomberg Ticker, Reuters RIC)
+  - Code attributed by the undertaking, when the options above are not available. Code must be unique and kept consistent over time. Consistent with Solvency II and PRIIPS approach. </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="255"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CodificationSystem">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">00020: Codification system used.
+Integer corresponding to the following closed list:
+1 - ISO 6166 for ISIN code
+2 - CUSIP (The Committee on Uniform Securities Identification Procedures number assigned by the CUSIP Service Bureau for U.S. and Canadian companies)
+3 - SEDOL (Stock Exchange Daily Official List for the London Stock Exchange)
+4 – WKN (Wertpapier Kenn-Nummer, the alphanumeric German identification number)
+5 - Bloomberg Ticker (Bloomberg letters code that identify a company's securities)
+6 - BBGID (The Bloomberg Global ID)
+7 - Reuters RIC (Reuters instrument code)
+8 – FIGI (Financial Instrument Global Identifier)
+9 - Other code by members of the Association of National Numbering Agencies
+10 - LEI
+99 - Code attributed by the undertaking</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:short">
+									<xs:minInclusive value="1"/>
+									<xs:maxInclusive value="99"/>
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="3"/>
+									<xs:enumeration value="4"/>
+									<xs:enumeration value="5"/>
+									<xs:enumeration value="6"/>
+									<xs:enumeration value="7"/>
+									<xs:enumeration value="8"/>
+									<xs:enumeration value="9"/>
+									<xs:enumeration value="10"/>
+									<xs:enumeration value="99"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="InstrumentName">
+							<xs:annotation>
+								<xs:documentation>00030: Name of the financial instrument</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="255"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="InstrumentCurrency" type="ISOCurrencyCodeType">
+							<xs:annotation>
+								<xs:documentation>00040: Denomination currency of the financial instrument</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="InstrumentPerformanceFee" type="EMTYesNoType">
+							<xs:annotation>
+								<xs:documentation>00045_Financial_Instrument_Performance_Fee</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="InstrumentDistributionCash" type="EMTYesNoType">
+							<xs:annotation>
+								<xs:documentation>00047_Financial_Instrument_Distribution_Of_Cash</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="GeneralReferenceDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>00050 Date to which the General data within the EMT refer</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ProductType">
+							<xs:annotation>
+								<xs:documentation>00060: Structured Securities or Structured Funds or UCITS or Non UCITS or UCITS Money Market Funds or Non UCITS Money Market Funds or Exchanged Traded Commodities or Bonds</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="3"/>
+									<xs:enumeration value="S"/>
+									<xs:enumeration value="SF"/>
+									<xs:enumeration value="U"/>
+									<xs:enumeration value="N"/>
+									<xs:enumeration value="LM"/>
+									<xs:enumeration value="NM"/>
+									<xs:enumeration value="ETC"/>
+									<xs:enumeration value="B"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00065 Date of Maturity</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MayBeTerminatedEarly" type="EMTYesNoType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00067 Yes or No. Conditional of field 00060 being set to S, SF or B </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ManufacturerName">
+							<xs:annotation>
+								<xs:documentation>00070
+Name of Manufacturer of the financial instrument. The one who is responsible for the financial instrument management/issuance </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="255"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ManufacturerLEI" type="LEICodeType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00073 Legal Entity Identifier, LEI of the Manufacturer of the financial instrument</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ManufacturerEmail" type="EmailAddressType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00074 Contact entry point for communication with the Manufacturer to either provide feed back reporting or to retrieve details on how to provide feed back reporting.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ManufacturerProductGovernanceProces" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00075 
+A = Product governance procedure pursuant to MiFID II 
+B = Product governance procedure comparable to MiFID II 
+C = Product governance procedure not in accordance with MiFID II 
+D = No information is requested from the issuer </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="1"/>
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="C"/>
+									<xs:enumeration value="D"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="GuarantorName" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00080: Name of guarantor of the financial instrument.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="255"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ProductCategoryNatureGermany" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>00090: Designation of the respective product category or nature for Germany. 
+German code: number between 1 and 22, is using the english version of the german categorization. </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:positiveInteger">
+									<xs:minInclusive value="1"/>
+									<xs:maxInclusive value="22"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="LeveragedOrContingentLiability" type="EMTYesNoType">
+							<xs:annotation>
+								<xs:documentation>00100: To enable reporting on the depreciation of leveraged financial instruments or contingent liability transactions in accordance with Art. 62 of the MiFID II's Delegated Regulation</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:choice minOccurs="0">
+							<xs:element name="StructuredSecurity" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Relevant fields for structured securities</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TypeNotionalOrItemBased" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>00085: Enables interpretation of Cost and Charges data when used together with fields 00096, 08110 and 08120.
+N for Notional based instrument, I for Item based instrument</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:minLength value="1"/>
+													<xs:maxLength value="1"/>
+													<xs:enumeration value="N"/>
+													<xs:enumeration value="I"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ProductCategoryNature" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>00095: If the financial instrument is a structured security complete with the EUSIPA code</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="Text4Type">
+													<xs:enumeration value="1100"/>
+													<xs:enumeration value="1120"/>
+													<xs:enumeration value="1130"/>
+													<xs:enumeration value="1140"/>
+													<xs:enumeration value="1199"/>
+													<xs:enumeration value="1200"/>
+													<xs:enumeration value="1210"/>
+													<xs:enumeration value="1220"/>
+													<xs:enumeration value="1230"/>
+													<xs:enumeration value="1240"/>
+													<xs:enumeration value="1250"/>
+													<xs:enumeration value="1260"/>
+													<xs:enumeration value="1299"/>
+													<xs:enumeration value="1300"/>
+													<xs:enumeration value="1310"/>
+													<xs:enumeration value="1320"/>
+													<xs:enumeration value="1330"/>
+													<xs:enumeration value="1340"/>
+													<xs:enumeration value="1399"/>
+													<xs:enumeration value="1440"/>
+													<xs:enumeration value="1450"/>
+													<xs:enumeration value="1460"/>
+													<xs:enumeration value="1499"/>
+													<xs:enumeration value="2100"/>
+													<xs:enumeration value="2110"/>
+													<xs:enumeration value="2199"/>
+													<xs:enumeration value="2200"/>
+													<xs:enumeration value="2205"/>
+													<xs:enumeration value="2210"/>
+													<xs:enumeration value="2230"/>
+													<xs:enumeration value="2299"/>
+													<xs:enumeration value="2300"/>
+													<xs:enumeration value="2399"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="Quotation" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>00096: If 00060 is set to S or ETC. 
+U for Units, or P for Percentage.
+Defines if the quotation type in the Ex-Ante and Ex-Post section of the EMT file is in UNITS or in PERCENTAGE related to the specific Reference as presented in field 07150,07155, 08110 and 08120 respectively.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:minLength value="1"/>
+													<xs:maxLength value="1"/>
+													<xs:enumeration value="U"/>
+													<xs:enumeration value="P"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Fund" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Relevant fields for Funds</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="FundShareClassWithoutRetrocession" type="EMTYesNoType">
+											<xs:annotation>
+												<xs:documentation>00110: Yes indicates the shareclass does not pay any inducement in the context of MiFID II.
+</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ExPostCostCalculationBasisItaly" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>00120: Rolling based (last 12 months) (R) or Fixed base (calendar year) (F)</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="Text1Type">
+													<xs:enumeration value="R"/>
+													<xs:enumeration value="F"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TargetMarket">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GeneralReferenceDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>01000 Date to which the Target Market data within the EMT refer</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="InvestorType">
+							<xs:annotation>
+								<xs:documentation>Target markets - Investor Type</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Retail" type="EMTYesNoNeutralType">
+										<xs:annotation>
+											<xs:documentation>01010: Neutral means usage by Retail clients are available under certain conditions.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Professional">
+										<xs:annotation>
+											<xs:documentation>01020: Y means both Professional Per Se and Elective Professionals are compatible.
+N means that neither Professional Per Se nor Elective Professionals are compatible.
+P means that Professional Per Se is compatible but Elective Professionals are not.
+E means that Elective Professional is compatible but Professionals Per Se are not.
+P is only used if the distinction Per Se is done in the Prospectus. </xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Y"/>
+												<xs:enumeration value="N"/>
+												<xs:enumeration value="P"/>
+												<xs:enumeration value="E"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="EligibleCounterparty" type="EMTYesNoType">
+										<xs:annotation>
+											<xs:documentation>01030: Investor Type Eligible Counterparty</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="KnowledgeAndExperience">
+							<xs:annotation>
+								<xs:documentation>Target markets - Knowledge and/or Experience</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BasicInvestor" type="EMTYesNoNeutralType">
+										<xs:annotation>
+											<xs:documentation>02010: Investors having the following characteristics:
+• basic knowledge of relevant financial instruments (a  basic investor can make an informed investment decision based on the regulated and authorised offering documentation  or with the help of basic information provided by point of sale); 
+• no financial industry  experience, i.e. suited to a first time investor</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="InformedInvestor" type="EMTYesNoNeutralType">
+										<xs:annotation>
+											<xs:documentation>02020: Having one, or more, of the following characteristics:
+• average knowledge of relevant financial products (an informed investor can make an informed investment decision based on the regulated and authorised offering documentation, together with knowledge and understanding of the specific factors/risks highlighted within them only)
+• some financial industry experience </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="AdvancedInvestor" type="EMTYesNoNeutralType">
+										<xs:annotation>
+											<xs:documentation>02030: Investors having one, or more, of the following characteristics:
+• good knowledge of relevant financial products and transactions
+• financial industry experience or accompanied by professional investment advice or included in a discretionary portfolio service</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ExpertInvestorGermany" type="EMTYesNoNeutralType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>02040: Expert knowledge of and / or experience with highly specialised financial products (Regulatory requirement in Germany/ example: CFD/ the updated list will be provided by the DSGV)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AbilityToBearLosses">
+							<xs:annotation>
+								<xs:documentation>Target markets - Ability To Bear Losses</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CompatibleWithClientsWhoCanNotBearCapitalLoss" type="EMTYesNoNeutralType">
+										<xs:annotation>
+											<xs:documentation>03010: Investor can bear no loss of capital. Minor losses especially due to costs possible. Yes or No or Neutral.
+N for negative target: product should not be sold to investors that cannot bear losses </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CompatibleWithClientsWhoCanBearLimitedCapitalLoss" type="EMTYesNoNeutralType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>03020: Investor seeking to preserve capital or can bear losses limited to a level specified by the product. Assessment  of loss level is based on investments in the same currency as the instrument denomination and do not take into consideration potential adverse FX market performance.
+To be filled only for structured securities and funds with an explicit capital protection or for Money Market funds.
+Yes or No or Neutral</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="LimitedCapitalLossLevel" type="PercentageType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>03030: To be completed for products that have a clearly stated full or partial capital guarantee, provided on the primary market. This field represents the maximum loss a client could incur when investing in this product – it is not the level of capital protection offered</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CompatibleWithClientsWhoDoNotNeedCapitalGuarantee" type="EMTYesNoNeutralType">
+										<xs:annotation>
+											<xs:documentation>03040: No Capital Guarantee nor protection. 100% capital at risk. Yes or No or Neutral</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CompatibleWithClientsWhoCanBearLossBeyondCapital" type="EMTYesNoNeutralType">
+										<xs:annotation>
+											<xs:documentation>03050: Loss Beyond the Capital. 
+Yes or No or Neutral</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="RiskTolerance">
+							<xs:annotation>
+								<xs:documentation>Target markets - Risk Tolerance</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PRIIPSMethodology" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>04010: SRI (1-7), if PRIIPS KID is available. German distributors will use only this Risk Tolerance item</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="7"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="UCITSMethodology" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>04020: SRRI (1-7; for funds)</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="7"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="InternalMethodology" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>04030: For Non PRIIPS and Non UCITS:
+L ... Low
+M ... Medium
+H ... High</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="L"/>
+												<xs:enumeration value="M"/>
+												<xs:enumeration value="H"/>
+												<xs:enumeration value=""/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="MethodologySpain" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>04040: Spanish SRI (1-6) for Non PRIIPS and Non UCITS
+For Spanish local NON PRIIPS and NON UCITS products.
+Orden ECC/2316/2015, de 4 de noviembre, relativa a las obligaciones de información y clasificación de productos financieros</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="6"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="NotForInvestorsWithLowestRiskToleranceGermany" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>04050: For all products distributed in Germany (Yes or Neutral)</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Y"/>
+												<xs:enumeration value="Neutral"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ClientObjectives">
+							<xs:annotation>
+								<xs:documentation>Target markets - Client Objectives and Needs</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ReturnProfile">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ClientLookingForPreservation" type="EMTYesNoNeutralType">
+													<xs:annotation>
+														<xs:documentation>05010: Indicates if the product is compatible with clients looking for preserving their capital.
+Products stipulating a capital preservation objective should be YES. For other products, the answer should be NO or NEUTRAL based on a case-by-case analysis. In Germany fields 05010, 05020 and 05030 are merged and regarded "General Capital Formation". A YES in any of these fields will be regarded a YES in the German combined field.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ClientLookingForCapitalGrowth" type="EMTYesNoNeutralType">
+													<xs:annotation>
+														<xs:documentation>05020: Indicates if the product is compatible with clients looking for growing their capital.
+In Germany fields 05010, 05020 and 05030 are merged and regarded "General Capital Formation". A YES in any of these fields will be regarded a YES in the German combined field.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ClientLookingForIncome" type="EMTYesNoNeutralType">
+													<xs:annotation>
+														<xs:documentation>05030: Indicates if the product is compatible with clients looking for Income.
+In Germany fields 05010, 05020 and 05030 are merged and regarded "General Capital Formation". A YES in any of these fields will be regarded a YES in the German combined field.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="OptionOrLeveraged" type="EMTYesNoNeutralType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>05050: Yes or No or Neutral</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="PensionSchemeGermany" type="EMTYesNoNeutralType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>05070: Yes or No or Neutral</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="StructuredSecurity" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="Hedging" type="EMTYesNoNeutralType">
+																<xs:annotation>
+																	<xs:documentation>05040: Yes or No or Neutral
+Only for structured Securities</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="MinimumRecommendedHoldingPeriod">
+										<xs:annotation>
+											<xs:documentation>05080: Minimum recommended holding period
+RHP: Recommended Holding Period</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:choice>
+												<xs:element name="Years" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>Minimum recommended holding period in years</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Category">
+													<xs:annotation>
+														<xs:documentation>V ... Very short term (max 1Y)
+S ... Short term (max 3Y)
+M ... Medium term (max 5Y)
+L ... Long term (min 5Y)
+H ... Hold to Maturity</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="V"/>
+															<xs:enumeration value="S"/>
+															<xs:enumeration value="M"/>
+															<xs:enumeration value="L"/>
+															<xs:enumeration value="H"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:choice>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="IntendedCompatibleWithClientsHavingSustainabilityPreferences" type="EMTYesNeutralType">
+										<xs:annotation>
+											<xs:documentation>05105: Discloses if the product is developed with the aim of being compatible with clients having ESG preferences. 
+(Yes or Neutral).
+There is no Negative Target Market</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DistributionStrategy">
+							<xs:annotation>
+								<xs:documentation>Target markets - Distribution Strategy</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ExecutionOnly" type="RetailProfessionalBothNeitherType">
+										<xs:annotation>
+											<xs:documentation>06010: Retail or Professional or Both or Neither</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ExecutionWithCheckOrNonAdvisedServices" type="RetailProfessionalBothNeitherType">
+										<xs:annotation>
+											<xs:documentation>06020: Retail or Professional or Both or Neither</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="InvestmentAdvice" type="RetailProfessionalBothNeitherType">
+										<xs:annotation>
+											<xs:documentation>06030: Retail or Professional or Both or Neither</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PortfolioManagement" type="RetailProfessionalBothNeitherType">
+										<xs:annotation>
+											<xs:documentation>06040: Retail or Professional or Both or Neither</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CostsAndChargesExAnte">
+				<xs:annotation>
+					<xs:documentation>Costs and Charges ex ante</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="Fund">
+								<xs:annotation>
+									<xs:documentation>Relevant fields for funds</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="GrossMaxEntryCostNonAcquired" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07020: Maximum not acquired to the fund. Expressed as a % of the amount to be invested.  This data is a maximum cost not acquired to the fund.. It is indicative and should be adapted by the distributor receiving the file to take into account the commercial agreement with the asset manager. Conditional to the existence of this feature</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="NetEntryCostNonAcquired" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07025: Expressed as a % of the amount to be invested. Subscription NAV - Fair Value. Applicable for Structured Frund</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="MaxEntryCostItaly" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07030: Maximum fixed amount per subscription, not incorporated. Flat fixed fee definied by the manufacturer (Linked to Paying Agent)
+Only for the Italian Market. Conditionnal to the existence of the feature
+It is subscription related but decided by the manufacturers.  In all cases it must be adapted to the specific relationship between the manufacturers and the distribution. This cost is not taken in account in the entry cost item 07020</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="MaxEntryCostAcquired" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07040: Subscription fees acquired to the fund 
+Expressed as a % of the amount to be invested.
+Not included in the entry cost 07020. Conditionnal to the fact that the fund has this feature.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="MaxExitCost" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07050: Maximum not acquired to the fund Expressed as a % of the NAV. 
+Maximum fees not acquired to the funds that could happen at a certain time during the life of the product. Conditional to the existence of this feature</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="MaxExitCostItaly" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07060: Maximum fixed amount per redemption, not incorporated. Flat fee defined by the manufacturer.
+Only for the Italian Market. Conditionnal to the existence of the feature.
+It is redemption related but decided by the manufacturers.In all cases it must be adapted to the specific relationship between the manufacturers and the distribution. This cost is not taken in account in the exit cost  item 07050</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="MaxExitCostAcquired" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07070: Maximum Exit fees acquired to the fund  Expressed as a % of the NAV.
+Not included in the exit cost  item 07050 . Conditional to the existence of this feature.
+</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TypicalExitCost" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07080: Current exit cost linked to the RHP or Time to Maturity or 1Y (V) or 3Y(S) or 5Y (M L)  (the value of 05080_Minimum_Recommended_Holding_Period)</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ExitCostPriorRHP" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07090:  Expressed as a % of the amount to be divested. Fair Value - Exit Value (eg Bid Price). For Structured Fund only</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="OngoingCosts">
+											<xs:annotation>
+												<xs:documentation>07100: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied).
+Ongoing costs include management fees and distribution fees, and exclude all  transaction costs, incidental costs and performance fees. Costs reported should reflect current running ongoing costs.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="BorrowingCostsUK" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07105: Financing costs related to borrowing for the purposes of gearing expressed as a % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied).
+Only applicable if the product is borrowing
+Borrowing costs are included in Ongoing costs.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ManagementFee">
+											<xs:annotation>
+												<xs:documentation>07110: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied).
+These fees are included in total on going costs. These fees are used by distributors to calculate their retrocession fees. Costs reported should reflect current running management costs.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DistributionFee" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07120: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="TransactionCosts">
+											<xs:annotation>
+												<xs:documentation>07130: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied).
+0 for structured products. Costs within the products</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="IncidentalCosts">
+											<xs:annotation>
+												<xs:documentation>07140: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied). Includes Performance Fees and other costs.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:minInclusive value="0"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="StructuredSecurity">
+								<xs:annotation>
+									<xs:documentation>Relevant fields for structured securities</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="GrossMaxEntryCostNonAcquired" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>07020: 
+"Ask Price" - Fair Value  ( as of Reference Date Ex-Ante ).
+This data should only incorporate manufacturer costs (i.e. cost of the financial instrument) and distributor upfront when known by the manufacturer.  It should however NOT include distribution fees added on top of the product price by ditributors that is out of control of the manufacturer.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="NetEntryCostNonAcquired" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07025: Net_One-off Entry cost = 07020 less upfront distribution fee embedded in the 07020. In practice 07025 will be the portion of the 07020 retained by the manufacturer.
+This data is optional and could be used in the event of only one layer of intermediation or in a case where distributor up fronts are paid equally to all distributors. The costs reported in this field is a Net disclosure and therefore the distributor upfront is equal to the difference between 07020 and 07025.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="TypicalExitCost" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07080: Exit cost at the RHP</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ExitCostPriorRHP" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>07090: Fixed amount </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="OngoingCosts" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>07100: Expressed as a % of NAV / Notional (or currency  amount for Absolute quotation) of the Financial Product in annualized terms related to Reference in 07150 or 07155 respectively. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ManagementFee" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07110: Expressed as a % of NAV / Notional (or currency  amount for Absolute quotation) of the Financial Product in annualized terms related to Reference Value in 07150 or 07155 respectively.
+These fees are included in total on going costs. Only applicable if the product has this feature. These fees are used by distributors to calculate their retrocession fees </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="IncidentalCostsExAnte">
+											<xs:annotation>
+												<xs:documentation>07140: Expressed as a % of NAV / Notional (or currency  amount for Absolute quotation) of the Financial Product in annualized terms related to Reference Value in 07150 or 07155 respectively.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal"/>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ReferencePrice" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07150: The Notional Reference Amount is the amount expressed in number of currency units to which a Unit disclosed Ex-Post cost is based and to which a Percentage disclosed cost should be multiplied in order to retrieve the Unit cost. This field is conditional and only used if 07150 is not used.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="NotionalReferenceAmount" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>07155: Expressed as a % of NAV / Notional (or currency  amount for Absolute quotation) of the Financial Product in annualized terms related to Reference Value in 07150 or 07155 respectively.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+						<xs:element name="CostsReferenceDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>07160 : The Reference Date to which all Ex-Ante Cost disclosures refer (i.e NOT to be misstaken for General Reference Date, field 00050 or Generation Date and Time, field 00005) </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CostsAndChargesExPost" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Costs and Charges ex post</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="Fund">
+								<xs:annotation>
+									<xs:documentation>Relevant fields for funds</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EntryCostAcquired" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08025:
+% of NAV</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal"/>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="OngoingCosts" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>08030: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="BorrowingCoststUK" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08045: Financing costs related to borrowing for the purposes of gearing expressed as a % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ManagementFee" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>08050: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="DistributionFee" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08060: 
+% of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied).
+Only applicable if the product has this feature (legal wording in the documentation). These fees are included in total on going costs and are not included into the management fees. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="TransactionCosts" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>08070: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied).
+Costs within the products</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="IncidentalCosts" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>08080: Incidential costs ex post
+% of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="StructuredSecurity">
+								<xs:annotation>
+									<xs:documentation>Relevant fields for structured securities</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="GrossEntryCost" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08010: This data should only incorporate manufacturer costs (i.e. cost of the financial instrument) and distributor upfront when known by the manufacturer.  It should however NOT include distribution fees added on top of the product price by distributors that is out of control of the manufacturer.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="NetEntryCost" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08015: Net one off entry cost ex post
+Net One-off Entry cost = 08010 less upfront distribution fee embedded in the 08010. In practice 08015 will be the portion of the 08010 retained by the manufacturer.
+This data is optional and could be used in the event of only one layer of intermediation or in a case where distributor up fronts are paid equally to all distributors. The costs reported in this field is a Net disclosure and therefore the distributor upfront is equal to the difference between 08010 and 08025.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ExitCost" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08020: 
+Fixed amount
+If 00096 set to U : number of units in product currency
+If 00096 set to P : % of Reference in field 08110 or 08120 respectively.
+This exit cost is supposed to be prior RHP</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="OngoingCosts" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>08030: Expressed as a % of NAV / Notional (or currency  amount for Absolute quotation) of the Financial Product in annualized terms related to Reference Value in 08110 </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="OngoingCostsAccumulated" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08040: Sum of each daily Recurring Product Costs
+Presented in absolute figures in product currency accumulated during the year up until the End of Reference Date Period Ex Post in field 08100.
+Mandatory field for Distribution in Germany, Switzerland and Austria</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ManagementFee" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08050: Expressed as a % of NAV / Notional (or currency  amount for Absolute quotation) of the Financial Product in annualized terms related to Reference Value in 08110.
+These fees are included in total on going costs. Only applicable if the product has this feature. These fees are used by distributors to calculate their retrocession fees  </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="IncidentalCosts" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>08080: Expressed as a % of NAV / Notional (or currency  amount for Absolute quotation) of the Financial Product in annualized terms related to Reference Value in 08110 
+If 00096 set to U : number of units in product currency
+If 00096 set to P : % of Reference in field 08110 or 08120 respectively.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ReferencePrice" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>08110: The Reference Price is the instrument price to which a Unit disclosed Ex-Post cost is based and to which a Percentage disclosed cost should be multiplied in order to retrieve the Unit cost. This field is conditional and only used if 08120 is not used.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="NotionalReferenceAmount" type="xs:decimal" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>080120: The Notional Reference Amount is the amount expressed in number of currency units to which a Unit disclosed Ex-Post cost is based and to which a Percentage disclosed cost should be multiplied in order to retrieve the Unit cost. This field is conditional and only used if 08110 is not used.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+						<xs:element name="ReferencePeriod">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Start" type="xs:date">
+										<xs:annotation>
+											<xs:documentation>08090: The Date that specifies the start of the Reference Period. Defined as "From and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="End" type="xs:date">
+										<xs:annotation>
+											<xs:documentation>08100: The Date that specifies the end of the Reference Period. Defined as "To and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period. For the avoidance of doubt, this date can be specified as equal to the date specified in 08090.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AdditionalInformationUK" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Costs and Charges ex post</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="TransactionCostsExAnteUK" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>09010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="TransactionCostsExPostUK" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>09020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ValueForMoney" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EMTDataReportingVFM">
+											<xs:annotation>
+												<xs:documentation>09030: Specifies if the Value for Money section is filled in the current EMT posting.
+</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="EMTYesEmptyType"/>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="IsAssessmentOfValueRequiredUnderCOLL" type="EMTYesNoType" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>09040: Specifies if the Value for Money section is filled in the current EMT posting.
+</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="OutcomeOfCOLLAssessmentOfValue" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>09050: "1 – charges are justified based on assessment and any action taken or, where the first assessment is not yet due, based on initial product design
+2 – charges are not justified, significant action is required"
+</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="1"/>
+													<xs:enumeration value="2"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="OutcomeOfPRINValueAssessmentOrReview" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>09060: "1 – product expected to provide fair value for reasonably foreseeable period
+2 – review indicates significant changes required in order to provide fair value"
+
+</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="1"/>
+													<xs:enumeration value="2"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="OtherReviewRelatedToValueAndOrCharges" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>09070: "A – In line with ESMA supervisory briefing on the supervision of costs in UCITS and AIFs or relevant NCA supervisory activity
+O – Other local requirements or procedures"
+
+</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="A"/>
+													<xs:enumeration value="O"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="FurtherInformation" type="xs:anyURI" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>09080: Link to sources of relevant information</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ReviewDate" type="xs:date" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>09090: Date of value assessment review or date COLL assessment of value report published or initial launch date
+</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ReviewNextDue" type="xs:date" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>09100: The Date that specifies the start of the Reference Period. Defined as "From and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AdditionalInformationUK2" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Optional section 2						
+</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="IndirectCostsOpenEndedExAnteUK" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>10000: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+ </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="IndirectCostsClosedEndedExAnteUK" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>10010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RealAssetsCostsExAnteUK" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>10020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="IndirectCostsOpenEndedExPostUK" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>10030: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="IndirectCostsClosedEndedExPostUK" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>10040: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RealAssetsCostsExPostUK" type="xs:decimal" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>10050: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OtherSpecificInvestmentNeed" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>10060: "Y - Yes, there is a CFD
+I - There is an intention to produce a CFD
+N - No, there is no intention to produce a CFD"
+</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="1"/>
+										<xs:enumeration value="Y"/>
+										<xs:enumeration value="I"/>
+										<xs:enumeration value="N"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="EMTFinancialInstrumentType">
 		<xs:sequence>
 			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
@@ -21435,6 +22670,15 @@ If 07010 set to P : % of Notional or NAV (not per annum)</xs:documentation>
 			<xs:element name="FinancialInstrument" type="EMT_V41_FinancialInstrumentType" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>EMT Version 4.1 Report</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EMTType_V42">
+		<xs:sequence>
+			<xs:element name="FinancialInstrument" type="EMT_V42_FinancialInstrumentType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>EMT Version 4.2 Report</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

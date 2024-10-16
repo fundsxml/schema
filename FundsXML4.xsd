@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <!--Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.2.7</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.2.8</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -60,6 +61,7 @@
 						<xs:documentation>Country specific data on top level (as defined in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:element ref="ds:Signature" minOccurs="0"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -3473,6 +3475,9 @@ N = Nominale</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CompanyType">
+		<xs:annotation>
+			<xs:documentation>Detaili data of Company/Issuer</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
@@ -3527,6 +3532,21 @@ N = Nominale</xs:documentation>
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Type of Company/Issuer</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Government"/>
+						<xs:enumeration value="Municipality"/>
+						<xs:enumeration value="Corporation"/>
+						<xs:enumeration value="Bank"/>
+						<xs:enumeration value="International Organization"/>
+						<xs:enumeration value="Central Bank"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -3750,15 +3770,28 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ControlDataType">
+		<xs:annotation>
+			<xs:documentation>Metadata for file delivery</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="UniqueDocumentID" type="Text128Type">
 				<xs:annotation>
 					<xs:documentation>Document identifier (unique per data supplier)</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="20240830_0001"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DocumentGenerated" type="xs:dateTime">
 				<xs:annotation>
 					<xs:documentation>Timestamp of document generation</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="2024-09-26T18:37:12.1559196+02:00"/>
+						</altova:exampleValues>
+					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Version" minOccurs="0">
@@ -3789,6 +3822,7 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 						<xs:enumeration value="4.2.5"/>
 						<xs:enumeration value="4.2.6"/>
 						<xs:enumeration value="4.2.7"/>
+						<xs:enumeration value="4.2.8"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -3799,12 +3833,16 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType">
 				<xs:annotation>
-					<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
+					<xs:documentation>Definition of data source (investment company, vendor, ...). Used only for information purpose.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataOperation" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>INITIAL, AMEND, DELETE</xs:documentation>
+					<xs:documentation>
+INITIAL: This refers to the first time data is delivered. It includes all the necessary information to set up or populate a system or database. 
+AMEND: This term is used when there are updates or changes to the existing data. An amendment might include corrections, additions, or modifications to the previously delivered data. It ensures that the data remains accurate and up-to-date.
+DELETE: This involves the removal of specific data from the system. It could be due to data being outdated, incorrect, or no longer needed. Deleting data helps in maintaining the relevance and efficiency of the database. DELETE requires a RelatedDocumentIDs that referes to the data delivery that should be deleted. 
+					</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -3822,18 +3860,26 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="RelatedDocumentID" type="Text128Type" maxOccurs="unbounded"/>
+						<xs:element name="RelatedDocumentID" type="Text128Type" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:appinfo>
+									<altova:exampleValues>
+										<altova:example value="20240830_0002"/>
+									</altova:exampleValues>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Language" type="xs:language" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>ISO code of language with two characters</xs:documentation>
+					<xs:documentation>ISO code of language with two characters. This is used as default if no other Language is specified.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ModuleUsage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>List of used schema modules</xs:documentation>
+					<xs:documentation>List of used schema modules. </xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -3842,7 +3888,7 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 								<xs:sequence>
 									<xs:element name="Name">
 										<xs:annotation>
-											<xs:documentation>Module name as listed in enumeration</xs:documentation>
+											<xs:documentation>Module name as listed in enumeration. Can be used to optimize imports.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -3876,7 +3922,7 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 			</xs:element>
 			<xs:element name="CountrySpecificData" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Country specific document data</xs:documentation>
+					<xs:documentation>Country specific document data.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>

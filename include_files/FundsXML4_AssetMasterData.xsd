@@ -1581,20 +1581,34 @@ Z   New issue</xs:documentation>
 			<xs:documentation>Foreign Exchange Asset data information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CurrencyBuy" type="ISOCurrencyCodeType">
+			<xs:element name="CurrencyBuy">
 				<xs:annotation>
 					<xs:documentation>Currency bought</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ISOCurrencyCodeType">
+							<xs:attribute name="isBaseCCY" type="xs:boolean"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="AmountBuy" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation>Amount bought</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CurrencySell" type="ISOCurrencyCodeType">
+			<xs:element name="CurrencySell">
 				<xs:annotation>
 					<xs:documentation>Currency sold</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ISOCurrencyCodeType">
+							<xs:attribute name="isBaseCCY" type="xs:boolean"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="AmountSell" type="xs:decimal">
 				<xs:annotation>
@@ -3241,6 +3255,11 @@ Simple</xs:documentation>
 													<xs:documentation>Underlying Index</xs:documentation>
 												</xs:annotation>
 											</xs:element>
+											<xs:element name="UnderlyingAsset" type="UnderlyingType" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Bezeichnet das dem Derivativprodukt unterlegte Wertpapier</xs:documentation>
+												</xs:annotation>
+											</xs:element>
 											<xs:element name="ExchangeConvention" minOccurs="0">
 												<xs:annotation>
 													<xs:documentation>Begin, End, Begin and end, None</xs:documentation>
@@ -3345,6 +3364,16 @@ Simple</xs:documentation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="FXRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>FX Rate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgreedFxRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Agreed FX rate of trade</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

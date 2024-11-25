@@ -23204,20 +23204,34 @@ used for Fee calculation</xs:documentation>
 			<xs:documentation>Foreign Exchange Asset data information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CurrencyBuy" type="ISOCurrencyCodeType">
+			<xs:element name="CurrencyBuy">
 				<xs:annotation>
 					<xs:documentation>Currency bought</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ISOCurrencyCodeType">
+							<xs:attribute name="isBaseCCY" type="xs:boolean"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="AmountBuy" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation>Amount bought</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CurrencySell" type="ISOCurrencyCodeType">
+			<xs:element name="CurrencySell">
 				<xs:annotation>
 					<xs:documentation>Currency sold</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ISOCurrencyCodeType">
+							<xs:attribute name="isBaseCCY" type="xs:boolean"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="AmountSell" type="xs:decimal">
 				<xs:annotation>
@@ -34821,6 +34835,11 @@ Simple</xs:documentation>
 													<xs:documentation>Underlying Index</xs:documentation>
 												</xs:annotation>
 											</xs:element>
+											<xs:element name="UnderlyingAsset" type="UnderlyingType" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Bezeichnet das dem Derivativprodukt unterlegte Wertpapier</xs:documentation>
+												</xs:annotation>
+											</xs:element>
 											<xs:element name="ExchangeConvention" minOccurs="0">
 												<xs:annotation>
 													<xs:documentation>Begin, End, Begin and end, None</xs:documentation>
@@ -34925,6 +34944,16 @@ Simple</xs:documentation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="FXRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>FX Rate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgreedFxRate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Agreed FX rate of trade</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -35689,12 +35718,50 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="BoughtAmount" type="SingleAmountType"/>
-							<xs:element name="SoldAmount" type="SingleAmountType"/>
+							<xs:element name="BoughtAmount">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="SingleAmountType">
+											<xs:attribute name="isBaseCCY" type="xs:boolean"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SoldAmount">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="SingleAmountType">
+											<xs:attribute name="isBaseCCY" type="xs:boolean"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 			</xs:choice>
+			<xs:element name="OrderExecutionType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Type of Order Execution</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="MarketOnClose"/>
+						<xs:enumeration value="MarketOnOpen"/>
+						<xs:enumeration value="Market"/>
+						<xs:enumeration value="OTC"/>
+						<xs:enumeration value="Limit"/>
+						<xs:enumeration value="StopLoss"/>
+						<xs:enumeration value="StopBuy"/>
+						<xs:enumeration value="StopLimit"/>
+						<xs:enumeration value="TrailingStop"/>
+						<xs:enumeration value="IfDone"/>
+						<xs:enumeration value="OneCancelsTheOther"/>
+						<xs:enumeration value="NextOrder"/>
+						<xs:enumeration value="IPO"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Additional information which does not fit in the existing nodes above</xs:documentation>

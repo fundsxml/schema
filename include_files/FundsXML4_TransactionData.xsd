@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="EarningsType">
@@ -929,12 +929,50 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="BoughtAmount" type="SingleAmountType"/>
-							<xs:element name="SoldAmount" type="SingleAmountType"/>
+							<xs:element name="BoughtAmount">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="SingleAmountType">
+											<xs:attribute name="isBaseCCY" type="xs:boolean"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SoldAmount">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="SingleAmountType">
+											<xs:attribute name="isBaseCCY" type="xs:boolean"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 			</xs:choice>
+			<xs:element name="OrderExecutionType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Type of Order Execution</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="MarketOnClose"/>
+						<xs:enumeration value="MarketOnOpen"/>
+						<xs:enumeration value="Market"/>
+						<xs:enumeration value="OTC"/>
+						<xs:enumeration value="Limit"/>
+						<xs:enumeration value="StopLoss"/>
+						<xs:enumeration value="StopBuy"/>
+						<xs:enumeration value="StopLimit"/>
+						<xs:enumeration value="TrailingStop"/>
+						<xs:enumeration value="IfDone"/>
+						<xs:enumeration value="OneCancelsTheOther"/>
+						<xs:enumeration value="NextOrder"/>
+						<xs:enumeration value="IPO"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Additional information which does not fit in the existing nodes above</xs:documentation>

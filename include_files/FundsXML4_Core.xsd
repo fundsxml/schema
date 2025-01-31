@@ -212,12 +212,19 @@ B ... Boolean</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:enumeration value="Government"/>
-						<xs:enumeration value="Municipality"/>
-						<xs:enumeration value="Corporation"/>
-						<xs:enumeration value="Bank"/>
-						<xs:enumeration value="International Organization"/>
-						<xs:enumeration value="Central Bank"/>
+						<xs:enumeration value="Non-financial corporations"/>
+						<xs:enumeration value="Central bank"/>
+						<xs:enumeration value="Deposit-taking corporations except the central bank"/>
+						<xs:enumeration value="General government"/>
+						<xs:enumeration value="Households"/>
+						<xs:enumeration value="Non-profit institutions serving households"/>
+						<xs:enumeration value="Money market funds"/>
+						<xs:enumeration value="Non-MMF investment funds"/>
+						<xs:enumeration value="Other financial intermediaries, except insurance corporations and pension funds"/>
+						<xs:enumeration value="Financial auxiliaries"/>
+						<xs:enumeration value="Captive financial institutions and money lenders"/>
+						<xs:enumeration value="Insurance corporations"/>
+						<xs:enumeration value="Pension funds"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -906,6 +913,7 @@ R ... Reinvesting</xs:documentation>
 			<xs:documentation>List of company classifications</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="NACE Rev 2.1"/>
 			<xs:enumeration value="NACE Rev 2">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">1 character + 4 digits. no dots. Regex: [A-Z][0-9]{4} </xs:documentation>

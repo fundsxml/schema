@@ -18,7 +18,17 @@
 	</xs:simpleType>
 	<xs:complexType name="TripartiteTemplateSolvencyIIType_V6">
 		<xs:sequence>
-			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V6" maxOccurs="unbounded">
+			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V7" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The Portfolio is analysed from investor's point of view. If Portfolio is a Fund with share classes, there is one Portfolio for each share class. For hedged shares, hedging instruments are included in the prortfolio.
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TripartiteTemplateSolvencyIIType_V7">
+		<xs:sequence>
+			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V7" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The Portfolio is analysed from investor's point of view. If Portfolio is a Fund with share classes, there is one Portfolio for each share class. For hedged shares, hedging instruments are included in the prortfolio.
 </xs:documentation>
@@ -189,7 +199,183 @@ In percentage of TotalNetAssets.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Position" type="SIIPositionType_V6" maxOccurs="unbounded">
+						<xs:element name="Position" type="SIIPositionType_V7" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SolvencyIIPortfolioType_V7">
+		<xs:annotation>
+			<xs:documentation>XML adaptation of "Tripartite Template"</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TPTVersion">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A 1000
+</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="V7.0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PortfolioID" type="SIISecurityCodificationType_V6">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
+ISIN Preferred when available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PortfolioName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A03 - Portfolio or Fund or Share class name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A04 - Portfolio currency used for valuation of assets.
+If Portfolio is reported at ShareClass level, PortfolioCurrency is the ShareClass currency.                                        Code ISO 4217                                      CNH : 2 Chinese yuan (when traded offshore) - Hong Kong
+CNT: Chinese yuan (when traded offshore) -Taiwan
+GGP – Guernsey pound - Guernsey
+IMP: Isle of Man pound also Manx pound -Isle of Man
+JEP: Jersey pound - Jersey
+KID: Kiribati dollar -Kiribati
+NIS – New Israeli Shekel - Israel 
+PRB – Transnistrian ruble - Transnistria (The code conflicts with ISO-4217 because PR stands for Puerto Rico. X should have been used for the first letter.)
+TVD – Tuvalu dollar- Tuvalu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TotalNetAssets" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A05 - Total net assets of the Portfolio or the Share class in PortfolioCurrency</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValuationDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A06 - Date at which the portfolio inventory is valid.
+Used for NAV date.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReportingDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>A07 - Date to which data refers ( end of month for example)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShareClass" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A 08, A 08b</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SharePrice" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>A08 - The valuation should be expressed
+in Portfolio currency </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TotalNumberOfShares" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A08b - Total number of shares of the Share Class. 
+To enable apportionment of the investment holding by the insurance entity in their proportion ownership.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CashPercentage" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A09 - Liquidities of the Portfolio converted into Portfolio currency.
+In percentage of TotalNetAssets.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PortfolioModifiedDuration" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A10 -Weighted average modified duration of the Marked to Market instruments in portfolio. This datapoint has the same value for all instruments in the portfolio of the funds. Ideally it should be based on expected modified duration for relevant instruments. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CompleteSCRDelivery" type="YesNoL1Type">
+				<xs:annotation>
+					<xs:documentation>A11 - "Y" if all SCR contributions are given for each Portfolio line.
+ "N" otherwise.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRTPortfolioInformation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Additional Portfolio information for QRTs</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FundIssuer">
+							<xs:annotation>
+								<xs:documentation>A117-116-115 - Name and Code of Fund Issuer</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="SIIIssuerType_V7">
+										<xs:sequence>
+											<xs:element name="EconomicSector" type="NACECodeType">
+												<xs:annotation>
+													<xs:documentation>A118 - NACE code of Issuer of Fund  or Share Class</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="Country" type="ISOCountryCodeType">
+												<xs:annotation>
+													<xs:documentation>A122</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="FundIssuerGroup" type="SIIIssuerType_V6">
+							<xs:annotation>
+								<xs:documentation>A121-120-119 - Name, LEI or Pre LEI of the Group the Fund issuer belongs to.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FundCIC" type="CICCodeType">
+							<xs:annotation>
+								<xs:documentation>A123</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FundCustodianCountry" type="ISOCountryCodeType">
+							<xs:annotation>
+								<xs:documentation>A123a</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Duration" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A124 - For funds or portfolios mainly invested in debt instruments (>50%) - Fund modified Duration (Residual modified duration) "S.06.02 (old: Assets D1) - Residual modified duration
+same as datapoint 10 for portfolios mainly invested in debt instruments."
+
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Positions">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Inventory of the Portfolio</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Position" type="SIIPositionType_V7" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
 							</xs:annotation>
@@ -200,6 +386,50 @@ In percentage of TotalNetAssets.</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SIISecurityCodificationType_V6">
+		<xs:annotation>
+			<xs:documentation>CodificationSystem (restricted list for Securities) and Code expressed in CodificationSystem</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CodificationSystem">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Codification system used.
+Integer corresponding to the following closed list:
+1 - ISO 6166 for ISIN code
+2 - CUSIP (The Committee on Uniform Securities Identification Procedures number assigned by the CUSIP Service Bureau for U.S. and Canadian companies)
+3 - SEDOL (Stock Exchange Daily Official List for the London Stock Exchange)
+4 – WKN (Wertpapier Kenn-Nummer, the alphanumeric German identification number)
+5 - Bloomberg Ticker (Bloomberg letters code that identify a company's securities)
+6 - BBGID (The Bloomberg Global ID)
+7 - Reuters RIC (Reuters instrument code)
+8 – FIGI (Financial Instrument Global Identifier)
+9 - Other code by members of the Association of National Numbering Agencies
+99 - Code attributed by the undertaking</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:short">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="99"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="99"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Code" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SIISecurityCodificationType_V7">
 		<xs:annotation>
 			<xs:documentation>CodificationSystem (restricted list for Securities) and Code expressed in CodificationSystem</xs:documentation>
 		</xs:annotation>
@@ -474,7 +704,7 @@ e.g. -0.5% should be written as "-0.5"</xs:documentation>
 								<xs:documentation xml:lang="en">A63 - Start date to accrue interest.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Redemption" type="RedemptionType_V6">
+						<xs:element name="Redemption" type="RedemptionType_V7">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A39 40 41 - Redemption details</xs:documentation>
 							</xs:annotation>
@@ -1097,7 +1327,975 @@ number with floating decimal
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="SIIPositionType_V7">
+		<xs:sequence>
+			<xs:element name="InstrumentCIC">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A12 - Instrument type. E.g. Equity, bond, option, swap,...
+CIC codification used.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="CICCodeType">
+						<xs:pattern value="([A-Z]{2}([A-F]|[0-9]){1}[1-9]{1})"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="EconomicArea" type="EconomicAreaType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A13 - Economic area code of quotation country:
+0 non listed
+1 EEA
+2 OECD non EEA
+3 non OECD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V6">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A15 14 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
+ISIN Preferred when available.
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GroupID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A16 - Grouping code for operations on multi-leg instruments.
+Useless for single-leg positions.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InstrumentName">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A17</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Valuation">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Valuation characteristics and 
+Position market value(s).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Quantity" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A18 - Quantity of Instrument in Position.
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TotalNominalValueQC" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A19 - In QuotationCurrency.
+= Quantity * Nominal Unit Amount</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ContractSize" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A20 - Only for futures and options.
+The way the contract size is defined varies according with the type of instrument. See EIOPA definition (QRT 0801)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="QuotationCurrency" type="ISOCurrencyCodeType">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A21 - Instrument quotation currency (A)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MarketValueQC" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A22 - Amount in QuotationCurrency (A) 
+including accrued coupon.
+(Dirty value)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CleanValueQC" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A23 - Market value in QuotationCurrency
+not including accrued income.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AccruedIncomeQC" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A125 - Accrued interest in QuotationCurrency.
+Generally equals to: MarketValueQC - CleanValueQC</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MarketValuePC" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A24 - Amount in PortfolioCurrency (B) including accrued coupon.
+(Dirty value)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CleanValuePC" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A25 - Market value in PortfolioCurrency
+not including accrued interest</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AccruedIncomePC" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A126 - Accrued interest in PortfolioCurrency.
+Generally equals to: MarketValuePC - CleanValuePC</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="PositionWeight" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>A26 - MarketValuePC in percentage
+of TotalNetAssets (including liquidity)
+50%=0.5</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MarketExposureQC" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A27 - MarketExposure in QuotationCurrency (A).
+Different from MarketValueQC for derivatives:
+valuation of the equivalent position on the underlying asset.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MarketExposurePC" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A28 - MarketExposure in PortfolioCurrency (B).
+Different from MarketValuePC for derivatives:
+valuation of the equivalent position on the underlying asset.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MarketExposureUC" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A29 - %Market exposure in QuotationCurrency (C) 
+of underlying asset</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MarketExposureWeight" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A30 - MarketExposurePC 
+as percentage of TotalNetAssets.
+1.2% = 0.012</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="MarketExposureUCWeight" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A31 - MarketExposureUC converted in PC, in percentage in percentage of TotalNetAssets.
+2.7% = 0.027</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InterestRateInstrumentCharacteristics" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Detailed characteristics for interest rate instruments.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:sequence minOccurs="0">
+							<xs:element name="RateType">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">A32 - Type of interest rate:
+"Fixed" (fixe), "Variable" (révisable), "Floating" (variable), " Infation_linked" (inflation linked bonds)</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Fixed"/>
+										<xs:enumeration value="Variable"/>
+										<xs:enumeration value="Floating"/>
+										<xs:enumeration value="Infation_linked"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="CouponRate" type="PercentageType">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">A33 - Next annual coupon rate in percentage
+(known, or estimated for Floating).
+3.5% has to be written "3.5"</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="VariableRate" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">For Floating/Variable rate bond.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="IndexID" type="CodificationType_V5">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">A35 34  - Identification of index used as reference for Floating/Variable rate bond.
+CodificationSystem omitted if internal codification is used.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="IndexName" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>A36 - Name of Index</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="Margin" type="PercentageType">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">A37 - Annual additive margin in percentage.
+e.g. -0.5% should be written as "-0.5"</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CouponFrequency" type="SIICouponFrequencyType">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">A38 - Coupon payment frequency as number of coupons per year
+0 = other than below options:
+1= annual
+2= biannual
+4= quarterly
+12= monthly 
+52= weekly</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+						<xs:element name="EffectiveDateOfInstrument" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A63 - Start date to accrue interest.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Redemption" type="RedemptionType_V7">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A39 40 41 - Redemption details</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="EmbeddedOption" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">To be used only for a 
+callable / putable bond.
+The embedded option is described only for the first option date to come.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CallPutType">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A42 - Cal = Call
+Put = Put
+Cap = Cap
+Flr= Floor</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Cal"/>
+												<xs:enumeration value="Put"/>
+												<xs:enumeration value="Cap"/>
+												<xs:enumeration value="Flr"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="CallPutDate" type="xs:date">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A43 - Date of first Call / Put option to come.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OptionDirection">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A44 - Option at the discretion of issuer(I) or bearer(B). "O" if both are possible.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:minLength value="1"/>
+												<xs:maxLength value="1"/>
+												<xs:enumeration value="I"/>
+												<xs:enumeration value="B"/>
+												<xs:enumeration value="O"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="StrikePrice" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A45 - Strike price of first optional Call / Put as a percentage of nominal amount.
+95%=0.95</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ValuationYieldCurve" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Specific data in case no yield curve of reference is available (e.g. for developing countries or BRICS)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Yield" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>A129 - Valuation Yield of the interest rate instrument
+****Is 3.5% coded as 3.5 or 0.035?</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Spread" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>A130 - Issuer spread calculated from Z coupon IRS curve of quotation currency
+****Is 0.5% coded as 0.5 or 0.005?</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreditRiskData" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A46 to A54 + A57 + A59- Useless for cash positions.
+Mandatory otherwise.
+Refers to Counterparty for OTC Derivatives.
+Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="CreditRiskDataType_V7">
+							<xs:sequence>
+								<xs:element name="EconomicSector" type="NACECodeType" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">A54 - Identify the economic sector of issuer based on the 2.0 version of the Statistical classification of economic activities in the European Community (‘NACE’) code V2.0. NACE should be full version for the financial sector i.e. 5 characters without dots. In the other cases, producers of the TPT shall provide the maximum information available (letter as a minimum plus 1, 2, 3 or 4 digits without dots), if meaningful.
+Please provide V2.1 in datapoint 148 if avalaible, otherwise provide V2.0 in this datapoint.
+</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="EconomicSectorNACE2.1" type="NACECodeType" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">A148 - Identify the economic sector of issuer based on the latest version of the Statistical classification of economic activities in the European Community (‘NACE’) code (as published in an EC Regulation). Producers of the TPT shall provide the maximum information available (letter as a minimum plus 1, 2, 3 or 4 digits without dots), if meaningful.
+if V2.1 is not available, please provide V2.0 codification in datapoint 54.
+</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="Covered" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">A55 - The instrument is covered ("C") or not ('NC')</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="C"/>
+											<xs:enumeration value="NC"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Securitisation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>To be used for synthetic Asset Backed Securities (ABS) and other ABS</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Securitised">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="a"/>
+									<xs:enumeration value="b"/>
+									<xs:enumeration value="c"/>
+									<xs:enumeration value="d"/>
+									<xs:enumeration value="e"/>
+									<xs:enumeration value="f"/>
+									<xs:enumeration value="g"/>
+									<xs:enumeration value="h"/>
+									<xs:enumeration value="i"/>
+									<xs:enumeration value="j"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="TrancheLevel" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A58b - Seniority</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SubordinatedDebt" type="YesNoL1Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A58 - Y/N</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HedgingRolling" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A65 - Indication of existing Risk Mitigation program "Y" used for Risk Mitigation purpose and the position is systematically rolled at maturity, "N" used for hedging purpose but no systematic roll at maturity); "EPM" Efficient Portfolio Management / not used for hedging purpose</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="N"/>
+						<xs:enumeration value="EPM"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DerivativeOrConvertible" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">For Futures or Convertible bonds:
+- Characteristics of the option (implicit or explicit).
+- Description of underlying instrument.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="OptionCharacteristics" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">For an Option, description of its characteristincs.
+For a convertible bond, description of optional conversion.
+Useless for single futures contract.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CallPutType">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A60 - Option type
+"Cal"=call 
+"Put"=put
+"Cap"=cap
+"Flr"=floor</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:length value="3"/>
+												<xs:enumeration value="Cal"/>
+												<xs:enumeration value="Put"/>
+												<xs:enumeration value="Cap"/>
+												<xs:enumeration value="Flr"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="StrikePrice" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A61 - Strike price of the option in same unit as price of underlying instrument.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ConversionRatio" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A62 - "Conversion factor : ratio between the number of shares received and the number of bonds held in case of conversion for a convertible bond.
+Parity for options is not required in version 7 
+Concordance factor for bond futures is not required in version 7"</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ExerciseType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A64 - Option style: AMerican, EUropean, ASiatic, BErmudian
+Optional for convertibles</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:minLength value="2"/>
+												<xs:maxLength value="2"/>
+												<xs:enumeration value="AM"/>
+												<xs:enumeration value="EU"/>
+												<xs:enumeration value="AS"/>
+												<xs:enumeration value="BE"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Convertible" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Only for Convertible bond.
+For pricing using shock modelling.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="BondFloor" type="xs:decimal" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>A127 - Lowest value of a convertible bond expressed in quotation currency, at current issuer spread</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="OptionPremium" type="xs:decimal" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>A128 - Premium of the embedded option of a convertible bond in quotation currency.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="UnderlyingInstrument">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="InstrumentCIC" type="CICCodeType">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A67 - Instrument type. E.g. Equity, bond, option, swap,...
+CIC codification.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V5">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A69 68 - Use ISIN, CUSIP,  or OtherSecurityCodes/Name(of codification system) for BLOOMBERG, TELEKURS or Internal code</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="InstrumentName" type="xs:string">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A70 - Name of underlying instrument.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Valuation">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Currency" type="ISOCurrencyCodeType">
+													<xs:annotation>
+														<xs:documentation>A71 - Quotation currency (C)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="MarketPrice" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">A72 - Last market price known, in Currency (C).</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">A73 - Country of quotation</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="EconomicArea" type="EconomicAreaType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">A74 - Economic area code of Country of quotation:
+0 non listed
+1 EEA;
+2 OECD non EEA
+3 non OECD</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Coupon" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">If underlying instrument is an interest rate instrument.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CouponRate" type="PercentageType">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">A75 - Next coupon rate in percentage.
+3.5% = 3.5</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="CouponFrequency" type="SIICouponFrequencyType">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">A76 - Coupon payment frequency as "number of coupon payment per year
+0 = other than below options:
+1= annual
+2= biannual
+4= quarterly
+12= monthly
+52= weekly"
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Redemption" type="RedemptionType_V7" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A77 78 79 - Redemption details.
+If underlying instrument is an interest rate instrument.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CreditRiskData" type="CreditRiskDataType_V5" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
+(or counterparty for OTC instruments).</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Analytics" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ModifiedDurationToMaturity" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A90 - Modified duration based on maturity date (contractual one), indicated in datapoint 39</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ModifiedDurationToCall" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A91 - Modified duration based on next option exercice indicated in datapoint 43</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CreditSensitivity" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A92 Modified duration based on maturity date (contractual) indicated in datapoint 39) eventually  used for the SCR spread risk calculation (e.g. based on 176 (1) or (2) DR 2015/35 for bonds and loans)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Delta" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A93 - For Convertibles and Options.
+Sensitivity to the underlying asset.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Convexity" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A94 - Convexity for interest rates instruments; or 
+gamma for derivatives with optional components </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Vega" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A94b</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ModifiedDurationToMaturityDateExpected" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A144 - Modified duration  based on the expected maturity date as defined in the field 143.
+This datapoint is needed by insurance companies in case the legal/contractual maturity date is different from the expected maturity date used sor SCR calculation.
+
+
+
+ </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CreditSensitivityExpected" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A145 - Modified duration (Credit sensitivity) to the expected maturity date based on the field 143 eventually used for the spread risk calculation (e.g. based on 176 (1) or (2) DR 2015/35 for bonds and loans). 
+This datapoint is needed by insurance companies in case the legal/contractual maturity date is different from the expected maturity date used sor SCR calculation.
+
+
+
+
+ </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LookThroughIdentifier" type="ISINType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A95 - identification code of the investee funds
+ISIN or CUSIP or any other identification
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContributionToSCR" type="ContributionToSCRType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Instrument level.
+The block is optional. However, if the block is present, all the SCRs inside can be present, with the non relevant ones set to 0.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRTPositionInformation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Needed for segregated account.
+To be specified***********</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FundCustodianName" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A133</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CustodianIdentificationCode" type="LEICodeType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A140 - Identification of the custodian code using the LEI if available. 
+If none is available this item shall not be reported
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TypeOfCustodianIdentificationCode" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A141 - C0220   1-LEI,  9-None or internal
+</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CollateralisedAsset" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A106 - Indicator used to identify the under-written instruments</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:unsignedInt">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="3"/>
+									<xs:enumeration value="4"/>
+									<xs:enumeration value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="PlaceOfDeposit" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A107 - Instrument place of deposit</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Participation" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A108 - Indicator used to identify the guidelines of participation in accountancy terms
+1 - Participation
+2 - non participation</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="1"/>
+									<xs:maxInclusive value="2"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ValorisationMethod" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A110 - Use closed list:
+1 - quoted market price in active markets for the same assets
+2 - quoted market price in active markets for similar assets
+3 - alternative valuation methods
+4 - adjusted equity methods (applicable for the valuation of participations)
+5 - IFRS equity methods (applicable for the valuation of participations)
+6 - Market valuation according to article 9(4) of Commission Delegated Regulation 2015/35 </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="1"/>
+									<xs:maxInclusive value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="AcquisitionValue" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A111 - Total acquisition value for assets held, clean value without accrued interest.
+Not applicable to CIC categories 7 and 8.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CounterpartyRating" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="RatingValue" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>A112 - Rating of the counterparty / issuer (cf specifications QRT) (S.06.02 - old: Assets D1)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="RatingAgency" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>A113 - Name of the rating agency (cf specification QRT) (S.06.02 - old: Assets D1)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="UnderlyingAssetCategory">
+							<xs:annotation>
+								<xs:documentation>A131 - Identifies the assets categories, receivables and derivatives within the collective investment undertaking.
+Possible values are:
+1 - Government bonds
+2 - Corporate bonds
+3L - Listed equity
+3X - Unlisted equity
+4 - Collective Investment Undertakings
+5 - Structured notes
+6 - Collateralised securities
+7 - Cash and deposits
+8 - Mortgages and loans
+9 - Properties
+0 - Other investments (including receivables)
+A – Futures
+B – Call Options
+C – Put Options
+D – Swaps
+E – Forwards
+F – Credit derivatives
+L - Liabilities
+When the look-through regards a Fund of funds, category “4 - Collective Investment Units” shall be used only for non-material residual values.
+ </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="2"/>
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="3L"/>
+									<xs:enumeration value="3X"/>
+									<xs:enumeration value="4"/>
+									<xs:enumeration value="5"/>
+									<xs:enumeration value="6"/>
+									<xs:enumeration value="7"/>
+									<xs:enumeration value="8"/>
+									<xs:enumeration value="9"/>
+									<xs:enumeration value="0"/>
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="C"/>
+									<xs:enumeration value="D"/>
+									<xs:enumeration value="E"/>
+									<xs:enumeration value="F"/>
+									<xs:enumeration value="L"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AdditionalInformation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="InfrastructureInvestment" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A132 - Use closed list:
+0 - Not assessed
+1 - Debt on eligible Infrastructure project
+2 - Equity on  eligible infrastructure project 
+3 - Debt on eligible Infrastructure corporate
+4 - Equity on eligible infrastructure corporate
+5 - Non eligible</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="5"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="InfrastructureInvestmentAdditionalQRT" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A147 - 1 – Not an infrastructure investment; 
+2 – Infrastructure non-qualifying: Government Guarantee (Government, Central bank, Regional government or local authority); 
+3 – Infrastructure non-qualifying: Government Supported including Public Finance initiative (Government, Central bank, Regional government or local authority); 
+4 – Infrastructure non-qualifying: Supranational Guarantee/Supported (ECB, Multilateral development bank, International organisation); 
+9 – Infrastructure non-qualifying: Other non-qualifying infrastructure loans or investments, not classified under the above categories; 
+12 – Infrastructure qualifying: Government Guarantee (Government, Central bank, Regional government or local authority); 
+13 – Infrastructure qualifying: Government Supported including Public Finance initiative (Government, Central bank, Regional government or local authority); 
+14 – Infrastructure qualifying: Supranational Guarantee/Supported (ECB, Multilateral development bank, International organisation); 
+19 – Infrastructure qualifying: Other qualifying infrastructure investments, not classified in the above categories; 
+20 – European Long-Term Investment Fund (ELTIF investing in infrastructure assets and ELTIF investing in other – non infrastructure – assets)
+</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="2"/>
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="3"/>
+									<xs:enumeration value="4"/>
+									<xs:enumeration value="9"/>
+									<xs:enumeration value="12"/>
+									<xs:enumeration value="13"/>
+									<xs:enumeration value="14"/>
+									<xs:enumeration value="19"/>
+									<xs:enumeration value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Type1PrivateEquityPortfolioEligibility" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A134 - Use closed list:
+Int (1)
+0 = Not assessed
+1= elligible for re-classification as equity type 1
+2 = not elligible for re-classification as equity type 1
+</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:enumeration value="0"/>
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Type1PrivateEquityIssuerBeta" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A 135- Beta of the issuer of the private equity calculated according to art 168a of the regulation UE DR 2019/981
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Counterparty_sector" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A137 - Classification of the issuer or counterparty according to IORP II regulation based on FINREP breakdown ( ESA 2010) and EIOPA specifications
+Alphanumeric (2)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="1"/>
+									<xs:maxInclusive value="13"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CollateralEligibility" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A138 - Eligibility of the collateral according to solvency regulation (RD UE 2015/35 art 176.5 and related art197, art214)
+
+"0 - Not assessed or no collateral
+1 - Compliant with art 214 and art 197.1a and art 197 1b
+2 - Compliant with art 214 and art 197.1a
+3 - Compliant with art 214.
+4 - Not elligible"
+
+ </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="1"/>
+									<xs:maxInclusive value="13"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CollateralMarketValuationInPortfolioCurrency" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A139 - Market valuation of the collateral in portfolio currency
+number with floating decimal
+
+
+ </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BailInRule" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A142 - Indicate if there is a "Bail-in" Rule applicable for debt instrument
+</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:enumeration value="0"/>
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="SIIIssuerType_V6">
+		<xs:annotation>
+			<xs:documentation>Name and codification of an Issuer</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Entity name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Code" type="LEICodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>LEI or empty</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CodeType">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="9"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SIIIssuerType_V7">
 		<xs:annotation>
 			<xs:documentation>Name and codification of an Issuer</xs:documentation>
 		</xs:annotation>
@@ -1162,7 +2360,116 @@ of nominal amount (A19) 100%=1.0</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="RedemptionType_V7">
+		<xs:annotation>
+			<xs:documentation>Redemption information of a bond or other interest rate instrument</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Final maturity date for rate instruments or derivatives </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaturityDateExpected" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A143 - Expected redemption date after considering an expected prepayment / extension of the contractual terms based on the options in the instrument
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Type of Redemption schedule: 
+"Bullet", "Sinkable", "defaulted" empty if non applicable,
+Omitted if not applicable.</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="Bullet"/>
+							<altova:example value="Sinkable"/>
+						</altova:exampleValues>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Bullet"/>
+						<xs:enumeration value="Sinkable"/>
+						<xs:enumeration value="defaulted"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Rate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">If known, redemption rate in percentage 
+of nominal amount (A19) 100%=1.0</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PKI" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A146 - 0 - No PIK
+1 - No cash coupon. Existing PIK is included in the redemption rate (41) and described in the coupon data points (32-38). The period indicated for "38_Coupon_payment_frequency" is the period for PIK accrual.
+2 - Existing PIK is included in the redemption rate (41) but not described in the coupon fields (32-38).
+3 - Existing PIK is a regular payment and is included in coupon fields (32-38). No impact on the redemption rate (41).
+4 - Existing PIK is not described in the TPT</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="2"/>
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="CreditRiskDataType_V6">
+		<xs:annotation>
+			<xs:documentation>Corresponds to "Issuer data" block of Tripartite template</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="InstrumentIssuer" type="SIIIssuerType_V5">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Identification of instrument issuer (or counterpart for OTC instruments).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssuerGroup" type="SIIIssuerType_V5">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Characteristics of final financial group the InstrumentIssuer belongs to (highest parent company).
+Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssuerCountry" type="ISOCountryCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Country of instrument issuer:
+ISO country code 2 (ISO 3166-1)
+or "XA" for Supranational issuers 
+or "EU" for European Union institutions</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EconomicArea" type="EconomicArea2Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Economic area code of Country: 
+1 EEA
+2 OECD non EEA
+3 non OECD.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StateGuarantee" type="YesNoL1Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The instrument is guaranteed by the state of issuer ('Y') or not ('N')</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CreditQualityStep" type="CQSType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">CQS: Synthetic issue or issuer rating.
+Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreditRiskDataType_V7">
 		<xs:annotation>
 			<xs:documentation>Corresponds to "Issuer data" block of Tripartite template</xs:documentation>
 		</xs:annotation>
@@ -1224,7 +2531,97 @@ Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="CodificationType_V7">
+		<xs:annotation>
+			<xs:documentation>CodificationSystem (non restricted list) and Code expressed in CodificationSystem</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CodificationSystem" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Codification system used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Code" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="ContributionToSCRType_V6">
+		<xs:annotation>
+			<xs:documentation>List of possible contributions to global SCR. Applicable to a Position.Could also be used for a group of Positions</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MktIntUp" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A97 - Capital requirement for interest rate risk for the “up” shock.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MktIntDown" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A98 - Capital requirement for interest rate risk for the “down” shock.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MktEqGlobal" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A99 - Capital requirement for equity risk (EEA or OECD zone).
+Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MktEqOther" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A100 - Capital requirement for equity risk (non OECD zone).
+Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MktProp" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A101 - Capital requirement for property risk</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MktSpread" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Capital requirement for interest rate spread risk.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Bonds" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A102</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Structured" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A103</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DerivativesUp" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A104</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DerivativesDown" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A105</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MktFXUp" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A105a - Capital requirement for FX (upward shock) </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MktFXDown" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A105b - Capital requirement for FX (downward shock)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContributionToSCRType_V7">
 		<xs:annotation>
 			<xs:documentation>List of possible contributions to global SCR. Applicable to a Position.Could also be used for a group of Positions</xs:documentation>
 		</xs:annotation>

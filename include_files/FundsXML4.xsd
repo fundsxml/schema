@@ -20,7 +20,7 @@
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.2.8</xs:documentation>
+			<xs:documentation>Root element of FundsXML 4.2.9</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -382,6 +382,7 @@ No, Digital, Scan</xs:documentation>
 						<xs:enumeration value="4.2.6"/>
 						<xs:enumeration value="4.2.7"/>
 						<xs:enumeration value="4.2.8"/>
+						<xs:enumeration value="4.2.9"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -804,6 +805,11 @@ supplementing Regulation (EU) No 648/2012 of the European Parliament and of the 
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V6" type="TripartiteTemplateSolvencyIIType_V6" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 6.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2022-03-14</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TripartiteTemplateSolvencyII_V7" type="TripartiteTemplateSolvencyIIType_V7" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 6.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2022-03-14</xs:documentation>
 				</xs:annotation>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
-	attributeFormDefault="unqualified" vc:minVersion="1.1">
+<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="CountrySpecificDataATType">
 		<xs:complexContent>
@@ -62,10 +60,14 @@
 								<xs:documentation>Mittelabfluss aus Ausschuettung zum Ex-Tag</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="TotalNetAssetPreviousMonth" type="AmountType"
-							minOccurs="0">
+						<xs:element name="TotalNetAssetPreviousMonth" type="AmountType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Fondsvermoegen des Vormonats (ultimo) des Gesamtfonds (sollte dem Wert der letzten Meldung entsprechen; wenns geht)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherIncomeNonSecurities" type="AmountType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Sonstiges Einkommen aus nicht-Wertpapiervermögen (Zinseinkommen aus Einlagen, GmbH Ausschüttungen, etc)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Meldungstyp">
@@ -99,26 +101,25 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="Identifiers"
-												type="IdentifiersType">
-												<xs:annotation>
-												<xs:documentation>Bezug zur Position bzw. Bezug zum Wertpapier, Derivat oder Geld</xs:documentation>
-												</xs:annotation>
+												<xs:element name="Identifiers" type="IdentifiersType">
+													<xs:annotation>
+														<xs:documentation>Bezug zur Position bzw. Bezug zum Wertpapier, Derivat oder Geld</xs:documentation>
+													</xs:annotation>
 												</xs:element>
 												<xs:element name="Category">
-												<xs:annotation>
-												<xs:documentation>PKG/QMV-Kategorie (dreistellige Nummer) laut Vermögensausweis</xs:documentation>
-												</xs:annotation>
-												<xs:simpleType>
-												<xs:restriction base="xs:decimal">
-												<xs:totalDigits value="3"/>
-												</xs:restriction>
-												</xs:simpleType>
+													<xs:annotation>
+														<xs:documentation>PKG/QMV-Kategorie (dreistellige Nummer) laut Vermögensausweis</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:totalDigits value="3"/>
+														</xs:restriction>
+													</xs:simpleType>
 												</xs:element>
 												<xs:element name="Value" type="AmountType">
-												<xs:annotation>
-												<xs:documentation>Betrag, der aufgrund der oben genannten Position einer Kategorie zugerechnet wird</xs:documentation>
-												</xs:annotation>
+													<xs:annotation>
+														<xs:documentation>Betrag, der aufgrund der oben genannten Position einer Kategorie zugerechnet wird</xs:documentation>
+													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
 										</xs:complexType>
@@ -139,19 +140,19 @@
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="Category">
-												<xs:annotation>
-												<xs:documentation>PKG/QMV-Kategorie (dreistellige Nummer) laut Vermögensausweis</xs:documentation>
-												</xs:annotation>
-												<xs:simpleType>
-												<xs:restriction base="xs:decimal">
-												<xs:totalDigits value="3"/>
-												</xs:restriction>
-												</xs:simpleType>
+													<xs:annotation>
+														<xs:documentation>PKG/QMV-Kategorie (dreistellige Nummer) laut Vermögensausweis</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:decimal">
+															<xs:totalDigits value="3"/>
+														</xs:restriction>
+													</xs:simpleType>
 												</xs:element>
 												<xs:element name="Value" type="AmountType">
-												<xs:annotation>
-												<xs:documentation>Summe für obige Kategorie</xs:documentation>
-												</xs:annotation>
+													<xs:annotation>
+														<xs:documentation>Summe für obige Kategorie</xs:documentation>
+													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
 										</xs:complexType>
@@ -197,8 +198,7 @@
 									<xs:element name="BestehendeTranchen" minOccurs="0">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="ISIN" type="ISINType"
-												maxOccurs="unbounded"/>
+												<xs:element name="ISIN" type="ISINType" maxOccurs="unbounded"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -331,8 +331,7 @@
 									</xs:element>
 									<xs:element name="DatumErsterRechenwert" type="xs:date"/>
 									<xs:element name="Fondsende" type="xs:date" minOccurs="0"/>
-									<xs:element name="Anlageschwerpunkt" type="xs:string"
-										minOccurs="0"/>
+									<xs:element name="Anlageschwerpunkt" type="xs:string" minOccurs="0"/>
 									<xs:element name="GeschaeftsjahrBeginn">
 										<xs:annotation>
 											<xs:documentation>TT.MM.</xs:documentation>
@@ -340,26 +339,26 @@
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="Day">
-												<xs:annotation>
-												<xs:documentation>Day between 1 and 31</xs:documentation>
-												</xs:annotation>
-												<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-												<xs:minInclusive value="1"/>
-												<xs:maxInclusive value="31"/>
-												</xs:restriction>
-												</xs:simpleType>
+													<xs:annotation>
+														<xs:documentation>Day between 1 and 31</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="31"/>
+														</xs:restriction>
+													</xs:simpleType>
 												</xs:element>
 												<xs:element name="Month">
-												<xs:annotation>
-												<xs:documentation>Month between 1 and 12</xs:documentation>
-												</xs:annotation>
-												<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-												<xs:minInclusive value="1"/>
-												<xs:maxInclusive value="12"/>
-												</xs:restriction>
-												</xs:simpleType>
+													<xs:annotation>
+														<xs:documentation>Month between 1 and 12</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="12"/>
+														</xs:restriction>
+													</xs:simpleType>
 												</xs:element>
 											</xs:sequence>
 										</xs:complexType>
@@ -371,26 +370,26 @@
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="Day">
-												<xs:annotation>
-												<xs:documentation>Day between 1 and 31</xs:documentation>
-												</xs:annotation>
-												<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-												<xs:minInclusive value="1"/>
-												<xs:maxInclusive value="31"/>
-												</xs:restriction>
-												</xs:simpleType>
+													<xs:annotation>
+														<xs:documentation>Day between 1 and 31</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="31"/>
+														</xs:restriction>
+													</xs:simpleType>
 												</xs:element>
 												<xs:element name="Month">
-												<xs:annotation>
-												<xs:documentation>Month between 1 and 12</xs:documentation>
-												</xs:annotation>
-												<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-												<xs:minInclusive value="1"/>
-												<xs:maxInclusive value="12"/>
-												</xs:restriction>
-												</xs:simpleType>
+													<xs:annotation>
+														<xs:documentation>Month between 1 and 12</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="12"/>
+														</xs:restriction>
+													</xs:simpleType>
 												</xs:element>
 											</xs:sequence>
 										</xs:complexType>
@@ -402,38 +401,35 @@
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="Day">
-												<xs:annotation>
-												<xs:documentation>Day between 1 and 31</xs:documentation>
-												</xs:annotation>
-												<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-												<xs:minInclusive value="1"/>
-												<xs:maxInclusive value="31"/>
-												</xs:restriction>
-												</xs:simpleType>
+													<xs:annotation>
+														<xs:documentation>Day between 1 and 31</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="31"/>
+														</xs:restriction>
+													</xs:simpleType>
 												</xs:element>
 												<xs:element name="Month">
-												<xs:annotation>
-												<xs:documentation>Month between 1 and 12</xs:documentation>
-												</xs:annotation>
-												<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-												<xs:minInclusive value="1"/>
-												<xs:maxInclusive value="12"/>
-												</xs:restriction>
-												</xs:simpleType>
+													<xs:annotation>
+														<xs:documentation>Month between 1 and 12</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="12"/>
+														</xs:restriction>
+													</xs:simpleType>
 												</xs:element>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 									<xs:element name="Ausgabeaufschlag" type="PercentageType"/>
 									<xs:element name="VerwaltungsgebuehrPA" type="PercentageType"/>
-									<xs:element name="StaffelungVerwaltungsgebuehr"
-										type="xs:boolean"/>
-									<xs:element name="Ruecknahmespesen" type="PercentageType"
-										minOccurs="0"/>
-									<xs:element name="RuecknahmeAbrundung" type="xs:decimal"
-										minOccurs="0"/>
+									<xs:element name="StaffelungVerwaltungsgebuehr" type="xs:boolean"/>
+									<xs:element name="Ruecknahmespesen" type="PercentageType" minOccurs="0"/>
+									<xs:element name="RuecknahmeAbrundung" type="xs:decimal" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -1459,8 +1455,7 @@ XXX	ISO Codes</xs:documentation>
 								<xs:documentation xml:lang="en">applicable law</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="SchwerpunktAnlagewaehrung" type="ISOCurrencyCodeType"
-							minOccurs="0">
+						<xs:element name="SchwerpunktAnlagewaehrung" type="ISOCurrencyCodeType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="de">ISO-Code darf nur bei Anlagewährung 'SICUR' oder 'GLDOM' angegeben werden.</xs:documentation>
 								<xs:documentation xml:lang="en">main investement currency</xs:documentation>
@@ -1861,21 +1856,19 @@ DAT	Datum Fondspreis = Bewertungsdatum
 			<xs:element name="TotalNetAssetValue" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="SubscriptionRedemption" minOccurs="0"
-							type="FundAmountType">
+						<xs:element name="SubscriptionRedemption" type="FundAmountType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>In Euro
 </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="OwnSubfunds" minOccurs="0" type="FundAmountType">
+						<xs:element name="OwnSubfunds" type="FundAmountType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>In Euro
 </xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0" name="ManagedExternally"
-							type="FundAmountType">
+						<xs:element name="ManagedExternally" type="FundAmountType" minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>In Euro
 </xs:documentation>

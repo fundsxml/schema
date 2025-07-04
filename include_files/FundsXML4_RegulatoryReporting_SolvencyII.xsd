@@ -330,12 +330,14 @@ In percentage of TotalNetAssets.</xs:documentation>
 										<xs:sequence>
 											<xs:element name="EconomicSector" type="NACECodeType">
 												<xs:annotation>
-													<xs:documentation>A118 - NACE code of Issuer of Fund  or Share Class</xs:documentation>
+													<xs:documentation>A118 - NACE code of Issuer of Fund  or Share Class "S.06.02 (old: Assets D1)
+Nace codification required by EIOPA is different from the one required by European Regulation (V2.1) starting january 2025. Therefore TPT providers should  indicates the precedent version (NACE code V2),  untill new ITS are published. "
+</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 											<xs:element name="Country" type="ISOCountryCodeType">
 												<xs:annotation>
-													<xs:documentation>A122</xs:documentation>
+													<xs:documentation>A122 Country ISO of Issuer of Fund  or Share Class</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 										</xs:sequence>
@@ -357,6 +359,30 @@ In percentage of TotalNetAssets.</xs:documentation>
 							<xs:annotation>
 								<xs:documentation>A123a</xs:documentation>
 							</xs:annotation>
+						</xs:element>
+						<xs:element name="FundCustodianName" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A133</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CustodianIdentificationCode" type="LEICodeType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A140 - Identification of the custodian code using the LEI if available. 
+If none is available this item shall not be reported
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TypeOfCustodianIdentificationCode" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A141 - C0220   1-LEI,  9-None or internal
+ Mandatory if dp 140_custodian_identification_code is filled</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
 						</xs:element>
 						<xs:element name="Duration" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
@@ -1496,15 +1522,19 @@ as percentage of TotalNetAssets.
 						<xs:sequence minOccurs="0">
 							<xs:element name="RateType">
 								<xs:annotation>
-									<xs:documentation xml:lang="en">A32 - Type of interest rate:
-"Fixed" (fixe), "Variable" (révisable), "Floating" (variable), " Infation_linked" (inflation linked bonds)</xs:documentation>
+									<xs:documentation xml:lang="en">Fixed - plain vanilla fixed coupon rate
+* Floating - plain vanilla floating coupon rates (for all interest rates, which refer to a reference interest rate like EONIA or EURIBOR + margin in BP)
+* Variable - all other variable interest rates like step-up or step-down or fixed-to-float bonds. The variable feature is the (credit) margin or the change between fixed and float.
+* Inflation_linked for Inflation_linked bonds in order to identify them.
+
+</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
 										<xs:enumeration value="Fixed"/>
 										<xs:enumeration value="Variable"/>
 										<xs:enumeration value="Floating"/>
-										<xs:enumeration value="Infation_linked"/>
+										<xs:enumeration value="Inflation_linked"/>
 									</xs:restriction>
 								</xs:simpleType>
 							</xs:element>
@@ -1989,30 +2019,6 @@ To be specified***********</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="FundCustodianName" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>A133</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="CustodianIdentificationCode" type="LEICodeType" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>A140 - Identification of the custodian code using the LEI if available. 
-If none is available this item shall not be reported
-</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="TypeOfCustodianIdentificationCode" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>A141 - C0220   1-LEI,  9-None or internal
-</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:int">
-									<xs:enumeration value="1"/>
-									<xs:enumeration value="9"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
 						<xs:element name="CollateralisedAsset" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>A106 - Indicator used to identify the under-written instruments</xs:documentation>
@@ -2367,7 +2373,10 @@ of nominal amount (A19) 100%=1.0</xs:documentation>
 		<xs:sequence>
 			<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Final maturity date for rate instruments or derivatives </xs:documentation>
+					<xs:documentation>Final contractual maturity date for fixed income instrument or derivatives.
+Potential exercise of prepayment / extension options should not be considered.
+9999-12-31 for perpetual bonds.  
+Contractual expiry date for options</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MaturityDateExpected" type="xs:date" minOccurs="0">
@@ -2402,7 +2411,7 @@ Omitted if not applicable.</xs:documentation>
 of nominal amount (A19) 100%=1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PKI" minOccurs="0">
+			<xs:element name="PIK" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>A146 - 0 - No PIK
 1 - No cash coupon. Existing PIK is included in the redemption rate (41) and described in the coupon data points (32-38). The period indicated for "38_Coupon_payment_frequency" is the period for PIK accrual.
@@ -2503,7 +2512,15 @@ or "EU" for European Union institutions</xs:documentation>
 			</xs:element>
 			<xs:element name="StateGuarantee" type="YesNoL1Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">The instrument is guaranteed by the state of issuer ('Y') or not ('N')</xs:documentation>
+					<xs:documentation>Y = guaranteed
+N = without guarantee
+Data used to identify the debt guaranteed by a country:<br/>
+Yes = 100 percent, No is less than 100 percent.
+    
+Assets issued or guaranteed by Regional Governments and Local Authorities (RGLA)
+listed in the Implementing Regulation (EU) 2015/2011, with CIC code 13 or 14,  are considered guaranteed and have a "Y".
+Other RGLA assets, not listed, should have an "N".
+</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CreditQualityStep" type="CQSType" minOccurs="0">

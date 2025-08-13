@@ -18,7 +18,7 @@
 	</xs:simpleType>
 	<xs:complexType name="TripartiteTemplateSolvencyIIType_V6">
 		<xs:sequence>
-			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V7" maxOccurs="unbounded">
+			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V6" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The Portfolio is analysed from investor's point of view. If Portfolio is a Fund with share classes, there is one Portfolio for each share class. For hedged shares, hedging instruments are included in the prortfolio.
 </xs:documentation>
@@ -199,7 +199,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Position" type="SIIPositionType_V7" maxOccurs="unbounded">
+						<xs:element name="Position" type="SIIPositionType_V6" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
 							</xs:annotation>
@@ -235,7 +235,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PortfolioID" type="SIISecurityCodificationType_V6">
+			<xs:element name="PortfolioID" type="SIISecurityCodificationType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.</xs:documentation>
@@ -345,7 +345,7 @@ Nace codification required by EIOPA is different from the one required by Europe
 								</xs:complexContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="FundIssuerGroup" type="SIIIssuerType_V6">
+						<xs:element name="FundIssuerGroup" type="SIIIssuerType_V7">
 							<xs:annotation>
 								<xs:documentation>A121-120-119 - Name, LEI or Pre LEI of the Group the Fund issuer belongs to.</xs:documentation>
 							</xs:annotation>
@@ -820,7 +820,7 @@ Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:extension base="CreditRiskDataType_V6">
+						<xs:extension base="CreditRiskDataType_V7">
 							<xs:sequence>
 								<xs:element name="EconomicSector" type="NACECodeType" minOccurs="0">
 									<xs:annotation>
@@ -984,7 +984,7 @@ For pricing using shock modelling.</xs:documentation>
 CIC codification.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V5">
+									<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V7">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A69 68 - Use ISIN, CUSIP,  or OtherSecurityCodes/Name(of codification system) for BLOOMBERG, TELEKURS or Internal code</xs:documentation>
 										</xs:annotation>
@@ -1051,13 +1051,13 @@ CIC codification.</xs:documentation>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="Redemption" type="RedemptionType_V5" minOccurs="0">
+									<xs:element name="Redemption" type="RedemptionTypeDerivatives" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A77 78 79 - Redemption details.
 If underlying instrument is an interest rate instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="CreditRiskData" type="CreditRiskDataType_V5" minOccurs="0">
+									<xs:element name="CreditRiskData" type="CreditRiskDataType_V7" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
 (or counterparty for OTC instruments).</xs:documentation>
@@ -1334,8 +1334,8 @@ Alphanumeric (2)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="1"/>
-									<xs:maxInclusive value="13"/>
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="4"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -1375,7 +1375,7 @@ CIC codification used.</xs:documentation>
 3 non OECD</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V6">
+			<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A15 14 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.
@@ -1924,7 +1924,7 @@ CIC codification.</xs:documentation>
 If underlying instrument is an interest rate instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="CreditRiskData" type="CreditRiskDataType_V5" minOccurs="0">
+									<xs:element name="CreditRiskData" type="CreditRiskDataType_V7" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
 (or counterparty for OTC instruments).</xs:documentation>
@@ -2243,8 +2243,8 @@ Alphanumeric (2)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="1"/>
-									<xs:maxInclusive value="13"/>
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="4"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -2381,7 +2381,7 @@ Contractual expiry date for options</xs:documentation>
 			</xs:element>
 			<xs:element name="MaturityDateExpected" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A143 - Expected redemption date after considering an expected prepayment / extension of the contractual terms based on the options in the instrument
+					<xs:documentation>Expected redemption date after considering an expected prepayment / extension of the contractual terms based on the options in the instrument
 </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -2430,6 +2430,47 @@ of nominal amount (A19) 100%=1.0</xs:documentation>
 						<xs:enumeration value="4"/>
 					</xs:restriction>
 				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RedemptionTypeDerivatives">
+		<xs:annotation>
+			<xs:documentation>Redemption information of a bond or other interest rate instrument</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Final contractual maturity date for fixed income instrument or derivatives.
+Potential exercise of prepayment / extension options should not be considered.
+9999-12-31 for perpetual bonds.  
+Contractual expiry date for options</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Type of Redemption schedule: 
+"Bullet", "Sinkable", "defaulted" empty if non applicable,
+Omitted if not applicable.</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="Bullet"/>
+							<altova:example value="Sinkable"/>
+						</altova:exampleValues>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Bullet"/>
+						<xs:enumeration value="Sinkable"/>
+						<xs:enumeration value="defaulted"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Rate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">If known, redemption rate in percentage 
+of nominal amount (A19) 100%=1.0</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -2483,12 +2524,12 @@ Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
 			<xs:documentation>Corresponds to "Issuer data" block of Tripartite template</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="InstrumentIssuer" type="SIIIssuerType_V5">
+			<xs:element name="InstrumentIssuer" type="SIIIssuerType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Identification of instrument issuer (or counterpart for OTC instruments).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IssuerGroup" type="SIIIssuerType_V5">
+			<xs:element name="IssuerGroup" type="SIIIssuerType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Characteristics of final financial group the InstrumentIssuer belongs to (highest parent company).
 Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
@@ -3066,7 +3107,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Position" type="SIIPositionType_V5" maxOccurs="unbounded">
+						<xs:element name="Position" type="SIIPositionType_V7" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
 							</xs:annotation>

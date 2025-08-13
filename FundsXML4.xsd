@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
-<!--Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<!--Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
+<xs:schema xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
@@ -7135,12 +7135,12 @@ Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
 			<xs:documentation>Corresponds to "Issuer data" block of Tripartite template</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="InstrumentIssuer" type="SIIIssuerType_V5">
+			<xs:element name="InstrumentIssuer" type="SIIIssuerType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Identification of instrument issuer (or counterpart for OTC instruments).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IssuerGroup" type="SIIIssuerType_V5">
+			<xs:element name="IssuerGroup" type="SIIIssuerType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Characteristics of final financial group the InstrumentIssuer belongs to (highest parent company).
 Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
@@ -30682,216 +30682,6 @@ The data file will contain calculated figures for a range of RHP from 5-30 years
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="UKPRIIPsDataReferenceDate" type="xs:date">
-							<xs:annotation>
-								<xs:documentation>The date to which the UK PRIIPs data in this section relates
-</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="UK" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Additional information required in UK	</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="UKPRIIPOrUCITSOrBoth">
-										<xs:annotation>
-											<xs:documentation xml:lang="en">08010 Indicates if the line contains UK PRIIPs data, UCITS data or Both
-</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="UKPRIIP"/>
-												<xs:enumeration value="UCITS"/>
-												<xs:enumeration value="Both"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKTransactionscostsmethodology">
-										<xs:annotation>
-											<xs:documentation xml:lang="en">08030 1 New PRIIPS methodology
-2 Full UK PRIIPS methodology 
-3 Other methodology</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:short">
-												<xs:minInclusive value="1"/>
-												<xs:maxInclusive value="3"/>
-												<xs:enumeration value="1"/>
-												<xs:enumeration value="2"/>
-												<xs:enumeration value="3"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKAntiDilutionBenefitDerived" type="xs:decimal">
-										<xs:annotation>
-											<xs:documentation>08040 Information about the total benefit derived from an anti-dilution mechanism floating decimal. 100%= 1,     5%= 0,05
-
-</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UKPRIIPsDataReferenceDate" type="xs:date">
-										<xs:annotation>
-											<xs:documentation>08045 The date to which the UK PRIIPs data in this section relates
-</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UKPRIIPsKIDPublicationDate" type="xs:date">
-										<xs:annotation>
-											<xs:documentation>08050 Date of the latest UK PRIIPs KID produced for the portfolio or share class.
-</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UKPRIIPsKIDWebAddress" type="xs:anyURI">
-										<xs:annotation>
-											<xs:documentation>08060 Direct link to the UK PRIIPs KID
-
-</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="InvestmentObjectivePortfolio">
-										<xs:annotation>
-											<xs:documentation>08070 "Text in reference language, as proposed by the asset manager
-
-Information stating the objectives of the PRIIP and the means for achieving those objectives in the section entitled ‘What is this product?’ of the key information document shall be summarised in a brief, clear and easily understandable manner. That information shall identify the main factors upon which return depends, the underlying investment assets or reference values, and how the return is determined, as well as the relationship between the PRIIP’s return and that of the underlying investment assets or reference values."
-</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="2500"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKOtherMateriallyRelevantRiskNarrativePortfolio">
-										<xs:annotation>
-											<xs:documentation>08080 Text in reference language, as proposed by the asset managers : (Element E)
-[Where applicable: element h] [Other risks materially relevant to the PRIIP not included in the summary risk indicator to be explained with a maximum of 400 characters]
-The field shall contain well-formulated text which can be used directly by the insurer in the KID according to article 14 of the regulation.
-</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="400"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKPerformanceInformationMainFactors">
-										<xs:annotation>
-											<xs:documentation>08090 A description of the main factors likely to affect future returns for the investor, identifying those most likely to determine the outcome of the investment and other factors which could have a material impact on performance.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="4000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKPerformanceInformationComparator">
-										<xs:annotation>
-											<xs:documentation>08100 Identification of the most relevant index, benchmark, target, or proxy, as applicable, along with an explanation of how the PRIIP is likely to compare in terms of performance and volatility.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="1000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKPerformanceInformationHigherReturns">
-										<xs:annotation>
-											<xs:documentation>08110 A brief explanation of the kinds of conditions that would be conducive to the PRIIP generating higher returns.
-</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="1000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKPerformanceInformationLowerReturnsOrLoss">
-										<xs:annotation>
-											<xs:documentation>08120 A brief explanation of the kinds of conditions whereby the PRIIP is likely to generate lower returns or lead to investment loss.
-
-</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="1000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKPerformanceInformationAdverseConditions">
-										<xs:annotation>
-											<xs:documentation>08130 A brief description of what outcome the investor may expect where the PRIIP matures or is redeemed or encashed under severely adverse market conditions.
-
-
-</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="1000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKAssumedPortfolioReturn" type="xs:decimal">
-										<xs:annotation>
-											<xs:documentation>08140 The performance used as the annual internal rate of return for estimating future benefit payments when calculating summary cost indicators
-</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UCITSKIIDPublicationDate" type="xs:date">
-										<xs:annotation>
-											<xs:documentation>08150 Date of the latest UCITS KIID produced for the portfolio or share class.  </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UCITSKIIDWebAddress" type="xs:anyURI">
-										<xs:annotation>
-											<xs:documentation>08160 Direct link to the UCITS KIID
-
-
-</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UCITSSRRI" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>08170 -The SRRI of the Valid UCITS KIID </xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:short">
-												<xs:enumeration value="1"/>
-												<xs:enumeration value="2"/>
-												<xs:enumeration value="3"/>
-												<xs:enumeration value="4"/>
-												<xs:enumeration value="5"/>
-												<xs:enumeration value="6"/>
-												<xs:enumeration value="7"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="UKAssumedPortfolioReturn" type="xs:decimal">
-										<xs:annotation>
-											<xs:documentation>08180-The performance used as the annual internal rate of return for estimating future benefit payments when calculating summary cost indicators
-</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UCITSExistingPerformanceFees" type="YesNoType">
-										<xs:annotation>
-											<xs:documentation>08190 -Indicates whether there are existing performance fees or carried interest</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UCITSExistingPerformanceFees" type="YesNoType">
-										<xs:annotation>
-											<xs:documentation>08190 -Indicates whether there are existing performance fees or carried interest</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="UCITSPerformanceFees" type="xs:decimal" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>08200-See UCITS definition as a % of NAV of the portfolio, the funds or the share class / per annum 
-
-</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -31186,7 +30976,7 @@ Information stating the objectives of the PRIIP and the means for achieving thos
 						</xs:element>
 						<xs:element name="ModerateScenario" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>04087 - Describes the historical time period the moderate scernario corresponds to</xs:documentation>
+								<xs:documentation>04088 - Describes the historical time period the favourable scernario corresponds to</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -31203,6 +30993,11 @@ Information stating the objectives of the PRIIP and the means for achieving thos
 									<xs:maxLength value="300"/>
 								</xs:restriction>
 							</xs:simpleType>
+						</xs:element>
+						<xs:element name="WasBenchmarkUsed" type="YesNoType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>04089- Boolean to identify whether a benchmark or proxy was used for performance calculation in the unfavourable, moderate and favourable scenarios. </xs:documentation>
+							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -31326,6 +31121,7 @@ Information stating the objectives of the PRIIP and the means for achieving thos
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="V21"/>
+												<xs:enumeration value="V20"/>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
@@ -31913,6 +31709,218 @@ Maximum  fees, including look through for fund of funds / custodian fees / manag
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
+									<xs:element name="UK" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Additional information required according to EPT V2.1	</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="UKPRIIPOrUCITSOrBoth">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">08010 Indicates if the line contains UK PRIIPs data, UCITS data or Both
+</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="UKPRIIP"/>
+															<xs:enumeration value="UCITS"/>
+															<xs:enumeration value="Both"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKOngoingCostsPortfolioTransactionCosts" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>08020-See UK PRIIPs definition for PRIIPs other than UCITS/NURS.
+UCITS/NURS may follow alternative definitions.
+Express as a % of NAV of the portfolio, the funds or the share class / per annum
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UKTransactionscostsmethodology">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">08030 1 New PRIIPS methodology
+2 Full UK PRIIPS methodology 
+3 Other methodology</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:short">
+															<xs:minInclusive value="1"/>
+															<xs:maxInclusive value="3"/>
+															<xs:enumeration value="1"/>
+															<xs:enumeration value="2"/>
+															<xs:enumeration value="3"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKAntiDilutionBenefitDerived" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>08040 Information about the total benefit derived from an anti-dilution mechanism floating decimal. 100%= 1,     5%= 0,05
+
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UKPRIIPsDataReferenceDate" type="xs:date">
+													<xs:annotation>
+														<xs:documentation>08045 The date to which the UK PRIIPs data in this section relates
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UKPRIIPsKIDPublicationDate" type="xs:date">
+													<xs:annotation>
+														<xs:documentation>08050 Date of the latest UK PRIIPs KID produced for the portfolio or share class.
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UKPRIIPsKIDWebAddress" type="xs:anyURI">
+													<xs:annotation>
+														<xs:documentation>08060 Direct link to the UK PRIIPs KID
+
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="InvestmentObjectivePortfolio">
+													<xs:annotation>
+														<xs:documentation>08070 "Text in reference language, as proposed by the asset manager
+
+Information stating the objectives of the PRIIP and the means for achieving those objectives in the section entitled ‘What is this product?’ of the key information document shall be summarised in a brief, clear and easily understandable manner. That information shall identify the main factors upon which return depends, the underlying investment assets or reference values, and how the return is determined, as well as the relationship between the PRIIP’s return and that of the underlying investment assets or reference values."
+</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="2500"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKOtherMateriallyRelevantRiskNarrativePortfolio">
+													<xs:annotation>
+														<xs:documentation>08080 Text in reference language, as proposed by the asset managers : (Element E)
+[Where applicable: element h] [Other risks materially relevant to the PRIIP not included in the summary risk indicator to be explained with a maximum of 400 characters]
+The field shall contain well-formulated text which can be used directly by the insurer in the KID according to article 14 of the regulation.
+</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="400"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKPerformanceInformationMainFactors">
+													<xs:annotation>
+														<xs:documentation>08090 A description of the main factors likely to affect future returns for the investor, identifying those most likely to determine the outcome of the investment and other factors which could have a material impact on performance.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="4000"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKPerformanceInformationComparator">
+													<xs:annotation>
+														<xs:documentation>08100 Identification of the most relevant index, benchmark, target, or proxy, as applicable, along with an explanation of how the PRIIP is likely to compare in terms of performance and volatility.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="1000"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKPerformanceInformationHigherReturns">
+													<xs:annotation>
+														<xs:documentation>08110 A brief explanation of the kinds of conditions that would be conducive to the PRIIP generating higher returns.
+</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="1000"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKPerformanceInformationLowerReturnsOrLoss">
+													<xs:annotation>
+														<xs:documentation>08120 A brief explanation of the kinds of conditions whereby the PRIIP is likely to generate lower returns or lead to investment loss.
+
+</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="1000"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKPerformanceInformationAdverseConditions">
+													<xs:annotation>
+														<xs:documentation>08130 A brief description of what outcome the investor may expect where the PRIIP matures or is redeemed or encashed under severely adverse market conditions.
+
+
+</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="1000"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UKAssumedPortfolioReturn" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>08140 The performance used as the annual internal rate of return for estimating future benefit payments when calculating summary cost indicators
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UCITSKIIDPublicationDate" type="xs:date">
+													<xs:annotation>
+														<xs:documentation>08150 Date of the latest UCITS KIID produced for the portfolio or share class.  </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UCITSKIIDWebAddress" type="xs:anyURI">
+													<xs:annotation>
+														<xs:documentation>08160 Direct link to the UCITS KIID
+
+
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UCITSSRRI" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>08170 -The SRRI of the Valid UCITS KIID </xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:short">
+															<xs:enumeration value="1"/>
+															<xs:enumeration value="2"/>
+															<xs:enumeration value="3"/>
+															<xs:enumeration value="4"/>
+															<xs:enumeration value="5"/>
+															<xs:enumeration value="6"/>
+															<xs:enumeration value="7"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="UCITSOngoingCharges" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>08180-See UCITS definition as a % of NAV of the portfolio, the funds or the share class / per annum
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UCITSExistingPerformanceFees" type="YesNoType">
+													<xs:annotation>
+														<xs:documentation>08190 -Indicates whether there are existing performance fees or carried interest</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UCITSExistingPerformanceFees" type="YesNoType">
+													<xs:annotation>
+														<xs:documentation>08190 -Indicates whether there are existing performance fees or carried interest</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="UCITSPerformanceFees" type="xs:decimal" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>08200-See UCITS definition as a % of NAV of the portfolio, the funds or the share class / per annum 
+
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -32401,7 +32409,7 @@ Contractual expiry date for options</xs:documentation>
 			</xs:element>
 			<xs:element name="MaturityDateExpected" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A143 - Expected redemption date after considering an expected prepayment / extension of the contractual terms based on the options in the instrument
+					<xs:documentation>Expected redemption date after considering an expected prepayment / extension of the contractual terms based on the options in the instrument
 </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -32450,6 +32458,47 @@ of nominal amount (A19) 100%=1.0</xs:documentation>
 						<xs:enumeration value="4"/>
 					</xs:restriction>
 				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RedemptionTypeDerivatives">
+		<xs:annotation>
+			<xs:documentation>Redemption information of a bond or other interest rate instrument</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Final contractual maturity date for fixed income instrument or derivatives.
+Potential exercise of prepayment / extension options should not be considered.
+9999-12-31 for perpetual bonds.  
+Contractual expiry date for options</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Type of Redemption schedule: 
+"Bullet", "Sinkable", "defaulted" empty if non applicable,
+Omitted if not applicable.</xs:documentation>
+					<xs:appinfo>
+						<altova:exampleValues>
+							<altova:example value="Bullet"/>
+							<altova:example value="Sinkable"/>
+						</altova:exampleValues>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Bullet"/>
+						<xs:enumeration value="Sinkable"/>
+						<xs:enumeration value="defaulted"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Rate" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">If known, redemption rate in percentage 
+of nominal amount (A19) 100%=1.0</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -35696,7 +35745,7 @@ Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:extension base="CreditRiskDataType_V6">
+						<xs:extension base="CreditRiskDataType_V7">
 							<xs:sequence>
 								<xs:element name="EconomicSector" type="NACECodeType" minOccurs="0">
 									<xs:annotation>
@@ -35860,7 +35909,7 @@ For pricing using shock modelling.</xs:documentation>
 CIC codification.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V5">
+									<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V7">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A69 68 - Use ISIN, CUSIP,  or OtherSecurityCodes/Name(of codification system) for BLOOMBERG, TELEKURS or Internal code</xs:documentation>
 										</xs:annotation>
@@ -35927,13 +35976,13 @@ CIC codification.</xs:documentation>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="Redemption" type="RedemptionType_V5" minOccurs="0">
+									<xs:element name="Redemption" type="RedemptionTypeDerivatives" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A77 78 79 - Redemption details.
 If underlying instrument is an interest rate instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="CreditRiskData" type="CreditRiskDataType_V5" minOccurs="0">
+									<xs:element name="CreditRiskData" type="CreditRiskDataType_V7" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
 (or counterparty for OTC instruments).</xs:documentation>
@@ -36210,8 +36259,8 @@ Alphanumeric (2)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="1"/>
-									<xs:maxInclusive value="13"/>
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="4"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -36251,7 +36300,7 @@ CIC codification used.</xs:documentation>
 3 non OECD</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V6">
+			<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A15 14 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.
@@ -36800,7 +36849,7 @@ CIC codification.</xs:documentation>
 If underlying instrument is an interest rate instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="CreditRiskData" type="CreditRiskDataType_V5" minOccurs="0">
+									<xs:element name="CreditRiskData" type="CreditRiskDataType_V7" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
 (or counterparty for OTC instruments).</xs:documentation>
@@ -37119,8 +37168,8 @@ Alphanumeric (2)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="1"/>
-									<xs:maxInclusive value="13"/>
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="4"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -37779,7 +37828,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Position" type="SIIPositionType_V5" maxOccurs="unbounded">
+						<xs:element name="Position" type="SIIPositionType_V7" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
 							</xs:annotation>
@@ -37952,7 +38001,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Position" type="SIIPositionType_V7" maxOccurs="unbounded">
+						<xs:element name="Position" type="SIIPositionType_V6" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
 							</xs:annotation>
@@ -37988,7 +38037,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PortfolioID" type="SIISecurityCodificationType_V6">
+			<xs:element name="PortfolioID" type="SIISecurityCodificationType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.</xs:documentation>
@@ -38098,7 +38147,7 @@ Nace codification required by EIOPA is different from the one required by Europe
 								</xs:complexContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="FundIssuerGroup" type="SIIIssuerType_V6">
+						<xs:element name="FundIssuerGroup" type="SIIIssuerType_V7">
 							<xs:annotation>
 								<xs:documentation>A121-120-119 - Name, LEI or Pre LEI of the Group the Fund issuer belongs to.</xs:documentation>
 							</xs:annotation>
@@ -39539,7 +39588,7 @@ References to Club AMPERE Excel "Template for Solvency 2 reporting": Ann in Anno
 	</xs:complexType>
 	<xs:complexType name="TripartiteTemplateSolvencyIIType_V6">
 		<xs:sequence>
-			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V7" maxOccurs="unbounded">
+			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V6" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The Portfolio is analysed from investor's point of view. If Portfolio is a Fund with share classes, there is one Portfolio for each share class. For hedged shares, hedging instruments are included in the prortfolio.
 </xs:documentation>

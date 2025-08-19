@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
-<!--Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
-<xs:schema xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
-	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+<!--Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="https://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
 			<xs:documentation>Root element of FundsXML 4.2.9</xs:documentation>
@@ -30976,7 +30976,7 @@ Information stating the objectives of the PRIIP and the means for achieving thos
 						</xs:element>
 						<xs:element name="ModerateScenario" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>04088 - Describes the historical time period the favourable scernario corresponds to</xs:documentation>
+								<xs:documentation>04087 - Describes the historical time period the moderate scernario corresponds to</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -30986,7 +30986,7 @@ Information stating the objectives of the PRIIP and the means for achieving thos
 						</xs:element>
 						<xs:element name="FavorableScenario" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>00489 - Describes the historical time period the favourable scernario corresponds to</xs:documentation>
+								<xs:documentation>04088 - Describes the historical time period the favourable scernario corresponds to</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -30996,7 +30996,8 @@ Information stating the objectives of the PRIIP and the means for achieving thos
 						</xs:element>
 						<xs:element name="WasBenchmarkUsed" type="YesNoType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>04089- Boolean to identify whether a benchmark or proxy was used for performance calculation in the unfavourable, moderate and favourable scenarios. </xs:documentation>
+								<xs:documentation>04089- Boolean to identify whether a benchmark or proxy was used for performance calculation in the unfavourable, moderate and favourable scenarios. 
+</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -40347,7 +40348,7 @@ The longitude of the object. Decimal degrees.</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="positiveDecimals">
 		<xs:restriction base="xs:decimal">
-			<xs:minExclusive value="0"/>
+			<xs:minInclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PRIIPSFrequencyType">

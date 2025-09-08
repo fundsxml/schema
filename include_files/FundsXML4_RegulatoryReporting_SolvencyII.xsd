@@ -17,6 +17,12 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="TripartiteTemplateSolvencyIIType_V6">
+		<xs:annotation>
+			<xs:documentation>Used for the "Tripartite Template" V.6. Version 6 makes the necessary modifications to ensure compliance with the Solvency II regulation. Compared to the previous template (V5.0 published in January 2020) this template makes the following changes:
+
+Additional datapoints to account collateral in SCR calculation. Minor corrections have been implemented for existing datapoints.
+</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V6" maxOccurs="unbounded">
 				<xs:annotation>
@@ -27,6 +33,12 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TripartiteTemplateSolvencyIIType_V7">
+		<xs:annotation>
+			<xs:documentation>Used for the  Tripartite Template (TPT) Version 7.  Key Enhancements in TPT V7:
+-Enhanced SCR Calculations:
+-Dual NACE Codification:
+-Data Description Refinements</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Portfolio" type="SolvencyIIPortfolioType_V7" maxOccurs="unbounded">
 				<xs:annotation>
@@ -38,7 +50,7 @@
 	</xs:complexType>
 	<xs:complexType name="SolvencyIIPortfolioType_V6">
 		<xs:annotation>
-			<xs:documentation>XML adaptation of "Tripartite Template"</xs:documentation>
+			<xs:documentation>XML adaptation of "Tripartite Template" V.6.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
@@ -211,7 +223,7 @@ In percentage of TotalNetAssets.</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="SolvencyIIPortfolioType_V7">
 		<xs:annotation>
-			<xs:documentation>XML adaptation of "Tripartite Template"</xs:documentation>
+			<xs:documentation>XML adaptation of "Tripartite Template" V.7.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">

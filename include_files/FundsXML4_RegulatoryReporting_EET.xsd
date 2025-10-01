@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <!-- edited with XMLSpy v2022 (x64) (http://www.altova.com) by Peter Raffelsberger -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
@@ -10669,15 +10669,6 @@ ISO 3166-1. Blank if none; conditional to 31240 > 0
 			<xs:enumeration value="Neutral"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="EETYesNoNeutralType">
-		<xs:restriction base="xs:string">
-			<xs:minLength value="1"/>
-			<xs:maxLength value="7"/>
-			<xs:enumeration value="Y"/>
-			<xs:enumeration value="N"/>
-			<xs:enumeration value="Neutral"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="EETYesNoType">
 		<xs:annotation>
 			<xs:documentation>Y or N</xs:documentation>
@@ -10956,31 +10947,6 @@ ISO 3166-1. Blank if none; conditional to 31240 > 0
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ConsideredInInvestmentStrategy" type="EETYesNoType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Yes (= commitment of the asset manager to improve the PAI), No</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Coverage" type="xs:decimal" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>% of the notional / AUM, which provide effectively data, or where data could be estimated</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="EligibleAssets" type="xs:decimal" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>% of assets (versus notional / AUM), which could provide data</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="PercentageStrategyCoverageType1.1.2">
-		<xs:sequence>
-			<xs:element name="Value" type="xs:decimal" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>
-</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ConsideredInInvestmentStrategy" type="EETYesNoType">
 				<xs:annotation>
 					<xs:documentation>Yes (= commitment of the asset manager to improve the PAI), No</xs:documentation>
 				</xs:annotation>

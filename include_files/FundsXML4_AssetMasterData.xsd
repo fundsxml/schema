@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -28,7 +28,11 @@
 					<xs:documentation xml:lang="de">Gibt das bei einer Buchung verwendete Konto an</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IBAN" type="IBANType" minOccurs="0"/>
+			<xs:element name="IBAN" type="IBANType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>International Bank Account Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="InterestRateDebit" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Debit rate</xs:documentation>
@@ -558,52 +562,6 @@ CompanyType + Transparenzkennzeichnung</xs:documentation>
 				<xs:annotation>
 					<xs:documentation>Additional information which does not fit into the nodes above</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="BenchmarkType">
-		<xs:annotation>
-			<xs:documentation>Benchmark information</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Components" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Components of a composite benchmark.</xs:documentation>
-					<xs:documentation xml:lang="de">Komponenten eines Composite Benchmarks.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="ValidFrom" type="xs:date"/>
-						<xs:element name="Component" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Name" type="xs:string" minOccurs="0"/>
-									<xs:element name="Identifiers" type="IdentifiersType"/>
-									<xs:element name="Weight" type="xs:decimal"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="Levels" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Benchmark levels in the Currency.</xs:documentation>
-					<xs:documentation xml:lang="de">Benchmarklevels in der definierten Währung</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Level" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Date" type="xs:date"/>
-									<xs:element name="Value" type="xs:decimal"/>
-									<xs:element name="Property" type="xs:string" minOccurs="0"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -1324,33 +1282,6 @@ EXCH ... Exchangables</xs:documentation>
 						<xs:enumeration value="Both"/>
 					</xs:restriction>
 				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CounterpartyType">
-		<xs:annotation>
-			<xs:documentation xml:lang="en">Defines the counterparty</xs:documentation>
-		</xs:annotation>
-		<xs:sequence minOccurs="0">
-			<xs:element name="BIC" type="BicCodeType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>BIC code of the counterparty</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Name" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Name of the counterparty</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="LEI" type="LEICodeType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Legal Entity Identifer (LEI) (ISO 17442 standard) of the Entity.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Country of asset (two character ISO code)</xs:documentation>
-				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

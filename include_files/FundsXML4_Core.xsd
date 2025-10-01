@@ -75,33 +75,6 @@ B ... Boolean</xs:documentation>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="AUMType">
-		<xs:annotation>
-			<xs:documentation>Assets under Management Type</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Date" type="xs:date">
-				<xs:annotation>
-					<xs:documentation>Date for which the information is valid</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Currency</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TotalNetAssets" type="AmountType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The amount of net assets of an investment vehicle calculated as the sum of all portfolio holdings including liabilities, which one has to subtract</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="GrossAssets" type="AmountType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Gross assets of closed ended funds and open material assets funds, which means the still existing retail and special real estate funds of the "old" world. Real investment without taking into account liabilities</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="ClassificationsType">
 		<xs:sequence>
 			<xs:element name="Classification" type="ClassificationType" maxOccurs="unbounded"/>
@@ -1125,22 +1098,6 @@ YEAR</xs:documentation>
 			<xs:maxLength value="256"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="Text2Type">
-		<xs:annotation>
-			<xs:documentation>Text (max. 2 characters)</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="2"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="Text300Type">
-		<xs:annotation>
-			<xs:documentation>Text (max. 300 characters)</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="300"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="Text32Type">
 		<xs:annotation>
 			<xs:documentation>Text (max. 32 characters)</xs:documentation>
@@ -1171,14 +1128,6 @@ YEAR</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="64"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="Text8Type">
-		<xs:annotation>
-			<xs:documentation>Text (max. 8 characters)</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="8"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="YesNoType">

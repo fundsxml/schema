@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <!--Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
@@ -6614,51 +6614,6 @@ DAT	Datum Fondspreis = Bewertungsdatum
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CreditRiskDataType">
-		<xs:annotation>
-			<xs:documentation>Corresponds to "Issuer data" block of Tripartite template</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="InstrumentIssuer" type="SIIIssuerType_V5">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Identification of instrument issuer (or counterpart for OTC instruments).</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="IssuerGroup" type="SIIIssuerType_V5">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Characteristics of final financial group the InstrumentIssuer belongs to (highest parent company).
-Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="IssuerCountry" type="ISOCountryCodeType">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Country of instrument issuer:
-ISO country code 2 (ISO 3166-1)
-or "XA" for Supranational issuers 
-or "EU" for European Union institutions</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="EconomicArea" type="EconomicArea2Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Economic area code of Country: 
-1 EEA
-2 OECD non EEA
-3 non OECD.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="StateGuarantee" type="YesNoL1Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">The instrument is guaranteed by the state of issuer ('Y') or not ('N')</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CreditQualityStep" type="CQSType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">CQS: Synthetic issue or issuer rating.
-Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CreditRiskDataType_V5">
 		<xs:annotation>
 			<xs:documentation>Corresponds to "Issuer data" block of Tripartite template</xs:documentation>
 		</xs:annotation>
@@ -31888,46 +31843,6 @@ Omitted if not applicable.</xs:documentation>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Bullet"/>
 						<xs:enumeration value="Sinkable"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Rate" type="xs:decimal" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">If known, redemption rate in percentage 
-of nominal amount (A19) 100%=1.0</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="RedemptionType_V5">
-		<xs:annotation>
-			<xs:documentation>Redemption information of a bond or other interest rate instrument</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="MaturityDate" type="xs:date">
-				<xs:annotation>
-					<xs:documentation>Last redemption date
-9999-12-31 for perpetual.
-Expiry date for options.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Type" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Type of Redemption schedule: 
-"Bullet", "Sinkable", "defaulted" empty if non applicable,
-Omitted if not applicable.</xs:documentation>
-					<xs:appinfo>
-						<altova:exampleValues>
-							<altova:example value="Bullet"/>
-							<altova:example value="Sinkable"/>
-						</altova:exampleValues>
-					</xs:appinfo>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Bullet"/>
-						<xs:enumeration value="Sinkable"/>
-						<xs:enumeration value="defaulted"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

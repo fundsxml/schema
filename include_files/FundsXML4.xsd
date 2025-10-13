@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2021 (x64) (http://www.altova.com) by Peter Raffelsberger (Private) -->
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Fabrice Puziak (Kneip) -->
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<!-- Mit XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) von newmagic datensysteme gmbh (newmagic datensysteme gmbh) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.2.8" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -63,7 +63,7 @@
 				</xs:element>
 				<xs:element name="Documents" type="DocumentsType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>List of documents related to Fund / Subfunds / Share Classes (with link and/or content along with document attributes like type, format, language, ...)</xs:documentation>
+						<xs:documentation>Collection of regulatory and marketing documents (KIDs, prospectuses, factsheets, annual reports, etc.) related to funds, subfunds, or share classes. Documents can be provided as URLs or embedded as base64Binary content</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="RegulatoryReportings" type="RegulatoryReportingsType" minOccurs="0">
@@ -134,26 +134,32 @@
 					<xs:choice>
 						<xs:element name="ListedType">
 							<xs:annotation>
-								<xs:documentation>Document Type with enumeration:
-AIFMD
-AnnualReport
+								<xs:documentation>Enumerations e.g. AIFMD-AnnexIV
+AnnualReport HalfYearReport
 AuditReport
 Factsheet
-KID
 Prospectus
-PRIIPS-KID</xs:documentation>
+PRIIPS-KIDS</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:minLength value="3"/>
 									<xs:maxLength value="12"/>
-									<xs:enumeration value="AIFMD"/>
+									<xs:enumeration value="AIFMD-AnnexIV"/>
 									<xs:enumeration value="AnnualReport"/>
+									<xs:enumeration value="HalfYearReport"/>
+									<xs:enumeration value="QuarterlyReport"/>
+									<xs:enumeration value="MonthlyReport"/>
 									<xs:enumeration value="AuditReport"/>
 									<xs:enumeration value="Factsheet"/>
-									<xs:enumeration value="KID"/>
 									<xs:enumeration value="Prospectus"/>
 									<xs:enumeration value="PRIIPS-KID"/>
+									<xs:enumeration value="KID / Simplified Prospectus"/>
+									<xs:enumeration value="MarketingNotification"/>
+									<xs:enumeration value="SFDR-PAIStatement"/>
+									<xs:enumeration value="SFDR Website Disclosure"/>
+									<xs:enumeration value="MarketingMaterial"/>
+									<xs:enumeration value="ValuationReport"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -182,7 +188,7 @@ PRIIPS-KID</xs:documentation>
 			</xs:element>
 			<xs:element name="TranslationsAvailable" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Defines whether document is available in other languages as well</xs:documentation>
+					<xs:documentation>Indicates whether this document is available in other language versions</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PublicationCountries" minOccurs="0">
@@ -259,7 +265,7 @@ PRIIPS-KID</xs:documentation>
 			</xs:element>
 			<xs:element name="ForPublicUsage" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Defines whether document can be published to the public</xs:documentation>
+					<xs:documentation>Indicates whether document can be published to the public. When false, document is restricted to internal use only (e.g. internal reports)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Restrictions" type="xs:string" minOccurs="0">
@@ -560,12 +566,14 @@ DELETE: This involves the removal of specific data from the system. It could be 
 		<xs:sequence>
 			<xs:element name="DirectReporting" type="DirectReportingType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Direct reporting according to European regulatory reporting frameworks</xs:documentation>
+					<xs:documentation>Regulatory data exchanged between fund manufacturers and distributors/platforms within the professional distribution chain 
+(e.g., MiFID product governance data).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IndirectReporting" type="IndirectReportingType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Reporting data for investors</xs:documentation>
+					<xs:documentation>Regulatory disclosure data provided to end investors, 
+both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -574,12 +582,14 @@ DELETE: This involves the removal of specific data from the system. It could be 
 		<xs:sequence>
 			<xs:element name="EMIR" type="EMIRType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>according to COMMISSION DELEGATED REGULATION (EU) No 148/2013
-of 19 December 2012
-supplementing Regulation (EU) No 648/2012 of the European Parliament and of the Council on OTC derivatives, central counterparties and trade repositories with regard to regulatory technical standards on the minimum details of the data to be reported to trade repositories</xs:documentation>
+					<xs:documentation>DEPRECATED — will no longer be supported in a future FundsXML schema version</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KIIDs" type="KIIDsType" minOccurs="0"/>
+			<xs:element name="KIIDs" type="KIIDsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>DEPRECATED — will no longer be supported in a future FundsXML schema version</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="EMT" type="EMTType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>According to EUROPEAN MIFID TEMPLATE - EMT V1.0 as of 2017-08-03</xs:documentation>

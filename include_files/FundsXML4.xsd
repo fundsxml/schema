@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
 	xmlns:altova="http://www.altova.com/xml-schema-extensions" 
 	xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
@@ -24,7 +26,7 @@
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation>Root element of FundsXML 4.2.10</xs:documentation>
+			<xs:documentation># Root element of FundsXML 4.2.10</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -586,21 +588,23 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		<xs:sequence>
 			<xs:element name="EMIR" type="EMIRType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>DEPRECATED — will no longer be supported in a future FundsXML schema version</xs:documentation>
+					<xs:appinfo source="@deprecated will no longer be supported in a future FundsXML schema version"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="KIIDs" type="KIIDsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>DEPRECATED — will no longer be supported in a future FundsXML schema version</xs:documentation>
+					<xs:appinfo source="@deprecated will no longer be supported in a future FundsXML schema version"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT" type="EMTType" minOccurs="0">
 				<xs:annotation>
+					<xs:appinfo source="@deprecated will no longer be supported in a future FundsXML schema version"/>
 					<xs:documentation>According to EUROPEAN MIFID TEMPLATE - EMT V1.0 as of 2017-08-03</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V3" type="EMTType_V3" minOccurs="0">
 				<xs:annotation>
+					<xs:appinfo source="@deprecated will no longer be supported in a future FundsXML schema version"/>
 					<xs:documentation>According to FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 as of 2019-11-25</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -622,6 +626,7 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 			<xs:element name="EMT_V4_3" type="EMTType_V43" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>According to FinDatEx MiFID TEMPLATE - EMT V4.3 as of 2025-11-03</xs:documentation>
+					<xs:appinfo source="@since 4.2.10"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EFTs" type="EFTType" minOccurs="0">
@@ -632,21 +637,25 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 			<xs:element name="EET1.0" type="EETsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
+					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.1" type="EETsType1.1" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1 </xs:documentation>
+					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.1.1" type="EETsType1.1.1" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1.1 </xs:documentation>
+					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.1.2" type="EETsType1.1.2" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1.2 </xs:documentation>
+					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.1.3" type="EETsType1.1.3" minOccurs="0">
@@ -816,6 +825,7 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		<xs:sequence>
 			<xs:element name="TripartiteTemplateSolvencyII" type="TripartiteTemplateSolvencyIIType" minOccurs="0">
 				<xs:annotation>
+					<xs:appinfo source="@deprecated old version. do not use any more. use {@link /FundsXML4/RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V7} instead"/>
 					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". It refers to version 4 dated 3/4/2018 of this "TPT V4" format.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -826,6 +836,7 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V6" type="TripartiteTemplateSolvencyIIType_V6" minOccurs="0">
 				<xs:annotation>
+					<xs:appinfo source="@deprecated old version. do not use any more. use {@link /FundsXML4/RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V7} instead"/>
 					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 6.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2022-03-14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -836,8 +847,8 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 			</xs:element>
 			<xs:element name="PRIIPS" type="PRIIPSType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EPT 20170728 DRAFT  TEMPLATE 1.1 
-CEPT - 20170621  TEMPLATE 1.0</xs:documentation>
+					<xs:appinfo source="@deprecated"/>
+					<xs:documentation>EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRIIPS_V20" type="PRIIPSType_V20" minOccurs="0">

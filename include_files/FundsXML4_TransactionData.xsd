@@ -463,21 +463,33 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 					<xs:documentation xml:lang="de">Devisenkurse der Transaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Expenses" type="FundAmountType" minOccurs="0">
+			<xs:element name="Expenses" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Expenses/fees of transaction</xs:documentation>
 					<xs:documentation xml:lang="de">Spesen der Transaktion</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="Costs" minOccurs="0">
-				<xs:annotation>
-					<xs:appinfo source="@since 4.2.10">Detailed Transaction cost overview</xs:appinfo>
-				</xs:annotation>
 				<xs:complexType>
-					<xs:sequence maxOccurs="unbounded">
-						<xs:element name="Cost">
+					<xs:choice>
+						<xs:element name="Amount" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Amounts in currency as defined in attribute</xs:documentation>
+								<xs:documentation xml:lang="de">Betrag in frei waehlbarer Waehrung</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute name="ccy" type="ISOCurrencyCodeType" use="required"/>
+										<xs:attribute name="isFundCcy" type="xs:boolean"/>
+										<xs:attribute name="isSubfundCcy" type="xs:boolean"/>
+										<xs:attribute name="isShareClassCcy" type="xs:boolean"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Expense" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Transaction Cost</xs:documentation>
+								<xs:appinfo source="@since 4.2.10" />
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -521,7 +533,7 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-					</xs:sequence>
+					</xs:choice>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="IndicatorKindOfValue" type="xs:string" minOccurs="0">

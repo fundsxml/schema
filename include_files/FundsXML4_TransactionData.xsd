@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="EarningsType">
@@ -468,6 +468,61 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 					<xs:documentation xml:lang="en">Expenses/fees of transaction</xs:documentation>
 					<xs:documentation xml:lang="de">Spesen der Transaktion</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="Costs" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.10">Detailed Transaction cost overview</xs:appinfo>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="Cost">
+							<xs:annotation>
+								<xs:documentation>Transaction Cost</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Type" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Implicit or Explicit</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Explicit"/>
+												<xs:enumeration value="Implicit"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Detail" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Detalied Transaction Cost type</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Brokerage Commissions"/>
+												<xs:enumeration value="Exchange Fees"/>
+												<xs:enumeration value="Custody and Maintenance Fees"/>
+												<xs:enumeration value="Clearing and Settlement"/>
+												<xs:enumeration value="Taxes and Levies"/>
+												<xs:enumeration value="Bid-Ask Spread"/>
+												<xs:enumeration value="Market Impact"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Description" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Text description</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Amount" type="AmountType">
+										<xs:annotation>
+											<xs:documentation>Transaction Cost Amount</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="IndicatorKindOfValue" type="xs:string" minOccurs="0">
 				<xs:annotation>

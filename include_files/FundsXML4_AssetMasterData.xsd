@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (http://www.altova.com) by Peter Raffelsberger (Private) -->
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
+<!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
@@ -32,6 +32,20 @@
 				<xs:annotation>
 					<xs:documentation>International Bank Account Number</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="AccountType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.10">Detailed Account type</xs:appinfo>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Cash"/>
+						<xs:enumeration value="Margins"/>
+						<xs:enumeration value="Collaterals"/>
+						<xs:enumeration value="Receivables"/>
+						<xs:enumeration value="Liabilities"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="InterestRateDebit" type="xs:decimal" minOccurs="0">
 				<xs:annotation>

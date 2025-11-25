@@ -21,15 +21,13 @@
 					<xs:sequence>
 						<xs:element name="Version">
 							<xs:annotation>
-								<xs:documentation>00001 EMT Version (V3 or V3S1 or V3S2)</xs:documentation>
+								<xs:documentation>00001 EMT V4</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:minLength value="2"/>
 									<xs:maxLength value="4"/>
-									<xs:enumeration value="V3"/>
-									<xs:enumeration value="V3S1"/>
-									<xs:enumeration value="V3S2"/>
+									<xs:enumeration value="V4"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -1097,16 +1095,12 @@ If 00096 set to P : % of Reference in field 08110 or 08120 respectively.</xs:doc
 					<xs:sequence>
 						<xs:element name="Version">
 							<xs:annotation>
-								<xs:documentation>00001 EMT Version (V3 or V3S1 or V3S2 or V4 or V4S1)</xs:documentation>
+								<xs:documentation>00001 EMT V4S1</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:minLength value="2"/>
 									<xs:maxLength value="4"/>
-									<xs:enumeration value="V3"/>
-									<xs:enumeration value="V3S1"/>
-									<xs:enumeration value="V3S2"/>
-									<xs:enumeration value="V4"/>
 									<xs:enumeration value="V4S1"/>
 								</xs:restriction>
 							</xs:simpleType>
@@ -2161,100 +2155,98 @@ If 00096 set to P : % of Reference in field 08110 or 08120 respectively.</xs:doc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:choice>
-							<xs:element name="TransactionCostsExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>09010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+						<xs:element name="TransactionCostsExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>09010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="TransactionCostsExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>09020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TransactionCostsExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>09020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="ValueForMoney" minOccurs="0">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="EMTDataReportingVFM">
-											<xs:annotation>
-												<xs:documentation>09030: Specifies if the Value for Money section is filled in the current EMT posting.
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ValueForMoney" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="EMTDataReportingVFM">
+										<xs:annotation>
+											<xs:documentation>09030: Specifies if the Value for Money section is filled in the current EMT posting.
 </xs:documentation>
-											</xs:annotation>
-											<xs:complexType>
-												<xs:simpleContent>
-													<xs:extension base="EMTYesEmptyType"/>
-												</xs:simpleContent>
-											</xs:complexType>
-										</xs:element>
-										<xs:element name="IsAssessmentOfValueRequiredUnderCOLL" type="EMTYesNoType" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09040: Specifies if the Value for Money section is filled in the current EMT posting.
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="EMTYesEmptyType"/>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="IsAssessmentOfValueRequiredUnderCOLL" type="EMTYesNoType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09040: Specifies if the Value for Money section is filled in the current EMT posting.
 </xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="OutcomeOfCOLLAssessmentOfValue" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09050: "1 – charges are justified based on assessment and any action taken or, where the first assessment is not yet due, based on initial product design
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OutcomeOfCOLLAssessmentOfValue" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09050: "1 – charges are justified based on assessment and any action taken or, where the first assessment is not yet due, based on initial product design
 2 – charges are not justified, significant action is required"
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="1"/>
-													<xs:enumeration value="2"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="OutcomeOfPRINValueAssessmentOrReview" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09060: "1 – product expected to provide fair value for reasonably foreseeable period
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="OutcomeOfPRINValueAssessmentOrReview" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09060: "1 – product expected to provide fair value for reasonably foreseeable period
 2 – review indicates significant changes required in order to provide fair value"
 
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="1"/>
-													<xs:enumeration value="2"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="OtherReviewRelatedToValueAndOrCharges" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09070: "A – In line with ESMA supervisory briefing on the supervision of costs in UCITS and AIFs or relevant NCA supervisory activity
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="OtherReviewRelatedToValueAndOrCharges" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09070: "A – In line with ESMA supervisory briefing on the supervision of costs in UCITS and AIFs or relevant NCA supervisory activity
 O – Other local requirements or procedures"
 
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="A"/>
-													<xs:enumeration value="O"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="FurtherInformation" type="xs:anyURI" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09080: Link to sources of relevant information</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="ReviewDate" type="xs:date" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09090: Date of value assessment review or date COLL assessment of value report published or initial launch date
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="A"/>
+												<xs:enumeration value="O"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="FurtherInformation" type="xs:anyURI" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09080: Link to sources of relevant information</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReviewDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09090: Date of value assessment review or date COLL assessment of value report published or initial launch date
 </xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="ReviewNextDue" type="xs:date" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09100: The Date that specifies the start of the Reference Period. Defined as "From and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period.</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-						</xs:choice>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReviewNextDue" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09100: The Date that specifies the start of the Reference Period. Defined as "From and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2277,17 +2269,12 @@ O – Other local requirements or procedures"
 					<xs:sequence>
 						<xs:element name="Version">
 							<xs:annotation>
-								<xs:documentation>00001 EMT Version (V3 or V3S1 or V3S2 or V4 or V4S1 or V4S2)</xs:documentation>
+								<xs:documentation>00001 EMT V4S2</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:minLength value="2"/>
 									<xs:maxLength value="4"/>
-									<xs:enumeration value="V3"/>
-									<xs:enumeration value="V3S1"/>
-									<xs:enumeration value="V3S2"/>
-									<xs:enumeration value="V4"/>
-									<xs:enumeration value="V4S1"/>
 									<xs:enumeration value="V4S2"/>
 								</xs:restriction>
 							</xs:simpleType>
@@ -3327,100 +3314,98 @@ If 00096 set to P : % of Reference in field 08110 or 08120 respectively.</xs:doc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:choice>
-							<xs:element name="TransactionCostsExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>09010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+						<xs:element name="TransactionCostsExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>09010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="TransactionCostsExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>09020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TransactionCostsExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>09020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="ValueForMoney" minOccurs="0">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="EMTDataReportingVFM">
-											<xs:annotation>
-												<xs:documentation>09030: Specifies if the Value for Money section is filled in the current EMT posting.
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ValueForMoney" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="EMTDataReportingVFM">
+										<xs:annotation>
+											<xs:documentation>09030: Specifies if the Value for Money section is filled in the current EMT posting.
 </xs:documentation>
-											</xs:annotation>
-											<xs:complexType>
-												<xs:simpleContent>
-													<xs:extension base="EMTYesEmptyType"/>
-												</xs:simpleContent>
-											</xs:complexType>
-										</xs:element>
-										<xs:element name="IsAssessmentOfValueRequiredUnderCOLL" type="EMTYesNoType" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09040: Specifies if the Value for Money section is filled in the current EMT posting.
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="EMTYesEmptyType"/>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="IsAssessmentOfValueRequiredUnderCOLL" type="EMTYesNoType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09040: Specifies if the Value for Money section is filled in the current EMT posting.
 </xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="OutcomeOfCOLLAssessmentOfValue" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09050: "1 – charges are justified based on assessment and any action taken or, where the first assessment is not yet due, based on initial product design
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OutcomeOfCOLLAssessmentOfValue" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09050: "1 – charges are justified based on assessment and any action taken or, where the first assessment is not yet due, based on initial product design
 2 – charges are not justified, significant action is required"
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="1"/>
-													<xs:enumeration value="2"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="OutcomeOfPRINValueAssessmentOrReview" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09060: "1 – product expected to provide fair value for reasonably foreseeable period
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="OutcomeOfPRINValueAssessmentOrReview" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09060: "1 – product expected to provide fair value for reasonably foreseeable period
 2 – review indicates significant changes required in order to provide fair value"
 
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="1"/>
-													<xs:enumeration value="2"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="OtherReviewRelatedToValueAndOrCharges" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09070: "A – In line with ESMA supervisory briefing on the supervision of costs in UCITS and AIFs or relevant NCA supervisory activity
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="OtherReviewRelatedToValueAndOrCharges" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09070: "A – In line with ESMA supervisory briefing on the supervision of costs in UCITS and AIFs or relevant NCA supervisory activity
 O – Other local requirements or procedures"
 
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="A"/>
-													<xs:enumeration value="O"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="FurtherInformation" type="xs:anyURI" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09080: Link to sources of relevant information</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="ReviewDate" type="xs:date" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09090: Date of value assessment review or date COLL assessment of value report published or initial launch date
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="A"/>
+												<xs:enumeration value="O"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="FurtherInformation" type="xs:anyURI" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09080: Link to sources of relevant information</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReviewDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09090: Date of value assessment review or date COLL assessment of value report published or initial launch date
 </xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="ReviewNextDue" type="xs:date" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09100: The Date that specifies the start of the Reference Period. Defined as "From and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period.</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-						</xs:choice>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReviewNextDue" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09100: The Date that specifies the start of the Reference Period. Defined as "From and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -3431,60 +3416,58 @@ O – Other local requirements or procedures"
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:choice>
-							<xs:element name="IndirectCostsOpenEndedExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10000: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+						<xs:element name="IndirectCostsOpenEndedExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10000: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
  </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="IndirectCostsClosedEndedExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IndirectCostsClosedEndedExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="RealAssetsCostsExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RealAssetsCostsExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="IndirectCostsOpenEndedExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10030: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IndirectCostsOpenEndedExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10030: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="IndirectCostsClosedEndedExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10040: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IndirectCostsClosedEndedExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10040: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="RealAssetsCostsExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10050: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RealAssetsCostsExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10050: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="OtherSpecificInvestmentNeed" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10060: "Y - Yes, there is a CFD
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherSpecificInvestmentNeed" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10060: "Y - Yes, there is a CFD
 I - There is an intention to produce a CFD
 N - No, there is no intention to produce a CFD"
 </xs:documentation>
-								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:length value="1"/>
-										<xs:enumeration value="Y"/>
-										<xs:enumeration value="I"/>
-										<xs:enumeration value="N"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
-						</xs:choice>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="1"/>
+									<xs:enumeration value="Y"/>
+									<xs:enumeration value="I"/>
+									<xs:enumeration value="N"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -3507,18 +3490,12 @@ N - No, there is no intention to produce a CFD"
 					<xs:sequence>
 						<xs:element name="Version">
 							<xs:annotation>
-								<xs:documentation>00001 EMT Version (V3 or V3S1 or V3S2 or V4 or V4S1 or V4S2)</xs:documentation>
+								<xs:documentation>00001 EMT Version V4S3</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:minLength value="2"/>
 									<xs:maxLength value="4"/>
-									<xs:enumeration value="V3"/>
-									<xs:enumeration value="V3S1"/>
-									<xs:enumeration value="V3S2"/>
-									<xs:enumeration value="V4"/>
-									<xs:enumeration value="V4S1"/>
-									<xs:enumeration value="V4S2"/>
 									<xs:enumeration value="V4S3"/>
 								</xs:restriction>
 							</xs:simpleType>
@@ -4558,100 +4535,98 @@ If 00096 set to P : % of Reference in field 08110 or 08120 respectively.</xs:doc
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:choice>
-							<xs:element name="TransactionCostsExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>09010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+						<xs:element name="TransactionCostsExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>09010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="TransactionCostsExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>09020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TransactionCostsExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>09020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="ValueForMoney" minOccurs="0">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="EMTDataReportingVFM">
-											<xs:annotation>
-												<xs:documentation>09030: Specifies if the Value for Money section is filled in the current EMT posting.
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ValueForMoney" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="EMTDataReportingVFM">
+										<xs:annotation>
+											<xs:documentation>09030: Specifies if the Value for Money section is filled in the current EMT posting.
 </xs:documentation>
-											</xs:annotation>
-											<xs:complexType>
-												<xs:simpleContent>
-													<xs:extension base="EMTYesEmptyType"/>
-												</xs:simpleContent>
-											</xs:complexType>
-										</xs:element>
-										<xs:element name="IsAssessmentOfValueRequiredUnderCOLL" type="EMTYesNoType" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09040: Specifies if the Value for Money section is filled in the current EMT posting.
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="EMTYesEmptyType"/>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="IsAssessmentOfValueRequiredUnderCOLL" type="EMTYesNoType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09040: Specifies if the Value for Money section is filled in the current EMT posting.
 </xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="OutcomeOfCOLLAssessmentOfValue" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09050: "1 – charges are justified based on assessment and any action taken or, where the first assessment is not yet due, based on initial product design
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OutcomeOfCOLLAssessmentOfValue" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09050: "1 – charges are justified based on assessment and any action taken or, where the first assessment is not yet due, based on initial product design
 2 – charges are not justified, significant action is required"
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="1"/>
-													<xs:enumeration value="2"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="OutcomeOfPRINValueAssessmentOrReview" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09060: "1 – product expected to provide fair value for reasonably foreseeable period
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="OutcomeOfPRINValueAssessmentOrReview" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09060: "1 – product expected to provide fair value for reasonably foreseeable period
 2 – review indicates significant changes required in order to provide fair value"
 
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="1"/>
-													<xs:enumeration value="2"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="OtherReviewRelatedToValueAndOrCharges" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09070: "A – In line with ESMA supervisory briefing on the supervision of costs in UCITS and AIFs or relevant NCA supervisory activity
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="OtherReviewRelatedToValueAndOrCharges" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09070: "A – In line with ESMA supervisory briefing on the supervision of costs in UCITS and AIFs or relevant NCA supervisory activity
 O – Other local requirements or procedures"
 
 </xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="A"/>
-													<xs:enumeration value="O"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="FurtherInformation" type="xs:anyURI" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09080: Link to sources of relevant information</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="ReviewDate" type="xs:date" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09090: Date of value assessment review or date COLL assessment of value report published or initial launch date
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="A"/>
+												<xs:enumeration value="O"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="FurtherInformation" type="xs:anyURI" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09080: Link to sources of relevant information</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReviewDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09090: Date of value assessment review or date COLL assessment of value report published or initial launch date
 </xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="ReviewNextDue" type="xs:date" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>09100: The Date that specifies the start of the Reference Period. Defined as "From and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period.</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-						</xs:choice>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ReviewNextDue" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>09100: The Date that specifies the start of the Reference Period. Defined as "From and including". All ex-post cost disclosures apart from 08040 refers to all dates in such period.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -4662,60 +4637,58 @@ O – Other local requirements or procedures"
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:choice>
-							<xs:element name="IndirectCostsOpenEndedExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10000: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+						<xs:element name="IndirectCostsOpenEndedExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10000: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
  </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="IndirectCostsClosedEndedExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IndirectCostsClosedEndedExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10010: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="RealAssetsCostsExAnteUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RealAssetsCostsExAnteUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10020: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="IndirectCostsOpenEndedExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10030: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IndirectCostsOpenEndedExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10030: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="IndirectCostsClosedEndedExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10040: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IndirectCostsClosedEndedExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10040: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="RealAssetsCostsExPostUK" type="xs:decimal" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10050: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RealAssetsCostsExPostUK" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10050: % of NAV of the Financial Product expressed in annualized terms (rate of cost deduction to be applied)
 </xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="OtherSpecificInvestmentNeed" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>10060: "Y - Yes, there is a CFD
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherSpecificInvestmentNeed" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>10060: "Y - Yes, there is a CFD
 I - There is an intention to produce a CFD
 N - No, there is no intention to produce a CFD"
 </xs:documentation>
-								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:length value="1"/>
-										<xs:enumeration value="Y"/>
-										<xs:enumeration value="I"/>
-										<xs:enumeration value="N"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
-						</xs:choice>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="1"/>
+									<xs:enumeration value="Y"/>
+									<xs:enumeration value="I"/>
+									<xs:enumeration value="N"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -4726,47 +4699,45 @@ N - No, there is no intention to produce a CFD"
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:choice>
-							<xs:element name="EMTDataReportingVFMFR" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>11000: "Did the product pass a Value for Money test successfully ?
+						<xs:element name="EMTDataReportingVFMFR" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>11000: "Did the product pass a Value for Money test successfully ?
 " Was the product subject to a pre launch Value For Money test that was successfully passed. This field is optional and specific for SPs distributed in France without prejudice of european regulation evolution.
 </xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:simpleContent>
-										<xs:extension base="EMTYesEmptyType"/>
-									</xs:simpleContent>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="UsedVFMMethodologyFR" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation xml:lang="en">11010: Only used if 11000 is set to Y. Provides the name of the VFM methodology applied (e.g., A=AFPDB, B = UKSPA,1= internal/proprietary, 2= other). This field is optional and specific for SPs distributed in France without prejudice of European regulation evolution.
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="EMTYesEmptyType"/>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="UsedVFMMethodologyFR" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">11010: Only used if 11000 is set to Y. Provides the name of the VFM methodology applied (e.g., A=AFPDB, B = UKSPA,1= internal/proprietary, 2= other). This field is optional and specific for SPs distributed in France without prejudice of European regulation evolution.
 </xs:documentation>
-								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="A"/>
-										<xs:enumeration value="B"/>
-										<xs:enumeration value="1"/>
-										<xs:enumeration value="2"/>
-										<xs:enumeration value=""/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
-							<xs:element name="HyperlinkToVFMMethodologyFR" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>11020: Hyperlink to VFM methodology. Only used if 11000 is set to Y. This field is optional and specific for SPs distributed in France without prejudice of european regulation evolution.
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A"/>
+									<xs:enumeration value="B"/>
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+									<xs:enumeration value=""/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="HyperlinkToVFMMethodologyFR" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>11020: Hyperlink to VFM methodology. Only used if 11000 is set to Y. This field is optional and specific for SPs distributed in France without prejudice of european regulation evolution.
  
 </xs:documentation>
-								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:anyURI">
-										<xs:minLength value="0"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
-						</xs:choice>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:anyURI">
+									<xs:minLength value="0"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

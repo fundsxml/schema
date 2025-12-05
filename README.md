@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.fundsxml.org/wp-content/uploads/2024/12/logo_FundsXML_179x43-1.png" alt="FundsXML Logo" width="179"/>
+  <img src="https://www.fundsxml.org/wp-content/uploads/2025/11/logo_FundsXML_179x43-1.png" alt="FundsXML Logo" width="179"/>
 </p>
 
 <h1 align="center">FundsXML Schema</h1>
@@ -84,8 +84,8 @@ Specialized modules for Austria (OeNB, PKG) and Germany (BVI, real estate report
       <ContentDate>2025-06-30</ContentDate>
       <DataSupplier>
          <SystemCountry>AT</SystemCountry>
-         <Short>EAM</Short>
-         <Name>Erste Asset Management GmbH</Name>
+         <Short>AM_ONE</Short>
+         <Name>Asset Management ONE</Name>
          <Type>Asset Manager</Type>
       </DataSupplier>
    </ControlData>
@@ -223,12 +223,12 @@ Complete example with fund, share classes, portfolio, and asset master data:
       <DocumentGenerated>2025-07-04T10:00:00Z</DocumentGenerated>
       <Version>4.2.10</Version>
       <ContentDate>2025-06-30</ContentDate>
-      <DataSupplier>
-         <SystemCountry>AT</SystemCountry>
-         <Short>EAM</Short>
-         <Name>Erste Asset Management GmbH</Name>
-         <Type>Asset Manager</Type>
-      </DataSupplier>
+       <DataSupplier>
+           <SystemCountry>AT</SystemCountry>
+           <Short>AM_ONE</Short>
+           <Name>Asset Management ONE</Name>
+           <Type>Asset Manager</Type>
+       </DataSupplier>
       <DataOperation>INITIAL</DataOperation>
    </ControlData>
 
@@ -238,7 +238,7 @@ Complete example with fund, share classes, portfolio, and asset master data:
             <LEI>PQOH26KWDF7CG10L6792</LEI>
          </Identifiers>
          <Names>
-            <OfficialName>ERSTE RESPONSIBLE STOCK GLOBAL</OfficialName>
+            <OfficialName>Sample Fund</OfficialName>
          </Names>
          <Currency>EUR</Currency>
          <SingleFundFlag>true</SingleFundFlag>
@@ -289,7 +289,7 @@ Complete example with fund, share classes, portfolio, and asset master data:
                      <ISIN>AT0000A1Z882</ISIN>
                   </Identifiers>
                   <Names>
-                     <OfficialName>ERSTE Responsible Stock Global EUR R01 (A)</OfficialName>
+                     <OfficialName>Sample Fund - Shareclass A</OfficialName>
                   </Names>
                   <Currency>EUR</Currency>
                   <InceptionDate>2001-03-15</InceptionDate>

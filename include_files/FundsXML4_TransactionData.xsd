@@ -6,7 +6,8 @@
 		<xs:sequence>
 			<xs:element name="Earning" type="EarningType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Earning data (single coupon, dividend or distribution) resulting from a security position</xs:documentation>
+					<xs:documentation xml:lang="en">Earning data (single coupon, dividend or distribution) resulting from a security position</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Ertragsdaten (einzelner Coupon, Dividende oder Ausschüttung) aus einer Wertpapierposition</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -27,7 +28,8 @@
 			</xs:element>
 			<xs:element name="OriginalEarningID" type="Text256Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Earning ID of cancelled earning</xs:documentation>
+					<xs:documentation xml:lang="en">Earning ID of cancelled earning</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Ertrags-ID des stornierten Ertrages</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AssetUniqueID" minOccurs="0">
@@ -72,12 +74,14 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="EntryDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>Date when earning has been booked into portfolio</xs:documentation>
+					<xs:documentation xml:lang="en">Date when earning has been booked into portfolio</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Datum, an dem der Ertrag ins Portfolio gebucht wurde</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ValutaDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Value date</xs:documentation>
+					<xs:documentation xml:lang="en">Value date</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Valutadatum</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EntryCurrency" type="ISOCurrencyCodeType">
@@ -100,12 +104,14 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="Interests" type="FundAmountType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Interests value</xs:documentation>
+					<xs:documentation xml:lang="en">Interests value</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Zinswert</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FXRates" type="FXRatesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>FX Rates used for this earning</xs:documentation>
+					<xs:documentation xml:lang="en">FX Rates used for this earning</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Wechselkurse für diesen Ertrag</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NominalValueOrUnits" type="xs:decimal" minOccurs="0">
@@ -134,7 +140,8 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="FinallySettled" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Earning finally settled or not</xs:documentation>
+					<xs:documentation xml:lang="en">Earning finally settled or not</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gibt an, ob der Ertrag endgültig abgerechnet wurde</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -315,7 +322,8 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="OriginalTransactionID" type="Text256Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Transaction ID of cancelled transaction</xs:documentation>
+					<xs:documentation xml:lang="en">Transaction ID of cancelled transaction</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Transaktions-ID der stornierten Transaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AssetUniqueID" minOccurs="0">
@@ -331,12 +339,14 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="Identifiers" type="IdentifiersType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Identifier(s) of bought or sold asset</xs:documentation>
+					<xs:documentation xml:lang="en">Identifier(s) of bought or sold asset</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Kennnummer(n) des gekauften oder verkauften Vermögenswerts</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Currency of security bought or sold</xs:documentation>
+					<xs:documentation xml:lang="en">Currency of security bought or sold</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Währung des gekauften oder verkauften Wertpapiers</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TransactionKind">
@@ -381,17 +391,20 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="OrderTimestamp" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>for PRIIPs/MiFID II transaction costs calucation</xs:documentation>
+					<xs:documentation xml:lang="en">For PRIIPs/MiFID II transaction costs calculation</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Für PRIIPs/MiFID II Transaktionskostenberechnung - Zeitpunkt der Order</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ExecutionTimestamp" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>for PRIIPs/MiFID II transaction costs calucation</xs:documentation>
+					<xs:documentation xml:lang="en">For PRIIPs/MiFID II transaction costs calculation</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Für PRIIPs/MiFID II Transaktionskostenberechnung - Zeitpunkt der Ausführung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OrderPrice" type="AmountType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>for PRIIPs/MiFID II transaction costs calucation</xs:documentation>
+					<xs:documentation xml:lang="en">For PRIIPs/MiFID II transaction costs calculation</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Für PRIIPs/MiFID II Transaktionskostenberechnung - Orderpreis</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NominalOrUnitsOrContracts" type="xs:decimal">
@@ -402,17 +415,20 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 			</xs:element>
 			<xs:element name="CleanPrice" type="FundAmountType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Clean price of security (without interests)</xs:documentation>
+					<xs:documentation xml:lang="en">Clean price of security (without interests)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Clean Price des Wertpapiers (ohne Zinsen)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DirtyPrice" type="FundAmountType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Dirty price of security (including interests)</xs:documentation>
+					<xs:documentation xml:lang="en">Dirty price of security (including interests)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Dirty Price des Wertpapiers (einschließlich Zinsen)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AgreedPrice" type="FundAmountType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">The originally agreed price of the transaction</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Der ursprünglich vereinbarte Preis der Transaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
@@ -488,14 +504,16 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 						</xs:element>
 						<xs:element name="Expense" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Transaction Cost</xs:documentation>
+								<xs:documentation xml:lang="en">Transaction Cost</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Transaktionskosten</xs:documentation>
 								<xs:appinfo source="@since 4.2.10" />
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="Type" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Implicit or Explicit</xs:documentation>
+											<xs:documentation xml:lang="en">Implicit or Explicit</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Implizit oder Explizit</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -506,7 +524,8 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 									</xs:element>
 									<xs:element name="Detail" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Detalied Transaction Cost type</xs:documentation>
+											<xs:documentation xml:lang="en">Detailed Transaction Cost type</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Detaillierte Transaktionskostenart</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -522,12 +541,14 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
 									</xs:element>
 									<xs:element name="Description" type="xs:string" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Text description</xs:documentation>
+											<xs:documentation xml:lang="en">Text description</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Textbeschreibung</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Amount" type="AmountType">
 										<xs:annotation>
-											<xs:documentation>Transaction Cost Amount</xs:documentation>
+											<xs:documentation xml:lang="en">Transaction Cost Amount</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Transaktionskostenbetrag</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>

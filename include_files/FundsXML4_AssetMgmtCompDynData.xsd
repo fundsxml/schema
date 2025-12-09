@@ -4,56 +4,66 @@
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="ClientStatisticType">
 		<xs:annotation>
-			<xs:documentation>Data about the clients of an investment or asset management company</xs:documentation>
+			<xs:documentation xml:lang="en">Data about the clients of an investment or asset management company</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Daten über die Kunden einer Investmentgesellschaft oder Vermögensverwaltung</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Number" type="xs:int">
 				<xs:annotation>
-					<xs:documentation>Number of clients</xs:documentation>
+					<xs:documentation xml:lang="en">Number of clients</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Anzahl der Kunden</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Assets" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>Amount of assets administrated/managed for clients</xs:documentation>
+					<xs:documentation xml:lang="en">Amount of assets administrated/managed for clients</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Betrag der für Kunden verwalteten Vermögenswerte</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NetSales" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>Net Sales of clients</xs:documentation>
+					<xs:documentation xml:lang="en">Net Sales of clients</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Nettoumsätze der Kunden</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundStatisticType">
 		<xs:annotation>
-			<xs:documentation>Data of open-ended funds</xs:documentation>
+			<xs:documentation xml:lang="en">Data of open-ended funds</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Daten zu offenen Fonds</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Number" type="xs:int">
 				<xs:annotation>
-					<xs:documentation>Number of fundrelated administrative units</xs:documentation>
+					<xs:documentation xml:lang="en">Number of fundrelated administrative units</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Anzahl der fondsbezogenen Verwaltungseinheiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NetAssets" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>Amount of Net Assets</xs:documentation>
+					<xs:documentation xml:lang="en">Amount of Net Assets</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Betrag des Nettovermögens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NetSales" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>Net Sales in the reporting period (normally on a monthly basis) in thousands of currency </xs:documentation>
+					<xs:documentation xml:lang="en">Net Sales in the reporting period (normally on a monthly basis) in thousands of currency</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Nettoumsätze im Berichtszeitraum (normalerweise monatlich) in Tausend Währungseinheiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundStatisticClosedFundType">
 		<xs:annotation>
-			<xs:documentation>Data of closed-ended funds</xs:documentation>
+			<xs:documentation xml:lang="en">Data of closed-ended funds</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Daten zu geschlossenen Fonds</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Number" type="xs:int">
 				<xs:annotation>
-					<xs:documentation>Number of fundrelated administrative units</xs:documentation>
+					<xs:documentation xml:lang="en">Number of fundrelated administrative units</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Anzahl der fondsbezogenen Verwaltungseinheiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AssetsClosedFunds" type="AssetManagementCompanyFundAssetsType"/>
@@ -67,49 +77,58 @@
 					<xs:sequence>
 						<xs:element name="Number" type="xs:int">
 							<xs:annotation>
-								<xs:documentation>Number of funds</xs:documentation>
+								<xs:documentation xml:lang="en">Number of funds</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Anzahl der Funds</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="NetAssets" type="xs:decimal">
 							<xs:annotation>
-								<xs:documentation>Net Assets </xs:documentation>
+								<xs:documentation xml:lang="en">Net Assets</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Nettovermögen</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="NetSales" type="xs:decimal">
 							<xs:annotation>
-								<xs:documentation>Net sales for a certain period</xs:documentation>
+								<xs:documentation xml:lang="en">Net sales for a certain period</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Nettoabsatz für einen bestimmten Zeitraum</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Segmentation">
 							<xs:annotation>
-								<xs:documentation>Information about the segmentation of funds</xs:documentation>
+								<xs:documentation xml:lang="en">Information about the segmentation of funds</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Informationen über die Segmentierung von Funds</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="FundsWithoutSegments" type="xs:int">
 										<xs:annotation>
-											<xs:documentation>Number of funds without segments or comparable subbunits</xs:documentation>
+											<xs:documentation xml:lang="en">Number of funds without segments or comparable subunits</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Anzahl der Funds ohne Segmente oder vergleichbare Untereinheiten</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="FundsWithSegments">
 										<xs:annotation>
-											<xs:documentation>Data about the fund with segments of an investment or asset management company</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the fund with segments of an investment or asset management company</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Daten über die Funds mit Segmenten einer Investmentgesellschaft oder Vermögensverwaltung</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="Number" type="xs:int">
 													<xs:annotation>
-														<xs:documentation>Number of funds with segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="en">Number of funds with segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Anzahl der Funds mit Segmenten oder vergleichbaren Untereinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="NumberOfSegments" type="xs:int">
 													<xs:annotation>
-														<xs:documentation>Number of segments or comparable units</xs:documentation>
+														<xs:documentation xml:lang="en">Number of segments or comparable units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Anzahl der Segmente oder vergleichbaren Einheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="NetAssets" type="xs:decimal">
 													<xs:annotation>
-														<xs:documentation>Net  assets of funds with with segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="en">Net assets of funds with segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Nettovermögen der Funds mit Segmenten oder vergleichbaren Untereinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -117,7 +136,8 @@
 									</xs:element>
 									<xs:element name="NumberOfAdministrativeUnits" type="xs:int">
 										<xs:annotation>
-											<xs:documentation>Total number of administrative units, which is the sum of the number of funds without segments and comparable units and the number of segments or comparable units</xs:documentation>
+											<xs:documentation xml:lang="en">Total number of administrative units, which is the sum of the number of funds without segments and comparable units and the number of segments or comparable units</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Gesamtanzahl der Verwaltungseinheiten, die sich aus der Anzahl der Funds ohne Segmente und vergleichbare Einheiten sowie der Anzahl der Segmente oder vergleichbaren Einheiten zusammensetzt</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -125,29 +145,34 @@
 						</xs:element>
 						<xs:element name="PortfoliomanagementByThirdParties" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Information about the structure of the respective investment or asset management company with regard to portfoliomanagement by third parties</xs:documentation>
+								<xs:documentation xml:lang="en">Information about the structure of the respective investment or asset management company with regard to portfoliomanagement by third parties</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Informationen über die Struktur der jeweiligen Investmentgesellschaft oder Vermögensverwaltung hinsichtlich des Portfoliomanagements durch Dritte</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="TotalAdministrativeUnits" type="FundStatisticType">
 										<xs:annotation>
-											<xs:documentation>Data about the total of the respective administrative units</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="WithinAffiliatedGroup" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="TotalAdministrativeUnits" type="FundStatisticType">
 													<xs:annotation>
-														<xs:documentation>Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CompaniesInCountry" type="FundStatisticType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -155,18 +180,21 @@
 									</xs:element>
 									<xs:element name="OutsideAffiliatedGroup" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is notpart of the affiliated company group</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is not part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der nicht Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="TotalAdministrativeUnits" type="FundStatisticType">
 													<xs:annotation>
-														<xs:documentation>Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CompaniesInCountry" type="FundStatisticType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -183,29 +211,34 @@
 					<xs:sequence>
 						<xs:element name="PortfoliomanagementForThirdParties">
 							<xs:annotation>
-								<xs:documentation>Information about the structure of the respective investment or asset management company with regard to portfoliomanagement for third parties</xs:documentation>
+								<xs:documentation xml:lang="en">Information about the structure of the respective investment or asset management company with regard to portfoliomanagement for third parties</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Informationen über die Struktur der jeweiligen Investmentgesellschaft oder Vermögensverwaltung hinsichtlich des Portfoliomanagements für Dritte</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="TotalAdministrativeUnits" type="FundStatisticType">
 										<xs:annotation>
-											<xs:documentation>Data about the total of the respective administrative units</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="WithinAffiliatedGroup" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="TotalAdministrativeUnits" type="FundStatisticType">
 													<xs:annotation>
-														<xs:documentation>Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CompaniesInCountry" type="FundStatisticType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -213,18 +246,21 @@
 									</xs:element>
 									<xs:element name="OutsideAffiliatedGroup" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is not part of the affiliated company group</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is not part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der nicht Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="TotalAdministrativeUnits" type="FundStatisticType">
 													<xs:annotation>
-														<xs:documentation>Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CompaniesInCountry" type="FundStatisticType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -240,7 +276,8 @@
 	</xs:complexType>
 	<xs:complexType name="AssetManagementClosedDataType">
 		<xs:annotation>
-			<xs:documentation>Data of the investment or asset management company for closed-ended funds</xs:documentation>
+			<xs:documentation xml:lang="en">Data of the investment or asset management company for closed-ended funds</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Daten der Investmentgesellschaft oder Vermögensverwaltung für geschlossene Funds</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="OwnFunds" minOccurs="0">
@@ -248,41 +285,48 @@
 					<xs:sequence>
 						<xs:element name="Number" type="xs:int">
 							<xs:annotation>
-								<xs:documentation>Number of funds</xs:documentation>
+								<xs:documentation xml:lang="en">Number of funds</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Anzahl der Funds</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="AssetInformation" type="AssetManagementCompanyFundAssetsType"/>
 						<xs:element name="NetSalesInformation" type="AssetManagementCompanySalesType"/>
 						<xs:element name="Segmentation">
 							<xs:annotation>
-								<xs:documentation>Information about the segmentation of funds</xs:documentation>
+								<xs:documentation xml:lang="en">Information about the segmentation of funds</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Informationen über die Segmentierung von Funds</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="FundsWithoutSegments" type="xs:int">
 										<xs:annotation>
-											<xs:documentation>Number of funds without segments or comparable subunits</xs:documentation>
+											<xs:documentation xml:lang="en">Number of funds without segments or comparable subunits</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Anzahl der Funds ohne Segmente oder vergleichbare Untereinheiten</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="FundsWithSegments">
 										<xs:annotation>
-											<xs:documentation>Data about the funds with segments of an investment or asset management company</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the funds with segments of an investment or asset management company</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die Funds mit Segmenten einer Investmentgesellschaft oder Vermögensverwaltung</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="Number" type="xs:int">
 													<xs:annotation>
-														<xs:documentation>Number of funds with segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="en">Number of funds with segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Anzahl der Funds mit Segmenten oder vergleichbaren Untereinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="NumberOfSegments" type="xs:int">
 													<xs:annotation>
-														<xs:documentation>Number of segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="en">Number of segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Anzahl der Segmente oder vergleichbaren Untereinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="NetAssetsSegments" type="AssetManagementCompanyFundAssetsType">
 													<xs:annotation>
-														<xs:documentation>Net asstes of funds with segments or comparable subunits</xs:documentation>
+														<xs:documentation xml:lang="en">Net assets of funds with segments or comparable subunits</xs:documentation>
+													<xs:documentation xml:lang="de">[AUTO] Nettovermögen der Funds mit Segmenten oder vergleichbaren Untereinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -290,7 +334,8 @@
 									</xs:element>
 									<xs:element name="NumberOfAdministrativeUnits" type="xs:int">
 										<xs:annotation>
-											<xs:documentation>Total number of administrative units, which is the sum of the number of funds without segments and comparable subunits and the number of segments or comparable subunits.</xs:documentation>
+											<xs:documentation xml:lang="en">Total number of administrative units, which is the sum of the number of funds without segments and comparable subunits and the number of segments or comparable subunits</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Gesamtanzahl der Verwaltungseinheiten, die sich aus der Anzahl der Funds ohne Segmente und vergleichbare Untereinheiten sowie der Anzahl der Segmente oder vergleichbaren Untereinheiten zusammensetzt</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -298,29 +343,34 @@
 						</xs:element>
 						<xs:element name="PortfoliomanagementByThirdParties" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Information about the structure of the respective investment or asset management company with regard to portfoliomanagement or advise by third parties</xs:documentation>
+								<xs:documentation xml:lang="en">Information about the structure of the respective investment or asset management company with regard to portfoliomanagement or advise by third parties</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Informationen über die Struktur der jeweiligen Investmentgesellschaft oder Vermögensverwaltung hinsichtlich des Portfoliomanagements oder der Beratung durch Dritte</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="TotalAdministrativeUnits" type="FundStatisticClosedFundType">
 										<xs:annotation>
-											<xs:documentation>Data about the total of the respective administrative units</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="WithinAffiliatedGroup" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advise is done by a third party which is part of the affiliated company group</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advise is done by a third party which is part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="TotalAdministrativeUnits" type="FundStatisticClosedFundType">
 													<xs:annotation>
-														<xs:documentation>Data about the total of the respetive adminisrative units</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+													<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CompaniesInCountry" type="FundStatisticClosedFundType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -328,18 +378,21 @@
 									</xs:element>
 									<xs:element name="OutsideAffiliatedGroup" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advise is done by a third party which is not a part of the affiliated company group</xs:documentation>
+											<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advise is done by a third party which is not a part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der nicht Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="TotalAdministrativeUnits" type="FundStatisticClosedFundType">
 													<xs:annotation>
-														<xs:documentation>Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the total of the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über die Gesamtheit der jeweiligen Verwaltungseinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CompaniesInCountry" type="FundStatisticClosedFundType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -356,29 +409,34 @@
 					<xs:sequence>
 						<xs:element name="PortfoliomanagementForThirdParty">
 							<xs:annotation>
-								<xs:documentation>Information about the structure of the portfolio Management or the advise for third parties</xs:documentation>
+								<xs:documentation xml:lang="en">Information about the structure of the portfolio management or the advise for third parties</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Informationen über die Struktur des Portfoliomanagements oder der Beratung für Dritte</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="TotalAdministrativeUnits" type="FundStatisticClosedFundType">
 										<xs:annotation>
-											<xs:documentation>Total figures for the respective administrative units</xs:documentation>
+											<xs:documentation xml:lang="en">Total figures for the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen für die jeweiligen Verwaltungseinheiten</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="WithinAffiliatedGroup" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Assets for third parties within the affiliated group</xs:documentation>
+											<xs:documentation xml:lang="en">Assets for third parties within the affiliated group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Vermögenswerte für Dritte innerhalb des verbundenen Unternehmenskreises</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="TotalAdministrativeUnits" type="FundStatisticClosedFundType">
 													<xs:annotation>
-														<xs:documentation>Total figures for the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="en">Total figures for the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen für die jeweiligen Verwaltungseinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CompaniesInCountry" type="FundStatisticClosedFundType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -386,18 +444,21 @@
 									</xs:element>
 									<xs:element name="OutsideAffiliatedGroup" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Assets for third parties which are not part of the affiliated group</xs:documentation>
+											<xs:documentation xml:lang="en">Assets for third parties which are not part of the affiliated group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Vermögenswerte für Dritte, die nicht Teil des verbundenen Unternehmenskreises sind</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="TotalAdministrativeUnits" type="FundStatisticClosedFundType">
 													<xs:annotation>
-														<xs:documentation>Total figures for the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="en">Total figures for the respective administrative units</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen für die jeweiligen Verwaltungseinheiten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CompaniesInCountry" type="FundStatisticClosedFundType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -413,41 +474,48 @@
 	</xs:complexType>
 	<xs:complexType name="AssetManagementCompanySalesType">
 		<xs:annotation>
-			<xs:documentation>Company sales data</xs:documentation>
+			<xs:documentation xml:lang="en">Company sales data</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Vertriebsdaten des Unternehmens</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="NetSales" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>Net Sales in the Reporting Period (in most cases on a monthly basis) in thousands of currency </xs:documentation>
+					<xs:documentation xml:lang="en">Net Sales in the Reporting Period (in most cases on a monthly basis) in thousands of currency</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Nettoabsatz im Berichtszeitraum (meist monatlich) in Tausend Währungseinheiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EquityPlaced" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>Equity placed; equivalent to gross sales in open-ended funds. Refers to the month reported, given in thousands of currency.</xs:documentation>
+					<xs:documentation xml:lang="en">Equity placed; equivalent to gross sales in open-ended funds. Refers to the month reported, given in thousands of currency</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Platziertes Eigenkapital; entspricht dem Bruttoabsatz bei offenen Funds. Bezieht sich auf den berichteten Monat, angegeben in Tausend Währungseinheiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AssetManagementCompanyFundAssetsType">
 		<xs:annotation>
-			<xs:documentation>Company assets data</xs:documentation>
+			<xs:documentation xml:lang="en">Company assets data</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Vermögensdaten des Unternehmens</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="NetAssets" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>Net assets in total, calculated on an overall basis including outstanding debts, bank loans, and other liabilities (Net Asset Value approach). In thousands of currency.</xs:documentation>
+					<xs:documentation xml:lang="en">Net assets in total, calculated on an overall basis including outstanding debts, bank loans, and other liabilities (Net Asset Value approach). In thousands of currency</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Nettovermögen insgesamt, berechnet auf Gesamtbasis einschließlich ausstehender Schulden, Bankdarlehen und anderer Verbindlichkeiten (NAV-Ansatz). In Tausend Währungseinheiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="GrossAssets" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>Assets in total, calculated on a basis excluding outstanding debts, bank loans, and other liabilities (Gross Asset Value approach). "Aktivvermoegen" in German. In thousands of currency.</xs:documentation>
+					<xs:documentation xml:lang="en">Assets in total, calculated on a basis excluding outstanding debts, bank loans, and other liabilities (Gross Asset Value approach). In thousands of currency</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Vermögen insgesamt, berechnet ohne ausstehende Schulden, Bankdarlehen und andere Verbindlichkeiten (Bruttovermögenswert-Ansatz). Aktivvermögen. In Tausend Währungseinheiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AssetManagementCompanyAggregatedType">
 		<xs:annotation>
-			<xs:documentation>Company sales and assets </xs:documentation>
+			<xs:documentation xml:lang="en">Company sales and assets</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Vertriebs- und Vermögensdaten des Unternehmens</xs:documentation>
 		</xs:annotation>
 		<xs:sequence maxOccurs="unbounded">
 			<xs:element name="Date" type="xs:date">
@@ -470,19 +538,22 @@
 			</xs:element>
 			<xs:element name="OpenEndedFunds" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Open-ended funds</xs:documentation>
+					<xs:documentation xml:lang="en">Open-ended funds</xs:documentation>
+				<xs:documentation xml:lang="de">[AUTO] Offene Funds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="RetailFunds" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Funds which are retail funds from a legal perspective</xs:documentation>
+								<xs:documentation xml:lang="en">Funds which are retail funds from a legal perspective</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Funds, die aus rechtlicher Sicht Publikumsfunds sind</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="Securities_Holdings" type="AssetManagementCompanyDataType" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Securities and Holdings</xs:documentation>
+											<xs:documentation xml:lang="en">Securities and Holdings</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Wertpapiere und Beteiligungen</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RealAssets" type="AssetManagementCompanyDataType" minOccurs="0"/>
@@ -491,13 +562,15 @@
 						</xs:element>
 						<xs:element name="InstitutionalFunds" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Funds which are from a legal perspective only for institutional investors</xs:documentation>
+								<xs:documentation xml:lang="en">Funds which are from a legal perspective only for institutional investors</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Funds, die aus rechtlicher Sicht nur für institutionelle Anleger bestimmt sind</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="Securities_Holdings" type="AssetManagementCompanyDataType" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Securities and Holdings</xs:documentation>
+											<xs:documentation xml:lang="en">Securities and Holdings</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Wertpapiere und Beteiligungen</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RealAssets" type="AssetManagementCompanyDataType" minOccurs="0"/>
@@ -509,19 +582,22 @@
 			</xs:element>
 			<xs:element name="ClosedEndedFunds" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Closed-ended funds</xs:documentation>
+					<xs:documentation xml:lang="en">Closed-ended funds</xs:documentation>
+				<xs:documentation xml:lang="de">[AUTO] Geschlossene Funds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="RetailFunds" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Funds which are retail funds from a legal perspective</xs:documentation>
+								<xs:documentation xml:lang="en">Funds which are retail funds from a legal perspective</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Funds, die aus rechtlicher Sicht Publikumsfunds sind</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="Securities_Holdings" type="AssetManagementClosedDataType" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Securities and Holdings</xs:documentation>
+											<xs:documentation xml:lang="en">Securities and Holdings</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Wertpapiere und Beteiligungen</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RealAssets" type="AssetManagementClosedDataType" minOccurs="0"/>
@@ -530,7 +606,8 @@
 						</xs:element>
 						<xs:element name="InstitutionalFunds" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Funds which are from a legal perspective only for institutional investors</xs:documentation>
+								<xs:documentation xml:lang="en">Funds which are from a legal perspective only for institutional investors</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Funds, die aus rechtlicher Sicht nur für institutionelle Anleger bestimmt sind</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -544,13 +621,15 @@
 			</xs:element>
 			<xs:element name="DiscretionaryMandates" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Discretionary Mandates</xs:documentation>
+					<xs:documentation xml:lang="en">Discretionary Mandates</xs:documentation>
+				<xs:documentation xml:lang="de">[AUTO] Diskretionäre Mandate</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Securities_Holdings" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Securities and Holdings</xs:documentation>
+								<xs:documentation xml:lang="en">Securities and Holdings</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Wertpapiere und Beteiligungen</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -562,7 +641,8 @@
 														<xs:sequence>
 															<xs:element name="Total" type="ClientStatisticType">
 																<xs:annotation>
-																	<xs:documentation>Total figures for clients</xs:documentation>
+																	<xs:documentation xml:lang="en">Total figures for clients</xs:documentation>
+																	<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen für Kunden</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 															<xs:element name="Location">
@@ -570,12 +650,14 @@
 																	<xs:sequence>
 																		<xs:element name="InCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Information about clients in the respective country</xs:documentation>
+																				<xs:documentation xml:lang="en">Information about clients in the respective country</xs:documentation>
+																				<xs:documentation xml:lang="de">[AUTO] Informationen über Kunden im jeweiligen Land</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="OutsideCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Information about clients outside the respective country</xs:documentation>
+																				<xs:documentation xml:lang="en">Information about clients outside the respective country</xs:documentation>
+																				<xs:documentation xml:lang="de">[AUTO] Informationen über Kunden außerhalb des jeweiligen Landes</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>
@@ -594,29 +676,34 @@
 												</xs:element>
 												<xs:element name="PortfoliomanagementByThirdParties" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Information about the structure of the respective investment or asset management company with regard to portfoliomanagement or advise by third parties</xs:documentation>
+														<xs:documentation xml:lang="en">Information about the structure of the respective investment or asset management company with regard to portfoliomanagement or advise by third parties</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Informationen über die Struktur der jeweiligen Investmentgesellschaft oder Vermögensverwaltung hinsichtlich des Portfoliomanagements oder der Beratung durch Dritte</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
 															<xs:element name="Total" type="ClientStatisticType">
 																<xs:annotation>
-																	<xs:documentation>Total figures for clients</xs:documentation>
+																	<xs:documentation xml:lang="en">Total figures for clients</xs:documentation>
+																	<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen für Kunden</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 															<xs:element name="WithinAffiliatedGroup">
 																<xs:annotation>
-																	<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+																	<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
 																		<xs:element name="Total" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Total of third parties within the affiliated company group</xs:documentation>
+																				<xs:documentation xml:lang="en">Total of third parties within the affiliated company group</xs:documentation>
+																			<xs:documentation xml:lang="de">[AUTO] Gesamtheit der Dritten innerhalb des verbundenen Unternehmenskreises</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="CompaniesInCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+																				<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>
@@ -624,18 +711,21 @@
 															</xs:element>
 															<xs:element name="OutsideAffiliatedGroup">
 																<xs:annotation>
-																	<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is notpart of the affiliated company group</xs:documentation>
+																	<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is not part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der nicht Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
 																		<xs:element name="Total" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Total of third parties without the affiliated company group</xs:documentation>
+																				<xs:documentation xml:lang="en">Total of third parties outside the affiliated company group</xs:documentation>
+																				<xs:documentation xml:lang="de">[AUTO] Gesamtheit der Dritten außerhalb des verbundenen Unternehmenskreises</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="CompaniesInCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+																				<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>
@@ -684,7 +774,8 @@
 															</xs:element>
 															<xs:element name="AmountDomestic" type="xs:decimal">
 																<xs:annotation>
-																	<xs:documentation>In Euro bonds from domestic issuers</xs:documentation>
+																	<xs:documentation xml:lang="en">Bonds from domestic issuers, in Euro</xs:documentation>
+																<xs:documentation xml:lang="de">[AUTO] Anleihen inländischer Emittenten, in Euro</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 														</xs:sequence>
@@ -777,29 +868,34 @@
 											<xs:sequence>
 												<xs:element name="PortfoliomanagementForThirdParties">
 													<xs:annotation>
-														<xs:documentation>Information about the structure of the portfolio Management or the advise for third parties</xs:documentation>
+														<xs:documentation xml:lang="en">Information about the structure of the portfolio management or the advise for third parties</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Informationen über die Struktur des Portfoliomanagements oder der Beratung für Dritte</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
 															<xs:element name="Total" type="ClientStatisticType">
 																<xs:annotation>
-																	<xs:documentation>Total figures</xs:documentation>
+																	<xs:documentation xml:lang="en">Total figures</xs:documentation>
+																	<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 															<xs:element name="WithinAffiliatedGroup">
 																<xs:annotation>
-																	<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+																	<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
 																		<xs:element name="Total" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Total figures</xs:documentation>
+																				<xs:documentation xml:lang="en">Total figures</xs:documentation>
+																	<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="CompaniesInCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+																				<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>
@@ -807,18 +903,21 @@
 															</xs:element>
 															<xs:element name="OutsideAffiliatedGroup">
 																<xs:annotation>
-																	<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is not part of the affiliated company group</xs:documentation>
+																	<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is not part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der nicht Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
 																		<xs:element name="Total" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Total figures</xs:documentation>
+																				<xs:documentation xml:lang="en">Total figures</xs:documentation>
+																	<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="CompaniesInCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+																				<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>
@@ -864,13 +963,15 @@
 												</xs:element>
 												<xs:element name="PortfoliomanagementByThirdParties" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Information about the structure of the respective investment or asset management company with regard to portfoliomanagement or advise by third parties</xs:documentation>
+														<xs:documentation xml:lang="en">Information about the structure of the respective investment or asset management company with regard to portfoliomanagement or advise by third parties</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Informationen über die Struktur der jeweiligen Investmentgesellschaft oder Vermögensverwaltung hinsichtlich des Portfoliomanagements oder der Beratung durch Dritte</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
 															<xs:element name="Total">
 																<xs:annotation>
-																	<xs:documentation>insgesamt</xs:documentation>
+																	<xs:documentation xml:lang="en">Total</xs:documentation>
+																	<xs:documentation xml:lang="de">Insgesamt</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:complexContent>
@@ -880,18 +981,21 @@
 															</xs:element>
 															<xs:element name="WithinAffiliatedGroup">
 																<xs:annotation>
-																	<xs:documentation> durch Dritte innerhalb des Konzernverbundes</xs:documentation>
+																	<xs:documentation xml:lang="en">By third parties within the affiliated group</xs:documentation>
+																	<xs:documentation xml:lang="de">Durch Dritte innerhalb des Konzernverbundes</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
 																		<xs:element name="Total" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>durch Dritte innerhalb des Konzernverbundes gesamt</xs:documentation>
+																				<xs:documentation xml:lang="en">Total by third parties within the affiliated group</xs:documentation>
+																				<xs:documentation xml:lang="de">Durch Dritte innerhalb des Konzernverbundes gesamt</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="CompaniesInCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>davon durch deutsche Kapitalanlagegesellschaften innerhalb des Konzernverbundes als Dritte</xs:documentation>
+																				<xs:documentation xml:lang="en">Thereof by German investment companies within the affiliated group as third parties</xs:documentation>
+																				<xs:documentation xml:lang="de">Davon durch deutsche Kapitalanlagegesellschaften innerhalb des Konzernverbundes als Dritte</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>
@@ -899,18 +1003,21 @@
 															</xs:element>
 															<xs:element name="OutsideAffiliatedGroup">
 																<xs:annotation>
-																	<xs:documentation> durch Dritte außerhalb des Konzernverbundes</xs:documentation>
+																	<xs:documentation xml:lang="en">By third parties outside the affiliated group</xs:documentation>
+																	<xs:documentation xml:lang="de">Durch Dritte außerhalb des Konzernverbundes</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
 																		<xs:element name="Total" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>durch Dritte auserhalb des Konzernverbundes gesamt</xs:documentation>
+																				<xs:documentation xml:lang="en">Total by third parties outside the affiliated group</xs:documentation>
+																				<xs:documentation xml:lang="de">Durch Dritte außerhalb des Konzernverbundes gesamt</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="CompaniesInCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>davon durch deutsche Kapitalanlagegesellschaften außerhalb des Konzernverbundes als Dritte</xs:documentation>
+																				<xs:documentation xml:lang="en">Thereof by German investment companies outside the affiliated group as third parties</xs:documentation>
+																				<xs:documentation xml:lang="de">Davon durch deutsche Kapitalanlagegesellschaften außerhalb des Konzernverbundes als Dritte</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>
@@ -943,29 +1050,34 @@
 											<xs:sequence>
 												<xs:element name="PortfoliomanagementForThirdParties">
 													<xs:annotation>
-														<xs:documentation>Information about the structure of the portfolio Management or the advise for third parties</xs:documentation>
+														<xs:documentation xml:lang="en">Information about the structure of the portfolio management or the advise for third parties</xs:documentation>
+							<xs:documentation xml:lang="de">[AUTO] Informationen über die Struktur des Portfoliomanagements oder der Beratung für Dritte</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
 															<xs:element name="Total" type="ClientStatisticType">
 																<xs:annotation>
-																	<xs:documentation>Total figures</xs:documentation>
+																	<xs:documentation xml:lang="en">Total figures</xs:documentation>
+																	<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 															<xs:element name="WithinAffiliatedGroup">
 																<xs:annotation>
-																	<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+																	<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
 																		<xs:element name="Total" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Total figures</xs:documentation>
+																				<xs:documentation xml:lang="en">Total figures</xs:documentation>
+																	<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="CompaniesInCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+																				<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>
@@ -973,18 +1085,21 @@
 															</xs:element>
 															<xs:element name="OutsideAffiliatedGroup">
 																<xs:annotation>
-																	<xs:documentation>Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is not part of the affiliated company group</xs:documentation>
+																	<xs:documentation xml:lang="en">Data about the respective administrative units for which the portfoliomanagement or advice is done by a third party which is not part of the affiliated company group</xs:documentation>
+										<xs:documentation xml:lang="de">[AUTO] Daten über die jeweiligen Verwaltungseinheiten, deren Portfoliomanagement oder Beratung von einem Dritten durchgeführt wird, der nicht Teil des verbundenen Unternehmenskreises ist</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:sequence>
 																		<xs:element name="Total" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Total figures</xs:documentation>
+																				<xs:documentation xml:lang="en">Total figures</xs:documentation>
+																	<xs:documentation xml:lang="de">[AUTO] Gesamtzahlen</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																		<xs:element name="CompaniesInCountry" type="ClientStatisticType">
 																			<xs:annotation>
-																				<xs:documentation>Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+																				<xs:documentation xml:lang="en">Data about the part of the total which is related to the companies within the respective country</xs:documentation>
+														<xs:documentation xml:lang="de">[AUTO] Daten über den Teil der Gesamtheit, der sich auf Unternehmen im jeweiligen Land bezieht</xs:documentation>
 																			</xs:annotation>
 																		</xs:element>
 																	</xs:sequence>

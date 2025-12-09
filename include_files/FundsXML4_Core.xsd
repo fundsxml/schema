@@ -2,30 +2,89 @@
 <!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:complexType name="AddressType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Address information including street, city, country and contact details</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Adressinformationen einschließlich Straße, Stadt, Land und Kontaktdaten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="StreetName" type="Text256Type" minOccurs="0"/>
-			<xs:element name="StreetNumber" type="Text32Type" minOccurs="0"/>
-			<xs:element name="Building" type="Text256Type" minOccurs="0"/>
-			<xs:element name="CityName" type="Text256Type" minOccurs="0"/>
-			<xs:element name="CityCode" type="Text32Type" minOccurs="0"/>
-			<xs:element name="State" type="Text256Type" minOccurs="0"/>
-			<xs:element name="Country" type="ISOCountryCodeType"/>
-			<xs:element name="Phone" type="Text256Type" minOccurs="0"/>
-			<xs:element name="Fax" type="Text64Type" minOccurs="0"/>
-			<xs:element name="Email" type="EmailAddressType" minOccurs="0"/>
-			<xs:element name="Homepage" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="StreetName" type="Text256Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Name of the street</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Straßenname</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StreetNumber" type="Text32Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Street number or building number</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Hausnummer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Building" type="Text256Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Building name or identifier</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gebäudebezeichnung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CityName" type="Text256Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Name of the city</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Ortsname</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CityCode" type="Text32Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Postal code or ZIP code</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Postleitzahl</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="State" type="Text256Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">State, province or region</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Bundesland, Provinz oder Region</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Country" type="ISOCountryCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">ISO country code (ISO 3166-1 alpha-2)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] ISO-Ländercode (ISO 3166-1 alpha-2)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Phone" type="Text256Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Phone number</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Telefonnummer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Fax" type="Text64Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Fax number</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Faxnummer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Email" type="EmailAddressType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Email address</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] E-Mail-Adresse</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Homepage" type="xs:anyURI" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Website URL</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Website-URL</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AmountType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Amount in different currencies</xs:documentation>
-			<xs:documentation xml:lang="de">Betrag in verschiedenen Waehrungen</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Betrag in verschiedenen Währungen</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Amount" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Amounts in currency as defined in attribute</xs:documentation>
-					<xs:documentation xml:lang="de">Betrag in frei waehlbarer Waehrung</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Betrag in frei wählbarer Währung</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -38,23 +97,37 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AttributesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for multiple attributes</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Container für mehrere Attribute</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Attribute" type="AttributeType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AttributeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Generic attribute with name, type and value</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Generisches Attribut mit Name, Typ und Wert</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="Text256Type">
 				<xs:annotation>
-					<xs:documentation>Name of attribute</xs:documentation>
+					<xs:documentation xml:lang="en">Name of attribute</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Name des Attributs</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Type">
 				<xs:annotation>
-					<xs:documentation>Type of attribute:
+					<xs:documentation xml:lang="en">Type of attribute:
 T ... Text
 N ... Number
 D ... Date
+B ... Boolean</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Typ des Attributs:
+T ... Text
+N ... Zahl
+D ... Datum
 B ... Boolean</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -76,11 +149,19 @@ B ... Boolean</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ClassificationsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for multiple classifications</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Container für mehrere Klassifikationen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Classification" type="ClassificationType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ClassificationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Classification of a fund or asset according to various classification systems (e.g., BVI, EFAMA, Morningstar)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Klassifikation eines Fund oder Assets nach verschiedenen Klassifikationssystemen (z.B. BVI, EFAMA, Morningstar)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:choice>
 				<xs:element name="ListedGroup">
@@ -122,47 +203,56 @@ B ... Boolean</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="CompanyType">
 		<xs:annotation>
-			<xs:documentation>Detaili data of Company/Issuer</xs:documentation>
+			<xs:documentation xml:lang="en">Detailed data of Company/Issuer</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Detaildaten eines Unternehmens/Emittenten</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
-					<xs:documentation>Identifiers of company</xs:documentation>
+					<xs:documentation xml:lang="en">Identifiers of company</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Identifikatoren des Unternehmens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="Text500Type">
 				<xs:annotation>
-					<xs:documentation>Name of company</xs:documentation>
+					<xs:documentation xml:lang="en">Name of company</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Name des Unternehmens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="LegalName" type="Text500Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Legal (full) name of company</xs:documentation>
+					<xs:documentation xml:lang="en">Legal (full) name of company</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Vollständiger rechtlicher Name des Unternehmens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="LegalForm" type="Text256Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Legal form of company</xs:documentation>
+					<xs:documentation xml:lang="en">Legal form of company</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Rechtsform des Unternehmens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Address" type="AddressType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Address of company</xs:documentation>
+					<xs:documentation xml:lang="en">Address of company</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Adresse des Unternehmens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BusinessCountry" type="ISOCountryCodeType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Country code of main business of company</xs:documentation>
+					<xs:documentation xml:lang="en">Country code of main business of company</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Ländercode des Hauptgeschäftssitzes</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ParentCompany" type="CompanyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Parent company (if applicable)</xs:documentation>
+					<xs:documentation xml:lang="en">Parent company (if applicable)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Muttergesellschaft (falls zutreffend)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OtherClassification" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>All other identifiers (with listed or free type)</xs:documentation>
+					<xs:documentation xml:lang="en">All other identifiers (with listed or free type)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Weitere Identifikatoren (mit vordefiniertem oder freiem Typ)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -181,7 +271,8 @@ B ... Boolean</xs:documentation>
 			</xs:element>
 			<xs:element name="Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Type of Company/Issuer</xs:documentation>
+					<xs:documentation xml:lang="en">Type of Company/Issuer</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Art des Unternehmens/Emittenten</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -204,30 +295,39 @@ B ... Boolean</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DataSupplierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Information about the data supplier providing the FundsXML data</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Informationen über den Datenlieferanten, der die FundsXML-Daten bereitstellt</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SystemCountry" type="ISOCountryCodeType">
 				<xs:annotation>
-					<xs:documentation>Country of authority defining the list of valid data suppliers (e.g. AT, DE, ...)</xs:documentation>
+					<xs:documentation xml:lang="en">Country of authority defining the list of valid data suppliers (e.g. AT, DE, ...)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Land der Behörde, die die Liste der gültigen Datenlieferanten definiert (z.B. AT, DE, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Short" type="Text64Type">
 				<xs:annotation>
-					<xs:documentation>Code of supplier (unique per country)</xs:documentation>
+					<xs:documentation xml:lang="en">Code of supplier (unique per country)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Code des Lieferanten (eindeutig pro Land)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="Text256Type">
 				<xs:annotation>
-					<xs:documentation>Name of data supplier</xs:documentation>
+					<xs:documentation xml:lang="en">Name of data supplier</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Name des Datenlieferanten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Type" type="Text64Type">
 				<xs:annotation>
-					<xs:documentation>Type of data supplier (e.g. IC, CB, NB, Vendor, ...)</xs:documentation>
+					<xs:documentation xml:lang="en">Type of data supplier (e.g. IC, CB, NB, Vendor, ...)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Typ des Datenlieferanten (z.B. IC, CB, NB, Vendor, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Contact" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Contact details (name, phone, email)</xs:documentation>
+					<xs:documentation xml:lang="en">Contact details (name, phone, email)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Kontaktdaten (Name, Telefon, E-Mail)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -240,10 +340,15 @@ B ... Boolean</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DayMonthType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Day and month specification (without year)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Tag- und Monatsangabe (ohne Jahr)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Day">
 				<xs:annotation>
-					<xs:documentation>Day between 1 and 31</xs:documentation>
+					<xs:documentation xml:lang="en">Day between 1 and 31</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Tag zwischen 1 und 31</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:positiveInteger">
@@ -254,7 +359,8 @@ B ... Boolean</xs:documentation>
 			</xs:element>
 			<xs:element name="Month">
 				<xs:annotation>
-					<xs:documentation>Month between 1 and 12</xs:documentation>
+					<xs:documentation xml:lang="en">Month between 1 and 12</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Monat zwischen 1 und 12</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:positiveInteger">
@@ -266,6 +372,10 @@ B ... Boolean</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DynLenNamesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Names with dynamic maximum lengths for different display contexts</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Namen mit dynamischen Maximallängen für verschiedene Anzeigekontext</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" maxOccurs="unbounded">
 				<xs:complexType>
@@ -280,14 +390,14 @@ B ... Boolean</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="FundAmountType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">Amount in different currencies</xs:documentation>
-			<xs:documentation xml:lang="de">Betrag in verschiedenen Waehrungen</xs:documentation>
+			<xs:documentation xml:lang="en">Amount in different currencies with fund/subfund/shareclass currency indicators</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Betrag in verschiedenen Währungen mit Fund/Subfund/ShareClass-Währungskennzeichen</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Amount" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Amounts in currency as defined in attribute</xs:documentation>
-					<xs:documentation xml:lang="de">Betrag in frei waehlbarer Waehrung</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Betrag in frei wählbarer Währung</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -303,21 +413,28 @@ B ... Boolean</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundOrShareClassIdentifiersType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Identifiers for funds or share classes (LEI and ISINs)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Identifikatoren für Funds oder ShareClasses (LEI und ISINs)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="LEI" type="LEICodeType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Legal Entity Identifier of fund</xs:documentation>
+					<xs:documentation xml:lang="en">Legal Entity Identifier of fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Legal Entity Identifier des Fund</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ISINs" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>List of ISINs for share classes</xs:documentation>
+					<xs:documentation xml:lang="en">List of ISINs for share classes</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Liste der ISINs für ShareClasses</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="ISIN" type="ISINType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>ISIN of share class</xs:documentation>
+								<xs:documentation xml:lang="en">ISIN of share class</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] ISIN der ShareClass</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -327,7 +444,8 @@ B ... Boolean</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="FundRelatedTextType">
 		<xs:annotation>
-			<xs:documentation>complex Element designed to describe any text or commentary related to a fund like "Investment strategy", "Management outlook", "company profile"...</xs:documentation>
+			<xs:documentation xml:lang="en">Complex element designed to describe any text or commentary related to a fund like "Investment strategy", "Management outlook", "company profile"...</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Komplexes Element zur Beschreibung von Texten oder Kommentaren zu einem Fund wie "Anlagestrategie", "Managementausblick", "Unternehmensprofil"...</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Language" type="xs:language">
@@ -401,11 +519,19 @@ B ... Boolean</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FXRatesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for multiple foreign exchange rates</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Container für mehrere Wechselkurse</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="FXRate" type="FXRateType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FXRateType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Foreign exchange rate between two currencies with multiply/divide indicator</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Wechselkurs zwischen zwei Währungen mit Multiplikations-/Divisionsindikator</xs:documentation>
+		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:decimal">
 				<xs:attribute name="fromCcy" type="ISOCurrencyCodeType" use="required"/>
@@ -422,16 +548,24 @@ B ... Boolean</xs:documentation>
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="HedgingStrategyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Hedging strategy for currency risk management</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Hedging-Strategie für das Währungsrisikomanagement</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="HedgingStrategy">
 				<xs:annotation>
-					<xs:documentation>A net asset value (NAV) hedge: This aims to minimise the effect of currency movements between the base currency of a fund and 
+					<xs:documentation xml:lang="en">A net asset value (NAV) hedge: This aims to minimise the effect of currency movements between the base currency of a fund and
 the currency of the relevant hedged share class.
-A portfolio hedge: This aims to minimise the effect of currency movements between the currencies of the assets of the fund and the 
-currency of the relevant hedged share class with the exception of currencies where it is impractical or not cost effective to do so. In 
-other words, it looks through to the underlying currency exposures of the fund. 
+A portfolio hedge: This aims to minimise the effect of currency movements between the currencies of the assets of the fund and the
+currency of the relevant hedged share class with the exception of currencies where it is impractical or not cost effective to do so. In
+other words, it looks through to the underlying currency exposures of the fund.
 Full hedge: Open position that eliminates over 90% or more of the risk arising form another open position.
 Partial hedge: Open position that eliminates below 90% but more than 0% of the risk arising form another open position.</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] NAV-Hedge: Zielt darauf ab, Währungsschwankungen zwischen der Basiswährung eines Fund und der Währung der gehedgten ShareClass zu minimieren.
+Portfolio-Hedge: Zielt darauf ab, Währungsschwankungen zwischen den Währungen der Fund-Assets und der Währung der gehedgten ShareClass zu minimieren.
+Full Hedge: Offene Position, die über 90% des Risikos einer anderen offenen Position eliminiert.
+Partial Hedge: Offene Position, die unter 90% aber mehr als 0% des Risikos eliminiert.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -445,31 +579,40 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IdentifiersType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Collection of various identifiers for securities and entities (ISIN, Bloomberg, CUSIP, LEI, etc.)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Sammlung verschiedener Identifikatoren für Wertpapiere und Einheiten (ISIN, Bloomberg, CUSIP, LEI, etc.)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="ISIN" type="ISINType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>International Securities Identification Number (12 chars)</xs:documentation>
+					<xs:documentation xml:lang="en">International Securities Identification Number (12 chars)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Internationale Wertpapierkennnummer (12 Zeichen)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Bloomberg" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Bloomberg identifiers</xs:documentation>
+					<xs:documentation xml:lang="en">Bloomberg identifiers</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Bloomberg-Identifikatoren</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Ticker" type="Text32Type" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Bloomberg Ticker</xs:documentation>
+								<xs:documentation xml:lang="en">Bloomberg Ticker</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Bloomberg Ticker-Symbol</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Exchange" type="Text16Type" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Bloomberg exchange</xs:documentation>
+								<xs:documentation xml:lang="en">Bloomberg exchange</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Bloomberg Börsenplatz</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Market" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Bloomberg market</xs:documentation>
+								<xs:documentation xml:lang="en">Bloomberg market</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Bloomberg Marktsegment</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="Text16Type">
@@ -488,7 +631,8 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 						</xs:element>
 						<xs:element name="BBGID" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Bloomberg Global Identifier (12 chars)</xs:documentation>
+								<xs:documentation xml:lang="en">Bloomberg Global Identifier (12 chars)</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Bloomberg Global Identifier (12 Zeichen)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -502,7 +646,8 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			</xs:element>
 			<xs:element name="CUSIP" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Committee on Uniform Security Identification Procedures (9 chars)</xs:documentation>
+					<xs:documentation xml:lang="en">Committee on Uniform Security Identification Procedures (9 chars)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] CUSIP-Nummer (9 Zeichen)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -512,7 +657,8 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			</xs:element>
 			<xs:element name="GermanWKN" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>German Wertpapier-Kenn-Nummer (6 chars)</xs:documentation>
+					<xs:documentation xml:lang="en">German Wertpapier-Kenn-Nummer (6 chars)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Deutsche Wertpapier-Kenn-Nummer (6 Zeichen)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -522,7 +668,8 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			</xs:element>
 			<xs:element name="LEI" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Legal Entity Identification for Financial Contracts (20 chars)</xs:documentation>
+					<xs:documentation xml:lang="en">Legal Entity Identification for Financial Contracts (20 chars)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Legal Entity Identifier für Finanzkontrakte (20 Zeichen)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="LEICodeType">
@@ -532,7 +679,8 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			</xs:element>
 			<xs:element name="MexID" minOccurs="0" maxOccurs="2">
 				<xs:annotation>
-					<xs:documentation>Market Exchange Identifier</xs:documentation>
+					<xs:documentation xml:lang="en">Market Exchange Identifier</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Marktbörsen-Identifikator</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -544,7 +692,8 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			</xs:element>
 			<xs:element name="ReutersRIC" minOccurs="0" maxOccurs="2">
 				<xs:annotation>
-					<xs:documentation>Reuters Instrument Code</xs:documentation>
+					<xs:documentation xml:lang="en">Reuters Instrument Code</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Reuters Instrument Code</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -556,7 +705,8 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			</xs:element>
 			<xs:element name="SEDOL" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Stock Exchange Daily Official List (7 chars)</xs:documentation>
+					<xs:documentation xml:lang="en">Stock Exchange Daily Official List (7 chars)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] SEDOL-Nummer (7 Zeichen)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -568,17 +718,20 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			</xs:element>
 			<xs:element name="SwissValorenCode" type="xs:int" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Local swiss security number</xs:documentation>
+					<xs:documentation xml:lang="en">Local swiss security number</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Schweizer Valorennummer</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SwiftBIC" type="BicCodeType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Business Identifier Code from SWIFT (3-12 chars)</xs:documentation>
+					<xs:documentation xml:lang="en">Business Identifier Code from SWIFT (3-12 chars)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] SWIFT Business Identifier Code (3-12 Zeichen)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OtherID" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>All other identifiers (with listed or free type)</xs:documentation>
+					<xs:documentation xml:lang="en">All other identifiers (with listed or free type)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Weitere Identifikatoren (mit vordefiniertem oder freiem Typ)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -592,31 +745,48 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IssuerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Information about the issuer of a security</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Informationen über den Emittenten eines Wertpapiers</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Identifiers of issuer</xs:documentation>
+					<xs:documentation xml:lang="en">Identifiers of issuer</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Identifikatoren des Emittenten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Name of issuer</xs:documentation>
+					<xs:documentation xml:lang="en">Name of issuer</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Name des Emittenten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Country code of issuer (country of headquarter)</xs:documentation>
+					<xs:documentation xml:lang="en">Country code of issuer (country of headquarter)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Ländercode des Emittenten (Hauptsitzland)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BusinessCountry" type="ISOCountryCodeType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Country code of main business of issuer</xs:documentation>
+					<xs:documentation xml:lang="en">Country code of main business of issuer</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Ländercode des Hauptgeschäftslandes des Emittenten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ParentIssuer" type="IssuerType" minOccurs="0"/>
+			<xs:element name="ParentIssuer" type="IssuerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Parent issuer (if applicable)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Mutterunternehmen des Emittenten (falls zutreffend)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="LanguageNamesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Names in multiple languages</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Namen in verschiedenen Sprachen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" maxOccurs="unbounded">
 				<xs:complexType>
@@ -630,37 +800,47 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NamesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Various name representations for funds or objects</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Verschiedene Namensdarstellungen für Funds oder Objekte</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="OfficialName" type="Text500Type">
 				<xs:annotation>
-					<xs:documentation>Official name of fund or corresponding object</xs:documentation>
+					<xs:documentation xml:lang="en">Official name of fund or corresponding object</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Offizieller Name des Fund oder entsprechenden Objekts</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FullName" type="Text500Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Full name of fund or share class for umbrella structures</xs:documentation>
+					<xs:documentation xml:lang="en">Full name of fund or share class for umbrella structures</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Vollständiger Name des Fund oder der ShareClass bei Umbrella-Strukturen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MarketingName" type="Text500Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Marketing name of fund or corresponding object</xs:documentation>
+					<xs:documentation xml:lang="en">Marketing name of fund or corresponding object</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Marketingname des Fund oder entsprechenden Objekts</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShortName" type="Text100Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Short name of fund or corresponding object (max. 100 characters)</xs:documentation>
+					<xs:documentation xml:lang="en">Short name of fund or corresponding object (max. 100 characters)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Kurzname des Fund oder entsprechenden Objekts (max. 100 Zeichen)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PreviousName" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Previous name of fund or corresponding object</xs:documentation>
+					<xs:documentation xml:lang="en">Previous name of fund or corresponding object</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Früherer Name des Fund oder entsprechenden Objekts</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="Text500Type">
 							<xs:attribute name="until" type="xs:date">
 								<xs:annotation>
-									<xs:documentation>Date until previous name of fund or object was valid</xs:documentation>
+									<xs:documentation xml:lang="en">Date until previous name of fund or object was valid</xs:documentation>
+									<xs:documentation xml:lang="de">[AUTO] Datum, bis zu dem der frühere Name des Fund oder Objekts gültig war</xs:documentation>
 								</xs:annotation>
 							</xs:attribute>
 						</xs:extension>
@@ -669,27 +849,35 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 			</xs:element>
 			<xs:element name="DynLenNames" type="DynLenNamesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Name of fund or share classfor different max-space situations</xs:documentation>
+					<xs:documentation xml:lang="en">Name of fund or share class for different max-space situations</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Name des Fund oder der ShareClass für verschiedene Platzanforderungen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="LanguageNames" type="LanguageNamesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Name of fund or share classes in additional languages</xs:documentation>
+					<xs:documentation xml:lang="en">Name of fund or share classes in additional languages</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Name des Fund oder der ShareClasses in weiteren Sprachen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="OtherPricesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for alternative price types (different from official NAV)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Container für alternative Preistypen (abweichend vom offiziellen NAV)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Price" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Inform on the price type (different from the official NAV) used for other price communication</xs:documentation>
+					<xs:documentation xml:lang="en">Inform on the price type (different from the official NAV) used for other price communication</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Preistyp (abweichend vom offiziellen NAV) für alternative Preiskommunikation</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="PriceType">
 							<xs:annotation>
-								<xs:documentation>Select the price type you would like to communicate (SWING, MATURITY, MARKET,HOLD TO MATURITY, ADJUSTED GROSS, ADJUSTED NET)</xs:documentation>
+								<xs:documentation xml:lang="en">Select the price type you would like to communicate (SWING, MATURITY, MARKET, HOLD TO MATURITY, ADJUSTED GROSS, ADJUSTED NET)</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Preistyp auswählen (SWING, MATURITY, MARKET, HOLD TO MATURITY, ADJUSTED GROSS, ADJUSTED NET)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -706,17 +894,20 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 						</xs:element>
 						<xs:element name="NavPrice" type="xs:decimal">
 							<xs:annotation>
-								<xs:documentation>Other price type Net Asset value calculated per share</xs:documentation>
+								<xs:documentation xml:lang="en">Other price type Net Asset Value calculated per share</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Alternativer Preistyp NAV pro Anteil</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="SubscriptionPrice" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Other price type Subscription price per share</xs:documentation>
+								<xs:documentation xml:lang="en">Other price type Subscription price per share</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Alternativer Preistyp Zeichnungspreis pro Anteil</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="RedemptionPrice" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Other price type Redemption price per share</xs:documentation>
+								<xs:documentation xml:lang="en">Other price type Redemption price per share</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Alternativer Preistyp Rücknahmepreis pro Anteil</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -727,13 +918,13 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 	<xs:complexType name="PositiveAmountType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Amount in different currencies - only positive values</xs:documentation>
-			<xs:documentation xml:lang="de">Betrag in verschiedenen Waehrungen - nur positive Werte erlaubt</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Betrag in verschiedenen Währungen - nur positive Werte erlaubt</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Amount" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Amounts in currency as defined in attribute - only positive values</xs:documentation>
-					<xs:documentation xml:lang="de">Betrag in frei waehlbarer Waehrung - nur positive Werte erlaubt</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Betrag in frei wählbarer Währung - nur positive Werte erlaubt</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -749,17 +940,25 @@ Partial hedge: Open position that eliminates below 90% but more than 0% of the r
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ShareClassTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Share class type information including distribution policy</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] ShareClass-Typ-Informationen einschließlich Ausschüttungspolitik</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Code" type="Text32Type">
 				<xs:annotation>
-					<xs:documentation>Country specific code for share class type</xs:documentation>
+					<xs:documentation xml:lang="en">Country specific code for share class type</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Länderspezifischer Code für den ShareClass-Typ</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EarningUse" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>D ... Distributing
+					<xs:documentation xml:lang="en">D ... Distributing
 P ... Partly Distributing
 R ... Reinvesting</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] D ... Ausschüttend
+P ... Teilausschüttend
+R ... Thesaurierend</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -772,28 +971,54 @@ R ... Reinvesting</xs:documentation>
 			</xs:element>
 			<xs:element name="Name" type="Text256Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Short description of share class type (keywords)</xs:documentation>
+					<xs:documentation xml:lang="en">Short description of share class type (keywords)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Kurzbeschreibung des ShareClass-Typs (Stichworte)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="Text1000Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Long description of share class type</xs:documentation>
+					<xs:documentation xml:lang="en">Long description of share class type</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Ausführliche Beschreibung des ShareClass-Typs</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SingleAmountType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Single amount with currency and value</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Einzelbetrag mit Währung und Wert</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Currency" type="ISOCurrencyCodeType"/>
-			<xs:element name="Value" type="xs:decimal"/>
+			<xs:element name="Currency" type="ISOCurrencyCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Currency code (ISO 4217)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Währungscode (ISO 4217)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Decimal value of the amount</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Dezimalwert des Betrags</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TotalAssetValueType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Total asset value information for a fund or share class</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Gesamtvermögenswert-Informationen für einen Fund oder eine ShareClass</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="NavDate" type="xs:date"/>
+			<xs:element name="NavDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Date of the NAV calculation</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Datum der NAV-Berechnung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TotalAssetNature">
 				<xs:annotation>
-					<xs:documentation>Information whether the calculated total asset value is an official, estimated or technical value</xs:documentation>
+					<xs:documentation xml:lang="en">Information whether the calculated total asset value is an official, estimated or technical value</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Angabe ob der berechnete Gesamtvermögenswert ein offizieller, geschätzter oder technischer Wert ist</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -807,22 +1032,26 @@ R ... Reinvesting</xs:documentation>
 			</xs:element>
 			<xs:element name="TotalNetAssetValue" type="FundAmountType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The total amount of net assets of an investment vehicle calculated as the sum of all portfolio holdings including liabilities</xs:documentation>
+					<xs:documentation xml:lang="en">The total amount of net assets of an investment vehicle calculated as the sum of all portfolio holdings including liabilities</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gesamtes Nettovermögen eines Anlagevehikels, berechnet als Summe aller Portfolio-Positionen einschließlich Verbindlichkeiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TotalGrossAssetValue" type="FundAmountType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Total gross assets of closed ended funds and open material assets funds, which means the still existing retail and special real estate funds of the "old" world. Real investment excluding liabilities</xs:documentation>
+					<xs:documentation xml:lang="en">Total gross assets of closed ended funds and open material assets funds, which means the still existing retail and special real estate funds of the "old" world. Real investment excluding liabilities</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gesamtes Bruttovermögen von geschlossenen Fonds und offenen Sachwertfonds, d.h. die noch bestehenden Publikums- und Spezial-Immobilienfonds. Realinvestition ohne Verbindlichkeiten</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SharesOutstanding" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Number of shares which are issued and used as a basis for the calculation of the NAV</xs:documentation>
+					<xs:documentation xml:lang="en">Number of shares which are issued and used as a basis for the calculation of the NAV</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Anzahl der ausgegebenen Anteile, die als Basis für die NAV-Berechnung dienen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Ratio" type="PercentageType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Weight of the share class within the fund in percentage (sum is 100%)</xs:documentation>
+					<xs:documentation xml:lang="en">Weight of the share class within the fund in percentage (sum is 100%)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gewicht der ShareClass innerhalb des Fund in Prozent (Summe ist 100%)</xs:documentation>
 					<xs:appinfo>
 						<altova:exampleValues>
 							<altova:example value="30"/>
@@ -833,13 +1062,15 @@ R ... Reinvesting</xs:documentation>
 			</xs:element>
 			<xs:element name="OtherTotalAssetValues" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Additional total asset values (Swing, Maturity, ...)</xs:documentation>
+					<xs:documentation xml:lang="en">Additional total asset values (Swing, Maturity, ...)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Zusätzliche Gesamtvermögenswerte (Swing, Maturity, ...)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="TotalAssetType">
 							<xs:annotation>
-								<xs:documentation>Select the total asset type you would like to communicate (SWING, MATURITY, MARKET,HOLD TO MATURITY)</xs:documentation>
+								<xs:documentation xml:lang="en">Select the total asset type you would like to communicate (SWING, MATURITY, MARKET, HOLD TO MATURITY)</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Wählen Sie den Gesamtvermögenstyp aus (SWING, MATURITY, MARKET, HOLD TO MATURITY)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -854,17 +1085,20 @@ R ... Reinvesting</xs:documentation>
 						</xs:element>
 						<xs:element name="TotalNetAssetValue" type="FundAmountType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>The total amount of net assets of an investment vehicle calculated as the sum of all portfolio holdings including liabilities</xs:documentation>
+								<xs:documentation xml:lang="en">The total amount of net assets of an investment vehicle calculated as the sum of all portfolio holdings including liabilities</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Gesamtes Nettovermögen eines Anlagevehikels, berechnet als Summe aller Portfolio-Positionen einschließlich Verbindlichkeiten</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="TotalGrossAssetValue" type="FundAmountType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Total gross assets of closed ended funds and open material assets funds, which means the still existing retail and special real estate funds of the "old" world. Real investment excluding liabilities</xs:documentation>
+								<xs:documentation xml:lang="en">Total gross assets of closed ended funds and open material assets funds, which means the still existing retail and special real estate funds of the "old" world. Real investment excluding liabilities</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Gesamtes Bruttovermögen von geschlossenen Fonds und offenen Sachwertfonds. Realinvestition ohne Verbindlichkeiten</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Ratio" type="PercentageType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Weight of the share class within the fund in percentage (sum is 100%)</xs:documentation>
+								<xs:documentation xml:lang="en">Weight of the share class within the fund in percentage (sum is 100%)</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Gewicht der ShareClass innerhalb des Fund in Prozent (Summe ist 100%)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -874,7 +1108,8 @@ R ... Reinvesting</xs:documentation>
 	</xs:complexType>
 	<xs:simpleType name="BicCodeType">
 		<xs:annotation>
-			<xs:documentation>BIC Code (SWIFT)</xs:documentation>
+			<xs:documentation xml:lang="en">BIC Code (SWIFT)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] BIC-Code (SWIFT)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:minLength value="3"/>
@@ -883,7 +1118,8 @@ R ... Reinvesting</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="CompanyListedClassificationType">
 		<xs:annotation>
-			<xs:documentation>List of company classifications</xs:documentation>
+			<xs:documentation xml:lang="en">List of company classifications</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Liste der Unternehmensklassifikationen</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NACE Rev 2.1"/>
@@ -904,7 +1140,7 @@ R ... Reinvesting</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="FrequencyType">
 		<xs:annotation>
-			<xs:documentation>Frequency:
+			<xs:documentation xml:lang="en">Frequency:
 DAIL ... Daily
 MNTH ... Monthly
 QURT ... Quarterly
@@ -913,6 +1149,15 @@ TWMN ... Twomonthly
 TWWK ... Twoweekly
 WEEK ... Weekly
 YEAR</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Häufigkeit:
+DAIL ... Täglich
+MNTH ... Monatlich
+QURT ... Vierteljährlich
+SEMI ... Halbjährlich
+TWMN ... Zweimonatlich
+TWWK ... Zweiwöchentlich
+WEEK ... Wöchentlich
+YEAR ... Jährlich</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="DAIL"/>
@@ -927,7 +1172,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="ISINType">
 		<xs:annotation>
-			<xs:documentation>International Securities Identification Number (according to ISO 6166)</xs:documentation>
+			<xs:documentation xml:lang="en">International Securities Identification Number (according to ISO 6166)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Internationale Wertpapierkennnummer (gemäß ISO 6166)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:length value="12"/>
@@ -937,7 +1183,7 @@ YEAR</xs:documentation>
 	<xs:simpleType name="ISOCountryCodeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">The ISOCountryCodeType is a type for decoding ISO-CountryCodes. It is used the two-letter ISO-CountryCodes (ISO 3166-1alpha-2). It is of the type string and has a length from exactly two letters.</xs:documentation>
-			<xs:documentation xml:lang="de">Der ISOCountryCodeType stellt einen einfachen Typ zur Verarbeitung von ISO-Laendercodes bereit. Verwendet werden die zweistelligen ISO-Waehrungscodes (ISO 3166-1alpha-2). Er ist vom Typ string und hat eine Laenge von zwei Zeichen.</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Der ISOCountryCodeType stellt einen einfachen Typ zur Verarbeitung von ISO-Ländercodes bereit. Verwendet werden die zweistelligen ISO-Ländercodes (ISO 3166-1alpha-2). Er ist vom Typ string und hat eine Länge von zwei Zeichen.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="2"/>
@@ -947,7 +1193,7 @@ YEAR</xs:documentation>
 	<xs:simpleType name="ISOCurrencyCodeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Three-letter ISO-CurrencyCode (ISO 4217)</xs:documentation>
-			<xs:documentation xml:lang="de">Dreistelliger ISO-Waehrungscode (ISO 4217)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Dreistelliger ISO-Währungscode (ISO 4217)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="3"/>
@@ -958,6 +1204,7 @@ YEAR</xs:documentation>
 	<xs:simpleType name="ISOLanguageCodeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">The ISOLanguageCodeType is a type for decoding ISO 639-1 Language Code. It is of the type string and has a length from exactly two letters.</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Der ISOLanguageCodeType ist ein Typ zur Dekodierung von ISO 639-1 Sprachcodes. Er ist vom Typ string und hat eine Länge von genau zwei Buchstaben.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="2"/>
@@ -966,11 +1213,16 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="LEICodeType">
 		<xs:annotation>
-			<xs:documentation>Legal Entity Identifier (LEI) (ISO 17442 standard) of the Entity  or if not available the Interim Entity Identifier (IEI):
+			<xs:documentation xml:lang="en">Legal Entity Identifier (LEI) (ISO 17442 standard) of the Entity or if not available the Interim Entity Identifier (IEI):
 •Characters 1-4: A four character prefix allocated uniquely to each LOU.
 •Characters 5-6: Two reserved characters set to zero.
 •Characters 7-18: Entity - specific part of the code generated and assigned by LOUs according to transparent, sound and robust allocation policies.
 •Characters 19-20: Two check digits</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Legal Entity Identifier (LEI) (ISO 17442 Standard) der Einheit oder, falls nicht verfügbar, der Interim Entity Identifier (IEI):
+•Zeichen 1-4: Vierstelliges Präfix, eindeutig jeder LOU zugewiesen.
+•Zeichen 5-6: Zwei reservierte Zeichen, auf Null gesetzt.
+•Zeichen 7-18: Einheitsspezifischer Teil des Codes, von LOUs generiert und zugewiesen.
+•Zeichen 19-20: Zwei Prüfziffern</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:minLength value="20"/>
@@ -980,7 +1232,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="ListedIdentifierType">
 		<xs:annotation>
-			<xs:documentation>List of all public available Identifiers</xs:documentation>
+			<xs:documentation xml:lang="en">List of all public available Identifiers</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Liste aller öffentlich verfügbaren Identifikatoren</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AIF CODE"/>
@@ -1024,7 +1277,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="MICCodeType">
 		<xs:annotation>
-			<xs:documentation>Market Identifier Code - ISO 10383</xs:documentation>
+			<xs:documentation xml:lang="en">Market Identifier Code - ISO 10383</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Market Identifier Code - ISO 10383</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:length value="4"/>
@@ -1032,19 +1286,24 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="PercentageType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">The PercentageType defines the percentage-values. It is derived from decimal. To decimal there is no modification. Percentage values can be expressed in three was: For 3.5 % it can be written as 3.5 or 1.035 or 0.035. For FundsXML percentage value has to be written as 3.5</xs:documentation>
-			<xs:documentation xml:lang="de">Der PercentageType definiert die Prozentwerte. Abgeleitet ist er von decimal. Veraendert wurde er nicht. Bei Prozentwerten kann man je nach Definition fuer 3, 5 % die Werte 3.5 oder 1.035 oder 0.035 angeben. Mit diesem Typ dokumentiert FundsXML, dass fuer Prozentwerte die Auspraegung 3.5 benutzt werden muss um eine einheitliche Auspraegung fuer den Datenaustausch zwischen Firmen zu erreichen.</xs:documentation>
+			<xs:documentation xml:lang="en">The PercentageType defines the percentage-values. It is derived from decimal. To decimal there is no modification. Percentage values can be expressed in three ways: For 3.5 % it can be written as 3.5 or 1.035 or 0.035. For FundsXML percentage value has to be written as 3.5</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Der PercentageType definiert die Prozentwerte. Abgeleitet ist er von decimal. Bei Prozentwerten kann man je nach Definition für 3,5 % die Werte 3.5 oder 1.035 oder 0.035 angeben. Mit diesem Typ dokumentiert FundsXML, dass für Prozentwerte die Ausprägung 3.5 benutzt werden muss um eine einheitliche Ausprägung für den Datenaustausch zwischen Firmen zu erreichen.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:decimal"/>
 	</xs:simpleType>
 	<xs:simpleType name="positiveDecimals">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Decimal values greater than or equal to zero</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Dezimalwerte größer oder gleich Null</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:decimal">
 			<xs:minInclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="Text1000Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 1000 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 1000 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 1000 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="1000"/>
@@ -1052,7 +1311,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text100Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 100 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 100 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 100 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="100"/>
@@ -1060,7 +1320,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text128Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 128 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 128 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 128 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="128"/>
@@ -1068,7 +1329,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text16Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 16 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 16 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 16 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="16"/>
@@ -1076,7 +1338,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text1Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 1 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 1 character)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 1 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="1"/>
@@ -1084,7 +1347,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text200Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 200 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 200 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 200 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="200"/>
@@ -1092,7 +1356,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text256Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 256 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 256 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 256 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="256"/>
@@ -1100,7 +1365,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text32Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 32 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 32 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 32 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="32"/>
@@ -1108,7 +1374,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text4Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 4 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 4 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 4 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="4"/>
@@ -1116,7 +1383,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text500Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 500 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 500 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 500 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="500"/>
@@ -1124,7 +1392,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="Text64Type">
 		<xs:annotation>
-			<xs:documentation>Text (max. 64 characters)</xs:documentation>
+			<xs:documentation xml:lang="en">Text (max. 64 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Text (max. 64 Zeichen)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="64"/>
@@ -1132,7 +1401,8 @@ YEAR</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="YesNoType">
 		<xs:annotation>
-			<xs:documentation>YES or NO</xs:documentation>
+			<xs:documentation xml:lang="en">YES or NO</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] YES oder NO</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="YES"/>

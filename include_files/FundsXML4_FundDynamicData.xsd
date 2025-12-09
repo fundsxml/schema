@@ -4,10 +4,15 @@
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
 	<xs:complexType name="FundDynamicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Dynamic data for funds including total asset values, portfolios, and benchmark data</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Dynamische Daten für Funds einschließlich Gesamtvermögenswerten, Portfolios und Benchmark-Daten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TotalAssetValues" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Total NAV (volume) of fund</xs:documentation>
+					<xs:documentation xml:lang="en">Total NAV (volume) of fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gesamtes NAV (Volumen) des Fund</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -17,7 +22,8 @@
 			</xs:element>
 			<xs:element name="Portfolios" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>All portfolio related data (not to be used for umbrella structures)</xs:documentation>
+					<xs:documentation xml:lang="en">All portfolio related data (not to be used for umbrella structures)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Alle portfoliobezogenen Daten (nicht für Umbrella-Strukturen zu verwenden)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -27,7 +33,8 @@
 			</xs:element>
 			<xs:element name="Benchmarks" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Benchmark Data of fund</xs:documentation>
+					<xs:documentation xml:lang="en">Benchmark data of fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Benchmark-Daten des Fund</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -38,10 +45,15 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BenchmarkDynamicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Dynamic benchmark data including values and component values</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Dynamische Benchmark-Daten einschließlich Werten und Komponentenwerten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Link from Benchmark Static Data</xs:documentation>
+					<xs:documentation xml:lang="en">Link to Benchmark Static Data</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Verknüpfung zu den statischen Benchmark-Daten</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">

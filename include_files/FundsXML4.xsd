@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2015 (x64) (http://www.altova.com) von Kauc Karl (Erste Asset Management GmbH) bearbeitet -->
-<xs:schema 
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
-	xmlns:altova="http://www.altova.com/xml-schema-extensions" 
-	xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
-	elementFormDefault="qualified" 
-	attributeFormDefault="unqualified" 
-	version="4.2.10" 
-	vc:minVersion="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.2.11" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_CountrySpecificData.xsd"/>
 	<xs:include schemaLocation="FundsXML4_FundStaticData.xsd"/>
@@ -26,7 +18,7 @@
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation># Root element of FundsXML 4.2.10</xs:documentation>
+			<xs:documentation># Root element of FundsXML 4.2.11</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -149,8 +141,6 @@ PRIIPS-KIDS</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:minLength value="3"/>
-									<xs:maxLength value="12"/>
 									<xs:enumeration value="AIFMD-AnnexIV"/>
 									<xs:enumeration value="AnnualReport"/>
 									<xs:enumeration value="HalfYearReport"/>
@@ -205,7 +195,7 @@ PRIIPS-KIDS</xs:documentation>
 					<xs:sequence>
 						<xs:element name="Country" type="ISOCountryCodeType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Three letter ISO code of country</xs:documentation>
+								<xs:documentation>Two letter ISO code of country</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -396,6 +386,7 @@ No, Digital, Scan</xs:documentation>
 						<xs:enumeration value="4.2.8"/>
 						<xs:enumeration value="4.2.9"/>
 						<xs:enumeration value="4.2.10"/>
+						<xs:enumeration value="4.2.11"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -483,6 +474,8 @@ DELETE: This involves the removal of specific data from the system. It could be 
 												<xs:enumeration value="RegulatoryReporting_SolvencyII"/>
 												<xs:enumeration value="ShareClassData"/>
 												<xs:enumeration value="TransactionData"/>
+												<xs:enumeration value="RegulatoryReporting_EFT"/>
+												<xs:enumeration value="RegulatoryReporting_EET"/>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>

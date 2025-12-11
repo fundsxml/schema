@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Mit XMLSpy v2015 (x64) (http://www.altova.com) generiertes W3C XML-Schema-->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+<xs:schema 
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
-	xmlns:altova="http://www.altova.com/xml-schema-extensions" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+	xmlns:altova="http://www.altova.com/xml-schema-extensions" 
 	elementFormDefault="qualified" 
 	attributeFormDefault="unqualified" 
-	version="4.2.10" 
-	vc:minVersion="1.1">
+	vc:minVersion="1.1" 
+	version="4.2.11">
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation># Root element of FundsXML 4.2.10</xs:documentation>
+			<xs:documentation># Root element of FundsXML 4.2.11</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -963,7 +964,7 @@ N = Nominale</xs:documentation>
 												<xs:element name="Equity" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>
-														</xs:documentation>
+</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -987,7 +988,8 @@ N = Nominale</xs:documentation>
 												<xs:element name="Bonds" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>
-														</xs:documentation>
+
+</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -1008,7 +1010,7 @@ N = Nominale</xs:documentation>
 												<xs:element name="Cash_MoneyMarket" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>
-														</xs:documentation>
+</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -1039,7 +1041,8 @@ N = Nominale</xs:documentation>
 												<xs:element name="HedgeFunds" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>
-														</xs:documentation>
+
+</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -1054,7 +1057,7 @@ N = Nominale</xs:documentation>
 												<xs:element name="StructuredProducts" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>
-														</xs:documentation>
+</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -1070,7 +1073,7 @@ N = Nominale</xs:documentation>
 												<xs:element name="Other" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>
-														</xs:documentation>
+</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -1236,7 +1239,7 @@ N = Nominale</xs:documentation>
 												<xs:element name="Property" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>
-														</xs:documentation>
+</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -3618,6 +3621,7 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 						<xs:enumeration value="4.2.8"/>
 						<xs:enumeration value="4.2.9"/>
 						<xs:enumeration value="4.2.10"/>
+						<xs:enumeration value="4.2.11"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -3705,6 +3709,8 @@ DELETE: This involves the removal of specific data from the system. It could be 
 												<xs:enumeration value="RegulatoryReporting_SolvencyII"/>
 												<xs:enumeration value="ShareClassData"/>
 												<xs:enumeration value="TransactionData"/>
+												<xs:enumeration value="RegulatoryReporting_EFT"/>
+												<xs:enumeration value="RegulatoryReporting_EET"/>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
@@ -7055,8 +7061,6 @@ PRIIPS-KIDS</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:minLength value="3"/>
-									<xs:maxLength value="12"/>
 									<xs:enumeration value="AIFMD-AnnexIV"/>
 									<xs:enumeration value="AnnualReport"/>
 									<xs:enumeration value="HalfYearReport"/>
@@ -7111,7 +7115,7 @@ PRIIPS-KIDS</xs:documentation>
 					<xs:sequence>
 						<xs:element name="Country" type="ISOCountryCodeType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Three letter ISO code of country</xs:documentation>
+								<xs:documentation>Two letter ISO code of country</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -26935,7 +26939,7 @@ SOFT ... Only existing investors can buy new shares</xs:documentation>
 											<xs:documentation>Indicates the role of the person in charge of the management of the portfolio</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="YearOfBirth" type="xs:date" minOccurs="0">
+									<xs:element name="YearOfBirth" type="xs:gYear" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Indicates the date of birth of the person in charge of the management of the portfolio</xs:documentation>
 										</xs:annotation>
@@ -29281,7 +29285,7 @@ fixed/variable</xs:documentation>
 			<xs:element name="Value" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
-					</xs:documentation>
+</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ConsideredInInvestmentStrategy" type="EETYesNoType" minOccurs="0">

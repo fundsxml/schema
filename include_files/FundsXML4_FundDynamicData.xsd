@@ -4,10 +4,19 @@
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
 	<xs:complexType name="FundDynamicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Dynamic data for funds including total asset values, portfolios, and benchmark data</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Dynamische Daten für Funds einschließlich Gesamtvermögenswerten, Portfolios und Benchmark-Daten</xs:documentation>
+			<xs:documentation xml:lang="fr">Dynamique données pour funds y compris total actif values, portfolios, et benchmark données</xs:documentation>
+			<xs:documentation xml:lang="nl">Dynamisch gegevens voor funds inclusief totaal actief values, portfolios, en benchmark gegevens</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TotalAssetValues" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Total NAV (volume) of fund</xs:documentation>
+					<xs:documentation xml:lang="en">Total NAV (volume) of fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gesamtes NAV (Volumen) des Fund</xs:documentation>
+					<xs:documentation xml:lang="fr">Total NAV (volume) de fonds</xs:documentation>
+					<xs:documentation xml:lang="nl">Totaal NAV (volume) van fonds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -17,7 +26,10 @@
 			</xs:element>
 			<xs:element name="Portfolios" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>All portfolio related data (not to be used for umbrella structures)</xs:documentation>
+					<xs:documentation xml:lang="en">All portfolio related data (not to be used for umbrella structures)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Alle portfoliobezogenen Daten (nicht für Umbrella-Strukturen zu verwenden)</xs:documentation>
+					<xs:documentation xml:lang="fr">All portefeuille related données (pas à be used pour umbrella structures)</xs:documentation>
+					<xs:documentation xml:lang="nl">All portefeuille related gegevens (niet naar be used voor umbrella structures)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -27,7 +39,10 @@
 			</xs:element>
 			<xs:element name="Benchmarks" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Benchmark Data of fund</xs:documentation>
+					<xs:documentation xml:lang="en">Benchmark data of fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Benchmark-Daten des Fund</xs:documentation>
+					<xs:documentation xml:lang="fr">Benchmark données de fonds</xs:documentation>
+					<xs:documentation xml:lang="nl">Benchmark gegevens van fonds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -38,10 +53,19 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BenchmarkDynamicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Dynamic benchmark data including values and component values</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Dynamische Benchmark-Daten einschließlich Werten und Komponentenwerten</xs:documentation>
+			<xs:documentation xml:lang="fr">Dynamique benchmark données y compris values et component values</xs:documentation>
+			<xs:documentation xml:lang="nl">Dynamisch benchmark gegevens inclusief values en component values</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Link from Benchmark Static Data</xs:documentation>
+					<xs:documentation xml:lang="en">Link to Benchmark Static Data</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Verknüpfung zu den statischen Benchmark-Daten</xs:documentation>
+					<xs:documentation xml:lang="fr">Link à Benchmark Statique Données</xs:documentation>
+					<xs:documentation xml:lang="nl">Link naar Benchmark Statisch Gegevens</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">

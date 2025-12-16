@@ -15,24 +15,36 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
 			<xs:documentation xml:lang="de">Ein wesentliches Anlegerinformationsdokument (KIID), das aus der Zusammenführung von Standardtexten (in der jeweiligen Sprache) und Daten eines bestimmten Fonds entsteht.
 Annotationen enthalten Verweise auf Artikelnummern der EU-Kommissionsverordnung Nr. 583/2010.
 Für Standardüberschriften und Haftungsausschlüsse wird ein Beispiel des möglichen oder vorgeschriebenen Textes in Anführungszeichen angezeigt.</xs:documentation>
+			<xs:documentation xml:lang="fr">One Key Investisseur Information Document resulting de un merger de fixed texts (dans appropriate language) et données de un spécifique fonds.
+Annotations include référence à articles numbers de EU Commission Regulation # 583/2010
+For fixed headings et disclaimers, un example de possible ou imposed text est displayed between quotes like 'Disclaimer'</xs:documentation>
+			<xs:documentation xml:lang="nl">One Key Belegger Informatie Document resulting van een merger van fixed texts (in appropriate language) en gegevens van een specifiek fonds.
+Annotations include referentie naar articles numbers van EU Commission Regulation # 583/2010
+For fixed headings en disclaimers, een example van possible van imposed text is displayed between quotes like 'Disclaimer'</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
 					<xs:documentation xml:lang="de">Fonds- oder Anteilsklassen-Identifikatoren zur einfachen Verknüpfung mit anderen Fonds- oder Anteilsklassendaten</xs:documentation>
+					<xs:documentation xml:lang="fr">Fonds ou classe d'actions identifiers pour easy connection à autre fonds ou classe d'actions données</xs:documentation>
+					<xs:documentation xml:lang="nl">Fonds van aandelenklasse identifiers voor easy connection naar overig fonds van aandelenklasse gegevens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Definition of data source (investment company, vendor, ...)</xs:documentation>
 					<xs:documentation xml:lang="de">Definition der Datenquelle (Investmentgesellschaft, Anbieter, ...)</xs:documentation>
+					<xs:documentation xml:lang="fr">Definition de données source (investissement company, vendor, ...)</xs:documentation>
+					<xs:documentation xml:lang="nl">Definition van gegevens source (belegging company, vendor, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CoverPage">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Cover page fixed texts. Art 4.2 and 4.3</xs:documentation>
 				<xs:documentation xml:lang="de">Deckblatt-Standardtexte. Art. 4.2 und 4.3</xs:documentation>
+					<xs:documentation xml:lang="fr">Cover page fixed texts. Art 4.2 et 4.3</xs:documentation>
+					<xs:documentation xml:lang="nl">Cover page fixed texts. Art 4.2 en 4.3</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -40,12 +52,16 @@ Für Standardüberschriften und Haftungsausschlüsse wird ein Beispiel des mögl
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Heading 'Key Investor Information'</xs:documentation>
 								<xs:documentation xml:lang="de">Überschrift 'Wesentliche Anlegerinformationen'</xs:documentation>
+								<xs:documentation xml:lang="fr">Heading 'Key Investisseur Information'</xs:documentation>
+								<xs:documentation xml:lang="nl">Heading 'Key Belegger Informatie'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="GlobalDisclaimer" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'This document provides you with...'</xs:documentation>
 								<xs:documentation xml:lang="de">'Dieses Dokument liefert Ihnen...'</xs:documentation>
+								<xs:documentation xml:lang="fr">'This document provides you avec...'</xs:documentation>
+								<xs:documentation xml:lang="nl">'This document provides you met...'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -55,6 +71,8 @@ Für Standardüberschriften und Haftungsausschlüsse wird ein Beispiel des mögl
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Art.4-4 Fund or Share class(es) identification</xs:documentation>
 					<xs:documentation xml:lang="de">Art. 4-4 Identifikation des Fonds oder der Anteilsklasse(n)</xs:documentation>
+					<xs:documentation xml:lang="fr">Art.4-4 Fonds ou Classe d'actions(es) identification</xs:documentation>
+					<xs:documentation xml:lang="nl">Art.4-4 Fonds van Aandelenklasse(es) identification</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -66,12 +84,16 @@ Für Standardüberschriften und Haftungsausschlüsse wird ein Beispiel des mögl
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'ISIN:'</xs:documentation>
 											<xs:documentation xml:lang="de">'ISIN:'</xs:documentation>
+											<xs:documentation xml:lang="fr">'ISIN:'</xs:documentation>
+											<xs:documentation xml:lang="nl">'ISIN:'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ShareClassISIN" type="xs:string">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">ISIN code of the share class</xs:documentation>
 											<xs:documentation xml:lang="de">ISIN-Code der Anteilsklasse</xs:documentation>
+											<xs:documentation xml:lang="fr">ISIN code de classe d'actions</xs:documentation>
+											<xs:documentation xml:lang="nl">ISIN code van aandelenklasse</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="MainShareClassIndicator" type="xs:boolean">
@@ -80,6 +102,10 @@ Für Standardüberschriften und Haftungsausschlüsse wird ein Beispiel des mögl
 Performances and risk indicator are computed with the main share class data.</xs:documentation>
 											<xs:documentation xml:lang="de">Indikator ist wahr, wenn die aktuelle Anteilsklasse die Hauptanteilsklasse ist.
 Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse berechnet.</xs:documentation>
+											<xs:documentation xml:lang="fr">Indicateur set à true si current classe d'actions est main classe d'actions.
+Performances et risque indicateur sont computed avec main classe d'actions données.</xs:documentation>
+											<xs:documentation xml:lang="nl">Indicator set naar true als current aandelenklasse is main aandelenklasse.
+Performances en risico indicator zijn computed met main aandelenklasse gegevens.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -89,12 +115,16 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Umbrella fund name, if any</xs:documentation>
 								<xs:documentation xml:lang="de">Name des Umbrella-Fonds, falls vorhanden</xs:documentation>
+								<xs:documentation xml:lang="fr">Umbrella fonds nom, si tout</xs:documentation>
+								<xs:documentation xml:lang="nl">Umbrella fonds naam, als elke</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="SubfundName" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Subfund or compartment name</xs:documentation>
 								<xs:documentation xml:lang="de">Name des Teilfonds oder Compartments</xs:documentation>
+								<xs:documentation xml:lang="fr">Subfund ou compartment nom</xs:documentation>
+								<xs:documentation xml:lang="nl">Subfund van compartment naam</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -104,18 +134,24 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 				<xs:annotation>
 					<xs:documentation xml:lang="en">'This key investor information is accurate as at..'</xs:documentation>
 					<xs:documentation xml:lang="de">'Diese wesentlichen Anlegerinformationen sind aktuell per...'</xs:documentation>
+					<xs:documentation xml:lang="fr">'This key investisseur information est accurate comme at..'</xs:documentation>
+					<xs:documentation xml:lang="nl">'This key belegger informatie is accurate als at..'</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PublicationDate" type="xs:date">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Art.4-13 </xs:documentation>
 					<xs:documentation xml:lang="de">Art. 4-13</xs:documentation>
+					<xs:documentation xml:lang="fr">Art.4-13</xs:documentation>
+					<xs:documentation xml:lang="nl">Art.4-13</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AssetManagementCompany">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Art.4-5 and 6 </xs:documentation>
 					<xs:documentation xml:lang="de">Art. 4-5 und 6</xs:documentation>
+					<xs:documentation xml:lang="fr">Art.4-5 et 6</xs:documentation>
+					<xs:documentation xml:lang="nl">Art.4-5 en 6</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -123,18 +159,24 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'This fund is managed by...'</xs:documentation>
 								<xs:documentation xml:lang="de">'Dieser Fonds wird verwaltet von...'</xs:documentation>
+								<xs:documentation xml:lang="fr">'This fonds est managed par...'</xs:documentation>
+								<xs:documentation xml:lang="nl">'This fonds is managed door...'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="AssetManagementCompanyName" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">4-5</xs:documentation>
 								<xs:documentation xml:lang="de">4-5</xs:documentation>
+								<xs:documentation xml:lang="fr">4-5</xs:documentation>
+								<xs:documentation xml:lang="nl">4-5</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="AssetManagementCompanyGroupName" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">4-6</xs:documentation>
 								<xs:documentation xml:lang="de">4-6</xs:documentation>
+								<xs:documentation xml:lang="fr">4-6</xs:documentation>
+								<xs:documentation xml:lang="nl">4-6</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -144,12 +186,16 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Language used for the current KIID</xs:documentation>
 					<xs:documentation xml:lang="de">Sprache des aktuellen KIID</xs:documentation>
+					<xs:documentation xml:lang="fr">Language used pour current KIID</xs:documentation>
+					<xs:documentation xml:lang="nl">Language used voor current KIID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ObjectivesAndInvestmentPolicy">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Art.7</xs:documentation>
 					<xs:documentation xml:lang="de">Art. 7</xs:documentation>
+					<xs:documentation xml:lang="fr">Art.7</xs:documentation>
+					<xs:documentation xml:lang="nl">Art.7</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -157,24 +203,32 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'Objectives and Investment Policy'</xs:documentation>
 								<xs:documentation xml:lang="de">'Ziele und Anlagepolitik'</xs:documentation>
+								<xs:documentation xml:lang="fr">'Objectives et Investissement Policy'</xs:documentation>
+								<xs:documentation xml:lang="nl">'Objectives en Belegging Policy'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="GeneralStrategyDescription" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-1 complement an/or 7-4</xs:documentation>
 								<xs:documentation xml:lang="de">7-1 Ergänzung und/oder 7-4</xs:documentation>
+								<xs:documentation xml:lang="fr">7-1 complement un/ou 7-4</xs:documentation>
+								<xs:documentation xml:lang="nl">7-1 complement een/van 7-4</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MainAssetsHeading" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-1a 'Main asset categories'</xs:documentation>
 								<xs:documentation xml:lang="de">7-1a 'Hauptanlagekategorien'</xs:documentation>
+								<xs:documentation xml:lang="fr">7-1a 'Main actif categories'</xs:documentation>
+								<xs:documentation xml:lang="nl">7-1a 'Main actief categories'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="FinancialInstruments" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-1a Instruments categories the fund may invest in</xs:documentation>
 								<xs:documentation xml:lang="de">7-1a Instrumentenkategorien, in die der Fonds investieren darf</xs:documentation>
+								<xs:documentation xml:lang="fr">7-1a Instruments categories fonds may invest dans</xs:documentation>
+								<xs:documentation xml:lang="nl">7-1a Instruments categories fonds may invest in</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -182,12 +236,16 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Category of eligible instruments</xs:documentation>
 											<xs:documentation xml:lang="de">Kategorie zulässiger Instrumente</xs:documentation>
+											<xs:documentation xml:lang="fr">Catégorie de éligible instruments</xs:documentation>
+											<xs:documentation xml:lang="nl">Categorie van geschikt instruments</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="InstrumentCategoryDescription" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">1-7-1c - Description of instrument category selection criteria (geographical, economic, market, ...)</xs:documentation>
 											<xs:documentation xml:lang="de">1-7-1c - Beschreibung der Auswahlkriterien für Instrumentenkategorien (geografisch, wirtschaftlich, marktbezogen, ...)</xs:documentation>
+											<xs:documentation xml:lang="fr">1-7-1c - Description de instrument catégorie selection criteria (geographical, economic, marché, ...)</xs:documentation>
+											<xs:documentation xml:lang="nl">1-7-1c - Beschrijving van instrument categorie selection criteria (geographical, economic, markt, ...)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -197,30 +255,40 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-1b 'Frequency of Subscription/redemtion: ' </xs:documentation>
 								<xs:documentation xml:lang="de">7-1b 'Häufigkeit von Zeichnung/Rücknahme: '</xs:documentation>
+								<xs:documentation xml:lang="fr">7-1b 'Frequency de Souscription/redemtion: '</xs:documentation>
+								<xs:documentation xml:lang="nl">7-1b 'Frequency van Inschrijving/redemtion: '</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DealingFrequency" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-1b Dealing frequency for subscription/redemption (daily, weekly, monthly, ...)</xs:documentation>
 								<xs:documentation xml:lang="de">7-1b Handelsfrequenz für Zeichnung/Rücknahme (täglich, wöchentlich, monatlich, ...)</xs:documentation>
+								<xs:documentation xml:lang="fr">7-1b Dealing frequency pour souscription/rachat (quotidien, hebdomadaire, mensuel, ...)</xs:documentation>
+								<xs:documentation xml:lang="nl">7-1b Dealing frequency voor inschrijving/inkoop (dagelijks, wekelijks, maandelijks, ...)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DistributionPolicyHeading" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-1e 'Distribution policy: '</xs:documentation>
 								<xs:documentation xml:lang="de">7-1e 'Ausschüttungspolitik: '</xs:documentation>
+								<xs:documentation xml:lang="fr">7-1e 'Distribution policy: '</xs:documentation>
+								<xs:documentation xml:lang="nl">7-1e 'Uitkering policy: '</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DistributionPolicy" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-1e Distribution or Capitalization description</xs:documentation>
 								<xs:documentation xml:lang="de">7-1e Beschreibung der Ausschüttungs- oder Thesaurierungspolitik</xs:documentation>
+								<xs:documentation xml:lang="fr">7-1e Distribution ou Capitalization description</xs:documentation>
+								<xs:documentation xml:lang="nl">7-1e Uitkering van Capitalization beschrijving</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Benchmark" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-1d Reference to a benchmark</xs:documentation>
 								<xs:documentation xml:lang="de">7-1d Verweis auf eine Benchmark</xs:documentation>
+								<xs:documentation xml:lang="fr">7-1d Référence à un benchmark</xs:documentation>
+								<xs:documentation xml:lang="nl">7-1d Referentie naar een benchmark</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -228,6 +296,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'The fund refers to the following benchmark: '</xs:documentation>
 											<xs:documentation xml:lang="de">'Der Fonds bezieht sich auf folgende Benchmark: '</xs:documentation>
+											<xs:documentation xml:lang="fr">'The fonds refers à following benchmark: '</xs:documentation>
+											<xs:documentation xml:lang="nl">'The fonds refers naar following benchmark: '</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="BenchmarkName" type="xs:string"/>
@@ -235,6 +305,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Description of the degree of freedom in relation to the benchmark</xs:documentation>
 											<xs:documentation xml:lang="de">Beschreibung des Freiheitsgrads in Bezug auf die Benchmark</xs:documentation>
+											<xs:documentation xml:lang="fr">Description de degree de freedom dans relation à benchmark</xs:documentation>
+											<xs:documentation xml:lang="nl">Beschrijving van degree van freedom in relation naar benchmark</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -244,6 +316,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">7-2 </xs:documentation>
 								<xs:documentation xml:lang="de">7-2</xs:documentation>
+								<xs:documentation xml:lang="fr">7-2</xs:documentation>
+								<xs:documentation xml:lang="nl">7-2</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -251,12 +325,16 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'Additional information on strategy: '</xs:documentation>
 											<xs:documentation xml:lang="de">'Zusätzliche Informationen zur Strategie: '</xs:documentation>
+											<xs:documentation xml:lang="fr">'Supplémentaire information on strategy: '</xs:documentation>
+											<xs:documentation xml:lang="nl">'Aanvullend informatie on strategy: '</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="DebtSecuritiesDetails" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">7-2a</xs:documentation>
 											<xs:documentation xml:lang="de">7-2a</xs:documentation>
+											<xs:documentation xml:lang="fr">7-2a</xs:documentation>
+											<xs:documentation xml:lang="nl">7-2a</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -264,12 +342,16 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 													<xs:annotation>
 														<xs:documentation xml:lang="en">7-2a Indication of issuers allowed: governments, corporate,...</xs:documentation>
 														<xs:documentation xml:lang="de">7-2a Angabe der zulässigen Emittenten: Staaten, Unternehmen,...</xs:documentation>
+														<xs:documentation xml:lang="fr">7-2a Indication de issuers allowed: governments, corporate,...</xs:documentation>
+														<xs:documentation xml:lang="nl">7-2a Indication van issuers allowed: governments, corporate,...</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="MinimumRating" type="xs:string" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">7-2a</xs:documentation>
 														<xs:documentation xml:lang="de">7-2a</xs:documentation>
+														<xs:documentation xml:lang="fr">7-2a</xs:documentation>
+														<xs:documentation xml:lang="nl">7-2a</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -279,36 +361,48 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">7-2c Growth, Value or High dividends</xs:documentation>
 											<xs:documentation xml:lang="de">7-2c Growth, Value oder hohe Dividenden</xs:documentation>
+											<xs:documentation xml:lang="fr">7-2c Growth, Valeur ou High dividends</xs:documentation>
+											<xs:documentation xml:lang="nl">7-2c Growth, Waarde van High dividends</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="SpecificTechniquesHeading" type="xs:string">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">7-2d 'Specific asset management techniques used: '</xs:documentation>
 											<xs:documentation xml:lang="de">7-2d 'Verwendete spezifische Vermögensverwaltungstechniken: '</xs:documentation>
+											<xs:documentation xml:lang="fr">7-2d 'Spécifique actif management techniques used: '</xs:documentation>
+											<xs:documentation xml:lang="nl">7-2d 'Specifiek actief management techniques used: '</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="SpecificTechniquesDescription" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">7-2d Eg. Hedging, arbitrage, leverage, etc.</xs:documentation>
 											<xs:documentation xml:lang="de">7-2d Z.B. Hedging, Arbitrage, Leverage, etc.</xs:documentation>
+											<xs:documentation xml:lang="fr">7-2d Eg. Hedging, arbitrage, leverage, etc.</xs:documentation>
+											<xs:documentation xml:lang="nl">7-2d Eg. Hedging, arbitrage, leverage, etc.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="TransactionsCostsStatement" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">1-7-2e Impact of portfolio transaction costs due to the fund strategy</xs:documentation>
 											<xs:documentation xml:lang="de">1-7-2e Auswirkungen der Portfolio-Transaktionskosten aufgrund der Fondsstrategie</xs:documentation>
+											<xs:documentation xml:lang="fr">1-7-2e Impact de portefeuille transaction costs due à fonds strategy</xs:documentation>
+											<xs:documentation xml:lang="nl">1-7-2e Impact van portefeuille transactie costs due naar fonds strategy</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="MinimumRecommendedTermHeading" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">7-1f 'Recommendation: this fund may not be appropriate for investors...'</xs:documentation>
 											<xs:documentation xml:lang="de">7-1f 'Empfehlung: Dieser Fonds ist möglicherweise nicht für Anleger geeignet...'</xs:documentation>
+											<xs:documentation xml:lang="fr">7-1f 'Recommendation: ce fonds may pas be appropriate pour investors...'</xs:documentation>
+											<xs:documentation xml:lang="nl">7-1f 'Recommendation: dit fonds may niet be appropriate voor investors...'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="MinimumRecommendedTerm" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">1-7-2f Statement on minimum holding period as an essential element</xs:documentation>
 											<xs:documentation xml:lang="de">1-7-2f Angabe zur Mindesthaltedauer als wesentliches Element</xs:documentation>
+											<xs:documentation xml:lang="fr">1-7-2f Statement on minimum détention period comme un essential élément</xs:documentation>
+											<xs:documentation xml:lang="nl">1-7-2f Statement on minimum bezit period als een essential element</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -316,7 +410,10 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 						</xs:element>
 						<xs:element name="StructuredFundSpecialInformation" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Art.7-2b and 36 Additional information for a structured fund</xs:documentation>
+								<xs:documentation xml:lang="en">Art.7-2b and 36 Additional information for a structured fund</xs:documentation>
+								<xs:documentation xml:lang="de">Art.7-2b und 36 Zusätzlich Information für ein structured Fonds</xs:documentation>
+								<xs:documentation xml:lang="fr">Art.7-2b et 36 Supplémentaire information pour un structured fonds</xs:documentation>
+								<xs:documentation xml:lang="nl">Art.7-2b en 36 Aanvullend informatie voor een structured fonds</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -324,6 +421,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Description of elements necessary for a correct understanding of the pay-off</xs:documentation>
 											<xs:documentation xml:lang="de">Beschreibung der für ein korrektes Verständnis der Auszahlung notwendigen Elemente</xs:documentation>
+											<xs:documentation xml:lang="fr">Description de elements necessary pour un correct understanding de pay-off</xs:documentation>
+											<xs:documentation xml:lang="nl">Beschrijving van elements necessary voor een correct understanding van pay-off</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="PerformanceFactors" type="xs:string"/>
@@ -331,12 +430,16 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">References to the details of the algorithm (reference to the prospectus)</xs:documentation>
 											<xs:documentation xml:lang="de">Verweise auf die Details des Algorithmus (Verweis auf den Prospekt)</xs:documentation>
+											<xs:documentation xml:lang="fr">References à details de algorithm (référence à prospectus)</xs:documentation>
+											<xs:documentation xml:lang="nl">References naar details van algorithm (referentie naar prospectus)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="PerformanceScenario" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Art.36</xs:documentation>
 											<xs:documentation xml:lang="de">Art. 36</xs:documentation>
+											<xs:documentation xml:lang="fr">Art.36</xs:documentation>
+											<xs:documentation xml:lang="nl">Art.36</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -351,6 +454,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 													<xs:annotation>
 														<xs:documentation xml:lang="en">Percentage</xs:documentation>
 														<xs:documentation xml:lang="de">Prozentsatz</xs:documentation>
+														<xs:documentation xml:lang="fr">Pourcentage</xs:documentation>
+														<xs:documentation xml:lang="nl">Percentage</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -360,6 +465,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">36-6 Scenarios are just examples of possible situations</xs:documentation>
 											<xs:documentation xml:lang="de">36-6 Szenarien sind nur Beispiele für mögliche Situationen</xs:documentation>
+											<xs:documentation xml:lang="fr">36-6 Scenarios sont just examples de possible situations</xs:documentation>
+											<xs:documentation xml:lang="nl">36-6 Scenarios zijn just examples van possible situations</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -372,6 +479,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Art.8</xs:documentation>
 					<xs:documentation xml:lang="de">Art. 8</xs:documentation>
+					<xs:documentation xml:lang="fr">Art.8</xs:documentation>
+					<xs:documentation xml:lang="nl">Art.8</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -379,6 +488,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">8-1 'Risk and Return Profile'</xs:documentation>
 								<xs:documentation xml:lang="de">8-1 'Risiko- und Ertragsprofil'</xs:documentation>
+								<xs:documentation xml:lang="fr">8-1 'Risque et Rendement Profile'</xs:documentation>
+								<xs:documentation xml:lang="nl">8-1 'Risico en Rendement Profile'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="SyntheticRiskIndicator">
@@ -391,24 +502,32 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 													<xs:annotation>
 														<xs:documentation xml:lang="en">'Lower risk'</xs:documentation>
 														<xs:documentation xml:lang="de">'Geringeres Risiko'</xs:documentation>
+														<xs:documentation xml:lang="fr">'Lower risque'</xs:documentation>
+														<xs:documentation xml:lang="nl">'Lower risico'</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="UpperRight" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">'Higher risk'</xs:documentation>
 														<xs:documentation xml:lang="de">'Höheres Risiko'</xs:documentation>
+														<xs:documentation xml:lang="fr">'Higher risque'</xs:documentation>
+														<xs:documentation xml:lang="nl">'Higher risico'</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="LowerLeft" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">'Typically lower rewards'</xs:documentation>
 														<xs:documentation xml:lang="de">'Typischerweise geringere Erträge'</xs:documentation>
+														<xs:documentation xml:lang="fr">'Typically lower rewards'</xs:documentation>
+														<xs:documentation xml:lang="nl">'Typically lower rewards'</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="LowerRight" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">'Typically higher rewards'</xs:documentation>
 														<xs:documentation xml:lang="de">'Typischerweise höhere Erträge'</xs:documentation>
+														<xs:documentation xml:lang="fr">'Typically higher rewards'</xs:documentation>
+														<xs:documentation xml:lang="nl">'Typically higher rewards'</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -418,6 +537,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">8-4a to 8-4d</xs:documentation>
 											<xs:documentation xml:lang="de">8-4a bis 8-4d</xs:documentation>
+											<xs:documentation xml:lang="fr">8-4a à 8-4d</xs:documentation>
+											<xs:documentation xml:lang="nl">8-4a naar 8-4d</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -425,36 +546,48 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 													<xs:annotation>
 														<xs:documentation xml:lang="en">'Risk indicator comments:'</xs:documentation>
 														<xs:documentation xml:lang="de">'Kommentare zum Risikoindikator:'</xs:documentation>
+														<xs:documentation xml:lang="fr">'Risque indicateur comments:'</xs:documentation>
+														<xs:documentation xml:lang="nl">'Risico indicator comments:'</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Explanation4a" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">8-4a Historical data is no indication  of future risk profile</xs:documentation>
 														<xs:documentation xml:lang="de">8-4a Historische Daten sind kein Hinweis auf das zukünftige Risikoprofil</xs:documentation>
+														<xs:documentation xml:lang="fr">8-4a Historical données est aucun indication de future risque profile</xs:documentation>
+														<xs:documentation xml:lang="nl">8-4a Historical gegevens is geen indication van future risico profile</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Explanation4b" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">8-4b Indicator value liable to change over time</xs:documentation>
 														<xs:documentation xml:lang="de">8-4b Indikatorwert kann sich im Laufe der Zeit ändern</xs:documentation>
+														<xs:documentation xml:lang="fr">8-4b Indicateur valeur liable à change over time</xs:documentation>
+														<xs:documentation xml:lang="nl">8-4b Indicator waarde liable naar change over time</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Explanation4c" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">8-4c Lowest indicator value doesn't mean risk-free</xs:documentation>
 														<xs:documentation xml:lang="de">8-4c Der niedrigste Indikatorwert bedeutet nicht risikofrei</xs:documentation>
+														<xs:documentation xml:lang="fr">8-4c Lowest indicateur valeur doesn't mean risque-free</xs:documentation>
+														<xs:documentation xml:lang="nl">8-4c Lowest indicator waarde doesn't mean risico-free</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Explanation4d" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">8-4d  Explanation of why the fund is in its risk category</xs:documentation>
 														<xs:documentation xml:lang="de">8-4d Erklärung, warum der Fonds in seiner Risikokategorie eingestuft ist</xs:documentation>
+														<xs:documentation xml:lang="fr">8-4d Explanation de pourquoi fonds est dans its risque catégorie</xs:documentation>
+														<xs:documentation xml:lang="nl">8-4d Explanation van waarom fonds is in its risico categorie</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Explanation4e" type="xs:string" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">Details of capital guarantee or protection</xs:documentation>
 														<xs:documentation xml:lang="de">Details zur Kapitalgarantie oder zum Kapitalschutz</xs:documentation>
+														<xs:documentation xml:lang="fr">Details de capital guarantee ou protection</xs:documentation>
+														<xs:documentation xml:lang="nl">Details van capital guarantee van protection</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -464,6 +597,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Numerical value of risk indicator (from 1 to 7)</xs:documentation>
 											<xs:documentation xml:lang="de">Numerischer Wert des Risikoindikators (von 1 bis 7)</xs:documentation>
+											<xs:documentation xml:lang="fr">Numerical valeur de risque indicateur (de 1 à 7)</xs:documentation>
+											<xs:documentation xml:lang="nl">Numerical waarde van risico indicator (van 1 naar 7)</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:int">
@@ -476,6 +611,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">8-3</xs:documentation>
 											<xs:documentation xml:lang="de">8-3</xs:documentation>
+											<xs:documentation xml:lang="fr">8-3</xs:documentation>
+											<xs:documentation xml:lang="nl">8-3</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -485,6 +622,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">8-1b and 8-5 Risk factors not included in the synthetic risk indicator (credit, liquidity,counterparty, operational, derivative risks,...).</xs:documentation>
 								<xs:documentation xml:lang="de">8-1b und 8-5 Risikofaktoren, die nicht im synthetischen Risikoindikator enthalten sind (Kredit-, Liquiditäts-, Kontrahentenausfall-, operationelle Risiken, Derivaterisiken,...).</xs:documentation>
+								<xs:documentation xml:lang="fr">8-1b et 8-5 Risque factors pas included dans synthetic risque indicateur (crédit, liquidité,contrepartie, operational, dérivé risks,...).</xs:documentation>
+								<xs:documentation xml:lang="nl">8-1b en 8-5 Risico factors niet included in synthetic risico indicator (krediet, liquiditeit,tegenpartij, operational, derivaat risks,...).</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -492,36 +631,48 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'Other information about this fund's risks:'</xs:documentation>
 											<xs:documentation xml:lang="de">'Weitere Informationen zu den Risiken dieses Fonds:'</xs:documentation>
+											<xs:documentation xml:lang="fr">'Autre information about ce fonds's risks:'</xs:documentation>
+											<xs:documentation xml:lang="nl">'Overig informatie about dit fonds's risks:'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="CreditRisk" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">8-5a Credit risk for debt securities</xs:documentation>
 											<xs:documentation xml:lang="de">8-5a Kreditrisiko für Schuldtitel</xs:documentation>
+											<xs:documentation xml:lang="fr">8-5a Crédit risque pour debt titres</xs:documentation>
+											<xs:documentation xml:lang="nl">8-5a Krediet risico voor debt effecten</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="LiquidityRisk" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">8-5b Liquidity risk description</xs:documentation>
 											<xs:documentation xml:lang="de">8-5b Beschreibung des Liquiditätsrisikos</xs:documentation>
+											<xs:documentation xml:lang="fr">8-5b Liquidité risque description</xs:documentation>
+											<xs:documentation xml:lang="nl">8-5b Liquiditeit risico beschrijving</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="CounterpartyRisk" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">8-5c Counterparty risk description</xs:documentation>
 											<xs:documentation xml:lang="de">8-5c Beschreibung des Kontrahentenrisikos</xs:documentation>
+											<xs:documentation xml:lang="fr">8-5c Contrepartie risque description</xs:documentation>
+											<xs:documentation xml:lang="nl">8-5c Tegenpartij risico beschrijving</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="OperationalRisks" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">8-5d</xs:documentation>
 											<xs:documentation xml:lang="de">8-5d</xs:documentation>
+											<xs:documentation xml:lang="fr">8-5d</xs:documentation>
+											<xs:documentation xml:lang="nl">8-5d</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="DerivativesRisk" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">8-5e Derivatives risk description</xs:documentation>
 											<xs:documentation xml:lang="de">8-5e Beschreibung des Derivaterisikos</xs:documentation>
+											<xs:documentation xml:lang="fr">8-5e Derivatives risque description</xs:documentation>
+											<xs:documentation xml:lang="nl">8-5e Derivatives risico beschrijving</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -534,6 +685,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Art.10 to 14 Description of charges applicable to the fund</xs:documentation>
 					<xs:documentation xml:lang="de">Art. 10 bis 14 Beschreibung der für den Fonds anfallenden Kosten</xs:documentation>
+					<xs:documentation xml:lang="fr">Art.10 à 14 Description de charges applicable à fonds</xs:documentation>
+					<xs:documentation xml:lang="nl">Art.10 naar 14 Beschrijving van charges applicable naar fonds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -541,18 +694,24 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'Charges for this Fund'</xs:documentation>
 								<xs:documentation xml:lang="de">'Kosten für diesen Fonds'</xs:documentation>
+								<xs:documentation xml:lang="fr">'Charges pour ce Fonds'</xs:documentation>
+								<xs:documentation xml:lang="nl">'Charges voor dit Fonds'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="EntryAndExitChargesHeading" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'One-off charges taken before or after you invest'</xs:documentation>
 								<xs:documentation xml:lang="de">'Einmalige Kosten vor oder nach der Anlage'</xs:documentation>
+								<xs:documentation xml:lang="fr">'One-off charges taken before ou after you invest'</xs:documentation>
+								<xs:documentation xml:lang="nl">'One-off charges taken before van after you invest'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="EntryCharges">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">10-2a Maximum subscription fee percentage</xs:documentation>
 								<xs:documentation xml:lang="de">10-2a Maximaler Prozentsatz des Ausgabeaufschlags</xs:documentation>
+								<xs:documentation xml:lang="fr">10-2a Maximum souscription frais pourcentage</xs:documentation>
+								<xs:documentation xml:lang="nl">10-2a Maximum inschrijving kosten percentage</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -560,6 +719,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'Entry charge'</xs:documentation>
 											<xs:documentation xml:lang="de">'Ausgabeaufschlag'</xs:documentation>
+											<xs:documentation xml:lang="fr">'Entry charge'</xs:documentation>
+											<xs:documentation xml:lang="nl">'Entry charge'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="MaximumPercentage" type="xs:decimal"/>
@@ -567,6 +728,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'This percentage is a maximum.'</xs:documentation>
 											<xs:documentation xml:lang="de">'Dieser Prozentsatz ist ein Höchstwert.'</xs:documentation>
+											<xs:documentation xml:lang="fr">'This pourcentage est un maximum.'</xs:documentation>
+											<xs:documentation xml:lang="nl">'This percentage is een maximum.'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -576,6 +739,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">10-2a Maximum redemption fee percentage</xs:documentation>
 								<xs:documentation xml:lang="de">10-2a Maximaler Prozentsatz der Rücknahmegebühr</xs:documentation>
+								<xs:documentation xml:lang="fr">10-2a Maximum rachat frais pourcentage</xs:documentation>
+								<xs:documentation xml:lang="nl">10-2a Maximum inkoop kosten percentage</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -583,6 +748,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'Exit charge'</xs:documentation>
 											<xs:documentation xml:lang="de">'Rücknahmeabschlag'</xs:documentation>
+											<xs:documentation xml:lang="fr">'Exit charge'</xs:documentation>
+											<xs:documentation xml:lang="nl">'Exit charge'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="MaximumPercentage" type="xs:decimal"/>
@@ -590,6 +757,8 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'This percentage is a maximum.'</xs:documentation>
 											<xs:documentation xml:lang="de">'Dieser Prozentsatz ist ein Höchstwert.'</xs:documentation>
+											<xs:documentation xml:lang="fr">'This pourcentage est un maximum.'</xs:documentation>
+											<xs:documentation xml:lang="nl">'This percentage is een maximum.'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -599,24 +768,32 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'The entry and exit charges shown are maximum figures. In some cases you might pay less – you can find this out from your financial adviser.'</xs:documentation>
 								<xs:documentation xml:lang="de">'Die angegebenen Ausgabe- und Rücknahmegebühren sind Höchstbeträge. In einigen Fällen zahlen Sie möglicherweise weniger – fragen Sie Ihren Finanzberater.'</xs:documentation>
+								<xs:documentation xml:lang="fr">'The entry et exit charges shown sont maximum figures. In quelques cases you might pay moins – you can find ce out de your financial adviser.'</xs:documentation>
+								<xs:documentation xml:lang="nl">'The entry en exit charges shown zijn maximum figures. In enkele cases you might pay minder – you can find dit out van your financial adviser.'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="EntryAndExitChargesDisclaimer2" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'These percentages are maximum figures.'</xs:documentation>
 								<xs:documentation xml:lang="de">'Diese Prozentsätze sind Höchstwerte.'</xs:documentation>
+								<xs:documentation xml:lang="fr">'These percentages sont maximum figures.'</xs:documentation>
+								<xs:documentation xml:lang="nl">'These percentages zijn maximum figures.'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="AnnualChargesGeneralHeading" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'Charges taken from the fund over a year'</xs:documentation>
 								<xs:documentation xml:lang="de">'Kosten, die dem Fonds im Laufe eines Jahres entnommen werden'</xs:documentation>
+								<xs:documentation xml:lang="fr">'Charges taken de fonds over un year'</xs:documentation>
+								<xs:documentation xml:lang="nl">'Charges taken van fonds over een year'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="OngoingCharges" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">10-2b Actual percentage of charges taken from the Fund (previous year)</xs:documentation>
 								<xs:documentation xml:lang="de">10-2b Tatsächlicher Prozentsatz der dem Fonds entnommenen Kosten (Vorjahr)</xs:documentation>
+								<xs:documentation xml:lang="fr">10-2b Réel pourcentage de charges taken de Fonds (previous year)</xs:documentation>
+								<xs:documentation xml:lang="nl">10-2b Werkelijk percentage van charges taken van Fonds (previous year)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -624,12 +801,16 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'Ongoing charges'</xs:documentation>
 											<xs:documentation xml:lang="de">'Laufende Kosten'</xs:documentation>
+											<xs:documentation xml:lang="fr">'Ongoing charges'</xs:documentation>
+											<xs:documentation xml:lang="nl">'Ongoing charges'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ActualPercentage" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Last known ongoing charges percentage</xs:documentation>
 											<xs:documentation xml:lang="de">Letzter bekannter Prozentsatz der laufenden Kosten</xs:documentation>
+											<xs:documentation xml:lang="fr">Last known ongoing charges pourcentage</xs:documentation>
+											<xs:documentation xml:lang="nl">Last known ongoing charges percentage</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ClosingMonth">
@@ -638,6 +819,10 @@ Performance und Risikoindikator werden mit den Daten der Hauptanteilsklasse bere
 MM/YYYY</xs:documentation>
 											<xs:documentation xml:lang="de">Letzter Abschlussmonat für laufende Kosten
 MM/JJJJ</xs:documentation>
+											<xs:documentation xml:lang="fr">Last closing month pour ongoing charges
+MM/YYYY</xs:documentation>
+											<xs:documentation xml:lang="nl">Last closing month voor ongoing charges
+MM/YYYY</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string"/>
@@ -649,6 +834,10 @@ MM/JJJJ</xs:documentation>
 24-2 Also used if ongoing charges are estimated</xs:documentation>
 											<xs:documentation xml:lang="de">11-1b Erklärung, dass die laufenden Kosten auf den Ausgaben des letzten Jahres basieren.
 24-2 Wird auch verwendet, wenn die laufenden Kosten geschätzt werden</xs:documentation>
+											<xs:documentation xml:lang="fr">11-1b Statement explaining que ongoing charges figure est based on last year's expenses. 
+24-2 Also used si ongoing charges sont estimé</xs:documentation>
+											<xs:documentation xml:lang="nl">11-1b Statement explaining dat ongoing charges figure is based on last year's expenses. 
+24-2 Also used als ongoing charges zijn geschat</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="OngoingChargesDisclaimer" type="xs:string" minOccurs="0"/>
@@ -656,6 +845,8 @@ MM/JJJJ</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'The ongoing charges figure is based on expenses for the year ending ' [ClosingMonth]</xs:documentation>
 											<xs:documentation xml:lang="de">'Die laufenden Kosten basieren auf den Ausgaben für das Jahr bis ' [Abschlussmonat]</xs:documentation>
+											<xs:documentation xml:lang="fr">'The ongoing charges figure est based on expenses pour year ending ' [ClosingMonth]</xs:documentation>
+											<xs:documentation xml:lang="nl">'The ongoing charges figure is based on expenses voor year ending ' [ClosingMonth]</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -665,12 +856,16 @@ MM/JJJJ</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">11-2a(i) Statement explaining that the charges are used to pay the running costs of the fund.</xs:documentation>
 								<xs:documentation xml:lang="de">11-2a(i) Erklärung, dass die Kosten zur Deckung der laufenden Kosten des Fonds verwendet werden.</xs:documentation>
+								<xs:documentation xml:lang="fr">11-2a(i) Statement explaining que charges sont used à pay running costs de fonds.</xs:documentation>
+								<xs:documentation xml:lang="nl">11-2a(i) Statement explaining dat charges zijn used naar pay running costs van fonds.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ChargesDisclaimer2" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">14 Reference to fund's prospectus for more details</xs:documentation>
 								<xs:documentation xml:lang="de">14 Verweis auf den Fondsprospekt für weitere Details</xs:documentation>
+								<xs:documentation xml:lang="fr">14 Référence à fonds's prospectus pour plus details</xs:documentation>
+								<xs:documentation xml:lang="nl">14 Referentie naar fonds's prospectus voor meer details</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ChargesNotIncludedDisclaimer" type="xs:string" minOccurs="0">
@@ -681,12 +876,20 @@ MM/JJJJ</xs:documentation>
 								<xs:documentation xml:lang="de">'Diese Zahl kann von Jahr zu Jahr variieren. Nicht enthalten sind:
 • Performancegebühren.
 • Portfolio-Transaktionskosten, außer im Falle eines Ausgabe-/Rücknahmeaufschlags, der vom OGAW beim Kauf oder Verkauf von Anteilen an einem anderen OGA gezahlt wird.'</xs:documentation>
+								<xs:documentation xml:lang="fr">'This figure may vary de year à year. It excludes:
+•	Performance fees.
+•	Portefeuille transaction costs, except dans case de un entry/exit charge paid par UCITS quand buying ou selling units dans another CIV.'</xs:documentation>
+								<xs:documentation xml:lang="nl">'This figure may vary van year naar year. It excludes:
+•	Prestatie fees.
+•	Portefeuille transactie costs, except in case van een entry/exit charge paid door UCITS wanneer buying van selling units in another CIV.'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="OtherFees" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Art.12 Other fees details</xs:documentation>
 								<xs:documentation xml:lang="de">Art. 12 Details zu sonstigen Gebühren</xs:documentation>
+								<xs:documentation xml:lang="fr">Art.12 Autre fees details</xs:documentation>
+								<xs:documentation xml:lang="nl">Art.12 Overig fees details</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -694,11 +897,16 @@ MM/JJJJ</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'Charges taken from the fund under certain specific conditions'</xs:documentation>
 											<xs:documentation xml:lang="de">'Kosten, die dem Fonds unter bestimmten Bedingungen entnommen werden'</xs:documentation>
+											<xs:documentation xml:lang="fr">'Charges taken de fonds under certain spécifique conditions'</xs:documentation>
+											<xs:documentation xml:lang="nl">'Charges taken van fonds under certain specifiek conditions'</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="OtherFee" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
-											<xs:documentation>Other fees details</xs:documentation>
+											<xs:documentation xml:lang="en">Other fees details</xs:documentation>
+											<xs:documentation xml:lang="de">Sonstig fees details</xs:documentation>
+											<xs:documentation xml:lang="fr">Autre fees details</xs:documentation>
+											<xs:documentation xml:lang="nl">Overig fees details</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -706,18 +914,24 @@ MM/JJJJ</xs:documentation>
 													<xs:annotation>
 														<xs:documentation xml:lang="en">Eg. Performance fee, Switch fee, Master fund fees, All-inclusive fee,...</xs:documentation>
 														<xs:documentation xml:lang="de">Z.B. Performancegebühr, Umtauschgebühr, Master-Fonds-Gebühren, Pauschalgebühr,...</xs:documentation>
+														<xs:documentation xml:lang="fr">Eg. Performance frais, Switch frais, Maître fonds fees, All-inclusive frais,...</xs:documentation>
+														<xs:documentation xml:lang="nl">Eg. Prestatie kosten, Switch kosten, Master fonds fees, All-inclusive kosten,...</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Description" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">Description of current fee (conditions,...)</xs:documentation>
 														<xs:documentation xml:lang="de">Beschreibung der aktuellen Gebühr (Bedingungen,...)</xs:documentation>
+														<xs:documentation xml:lang="fr">Description de current frais (conditions,...)</xs:documentation>
+														<xs:documentation xml:lang="nl">Beschrijving van current kosten (conditions,...)</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="CalculationDescription" type="xs:string" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">Calculation rules for the current fee</xs:documentation>
 														<xs:documentation xml:lang="de">Berechnungsregeln für die aktuelle Gebühr</xs:documentation>
+														<xs:documentation xml:lang="fr">Calculation rules pour current frais</xs:documentation>
+														<xs:documentation xml:lang="nl">Calculation rules voor current kosten</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="MaximumPercentage" type="xs:decimal" minOccurs="0"/>
@@ -729,6 +943,8 @@ MM/JJJJ</xs:documentation>
 																<xs:annotation>
 																	<xs:documentation xml:lang="en">Last closing month for current fee MM/YYYY</xs:documentation>
 																	<xs:documentation xml:lang="de">Letzter Abschlussmonat für aktuelle Gebühr MM/JJJJ</xs:documentation>
+																	<xs:documentation xml:lang="fr">Last closing month pour current frais MM/YYYY</xs:documentation>
+																	<xs:documentation xml:lang="nl">Last closing month voor current kosten MM/YYYY</xs:documentation>
 																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string"/>
@@ -748,8 +964,14 @@ MM/JJJJ</xs:documentation>
 			</xs:element>
 			<xs:element name="PastPerformances" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Art.15 to 19
+					<xs:documentation xml:lang="en">Art.15 to 19
 Not to be provided for structured funds</xs:documentation>
+					<xs:documentation xml:lang="de">Art.15 zu 19
+Not zu be bereitgestellt für structured funds</xs:documentation>
+					<xs:documentation xml:lang="fr">Art.15 à 19
+Not à be fourni pour structured funds</xs:documentation>
+					<xs:documentation xml:lang="nl">Art.15 naar 19
+Not naar be verstrekt voor structured funds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -757,12 +979,20 @@ Not to be provided for structured funds</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'Past performance'</xs:documentation>
 								<xs:documentation xml:lang="de">'Wertentwicklung in der Vergangenheit'</xs:documentation>
+								<xs:documentation xml:lang="fr">'Past performance'</xs:documentation>
+								<xs:documentation xml:lang="nl">'Past prestatie'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Performance" minOccurs="0" maxOccurs="10">
 							<xs:annotation>
-								<xs:documentation>Zero to ten past years perfomances, according to fund existence duration.
+								<xs:documentation xml:lang="en">Zero to ten past years perfomances, according to fund existence duration.
 Only full years of existence of the fund are used.</xs:documentation>
+								<xs:documentation xml:lang="de">Zero zu ten past years perfomances, gemäß Fonds existence duration.
+Only full years von existence von Fonds sind used.</xs:documentation>
+								<xs:documentation xml:lang="fr">Zero à ten past years perfomances, selon fonds existence duration.
+Only full years de existence de fonds sont used.</xs:documentation>
+								<xs:documentation xml:lang="nl">Zero naar ten past years perfomances, volgens fonds existence duration.
+Only full years van existence van fonds zijn used.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -770,30 +1000,40 @@ Only full years of existence of the fund are used.</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Four digits format YYYY</xs:documentation>
 											<xs:documentation xml:lang="de">Vierstelliges Format JJJJ</xs:documentation>
+											<xs:documentation xml:lang="fr">Four digits format YYYY</xs:documentation>
+											<xs:documentation xml:lang="nl">Four digits format YYYY</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="FundPerformanceValue" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Percentage</xs:documentation>
 											<xs:documentation xml:lang="de">Prozentsatz</xs:documentation>
+											<xs:documentation xml:lang="fr">Pourcentage</xs:documentation>
+											<xs:documentation xml:lang="nl">Percentage</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="BenchmarkPerformanceValue" type="xs:decimal" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Benchmark performance if available (Percentage)</xs:documentation>
 											<xs:documentation xml:lang="de">Benchmark-Performance, falls verfügbar (Prozentsatz)</xs:documentation>
+											<xs:documentation xml:lang="fr">Benchmark performance si disponible (Pourcentage)</xs:documentation>
+											<xs:documentation xml:lang="nl">Benchmark prestatie als beschikbaar (Percentage)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="MaterialChangeIndicator" type="xs:boolean">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">17-1 and 17-2  Indicates that a material change having an impact on performance occurred during the year (y/n)</xs:documentation>
 											<xs:documentation xml:lang="de">17-1 und 17-2 Gibt an, ob während des Jahres eine wesentliche Änderung mit Auswirkungen auf die Performance stattfand (j/n)</xs:documentation>
+											<xs:documentation xml:lang="fr">17-1 et 17-2 Indicates que un material change having un impact on performance occurred during year (y/n)</xs:documentation>
+											<xs:documentation xml:lang="nl">17-1 en 17-2 Indicates dat een material change having een impact on prestatie occurred during year (y/n)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="SimulatedPerformanceIndicator" type="xs:boolean">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">19-2 Indicates that the performance has been simulated</xs:documentation>
 											<xs:documentation xml:lang="de">19-2 Gibt an, dass die Performance simuliert wurde</xs:documentation>
+											<xs:documentation xml:lang="fr">19-2 Indicates que performance un been simulated</xs:documentation>
+											<xs:documentation xml:lang="nl">19-2 Indicates dat prestatie heeft been simulated</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -811,24 +1051,40 @@ a - Begrenzte Aussagekraft für die zukünftige Performance
 b - Liste der in die Berechnung einbezogenen Kosten und Gebühren
 c - Gründungsjahr des Fonds
 d - Für die Berechnung verwendete Währung</xs:documentation>
+								<xs:documentation xml:lang="fr">15-5a à 5d 
+un - Limited valeur pour future performance
+b - Liste de charges et fees included pour computation
+c - Year de creation de fonds
+d - Devise used pour calculation</xs:documentation>
+								<xs:documentation xml:lang="nl">15-5a naar 5d 
+een - Limited waarde voor future prestatie
+b - Lijst van charges en fees included voor computation
+c - Year van creation van fonds
+d - Valuta used voor calculation</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CurrencyUsedHeading" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'Currency used for calculation: ' [CurrencyUsed]</xs:documentation>
 								<xs:documentation xml:lang="de">'Für die Berechnung verwendete Währung: ' [Währung]</xs:documentation>
+								<xs:documentation xml:lang="fr">'Devise used pour calculation: ' [CurrencyUsed]</xs:documentation>
+								<xs:documentation xml:lang="nl">'Valuta used voor calculation: ' [CurrencyUsed]</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CurrencyUsed" type="ISOCurrencyCodeType">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Currency used for performance calculation</xs:documentation>
 								<xs:documentation xml:lang="de">Für die Performance-Berechnung verwendete Währung</xs:documentation>
+								<xs:documentation xml:lang="fr">Devise used pour performance calculation</xs:documentation>
+								<xs:documentation xml:lang="nl">Valuta used voor prestatie calculation</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="PerformanceYearImpactHeading" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'Event impacting performance in ' [Year with MaterialChandeIndicator="y"]</xs:documentation>
 								<xs:documentation xml:lang="de">'Ereignis mit Auswirkung auf die Performance im Jahr ' [Jahr mit MaterialChangeIndicator="y"]</xs:documentation>
+								<xs:documentation xml:lang="fr">'Event impacting performance dans ' [Year avec MaterialChandeIndicator="y"]</xs:documentation>
+								<xs:documentation xml:lang="nl">'Event impacting prestatie in ' [Year met MaterialChandeIndicator="y"]</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -838,6 +1094,8 @@ d - Für die Berechnung verwendete Währung</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Art.20 and 21</xs:documentation>
 					<xs:documentation xml:lang="de">Art. 20 und 21</xs:documentation>
+					<xs:documentation xml:lang="fr">Art.20 et 21</xs:documentation>
+					<xs:documentation xml:lang="nl">Art.20 en 21</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -845,24 +1103,32 @@ d - Für die Berechnung verwendete Währung</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'Practical information'</xs:documentation>
 								<xs:documentation xml:lang="de">'Praktische Informationen'</xs:documentation>
+								<xs:documentation xml:lang="fr">'Practical information'</xs:documentation>
+								<xs:documentation xml:lang="nl">'Practical informatie'</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DepositaryNameHeading" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">'Depositary: '</xs:documentation>
 								<xs:documentation xml:lang="de">'Depotbank: '</xs:documentation>
+								<xs:documentation xml:lang="fr">'Depositary: '</xs:documentation>
+								<xs:documentation xml:lang="nl">'Depositary: '</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DepositaryName" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">20-1a</xs:documentation>
 								<xs:documentation xml:lang="de">20-1a</xs:documentation>
+								<xs:documentation xml:lang="fr">20-1a</xs:documentation>
+								<xs:documentation xml:lang="nl">20-1a</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="FurtherInformation">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">20-1b and 1c Where to find...</xs:documentation>
 								<xs:documentation xml:lang="de">20-1b und 1c Wo finden Sie...</xs:documentation>
+								<xs:documentation xml:lang="fr">20-1b et 1c Where à find...</xs:documentation>
+								<xs:documentation xml:lang="nl">20-1b en 1c Where naar find...</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -870,18 +1136,24 @@ d - Für die Berechnung verwendete Währung</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Where and how to obtain further information free of charge: prosectus, annual report, NAVs...</xs:documentation>
 											<xs:documentation xml:lang="de">Wo und wie Sie weitere Informationen kostenlos erhalten: Prospekt, Jahresbericht, NAVs...</xs:documentation>
+											<xs:documentation xml:lang="fr">Where et comment à obtain further information free de charge: prosectus, annuel report, NAVs...</xs:documentation>
+											<xs:documentation xml:lang="nl">Where en hoe naar obtain further informatie free van charge: prosectus, jaarlijks report, NAVs...</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="AdditionalInformationLanguagesHeading" type="xs:string">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">'This information is available in the following languages: '</xs:documentation>
 											<xs:documentation xml:lang="de">'Diese Informationen sind in folgenden Sprachen verfügbar: '</xs:documentation>
+											<xs:documentation xml:lang="fr">'This information est disponible dans following languages: '</xs:documentation>
+											<xs:documentation xml:lang="nl">'This informatie is beschikbaar in following languages: '</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="FurtherInformationLanguage" type="ISOCountryCodeType" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">List of languages available</xs:documentation>
 											<xs:documentation xml:lang="de">Liste der verfügbaren Sprachen</xs:documentation>
+											<xs:documentation xml:lang="fr">Liste de languages disponible</xs:documentation>
+											<xs:documentation xml:lang="nl">Lijst van languages beschikbaar</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -891,29 +1163,40 @@ d - Für die Berechnung verwendete Währung</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">20-1d Impact of country of residence on taxes</xs:documentation>
 								<xs:documentation xml:lang="de">20-1d Auswirkung des Wohnsitzlandes auf die Besteuerung</xs:documentation>
+								<xs:documentation xml:lang="fr">20-1d Impact de pays de residence on taxes</xs:documentation>
+								<xs:documentation xml:lang="nl">20-1d Impact van land van residence on taxes</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="AMCompanyLiabilityDisclaimer" type="xs:string">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">20-1e </xs:documentation>
 								<xs:documentation xml:lang="de">20-1e</xs:documentation>
+								<xs:documentation xml:lang="fr">20-1e</xs:documentation>
+								<xs:documentation xml:lang="nl">20-1e</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CompartmentSwitchInformation" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">20-3 Statement on possibility of switch between compartments</xs:documentation>
 								<xs:documentation xml:lang="de">20-3 Erklärung zur Möglichkeit des Wechsels zwischen Compartments</xs:documentation>
+								<xs:documentation xml:lang="fr">20-3 Statement on possibility de switch between compartments</xs:documentation>
+								<xs:documentation xml:lang="nl">20-3 Statement on possibility van switch between compartments</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MainsShareClassInformation" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">20-3 Name of the share class used for the current KIID</xs:documentation>
 								<xs:documentation xml:lang="de">20-3 Name der für das aktuelle KIID verwendeten Anteilsklasse</xs:documentation>
+								<xs:documentation xml:lang="fr">20-3 Nom de classe d'actions used pour current KIID</xs:documentation>
+								<xs:documentation xml:lang="nl">20-3 Naam van aandelenklasse used voor current KIID</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="OtherSourcesOfInformation" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>21-1 Possible additional sources of information: prospectus, annual reports, website(s), etc.</xs:documentation>
+								<xs:documentation xml:lang="en">21-1 Possible additional sources of information: prospectus, annual reports, website(s), etc.</xs:documentation>
+								<xs:documentation xml:lang="de">21-1 Possible zusätzlich sources von Information: prospectus, jährlich reports, website(s), etc.</xs:documentation>
+								<xs:documentation xml:lang="fr">21-1 Possible supplémentaire sources de information: prospectus, annuel reports, website(s), etc.</xs:documentation>
+								<xs:documentation xml:lang="nl">21-1 Possible aanvullend sources van informatie: prospectus, jaarlijks reports, website(s), etc.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CompartmentFundWarning" type="xs:string" minOccurs="0" maxOccurs="3">
@@ -926,12 +1209,22 @@ d - Für die Berechnung verwendete Währung</xs:documentation>
 2a KIID beschreibt ein Compartment
 2b Informationen zur Trennung von Vermögenswerten und Verbindlichkeiten jedes Compartments
 2c Informationen zum Wechsel zwischen Compartments (wie...)</xs:documentation>
+								<xs:documentation xml:lang="fr">25-2 Spécifique information pour compartment funds
+2a KIID describes un compartment
+2b Information on segregation de assets et liabilities de chaque compartment
+2c Information on switch between compartments (comment à...)</xs:documentation>
+								<xs:documentation xml:lang="nl">25-2 Specifiek informatie voor compartment funds
+2a KIID describes een compartment
+2b Informatie on segregation van assets en liabilities van elke compartment
+2c Informatie on switch between compartments (hoe naar...)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MasterFundInformation" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">34 Additional information if the fund is a feeder of a master fund</xs:documentation>
 								<xs:documentation xml:lang="de">34 Zusätzliche Informationen, wenn der Fonds ein Feeder eines Master-Fonds ist</xs:documentation>
+								<xs:documentation xml:lang="fr">34 Supplémentaire information si fonds est un feeder de un maître fonds</xs:documentation>
+								<xs:documentation xml:lang="nl">34 Aanvullend informatie als fonds is een feeder van een master fonds</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -939,6 +1232,8 @@ d - Für die Berechnung verwendete Währung</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">34-2a</xs:documentation>
 											<xs:documentation xml:lang="de">34-2a</xs:documentation>
+											<xs:documentation xml:lang="fr">34-2a</xs:documentation>
+											<xs:documentation xml:lang="nl">34-2a</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -946,24 +1241,32 @@ d - Für die Berechnung verwendete Währung</xs:documentation>
 													<xs:annotation>
 														<xs:documentation xml:lang="en">Statement explaining where to find information about the master fund (prospectus, KIID, annual reports, etc.)</xs:documentation>
 														<xs:documentation xml:lang="de">Erklärung, wo Informationen über den Master-Fonds zu finden sind (Prospekt, KIID, Jahresberichte, etc.)</xs:documentation>
+														<xs:documentation xml:lang="fr">Statement explaining où à find information about maître fonds (prospectus, KIID, annuel reports, etc.)</xs:documentation>
+														<xs:documentation xml:lang="nl">Statement explaining waar naar find informatie about master fonds (prospectus, KIID, jaarlijks reports, etc.)</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Language" type="ISOCountryCodeType" maxOccurs="unbounded">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">List of language(s) in which information is available</xs:documentation>
 														<xs:documentation xml:lang="de">Liste der Sprache(n), in denen Informationen verfügbar sind</xs:documentation>
+														<xs:documentation xml:lang="fr">Liste de language(s) dans qui information est disponible</xs:documentation>
+														<xs:documentation xml:lang="nl">Lijst van language(s) in welke informatie is beschikbaar</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Media" type="xs:string" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">Available media(s): paper, CD, Web, etc.</xs:documentation>
 														<xs:documentation xml:lang="de">Verfügbare Medien: Papier, CD, Web, etc.</xs:documentation>
+														<xs:documentation xml:lang="fr">Disponible media(s): paper, CD, Web, etc.</xs:documentation>
+														<xs:documentation xml:lang="nl">Beschikbaar media(s): paper, CD, Web, etc.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Cost" type="xs:string">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">'Free delivery' or description of fees to be paid for medias</xs:documentation>
 														<xs:documentation xml:lang="de">'Kostenlose Lieferung' oder Beschreibung der für Medien zu zahlenden Gebühren</xs:documentation>
+														<xs:documentation xml:lang="fr">'Free delivery' ou description de fees à be paid pour medias</xs:documentation>
+														<xs:documentation xml:lang="nl">'Free delivery' van beschrijving van fees naar be paid voor medias</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -973,12 +1276,16 @@ d - Für die Berechnung verwendete Währung</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">Country of domicile of the master fund</xs:documentation>
 											<xs:documentation xml:lang="de">Sitzland des Master-Fonds</xs:documentation>
+											<xs:documentation xml:lang="fr">Pays de domicile de maître fonds</xs:documentation>
+											<xs:documentation xml:lang="nl">Land van domicilie van master fonds</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Disclaimer" type="xs:string" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">When master fund is established in another country, statement explaining this may affect the feeder's tax treatment.</xs:documentation>
 											<xs:documentation xml:lang="de">Wenn der Master-Fonds in einem anderen Land ansässig ist, Erklärung, dass dies die steuerliche Behandlung des Feeder-Fonds beeinflussen kann.</xs:documentation>
+											<xs:documentation xml:lang="fr">When maître fonds est established dans another pays, statement explaining ce may affect feeder's tax treatment.</xs:documentation>
+											<xs:documentation xml:lang="nl">When master fonds is established in another land, statement explaining dit may affect feeder's tax treatment.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>

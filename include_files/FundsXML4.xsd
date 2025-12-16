@@ -26,24 +26,36 @@
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"/>
 	<xs:element name="FundsXML4">
 		<xs:annotation>
-			<xs:documentation># Root element of FundsXML 4.2.10</xs:documentation>
+			<xs:documentation xml:lang="en"># Root element of FundsXML 4.2.10</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Wurzelelement von FundsXML 4.2.10</xs:documentation>
+			<xs:documentation xml:lang="fr"># Root élément de FundsXML 4.2.10</xs:documentation>
+			<xs:documentation xml:lang="nl"># Root element van FundsXML 4.2.10</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="ControlData" type="ControlDataType">
 					<xs:annotation>
-						<xs:documentation>Meta data of xml document (like unique id, date, data supplier, language, ...)</xs:documentation>
+						<xs:documentation xml:lang="en">Meta data of xml document (like unique id, date, data supplier, language, ...)</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Metadaten des XML-Dokuments (wie eindeutige ID, Datum, Datenlieferant, Sprache, ...)</xs:documentation>
+						<xs:documentation xml:lang="fr">Meta données de xml document (like unique id, date, données supplier, language, ...)</xs:documentation>
+						<xs:documentation xml:lang="nl">Meta gegevens van xml document (like uniek id, datum, gegevens supplier, language, ...)</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Funds" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>List of funds, umbrellas, sicavs, portfolios ...</xs:documentation>
+						<xs:documentation xml:lang="en">List of funds, umbrellas, sicavs, portfolios ...</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Liste von Funds, Umbrellas, SICAVs, Portfolios ...</xs:documentation>
+						<xs:documentation xml:lang="fr">Liste de funds, umbrellas, sicavs, portfolios ...</xs:documentation>
+						<xs:documentation xml:lang="nl">Lijst van funds, umbrellas, sicavs, portfolios ...</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="Fund" type="FundType" maxOccurs="unbounded">
 								<xs:annotation>
-									<xs:documentation>All single fund, umbrella, sicav, portfolio related data</xs:documentation>
+									<xs:documentation xml:lang="en">All single fund, umbrella, sicav, portfolio related data</xs:documentation>
+									<xs:documentation xml:lang="de">[AUTO] Alle Daten zu einzelnen Funds, Umbrellas, SICAVs, Portfolios</xs:documentation>
+									<xs:documentation xml:lang="fr">All unique fonds, umbrella, sicav, portefeuille related données</xs:documentation>
+									<xs:documentation xml:lang="nl">All enkel fonds, umbrella, sicav, portefeuille related gegevens</xs:documentation>
 								</xs:annotation>
 								<xs:key name="benchmarkID">
 									<xs:selector xpath="FundStaticData/Benchmarks/Benchmark"/>
@@ -59,27 +71,42 @@
 				</xs:element>
 				<xs:element name="AssetMgmtCompanyDynData" type="AssetMgmtCompanyDynDataType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Dynamic data of asset management companies</xs:documentation>
+						<xs:documentation xml:lang="en">Dynamic data of asset management companies</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Dynamische Daten der Kapitalverwaltungsgesellschaften</xs:documentation>
+						<xs:documentation xml:lang="fr">Dynamique données de actif management companies</xs:documentation>
+						<xs:documentation xml:lang="nl">Dynamisch gegevens van actief management companies</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="AssetMasterData" type="AssetMasterDataType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Master data of securities, derivatives and all other portfolio assets</xs:documentation>
+						<xs:documentation xml:lang="en">Master data of securities, derivatives and all other portfolio assets</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Stammdaten von Wertpapieren, Derivaten und allen anderen Portfolio-Assets</xs:documentation>
+						<xs:documentation xml:lang="fr">Maître données de titres, derivatives et tous autre portefeuille assets</xs:documentation>
+						<xs:documentation xml:lang="nl">Master gegevens van effecten, derivatives en alle overig portefeuille assets</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Documents" type="DocumentsType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Collection of regulatory and marketing documents (KIDs, prospectuses, factsheets, annual reports, etc.) related to funds, subfunds, or share classes. Documents can be provided as URLs or embedded as base64Binary content</xs:documentation>
+						<xs:documentation xml:lang="en">Collection of regulatory and marketing documents (KIDs, prospectuses, factsheets, annual reports, etc.) related to funds, subfunds, or share classes. Documents can be provided as URLs or embedded as base64Binary content</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Sammlung von regulatorischen und Marketing-Dokumenten (KIDs, Prospekte, Factsheets, Jahresberichte, etc.) zu Funds, Subfunds oder ShareClasses. Dokumente können als URLs oder eingebettet als base64Binary bereitgestellt werden</xs:documentation>
+						<xs:documentation xml:lang="fr">Collection de réglementaire et marketing documents (KIDs, prospectuses, factsheets, annuel reports, etc.) related à funds, subfunds, ou action classes. Documents can be fourni comme URLs ou embedded comme base64Binary content</xs:documentation>
+						<xs:documentation xml:lang="nl">Collection van regelgevend en marketing documents (KIDs, prospectuses, factsheets, jaarlijks reports, etc.) related naar funds, subfunds, van aandeel classes. Documents can be verstrekt als URLs van embedded als base64Binary content</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="RegulatoryReportings" type="RegulatoryReportingsType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Direct and indirect regulatory reporting</xs:documentation>
+						<xs:documentation xml:lang="en">Direct and indirect regulatory reporting</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Direkte und indirekte regulatorische Berichterstattung</xs:documentation>
+						<xs:documentation xml:lang="fr">Direct et indirect réglementaire reporting</xs:documentation>
+						<xs:documentation xml:lang="nl">Direct en indirect regelgevend rapportage</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="CountrySpecificData" type="CountrySpecificDataType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Country specific data on top level (as defined in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+						<xs:documentation xml:lang="en">Country specific data on top level (as defined in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Länderspezifische Daten auf oberster Ebene (wie in 'FundsXML4_CountrySpecificData_xx.xsd' definiert)</xs:documentation>
+						<xs:documentation xml:lang="fr">Pays spécifique données on top level (comme défini dans 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+						<xs:documentation xml:lang="nl">Land specifiek gegevens on top level (als gedefinieerd in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="ds:Signature" minOccurs="0"/>
@@ -89,12 +116,42 @@
 	<xs:complexType name="SegmentStaticDataType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">All static data for Segments</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Alle statischen Daten für Segmente</xs:documentation>
+			<xs:documentation xml:lang="fr">All statique données pour Segments</xs:documentation>
+			<xs:documentation xml:lang="nl">All statisch gegevens voor Segments</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="InceptionDate" type="xs:date" minOccurs="0"/>
-			<xs:element name="LiquidationDate" type="xs:date" minOccurs="0"/>
-			<xs:element name="Manager" type="CompanyType" minOccurs="0"/>
+			<xs:element name="InceptionDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Date when the segment was launched</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Datum der Auflegung des Segments</xs:documentation>
+					<xs:documentation xml:lang="fr">Date quand segment was launched</xs:documentation>
+					<xs:documentation xml:lang="nl">Datum wanneer segment was launched</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LiquidationDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Date when the segment was or will be liquidated</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Datum der Liquidation des Segments</xs:documentation>
+					<xs:documentation xml:lang="fr">Date quand segment was ou will be liquidated</xs:documentation>
+					<xs:documentation xml:lang="nl">Datum wanneer segment was van will be liquidated</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Manager" type="CompanyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Fund manager responsible for this segment</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Fund-Manager, der für dieses Segment verantwortlich ist</xs:documentation>
+					<xs:documentation xml:lang="fr">Fonds gestionnaire responsible pour ce segment</xs:documentation>
+					<xs:documentation xml:lang="nl">Fonds beheerder responsible voor dit segment</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Description" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Description of the segment in various languages</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Beschreibung des Segments in verschiedenen Sprachen</xs:documentation>
+					<xs:documentation xml:lang="fr">Description de segment dans divers languages</xs:documentation>
+					<xs:documentation xml:lang="nl">Beschrijving van segment in diverse languages</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="xs:string">
@@ -103,14 +160,30 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0"/>
+			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Custom attributes for segment-specific data</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Benutzerdefinierte Attribute für segmentspezifische Daten</xs:documentation>
+					<xs:documentation xml:lang="fr">Custom attributes pour segment-spécifique données</xs:documentation>
+					<xs:documentation xml:lang="nl">Custom attributes voor segment-specifiek gegevens</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SegmentDynamicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Dynamic data for fund segments including NAV and portfolio information</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Dynamische Daten für Fund-Segmente einschließlich NAV und Portfolio-Informationen</xs:documentation>
+			<xs:documentation xml:lang="fr">Dynamique données pour fonds segments y compris NAV et portefeuille information</xs:documentation>
+			<xs:documentation xml:lang="nl">Dynamisch gegevens voor fonds segments inclusief NAV en portefeuille informatie</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TotalAssetValues" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Total NAV (volume) of fund</xs:documentation>
+					<xs:documentation xml:lang="en">Total NAV (volume) of fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gesamtes NAV (Volumen) des Fund</xs:documentation>
+					<xs:documentation xml:lang="fr">Total NAV (volume) de fonds</xs:documentation>
+					<xs:documentation xml:lang="nl">Totaal NAV (volume) van fonds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -120,7 +193,10 @@
 			</xs:element>
 			<xs:element name="Portfolios" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>All portfolio related data</xs:documentation>
+					<xs:documentation xml:lang="en">All portfolio related data</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Alle portfoliobezogenen Daten</xs:documentation>
+					<xs:documentation xml:lang="fr">All portefeuille related données</xs:documentation>
+					<xs:documentation xml:lang="nl">All portefeuille related gegevens</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -131,21 +207,28 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DocumentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Document metadata and content for regulatory and marketing documents</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Dokumentmetadaten und -inhalte für regulatorische und Marketing-Dokumente</xs:documentation>
+			<xs:documentation xml:lang="fr">Document metadata et content pour réglementaire et marketing documents</xs:documentation>
+			<xs:documentation xml:lang="nl">Document metadata en content voor regelgevend en marketing documents</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type">
 				<xs:annotation>
-					<xs:documentation>Type of document</xs:documentation>
+					<xs:documentation xml:lang="en">Type of document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Dokumenttyp</xs:documentation>
+					<xs:documentation xml:lang="fr">Type de document</xs:documentation>
+					<xs:documentation xml:lang="nl">Type van document</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
 						<xs:element name="ListedType">
 							<xs:annotation>
-								<xs:documentation>Enumerations e.g. AIFMD-AnnexIV
-AnnualReport HalfYearReport
-AuditReport
-Factsheet
-Prospectus
-PRIIPS-KIDS</xs:documentation>
+								<xs:documentation xml:lang="en">Listed document type from enumeration (e.g. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID)</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Dokumenttyp aus vordefinierter Aufzählung (z.B. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID)</xs:documentation>
+								<xs:documentation xml:lang="fr">Listed document type de enumeration (e.g. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID)</xs:documentation>
+								<xs:documentation xml:lang="nl">Listed document type van enumeration (e.g. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID)</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -171,7 +254,10 @@ PRIIPS-KIDS</xs:documentation>
 						</xs:element>
 						<xs:element name="UnlistedType">
 							<xs:annotation>
-								<xs:documentation>Description of other document types</xs:documentation>
+								<xs:documentation xml:lang="en">Description of other document types not in the enumeration</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Beschreibung anderer Dokumenttypen, die nicht in der Aufzählung enthalten sind</xs:documentation>
+								<xs:documentation xml:lang="fr">Description de autre document types pas dans enumeration</xs:documentation>
+								<xs:documentation xml:lang="nl">Beschrijving van overig document types niet in enumeration</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="Text128Type">
@@ -184,28 +270,43 @@ PRIIPS-KIDS</xs:documentation>
 			</xs:element>
 			<xs:element name="Version" type="Text64Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Version of document</xs:documentation>
+					<xs:documentation xml:lang="en">Version of document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Version des Dokuments</xs:documentation>
+					<xs:documentation xml:lang="fr">Version de document</xs:documentation>
+					<xs:documentation xml:lang="nl">Versie van document</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Language" type="xs:language">
 				<xs:annotation>
-					<xs:documentation>Language of document</xs:documentation>
+					<xs:documentation xml:lang="en">Language of document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Sprache des Dokuments</xs:documentation>
+					<xs:documentation xml:lang="fr">Language de document</xs:documentation>
+					<xs:documentation xml:lang="nl">Language van document</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TranslationsAvailable" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates whether this document is available in other language versions</xs:documentation>
+					<xs:documentation xml:lang="en">Indicates whether this document is available in other language versions</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gibt an, ob dieses Dokument in anderen Sprachversionen verfügbar ist</xs:documentation>
+					<xs:documentation xml:lang="fr">Indicates whether ce document est disponible dans autre language versions</xs:documentation>
+					<xs:documentation xml:lang="nl">Indicates whether dit document is beschikbaar in overig language versions</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PublicationCountries" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>List of publication countries of document</xs:documentation>
+					<xs:documentation xml:lang="en">List of publication countries of document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Liste der Veröffentlichungsländer des Dokuments</xs:documentation>
+					<xs:documentation xml:lang="fr">Liste de publication countries de document</xs:documentation>
+					<xs:documentation xml:lang="nl">Lijst van publication countries van document</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Country" type="ISOCountryCodeType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Three letter ISO code of country</xs:documentation>
+								<xs:documentation xml:lang="en">Three letter ISO code of country</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Dreibuchstabiger ISO-Ländercode</xs:documentation>
+								<xs:documentation xml:lang="fr">Three letter ISO code de pays</xs:documentation>
+								<xs:documentation xml:lang="nl">Three letter ISO code van land</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -213,7 +314,10 @@ PRIIPS-KIDS</xs:documentation>
 			</xs:element>
 			<xs:element name="Fund" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Fund of document</xs:documentation>
+					<xs:documentation xml:lang="en">Fund reference for the document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Fund-Referenz für das Dokument</xs:documentation>
+					<xs:documentation xml:lang="fr">Fonds référence pour document</xs:documentation>
+					<xs:documentation xml:lang="nl">Fonds referentie voor document</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -225,7 +329,10 @@ PRIIPS-KIDS</xs:documentation>
 			</xs:element>
 			<xs:element name="Subfunds" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Subfunds of document</xs:documentation>
+					<xs:documentation xml:lang="en">Subfund references for the document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Subfund-Referenzen für das Dokument</xs:documentation>
+					<xs:documentation xml:lang="fr">Subfund references pour document</xs:documentation>
+					<xs:documentation xml:lang="nl">Subfund references voor document</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -243,7 +350,10 @@ PRIIPS-KIDS</xs:documentation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Share classes of document</xs:documentation>
+					<xs:documentation xml:lang="en">Share class references for the document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] ShareClass-Referenzen für das Dokument</xs:documentation>
+					<xs:documentation xml:lang="fr">Classe d'actions references pour document</xs:documentation>
+					<xs:documentation xml:lang="nl">Aandelenklasse references voor document</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -261,34 +371,50 @@ PRIIPS-KIDS</xs:documentation>
 			</xs:element>
 			<xs:element name="Name" type="Text256Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Name of document</xs:documentation>
+					<xs:documentation xml:lang="en">Name of document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Name des Dokuments</xs:documentation>
+					<xs:documentation xml:lang="fr">Nom de document</xs:documentation>
+					<xs:documentation xml:lang="nl">Naam van document</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FileName" type="Text256Type" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Name of file (including file extension)</xs:documentation>
+					<xs:documentation xml:lang="en">Name of file (including file extension)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Dateiname (einschließlich Dateierweiterung)</xs:documentation>
+					<xs:documentation xml:lang="fr">Nom de file (y compris file extension)</xs:documentation>
+					<xs:documentation xml:lang="nl">Naam van file (inclusief file uitbreiding)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ForPublicUsage" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates whether document can be published to the public. When false, document is restricted to internal use only (e.g. internal reports)</xs:documentation>
+					<xs:documentation xml:lang="en">Indicates whether document can be published to the public. When false, document is restricted to internal use only (e.g. internal reports)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gibt an, ob das Dokument öffentlich zugänglich gemacht werden kann. Bei false ist das Dokument nur für den internen Gebrauch bestimmt (z.B. interne Berichte)</xs:documentation>
+					<xs:documentation xml:lang="fr">Indicates whether document can be published à public. When false, document est restricted à interne utiliser only (e.g. interne reports)</xs:documentation>
+					<xs:documentation xml:lang="nl">Indicates whether document can be published naar public. When false, document is restricted naar intern gebruiken only (e.g. intern reports)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Restrictions" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Description of restrictions</xs:documentation>
+					<xs:documentation xml:lang="en">Description of restrictions</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Beschreibung der Einschränkungen</xs:documentation>
+					<xs:documentation xml:lang="fr">Description de restrictions</xs:documentation>
+					<xs:documentation xml:lang="nl">Beschrijving van restrictions</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Format" type="Text256Type">
 				<xs:annotation>
-					<xs:documentation>Technical format of document:
-PDF, XML, Excel, Word, Image, ...</xs:documentation>
+					<xs:documentation xml:lang="en">Technical format of document: PDF, XML, Excel, Word, Image, ...</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Technisches Format des Dokuments: PDF, XML, Excel, Word, Image, ...</xs:documentation>
+					<xs:documentation xml:lang="fr">Technical format de document: PDF, XML, Excel, Word, Image, ...</xs:documentation>
+					<xs:documentation xml:lang="nl">Technical format van document: PDF, XML, Excel, Word, Image, ...</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Signature" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Defines whether signature is available:
-No, Digital, Scan</xs:documentation>
+					<xs:documentation xml:lang="en">Defines whether signature is available: No, Digital, Scan</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Definiert, ob eine Signatur vorhanden ist: No, Digital, Scan</xs:documentation>
+					<xs:documentation xml:lang="fr">Defines whether signature est disponible: No, Digital, Scan</xs:documentation>
+					<xs:documentation xml:lang="nl">Defines whether signature is beschikbaar: No, Digital, Scan</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -300,54 +426,84 @@ No, Digital, Scan</xs:documentation>
 			</xs:element>
 			<xs:element name="CreationDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Date when document has been generated</xs:documentation>
+					<xs:documentation xml:lang="en">Date when document has been generated</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Datum, an dem das Dokument erstellt wurde</xs:documentation>
+					<xs:documentation xml:lang="fr">Date quand document un been generated</xs:documentation>
+					<xs:documentation xml:lang="nl">Datum wanneer document heeft been generated</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ModificationDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Date of last change (e.g. for KID)</xs:documentation>
+					<xs:documentation xml:lang="en">Date of last change (e.g. for KID)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Datum der letzten Änderung (z.B. für KID)</xs:documentation>
+					<xs:documentation xml:lang="fr">Date de last change (e.g. pour KID)</xs:documentation>
+					<xs:documentation xml:lang="nl">Datum van last change (e.g. voor KID)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ExpirationDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Document is valid till this expiration date</xs:documentation>
+					<xs:documentation xml:lang="en">Document is valid till this expiration date</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Das Dokument ist bis zu diesem Ablaufdatum gültig</xs:documentation>
+					<xs:documentation xml:lang="fr">Document est valid till ce expiration date</xs:documentation>
+					<xs:documentation xml:lang="nl">Document is valid till dit expiration datum</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data supplier of document</xs:documentation>
+					<xs:documentation xml:lang="en">Data supplier of document</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Datenlieferant des Dokuments</xs:documentation>
+					<xs:documentation xml:lang="fr">Données supplier de document</xs:documentation>
+					<xs:documentation xml:lang="nl">Gegevens supplier van document</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Attributes" type="AttributesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Attributes of document (depending on type of document)</xs:documentation>
+					<xs:documentation xml:lang="en">Attributes of document (depending on type of document)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Attribute des Dokuments (abhängig vom Dokumenttyp)</xs:documentation>
+					<xs:documentation xml:lang="fr">Attributes de document (depending on type de document)</xs:documentation>
+					<xs:documentation xml:lang="nl">Attributes van document (depending on type van document)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SizeInBytes" type="xs:positiveInteger" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Size of document in bytes (exact size of binary data, estimated size in case of download)</xs:documentation>
+					<xs:documentation xml:lang="en">Size of document in bytes (exact size of binary data, estimated size in case of download)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Größe des Dokuments in Bytes (exakte Größe der Binärdaten, geschätzte Größe bei Download)</xs:documentation>
+					<xs:documentation xml:lang="fr">Size de document dans bytes (exact size de binary données, estimé size dans case de download)</xs:documentation>
+					<xs:documentation xml:lang="nl">Size van document in bytes (exact size van binary gegevens, geschat size in case van download)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DocumentURL" type="xs:anyURI" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Link of document for downloading</xs:documentation>
+					<xs:documentation xml:lang="en">Link of document for downloading</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Link zum Download des Dokuments</xs:documentation>
+					<xs:documentation xml:lang="fr">Link de document pour downloading</xs:documentation>
+					<xs:documentation xml:lang="nl">Link van document voor downloading</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BinaryData" type="xs:base64Binary" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Document in xml base64Binary format</xs:documentation>
+					<xs:documentation xml:lang="en">Document in xml base64Binary format</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Dokument im XML base64Binary-Format</xs:documentation>
+					<xs:documentation xml:lang="fr">Document dans xml base64Binary format</xs:documentation>
+					<xs:documentation xml:lang="nl">Document in xml base64Binary format</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ControlDataType">
 		<xs:annotation>
-			<xs:documentation>Metadata for file delivery</xs:documentation>
+			<xs:documentation xml:lang="en">Metadata for file delivery</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Metadaten für die Dateiübermittlung</xs:documentation>
+			<xs:documentation xml:lang="fr">Metadata pour file delivery</xs:documentation>
+			<xs:documentation xml:lang="nl">Metadata voor file delivery</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="UniqueDocumentID" type="Text128Type">
 				<xs:annotation>
-					<xs:documentation>Document identifier (unique per data supplier)</xs:documentation>
+					<xs:documentation xml:lang="en">Document identifier (unique per data supplier)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Dokumentkennung (eindeutig pro Datenlieferant)</xs:documentation>
+					<xs:documentation xml:lang="fr">Document identifiant (unique per données supplier)</xs:documentation>
+					<xs:documentation xml:lang="nl">Document identificatie (uniek per gegevens supplier)</xs:documentation>
 					<xs:appinfo>
 						<altova:exampleValues>
 							<altova:example value="20240830_0001"/>
@@ -357,7 +513,10 @@ No, Digital, Scan</xs:documentation>
 			</xs:element>
 			<xs:element name="DocumentGenerated" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Timestamp of document generation</xs:documentation>
+					<xs:documentation xml:lang="en">Timestamp of document generation</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Zeitstempel der Dokumenterstellung</xs:documentation>
+					<xs:documentation xml:lang="fr">Timestamp de document generation</xs:documentation>
+					<xs:documentation xml:lang="nl">Timestamp van document generation</xs:documentation>
 					<xs:appinfo>
 						<altova:exampleValues>
 							<altova:example value="2024-09-26T18:37:12.1559196+02:00"/>
@@ -367,7 +526,10 @@ No, Digital, Scan</xs:documentation>
 			</xs:element>
 			<xs:element name="Version" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
+					<xs:documentation xml:lang="en">FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] FundsXML Schema-Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
+					<xs:documentation xml:lang="fr">FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
+					<xs:documentation xml:lang="nl">FundsXML Schema Versie (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -401,21 +563,26 @@ No, Digital, Scan</xs:documentation>
 			</xs:element>
 			<xs:element name="ContentDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>Main date for content, if not specified different within section</xs:documentation>
+					<xs:documentation xml:lang="en">Main date for content, if not specified different within section</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Hauptdatum für den Inhalt, sofern nicht innerhalb eines Abschnitts anders angegeben</xs:documentation>
+					<xs:documentation xml:lang="fr">Main date pour content, si pas spécifié different within section</xs:documentation>
+					<xs:documentation xml:lang="nl">Main datum voor content, als niet gespecificeerd different within sectie</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType">
 				<xs:annotation>
-					<xs:documentation>Definition of data source (investment company, vendor, ...). Used only for information purpose.</xs:documentation>
+					<xs:documentation xml:lang="en">Definition of data source (investment company, vendor, ...). Used only for information purpose.</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Definition der Datenquelle (Investmentgesellschaft, Datenanbieter, ...). Dient nur zu Informationszwecken.</xs:documentation>
+					<xs:documentation xml:lang="fr">Definition de données source (investissement company, vendor, ...). Used only pour information purpose.</xs:documentation>
+					<xs:documentation xml:lang="nl">Definition van gegevens source (belegging company, vendor, ...). Used only voor informatie purpose.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataOperation" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>
-INITIAL: This refers to the first time data is delivered. It includes all the necessary information to set up or populate a system or database. 
-AMEND: This term is used when there are updates or changes to the existing data. An amendment might include corrections, additions, or modifications to the previously delivered data. It ensures that the data remains accurate and up-to-date.
-DELETE: This involves the removal of specific data from the system. It could be due to data being outdated, incorrect, or no longer needed. Deleting data helps in maintaining the relevance and efficiency of the database. DELETE requires a RelatedDocumentIDs that referes to the data delivery that should be deleted. 
-					</xs:documentation>
+					<xs:documentation xml:lang="en">INITIAL: First time data delivery with all necessary information to set up or populate a system. AMEND: Updates or changes to existing data including corrections, additions, or modifications. DELETE: Removal of specific data from the system. Requires RelatedDocumentIDs referencing the data delivery to be deleted.</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] INITIAL: Erstmalige Datenlieferung mit allen notwendigen Informationen zur Systembefüllung. AMEND: Aktualisierungen oder Änderungen bestehender Daten einschließlich Korrekturen, Ergänzungen oder Modifikationen. DELETE: Entfernung bestimmter Daten aus dem System. Erfordert RelatedDocumentIDs mit Verweis auf die zu löschende Datenlieferung.</xs:documentation>
+					<xs:documentation xml:lang="fr">INITIAL: First time données delivery avec tous necessary information à set up ou populate un system. AMEND: Updates ou changes à existing données y compris corrections, additions, ou modifications. DELETE: Removal de spécifique données de system. Requires RelatedDocumentIDs referencing données delivery à be deleted.</xs:documentation>
+					<xs:documentation xml:lang="nl">INITIAL: First time gegevens delivery met alle necessary informatie naar set up van populate een system. AMEND: Updates van changes naar existing gegevens inclusief corrections, additions, van modifications. DELETE: Removal van specifiek gegevens van system. Requires RelatedDocumentIDs referencing gegevens delivery naar be deleted.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -429,7 +596,10 @@ DELETE: This involves the removal of specific data from the system. It could be 
 			</xs:element>
 			<xs:element name="RelatedDocumentIDs" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Identifiers of related documents for non-initial data deliveries</xs:documentation>
+					<xs:documentation xml:lang="en">Identifiers of related documents for non-initial data deliveries</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Kennungen verwandter Dokumente für Folgelieferungen (AMEND, DELETE)</xs:documentation>
+					<xs:documentation xml:lang="fr">Identifiers de related documents pour non-initial données deliveries</xs:documentation>
+					<xs:documentation xml:lang="nl">Identifiers van related documents voor non-initial gegevens deliveries</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -447,12 +617,18 @@ DELETE: This involves the removal of specific data from the system. It could be 
 			</xs:element>
 			<xs:element name="Language" type="xs:language" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>ISO code of language with two characters. This is used as default if no other Language is specified.</xs:documentation>
+					<xs:documentation xml:lang="en">ISO code of language with two characters. This is used as default if no other Language is specified.</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Zweistelliger ISO-Sprachcode. Wird als Standard verwendet, wenn keine andere Sprache angegeben ist.</xs:documentation>
+					<xs:documentation xml:lang="fr">ISO code de language avec two characters. This est used comme default si aucun autre Language est spécifié.</xs:documentation>
+					<xs:documentation xml:lang="nl">ISO code van language met two characters. This is used als default als geen overig Language is gespecificeerd.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ModuleUsage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>List of used schema modules. </xs:documentation>
+					<xs:documentation xml:lang="en">List of used schema modules.</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Liste der verwendeten Schema-Module.</xs:documentation>
+					<xs:documentation xml:lang="fr">Liste de used schema modules.</xs:documentation>
+					<xs:documentation xml:lang="nl">Lijst van used schema modules.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -461,7 +637,10 @@ DELETE: This involves the removal of specific data from the system. It could be 
 								<xs:sequence>
 									<xs:element name="Name">
 										<xs:annotation>
-											<xs:documentation>Module name as listed in enumeration. Can be used to optimize imports.</xs:documentation>
+											<xs:documentation xml:lang="en">Module name as listed in enumeration. Can be used to optimize imports.</xs:documentation>
+											<xs:documentation xml:lang="de">[AUTO] Modulname gemäß Aufzählung. Kann zur Optimierung der Imports verwendet werden.</xs:documentation>
+											<xs:documentation xml:lang="fr">Module nom comme listed dans enumeration. Can be used à optimize imports.</xs:documentation>
+											<xs:documentation xml:lang="nl">Module naam als listed in enumeration. Can be used naar optimize imports.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -495,7 +674,10 @@ DELETE: This involves the removal of specific data from the system. It could be 
 			</xs:element>
 			<xs:element name="CountrySpecificData" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Country specific document data.</xs:documentation>
+					<xs:documentation xml:lang="en">Country specific document data.</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Länderspezifische Dokumentdaten.</xs:documentation>
+					<xs:documentation xml:lang="fr">Pays spécifique document données.</xs:documentation>
+					<xs:documentation xml:lang="nl">Land specifiek document gegevens.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -510,47 +692,77 @@ DELETE: This involves the removal of specific data from the system. It could be 
 			</xs:element>
 			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Additional information which does not fit into the nodes above</xs:documentation>
+					<xs:documentation xml:lang="en">Additional information which does not fit into the nodes above</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Zusätzliche Informationen, die nicht in die obigen Knoten passen</xs:documentation>
+					<xs:documentation xml:lang="fr">Supplémentaire information qui does pas fit into nodes above</xs:documentation>
+					<xs:documentation xml:lang="nl">Aanvullend informatie welke does niet fit into nodes above</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SegmentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Data structure for fund segments/pockets typically managed by different fund managers</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Datenstruktur für Fund-Segmente/Pockets, die typischerweise von verschiedenen Fund-Managern verwaltet werden</xs:documentation>
+			<xs:documentation xml:lang="fr">Données structure pour fonds segments/pockets typically managed par different fonds managers</xs:documentation>
+			<xs:documentation xml:lang="nl">Gegevens structuur voor fonds segments/pockets typically managed door different fonds managers</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
-					<xs:documentation>Fund identifiers</xs:documentation>
+					<xs:documentation xml:lang="en">Fund identifiers</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Fund-Kennungen</xs:documentation>
+					<xs:documentation xml:lang="fr">Fonds identifiers</xs:documentation>
+					<xs:documentation xml:lang="nl">Fonds identifiers</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="Text500Type">
 				<xs:annotation>
-					<xs:documentation>Name of segment</xs:documentation>
+					<xs:documentation xml:lang="en">Name of segment</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Name des Segments</xs:documentation>
+					<xs:documentation xml:lang="fr">Nom de segment</xs:documentation>
+					<xs:documentation xml:lang="nl">Naam van segment</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
 				<xs:annotation>
-					<xs:documentation>Currency of segment</xs:documentation>
+					<xs:documentation xml:lang="en">Currency of segment</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Währung des Segments</xs:documentation>
+					<xs:documentation xml:lang="fr">Devise de segment</xs:documentation>
+					<xs:documentation xml:lang="nl">Valuta van segment</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SegmentStaticData" type="SegmentStaticDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Inception, manager, description, ...</xs:documentation>
+					<xs:documentation xml:lang="en">Inception, manager, description, ...</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Auflegung, Manager, Beschreibung, ...</xs:documentation>
+					<xs:documentation xml:lang="fr">Création, gestionnaire, description, ...</xs:documentation>
+					<xs:documentation xml:lang="nl">Oprichting, beheerder, beschrijving, ...</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SegmentDynamicData" type="SegmentDynamicDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Total asset values, portfolio data</xs:documentation>
+					<xs:documentation xml:lang="en">Total asset values, portfolio data</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gesamtvermögenswerte, Portfolio-Daten</xs:documentation>
+					<xs:documentation xml:lang="fr">Total actif values, portefeuille données</xs:documentation>
+					<xs:documentation xml:lang="nl">Totaal actief values, portefeuille gegevens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>List of share classes of segment</xs:documentation>
+					<xs:documentation xml:lang="en">List of share classes of segment</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Liste der ShareClasses des Segments</xs:documentation>
+					<xs:documentation xml:lang="fr">Liste de action classes de segment</xs:documentation>
+					<xs:documentation xml:lang="nl">Lijst van aandeel classes van segment</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="ShareClass" type="ShareClassType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Static and dynamic data of a share class</xs:documentation>
+								<xs:documentation xml:lang="en">Static and dynamic data of a share class</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Statische und dynamische Daten einer ShareClass</xs:documentation>
+								<xs:documentation xml:lang="fr">Statique et dynamique données de un classe d'actions</xs:documentation>
+								<xs:documentation xml:lang="nl">Statisch en dynamisch gegevens van een aandelenklasse</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -558,7 +770,10 @@ DELETE: This involves the removal of specific data from the system. It could be 
 			</xs:element>
 			<xs:element name="Segments" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data related to subsegments / subpockets of funds (typically managed by different fund managers)</xs:documentation>
+					<xs:documentation xml:lang="en">Data related to subsegments / subpockets of funds (typically managed by different fund managers)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Daten zu Untersegmenten / Subpockets von Funds (typischerweise von verschiedenen Fund-Managern verwaltet)</xs:documentation>
+					<xs:documentation xml:lang="fr">Données related à subsegments / subpockets de funds (typically managed par different fonds managers)</xs:documentation>
+					<xs:documentation xml:lang="nl">Gegevens related naar subsegments / subpockets van funds (typically managed door different fonds managers)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -569,22 +784,38 @@ DELETE: This involves the removal of specific data from the system. It could be 
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RegulatoryReportingsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for direct and indirect regulatory reporting data</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Container für direkte und indirekte regulatorische Berichtsdaten</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour direct et indirect réglementaire reporting données</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor direct en indirect regelgevend rapportage gegevens</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="DirectReporting" type="DirectReportingType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Regulatory data exchanged between fund manufacturers and distributors/platforms within the professional distribution chain 
-(e.g., MiFID product governance data).</xs:documentation>
+					<xs:documentation xml:lang="en">Regulatory data exchanged between fund manufacturers and distributors/platforms within the professional distribution chain (e.g., MiFID product governance data).</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Regulatorische Daten, die zwischen Fund-Herstellern und Vertriebspartnern/Plattformen innerhalb der professionellen Vertriebskette ausgetauscht werden (z.B. MiFID Product Governance Daten).</xs:documentation>
+					<xs:documentation xml:lang="fr">Réglementaire données exchanged between fonds manufacturers et distributors/platforms within professionnel distribution chain (e.g., MiFID product governance données).</xs:documentation>
+					<xs:documentation xml:lang="nl">Regelgevend gegevens exchanged between fonds manufacturers en distributors/platforms within professioneel uitkering chain (e.g., MiFID product governance gegevens).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IndirectReporting" type="IndirectReportingType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Regulatory disclosure data provided to end investors, 
-both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:documentation>
+					<xs:documentation xml:lang="en">Regulatory disclosure data provided to end investors, both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Regulatorische Offenlegungsdaten für Endanleger, sowohl Retail (PRIIPs KID) als auch institutionell (Solvency Berichtsdaten).</xs:documentation>
+					<xs:documentation xml:lang="fr">Réglementaire disclosure données fourni à end investors, both particulier (PRIIPs KID) et institutional (Solvency reporting données).</xs:documentation>
+					<xs:documentation xml:lang="nl">Regelgevend disclosure gegevens verstrekt naar end investors, both particulier (PRIIPs KID) en institutional (Solvency rapportage gegevens).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DirectReportingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for direct regulatory reporting data exchanged within the professional distribution chain</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Container für direkte regulatorische Berichtsdaten, die innerhalb der professionellen Vertriebskette ausgetauscht werden</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour direct réglementaire reporting données exchanged within professionnel distribution chain</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor direct regelgevend rapportage gegevens exchanged within professioneel uitkering chain</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EMIR" type="EMIRType" minOccurs="0">
 				<xs:annotation>
@@ -599,129 +830,214 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 			<xs:element name="EMT" type="EMTType" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@deprecated will no longer be supported in a future FundsXML schema version"/>
-					<xs:documentation>According to EUROPEAN MIFID TEMPLATE - EMT V1.0 as of 2017-08-03</xs:documentation>
+					<xs:documentation xml:lang="en">According to EUROPEAN MIFID TEMPLATE - EMT V1.0 as of 2017-08-03</xs:documentation>
+					<xs:documentation xml:lang="de">Gemäß EUROPEAN MIFID TEMPLATE - EMT V1.0 als von 2017-08-03</xs:documentation>
+					<xs:documentation xml:lang="fr">Selon EUROPEAN MIFID TEMPLATE - EMT V1.0 comme de 2017-08-03</xs:documentation>
+					<xs:documentation xml:lang="nl">Volgens EUROPEAN MIFID TEMPLATE - EMT V1.0 als van 2017-08-03</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V3" type="EMTType_V3" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@deprecated will no longer be supported in a future FundsXML schema version"/>
-					<xs:documentation>According to FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 as of 2019-11-25</xs:documentation>
+					<xs:documentation xml:lang="en">According to FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 as of 2019-11-25</xs:documentation>
+					<xs:documentation xml:lang="de">Gemäß FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 als von 2019-11-25</xs:documentation>
+					<xs:documentation xml:lang="fr">Selon FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 comme de 2019-11-25</xs:documentation>
+					<xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 als van 2019-11-25</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4" type="EMTType_V4" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>According to FinDatEx MiFID TEMPLATE - EMT V4.0 as of 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="en">According to FinDatEx MiFID TEMPLATE - EMT V4.0 as of 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="de">Gemäß FinDatEx MiFID TEMPLATE - EMT V4.0 als von 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="fr">Selon FinDatEx MiFID TEMPLATE - EMT V4.0 comme de 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE - EMT V4.0 als van 2022-03-14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_1" type="EMTType_V41" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>According to FinDatEx MiFID TEMPLATE - EMT V4.1 as of 2023-03-07</xs:documentation>
+					<xs:documentation xml:lang="en">According to FinDatEx MiFID TEMPLATE - EMT V4.1 as of 2023-03-07</xs:documentation>
+					<xs:documentation xml:lang="de">Gemäß FinDatEx MiFID TEMPLATE - EMT V4.1 als von 2023-03-07</xs:documentation>
+					<xs:documentation xml:lang="fr">Selon FinDatEx MiFID TEMPLATE - EMT V4.1 comme de 2023-03-07</xs:documentation>
+					<xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE - EMT V4.1 als van 2023-03-07</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_2" type="EMTType_V42" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>According to FinDatEx MiFID TEMPLATE - EMT V4.2 as of 2024-04-05</xs:documentation>
+					<xs:documentation xml:lang="en">According to FinDatEx MiFID TEMPLATE - EMT V4.2 as of 2024-04-05</xs:documentation>
+					<xs:documentation xml:lang="de">Gemäß FinDatEx MiFID TEMPLATE - EMT V4.2 als von 2024-04-05</xs:documentation>
+					<xs:documentation xml:lang="fr">Selon FinDatEx MiFID TEMPLATE - EMT V4.2 comme de 2024-04-05</xs:documentation>
+					<xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE - EMT V4.2 als van 2024-04-05</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_3" type="EMTType_V43" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>According to FinDatEx MiFID TEMPLATE - EMT V4.3 as of 2025-11-03</xs:documentation>
+					<xs:documentation xml:lang="en">According to FinDatEx MiFID TEMPLATE - EMT V4.3 as of 2025-11-03</xs:documentation>
+					<xs:documentation xml:lang="de">Gemäß FinDatEx MiFID TEMPLATE - EMT V4.3 als von 2025-11-03</xs:documentation>
+					<xs:documentation xml:lang="fr">Selon FinDatEx MiFID TEMPLATE - EMT V4.3 comme de 2025-11-03</xs:documentation>
+					<xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE - EMT V4.3 als van 2025-11-03</xs:documentation>
 					<xs:appinfo source="@since 4.2.10"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EFTs" type="EFTType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>According to FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
+					<xs:documentation xml:lang="en">According to FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
+					<xs:documentation xml:lang="de">Gemäß FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
+					<xs:documentation xml:lang="fr">Selon FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
+					<xs:documentation xml:lang="nl">Volgens FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.0" type="EETsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="en">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="de">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="fr">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.1" type="EETsType1.1" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+					<xs:documentation xml:lang="en">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+					<xs:documentation xml:lang="de">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+					<xs:documentation xml:lang="fr">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+					<xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.1.1" type="EETsType1.1.1" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+					<xs:documentation xml:lang="en">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+					<xs:documentation xml:lang="de">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+					<xs:documentation xml:lang="fr">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+					<xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.1.2" type="EETsType1.1.2" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+					<xs:documentation xml:lang="en">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+					<xs:documentation xml:lang="de">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+					<xs:documentation xml:lang="fr">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+					<xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.1.3" type="EETsType1.1.3" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN ESG TEMPLATE - EET V1.1.3 </xs:documentation>
+					<xs:documentation xml:lang="en">EUROPEAN ESG TEMPLATE - EET V1.1.3 </xs:documentation>
+					<xs:documentation xml:lang="de">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
+					<xs:documentation xml:lang="fr">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
+					<xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DocumentsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for regulatory and marketing documents</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Container für regulatorische und Marketing-Dokumente</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour réglementaire et marketing documents</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor regelgevend en marketing documents</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Document" type="DocumentType" maxOccurs="unbounded"/>
+			<xs:element name="Document" type="DocumentType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Single document with metadata and content</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Einzelnes Dokument mit Metadaten und Inhalt</xs:documentation>
+					<xs:documentation xml:lang="fr">Unique document avec metadata et content</xs:documentation>
+					<xs:documentation xml:lang="nl">Enkel document met metadata en content</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Complete data structure for a fund including static and dynamic data, subfunds, and share classes</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Vollständige Datenstruktur für einen Fund einschließlich statischer und dynamischer Daten, Subfunds und ShareClasses</xs:documentation>
+			<xs:documentation xml:lang="fr">Complete données structure pour un fonds y compris statique et dynamique données, subfunds, et action classes</xs:documentation>
+			<xs:documentation xml:lang="nl">Complete gegevens structuur voor een fonds inclusief statisch en dynamisch gegevens, subfunds, en aandeel classes</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
-					<xs:documentation>Identifiers of fund</xs:documentation>
+					<xs:documentation xml:lang="en">Identifiers of fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Kennungen des Fund</xs:documentation>
+					<xs:documentation xml:lang="fr">Identifiers de fonds</xs:documentation>
+					<xs:documentation xml:lang="nl">Identifiers van fonds</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Names" type="NamesType">
 				<xs:annotation>
-					<xs:documentation>Names of fund</xs:documentation>
+					<xs:documentation xml:lang="en">Names of fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Namen des Fund</xs:documentation>
+					<xs:documentation xml:lang="fr">Names de fonds</xs:documentation>
+					<xs:documentation xml:lang="nl">Names van fonds</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
 				<xs:annotation>
-					<xs:documentation>Main currency of fund (typically used by custodian for calculation of total NAV)</xs:documentation>
+					<xs:documentation xml:lang="en">Main currency of fund (typically used by custodian for calculation of total NAV)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Hauptwährung des Fund (typischerweise vom Custodian zur Berechnung des Gesamt-NAV verwendet)</xs:documentation>
+					<xs:documentation xml:lang="fr">Main devise de fonds (typically used par dépositaire pour calculation de total NAV)</xs:documentation>
+					<xs:documentation xml:lang="nl">Main valuta van fonds (typically used door bewaarder voor calculation van totaal NAV)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SingleFundFlag" type="xs:boolean">
 				<xs:annotation>
-					<xs:documentation>Defines whether this is a single fund or an umbrella like structure with subfunds</xs:documentation>
+					<xs:documentation xml:lang="en">Defines whether this is a single fund or an umbrella like structure with subfunds</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Definiert, ob es sich um einen Einzelfonds oder eine Umbrella-Struktur mit Subfunds handelt</xs:documentation>
+					<xs:documentation xml:lang="fr">Defines whether ce est un unique fonds ou un umbrella like structure avec subfunds</xs:documentation>
+					<xs:documentation xml:lang="nl">Defines whether dit is een enkel fonds van een umbrella like structuur met subfunds</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
+					<xs:documentation xml:lang="en">Definition of data source (investment company, vendor, ...)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Definition der Datenquelle (Investmentgesellschaft, Datenanbieter, ...)</xs:documentation>
+					<xs:documentation xml:lang="fr">Definition de données source (investissement company, vendor, ...)</xs:documentation>
+					<xs:documentation xml:lang="nl">Definition van gegevens source (belegging company, vendor, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FundStaticData" type="FundStaticDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Main static data of fund (Fiscal Year, Custody, ...)</xs:documentation>
+					<xs:documentation xml:lang="en">Main static data of fund (Fiscal Year, Custody, ...)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Statische Stammdaten des Fund (Geschäftsjahr, Depotbank, ...)</xs:documentation>
+					<xs:documentation xml:lang="fr">Main statique données de fonds (Fiscal Year, Custody, ...)</xs:documentation>
+					<xs:documentation xml:lang="nl">Main statisch gegevens van fonds (Fiscal Year, Custody, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FundDynamicData" type="FundDynamicDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Dynamic data of fund (total values, holdings, transactions, breakdowns, ...)</xs:documentation>
+					<xs:documentation xml:lang="en">Dynamic data of fund (total values, holdings, transactions, breakdowns, ...)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Dynamische Daten des Fund (Gesamtwerte, Bestände, Transaktionen, Aufgliederungen, ...)</xs:documentation>
+					<xs:documentation xml:lang="fr">Dynamique données de fonds (total values, détentions, transactions, breakdowns, ...)</xs:documentation>
+					<xs:documentation xml:lang="nl">Dynamisch gegevens van fonds (totaal values, bezittingen, transactions, breakdowns, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
 				<xs:element name="SingleFund" type="SingleFundType">
 					<xs:annotation>
-						<xs:documentation>Use this node for non-umbrella fund structures</xs:documentation>
+						<xs:documentation xml:lang="en">Use this node for non-umbrella fund structures</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Verwenden Sie diesen Knoten für Nicht-Umbrella-Fund-Strukturen</xs:documentation>
+						<xs:documentation xml:lang="fr">Utilisez ce node pour non-umbrella fonds structures</xs:documentation>
+						<xs:documentation xml:lang="nl">Gebruik dit node voor non-umbrella fonds structures</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Subfunds">
 					<xs:annotation>
-						<xs:documentation>Use this node for umbrella fund structures</xs:documentation>
+						<xs:documentation xml:lang="en">Use this node for umbrella fund structures</xs:documentation>
+						<xs:documentation xml:lang="de">[AUTO] Verwenden Sie diesen Knoten für Umbrella-Fund-Strukturen</xs:documentation>
+						<xs:documentation xml:lang="fr">Utilisez ce node pour umbrella fonds structures</xs:documentation>
+						<xs:documentation xml:lang="nl">Gebruik dit node voor umbrella fonds structures</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="Subfund" type="SubfundType" maxOccurs="unbounded">
 								<xs:annotation>
-									<xs:documentation>Static and dynamic data of a subfund</xs:documentation>
+									<xs:documentation xml:lang="en">Static and dynamic data of a subfund</xs:documentation>
+									<xs:documentation xml:lang="de">[AUTO] Statische und dynamische Daten eines Subfund</xs:documentation>
+									<xs:documentation xml:lang="fr">Statique et dynamique données de un subfund</xs:documentation>
+									<xs:documentation xml:lang="nl">Statisch en dynamisch gegevens van een subfund</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -730,47 +1046,77 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 			</xs:choice>
 			<xs:element name="CountrySpecificData" type="CountrySpecificFundDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Country specific data of fund (as defined in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+					<xs:documentation xml:lang="en">Country specific data of fund (as defined in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Länderspezifische Daten des Fund (wie in 'FundsXML4_CountrySpecificData_xx.xsd' definiert)</xs:documentation>
+					<xs:documentation xml:lang="fr">Pays spécifique données de fonds (comme défini dans 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+					<xs:documentation xml:lang="nl">Land specifiek gegevens van fonds (als gedefinieerd in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SubfundType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Data structure for a subfund within an umbrella fund structure</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Datenstruktur für einen Subfund innerhalb einer Umbrella-Fund-Struktur</xs:documentation>
+			<xs:documentation xml:lang="fr">Données structure pour un subfund within un umbrella fonds structure</xs:documentation>
+			<xs:documentation xml:lang="nl">Gegevens structuur voor een subfund within een umbrella fonds structuur</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
-					<xs:documentation>Identifiers of subfund</xs:documentation>
+					<xs:documentation xml:lang="en">Identifiers of subfund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Kennungen des Subfund</xs:documentation>
+					<xs:documentation xml:lang="fr">Identifiers de subfund</xs:documentation>
+					<xs:documentation xml:lang="nl">Identifiers van subfund</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Names" type="NamesType">
 				<xs:annotation>
-					<xs:documentation>Names of subfund</xs:documentation>
+					<xs:documentation xml:lang="en">Names of subfund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Namen des Subfund</xs:documentation>
+					<xs:documentation xml:lang="fr">Names de subfund</xs:documentation>
+					<xs:documentation xml:lang="nl">Names van subfund</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
 				<xs:annotation>
-					<xs:documentation>Currency of subfund</xs:documentation>
+					<xs:documentation xml:lang="en">Currency of subfund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Währung des Subfund</xs:documentation>
+					<xs:documentation xml:lang="fr">Devise de subfund</xs:documentation>
+					<xs:documentation xml:lang="nl">Valuta van subfund</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubfundStaticData" type="SubfundStaticDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Static data of subfund (similar to static data of single fund)</xs:documentation>
+					<xs:documentation xml:lang="en">Static data of subfund (similar to static data of single fund)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Statische Daten des Subfund (ähnlich den statischen Daten eines Einzelfonds)</xs:documentation>
+					<xs:documentation xml:lang="fr">Statique données de subfund (similar à statique données de unique fonds)</xs:documentation>
+					<xs:documentation xml:lang="nl">Statisch gegevens van subfund (similar naar statisch gegevens van enkel fonds)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubfundDynamicData" type="FundDynamicDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Total asset values, portfolio data</xs:documentation>
+					<xs:documentation xml:lang="en">Total asset values, portfolio data</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Gesamtvermögenswerte, Portfolio-Daten</xs:documentation>
+					<xs:documentation xml:lang="fr">Total actif values, portefeuille données</xs:documentation>
+					<xs:documentation xml:lang="nl">Totaal actief values, portefeuille gegevens</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>List of share classes of subfund</xs:documentation>
+					<xs:documentation xml:lang="en">List of share classes of subfund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Liste der ShareClasses des Subfund</xs:documentation>
+					<xs:documentation xml:lang="fr">Liste de action classes de subfund</xs:documentation>
+					<xs:documentation xml:lang="nl">Lijst van aandeel classes van subfund</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="ShareClass" type="ShareClassType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Static and dynamic data of a share class</xs:documentation>
+								<xs:documentation xml:lang="en">Static and dynamic data of a share class</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Statische und dynamische Daten einer ShareClass</xs:documentation>
+								<xs:documentation xml:lang="fr">Statique et dynamique données de un classe d'actions</xs:documentation>
+								<xs:documentation xml:lang="nl">Statisch en dynamisch gegevens van een aandelenklasse</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -778,7 +1124,10 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 			</xs:element>
 			<xs:element name="Segments" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data related to segments/pockets of funds (typically managed by different fund managers)</xs:documentation>
+					<xs:documentation xml:lang="en">Data related to segments/pockets of funds (typically managed by different fund managers)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Daten zu Segmenten/Pockets von Funds (typischerweise von verschiedenen Fund-Managern verwaltet)</xs:documentation>
+					<xs:documentation xml:lang="fr">Données related à segments/pockets de funds (typically managed par different fonds managers)</xs:documentation>
+					<xs:documentation xml:lang="nl">Gegevens related naar segments/pockets van funds (typically managed door different fonds managers)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -789,21 +1138,36 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SingleFundType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Data structure for a single fund (non-umbrella structure)</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Datenstruktur für einen Einzelfonds (keine Umbrella-Struktur)</xs:documentation>
+			<xs:documentation xml:lang="fr">Données structure pour un unique fonds (non-umbrella structure)</xs:documentation>
+			<xs:documentation xml:lang="nl">Gegevens structuur voor een enkel fonds (non-umbrella structuur)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SingleFundStaticData" type="SingleFundStaticDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Static data of single fund (similar to static data of subfund)</xs:documentation>
+					<xs:documentation xml:lang="en">Static data of single fund (similar to static data of subfund)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Statische Daten des Einzelfonds (ähnlich den statischen Daten eines Subfund)</xs:documentation>
+					<xs:documentation xml:lang="fr">Statique données de unique fonds (similar à statique données de subfund)</xs:documentation>
+					<xs:documentation xml:lang="nl">Statisch gegevens van enkel fonds (similar naar statisch gegevens van subfund)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>List of share classes of single fund</xs:documentation>
+					<xs:documentation xml:lang="en">List of share classes of single fund</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Liste der ShareClasses des Einzelfonds</xs:documentation>
+					<xs:documentation xml:lang="fr">Liste de action classes de unique fonds</xs:documentation>
+					<xs:documentation xml:lang="nl">Lijst van aandeel classes van enkel fonds</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="ShareClass" type="ShareClassType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Static and dynamic data of a share class</xs:documentation>
+								<xs:documentation xml:lang="en">Static and dynamic data of a share class</xs:documentation>
+								<xs:documentation xml:lang="de">[AUTO] Statische und dynamische Daten einer ShareClass</xs:documentation>
+								<xs:documentation xml:lang="fr">Statique et dynamique données de un classe d'actions</xs:documentation>
+								<xs:documentation xml:lang="nl">Statisch en dynamisch gegevens van een aandelenklasse</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -811,7 +1175,10 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 			</xs:element>
 			<xs:element name="Segments" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Data related to segments/pockets of funds (typically managed by different fund managers)</xs:documentation>
+					<xs:documentation xml:lang="en">Data related to segments/pockets of funds (typically managed by different fund managers)</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Daten zu Segmenten/Pockets von Funds (typischerweise von verschiedenen Fund-Managern verwaltet)</xs:documentation>
+					<xs:documentation xml:lang="fr">Données related à segments/pockets de funds (typically managed par different fonds managers)</xs:documentation>
+					<xs:documentation xml:lang="nl">Gegevens related naar segments/pockets van funds (typically managed door different fonds managers)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -822,38 +1189,62 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IndirectReportingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for indirect regulatory reporting data for end investors</xs:documentation>
+			<xs:documentation xml:lang="de">[AUTO] Container für indirekte regulatorische Berichtsdaten für Endanleger</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour indirect réglementaire reporting données pour end investors</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor indirect regelgevend rapportage gegevens voor end investors</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TripartiteTemplateSolvencyII" type="TripartiteTemplateSolvencyIIType" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@deprecated old version. do not use any more. use {@link /FundsXML4/RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V7} instead"/>
-					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". It refers to version 4 dated 3/4/2018 of this "TPT V4" format.</xs:documentation>
+					<xs:documentation xml:lang="en">Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". It refers to version 4 dated 3/4/2018 of this "TPT V4" format.</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Speziell angereichertes Inventar für Solvency II. Diese XML-Implementierung ist kompatibel mit dem "Tripartite Template". Bezieht sich auf Version 4 vom 3.4.2018 dieses "TPT V4" Formats.</xs:documentation>
+					<xs:documentation xml:lang="fr">Special enriched inventory pour Solvency II. This XML implementation est compatible avec "Tripartite Template". It refers à version 4 dated 3/4/2018 de ce "TPT V4" format.</xs:documentation>
+					<xs:documentation xml:lang="nl">Special enriched inventory voor Solvency II. This XML implementation is compatible met "Tripartite Template". It refers naar versie 4 dated 3/4/2018 van dit "TPT V4" format.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V5" type="TripartiteTemplateSolvencyIIType_V5" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 5.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2020-01-16</xs:documentation>
+					<xs:documentation xml:lang="en">Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 5.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2020-01-16</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Speziell angereichertes Inventar für Solvency II. Diese XML-Implementierung ist kompatibel mit dem "Tripartite Template". Gemäß FinDatEx Version 5.0 Tripartite Template (TPT) für SII Asset Data Reporting vom 16.01.2020</xs:documentation>
+					<xs:documentation xml:lang="fr">Special enriched inventory pour Solvency II. This XML implementation est compatible avec "Tripartite Template". Selon FinDatEx Version 5.0 Tripartite Template (TPT) pour SII Actif Données reporting comme de 2020-01-16</xs:documentation>
+					<xs:documentation xml:lang="nl">Special enriched inventory voor Solvency II. This XML implementation is compatible met "Tripartite Template". Volgens FinDatEx Versie 5.0 Tripartite Template (TPT) voor SII Actief Gegevens rapportage als van 2020-01-16</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V6" type="TripartiteTemplateSolvencyIIType_V6" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@deprecated old version. do not use any more. use {@link /FundsXML4/RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V7} instead"/>
-					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 6.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="en">Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 6.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Speziell angereichertes Inventar für Solvency II. Diese XML-Implementierung ist kompatibel mit dem "Tripartite Template". Gemäß FinDatEx Version 6.0 Tripartite Template (TPT) für SII Asset Data Reporting vom 14.03.2022</xs:documentation>
+					<xs:documentation xml:lang="fr">Special enriched inventory pour Solvency II. This XML implementation est compatible avec "Tripartite Template". Selon FinDatEx Version 6.0 Tripartite Template (TPT) pour SII Actif Données reporting comme de 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="nl">Special enriched inventory voor Solvency II. This XML implementation is compatible met "Tripartite Template". Volgens FinDatEx Versie 6.0 Tripartite Template (TPT) voor SII Actief Gegevens rapportage als van 2022-03-14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V7" type="TripartiteTemplateSolvencyIIType_V7" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 7.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2024-11-25</xs:documentation>
+					<xs:documentation xml:lang="en">Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 7.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2024-11-25</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] Speziell angereichertes Inventar für Solvency II. Diese XML-Implementierung ist kompatibel mit dem "Tripartite Template". Gemäß FinDatEx Version 7.0 Tripartite Template (TPT) für SII Asset Data Reporting vom 25.11.2024</xs:documentation>
+					<xs:documentation xml:lang="fr">Special enriched inventory pour Solvency II. This XML implementation est compatible avec "Tripartite Template". Selon FinDatEx Version 7.0 Tripartite Template (TPT) pour SII Actif Données reporting comme de 2024-11-25</xs:documentation>
+					<xs:documentation xml:lang="nl">Special enriched inventory voor Solvency II. This XML implementation is compatible met "Tripartite Template". Volgens FinDatEx Versie 7.0 Tripartite Template (TPT) voor SII Actief Gegevens rapportage als van 2024-11-25</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRIIPS" type="PRIIPSType" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@deprecated"/>
-					<xs:documentation>EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
+					<xs:documentation xml:lang="en">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] EPT 20170728 ENTWURF TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
+					<xs:documentation xml:lang="fr">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
+					<xs:documentation xml:lang="nl">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRIIPS_V20" type="PRIIPSType_V20" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>EUROPEAN PRIIPs TEMPLATE - EPT V2.0 and EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT  V2.0</xs:documentation>
+					<xs:documentation xml:lang="en">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 and EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
+					<xs:documentation xml:lang="de">[AUTO] EUROPEAN PRIIPs TEMPLATE - EPT V2.0 und EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
+					<xs:documentation xml:lang="fr">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 et EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
+					<xs:documentation xml:lang="nl">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 en EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

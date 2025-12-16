@@ -534,16 +534,20 @@ Name of Issuer of Fund  or Share Class, or segregated account manager. </xs:docu
 							<xs:annotation>
 								<xs:documentation xml:lang="en">EPT 00030 / CEPT PRICES 10020 / CEPT RHP  30020 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.</xs:documentation>
+								<xs:documentation xml:lang="de">EPT 00030 / CEPT PRICES 10020 / CEPT RHP 30020 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="PortfolioName" type="Text256Type">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">EPT 00050 / CEPT PRICES 10040 / CEPT RHP 30040 - Name of the Portfolio or name of the CIS</xs:documentation>
+								<xs:documentation xml:lang="de">EPT 00050 / CEPT PRICES 10040 / CEPT RHP 30040 - Name des Portfolios oder Name des Organismus für gemeinsame Anlagen</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ShareClassCurrency" type="ISOCurrencyCodeType">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">EPT 00060 / CEPT PRICES 10050 / CEPT RHP 30050 - Valuation currency of the portfolio or the share class</xs:documentation>
+								<xs:documentation xml:lang="de">EPT 00060 / CEPT PRICES 10050 / CEPT RHP 30050 - Bewertungswährung des Portfolios oder der Anteilsklasse</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ReferenceDate" type="xs:date">
@@ -1203,15 +1207,14 @@ The data file will contain calculated figures for a range of RHP from 5-30 years
 						</xs:element>
 						<xs:element name="PortfolioID" type="PRIIPS_SecurityCodificationType">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">30020_Portfolio_Identifying_Data / 30030_Type_Of_Identification_Code_For_The_Fund_Share_Or_Portfolio
-
-</xs:documentation>
+								<xs:documentation xml:lang="en">30020_Portfolio_Identifying_Data / 30030_Type_Of_Identification_Code_For_The_Fund_Share_Or_Portfolio</xs:documentation>
+								<xs:documentation xml:lang="de">30020_Portfolio_Identifying_Data / 30030_Type_Of_Identification_Code_For_The_Fund_Share_Or_Portfolio - Identifikationsdaten des Portfolios</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ShareClassCurrency" type="ISOCurrencyCodeType">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">30040_Portfolio_Or_Share_Class_Currency
-</xs:documentation>
+								<xs:documentation xml:lang="en">30040_Portfolio_Or_Share_Class_Currency</xs:documentation>
+								<xs:documentation xml:lang="de">30040_Portfolio_Or_Share_Class_Currency - Währung des Portfolios oder der Anteilsklasse</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="KIDPublicationDate" type="xs:date">
@@ -1333,14 +1336,14 @@ Identification of the fund or share class or segregated account
 						</xs:element>
 						<xs:element name="PortfolioID" type="PRIIPS_SecurityCodificationType">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">10030_Type_Of_Identification_Code_For_The_Fund_Share_Or_Portfolio
-</xs:documentation>
+								<xs:documentation xml:lang="en">10030_Type_Of_Identification_Code_For_The_Fund_Share_Or_Portfolio</xs:documentation>
+								<xs:documentation xml:lang="de">10030_Type_Of_Identification_Code_For_The_Fund_Share_Or_Portfolio - Art des Identifikationscodes für den Fonds, die Anteilsklasse oder das Portfolio</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ShareClassCurrency" type="ISOCurrencyCodeType">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">10040_Portfolio_Or_Share_Class_Currency
-</xs:documentation>
+								<xs:documentation xml:lang="en">10040_Portfolio_Or_Share_Class_Currency</xs:documentation>
+								<xs:documentation xml:lang="de">10040_Portfolio_Or_Share_Class_Currency - Währung des Portfolios oder der Anteilsklasse</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ReferenceDate" type="xs:date">
@@ -1806,6 +1809,18 @@ Integer corresponding to the following closed list:
 8 – FIGI (Financial Instrument Global Identifier)
 9 - Other code by members of the Association of National Numbering Agencies
 99 - Code attributed by the undertaking</xs:documentation>
+					<xs:documentation xml:lang="de">Verwendetes Codierungssystem.
+Ganzzahl entsprechend der folgenden Liste:
+1 - ISO 6166 für ISIN-Code
+2 - CUSIP (Committee on Uniform Securities Identification Procedures, vergeben vom CUSIP Service Bureau für US- und kanadische Unternehmen)
+3 - SEDOL (Stock Exchange Daily Official List der London Stock Exchange)
+4 - WKN (Wertpapier-Kenn-Nummer, alphanumerische deutsche Kennnummer)
+5 - Bloomberg Ticker (Bloomberg-Buchstabencode zur Identifikation von Wertpapieren)
+6 - BBGID (Bloomberg Global ID)
+7 - Reuters RIC (Reuters Instrument Code)
+8 - FIGI (Financial Instrument Global Identifier)
+9 - Anderer Code von Mitgliedern der Association of National Numbering Agencies
+99 - Vom Unternehmen vergebener Code</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:short">
@@ -1827,6 +1842,7 @@ Integer corresponding to the following closed list:
 			<xs:element name="Code">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+					<xs:documentation xml:lang="de">Wert des Codes im Codierungssystem</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1951,16 +1967,20 @@ The EPT V 2.0 incorporates the necessary changes based on the revised PRIIPs RTS
 										<xs:annotation>
 											<xs:documentation xml:lang="en">EPT 00030 / CEPT PRICES 10020 / C - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.</xs:documentation>
+											<xs:documentation xml:lang="de">EPT 00030 / CEPT PRICES 10020 / C - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="PortfolioName" type="Text256Type">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">EPT 00050 Name of the Portfolio or name of the CIS</xs:documentation>
+											<xs:documentation xml:lang="de">EPT 00050 Name des Portfolios oder Name des Organismus für gemeinsame Anlagen</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">EPT 00060 - Denomination currency of the portfolio</xs:documentation>
+											<xs:documentation xml:lang="de">EPT 00060 - Nennwährung des Portfolios</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="GeneralReferenceDate" type="xs:date">
@@ -2480,8 +2500,8 @@ Maximum  fees, including look through for fund of funds / custodian fees / manag
 											<xs:sequence>
 												<xs:element name="UKPRIIPOrUCITSOrBoth">
 													<xs:annotation>
-														<xs:documentation xml:lang="en">08010 Indicates if the line contains UK PRIIPs data, UCITS data or Both
-</xs:documentation>
+														<xs:documentation xml:lang="en">08010 Indicates if the line contains UK PRIIPs data, UCITS data or Both</xs:documentation>
+														<xs:documentation xml:lang="de">08010 Gibt an, ob die Zeile UK PRIIPs-Daten, UCITS-Daten oder beides enthält</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
@@ -2502,8 +2522,11 @@ Express as a % of NAV of the portfolio, the funds or the share class / per annum
 												<xs:element name="UKTransactionscostsmethodology">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">08030 1 New PRIIPS methodology
-2 Full UK PRIIPS methodology 
+2 Full UK PRIIPS methodology
 3 Other methodology</xs:documentation>
+														<xs:documentation xml:lang="de">08030 1 Neue PRIIPs-Methodik
+2 Vollständige UK PRIIPs-Methodik
+3 Andere Methodik</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:short">

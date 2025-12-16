@@ -65,11 +65,14 @@ The version corresponding to the current XML schema is "V6.0"</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.</xs:documentation>
+					<xs:documentation xml:lang="de">A02 01 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioName" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A03 - Portfolio or Fund or Share class name</xs:documentation>
+					<xs:documentation xml:lang="de">A03 - Portfolio- oder Fonds- oder Anteilsklassenname</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
@@ -84,17 +87,22 @@ KID: Kiribati dollar -Kiribati
 NIS – New Israeli Shekel - Israel 
 PRB – Transnistrian ruble - Transnistria (The code conflicts with ISO-4217 because PR stands for Puerto Rico. X should have been used for the first letter.)
 TVD – Tuvalu dollar- Tuvalu</xs:documentation>
+					<xs:documentation xml:lang="de">A04 - Portfoliowährung für die Bewertung von Vermögenswerten.
+Wenn das Portfolio auf Anteilsklassenebene gemeldet wird, ist die Portfoliowährung die Währung der Anteilsklasse. Code ISO 4217.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TotalNetAssets" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A05 - Total net assets of the Portfolio or the Share class in PortfolioCurrency</xs:documentation>
+					<xs:documentation xml:lang="de">A05 - Gesamtnettovermögen des Portfolios oder der Anteilsklasse in Portfoliowährung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ValuationDate" type="xs:date">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A06 - Date at which the portfolio inventory is valid.
 Used for NAV date.</xs:documentation>
+					<xs:documentation xml:lang="de">A06 - Datum, an dem das Portfolioinventar gültig ist.
+Verwendet für NAV-Datum.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ReportingDate" type="xs:date">
@@ -127,11 +135,14 @@ To enable apportionment of the investment holding by the insurance entity in the
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A09 - Liquidities of the Portfolio converted into Portfolio currency.
 In percentage of TotalNetAssets.</xs:documentation>
+					<xs:documentation xml:lang="de">A09 - Liquidität des Portfolios umgerechnet in Portfoliowährung.
+In Prozent des Gesamtnettovermögens.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioModifiedDuration" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A10 - Weighted average modified duration of portfolio. Only required for relevant asset types (including derivatives).</xs:documentation>
+					<xs:documentation xml:lang="de">A10 - Gewichtete durchschnittliche modifizierte Duration des Portfolios. Nur erforderlich für relevante Anlagearten (einschließlich Derivate).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CompleteSCRDelivery" type="YesNoL1Type">
@@ -195,12 +206,14 @@ In percentage of TotalNetAssets.</xs:documentation>
 			<xs:element name="Positions">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Inventory of the Portfolio</xs:documentation>
+					<xs:documentation xml:lang="de">Inventar des Portfolios</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Position" type="SIIPositionType_V6" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
+								<xs:documentation xml:lang="de">Details zu jeder Position.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -238,11 +251,14 @@ In percentage of TotalNetAssets.</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.</xs:documentation>
+					<xs:documentation xml:lang="de">A02 01 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioName" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A03 - Portfolio or Fund or Share class name</xs:documentation>
+					<xs:documentation xml:lang="de">A03 - Portfolio- oder Fonds- oder Anteilsklassenname</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
@@ -257,17 +273,22 @@ KID: Kiribati dollar -Kiribati
 NIS – New Israeli Shekel - Israel 
 PRB – Transnistrian ruble - Transnistria (The code conflicts with ISO-4217 because PR stands for Puerto Rico. X should have been used for the first letter.)
 TVD – Tuvalu dollar- Tuvalu</xs:documentation>
+					<xs:documentation xml:lang="de">A04 - Portfoliowährung für die Bewertung von Vermögenswerten.
+Wenn das Portfolio auf Anteilsklassenebene gemeldet wird, ist die Portfoliowährung die Währung der Anteilsklasse. Code ISO 4217.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TotalNetAssets" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A05 - Total net assets of the Portfolio or the Share class in PortfolioCurrency</xs:documentation>
+					<xs:documentation xml:lang="de">A05 - Gesamtnettovermögen des Portfolios oder der Anteilsklasse in Portfoliowährung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ValuationDate" type="xs:date">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A06 - Date at which the portfolio inventory is valid.
 Used for NAV date.</xs:documentation>
+					<xs:documentation xml:lang="de">A06 - Datum, an dem das Portfolioinventar gültig ist.
+Verwendet für NAV-Datum.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ReportingDate" type="xs:date">
@@ -300,11 +321,14 @@ To enable apportionment of the investment holding by the insurance entity in the
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A09 - Liquidities of the Portfolio converted into Portfolio currency.
 In percentage of TotalNetAssets.</xs:documentation>
+					<xs:documentation xml:lang="de">A09 - Liquidität des Portfolios umgerechnet in Portfoliowährung.
+In Prozent des Gesamtnettovermögens.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioModifiedDuration" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A10 -Weighted average modified duration of the Marked to Market instruments in portfolio. This datapoint has the same value for all instruments in the portfolio of the funds. Ideally it should be based on expected modified duration for relevant instruments. </xs:documentation>
+					<xs:documentation xml:lang="de">A10 - Gewichtete durchschnittliche modifizierte Duration der zum Marktwert bewerteten Instrumente im Portfolio. Dieser Datenpunkt hat denselben Wert für alle Instrumente im Portfolio des Fonds.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CompleteSCRDelivery" type="YesNoL1Type">
@@ -397,12 +421,14 @@ same as datapoint 10 for portfolios mainly invested in debt instruments."
 			<xs:element name="Positions">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Inventory of the Portfolio</xs:documentation>
+					<xs:documentation xml:lang="de">Inventar des Portfolios</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Position" type="SIIPositionType_V7" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
+								<xs:documentation xml:lang="de">Details zu jeder Position.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -429,6 +455,18 @@ Integer corresponding to the following closed list:
 8 – FIGI (Financial Instrument Global Identifier)
 9 - Other code by members of the Association of National Numbering Agencies
 99 - Code attributed by the undertaking</xs:documentation>
+					<xs:documentation xml:lang="de">Verwendetes Codierungssystem.
+Ganzzahl entsprechend der folgenden Liste:
+1 - ISO 6166 für ISIN-Code
+2 - CUSIP
+3 - SEDOL
+4 - WKN (Wertpapier-Kenn-Nummer)
+5 - Bloomberg Ticker
+6 - BBGID
+7 - Reuters RIC
+8 - FIGI
+9 - Anderer Code von Numbering Agencies
+99 - Vom Unternehmen vergebener Code</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:short">
@@ -450,6 +488,7 @@ Integer corresponding to the following closed list:
 			<xs:element name="Code" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+					<xs:documentation xml:lang="de">Wert des Codes im Codierungssystem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -473,6 +512,18 @@ Integer corresponding to the following closed list:
 8 – FIGI (Financial Instrument Global Identifier)
 9 - Other code by members of the Association of National Numbering Agencies
 99 - Code attributed by the undertaking</xs:documentation>
+					<xs:documentation xml:lang="de">Verwendetes Codierungssystem.
+Ganzzahl entsprechend der folgenden Liste:
+1 - ISO 6166 für ISIN-Code
+2 - CUSIP
+3 - SEDOL
+4 - WKN (Wertpapier-Kenn-Nummer)
+5 - Bloomberg Ticker
+6 - BBGID
+7 - Reuters RIC
+8 - FIGI
+9 - Anderer Code von Numbering Agencies
+99 - Vom Unternehmen vergebener Code</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:short">
@@ -494,6 +545,7 @@ Integer corresponding to the following closed list:
 			<xs:element name="Code" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+					<xs:documentation xml:lang="de">Wert des Codes im Codierungssystem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -504,6 +556,8 @@ Integer corresponding to the following closed list:
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A12 - Instrument type. E.g. Equity, bond, option, swap,...
 CIC codification used.</xs:documentation>
+					<xs:documentation xml:lang="de">A12 - Instrumententyp. Z.B. Aktie, Anleihe, Option, Swap,...
+CIC-Codierung used.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="CICCodeType">
@@ -518,12 +572,20 @@ CIC codification used.</xs:documentation>
 1 EEA
 2 OECD non EEA
 3 non OECD</xs:documentation>
+					<xs:documentation xml:lang="de">A13 - Wirtschaftsgebietscode des Quotierungslandes:
+0 non listed
+1 EEA
+2 OECD non EEA
+3 non OECD</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V6">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A15 14 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.
+</xs:documentation>
+					<xs:documentation xml:lang="de">A15 14 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.
 </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -541,6 +603,7 @@ Useless for single-leg positions.</xs:documentation>
 			<xs:element name="InstrumentName">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A17</xs:documentation>
+					<xs:documentation xml:lang="de">A17</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -552,6 +615,8 @@ Useless for single-leg positions.</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Valuation characteristics and 
 Position market value(s).</xs:documentation>
+					<xs:documentation xml:lang="de">Valuation Merkmale and 
+Position market value(s).</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -559,11 +624,15 @@ Position market value(s).</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A18 - Quantity of Instrument in Position.
 </xs:documentation>
+								<xs:documentation xml:lang="de">A18 - Menge des Instruments in der Position.
+</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="TotalNominalValueQC" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A19 - In QuotationCurrency.
+= Quantity * Nominal Unit Amount</xs:documentation>
+								<xs:documentation xml:lang="de">A19 - In Quotierungswährung.
 = Quantity * Nominal Unit Amount</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -571,6 +640,8 @@ Position market value(s).</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A20 - Only for futures and options.
 The way the contract size is defined varies according with the type of instrument. See EIOPA definition (QRT 0801)</xs:documentation>
+								<xs:documentation xml:lang="de">A20 - Only for futures and options.
+The way the contract size is defined varies according with the type of Instrument. See EIOPA definition (QRT 0801)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="QuotationCurrency" type="ISOCurrencyCodeType">
@@ -583,11 +654,16 @@ The way the contract size is defined varies according with the type of instrumen
 								<xs:documentation xml:lang="en">A22 - Amount in QuotationCurrency (A) 
 including accrued coupon.
 (Dirty value)</xs:documentation>
+								<xs:documentation xml:lang="de">A22 - Amount in QuotationWährung (A) 
+einschließlich aufgelaufenem Kupon.
+(Dirty value)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CleanValueQC" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A23 - Market value in QuotationCurrency
+not including accrued income.</xs:documentation>
+								<xs:documentation xml:lang="de">A23 - Marktwert in QuotationWährung
 not including accrued income.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -601,11 +677,15 @@ Generally equals to: MarketValueQC - CleanValueQC</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A24 - Amount in PortfolioCurrency (B) including accrued coupon.
 (Dirty value)</xs:documentation>
+								<xs:documentation xml:lang="de">A24 - Amount in PortfolioWährung (B) einschließlich aufgelaufenem Kupon.
+(Dirty value)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CleanValuePC" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A25 - Market value in PortfolioCurrency
+not including accrued interest</xs:documentation>
+								<xs:documentation xml:lang="de">A25 - Marktwert in PortfolioWährung
 not including accrued interest</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -627,6 +707,9 @@ of TotalNetAssets (including liquidity)
 								<xs:documentation xml:lang="en">A27 - MarketExposure in QuotationCurrency (A).
 Different from MarketValueQC for derivatives:
 valuation of the equivalent position on the underlying asset.</xs:documentation>
+								<xs:documentation xml:lang="de">A27 - MarketExposure in QuotationWährung (A).
+Different from MarketValueQC for derivatives:
+valuation of the equivalent Position on the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MarketExposurePC" type="xs:decimal">
@@ -634,6 +717,9 @@ valuation of the equivalent position on the underlying asset.</xs:documentation>
 								<xs:documentation xml:lang="en">A28 - MarketExposure in PortfolioCurrency (B).
 Different from MarketValuePC for derivatives:
 valuation of the equivalent position on the underlying asset.</xs:documentation>
+								<xs:documentation xml:lang="de">A28 - MarketExposure in PortfolioWährung (B).
+Different from MarketValuePC for derivatives:
+valuation of the equivalent Position on the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MarketExposureUC" type="xs:decimal" minOccurs="0">
@@ -661,6 +747,7 @@ as percentage of TotalNetAssets.
 			<xs:element name="InterestRateInstrumentCharacteristics" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Detailed characteristics for interest rate instruments.</xs:documentation>
+					<xs:documentation xml:lang="de">Detaillierte Merkmale für Zinsinstrumente.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -669,6 +756,8 @@ as percentage of TotalNetAssets.
 								<xs:annotation>
 									<xs:documentation xml:lang="en">A32 - Type of interest rate:
 "Fixed" (fixe), "Variable" (révisable), "Floating" (variable), " Infation_linked" (inflation linked bonds)</xs:documentation>
+									<xs:documentation xml:lang="de">A32 - Art des Zinssatzes:
+"Fest" (fixe), "Variabel" (révisable), "Variabel" (variable), " Infation_linked" (inflation linked bonds)</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
@@ -684,17 +773,23 @@ as percentage of TotalNetAssets.
 									<xs:documentation xml:lang="en">A33 - Next annual coupon rate in percentage
 (known, or estimated for Floating).
 3.5% has to be written "3.5"</xs:documentation>
+									<xs:documentation xml:lang="de">A33 - Nächste jährliche Kuponrate in Prozent
+(known, or estimated for Variabel).
+3.5% has to be written "3.5"</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="VariableRate" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">For Floating/Variable rate bond.</xs:documentation>
+									<xs:documentation xml:lang="de">Für variabel verzinsliche Anleihen.</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="IndexID" type="CodificationType_V5">
 											<xs:annotation>
 												<xs:documentation xml:lang="en">A35 34  - Identification of index used as reference for Floating/Variable rate bond.
+CodificationSystem omitted if internal codification is used.</xs:documentation>
+												<xs:documentation xml:lang="de">A35 34  - Identifikation des als Referenz verwendeten Index for Variabel/Variabel rate bond.
 CodificationSystem omitted if internal codification is used.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
@@ -706,6 +801,8 @@ CodificationSystem omitted if internal codification is used.</xs:documentation>
 										<xs:element name="Margin" type="PercentageType">
 											<xs:annotation>
 												<xs:documentation xml:lang="en">A37 - Annual additive margin in percentage.
+e.g. -0.5% should be written as "-0.5"</xs:documentation>
+												<xs:documentation xml:lang="de">A37 - Jährliche additive Marge in percentage.
 e.g. -0.5% should be written as "-0.5"</xs:documentation>
 											</xs:annotation>
 										</xs:element>
@@ -721,17 +818,26 @@ e.g. -0.5% should be written as "-0.5"</xs:documentation>
 4= quarterly
 12= monthly 
 52= weekly</xs:documentation>
+									<xs:documentation xml:lang="de">A38 - Kuponzahlungsfrequenz as Anzahl der Kupons pro Jahr
+0 = other than below options:
+1= annual
+2= biannual
+4= quarterly
+12= monthly 
+52= weekly</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
 						<xs:element name="EffectiveDateOfInstrument" type="xs:date" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A63 - Start date to accrue interest.</xs:documentation>
+								<xs:documentation xml:lang="de">A63 - Beginn der Zinsberechnung.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Redemption" type="RedemptionType_V7">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A39 40 41 - Redemption details</xs:documentation>
+								<xs:documentation xml:lang="de">A39 40 41 - Rücknahmedetails</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="EmbeddedOption" minOccurs="0">
@@ -761,11 +867,13 @@ Flr= Floor</xs:documentation>
 									<xs:element name="CallPutDate" type="xs:date">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A43 - Date of first Call / Put option to come.</xs:documentation>
+											<xs:documentation xml:lang="de">A43 - Datum der ersten Call/Put-Option to come.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="OptionDirection">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A44 - Option at the discretion of issuer(I) or bearer(B). "O" if both are possible.</xs:documentation>
+											<xs:documentation xml:lang="de">A44 - Option im Ermessen von Emittent(I) or Inhaber(B). "O" if both are possible.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -780,6 +888,8 @@ Flr= Floor</xs:documentation>
 									<xs:element name="StrikePrice" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A45 - Strike price of first optional Call / Put as a percentage of nominal amount.
+95%=0.95</xs:documentation>
+											<xs:documentation xml:lang="de">A45 - Ausübungspreis of first optional Call / Put as a percentage of Nennwert.
 95%=0.95</xs:documentation>
 										</xs:annotation>
 									</xs:element>
@@ -816,6 +926,10 @@ Flr= Floor</xs:documentation>
 Mandatory otherwise.
 Refers to Counterparty for OTC Derivatives.
 Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
+					<xs:documentation xml:lang="de">A46 to A54 + A57 + A59 - Useless for cash Positions.
+Mandatory otherwise.
+Refers to Counterparty for OTC Derivatives.
+Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
@@ -826,11 +940,15 @@ Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
 										<xs:documentation xml:lang="en">A54 - Economic sector of instrument issuer.
 NACE code mandatory.
 Optional for Derivatives or Underlying instruments.</xs:documentation>
+										<xs:documentation xml:lang="de">A54 - Economic sector of Instrument Emittent.
+NACE code mandatory.
+Optional for Derivatives or Underlying Instruments.</xs:documentation>
 									</xs:annotation>
 								</xs:element>
 								<xs:element name="Covered" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation xml:lang="en">A55 - The instrument is covered ("C") or not ('NC')</xs:documentation>
+										<xs:documentation xml:lang="de">A55 - The Instrument is gedeckt ("C") or not ('NC')</xs:documentation>
 									</xs:annotation>
 									<xs:simpleType>
 										<xs:restriction base="xs:string">
@@ -882,6 +1000,7 @@ Optional for Derivatives or Underlying instruments.</xs:documentation>
 			<xs:element name="HedgingRolling" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A65 - Indication of existing Risk Mitigation program "Y" used for Risk Mitigation purpose and the position is systematically rolled at maturity, "N" used for hedging purpose but no systematic roll at maturity); "EPM" Efficient Portfolio Management / not used for hedging purpose</xs:documentation>
+					<xs:documentation xml:lang="de">A65 - Indication of existing Risikominderung program "Y" used for Risikominderung purpose and the Position is systematisch bei Fälligkeit verlängert, "N" used for Absicherungszweck but no systematic roll at maturity); "EPM" Effizientes Portfoliomanagement / not used for Absicherungszweck</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -896,6 +1015,9 @@ Optional for Derivatives or Underlying instruments.</xs:documentation>
 					<xs:documentation xml:lang="en">For Futures or Convertible bonds:
 - Characteristics of the option (implicit or explicit).
 - Description of underlying instrument.</xs:documentation>
+					<xs:documentation xml:lang="de">Für Futures oder Wandelanleihen:
+- Characteristics of the option (implicit or explicit).
+- Description of underlying Instrument.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -914,6 +1036,11 @@ Useless for single futures contract.</xs:documentation>
 "Put"=put
 "Cap"=cap
 "Flr"=floor</xs:documentation>
+											<xs:documentation xml:lang="de">A60 - Optionstyp
+"Cal"=call 
+"Put"=put
+"Cap"=cap
+"Flr"=floor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -928,6 +1055,7 @@ Useless for single futures contract.</xs:documentation>
 									<xs:element name="StrikePrice" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A61 - Strike price of the option in same unit as price of underlying instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A61 - Ausübungspreis of the option in same unit as price of underlying Instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ConversionRatio" type="xs:decimal">
@@ -938,6 +1066,8 @@ Useless for single futures contract.</xs:documentation>
 									<xs:element name="ExerciseType" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A64 - Option style: AMerican, EUropean, ASiatic, BErmudian
+Optional for convertibles</xs:documentation>
+											<xs:documentation xml:lang="de">A64 - Optionsstil: AMerican, EUropean, ASiatic, BErmudian
 Optional for convertibles</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
@@ -981,6 +1111,8 @@ For pricing using shock modelling.</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A67 - Instrument type. E.g. Equity, bond, option, swap,...
 CIC codification.</xs:documentation>
+											<xs:documentation xml:lang="de">A67 - Instrumententyp. Z.B. Aktie, Anleihe, Option, Swap,...
+CIC-Codierung.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V7">
@@ -991,6 +1123,7 @@ CIC codification.</xs:documentation>
 									<xs:element name="InstrumentName" type="xs:string">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A70 - Name of underlying instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A70 - Name des BasiswertInstruments.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Valuation">
@@ -1004,16 +1137,23 @@ CIC codification.</xs:documentation>
 												<xs:element name="MarketPrice" type="xs:decimal">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A72 - Last market price known, in Currency (C).</xs:documentation>
+														<xs:documentation xml:lang="de">A72 - Letzter bekannter Marktpreis, in Währung (C).</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A73 - Country of quotation</xs:documentation>
+														<xs:documentation xml:lang="de">A73 - Quotierungsland</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="EconomicArea" type="EconomicAreaType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A74 - Economic area code of Country of quotation:
+0 non listed
+1 EEA;
+2 OECD non EEA
+3 non OECD</xs:documentation>
+														<xs:documentation xml:lang="de">A74 - Economic area code of Quotierungsland:
 0 non listed
 1 EEA;
 2 OECD non EEA
@@ -1026,6 +1166,7 @@ CIC codification.</xs:documentation>
 									<xs:element name="Coupon" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">If underlying instrument is an interest rate instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">Wenn das Basiswertinstrument ein Zinsinstrument ist.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -1045,6 +1186,14 @@ CIC codification.</xs:documentation>
 12= monthly
 52= weekly"
 </xs:documentation>
+														<xs:documentation xml:lang="de">A76 - Kuponzahlungsfrequenz as "number of coupon payment per year
+0 = other than below options:
+1= annual
+2= biannual
+4= quarterly
+12= monthly
+52= weekly"
+</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -1054,12 +1203,16 @@ CIC codification.</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A77 78 79 - Redemption details.
 If underlying instrument is an interest rate instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A77 78 79 - Rücknahmedetails.
+If underlying Instrument is an interest rate Instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="CreditRiskData" type="CreditRiskDataType_V7" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
 (or counterparty for OTC instruments).</xs:documentation>
+											<xs:documentation xml:lang="de">A80 to A89 - Issuer of underlying Instrument
+(or counterparty for OTC Instruments).</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1068,6 +1221,7 @@ If underlying instrument is an interest rate instrument.</xs:documentation>
 						<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A 39 Expiry date for options. Maturity date for derivatives.</xs:documentation>
+								<xs:documentation xml:lang="de">A 39 Verfallsdatum für Optionen. Fälligkeitsdatum for derivatives.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1083,11 +1237,13 @@ Useless fo cash positions</xs:documentation>
 						<xs:element name="ModifiedDurationToMaturity" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A90 - Modified duration to maturity date based on dirty price.</xs:documentation>
+								<xs:documentation xml:lang="de">A90 - Modifizierte Duration to maturity date based on Dirty Price.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ModifiedDurationToCall" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A91 - Modified duration to next call/put date, if any.</xs:documentation>
+								<xs:documentation xml:lang="de">A91 - Modifizierte Duration to nächstes Call/Put-Datum, if any.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CreditSensitivity" type="xs:decimal" minOccurs="0">
@@ -1105,6 +1261,8 @@ Sensitivity to the underlying asset.</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A94 - Convexity for interest rates instruments; or 
 gamma for derivatives with optional components </xs:documentation>
+								<xs:documentation xml:lang="de">A94 - Convexity for interest rates Instruments; or 
+gamma for derivatives with optional components </xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Vega" type="xs:decimal" minOccurs="0">
@@ -1118,6 +1276,9 @@ gamma for derivatives with optional components </xs:documentation>
 			<xs:element name="LookThroughIdentifier" type="ISINType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A95 - identification code of the investee funds
+ISIN or CUSIP or any other identification
+</xs:documentation>
+					<xs:documentation xml:lang="de">A95 - identification code of the investee Fondss
 ISIN or CUSIP or any other identification
 </xs:documentation>
 				</xs:annotation>
@@ -1358,6 +1519,8 @@ number with floating decimal
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A12 - Instrument type. E.g. Equity, bond, option, swap,...
 CIC codification used.</xs:documentation>
+					<xs:documentation xml:lang="de">A12 - Instrumententyp. Z.B. Aktie, Anleihe, Option, Swap,...
+CIC-Codierung used.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="CICCodeType">
@@ -1372,12 +1535,20 @@ CIC codification used.</xs:documentation>
 1 EEA
 2 OECD non EEA
 3 non OECD</xs:documentation>
+					<xs:documentation xml:lang="de">A13 - Wirtschaftsgebietscode des Quotierungslandes:
+0 non listed
+1 EEA
+2 OECD non EEA
+3 non OECD</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A15 14 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.
+</xs:documentation>
+					<xs:documentation xml:lang="de">A15 14 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.
 </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1395,6 +1566,7 @@ Useless for single-leg positions.</xs:documentation>
 			<xs:element name="InstrumentName">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A17</xs:documentation>
+					<xs:documentation xml:lang="de">A17</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1406,6 +1578,8 @@ Useless for single-leg positions.</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Valuation characteristics and 
 Position market value(s).</xs:documentation>
+					<xs:documentation xml:lang="de">Valuation Merkmale and 
+Position market value(s).</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1413,11 +1587,15 @@ Position market value(s).</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A18 - Quantity of Instrument in Position.
 </xs:documentation>
+								<xs:documentation xml:lang="de">A18 - Menge des Instruments in der Position.
+</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="TotalNominalValueQC" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A19 - In QuotationCurrency.
+= Quantity * Nominal Unit Amount</xs:documentation>
+								<xs:documentation xml:lang="de">A19 - In Quotierungswährung.
 = Quantity * Nominal Unit Amount</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -1425,6 +1603,8 @@ Position market value(s).</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A20 - Only for futures and options.
 The way the contract size is defined varies according with the type of instrument. See EIOPA definition (QRT 0801)</xs:documentation>
+								<xs:documentation xml:lang="de">A20 - Only for futures and options.
+The way the contract size is defined varies according with the type of Instrument. See EIOPA definition (QRT 0801)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="QuotationCurrency" type="ISOCurrencyCodeType">
@@ -1437,11 +1617,16 @@ The way the contract size is defined varies according with the type of instrumen
 								<xs:documentation xml:lang="en">A22 - Amount in QuotationCurrency (A) 
 including accrued coupon.
 (Dirty value)</xs:documentation>
+								<xs:documentation xml:lang="de">A22 - Amount in QuotationWährung (A) 
+einschließlich aufgelaufenem Kupon.
+(Dirty value)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CleanValueQC" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A23 - Market value in QuotationCurrency
+not including accrued income.</xs:documentation>
+								<xs:documentation xml:lang="de">A23 - Marktwert in QuotationWährung
 not including accrued income.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -1455,11 +1640,15 @@ Generally equals to: MarketValueQC - CleanValueQC</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A24 - Amount in PortfolioCurrency (B) including accrued coupon.
 (Dirty value)</xs:documentation>
+								<xs:documentation xml:lang="de">A24 - Amount in PortfolioWährung (B) einschließlich aufgelaufenem Kupon.
+(Dirty value)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CleanValuePC" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A25 - Market value in PortfolioCurrency
+not including accrued interest</xs:documentation>
+								<xs:documentation xml:lang="de">A25 - Marktwert in PortfolioWährung
 not including accrued interest</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -1481,6 +1670,9 @@ of TotalNetAssets (including liquidity)
 								<xs:documentation xml:lang="en">A27 - MarketExposure in QuotationCurrency (A).
 Different from MarketValueQC for derivatives:
 valuation of the equivalent position on the underlying asset.</xs:documentation>
+								<xs:documentation xml:lang="de">A27 - MarketExposure in QuotationWährung (A).
+Different from MarketValueQC for derivatives:
+valuation of the equivalent Position on the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MarketExposurePC" type="xs:decimal">
@@ -1488,6 +1680,9 @@ valuation of the equivalent position on the underlying asset.</xs:documentation>
 								<xs:documentation xml:lang="en">A28 - MarketExposure in PortfolioCurrency (B).
 Different from MarketValuePC for derivatives:
 valuation of the equivalent position on the underlying asset.</xs:documentation>
+								<xs:documentation xml:lang="de">A28 - MarketExposure in PortfolioWährung (B).
+Different from MarketValuePC for derivatives:
+valuation of the equivalent Position on the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MarketExposureUC" type="xs:decimal" minOccurs="0">
@@ -1515,6 +1710,7 @@ as percentage of TotalNetAssets.
 			<xs:element name="InterestRateInstrumentCharacteristics" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Detailed characteristics for interest rate instruments.</xs:documentation>
+					<xs:documentation xml:lang="de">Detaillierte Merkmale für Zinsinstrumente.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1524,6 +1720,12 @@ as percentage of TotalNetAssets.
 									<xs:documentation xml:lang="en">Fixed - plain vanilla fixed coupon rate
 * Floating - plain vanilla floating coupon rates (for all interest rates, which refer to a reference interest rate like EONIA or EURIBOR + margin in BP)
 * Variable - all other variable interest rates like step-up or step-down or fixed-to-float bonds. The variable feature is the (credit) margin or the change between fixed and float.
+* Inflation_linked for Inflation_linked bonds in order to identify them.
+
+</xs:documentation>
+									<xs:documentation xml:lang="de">Fest - Plain Vanilla fester Kuponsatz
+* Variabel - Plain Vanilla floating coupon rates (for all interest rates, which refer to a reference interest rate like EONIA or EURIBOR + margin in BP)
+* Variabel - all other variable interest rates like step-up or step-down or fixed-to-float bonds. The variable feature is the (credit) margin or the change between fixed and float.
 * Inflation_linked for Inflation_linked bonds in order to identify them.
 
 </xs:documentation>
@@ -1542,17 +1744,23 @@ as percentage of TotalNetAssets.
 									<xs:documentation xml:lang="en">A33 - Next annual coupon rate in percentage
 (known, or estimated for Floating).
 3.5% has to be written "3.5"</xs:documentation>
+									<xs:documentation xml:lang="de">A33 - Nächste jährliche Kuponrate in Prozent
+(known, or estimated for Variabel).
+3.5% has to be written "3.5"</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="VariableRate" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">For Floating/Variable rate bond.</xs:documentation>
+									<xs:documentation xml:lang="de">Für variabel verzinsliche Anleihen.</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="IndexID" type="CodificationType_V5">
 											<xs:annotation>
 												<xs:documentation xml:lang="en">A35 34  - Identification of index used as reference for Floating/Variable rate bond.
+CodificationSystem omitted if internal codification is used.</xs:documentation>
+												<xs:documentation xml:lang="de">A35 34  - Identifikation des als Referenz verwendeten Index for Variabel/Variabel rate bond.
 CodificationSystem omitted if internal codification is used.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
@@ -1564,6 +1772,8 @@ CodificationSystem omitted if internal codification is used.</xs:documentation>
 										<xs:element name="Margin" type="PercentageType">
 											<xs:annotation>
 												<xs:documentation xml:lang="en">A37 - Annual additive margin in percentage.
+e.g. -0.5% should be written as "-0.5"</xs:documentation>
+												<xs:documentation xml:lang="de">A37 - Jährliche additive Marge in percentage.
 e.g. -0.5% should be written as "-0.5"</xs:documentation>
 											</xs:annotation>
 										</xs:element>
@@ -1579,17 +1789,26 @@ e.g. -0.5% should be written as "-0.5"</xs:documentation>
 4= quarterly
 12= monthly 
 52= weekly</xs:documentation>
+									<xs:documentation xml:lang="de">A38 - Kuponzahlungsfrequenz as Anzahl der Kupons pro Jahr
+0 = other than below options:
+1= annual
+2= biannual
+4= quarterly
+12= monthly 
+52= weekly</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
 						<xs:element name="EffectiveDateOfInstrument" type="xs:date" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A63 - Start date to accrue interest.</xs:documentation>
+								<xs:documentation xml:lang="de">A63 - Beginn der Zinsberechnung.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Redemption" type="RedemptionType_V7">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A39 40 41 - Redemption details</xs:documentation>
+								<xs:documentation xml:lang="de">A39 40 41 - Rücknahmedetails</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="EmbeddedOption" minOccurs="0">
@@ -1619,11 +1838,13 @@ Flr= Floor</xs:documentation>
 									<xs:element name="CallPutDate" type="xs:date">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A43 - Date of first Call / Put option to come.</xs:documentation>
+											<xs:documentation xml:lang="de">A43 - Datum der ersten Call/Put-Option to come.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="OptionDirection">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A44 - Option at the discretion of issuer(I) or bearer(B). "O" if both are possible.</xs:documentation>
+											<xs:documentation xml:lang="de">A44 - Option im Ermessen von Emittent(I) or Inhaber(B). "O" if both are possible.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -1638,6 +1859,8 @@ Flr= Floor</xs:documentation>
 									<xs:element name="StrikePrice" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A45 - Strike price of first optional Call / Put as a percentage of nominal amount.
+95%=0.95</xs:documentation>
+											<xs:documentation xml:lang="de">A45 - Ausübungspreis of first optional Call / Put as a percentage of Nennwert.
 95%=0.95</xs:documentation>
 										</xs:annotation>
 									</xs:element>
@@ -1674,6 +1897,10 @@ Flr= Floor</xs:documentation>
 Mandatory otherwise.
 Refers to Counterparty for OTC Derivatives.
 Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
+					<xs:documentation xml:lang="de">A46 to A54 + A57 + A59- Useless for cash Positions.
+Mandatory otherwise.
+Refers to Counterparty for OTC Derivatives.
+Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
@@ -1684,6 +1911,9 @@ Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
 										<xs:documentation xml:lang="en">A54 - Identify the economic sector of issuer based on the 2.0 version of the Statistical classification of economic activities in the European Community (‘NACE’) code V2.0. NACE should be full version for the financial sector i.e. 5 characters without dots. In the other cases, producers of the TPT shall provide the maximum information available (letter as a minimum plus 1, 2, 3 or 4 digits without dots), if meaningful.
 Please provide V2.1 in datapoint 148 if avalaible, otherwise provide V2.0 in this datapoint.
 </xs:documentation>
+										<xs:documentation xml:lang="de">A54 - Identify the Wirtschaftssektor of Emittent based on the 2.0 version of the Statistical classification of economic activities in the Europäisch Community (‘NACE’) code V2.0. NACE should be full version for the financial sector i.e. 5 characters without dots. In the other cases, producers of the TPT shall provide the maximum information available (letter as a minimum plus 1, 2, 3 or 4 digits without dots), if meaningful.
+Please provide V2.1 in datapoint 148 if avalaible, otherwise provide V2.0 in this datapoint.
+</xs:documentation>
 									</xs:annotation>
 								</xs:element>
 								<xs:element name="EconomicSectorNACE2.1" type="NACECodeType" minOccurs="0">
@@ -1691,11 +1921,15 @@ Please provide V2.1 in datapoint 148 if avalaible, otherwise provide V2.0 in thi
 										<xs:documentation xml:lang="en">A148 - Identify the economic sector of issuer based on the latest version of the Statistical classification of economic activities in the European Community (‘NACE’) code (as published in an EC Regulation). Producers of the TPT shall provide the maximum information available (letter as a minimum plus 1, 2, 3 or 4 digits without dots), if meaningful.
 if V2.1 is not available, please provide V2.0 codification in datapoint 54.
 </xs:documentation>
+										<xs:documentation xml:lang="de">A148 - Identify the Wirtschaftssektor of Emittent based on the latest version of the Statistical classification of economic activities in the Europäisch Community (‘NACE’) code (as published in an EC Regulation). Producers of the TPT shall provide the maximum information available (letter as a minimum plus 1, 2, 3 or 4 digits without dots), if meaningful.
+if V2.1 is not available, please provide V2.0 codification in datapoint 54.
+</xs:documentation>
 									</xs:annotation>
 								</xs:element>
 								<xs:element name="Covered" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation xml:lang="en">A55 - The instrument is covered ("C") or not ('NC')</xs:documentation>
+										<xs:documentation xml:lang="de">A55 - The Instrument is gedeckt ("C") or not ('NC')</xs:documentation>
 									</xs:annotation>
 									<xs:simpleType>
 										<xs:restriction base="xs:string">
@@ -1747,6 +1981,7 @@ if V2.1 is not available, please provide V2.0 codification in datapoint 54.
 			<xs:element name="HedgingRolling" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A65 - Indication of existing Risk Mitigation program "Y" used for Risk Mitigation purpose and the position is systematically rolled at maturity, "N" used for hedging purpose but no systematic roll at maturity); "EPM" Efficient Portfolio Management / not used for hedging purpose</xs:documentation>
+					<xs:documentation xml:lang="de">A65 - Indication of existing Risikominderung program "Y" used for Risikominderung purpose and the Position is systematisch bei Fälligkeit verlängert, "N" used for Absicherungszweck but no systematic roll at maturity); "EPM" Effizientes Portfoliomanagement / not used for Absicherungszweck</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1761,6 +1996,9 @@ if V2.1 is not available, please provide V2.0 codification in datapoint 54.
 					<xs:documentation xml:lang="en">For Futures or Convertible bonds:
 - Characteristics of the option (implicit or explicit).
 - Description of underlying instrument.</xs:documentation>
+					<xs:documentation xml:lang="de">Für Futures oder Wandelanleihen:
+- Characteristics of the option (implicit or explicit).
+- Description of underlying Instrument.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1779,6 +2017,11 @@ Useless for single futures contract.</xs:documentation>
 "Put"=put
 "Cap"=cap
 "Flr"=floor</xs:documentation>
+											<xs:documentation xml:lang="de">A60 - Optionstyp
+"Cal"=call 
+"Put"=put
+"Cap"=cap
+"Flr"=floor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -1793,6 +2036,7 @@ Useless for single futures contract.</xs:documentation>
 									<xs:element name="StrikePrice" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A61 - Strike price of the option in same unit as price of underlying instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A61 - Ausübungspreis of the option in same unit as price of underlying Instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ConversionRatio" type="xs:decimal">
@@ -1800,11 +2044,16 @@ Useless for single futures contract.</xs:documentation>
 											<xs:documentation xml:lang="en">A62 - "Conversion factor : ratio between the number of shares received and the number of bonds held in case of conversion for a convertible bond.
 Parity for options is not required in version 7 
 Concordance factor for bond futures is not required in version 7"</xs:documentation>
+											<xs:documentation xml:lang="de">A62 - "Umwandlungsfaktor : Verhältnis zwischen the number of shares received and the number of bonds held in case of conversion for a convertible bond.
+Parity for options is not required in version 7 
+Concordance factor for bond futures is not required in version 7"</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ExerciseType" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A64 - Option style: AMerican, EUropean, ASiatic, BErmudian
+Optional for convertibles</xs:documentation>
+											<xs:documentation xml:lang="de">A64 - Optionsstil: AMerican, EUropean, ASiatic, BErmudian
 Optional for convertibles</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
@@ -1848,6 +2097,8 @@ For pricing using shock modelling.</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A67 - Instrument type. E.g. Equity, bond, option, swap,...
 CIC codification.</xs:documentation>
+											<xs:documentation xml:lang="de">A67 - Instrumententyp. Z.B. Aktie, Anleihe, Option, Swap,...
+CIC-Codierung.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="InstrumentCode" type="SIISecurityCodificationType_V5">
@@ -1858,6 +2109,7 @@ CIC codification.</xs:documentation>
 									<xs:element name="InstrumentName" type="xs:string">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A70 - Name of underlying instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A70 - Name des BasiswertInstruments.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Valuation">
@@ -1871,16 +2123,23 @@ CIC codification.</xs:documentation>
 												<xs:element name="MarketPrice" type="xs:decimal">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A72 - Last market price known, in Currency (C).</xs:documentation>
+														<xs:documentation xml:lang="de">A72 - Letzter bekannter Marktpreis, in Währung (C).</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A73 - Country of quotation</xs:documentation>
+														<xs:documentation xml:lang="de">A73 - Quotierungsland</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="EconomicArea" type="EconomicAreaType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A74 - Economic area code of Country of quotation:
+0 non listed
+1 EEA;
+2 OECD non EEA
+3 non OECD</xs:documentation>
+														<xs:documentation xml:lang="de">A74 - Economic area code of Quotierungsland:
 0 non listed
 1 EEA;
 2 OECD non EEA
@@ -1893,6 +2152,7 @@ CIC codification.</xs:documentation>
 									<xs:element name="Coupon" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">If underlying instrument is an interest rate instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">Wenn das Basiswertinstrument ein Zinsinstrument ist.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -1912,6 +2172,14 @@ CIC codification.</xs:documentation>
 12= monthly
 52= weekly"
 </xs:documentation>
+														<xs:documentation xml:lang="de">A76 - Kuponzahlungsfrequenz as "number of coupon payment per year
+0 = other than below options:
+1= annual
+2= biannual
+4= quarterly
+12= monthly
+52= weekly"
+</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -1921,12 +2189,16 @@ CIC codification.</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A77 78 79 - Redemption details.
 If underlying instrument is an interest rate instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A77 78 79 - Rücknahmedetails.
+If underlying Instrument is an interest rate Instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="CreditRiskData" type="CreditRiskDataType_V7" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
 (or counterparty for OTC instruments).</xs:documentation>
+											<xs:documentation xml:lang="de">A80 to A89 - Issuer of underlying Instrument
+(or counterparty for OTC Instruments).</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1945,16 +2217,19 @@ Useless fo cash positions</xs:documentation>
 						<xs:element name="ModifiedDurationToMaturity" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A90 - Modified duration based on maturity date (contractual one), indicated in datapoint 39</xs:documentation>
+								<xs:documentation xml:lang="de">A90 - Modifizierte Duration based on maturity date (contractual one), indicated in datapoint 39</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ModifiedDurationToCall" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A91 - Modified duration based on next option exercice indicated in datapoint 43</xs:documentation>
+								<xs:documentation xml:lang="de">A91 - Modifizierte Duration based on next option exercice indicated in datapoint 43</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CreditSensitivity" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A92 Modified duration based on maturity date (contractual) indicated in datapoint 39) eventually  used for the SCR spread risk calculation (e.g. based on 176 (1) or (2) DR 2015/35 for bonds and loans)</xs:documentation>
+								<xs:documentation xml:lang="de">A92 Modifizierte Duration based on maturity date (contractual) indicated in datapoint 39) eventually  used for the SCR spread risk calculation (e.g. based on 176 (1) or (2) DR 2015/35 for bonds and loans)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Delta" type="xs:decimal" minOccurs="0">
@@ -1966,6 +2241,8 @@ Sensitivity to the underlying asset.</xs:documentation>
 						<xs:element name="Convexity" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A94 - Convexity for interest rates instruments; or 
+gamma for derivatives with optional components </xs:documentation>
+								<xs:documentation xml:lang="de">A94 - Convexity for interest rates Instruments; or 
 gamma for derivatives with optional components </xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -2001,6 +2278,9 @@ This datapoint is needed by insurance companies in case the legal/contractual ma
 			<xs:element name="LookThroughIdentifier" type="ISINType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A95 - identification code of the investee funds
+ISIN or CUSIP or any other identification
+</xs:documentation>
+					<xs:documentation xml:lang="de">A95 - identification code of the investee Fondss
 ISIN or CUSIP or any other identification
 </xs:documentation>
 				</xs:annotation>
@@ -2368,6 +2648,8 @@ Omitted if not applicable.</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">If known, redemption rate in percentage 
 of nominal amount (A19) 100%=1.0</xs:documentation>
+					<xs:documentation xml:lang="de">If known, redemption rate in percentage 
+of Nennwert (A19) 100%=1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PIK" minOccurs="0">
@@ -2429,6 +2711,8 @@ Omitted if not applicable.</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">If known, redemption rate in percentage 
 of nominal amount (A19) 100%=1.0</xs:documentation>
+					<xs:documentation xml:lang="de">If known, redemption rate in percentage 
+of Nennwert (A19) 100%=1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2441,11 +2725,14 @@ of nominal amount (A19) 100%=1.0</xs:documentation>
 			<xs:element name="InstrumentIssuer" type="SIIIssuerType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Identification of instrument issuer (or counterpart for OTC instruments).</xs:documentation>
+					<xs:documentation xml:lang="de">Identification of Instrument Emittent (or counterpart for OTC Instruments).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IssuerGroup" type="SIIIssuerType_V7">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Characteristics of final financial group the InstrumentIssuer belongs to (highest parent company).
+Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
+					<xs:documentation xml:lang="de">Characteristics of final financial group the InstrumentIssuer angehört (highest parent company).
 Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -2455,6 +2742,10 @@ Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentati
 ISO country code 2 (ISO 3166-1)
 or "XA" for Supranational issuers 
 or "EU" for European Union institutions</xs:documentation>
+					<xs:documentation xml:lang="de">Country of Instrument Emittent:
+ISO country code 2 (ISO 3166-1)
+or "XA" for Supranational Emittents 
+or "EU" for Europäisch Union institutions</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EconomicArea" type="EconomicArea2Type" minOccurs="0">
@@ -2481,6 +2772,8 @@ Other RGLA assets, not listed, should have an "N".
 			<xs:element name="CreditQualityStep" type="CQSType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">CQS: Synthetic issue or issuer rating.
+Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
+					<xs:documentation xml:lang="de">CQS: Synthetic issue or Emittent rating.
 Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -2536,28 +2829,36 @@ The version corresponding to the current XML schema is "V4.0"</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.</xs:documentation>
+					<xs:documentation xml:lang="de">A02 01 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioName" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A03 - Portfolio or Fund or Share class name</xs:documentation>
+					<xs:documentation xml:lang="de">A03 - Portfolio- oder Fonds- oder Anteilsklassenname</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A04 - Portfolio currency used for valuation of assets.
 If Portfolio is reported at ShareClass level, PortfolioCurrency is the ShareClass currency.</xs:documentation>
+					<xs:documentation xml:lang="de">A04 - Portfoliowährung für die Bewertung von Vermögenswerten.
+If Portfolio is reported at ShareClass level, PortfolioWährung is the ShareClass currency.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TotalNetAssets" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A05 - Total net assets of the Portfolio or the Share class in PortfolioCurrency</xs:documentation>
+					<xs:documentation xml:lang="de">A05 - Gesamtnettovermögen des Portfolios oder der Anteilsklasse in Portfoliowährung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ValuationDate" type="xs:date">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A06 - Date at which the portfolio inventory is valid.
 Used for NAV date.</xs:documentation>
+					<xs:documentation xml:lang="de">A06 - Datum, an dem das Portfolioinventar gültig ist.
+Verwendet für NAV-Datum.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ReportingDate" type="xs:date">
@@ -2589,11 +2890,14 @@ To enable apportionment of the investment holding by the insurance entity in the
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A09 - Liquidities of the Portfolio converted into Portfolio currency.
 In percentage of TotalNetAssets.</xs:documentation>
+					<xs:documentation xml:lang="de">A09 - Liquidität des Portfolios umgerechnet in Portfoliowährung.
+In Prozent des Gesamtnettovermögens.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioModifiedDuration" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A10 - Weighted average modified duration of portfolio. Only required for relevant asset types (including derivatives).</xs:documentation>
+					<xs:documentation xml:lang="de">A10 - Gewichtete durchschnittliche modifizierte Duration des Portfolios. Nur erforderlich für relevante Anlagearten (einschließlich Derivate).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CompleteSCRDelivery" type="YesNoL1Type">
@@ -2665,12 +2969,14 @@ In percentage of TotalNetAssets.</xs:documentation>
 			<xs:element name="Positions">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Inventory of the Portfolio</xs:documentation>
+					<xs:documentation xml:lang="de">Inventar des Portfolios</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Position" type="SIIPositionType" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
+								<xs:documentation xml:lang="de">Details zu jeder Position.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2708,11 +3014,14 @@ The version corresponding to the current XML schema is "V5.0"</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.</xs:documentation>
+					<xs:documentation xml:lang="de">A02 01 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioName" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A03 - Portfolio or Fund or Share class name</xs:documentation>
+					<xs:documentation xml:lang="de">A03 - Portfolio- oder Fonds- oder Anteilsklassenname</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
@@ -2727,17 +3036,22 @@ KID: Kiribati dollar -Kiribati
 NIS – New Israeli Shekel - Israel 
 PRB – Transnistrian ruble - Transnistria (The code conflicts with ISO-4217 because PR stands for Puerto Rico. X should have been used for the first letter.)
 TVD – Tuvalu dollar- Tuvalu</xs:documentation>
+					<xs:documentation xml:lang="de">A04 - Portfoliowährung für die Bewertung von Vermögenswerten.
+Wenn das Portfolio auf Anteilsklassenebene gemeldet wird, ist die Portfoliowährung die Währung der Anteilsklasse. Code ISO 4217.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TotalNetAssets" type="xs:decimal">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A05 - Total net assets of the Portfolio or the Share class in PortfolioCurrency</xs:documentation>
+					<xs:documentation xml:lang="de">A05 - Gesamtnettovermögen des Portfolios oder der Anteilsklasse in Portfoliowährung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ValuationDate" type="xs:date">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A06 - Date at which the portfolio inventory is valid.
 Used for NAV date.</xs:documentation>
+					<xs:documentation xml:lang="de">A06 - Datum, an dem das Portfolioinventar gültig ist.
+Verwendet für NAV-Datum.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ReportingDate" type="xs:date">
@@ -2770,11 +3084,14 @@ To enable apportionment of the investment holding by the insurance entity in the
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A09 - Liquidities of the Portfolio converted into Portfolio currency.
 In percentage of TotalNetAssets.</xs:documentation>
+					<xs:documentation xml:lang="de">A09 - Liquidität des Portfolios umgerechnet in Portfoliowährung.
+In Prozent des Gesamtnettovermögens.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PortfolioModifiedDuration" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A10 - Weighted average modified duration of portfolio. Only required for relevant asset types (including derivatives).</xs:documentation>
+					<xs:documentation xml:lang="de">A10 - Gewichtete durchschnittliche modifizierte Duration des Portfolios. Nur erforderlich für relevante Anlagearten (einschließlich Derivate).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CompleteSCRDelivery" type="YesNoL1Type">
@@ -2838,12 +3155,14 @@ In percentage of TotalNetAssets.</xs:documentation>
 			<xs:element name="Positions">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Inventory of the Portfolio</xs:documentation>
+					<xs:documentation xml:lang="de">Inventar des Portfolios</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Position" type="SIIPositionType_V7" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
+								<xs:documentation xml:lang="de">Details zu jeder Position.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2857,11 +3176,18 @@ In percentage of TotalNetAssets.</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A12 - Instrument type. E.g. Equity, bond, option, swap,...
 CIC codification used.</xs:documentation>
+					<xs:documentation xml:lang="de">A12 - Instrumententyp. Z.B. Aktie, Anleihe, Option, Swap,...
+CIC-Codierung used.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EconomicArea" type="EconomicAreaType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A13 - Economic area code of quotation country:
+0 non listed
+1 EEA
+2 OECD non EEA
+3 non OECD</xs:documentation>
+					<xs:documentation xml:lang="de">A13 - Wirtschaftsgebietscode des Quotierungslandes:
 0 non listed
 1 EEA
 2 OECD non EEA
@@ -2872,6 +3198,9 @@ CIC codification used.</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A15 14 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
 ISIN Preferred when available.
+</xs:documentation>
+					<xs:documentation xml:lang="de">A15 14 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.
 </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -2884,11 +3213,14 @@ Useless for single-leg positions.</xs:documentation>
 			<xs:element name="InstrumentName" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A17</xs:documentation>
+					<xs:documentation xml:lang="de">A17</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Valuation">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Valuation characteristics and 
+Position market value(s).</xs:documentation>
+					<xs:documentation xml:lang="de">Valuation Merkmale and 
 Position market value(s).</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
@@ -2911,11 +3243,16 @@ Position market value(s).</xs:documentation>
 								<xs:documentation xml:lang="en">A18 - Quantity of Instrument in Position.
 1 for OTC.
 Not reported if A19 is reported  ?????</xs:documentation>
+								<xs:documentation xml:lang="de">A18 - Menge des Instruments in der Position.
+1 for OTC.
+Not reported if A19 is reported  ?????</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="TotalNominalValueQC" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A19 - In QuotationCurrency.
+= Quantity * Nominal Unit Amount</xs:documentation>
+								<xs:documentation xml:lang="de">A19 - In Quotierungswährung.
 = Quantity * Nominal Unit Amount</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -2923,6 +3260,8 @@ Not reported if A19 is reported  ?????</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A20 - Only for futures and options.
 The way the contract size is defined varies according with the type of instrument. See EIOPA definition (QRT 0801)</xs:documentation>
+								<xs:documentation xml:lang="de">A20 - Only for futures and options.
+The way the contract size is defined varies according with the type of Instrument. See EIOPA definition (QRT 0801)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="QuotationCurrency" type="ISOCurrencyCodeType">
@@ -2935,11 +3274,16 @@ The way the contract size is defined varies according with the type of instrumen
 								<xs:documentation xml:lang="en">A22 - Amount in QuotationCurrency (A) 
 including accrued coupon.
 (Dirty value)</xs:documentation>
+								<xs:documentation xml:lang="de">A22 - Amount in QuotationWährung (A) 
+einschließlich aufgelaufenem Kupon.
+(Dirty value)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CleanValueQC" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A23 - Market value in QuotationCurrency
+not including accrued income.</xs:documentation>
+								<xs:documentation xml:lang="de">A23 - Marktwert in QuotationWährung
 not including accrued income.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -2953,11 +3297,15 @@ Generally equals to: MarketValueQC - CleanValueQC</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A24 - Amount in PortfolioCurrency (B) including accrued coupon.
 (Dirty value)</xs:documentation>
+								<xs:documentation xml:lang="de">A24 - Amount in PortfolioWährung (B) einschließlich aufgelaufenem Kupon.
+(Dirty value)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CleanValuePC" type="xs:decimal">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A25 - Market value in PortfolioCurrency
+not including accrued interest</xs:documentation>
+								<xs:documentation xml:lang="de">A25 - Marktwert in PortfolioWährung
 not including accrued interest</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -2979,6 +3327,9 @@ of TotalNetAssets (including liquidity)
 								<xs:documentation xml:lang="en">A27 - MarketExposure in QuotationCurrency (A).
 Different from MarketValueQC for derivatives:
 valuation of the equivalent position on the underlying asset.</xs:documentation>
+								<xs:documentation xml:lang="de">A27 - MarketExposure in QuotationWährung (A).
+Different from MarketValueQC for derivatives:
+valuation of the equivalent Position on the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MarketExposurePC" type="xs:decimal">
@@ -2986,6 +3337,9 @@ valuation of the equivalent position on the underlying asset.</xs:documentation>
 								<xs:documentation xml:lang="en">A28 - MarketExposure in PortfolioCurrency (B).
 Different from MarketValuePC for derivatives:
 valuation of the equivalent position on the underlying asset.</xs:documentation>
+								<xs:documentation xml:lang="de">A28 - MarketExposure in PortfolioWährung (B).
+Different from MarketValuePC for derivatives:
+valuation of the equivalent Position on the underlying asset.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="MarketExposureUC" type="xs:decimal" minOccurs="0">
@@ -3013,6 +3367,7 @@ as percentage of TotalNetAssets.
 			<xs:element name="InterestRateInstrumentCharacteristics" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Detailed characteristics for interest rate instruments.</xs:documentation>
+					<xs:documentation xml:lang="de">Detaillierte Merkmale für Zinsinstrumente.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -3021,6 +3376,8 @@ as percentage of TotalNetAssets.
 								<xs:annotation>
 									<xs:documentation xml:lang="en">A32 - Type of interest rate:
 "Fixed" (fixe), "Variable" (révisable), "Floating" (variable)</xs:documentation>
+									<xs:documentation xml:lang="de">A32 - Art des Zinssatzes:
+"Fest" (fixe), "Variabel" (révisable), "Variabel" (variable)</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
@@ -3035,17 +3392,23 @@ as percentage of TotalNetAssets.
 									<xs:documentation xml:lang="en">A33 - Next annual coupon rate in percentage
 (known, or estimated for Floating).
 3.5% has to be written "3.5"</xs:documentation>
+									<xs:documentation xml:lang="de">A33 - Nächste jährliche Kuponrate in Prozent
+(known, or estimated for Variabel).
+3.5% has to be written "3.5"</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="VariableRate" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">For Floating/Variable rate bond.</xs:documentation>
+									<xs:documentation xml:lang="de">Für variabel verzinsliche Anleihen.</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="IndexID" type="CodificationType">
 											<xs:annotation>
 												<xs:documentation xml:lang="en">A35 34  - Identification of index used as reference for Floating/Variable rate bond.
+CodificationSystem omitted if internal codification is used.</xs:documentation>
+												<xs:documentation xml:lang="de">A35 34  - Identifikation des als Referenz verwendeten Index for Variabel/Variabel rate bond.
 CodificationSystem omitted if internal codification is used.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
@@ -3057,6 +3420,8 @@ CodificationSystem omitted if internal codification is used.</xs:documentation>
 										<xs:element name="Margin" type="PercentageType">
 											<xs:annotation>
 												<xs:documentation xml:lang="en">A37 - Annual additive margin in percentage.
+e.g. -0.5% should be written as "-0.5"</xs:documentation>
+												<xs:documentation xml:lang="de">A37 - Jährliche additive Marge in percentage.
 e.g. -0.5% should be written as "-0.5"</xs:documentation>
 											</xs:annotation>
 										</xs:element>
@@ -3072,17 +3437,26 @@ e.g. -0.5% should be written as "-0.5"</xs:documentation>
 4= quarterly
 12= monthly 
 52= weekly</xs:documentation>
+									<xs:documentation xml:lang="de">A38 - Kuponzahlungsfrequenz as Anzahl der Kupons pro Jahr
+0 = other case than
+1= annual
+2= biannual
+4= quarterly
+12= monthly 
+52= weekly</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
 						<xs:element name="EffectiveDateOfInstrument" type="xs:date" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A63 - Start date to accrue interest.</xs:documentation>
+								<xs:documentation xml:lang="de">A63 - Beginn der Zinsberechnung.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Redemption" type="RedemptionType">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A39 40 41 - Redemption details</xs:documentation>
+								<xs:documentation xml:lang="de">A39 40 41 - Rücknahmedetails</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="EmbeddedOption" minOccurs="0">
@@ -3112,11 +3486,13 @@ Flr= Floor</xs:documentation>
 									<xs:element name="CallPutDate" type="xs:date">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A43 - Date of first Call / Put option to come.</xs:documentation>
+											<xs:documentation xml:lang="de">A43 - Datum der ersten Call/Put-Option to come.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="OptionDirection">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A44 - Option at the discretion of issuer(I) or bearer(B). "O" if both are possible.</xs:documentation>
+											<xs:documentation xml:lang="de">A44 - Option im Ermessen von Emittent(I) or Inhaber(B). "O" if both are possible.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -3131,6 +3507,8 @@ Flr= Floor</xs:documentation>
 									<xs:element name="StrikePrice" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A45 - Strike price of first optional Call / Put as a percentage of nominal amount.
+95%=0.95</xs:documentation>
+											<xs:documentation xml:lang="de">A45 - Ausübungspreis of first optional Call / Put as a percentage of Nennwert.
 95%=0.95</xs:documentation>
 										</xs:annotation>
 									</xs:element>
@@ -3167,6 +3545,10 @@ Flr= Floor</xs:documentation>
 Mandatory otherwise.
 Refers to Counterparty for OTC Derivatives.
 Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
+					<xs:documentation xml:lang="de">A46 to A54 + A57 + A59 - Useless for cash Positions.
+Mandatory otherwise.
+Refers to Counterparty for OTC Derivatives.
+Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
@@ -3177,11 +3559,15 @@ Corresponds to TPT block "Issuer data" (A46 to A59)</xs:documentation>
 										<xs:documentation xml:lang="en">A54 - Economic sector of instrument issuer.
 NACE code mandatory.
 Optional for Derivatives or Underlying instruments.</xs:documentation>
+										<xs:documentation xml:lang="de">A54 - Economic sector of Instrument Emittent.
+NACE code mandatory.
+Optional for Derivatives or Underlying Instruments.</xs:documentation>
 									</xs:annotation>
 								</xs:element>
 								<xs:element name="Covered" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation xml:lang="en">A55 - The instrument is covered ("C") or not ('NC')</xs:documentation>
+										<xs:documentation xml:lang="de">A55 - The Instrument is gedeckt ("C") or not ('NC')</xs:documentation>
 									</xs:annotation>
 									<xs:simpleType>
 										<xs:restriction base="xs:string">
@@ -3246,6 +3632,9 @@ Optional for Derivatives or Underlying instruments.</xs:documentation>
 					<xs:documentation xml:lang="en">For Futures or Convertible bonds:
 - Characteristics of the option (implicit or explicit).
 - Description of underlying instrument.</xs:documentation>
+					<xs:documentation xml:lang="de">Für Futures oder Wandelanleihen:
+- Characteristics of the option (implicit or explicit).
+- Description of underlying Instrument.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -3264,6 +3653,11 @@ Useless for single futures contract.</xs:documentation>
 "Put"=put
 "Cap"=cap
 "Flr"=floor</xs:documentation>
+											<xs:documentation xml:lang="de">A60 - Optionstyp
+"Cal"=call 
+"Put"=put
+"Cap"=cap
+"Flr"=floor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -3277,6 +3671,7 @@ Useless for single futures contract.</xs:documentation>
 									<xs:element name="StrikePrice" type="xs:decimal">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A61 - Strike price of the option in same unit as price of underlying instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A61 - Ausübungspreis of the option in same unit as price of underlying Instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ConversionRatio" type="xs:decimal">
@@ -3287,6 +3682,8 @@ Useless for single futures contract.</xs:documentation>
 									<xs:element name="ExerciseType" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A64 - Option style: AMerican, EUropean, ASiatic, BErmudian
+Optional for convertibles</xs:documentation>
+											<xs:documentation xml:lang="de">A64 - Optionsstil: AMerican, EUropean, ASiatic, BErmudian
 Optional for convertibles</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
@@ -3330,6 +3727,8 @@ For pricing using shock modelling.</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A67 - Instrument type. E.g. Equity, bond, option, swap,...
 CIC codification.</xs:documentation>
+											<xs:documentation xml:lang="de">A67 - Instrumententyp. Z.B. Aktie, Anleihe, Option, Swap,...
+CIC-Codierung.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="InstrumentCode" type="SIISecurityCodificationType">
@@ -3340,6 +3739,7 @@ CIC codification.</xs:documentation>
 									<xs:element name="InstrumentName" type="xs:string">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A70 - Name of underlying instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A70 - Name des BasiswertInstruments.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Valuation">
@@ -3353,16 +3753,23 @@ CIC codification.</xs:documentation>
 												<xs:element name="MarketPrice" type="xs:decimal">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A72 - Last market price known, in Currency (C).</xs:documentation>
+														<xs:documentation xml:lang="de">A72 - Letzter bekannter Marktpreis, in Währung (C).</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A73 - Country of quotation</xs:documentation>
+														<xs:documentation xml:lang="de">A73 - Quotierungsland</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 												<xs:element name="EconomicArea" type="EconomicAreaType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation xml:lang="en">A74 - Economic area code of Country of quotation:
+0 non listed
+1 EEA;
+2 OECD non EEA
+3 non OECD</xs:documentation>
+														<xs:documentation xml:lang="de">A74 - Economic area code of Quotierungsland:
 0 non listed
 1 EEA;
 2 OECD non EEA
@@ -3375,6 +3782,7 @@ CIC codification.</xs:documentation>
 									<xs:element name="Coupon" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">If underlying instrument is an interest rate instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">Wenn das Basiswertinstrument ein Zinsinstrument ist.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -3393,6 +3801,13 @@ CIC codification.</xs:documentation>
 4= quarterly
 12= monthly
 52=Weekly</xs:documentation>
+														<xs:documentation xml:lang="de">A76 - Kuponzahlungsfrequenz as Anzahl der Kupons pro Jahr
+0 = other case than
+1= annual
+2= biannual
+4= quarterly
+12= monthly
+52=Weekly</xs:documentation>
 													</xs:annotation>
 												</xs:element>
 											</xs:sequence>
@@ -3402,12 +3817,16 @@ CIC codification.</xs:documentation>
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A77 78 79 - Redemption details.
 If underlying instrument is an interest rate instrument.</xs:documentation>
+											<xs:documentation xml:lang="de">A77 78 79 - Rücknahmedetails.
+If underlying Instrument is an interest rate Instrument.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="CreditRiskData" type="CreditRiskDataType" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
 (or counterparty for OTC instruments).</xs:documentation>
+											<xs:documentation xml:lang="de">A80 to A89 - Issuer of underlying Instrument
+(or counterparty for OTC Instruments).</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -3416,6 +3835,7 @@ If underlying instrument is an interest rate instrument.</xs:documentation>
 						<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A 39 Expiry date for options. Maturity date for derivatives.</xs:documentation>
+								<xs:documentation xml:lang="de">A 39 Verfallsdatum für Optionen. Fälligkeitsdatum for derivatives.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -3431,11 +3851,13 @@ Useless fo cash positions</xs:documentation>
 						<xs:element name="ModifiedDurationToMaturity" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A90 - Modified duration to maturity date based on dirty price.</xs:documentation>
+								<xs:documentation xml:lang="de">A90 - Modifizierte Duration to maturity date based on Dirty Price.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ModifiedDurationToCall" type="xs:decimal" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A91 - Modified duration to next call/put date, if any.</xs:documentation>
+								<xs:documentation xml:lang="de">A91 - Modifizierte Duration to nächstes Call/Put-Datum, if any.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="CreditSensitivity" type="xs:decimal" minOccurs="0">
@@ -3453,6 +3875,8 @@ Sensitivity to the underlying asset.</xs:documentation>
 							<xs:annotation>
 								<xs:documentation xml:lang="en">A94 - Convexity for interest rates instruments; or 
 gamma for derivatives with optional components </xs:documentation>
+								<xs:documentation xml:lang="de">A94 - Convexity for interest rates Instruments; or 
+gamma for derivatives with optional components </xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Vega" type="xs:decimal" minOccurs="0">
@@ -3466,6 +3890,7 @@ gamma for derivatives with optional components </xs:documentation>
 			<xs:element name="LookThroughISIN" type="ISINType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A95 - If Portfolio is decomposed using look-through approach and the line comes from a fund, ISIN code of this fund (Share class)</xs:documentation>
+					<xs:documentation xml:lang="de">A95 - If Portfolio is decomposed using look-through approach and the line comes from a Fonds, ISIN code of this Fonds (Share class)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ContributionToSCR" type="ContributionToSCRType" minOccurs="0">
@@ -3698,6 +4123,7 @@ When the look-through regards a Fund of funds, category “4 - Collective Invest
 			<xs:element name="Code" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+					<xs:documentation xml:lang="de">Wert des Codes im Codierungssystem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -3715,6 +4141,7 @@ When the look-through regards a Fund of funds, category “4 - Collective Invest
 			<xs:element name="Code" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+					<xs:documentation xml:lang="de">Wert des Codes im Codierungssystem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -3738,6 +4165,18 @@ Integer corresponding to the following closed list:
 8 – FIGI (Financial Instrument Global Identifier)
 9 - Other code by members of the Association of National Numbering Agencies
 99 - Code attributed by the undertaking</xs:documentation>
+					<xs:documentation xml:lang="de">Verwendetes Codierungssystem.
+Ganzzahl entsprechend der folgenden Liste:
+1 - ISO 6166 für ISIN-Code
+2 - CUSIP
+3 - SEDOL
+4 - WKN (Wertpapier-Kenn-Nummer)
+5 - Bloomberg Ticker
+6 - BBGID
+7 - Reuters RIC
+8 - FIGI
+9 - Anderer Code von Numbering Agencies
+99 - Vom Unternehmen vergebener Code</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:short">
@@ -3759,6 +4198,7 @@ Integer corresponding to the following closed list:
 			<xs:element name="Code" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+					<xs:documentation xml:lang="de">Wert des Codes im Codierungssystem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -3782,6 +4222,18 @@ Integer corresponding to the following closed list:
 8 – FIGI (Financial Instrument Global Identifier)
 9 - Other code by members of the Association of National Numbering Agencies
 99 - Code attributed by the undertaking</xs:documentation>
+					<xs:documentation xml:lang="de">Verwendetes Codierungssystem.
+Ganzzahl entsprechend der folgenden Liste:
+1 - ISO 6166 für ISIN-Code
+2 - CUSIP
+3 - SEDOL
+4 - WKN (Wertpapier-Kenn-Nummer)
+5 - Bloomberg Ticker
+6 - BBGID
+7 - Reuters RIC
+8 - FIGI
+9 - Anderer Code von Numbering Agencies
+99 - Vom Unternehmen vergebener Code</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:short">
@@ -3803,6 +4255,7 @@ Integer corresponding to the following closed list:
 			<xs:element name="Code" type="xs:string">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Value of code in CodificationSystem</xs:documentation>
+					<xs:documentation xml:lang="de">Wert des Codes im Codierungssystem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -3815,22 +4268,28 @@ Integer corresponding to the following closed list:
 			<xs:element name="MktIntUp" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A97 - Capital requirement for interest rate risk for the “up” shock.</xs:documentation>
+					<xs:documentation xml:lang="de">A97 - Kapitalanforderung for interest rate risk for the “up” Schock.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MktIntDown" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A98 - Capital requirement for interest rate risk for the “down” shock.</xs:documentation>
+					<xs:documentation xml:lang="de">A98 - Kapitalanforderung for interest rate risk for the “down” Schock.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MktEqGlobal" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A99 - Capital requirement for equity risk (EEA or OECD zone).
 Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
+					<xs:documentation xml:lang="de">A99 - Kapitalanforderung for equity risk (EEA or OECD zone).
+Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MktEqOther" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">A100 - Capital requirement for equity risk (non OECD zone).
+Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
+					<xs:documentation xml:lang="de">A100 - Kapitalanforderung for equity risk (non OECD zone).
 Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -3842,6 +4301,7 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 			<xs:element name="MktSpread" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Capital requirement for interest rate spread risk.</xs:documentation>
+					<xs:documentation xml:lang="de">Kapitalanforderung for interest rate spread risk.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -3888,11 +4348,14 @@ Onlyl MktEqGlobal or MktEqOther will be non zero.</xs:documentation>
 			<xs:element name="InstrumentIssuer" type="SIIIssuerType_V5">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Identification of instrument issuer (or counterpart for OTC instruments).</xs:documentation>
+					<xs:documentation xml:lang="de">Identification of Instrument Emittent (or counterpart for OTC Instruments).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IssuerGroup" type="SIIIssuerType_V5">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Characteristics of final financial group the InstrumentIssuer belongs to (highest parent company).
+Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
+					<xs:documentation xml:lang="de">Characteristics of final financial group the InstrumentIssuer angehört (highest parent company).
 Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -3902,6 +4365,10 @@ Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentati
 ISO country code 2 (ISO 3166-1)
 or "XA" for Supranational issuers 
 or "EU" for European Union institutions</xs:documentation>
+					<xs:documentation xml:lang="de">Country of Instrument Emittent:
+ISO country code 2 (ISO 3166-1)
+or "XA" for Supranational Emittents 
+or "EU" for Europäisch Union institutions</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EconomicArea" type="EconomicArea2Type" minOccurs="0">
@@ -3915,11 +4382,14 @@ or "EU" for European Union institutions</xs:documentation>
 			<xs:element name="StateGuarantee" type="YesNoL1Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">The instrument is guaranteed by the state of issuer ('Y') or not ('N')</xs:documentation>
+					<xs:documentation xml:lang="de">The Instrument is guaranteed by the state of Emittent ('Y') or not ('N')</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CreditQualityStep" type="CQSType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">CQS: Synthetic issue or issuer rating.
+Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
+					<xs:documentation xml:lang="de">CQS: Synthetic issue or Emittent rating.
 Integer from 0=AAA to 6=CCC. plus 9=unrated</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -3960,6 +4430,8 @@ Omitted if not applicable.</xs:documentation>
 				<xs:annotation>
 					<xs:documentation xml:lang="en">If known, redemption rate in percentage 
 of nominal amount (A19) 100%=1.0</xs:documentation>
+					<xs:documentation xml:lang="de">If known, redemption rate in percentage 
+of Nennwert (A19) 100%=1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

@@ -3,6 +3,12 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="KIIDsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container type for multiple UCITS Key Investor Information Documents (KIIDs) according to EU Commission Regulation 583/2010</xs:documentation>
+			<xs:documentation xml:lang="de">Container-Typ für mehrere UCITS Key Investor Information Documents (KIIDs) gemäß EU-Kommissionsverordnung 583/2010</xs:documentation>
+			<xs:documentation xml:lang="fr">Type conteneur pour plusieurs UCITS Key Investor Information Documents (KIIDs) selon le règlement de la Commission européenne 583/2010</xs:documentation>
+			<xs:documentation xml:lang="nl">Container type voor meerdere UCITS Key Investor Information Documents (KIIDs) volgens EU Commissie Verordening 583/2010</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="KIID" type="KIIDType" maxOccurs="unbounded"/>
 		</xs:sequence>

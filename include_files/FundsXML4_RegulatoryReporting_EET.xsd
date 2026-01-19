@@ -4,26 +4,56 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="EETsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for European ESG Template (EET) V1.0 reports according to FinDatEx SFDR data exchange</xs:documentation>
+			<xs:documentation xml:lang="de">Container für European ESG Template (EET) V1.0 Reports gemäß FinDatEx SFDR-Datenaustausch</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour European ESG Template (EET) V1.0 reports selon FinDatEx SFDR échange de données</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor European ESG Template (EET) V1.0 reports volgens FinDatEx SFDR data-uitwisseling</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EET" type="EETReportType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETsType1.1">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for European ESG Template (EET) V1.1 reports according to FinDatEx SFDR data exchange</xs:documentation>
+			<xs:documentation xml:lang="de">Container für European ESG Template (EET) V1.1 Reports gemäß FinDatEx SFDR-Datenaustausch</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour European ESG Template (EET) V1.1 reports selon FinDatEx SFDR échange de données</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor European ESG Template (EET) V1.1 reports volgens FinDatEx SFDR data-uitwisseling</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EET1.1" type="EETReportType1.1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETsType1.1.1">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for European ESG Template (EET) V1.1.1 reports according to FinDatEx SFDR data exchange</xs:documentation>
+			<xs:documentation xml:lang="de">Container für European ESG Template (EET) V1.1.1 Reports gemäß FinDatEx SFDR-Datenaustausch</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour European ESG Template (EET) V1.1.1 reports selon FinDatEx SFDR échange de données</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor European ESG Template (EET) V1.1.1 reports volgens FinDatEx SFDR data-uitwisseling</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EET1.1.1" type="EETReportType1.1.1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETsType1.1.2">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for European ESG Template (EET) V1.1.2 reports according to FinDatEx SFDR data exchange</xs:documentation>
+			<xs:documentation xml:lang="de">Container für European ESG Template (EET) V1.1.2 Reports gemäß FinDatEx SFDR-Datenaustausch</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour European ESG Template (EET) V1.1.2 reports selon FinDatEx SFDR échange de données</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor European ESG Template (EET) V1.1.2 reports volgens FinDatEx SFDR data-uitwisseling</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EET1.1.2" type="EETReportType1.1.2" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETsType1.1.3">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for European ESG Template (EET) V1.1.3 reports according to FinDatEx SFDR data exchange</xs:documentation>
+			<xs:documentation xml:lang="de">Container für European ESG Template (EET) V1.1.3 Reports gemäß FinDatEx SFDR-Datenaustausch</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour European ESG Template (EET) V1.1.3 reports selon FinDatEx SFDR échange de données</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor European ESG Template (EET) V1.1.3 reports volgens FinDatEx SFDR data-uitwisseling</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EET1.1.3" type="EETReportType1.1.3" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -17624,6 +17654,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="EETYesNeutralType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET response type with values Y (Yes) or Neutral for SFDR sustainability preferences</xs:documentation>
+			<xs:documentation xml:lang="de">EET-Antworttyp mit Werten Y (Ja) oder Neutral für SFDR Sustainability Preferences</xs:documentation>
+			<xs:documentation xml:lang="fr">Type de réponse EET avec valeurs Y (Oui) ou Neutral pour SFDR sustainability preferences</xs:documentation>
+			<xs:documentation xml:lang="nl">EET antwoordtype met waarden Y (Ja) of Neutral voor SFDR sustainability preferences</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 			<xs:maxLength value="7"/>
@@ -17645,18 +17681,36 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="EETWeightNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.0 structure for weight percentage and count values in ESG metrics</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.0 Struktur für Gewichtungsprozentsatz und Anzahlwerte in ESG-Metriken</xs:documentation>
+			<xs:documentation xml:lang="fr">Structure EET V1.0 pour poids pourcentage et valeurs de compte dans ESG métriques</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.0 structuur voor gewichtspercentage en telwaarden in ESG-metriek</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Weight" type="xs:decimal" minOccurs="0"/>
 			<xs:element name="Number" type="xs:integer" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETWeightNumberType1.1">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.1 structure for weight percentage and count values in ESG metrics</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.1 Struktur für Gewichtungsprozentsatz und Anzahlwerte in ESG-Metriken</xs:documentation>
+			<xs:documentation xml:lang="fr">Structure EET V1.1 pour poids pourcentage et valeurs de compte dans ESG métriques</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.1 structuur voor gewichtspercentage en telwaarden in ESG-metriek</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Weight" type="PercentageType" minOccurs="0"/>
 			<xs:element name="Number" type="xs:integer" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ValueStrategyCoverageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.0 PAI value with investment strategy consideration and data coverage metrics</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.0 PAI-Wert mit Investment Strategy-Berücksichtigung und Data Coverage-Metriken</xs:documentation>
+			<xs:documentation xml:lang="fr">Valeur PAI EET V1.0 avec considération investment strategy et métriques de couverture données</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.0 PAI-waarde met investment strategy overweging en data coverage metriek</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
@@ -17693,6 +17747,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ValueStrategyCoverageType1.1">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.1 PAI value with investment strategy consideration and data coverage metrics</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.1 PAI-Wert mit Investment Strategy-Berücksichtigung und Data Coverage-Metriken</xs:documentation>
+			<xs:documentation xml:lang="fr">Valeur PAI EET V1.1 avec considération investment strategy et métriques de couverture données</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.1 PAI-waarde met investment strategy overweging en data coverage metriek</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="xs:decimal" minOccurs="0"/>
 			<xs:element name="ConsideredInInvestmentStrategy" type="EETYesNoType" minOccurs="0">
@@ -17722,6 +17782,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ValueStrategyCoverageType1.1.2">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.1.2 PAI value with investment strategy consideration and data coverage metrics</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.1.2 PAI-Wert mit Investment Strategy-Berücksichtigung und Data Coverage-Metriken</xs:documentation>
+			<xs:documentation xml:lang="fr">Valeur PAI EET V1.1.2 avec considération investment strategy et métriques de couverture données</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.1.2 PAI-waarde met investment strategy overweging en data coverage metriek</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="xs:decimal" minOccurs="0"/>
 			<xs:element name="ConsideredInInvestmentStrategy" type="EETYesNoType" minOccurs="0">
@@ -17751,6 +17817,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETExclusionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.0 exclusion criteria for SFDR Article 8/9 funds with threshold and value chain settings</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.0 Ausschlusskriterien für SFDR Artikel 8/9 Fonds mit Threshold- und Value Chain-Einstellungen</xs:documentation>
+			<xs:documentation xml:lang="fr">Critères d'exclusion EET V1.0 pour fonds SFDR Article 8/9 avec paramètres threshold et value chain</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.0 uitsluitingscriteria voor SFDR Artikel 8/9 fondsen met threshold en value chain instellingen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Applied" type="EETYesNoType">
 				<xs:annotation>
@@ -17797,6 +17869,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETExclusionType1.1">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.1 exclusion criteria for SFDR Article 8/9 funds with threshold and value chain settings</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.1 Ausschlusskriterien für SFDR Artikel 8/9 Fonds mit Threshold- und Value Chain-Einstellungen</xs:documentation>
+			<xs:documentation xml:lang="fr">Critères d'exclusion EET V1.1 pour fonds SFDR Article 8/9 avec paramètres threshold et value chain</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.1 uitsluitingscriteria voor SFDR Artikel 8/9 fondsen met threshold en value chain instellingen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Applied" type="EETYesNoType">
 				<xs:annotation>
@@ -17840,6 +17918,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETEnhancedExclusionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.0 enhanced exclusion criteria with energy mix caps for fossil fuel exclusions</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.0 erweiterte Ausschlusskriterien mit Energy Mix Caps für Fossil Fuel-Ausschlüsse</xs:documentation>
+			<xs:documentation xml:lang="fr">Critères d'exclusion améliorés EET V1.0 avec energy mix caps pour exclusions fossil fuel</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.0 verbeterde uitsluitingscriteria met energy mix caps voor fossil fuel-uitsluitingen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Applied" type="EETYesNoType">
 				<xs:annotation>
@@ -17896,6 +17980,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EETEnhancedExclusionType1.1">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.1 enhanced exclusion criteria with energy mix caps for fossil fuel exclusions</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.1 erweiterte Ausschlusskriterien mit Energy Mix Caps für Fossil Fuel-Ausschlüsse</xs:documentation>
+			<xs:documentation xml:lang="fr">Critères d'exclusion améliorés EET V1.1 avec energy mix caps pour exclusions fossil fuel</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.1 verbeterde uitsluitingscriteria met energy mix caps voor fossil fuel-uitsluitingen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Applied" type="EETYesNoType">
 				<xs:annotation>
@@ -17952,6 +18042,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PercentageStrategyCoverageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.0 percentage-based PAI value with investment strategy consideration and data coverage metrics</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.0 prozentbasierter PAI-Wert mit Investment Strategy-Berücksichtigung und Data Coverage-Metriken</xs:documentation>
+			<xs:documentation xml:lang="fr">Valeur PAI basée sur pourcentage EET V1.0 avec considération investment strategy et métriques de couverture données</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.0 percentage-gebaseerde PAI-waarde met investment strategy overweging en data coverage metriek</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
@@ -17988,6 +18084,12 @@ ISO 3166-1. Blank als geen; conditional naar 31240 > 0</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PercentageStrategyCoverageType1.1">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EET V1.1 percentage-based PAI value with investment strategy consideration and data coverage metrics</xs:documentation>
+			<xs:documentation xml:lang="de">EET V1.1 prozentbasierter PAI-Wert mit Investment Strategy-Berücksichtigung und Data Coverage-Metriken</xs:documentation>
+			<xs:documentation xml:lang="fr">Valeur PAI basée sur pourcentage EET V1.1 avec considération investment strategy et métriques de couverture données</xs:documentation>
+			<xs:documentation xml:lang="nl">EET V1.1 percentage-gebaseerde PAI-waarde met investment strategy overweging en data coverage metriek</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="xs:decimal" minOccurs="0">
 				<xs:annotation>

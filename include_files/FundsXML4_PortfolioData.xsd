@@ -4,6 +4,12 @@
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_TransactionData.xsd"/>
 	<xs:complexType name="PortfolioType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Complete portfolio data including positions, transactions, earnings, decomposed holdings and breakdowns as of NAV date</xs:documentation>
+			<xs:documentation xml:lang="de">Vollständige Portfolio-Daten einschließlich Positions, Transactions, Earnings, aufgelösten Holdings und Breakdowns zum NAV-Stichtag</xs:documentation>
+			<xs:documentation xml:lang="fr">Données de portfolio complètes incluant positions, transactions, earnings, holdings décomposés et breakdowns à la date NAV</xs:documentation>
+			<xs:documentation xml:lang="nl">Volledige portfolio gegevens inclusief positions, transactions, earnings, gedecomposeerde holdings en breakdowns per NAV-datum</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="NavDate" type="xs:date">
 				<xs:annotation>
@@ -66,6 +72,12 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PositionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Single portfolio position with reference to asset master data, quantity, market value and accounting details</xs:documentation>
+			<xs:documentation xml:lang="de">Einzelne Portfolio-Position mit Referenz zu Asset Master Data, Quantity, Market Value und buchhalterischen Details</xs:documentation>
+			<xs:documentation xml:lang="fr">Position de portfolio unique avec référence aux asset master data, quantity, market value et détails comptables</xs:documentation>
+			<xs:documentation xml:lang="nl">Enkele portfolio positie met referentie naar asset master data, quantity, market value en boekhoudkundige details</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="UniqueID">
 				<xs:annotation>
@@ -1146,6 +1158,12 @@ negative - paying premiums</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RiskCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Risk indicator or key risk figure (VaR, Duration, Beta, Sharpe Ratio, etc.) with value and calculation parameters</xs:documentation>
+			<xs:documentation xml:lang="de">Risikokennzahl (VaR, Duration, Beta, Sharpe Ratio, etc.) mit Wert und Berechnungsparametern</xs:documentation>
+			<xs:documentation xml:lang="fr">Indicateur de risque ou chiffre clé de risque (VaR, Duration, Beta, Sharpe Ratio, etc.) avec valeur et paramètres de calcul</xs:documentation>
+			<xs:documentation xml:lang="nl">Risico-indicator of kernrisico-cijfer (VaR, Duration, Beta, Sharpe Ratio, etc.) met waarde en berekeningsparameters</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:choice>
 				<xs:element name="ListedCode">
@@ -1287,6 +1305,12 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ExposureType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Portfolio exposure calculations using different methodologies (Commitment Approach, AIFMD, etc.)</xs:documentation>
+			<xs:documentation xml:lang="de">Portfolio-Exposure-Berechnungen nach verschiedenen Methodologien (Commitment Approach, AIFMD, etc.)</xs:documentation>
+			<xs:documentation xml:lang="fr">Calculs d'exposition portfolio utilisant différentes méthodologies (Commitment Approach, AIFMD, etc.)</xs:documentation>
+			<xs:documentation xml:lang="nl">Portfolio exposure berekeningen met verschillende methodologieën (Commitment Approach, AIFMD, etc.)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Exposure" maxOccurs="unbounded">
 				<xs:complexType>
@@ -1303,11 +1327,23 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PositionsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for all portfolio positions/holdings</xs:documentation>
+			<xs:documentation xml:lang="de">Container für alle Portfolio Positions/Holdings</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour toutes les positions/holdings de portfolio</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor alle portfolio positions/holdings</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Position" type="PositionType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BreakDownsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for portfolio breakdowns by various dimensions (currency, country, asset type, duration, rating, etc.)</xs:documentation>
+			<xs:documentation xml:lang="de">Container für Portfolio-Aufschlüsselungen nach verschiedenen Dimensionen (Währung, Land, Asset Type, Duration, Rating, etc.)</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour breakdowns de portfolio par différentes dimensions (devise, pays, asset type, duration, rating, etc.)</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor portfolio breakdowns per verschillende dimensies (valuta, land, asset type, duration, rating, etc.)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="BreakDown" maxOccurs="unbounded">
 				<xs:complexType>
@@ -1377,6 +1413,12 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="OtherTotalValueType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Alternative total value calculation type (e.g., Hold-To-Maturity, Fair Value) with amount</xs:documentation>
+			<xs:documentation xml:lang="de">Alternative Total Value-Berechnungsart (z.B. Hold-To-Maturity, Fair Value) mit Betrag</xs:documentation>
+			<xs:documentation xml:lang="fr">Type de calcul alternatif de valeur totale (ex. Hold-To-Maturity, Fair Value) avec montant</xs:documentation>
+			<xs:documentation xml:lang="nl">Alternatief total value berekeningstype (bijv. Hold-To-Maturity, Fair Value) met bedrag</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type" type="xs:string">
 				<xs:annotation>
@@ -1387,6 +1429,12 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PositionsDecomposedType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Look-through decomposed positions where fund-of-fund holdings are replaced by the underlying subfund positions</xs:documentation>
+			<xs:documentation xml:lang="de">Look-Through-aufgelöste Positions, bei denen Fund-of-Fund-Holdings durch die unterliegenden Subfund Positions ersetzt werden</xs:documentation>
+			<xs:documentation xml:lang="fr">Positions décomposées look-through où les holdings fund-of-fund sont remplacées par les positions subfund sous-jacentes</xs:documentation>
+			<xs:documentation xml:lang="nl">Look-through gedecomposeerde positions waarbij fund-of-fund holdings worden vervangen door de onderliggende subfund positions</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="LookThroughLevels" type="xs:positiveInteger">
 				<xs:annotation>

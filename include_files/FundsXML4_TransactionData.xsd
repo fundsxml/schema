@@ -3,6 +3,12 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="EarningsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container type for multiple earnings (coupons, dividends, distributions) from security positions in a fund portfolio</xs:documentation>
+			<xs:documentation xml:lang="de">Container-Typ für mehrere Erträge (Coupons, Dividenden, Ausschüttungen) aus Wertpapierpositionen in einem Fondsportfolio</xs:documentation>
+			<xs:documentation xml:lang="fr">Type conteneur pour plusieurs earnings (coupons, dividendes, distributions) des positions de titres dans un portefeuille de fonds</xs:documentation>
+			<xs:documentation xml:lang="nl">Container type voor meerdere earnings (coupons, dividenden, uitkeringen) van effectenposities in een fondsportefeuille</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Earning" type="EarningType" maxOccurs="unbounded">
 				<xs:annotation>
@@ -15,6 +21,12 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EarningType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Single earning record containing coupon, dividend or distribution data from a security position including amounts, dates, tax information and booking details</xs:documentation>
+			<xs:documentation xml:lang="de">Einzelner Ertragsdatensatz mit Coupon-, Dividenden- oder Ausschüttungsdaten aus einer Wertpapierposition einschließlich Beträge, Daten, Steuerinformationen und Buchungsdetails</xs:documentation>
+			<xs:documentation xml:lang="fr">Enregistrement earning unique contenant les données de coupon, dividende ou distribution d'une position de titre incluant montants, dates, informations fiscales et détails de comptabilisation</xs:documentation>
+			<xs:documentation xml:lang="nl">Enkelvoudig earning record met coupon-, dividend- of uitkeringsgegevens van een effectenpositie inclusief bedragen, datums, belastinginformatie en boekingsdetails</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EarningID" type="Text256Type">
 				<xs:annotation>
@@ -388,6 +400,12 @@ Coupon, Dividend, Fonds uitkering, ...</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TransactionsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container type for multiple fund transactions (trades) with optional date range filtering via from/to attributes</xs:documentation>
+			<xs:documentation xml:lang="de">Container-Typ für mehrere Fondstransaktionen (Trades) mit optionaler Datumsbereichsfilterung über from/to Attribute</xs:documentation>
+			<xs:documentation xml:lang="fr">Type conteneur pour plusieurs transactions de fonds (trades) avec filtrage optionnel par plage de dates via attributs from/to</xs:documentation>
+			<xs:documentation xml:lang="nl">Container type voor meerdere fondstransacties (trades) met optionele datumbereikfiltering via from/to attributen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Transaction" type="TransactionType" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -395,6 +413,12 @@ Coupon, Dividend, Fonds uitkering, ...</xs:documentation>
 		<xs:attribute name="to" type="xs:date"/>
 	</xs:complexType>
 	<xs:complexType name="TransactionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Single fund transaction (trade) record containing buy/sell details, settlement information, amounts, prices, counterparty data and booking details</xs:documentation>
+			<xs:documentation xml:lang="de">Einzelner Fondstransaktionsdatensatz (Trade) mit Kauf/Verkauf-Details, Settlement-Informationen, Beträgen, Preisen, Kontrahentendaten und Buchungsdetails</xs:documentation>
+			<xs:documentation xml:lang="fr">Enregistrement de transaction de fonds unique (trade) contenant détails d'achat/vente, informations de règlement, montants, prix, données de contrepartie et détails de comptabilisation</xs:documentation>
+			<xs:documentation xml:lang="nl">Enkelvoudig fondstransactierecord (trade) met koop/verkoop details, settlement informatie, bedragen, prijzen, tegenpartijgegevens en boekingsdetails</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TransactionID" type="Text256Type">
 				<xs:annotation>

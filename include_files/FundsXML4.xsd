@@ -99,6 +99,12 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SegmentDynamicDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Dynamic data of a fund segment including total asset values and portfolio holdings</xs:documentation>
+			<xs:documentation xml:lang="de">Dynamische Daten eines Fund Segments einschließlich Total Asset Values und Portfolio Holdings</xs:documentation>
+			<xs:documentation xml:lang="fr">Données dynamiques d'un segment de fonds incluant total asset values et portfolio holdings</xs:documentation>
+			<xs:documentation xml:lang="nl">Dynamische gegevens van een fonds segment inclusief total asset values en portfolio holdings</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TotalAssetValues" minOccurs="0">
 				<xs:annotation>
@@ -123,6 +129,12 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DocumentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Regulatory or marketing document (KID, prospectus, factsheet, annual report) with metadata and content</xs:documentation>
+			<xs:documentation xml:lang="de">Regulatorisches oder Marketing-Dokument (KID, Prospectus, Factsheet, Jahresbericht) mit Metadaten und Inhalt</xs:documentation>
+			<xs:documentation xml:lang="fr">Document réglementaire ou marketing (KID, prospectus, factsheet, rapport annuel) avec métadonnées et contenu</xs:documentation>
+			<xs:documentation xml:lang="nl">Regelgevend of marketing document (KID, prospectus, factsheet, jaarverslag) met metadata en inhoud</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type">
 				<xs:annotation>
@@ -509,6 +521,12 @@ DELETE: This involves the removal of specific data from the system. It could be 
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SegmentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Fund segment (sub-portfolio or pocket) typically managed by a specific fund manager within a multi-manager structure</xs:documentation>
+			<xs:documentation xml:lang="de">Fund Segment (Sub-Portfolio oder Pocket), typischerweise von einem spezifischen Fund Manager innerhalb einer Multi-Manager-Struktur verwaltet</xs:documentation>
+			<xs:documentation xml:lang="fr">Segment de fonds (sub-portfolio ou pocket) typiquement géré par un fund manager spécifique dans une structure multi-manager</xs:documentation>
+			<xs:documentation xml:lang="nl">Fonds segment (sub-portfolio of pocket) typisch beheerd door een specifieke fund manager binnen een multi-manager structuur</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
@@ -562,6 +580,12 @@ DELETE: This involves the removal of specific data from the system. It could be 
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RegulatoryReportingsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for all regulatory reporting data including direct reporting (EMT, EET, EFT) and indirect reporting (Solvency II TPT, PRIIPs)</xs:documentation>
+			<xs:documentation xml:lang="de">Container für alle regulatorischen Reporting-Daten einschließlich Direct Reporting (EMT, EET, EFT) und Indirect Reporting (Solvency II TPT, PRIIPs)</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour toutes les données de reporting réglementaire incluant direct reporting (EMT, EET, EFT) et indirect reporting (Solvency II TPT, PRIIPs)</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor alle regelgevende reporting gegevens inclusief direct reporting (EMT, EET, EFT) en indirect reporting (Solvency II TPT, PRIIPs)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="DirectReporting" type="DirectReportingType" minOccurs="0">
 				<xs:annotation>
@@ -578,6 +602,12 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DirectReportingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Regulatory data for B2B exchange between fund manufacturers and distributors (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
+			<xs:documentation xml:lang="de">Regulatorische Daten für B2B-Austausch zwischen Fund Manufacturers und Distributors (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
+			<xs:documentation xml:lang="fr">Données réglementaires pour échange B2B entre fund manufacturers et distributors (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
+			<xs:documentation xml:lang="nl">Regelgevende gegevens voor B2B-uitwisseling tussen fund manufacturers en distributors (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EMIR" type="EMIRType" minOccurs="0">
 				<xs:annotation>
@@ -659,11 +689,23 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DocumentsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for multiple fund-related documents (KIDs, prospectuses, factsheets, reports)</xs:documentation>
+			<xs:documentation xml:lang="de">Container für mehrere fondsbezogene Dokumente (KIDs, Prospectuses, Factsheets, Reports)</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour plusieurs documents liés aux fonds (KIDs, prospectuses, factsheets, reports)</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor meerdere fonds-gerelateerde documenten (KIDs, prospectuses, factsheets, reports)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Document" type="DocumentType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Complete fund structure including identifiers, static/dynamic data, and either single fund or umbrella with subfunds</xs:documentation>
+			<xs:documentation xml:lang="de">Vollständige Fund-Struktur einschließlich Identifiers, statischer/dynamischer Daten, und entweder Single Fund oder Umbrella mit Subfunds</xs:documentation>
+			<xs:documentation xml:lang="fr">Structure de fonds complète incluant identifiers, données statiques/dynamiques, et soit single fund soit umbrella avec subfunds</xs:documentation>
+			<xs:documentation xml:lang="nl">Volledige fonds structuur inclusief identifiers, statische/dynamische gegevens, en ofwel single fund of umbrella met subfunds</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
@@ -729,6 +771,12 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SubfundType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Subfund within an umbrella fund structure with its own identifiers, static/dynamic data and share classes</xs:documentation>
+			<xs:documentation xml:lang="de">Subfund innerhalb einer Umbrella Fund-Struktur mit eigenen Identifiers, statischen/dynamischen Daten und Share Classes</xs:documentation>
+			<xs:documentation xml:lang="fr">Subfund au sein d'une structure umbrella fund avec ses propres identifiers, données statiques/dynamiques et share classes</xs:documentation>
+			<xs:documentation xml:lang="nl">Subfund binnen een umbrella fund structuur met eigen identifiers, statische/dynamische gegevens en share classes</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
@@ -782,6 +830,12 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SingleFundType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Single fund (non-umbrella) structure containing static data, share classes and optional segments</xs:documentation>
+			<xs:documentation xml:lang="de">Single Fund (kein Umbrella) Struktur mit statischen Daten, Share Classes und optionalen Segments</xs:documentation>
+			<xs:documentation xml:lang="fr">Structure single fund (non-umbrella) contenant données statiques, share classes et segments optionnels</xs:documentation>
+			<xs:documentation xml:lang="nl">Single fund (geen umbrella) structuur met statische gegevens, share classes en optionele segments</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SingleFundStaticData" type="SingleFundStaticDataType" minOccurs="0">
 				<xs:annotation>
@@ -815,6 +869,12 @@ both retail (PRIIPs KID) and institutional (Solvency reporting data).</xs:docume
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IndirectReportingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Regulatory disclosure data for end investors: Solvency II TPT for institutional investors and PRIIPs for retail investors</xs:documentation>
+			<xs:documentation xml:lang="de">Regulatorische Offenlegungsdaten für Endinvestoren: Solvency II TPT für institutionelle Investoren und PRIIPs für Retail-Investoren</xs:documentation>
+			<xs:documentation xml:lang="fr">Données de divulgation réglementaire pour investisseurs finaux: Solvency II TPT pour investisseurs institutionnels et PRIIPs pour investisseurs retail</xs:documentation>
+			<xs:documentation xml:lang="nl">Regelgevende openbaarmakingsgegevens voor eindbeleggers: Solvency II TPT voor institutionele beleggers en PRIIPs voor retail beleggers</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TripartiteTemplateSolvencyII" type="TripartiteTemplateSolvencyIIType" minOccurs="0">
 				<xs:annotation>

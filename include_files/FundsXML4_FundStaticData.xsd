@@ -858,11 +858,23 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundCompaniesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for companies associated with a fund (custodian, auditor, administrator, etc.)</xs:documentation>
+			<xs:documentation xml:lang="de">Container für Unternehmen, die mit einem Fund verbunden sind (Custodian, Auditor, Administrator, etc.)</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour les sociétés associées à un fonds (custodian, auditor, administrator, etc.)</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor bedrijven geassocieerd met een fonds (custodian, auditor, administrator, etc.)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Company" type="FundCompanyType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SubfundCompanyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Company associated with a subfund with role definition (auditor, custodian, paying agent, etc.)</xs:documentation>
+			<xs:documentation xml:lang="de">Unternehmen, das mit einem Subfund verbunden ist, mit Rollendefinition (Auditor, Custodian, Paying Agent, etc.)</xs:documentation>
+			<xs:documentation xml:lang="fr">Société associée à un subfund avec définition de rôle (auditor, custodian, paying agent, etc.)</xs:documentation>
+			<xs:documentation xml:lang="nl">Bedrijf geassocieerd met een subfund met roldefinitie (auditor, custodian, paying agent, etc.)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:choice>
 				<xs:element name="ListedRole">
@@ -892,11 +904,23 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SubfundCompaniesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for companies associated with a subfund</xs:documentation>
+			<xs:documentation xml:lang="de">Container für Unternehmen, die mit einem Subfund verbunden sind</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour les sociétés associées à un subfund</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor bedrijven geassocieerd met een subfund</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Company" type="SubfundCompanyType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BenchmarkStaticDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Static benchmark data including name, currency, provider and benchmark components for blended benchmarks</xs:documentation>
+			<xs:documentation xml:lang="de">Statische Benchmark-Daten einschließlich Name, Währung, Provider und Benchmark Components für Blended Benchmarks</xs:documentation>
+			<xs:documentation xml:lang="fr">Données statiques de benchmark incluant nom, devise, provider et benchmark components pour blended benchmarks</xs:documentation>
+			<xs:documentation xml:lang="nl">Statische benchmark gegevens inclusief naam, valuta, provider en benchmark components voor blended benchmarks</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
 				<xs:annotation>
@@ -995,6 +1019,12 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BenchmarkProviderCompany">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Benchmark index provider company with ESMA registration status (EU Benchmark Regulation)</xs:documentation>
+			<xs:documentation xml:lang="de">Benchmark Index Provider Company mit ESMA-Registrierungsstatus (EU Benchmark Regulation)</xs:documentation>
+			<xs:documentation xml:lang="fr">Société provider de benchmark index avec statut d'enregistrement ESMA (EU Benchmark Regulation)</xs:documentation>
+			<xs:documentation xml:lang="nl">Benchmark index provider bedrijf met ESMA-registratiestatus (EU Benchmark Regulation)</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="CompanyType">
 				<xs:sequence>
@@ -1004,6 +1034,12 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:simpleType name="BenchmarkUsageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Classification of benchmark usage: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
+			<xs:documentation xml:lang="de">Klassifikation der Benchmark-Verwendung: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
+			<xs:documentation xml:lang="fr">Classification de l'utilisation du benchmark: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
+			<xs:documentation xml:lang="nl">Classificatie van benchmark gebruik: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="OFFICIAL"/>
 			<xs:enumeration value="INTERNAL"/>

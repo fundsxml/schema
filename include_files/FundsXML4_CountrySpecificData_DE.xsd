@@ -3,16 +3,34 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="CountrySpecificDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container type for Germany-specific data extensions in the FundsXML schema extending PRIIPs DE EPT PIA data</xs:documentation>
+			<xs:documentation xml:lang="de">Container-Typ für Deutschland-spezifische Datenerweiterungen im FundsXML Schema mit Erweiterung der PRIIPs DE EPT PIA Daten</xs:documentation>
+			<xs:documentation xml:lang="fr">Type conteneur pour extensions de données spécifiques à l'Allemagne dans le schéma FundsXML étendant les données PRIIPs DE EPT PIA</xs:documentation>
+			<xs:documentation xml:lang="nl">Container type voor Duitsland-specifieke data-uitbreidingen in het FundsXML schema met uitbreiding van PRIIPs DE EPT PIA gegevens</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="PRIIPS_DE_EPT_PiaType"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="CountrySpecificControlDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific control data extensions for BVI reporting and data portal integration</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Steuerungsdaten-Erweiterungen für BVI Reporting und Datenportal-Integration</xs:documentation>
+			<xs:documentation xml:lang="fr">Extensions de données de contrôle spécifiques à l'Allemagne pour BVI reporting et intégration de portail de données</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke controlegegevens uitbreidingen voor BVI reporting en data portaal integratie</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xs:anyType"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="CountrySpecificFundDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific fund data containing real estate reporting fields for German open-ended real estate funds (Offene Immobilienfonds)</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Fondsdaten mit Immobilien-Reporting-Feldern für deutsche offene Immobilienfonds</xs:documentation>
+			<xs:documentation xml:lang="fr">Données de fonds spécifiques à l'Allemagne contenant les champs de reporting immobilier pour les fonds immobiliers ouverts allemands</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke fondsgegevens met vastgoed reporting velden voor Duitse open vastgoedfondsen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="RealEstateReporting" minOccurs="0">
 				<xs:complexType>
@@ -739,11 +757,23 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CountrySpecificAssetMasterDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific asset master data extensions for German regulatory reporting requirements</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Wertpapierstammdaten-Erweiterungen für deutsche regulatorische Reporting-Anforderungen</xs:documentation>
+			<xs:documentation xml:lang="fr">Extensions de données de référence d'actifs spécifiques à l'Allemagne pour les exigences de reporting réglementaire allemand</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke asset masterdata uitbreidingen voor Duitse regulatory reporting vereisten</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xs:anyType"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="PRIIPS_DE_EPT_PiaType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific PRIIPs European Product Template (EPT) PIA extension containing product characteristics and target market data for German market requirements</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische PRIIPs European Product Template (EPT) PIA Erweiterung mit Produkteigenschaften und Target Market Daten für deutsche Marktanforderungen</xs:documentation>
+			<xs:documentation xml:lang="fr">Extension PRIIPs European Product Template (EPT) PIA spécifique à l'Allemagne contenant les caractéristiques du produit et données target market pour les exigences du marché allemand</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke PRIIPs European Product Template (EPT) PIA uitbreiding met productkenmerken en target market gegevens voor Duitse marktvereisten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Characteristics">
 				<xs:annotation>
@@ -880,6 +910,12 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPS_V2_Country_Specific_DE">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific PRIIPs V2 data extension containing enhanced product characteristics and target market data for German regulatory requirements</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische PRIIPs V2 Datenerweiterung mit erweiterten Produkteigenschaften und Target Market Daten für deutsche regulatorische Anforderungen</xs:documentation>
+			<xs:documentation xml:lang="fr">Extension de données PRIIPs V2 spécifique à l'Allemagne contenant les caractéristiques de produit améliorées et données target market pour les exigences réglementaires allemandes</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke PRIIPs V2 data-uitbreiding met verbeterde productkenmerken en target market gegevens voor Duitse regulatory vereisten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Characteristics">
 				<xs:annotation>
@@ -1024,11 +1060,23 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CountrySpecificShareClassDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific share class data extensions for German regulatory reporting requirements</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Anteilsklassendaten-Erweiterungen für deutsche regulatorische Reporting-Anforderungen</xs:documentation>
+			<xs:documentation xml:lang="fr">Extensions de données de classe d'actions spécifiques à l'Allemagne pour les exigences de reporting réglementaire allemand</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke aandelenklasse gegevens uitbreidingen voor Duitse regulatory reporting vereisten</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xs:anyType"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="CountrySpecificEMTDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific EMT (European MiFID Template) data extensions containing additional fields for German market requirements</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische EMT (European MiFID Template) Datenerweiterungen mit zusätzlichen Feldern für deutsche Marktanforderungen</xs:documentation>
+			<xs:documentation xml:lang="fr">Extensions de données EMT (European MiFID Template) spécifiques à l'Allemagne contenant des champs supplémentaires pour les exigences du marché allemand</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke EMT (European MiFID Template) data-uitbreidingen met extra velden voor Duitse marktvereisten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EMT_Additional">
 				<xs:complexType>
@@ -1127,6 +1175,12 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Waarde J/N tien-, Renten-,
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SalesDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific real estate sales data containing number and value of property sales for German open-ended real estate funds</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Immobilienverkaufsdaten mit Anzahl und Wert von Immobilienverkäufen für deutsche offene Immobilienfonds</xs:documentation>
+			<xs:documentation xml:lang="fr">Données de ventes immobilières spécifiques à l'Allemagne contenant le nombre et la valeur des ventes de biens pour les fonds immobiliers ouverts allemands</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke vastgoedverkoopgegevens met aantal en waarde van vastgoedverkopen voor Duitse open vastgoedfondsen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Number" type="xs:int">
 				<xs:annotation>
@@ -1163,6 +1217,12 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Waarde J/N tien-, Renten-,
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PurchasesDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific real estate purchases data containing number and value of property acquisitions for German open-ended real estate funds</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Immobilienankaufsdaten mit Anzahl und Wert von Immobilienankäufen für deutsche offene Immobilienfonds</xs:documentation>
+			<xs:documentation xml:lang="fr">Données d'achats immobiliers spécifiques à l'Allemagne contenant le nombre et la valeur des acquisitions de biens pour les fonds immobiliers ouverts allemands</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke vastgoedaankoopgegevens met aantal en waarde van vastgoedaankopen voor Duitse open vastgoedfondsen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Number" type="xs:int">
 				<xs:annotation>
@@ -1199,6 +1259,12 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Waarde J/N tien-, Renten-,
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AddressTypeDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific real estate property address data containing street, city, postal code and geographic coordinates</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Immobilienadressdaten mit Straße, Stadt, Postleitzahl und geografischen Koordinaten</xs:documentation>
+			<xs:documentation xml:lang="fr">Données d'adresse de propriété immobilière spécifiques à l'Allemagne contenant rue, ville, code postal et coordonnées géographiques</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke vastgoedadresgegevens met straat, stad, postcode en geografische coördinaten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="StreetName" type="Text256Type">
 				<xs:annotation>
@@ -1259,6 +1325,12 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Waarde J/N tien-, Renten-,
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AnnualReturnsDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific real estate annual returns data containing gross yield, income return and capital growth for German open-ended real estate funds</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Immobilien-Jahresrendite-Daten mit Bruttorendite, Einkommensrendite und Kapitalwachstum für deutsche offene Immobilienfonds</xs:documentation>
+			<xs:documentation xml:lang="fr">Données de rendements annuels immobiliers spécifiques à l'Allemagne contenant le rendement brut, le rendement des revenus et la croissance du capital pour les fonds immobiliers ouverts allemands</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke vastgoed jaarlijkse rendementen gegevens met bruto rendement, inkomstenrendement en kapitaalgroei voor Duitse open vastgoedfondsen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="GrossYield" type="PercentageType">
 				<xs:annotation>
@@ -1344,6 +1416,12 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Waarde J/N tien-, Renten-,
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="UsageDataDEType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Germany-specific real estate usage data containing rental income, vacancy rates and usage type information for German open-ended real estate funds</xs:documentation>
+			<xs:documentation xml:lang="de">Deutschland-spezifische Immobiliennutzungsdaten mit Mieteinnahmen, Leerstandsquoten und Nutzungsart-Informationen für deutsche offene Immobilienfonds</xs:documentation>
+			<xs:documentation xml:lang="fr">Données d'utilisation immobilière spécifiques à l'Allemagne contenant les revenus locatifs, taux de vacance et informations sur le type d'utilisation pour les fonds immobiliers ouverts allemands</xs:documentation>
+			<xs:documentation xml:lang="nl">Duitsland-specifieke vastgoedgebruiksgegevens met huurinkomsten, leegstandspercentages en gebruikstype informatie voor Duitse open vastgoedfondsen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="GrossPotentialIncome">
 				<xs:annotation>

@@ -545,6 +545,12 @@ U ... Units</xs:documentation>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="AssetMasterDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container for master data of securities, derivatives, and other portfolio assets referenced by positions</xs:documentation>
+			<xs:documentation xml:lang="de">Container für Stammdaten von Securities, Derivaten und anderen Portfolio Assets, die von Positions referenziert werden</xs:documentation>
+			<xs:documentation xml:lang="fr">Conteneur pour les données maîtres de securities, dérivés et autres portfolio assets référencés par positions</xs:documentation>
+			<xs:documentation xml:lang="nl">Container voor stamgegevens van securities, derivaten en andere portfolio assets waarnaar positions verwijzen</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Asset" type="AssetType" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -2100,6 +2106,12 @@ Z New issue</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FeeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Fee structure for financial instruments including type, counterparty and payment details</xs:documentation>
+			<xs:documentation xml:lang="de">Gebührenstruktur für Finanzinstrumente einschließlich Typ, Counterparty und Zahlungsdetails</xs:documentation>
+			<xs:documentation xml:lang="fr">Structure de frais pour instruments financiers incluant type, counterparty et détails de paiement</xs:documentation>
+			<xs:documentation xml:lang="nl">Kostenstructuur voor financiële instrumenten inclusief type, counterparty en betalingsdetails</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type" type="xs:string" minOccurs="0">
 				<xs:annotation>
@@ -2754,10 +2766,16 @@ Z New issue</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IndustryCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Industry sector classification using codification systems like GICS, ICB, NACE</xs:documentation>
+			<xs:documentation xml:lang="de">Branchenklassifikation unter Verwendung von Codierungssystemen wie GICS, ICB, NACE</xs:documentation>
+			<xs:documentation xml:lang="fr">Classification de secteur industriel utilisant systèmes de codification comme GICS, ICB, NACE</xs:documentation>
+			<xs:documentation xml:lang="nl">Industrie sector classificatie met codificatie systemen zoals GICS, ICB, NACE</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Sector codification (GICS,ICB, ...) 
+					<xs:documentation xml:lang="en">Sector codification (GICS,ICB, ...)
 ***"CodificationSystem" would me more relevant than "Name"</xs:documentation>
 					<xs:documentation xml:lang="de">GICS,lehman,ICB.</xs:documentation>
 					<xs:documentation xml:lang="fr">Secteur codification (GICS,ICB, ...) 
@@ -2778,6 +2796,12 @@ Z New issue</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IndustryProviderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Industry classification data from a specific data provider (Bloomberg, MSCI, etc.)</xs:documentation>
+			<xs:documentation xml:lang="de">Branchenklassifikationsdaten von einem spezifischen Data Provider (Bloomberg, MSCI, etc.)</xs:documentation>
+			<xs:documentation xml:lang="fr">Données de classification industrielle d'un data provider spécifique (Bloomberg, MSCI, etc.)</xs:documentation>
+			<xs:documentation xml:lang="nl">Industrie classificatie gegevens van een specifieke data provider (Bloomberg, MSCI, etc.)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Offeror" type="xs:string"/>
 			<xs:element name="Date" type="xs:date"/>
@@ -2791,8 +2815,21 @@ Z New issue</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="LegType"/>
+	<xs:complexType name="LegType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Leg of a derivative instrument (reserved for future use)</xs:documentation>
+			<xs:documentation xml:lang="de">Leg eines Derivatinstruments (für zukünftige Verwendung reserviert)</xs:documentation>
+			<xs:documentation xml:lang="fr">Leg d'un instrument dérivé (réservé pour usage futur)</xs:documentation>
+			<xs:documentation xml:lang="nl">Leg van een derivaat instrument (gereserveerd voor toekomstig gebruik)</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
 	<xs:complexType name="LoanType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Loan instrument details including fund role (lender/borrower), counterparty and terms</xs:documentation>
+			<xs:documentation xml:lang="de">Loan-Instrument-Details einschließlich Fund-Rolle (Lender/Borrower), Counterparty und Konditionen</xs:documentation>
+			<xs:documentation xml:lang="fr">Détails d'instrument loan incluant rôle du fonds (lender/borrower), counterparty et conditions</xs:documentation>
+			<xs:documentation xml:lang="nl">Loan instrument details inclusief fonds rol (lender/borrower), counterparty en voorwaarden</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="FundRole">
 				<xs:annotation>
@@ -3369,6 +3406,12 @@ fixed/variable</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PrivateEquityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Private Equity investment details including company information and look-through linkage for SPV holdings</xs:documentation>
+			<xs:documentation xml:lang="de">Private Equity Investment-Details einschließlich Unternehmensinformationen und Look-Through-Verlinkung für SPV Holdings</xs:documentation>
+			<xs:documentation xml:lang="fr">Détails d'investissement Private Equity incluant informations société et look-through linkage pour SPV holdings</xs:documentation>
+			<xs:documentation xml:lang="nl">Private Equity investment details inclusief bedrijfsinformatie en look-through linkage voor SPV holdings</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Company" type="CompanyType">
 				<xs:annotation>
@@ -3732,6 +3775,12 @@ fixed/variable</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="REITType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Real Estate Investment Trust (REIT) asset type with issuer and listing information</xs:documentation>
+			<xs:documentation xml:lang="de">Real Estate Investment Trust (REIT) Asset-Typ mit Issuer- und Listing-Informationen</xs:documentation>
+			<xs:documentation xml:lang="fr">Type d'actif Real Estate Investment Trust (REIT) avec informations issuer et listing</xs:documentation>
+			<xs:documentation xml:lang="nl">Real Estate Investment Trust (REIT) asset type met issuer en listing informatie</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
 				<xs:annotation>
@@ -4672,6 +4721,12 @@ Simple</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="UnderlyingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Underlying instrument of a derivative (currency, security, future, index)</xs:documentation>
+			<xs:documentation xml:lang="de">Basiswert eines Derivats (Währung, Security, Future, Index)</xs:documentation>
+			<xs:documentation xml:lang="fr">Instrument sous-jacent d'un dérivé (devise, security, future, index)</xs:documentation>
+			<xs:documentation xml:lang="nl">Onderliggende waarde van een derivaat (valuta, security, future, index)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type">
 				<xs:annotation>
@@ -4697,6 +4752,12 @@ Simple</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="WarrantType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Warrant instrument with issuer, listing, strike price and underlying details</xs:documentation>
+			<xs:documentation xml:lang="de">Warrant-Instrument mit Issuer, Listing, Strike Price und Underlying-Details</xs:documentation>
+			<xs:documentation xml:lang="fr">Instrument warrant avec issuer, listing, strike price et détails underlying</xs:documentation>
+			<xs:documentation xml:lang="nl">Warrant instrument met issuer, listing, strike price en underlying details</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Issuer" type="CompanyType" minOccurs="0">
 				<xs:annotation>
@@ -4996,6 +5057,12 @@ Z New issue</xs:documentation>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="AssetTypeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Asset type classification codes: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+			<xs:documentation xml:lang="de">Asset-Typ-Klassifikationscodes: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+			<xs:documentation xml:lang="fr">Codes de classification asset type: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+			<xs:documentation xml:lang="nl">Asset type classificatie codes: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="EQ"/>
 			<xs:enumeration value="BO"/>
@@ -5036,6 +5103,12 @@ Z New issue</xs:documentation>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="CryptoType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Crypto-asset classification according to MiCA regulation (Electronic money token, Asset-referenced token, Utility token, Other)</xs:documentation>
+			<xs:documentation xml:lang="de">Crypto-Asset-Klassifikation gemäß MiCA-Verordnung (Electronic Money Token, Asset-Referenced Token, Utility Token, Sonstige)</xs:documentation>
+			<xs:documentation xml:lang="fr">Classification crypto-asset selon règlement MiCA (Electronic money token, Asset-referenced token, Utility token, Autre)</xs:documentation>
+			<xs:documentation xml:lang="nl">Crypto-asset classificatie volgens MiCA-verordening (Electronic money token, Asset-referenced token, Utility token, Overige)</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type">
 				<xs:annotation>

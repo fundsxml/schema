@@ -3,17 +3,35 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="EMIRType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Container type for EMIR (European Market Infrastructure Regulation) derivatives reporting containing trade repository reports</xs:documentation>
+			<xs:documentation xml:lang="de">Container-Typ für EMIR (European Market Infrastructure Regulation) Derivate-Reporting mit Trade Repository Berichten</xs:documentation>
+			<xs:documentation xml:lang="fr">Type conteneur pour EMIR (European Market Infrastructure Regulation) reporting de dérivés contenant des rapports de trade repository</xs:documentation>
+			<xs:documentation xml:lang="nl">Container type voor EMIR (European Market Infrastructure Regulation) derivaten reporting met trade repository rapporten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EMIR_Report" type="EMIR_ReportType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="EMIRIDType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EMIR identifier type for LEI, UTI or other regulatory identifiers with length between 11 and 50 characters</xs:documentation>
+			<xs:documentation xml:lang="de">EMIR Identifier-Typ für LEI, UTI oder andere regulatorische Kennungen mit Länge zwischen 11 und 50 Zeichen</xs:documentation>
+			<xs:documentation xml:lang="fr">Type d'identifiant EMIR pour LEI, UTI ou autres identifiants réglementaires avec une longueur entre 11 et 50 caractères</xs:documentation>
+			<xs:documentation xml:lang="nl">EMIR identifier type voor LEI, UTI of andere regulatory identifiers met lengte tussen 11 en 50 tekens</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:minLength value="11"/>
 			<xs:maxLength value="50"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="EMIR_ReportType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">EMIR report type containing counterparty data, contract data and transaction data for derivatives trade reporting to trade repositories</xs:documentation>
+			<xs:documentation xml:lang="de">EMIR Report-Typ mit Kontrahentendaten, Vertragsdaten und Transaktionsdaten für Derivate-Trade-Reporting an Trade Repositories</xs:documentation>
+			<xs:documentation xml:lang="fr">Type de rapport EMIR contenant données de contrepartie, données de contrat et données de transaction pour le reporting de trades de dérivés aux trade repositories</xs:documentation>
+			<xs:documentation xml:lang="nl">EMIR rapport type met tegenpartijgegevens, contractgegevens en transactiegegevens voor derivaten trade reporting aan trade repositories</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
 				<xs:annotation>

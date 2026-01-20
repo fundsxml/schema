@@ -13,17 +13,26 @@
 		<xs:sequence>
 			<xs:element name="NavDate" type="xs:date">
 				<xs:annotation>
-					<xs:documentation>NavDate for all data within this section</xs:documentation>
+					<xs:documentation xml:lang="en">NavDate for all data within this section</xs:documentation>
+					<xs:documentation xml:lang="de">NAV-Datum für alle Daten in diesem Abschnitt</xs:documentation>
+					<xs:documentation xml:lang="fr">Date NAV pour toutes les données de cette section</xs:documentation>
+					<xs:documentation xml:lang="nl">NAV-datum voor alle gegevens in deze sectie</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Positions" type="PositionsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>All positions/holdings of fund/portfolio (including accounts, earnings and fees)</xs:documentation>
+					<xs:documentation xml:lang="en">All positions/holdings of fund/portfolio (including accounts, earnings and fees)</xs:documentation>
+					<xs:documentation xml:lang="de">Alle Positionen/Holdings des Fonds/Portfolios (einschließlich Konten, Erträge und Gebühren)</xs:documentation>
+					<xs:documentation xml:lang="fr">Toutes les positions/holdings du fonds/portfolio (y compris comptes, revenus et frais)</xs:documentation>
+					<xs:documentation xml:lang="nl">Alle posities/holdings van het fonds/portfolio (inclusief rekeningen, opbrengsten en kosten)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Transactions" type="TransactionsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Transactions within the portfolio (securities and other assets bought or sold)</xs:documentation>
+					<xs:documentation xml:lang="en">Transactions within the portfolio (securities and other assets bought or sold)</xs:documentation>
+					<xs:documentation xml:lang="de">Transaktionen innerhalb des Portfolios (gekaufte oder verkaufte Wertpapiere und andere Assets)</xs:documentation>
+					<xs:documentation xml:lang="fr">Transactions au sein du portfolio (titres et autres actifs achetés ou vendus)</xs:documentation>
+					<xs:documentation xml:lang="nl">Transacties binnen het portfolio (gekochte of verkochte effecten en andere assets)</xs:documentation>
 				</xs:annotation>
 				<xs:key name="transactionID">
 					<xs:selector xpath="Transaction"/>
@@ -32,7 +41,10 @@
 			</xs:element>
 			<xs:element name="Earnings" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Earnings data (coupons, dividends, distributions) resulting from security positions</xs:documentation>
+					<xs:documentation xml:lang="en">Earnings data (coupons, dividends, distributions) resulting from security positions</xs:documentation>
+					<xs:documentation xml:lang="de">Ertragsdaten (Kupons, Dividenden, Ausschüttungen) aus Wertpapierpositionen</xs:documentation>
+					<xs:documentation xml:lang="fr">Données de revenus (coupons, dividendes, distributions) résultant des positions en titres</xs:documentation>
+					<xs:documentation xml:lang="nl">Opbrengstengegevens (coupons, dividenden, uitkeringen) uit effectenposities</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
@@ -47,23 +59,33 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Decomposed positions (holdings of share classes are replaced by the scaled down positions of the subfund)</xs:documentation>
 					<xs:documentation xml:lang="de">Aufgelöste Bestände (Anteilscheinbestände werden durch die anteiligen Bestände des Subfonds ersetzt)</xs:documentation>
+					<xs:documentation xml:lang="fr">Positions décomposées (les holdings de share classes sont remplacés par les positions proportionnelles du subfund)</xs:documentation>
+					<xs:documentation xml:lang="nl">Gedecomposeerde posities (holdings van share classes worden vervangen door de proportionele posities van het subfonds)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BreakDowns" type="BreakDownsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>All kind of break down data (including currency exposure)</xs:documentation>
+					<xs:documentation xml:lang="en">All kind of break down data (including currency exposure)</xs:documentation>
+					<xs:documentation xml:lang="de">Alle Arten von Aufschlüsselungsdaten (einschließlich Währungsexposure)</xs:documentation>
+					<xs:documentation xml:lang="fr">Tous types de données de répartition (y compris l'exposition aux devises)</xs:documentation>
+					<xs:documentation xml:lang="nl">Alle soorten uitsplitsingsgegevens (inclusief valuta-exposure)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RiskCodes" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">List of risk codes (risk indicators, key risk figures)</xs:documentation>
 					<xs:documentation xml:lang="de">Risiko-Kennzahlen</xs:documentation>
+					<xs:documentation xml:lang="fr">Liste des codes de risque (indicateurs de risque, chiffres clés de risque)</xs:documentation>
+					<xs:documentation xml:lang="nl">Lijst van risicocodes (risico-indicatoren, belangrijke risicokengetallen)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="RiskCode" type="RiskCodeType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Risk code value</xs:documentation>
+								<xs:documentation xml:lang="en">Risk code value</xs:documentation>
+								<xs:documentation xml:lang="de">Wert des Risicocodes</xs:documentation>
+								<xs:documentation xml:lang="fr">Valeur du code de risque</xs:documentation>
+								<xs:documentation xml:lang="nl">Waarde van de risicocode</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -83,6 +105,8 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Unique identifier referencing the corresponding element in the AssetMasterData block</xs:documentation>
 					<xs:documentation xml:lang="de">Eindeutige Referenznummer der Stammdaten der Position (muss unter /AssetMasterData/Asset/UniqueID vorhanden sein)</xs:documentation>
+					<xs:documentation xml:lang="fr">Identifiant unique référençant l'élément correspondant dans le bloc AssetMasterData</xs:documentation>
+					<xs:documentation xml:lang="nl">Unieke identificatie die verwijst naar het overeenkomstige element in het AssetMasterData blok</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:IDREF">
@@ -92,27 +116,34 @@
 			</xs:element>
 			<xs:element name="Identifiers" type="IdentifiersType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Identifiers of instrument (like ISIN, Ticker, ...)
-</xs:documentation>
+					<xs:documentation xml:lang="en">Identifiers of instrument (like ISIN, Ticker, ...)</xs:documentation>
 					<xs:documentation xml:lang="de">Kennnummer des im Portfolio enthaltenen Instrumentes (ISIN, Ticker, ...)</xs:documentation>
+					<xs:documentation xml:lang="fr">Identifiants de l'instrument (comme ISIN, Ticker, ...)</xs:documentation>
+					<xs:documentation xml:lang="nl">Identificaties van het instrument (zoals ISIN, Ticker, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Valuation currency (original currency of security/derivative/cash). For FX Forward, this is the Base CCY.</xs:documentation>
 					<xs:documentation xml:lang="de">Bewertungswährung (Währung des Wertpapiers/Derivates/Geldes). Für FX Forwards enthällt dieses Feld die Base CCY.</xs:documentation>
+					<xs:documentation xml:lang="fr">Devise de valorisation (devise d'origine du titre/dérivé/cash). Pour FX Forward, c'est la Base CCY.</xs:documentation>
+					<xs:documentation xml:lang="nl">Waarderingsvaluta (oorspronkelijke valuta van effect/derivaat/cash). Voor FX Forward is dit de Base CCY.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TotalValue" type="FundAmountType">
 				<xs:annotation>
-					<xs:documentation>Total value of position (including interests ...)
-
-Sum of all total values in fund currency must be equal to fund volume (total nav of fund)</xs:documentation>
+					<xs:documentation xml:lang="en">Total value of position (including interests ...). Sum of all total values in fund currency must be equal to fund volume (total nav of fund)</xs:documentation>
+					<xs:documentation xml:lang="de">Gesamtwert der Position (einschließlich Zinsen ...). Die Summe aller Gesamtwerte in Fondswährung muss dem Fondsvolumen (Gesamt-NAV des Fonds) entsprechen</xs:documentation>
+					<xs:documentation xml:lang="fr">Valeur totale de la position (y compris intérêts ...). La somme de toutes les valeurs totales en devise du fonds doit être égale au volume du fonds (NAV total du fonds)</xs:documentation>
+					<xs:documentation xml:lang="nl">Totale waarde van de positie (inclusief rente ...). Som van alle totale waarden in fondsvaluta moet gelijk zijn aan fondsvolume (totale NAV van het fonds)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OtherTotalValues" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Additional total values (e.g. Hold-To-Maturity)</xs:documentation>
+					<xs:documentation xml:lang="en">Additional total values (e.g. Hold-To-Maturity)</xs:documentation>
+					<xs:documentation xml:lang="de">Zusätzliche Gesamtwerte (z.B. Hold-To-Maturity)</xs:documentation>
+					<xs:documentation xml:lang="fr">Valeurs totales supplémentaires (p.ex. Hold-To-Maturity)</xs:documentation>
+					<xs:documentation xml:lang="nl">Aanvullende totale waarden (bijv. Hold-To-Maturity)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -122,46 +153,67 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 			</xs:element>
 			<xs:element name="TotalPercentage" type="PercentageType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Percentage of total value based on total asset value (of fund or share class)</xs:documentation>
+					<xs:documentation xml:lang="en">Percentage of total value based on total asset value (of fund or share class)</xs:documentation>
+					<xs:documentation xml:lang="de">Prozentsatz des Gesamtwertes basierend auf dem Total Asset Value (des Fonds oder der Share Class)</xs:documentation>
+					<xs:documentation xml:lang="fr">Pourcentage de la valeur totale basé sur la valeur d'actif totale (du fonds ou de la share class)</xs:documentation>
+					<xs:documentation xml:lang="nl">Percentage van totale waarde gebaseerd op totale vermogenswaarde (van fonds of share class)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AveragePurchasePrice" type="FundAmountType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Average purchase price (considering all transactions related to this position)</xs:documentation>
 					<xs:documentation xml:lang="de">Mischeinstands-Preis</xs:documentation>
+					<xs:documentation xml:lang="fr">Prix d'achat moyen (en considérant toutes les transactions liées à cette position)</xs:documentation>
+					<xs:documentation xml:lang="nl">Gemiddelde aankoopprijs (rekening houdend met alle transacties gerelateerd aan deze positie)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AveragePurchaseFXRate" type="FXRatesType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Average purchase fx rates (considering all transactions related to this position)</xs:documentation>
 					<xs:documentation xml:lang="de">Mischeinstands-Devisenkurs</xs:documentation>
+					<xs:documentation xml:lang="fr">Taux de change moyens à l'achat (en considérant toutes les transactions liées à cette position)</xs:documentation>
+					<xs:documentation xml:lang="nl">Gemiddelde aankoop wisselkoersen (rekening houdend met alle transacties gerelateerd aan deze positie)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Exposures" type="ExposureType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Exposure of position (for different approaches)</xs:documentation>
+					<xs:documentation xml:lang="en">Exposure of position (for different approaches)</xs:documentation>
+					<xs:documentation xml:lang="de">Exposure der Position (für verschiedene Ansätze)</xs:documentation>
+					<xs:documentation xml:lang="fr">Exposition de la position (pour différentes approches)</xs:documentation>
+					<xs:documentation xml:lang="nl">Exposure van de positie (voor verschillende benaderingen)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FXRates" type="FXRatesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>FX rates used for evaluation of position</xs:documentation>
+					<xs:documentation xml:lang="en">FX rates used for evaluation of position</xs:documentation>
+					<xs:documentation xml:lang="de">Devisenkurse für die Bewertung der Position</xs:documentation>
+					<xs:documentation xml:lang="fr">Taux de change utilisés pour l'évaluation de la position</xs:documentation>
+					<xs:documentation xml:lang="nl">Wisselkoersen gebruikt voor de waardering van de positie</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PriceDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Date of pricing information taken for fund valuation</xs:documentation>
+					<xs:documentation xml:lang="en">Date of pricing information taken for fund valuation</xs:documentation>
+					<xs:documentation xml:lang="de">Datum der für die Fondsbewertung herangezogenen Kursinformationen</xs:documentation>
+					<xs:documentation xml:lang="fr">Date des informations de prix utilisées pour l'évaluation du fonds</xs:documentation>
+					<xs:documentation xml:lang="nl">Datum van de prijsinformatie gebruikt voor de fondswaardering</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PricingSource" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Pricing source (including OTC positions)</xs:documentation>
 					<xs:documentation xml:lang="de">Gibt die Kursquelle an (auch für OTC-Positionen)</xs:documentation>
+					<xs:documentation xml:lang="fr">Source de prix (y compris positions OTC)</xs:documentation>
+					<xs:documentation xml:lang="nl">Prijsbron (inclusief OTC-posities)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
 						<xs:element name="Listed">
 							<xs:annotation>
-								<xs:documentation>Pricing source with enumeration list</xs:documentation>
+								<xs:documentation xml:lang="en">Pricing source with enumeration list</xs:documentation>
+								<xs:documentation xml:lang="de">Kursquelle mit Aufzählungsliste</xs:documentation>
+								<xs:documentation xml:lang="fr">Source de prix avec liste énumérée</xs:documentation>
+								<xs:documentation xml:lang="nl">Prijsbron met enumeratielijst</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -180,7 +232,10 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 						</xs:element>
 						<xs:element name="Unlisted" type="Text200Type">
 							<xs:annotation>
-								<xs:documentation>Free text pricing source</xs:documentation>
+								<xs:documentation xml:lang="en">Free text pricing source</xs:documentation>
+								<xs:documentation xml:lang="de">Freitext Kursquelle</xs:documentation>
+								<xs:documentation xml:lang="fr">Source de prix en texte libre</xs:documentation>
+								<xs:documentation xml:lang="nl">Vrije tekst prijsbron</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -191,6 +246,8 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 					<xs:annotation>
 						<xs:documentation xml:lang="en">Details for equity positions</xs:documentation>
 						<xs:documentation xml:lang="de">Details für Aktienpositionen</xs:documentation>
+						<xs:documentation xml:lang="fr">Détails pour les positions en actions</xs:documentation>
+						<xs:documentation xml:lang="nl">Details voor aandelenposities</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -198,6 +255,8 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Units of equity</xs:documentation>
 									<xs:documentation xml:lang="de">Stücke der Aktie im Bestand</xs:documentation>
+									<xs:documentation xml:lang="fr">Unités d'actions</xs:documentation>
+									<xs:documentation xml:lang="nl">Eenheden aandelen</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -221,36 +280,48 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Book rate</xs:documentation>
 									<xs:documentation xml:lang="de">Buchkurs</xs:documentation>
+									<xs:documentation xml:lang="fr">Cours comptable</xs:documentation>
+									<xs:documentation xml:lang="nl">Boekkoers</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Purchase value of position</xs:documentation>
 									<xs:documentation xml:lang="de">Einstandswert der Position</xs:documentation>
+									<xs:documentation xml:lang="fr">Valeur d'achat de la position</xs:documentation>
+									<xs:documentation xml:lang="nl">Aankoopwaarde van de positie</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DividendsDue" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Dividends due of position</xs:documentation>
 									<xs:documentation xml:lang="de">Dividendenforderungen fuer Aktienbestaende</xs:documentation>
+									<xs:documentation xml:lang="fr">Dividendes à recevoir de la position</xs:documentation>
+									<xs:documentation xml:lang="nl">Te ontvangen dividenden van de positie</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Flag indicating that part of position is lended</xs:documentation>
 									<xs:documentation xml:lang="de">Kennzeichen, dass Teile des Bestandes verliehen wurden</xs:documentation>
+									<xs:documentation xml:lang="fr">Indicateur signalant qu'une partie de la position est prêtée</xs:documentation>
+									<xs:documentation xml:lang="nl">Indicator dat een deel van de positie is uitgeleend</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Number of lended equities</xs:documentation>
 									<xs:documentation xml:lang="de">Anzahl der verliehenen Stücke</xs:documentation>
+									<xs:documentation xml:lang="fr">Nombre d'actions prêtées</xs:documentation>
+									<xs:documentation xml:lang="nl">Aantal uitgeleende aandelen</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="IndicatorRaffled" type="xs:boolean" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Indicates whether security has been raffled</xs:documentation>
 									<xs:documentation xml:lang="de">Gibt an, ob das Wertpapier verlost wurde</xs:documentation>
+									<xs:documentation xml:lang="fr">Indique si le titre a été tiré au sort</xs:documentation>
+									<xs:documentation xml:lang="nl">Geeft aan of het effect is verloot</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -258,7 +329,10 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 				</xs:element>
 				<xs:element name="Bond">
 					<xs:annotation>
-						<xs:documentation>Details for bond positions</xs:documentation>
+						<xs:documentation xml:lang="en">Details for bond positions</xs:documentation>
+						<xs:documentation xml:lang="de">Details für Anleihepositionen</xs:documentation>
+						<xs:documentation xml:lang="fr">Détails pour les positions obligataires</xs:documentation>
+						<xs:documentation xml:lang="nl">Details voor obligatieposities</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -266,32 +340,48 @@ Sum of all total values in fund currency must be equal to fund volume (total nav
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Nominal value (units) of bond</xs:documentation>
 									<xs:documentation xml:lang="de">Nominale/Stückzahl der Rentenposition</xs:documentation>
+									<xs:documentation xml:lang="fr">Valeur nominale (unités) de l'obligation</xs:documentation>
+									<xs:documentation xml:lang="nl">Nominale waarde (eenheden) van de obligatie</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OriginalFace" type="xs:decimal" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Par value of a bond when it has been bought</xs:documentation>
+									<xs:documentation xml:lang="en">Par value of a bond when it has been bought</xs:documentation>
+									<xs:documentation xml:lang="de">Nennwert einer Anleihe bei Kauf</xs:documentation>
+									<xs:documentation xml:lang="fr">Valeur nominale d'une obligation lors de l'achat</xs:documentation>
+									<xs:documentation xml:lang="nl">Nominale waarde van een obligatie bij aankoop</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation xml:lang="en">Clean price (in different currencies)</xs:documentation>
 									<xs:documentation xml:lang="de">Bewertungskurs (in verschiedenen Währungen)</xs:documentation>
+									<xs:documentation xml:lang="fr">Prix net (dans différentes devises)</xs:documentation>
+									<xs:documentation xml:lang="nl">Schone prijs (in verschillende valuta's)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Additional prices (e.g. hold to maturity)</xs:documentation>
+									<xs:documentation xml:lang="en">Additional prices (e.g. hold to maturity)</xs:documentation>
+									<xs:documentation xml:lang="de">Zusätzliche Preise (z.B. Hold-To-Maturity)</xs:documentation>
+									<xs:documentation xml:lang="fr">Prix supplémentaires (p.ex. hold to maturity)</xs:documentation>
+									<xs:documentation xml:lang="nl">Aanvullende prijzen (bijv. hold to maturity)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DirtyPrice" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Dirty Price (including interests)</xs:documentation>
+									<xs:documentation xml:lang="en">Dirty Price (including interests)</xs:documentation>
+									<xs:documentation xml:lang="de">Dirty Price (inklusive Zinsen)</xs:documentation>
+									<xs:documentation xml:lang="fr">Prix sale (intérêts inclus)</xs:documentation>
+									<xs:documentation xml:lang="nl">Vuile prijs (inclusief rente)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Market value of security position without interests</xs:documentation>
+									<xs:documentation xml:lang="en">Market value of security position without interests</xs:documentation>
+									<xs:documentation xml:lang="de">Kurswert der Wertpapierposition ohne Zinsen</xs:documentation>
+									<xs:documentation xml:lang="fr">Valeur de marché de la position en titres hors intérêts</xs:documentation>
+									<xs:documentation xml:lang="nl">Marktwaarde van de effectenpositie exclusief rente</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="InterestClaimNet" type="FundAmountType" minOccurs="0">

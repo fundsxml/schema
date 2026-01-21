@@ -8,6 +8,7 @@
 			<xs:documentation xml:lang="de">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
 			<xs:documentation xml:lang="fr">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
 			<xs:documentation xml:lang="nl">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
+			<xs:documentation xml:lang="es">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EFT" type="EFTReportType" maxOccurs="unbounded"/>
@@ -19,6 +20,7 @@
 			<xs:documentation xml:lang="de">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
 			<xs:documentation xml:lang="fr">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
 			<xs:documentation xml:lang="nl">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
+			<xs:documentation xml:lang="es">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
@@ -27,6 +29,7 @@
 <xs:documentation xml:lang="de">Fonds- oder Anteilsklassen-Identifikatoren zur einfachen Verknüpfung mit anderen Fonds- oder Anteilsklassendaten</xs:documentation>
 					<xs:documentation xml:lang="fr">Fonds ou classe d'actions identifiers pour easy connection à autre fonds ou classe d'actions données</xs:documentation>
 					<xs:documentation xml:lang="nl">Fonds van aandelenklasse identifiers voor easy connection naar overig fonds van aandelenklasse gegevens</xs:documentation>
+					<xs:documentation xml:lang="es">Identificadores de fondo o clase de acciones para una conexion sencilla con otros datos del fondo o clase de acciones</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
@@ -35,6 +38,7 @@
 <xs:documentation xml:lang="de">Definition der Datenquelle (Investmentgesellschaft, Anbieter, ...)</xs:documentation>
 					<xs:documentation xml:lang="fr">Definition de données source (investissement company, vendor, ...)</xs:documentation>
 					<xs:documentation xml:lang="nl">Definition van gegevens source (belegging company, vendor, ...)</xs:documentation>
+					<xs:documentation xml:lang="es">Definicion de la fuente de datos (sociedad de inversion, proveedor, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSetInformation">
@@ -53,6 +57,8 @@ Verwendete Version des EFT: V1 bis auf Weiteres</xs:documentation>
 Used Version de EFT : V1 until further notice</xs:documentation>
 											<xs:documentation xml:lang="nl">00010_EFT_Version
 Used Versie van EFT : V1 until further notice</xs:documentation>
+											<xs:documentation xml:lang="es">00010_EFT_Version
+Version utilizada del EFT: V1 hasta nuevo aviso</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -70,6 +76,8 @@ Datum und Uhrzeit der Erstellung der EFT-Datei</xs:documentation>
 Date et Time de creation de EFT file</xs:documentation>
 											<xs:documentation xml:lang="nl">00020_File_Generation_Date_and_Time
 Datum en Time van creation van EFT file</xs:documentation>
+											<xs:documentation xml:lang="es">00020_File_Generation_Date_and_Time
+Fecha y hora de creacion del archivo EFT</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="PeriodStartData" type="xs:date">
@@ -82,6 +90,8 @@ Datum des Beginns des Zeitraums, in dem der Vertrieb stattgefunden hat</xs:docum
 Date de beginning de period under qui distribution un occured</xs:documentation>
 											<xs:documentation xml:lang="nl">00030_Reporting_Period_Start_Data
 Datum van beginning van period under welke uitkering heeft occured</xs:documentation>
+											<xs:documentation xml:lang="es">00030_Reporting_Period_Start_Data
+Fecha de inicio del periodo en el que se ha producido la distribucion</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="PeriodEndData" type="xs:date">
@@ -94,6 +104,8 @@ Datum des Endes des Zeitraums, in dem der Vertrieb stattgefunden hat</xs:documen
 Date de end de period under qui distribution un occured</xs:documentation>
 											<xs:documentation xml:lang="nl">00040_Reporting_Period_End_Data
 Datum van end van period under welke uitkering heeft occured</xs:documentation>
+											<xs:documentation xml:lang="es">00040_Reporting_Period_End_Data
+Fecha de fin del periodo en el que se ha producido la distribucion</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ReferenceTargetMarket">
@@ -110,6 +122,9 @@ M (Manufacturer) / D (Distributeur)/ B (Both)</xs:documentation>
 											<xs:documentation xml:lang="nl">00050_Reference_ Target_ Markt
 Defines referentie Target Markt naar welke deviations zijn reported
 M (Manufacturer) / D (Distributeur)/ B (Both)</xs:documentation>
+											<xs:documentation xml:lang="es">00050_Reference_Target_Market
+Define el mercado objetivo de referencia al que se reportan las desviaciones
+M (Fabricante) / D (Distribuidor) / B (Ambos)</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -135,6 +150,8 @@ Name der Einheit, die das Finanzinstrument vertreibt. Diejenige, die für den Ve
 Nom de Entity distributing financial instrument. The one who est responsible pour Distributeur Target Marché</xs:documentation>
 											<xs:documentation xml:lang="nl">01010_Submitter_Entity_Name
 Naam van Entity distributing financial instrument. The one who is responsible voor Distributeur Target Markt</xs:documentation>
+											<xs:documentation xml:lang="es">01010_Submitter_Entity_Name
+Nombre de la entidad que distribuye el instrumento financiero. La responsable del mercado objetivo del distribuidor</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -160,6 +177,10 @@ LEI, National Identity Numéro, N</xs:documentation>
 Identification van Uitkering Entity
 : one who is responsible voor Distributeur Target Markt van Nothing (N)
 LEI, National Identity Nummer, N</xs:documentation>
+											<xs:documentation xml:lang="es">01020_Submitter_Entity_identifier
+Identificacion de la entidad de distribucion
+: la responsable del mercado objetivo del distribuidor o Nada (N)
+LEI, Numero de Identidad Nacional, N</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -181,6 +202,9 @@ L ou NI ou No</xs:documentation>
 											<xs:documentation xml:lang="nl">02030_Recipient_Entity_identifier_Type
 LEI van recipient entity van National identificatie van Nothing
 L van NI van No</xs:documentation>
+											<xs:documentation xml:lang="es">02030_Recipient_Entity_identifier_Type
+LEI de la entidad receptora o identificador nacional o Nada
+L o NI o No</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -216,6 +240,12 @@ One van following items
 - Distributeur (The one doing sales)
 - Intermediary (e.g. platform)
 M van D van I (intermediary / platform)</xs:documentation>
+											<xs:documentation xml:lang="es">02040_Recipient_Entity_Position_In_The_Distribution_Chain
+Uno de los siguientes elementos
+- Fabricante
+- Distribuidor (el que realiza las ventas)
+- Intermediario (p.ej. plataforma)
+M o D o I (intermediario / plataforma)</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -241,6 +271,8 @@ Name der Einheit, die das Finanzinstrument produziert. Diejenige, die für den H
 Nom de Entity producing financial instrument. The one who est responsible pour Manufacturer Target Marché</xs:documentation>
 											<xs:documentation xml:lang="nl">03010_Manufacturer_Entity_Name
 Naam van Entity producing financial instrument. The one who is responsible voor Manufacturer Target Markt</xs:documentation>
+											<xs:documentation xml:lang="es">03010_Manufacturer_Entity_Name
+Nombre de la entidad que produce el instrumento financiero. La responsable del mercado objetivo del fabricante</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -262,6 +294,9 @@ LEI, National Identity Numéro, N</xs:documentation>
 											<xs:documentation xml:lang="nl">03020_Manufacturer_identifier
 Identification van Manufacturer Entity
 LEI, National Identity Nummer, N</xs:documentation>
+											<xs:documentation xml:lang="es">03020_Manufacturer_identifier
+Identificacion de la entidad fabricante
+LEI, Numero de Identidad Nacional, N</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -283,6 +318,9 @@ L ou NI ou No</xs:documentation>
 											<xs:documentation xml:lang="nl">03030_Manufacturer_identifier_Type
 LEI van Manufacturer van National identificatie van Nothing
 L van NI van No</xs:documentation>
+											<xs:documentation xml:lang="es">03030_Manufacturer_identifier_Type
+LEI del fabricante o identificador nacional o Nada
+L o NI o No</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -304,7 +342,7 @@ L van NI van No</xs:documentation>
 						<xs:element name="IdentifyingData">
 							<xs:annotation>
 								<xs:documentation xml:lang="en">04010_Financial_Instrument_Identifying_Data
-Identification of the financial instrument 
+Identification of the financial instrument
 Use the following priority for identification of a specific financial instrument:
   - ISO 6166 code of ISIN when available
   - Other recognised codes (e.g.: CUSIP, Bloomberg Ticker, Reuters RIC)
@@ -319,19 +357,26 @@ Verwenden Sie folgende Priorität zur Identifikation eines bestimmten Finanzinst
   - Vom Unternehmen vergebener Code, wenn obige Optionen nicht verfügbar sind. Code muss einzigartig sein und über die Zeit konsistent bleiben.
   - leer wenn 04020 auf 11 gesetzt ist</xs:documentation>
 								<xs:documentation xml:lang="fr">04010_Financial_Instrument_Identifying_Data
-Identification de financial instrument 
+Identification de financial instrument
 Utilisez following priority pour identification de un spécifique financial instrument:
  - ISO 6166 code de ISIN si disponible
  - Autre recognised codes (e.g.: CUSIP, Bloomberg Ticker, Reuters RIC)
  - Code attributed par undertaking, quand options above sont pas disponible. Code must be unique et kept consistent over time.
  - blank si 04020 est set à 11</xs:documentation>
 								<xs:documentation xml:lang="nl">04010_Financial_Instrument_Identifying_Data
-Identification van financial instrument 
+Identification van financial instrument
 Gebruik following priority voor identification van een specifiek financial instrument:
  - ISO 6166 code van ISIN indien beschikbaar
  - Overig recognised codes (e.g.: CUSIP, Bloomberg Ticker, Reuters RIC)
  - Code attributed door undertaking, wanneer options above zijn niet beschikbaar. Code must be uniek en kept consistent over time.
  - blank als 04020 is set naar 11</xs:documentation>
+								<xs:documentation xml:lang="es">04010_Financial_Instrument_Identifying_Data
+Identificacion del instrumento financiero
+Utilice la siguiente prioridad para la identificacion de un instrumento financiero especifico:
+  - Codigo ISO 6166 del ISIN cuando este disponible
+  - Otros codigos reconocidos (p.ej.: CUSIP, Bloomberg Ticker, Reuters RIC)
+  - Codigo atribuido por la empresa, cuando las opciones anteriores no esten disponibles. El codigo debe ser unico y mantenerse consistente en el tiempo.
+  - en blanco si 04020 esta establecido en 11</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -401,6 +446,21 @@ One van options in following gesloten lijst naar be used:
 10 - LEI
 11 - Aggregated Class van products
 99 - Code attributed door undertaking</xs:documentation>
+								<xs:documentation xml:lang="es">04020_Type_Of_Identification_Code_For_The_Financial_Instrument
+Codificacion elegida para identificar el instrumento financiero o Clase Agregada de Productos
+Una de las opciones de la siguiente lista cerrada:
+1 - ISO 6166 para codigo ISIN
+2 - CUSIP (numero del Comite de Procedimientos Uniformes de Identificacion de Valores asignado por la Oficina de Servicio CUSIP para empresas estadounidenses y canadienses)
+3 - SEDOL (Lista Oficial Diaria de la Bolsa de Valores de Londres)
+4 - WKN (Wertpapier Kenn-Nummer, numero de identificacion alfanumerico aleman)
+5 - Bloomberg Ticker (codigo de letras de Bloomberg que identifica los valores de una empresa)
+6 - BBGID (El ID Global de Bloomberg)
+7 - Reuters RIC (codigo de instrumento de Reuters)
+8 - FIGI (Identificador Global de Instrumento Financiero)
+9 - Otro codigo de miembros de la Asociacion de Agencias Nacionales de Numeracion
+10 - LEI
+11 - Clase Agregada de productos
+99 - Codigo atribuido por la empresa</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
@@ -429,6 +489,8 @@ Name des Finanzinstruments, falls zutreffend</xs:documentation>
 Nom de financial instrument si applicable</xs:documentation>
 								<xs:documentation xml:lang="nl">04030_Financial_Instrument_Name
 Naam van financial instrument als applicable</xs:documentation>
+								<xs:documentation xml:lang="es">04030_Financial_Instrument_Name
+Nombre del instrumento financiero si aplica</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -446,6 +508,8 @@ Gesamtzahl der Transaktionen als absolute Zahl. Beinhaltet Volumina in Positiv, 
 Means total numéro de transactions expressed dans absolute numéro. Includes volumes dans Positive, Negative et outside de Positve.</xs:documentation>
 								<xs:documentation xml:lang="nl">04040_Financial_Instrument_Total_Number_Of_Transactions
 Means totaal nummer van transactions expressed in absolute nummer. Includes volumes in Positive, Negative en outside van Positve.</xs:documentation>
+								<xs:documentation xml:lang="es">04040_Financial_Instrument_Total_Number_Of_Transactions
+Numero total de transacciones expresado en valor absoluto. Incluye volumenes en Positivo, Negativo y fuera de Positivo.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -457,6 +521,7 @@ Means totaal nummer van transactions expressed in absolute nummer. Includes volu
 <xs:documentation xml:lang="de">Abweichungsbericht - Hersteller-Zielmarkt-Perspektive</xs:documentation>
 					<xs:documentation xml:lang="fr">Deviation Report - Manufacturer Target Marché Perspective</xs:documentation>
 					<xs:documentation xml:lang="nl">Deviation Report - Manufacturer Target Markt Perspective</xs:documentation>
+					<xs:documentation xml:lang="es">Informe de desviacion - Perspectiva del mercado objetivo del fabricante</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -466,6 +531,7 @@ Means totaal nummer van transactions expressed in absolute nummer. Includes volu
 <xs:documentation xml:lang="de">Verkäufe außerhalb des Zielmarkts (OTM) und/oder im Negativen Zielmarkt (NTM) - Gemeldet als Anzahl der Transaktionen</xs:documentation>
 								<xs:documentation xml:lang="fr">Sales Outside Target Marché (OTM) et/ou dans Negative Target Marché (NTM) - Reported comme Numéro de Transactions</xs:documentation>
 								<xs:documentation xml:lang="nl">Sales Outside Target Markt (OTM) en/van in Negative Target Markt (NTM) - Reported als Nummer van Transactions</xs:documentation>
+								<xs:documentation xml:lang="es">Ventas fuera del mercado objetivo (OTM) y/o en el mercado objetivo negativo (NTM) - Reportado como numero de transacciones</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -483,6 +549,9 @@ If 00050 est set à M ou B</xs:documentation>
 											<xs:documentation xml:lang="nl">05010_Retail_Investor_Type_AND_Self_Service
 Nummer van transactions reported als identified in conflict met Particulier Belegger Type, using MiFID services Execution Only van Self Service met Appropriateness Test
 If 00050 is set naar M van B</xs:documentation>
+											<xs:documentation xml:lang="es">05010_Retail_Investor_Type_AND_Self_Service
+Numero de transacciones reportadas como identificadas en conflicto con el tipo de inversor minorista, utilizando servicios MiFID Execution Only o Self Service con test de idoneidad
+Si 00050 esta establecido en M o B</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RetailInvestorTypeAndExecutionWithSuitabilityTest" type="xs:int" minOccurs="0">
@@ -495,6 +564,8 @@ Anzahl der Transaktionen, die als im Konflikt mit dem Retail-Anlegertyp identifi
 Numéro de transactions reported comme identified dans conflict avec Particulier Investisseur Type, using MiFID services Advice ou Portefeuille Management.</xs:documentation>
 											<xs:documentation xml:lang="nl">05020_Retail_Investor_Type_AND_Execution_With_Suitability_Test
 Nummer van transactions reported als identified in conflict met Particulier Belegger Type, using MiFID services Advice van Portefeuille Management.</xs:documentation>
+											<xs:documentation xml:lang="es">05020_Retail_Investor_Type_AND_Execution_With_Suitability_Test
+Numero de transacciones reportadas como identificadas en conflicto con el tipo de inversor minorista, utilizando servicios MiFID de asesoramiento o gestion de carteras.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="KnowledgeAndExperienceAndSelfService" type="xs:int" minOccurs="0">
@@ -507,6 +578,8 @@ Anzahl der Transaktionen, die als im Konflikt mit Kenntnissen und Erfahrungen id
 Numéro de transactions reported comme identified dans conflict avec Knowledge et Experience, using MiFID services Execution Only ou Self Service avec Appropriateness Test.</xs:documentation>
 											<xs:documentation xml:lang="nl">05030_Knowledge_and_Experience_AND_Self_Service
 Nummer van transactions reported als identified in conflict met Knowledge en Experience, using MiFID services Execution Only van Self Service met Appropriateness Test.</xs:documentation>
+											<xs:documentation xml:lang="es">05030_Knowledge_and_Experience_AND_Self_Service
+Numero de transacciones reportadas como identificadas en conflicto con conocimientos y experiencia, utilizando servicios MiFID Execution Only o Self Service con test de idoneidad.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="KnowledgeAndExperienceAndWithSuitabilityTest" type="xs:int" minOccurs="0">
@@ -519,6 +592,8 @@ Anzahl der Transaktionen, die als im Konflikt mit Kenntnissen und Erfahrungen id
 Numéro de transactions reported comme identified dans conflict avec Knowledge et Experience, using MiFID services Advice ou Portefeuille Management.</xs:documentation>
 											<xs:documentation xml:lang="nl">05040_Knowledge_and_Experience_AND_With_Suitability_Test
 Nummer van transactions reported als identified in conflict met Knowledge en Experience, using MiFID services Advice van Portefeuille Management.</xs:documentation>
+											<xs:documentation xml:lang="es">05040_Knowledge_and_Experience_AND_With_Suitability_Test
+Numero de transacciones reportadas como identificadas en conflicto con conocimientos y experiencia, utilizando servicios MiFID de asesoramiento o gestion de carteras.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="AbilityToBearLossesAndWithSuitabilityTestFrance" type="xs:int" minOccurs="0">
@@ -531,6 +606,8 @@ Anzahl der Transaktionen, die als im Konflikt mit der Fähigkeit, Verluste zu tr
 Numéro de transactions reported comme identified dans conflict avec Ability To Bear Losses, using MiFID services Advice ou Portefeuille Management.</xs:documentation>
 											<xs:documentation xml:lang="nl">05050_Ability_To_Bear_Losses_AND_With_Suitability_Test_France
 Nummer van transactions reported als identified in conflict met Ability To Bear Losses, using MiFID services Advice van Portefeuille Management.</xs:documentation>
+											<xs:documentation xml:lang="es">05050_Ability_To_Bear_Losses_AND_With_Suitability_Test_France
+Numero de transacciones reportadas como identificadas en conflicto con la capacidad de soportar perdidas, utilizando servicios MiFID de asesoramiento o gestion de carteras.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -542,6 +619,7 @@ Nummer van transactions reported als identified in conflict met Ability To Bear 
 <xs:documentation xml:lang="de">Erweiterung der Vertriebsstrategie-Meldefelder (ESMA Abs. 51)</xs:documentation>
 								<xs:documentation xml:lang="fr">Widening de Distribution Strategy Reporting Fields (ESMA para 51)</xs:documentation>
 								<xs:documentation xml:lang="nl">Widening van Uitkering Strategy Rapportage Fields (ESMA para 51)</xs:documentation>
+								<xs:documentation xml:lang="es">Ampliacion de los campos de reporte de estrategia de distribucion (ESMA parrafo 51)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -555,6 +633,8 @@ Unter Bezugnahme auf die ESMA Product Governance Guidelines Artikel 51 wird dies
 In référence à ESMA Product Governance Guidelines Article 51 ce champ est used à disclose si Distribution Strategy de Distributeur est widened dans relation à Distribution Strategy intended par Manufacturer avec regards à Particulier Clients.</xs:documentation>
 											<xs:documentation xml:lang="nl">06010_Outside_Intended_Distribution_Strategy_Retail_And_Self_Service
 In referentie naar ESMA Product Governance Guidelines Article 51 dit veld is used naar disclose als Uitkering Strategy van Distributeur is widened in relation naar Uitkering Strategy intended door Manufacturer met regards naar Particulier Clients.</xs:documentation>
+											<xs:documentation xml:lang="es">06010_Outside_Intended_Distribution_Strategy_Retail_And_Self_Service
+En referencia a las Directrices de Gobernanza de Productos de ESMA Articulo 51, este campo se utiliza para revelar si la estrategia de distribucion del distribuidor se ha ampliado en relacion con la estrategia de distribucion prevista por el fabricante con respecto a clientes minoristas.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -575,6 +655,7 @@ In referentie naar ESMA Product Governance Guidelines Article 51 dit veld is use
 <xs:documentation xml:lang="de">Abweichungsbericht - Vertreiber-Zielmarkt-Perspektive (Für Italien - nur wenn es sich um einen italienischen Vertreiber mit spezifischem Vertriebsabkommen handelt)</xs:documentation>
 					<xs:documentation xml:lang="fr">Deviation Report - Distributeur Target Marché Perspective ( For Italy - only si it est un Italan distributeur avec un spécifique distribution agreement)</xs:documentation>
 					<xs:documentation xml:lang="nl">Deviation Report - Distributeur Target Markt Perspective ( For Italy - only als it is een Italan distributeur met een specifiek uitkering agreement)</xs:documentation>
+					<xs:documentation xml:lang="es">Informe de desviacion - Perspectiva del mercado objetivo del distribuidor (Para Italia - solo si es un distribuidor italiano con un acuerdo de distribucion especifico)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -595,6 +676,9 @@ If 00050 est set à D ou B</xs:documentation>
 											<xs:documentation xml:lang="nl">07010_Retail_Investor_Type_AND_Self_Service_vs_DistributorTM_Italy
 Nummer van transactions reported als identified in conflict met Particulier Belegger Type, using MiFID services Execution Only van Self Service met Appropriateness Test.
 If 00050 is set naar D van B</xs:documentation>
+											<xs:documentation xml:lang="es">07010_Retail_Investor_Type_AND_Self_Service_vs_DistributorTM_Italy
+Numero de transacciones reportadas como identificadas en conflicto con el tipo de inversor minorista, utilizando servicios MiFID Execution Only o Self Service con test de idoneidad.
+Si 00050 esta establecido en D o B</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RetailInvestorTypeAndAdviceVsDistributorTM_Italy" type="xs:int" minOccurs="0">
@@ -611,6 +695,9 @@ If 00050 est set à D ou B</xs:documentation>
 											<xs:documentation xml:lang="nl">07020_Retail_Investor_Type_AND_Advice_vs_DistributorTM_Italy
 Nummer van transactions reported als identified in conflict met Particulier Belegger Type, using MiFID service Advice.
 If 00050 is set naar D van B</xs:documentation>
+											<xs:documentation xml:lang="es">07020_Retail_Investor_Type_AND_Advice_vs_DistributorTM_Italy
+Numero de transacciones reportadas como identificadas en conflicto con el tipo de inversor minorista, utilizando el servicio MiFID de asesoramiento.
+Si 00050 esta establecido en D o B</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="KnowledgeAndExperienceAndSelfServiceVsDistributorTM_Italy" type="xs:int" minOccurs="0">
@@ -627,6 +714,9 @@ If 00050 est set à D ou B</xs:documentation>
 											<xs:documentation xml:lang="nl">07030_Knowledge_and_Experience_AND_Self_Service_vs_DistributorTM_Italy
 Nummer van transactions reported als identified in conflict met Knowledge en Experience, using MiFID services Execution Only van Self Service met Appropriateness Test.
 If 00050 is set naar D van B</xs:documentation>
+											<xs:documentation xml:lang="es">07030_Knowledge_and_Experience_AND_Self_Service_vs_DistributorTM_Italy
+Numero de transacciones reportadas como identificadas en conflicto con conocimientos y experiencia, utilizando servicios MiFID Execution Only o Self Service con test de idoneidad.
+Si 00050 esta establecido en D o B</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="KnowledgeAndExperienceAndWithSuitabilityTestVsDistributorTM_Italy" type="xs:int" minOccurs="0">
@@ -643,6 +733,9 @@ If 00050 est set à D ou B</xs:documentation>
 											<xs:documentation xml:lang="nl">07040_Knowledge_and_Experience_AND_With_Suitability_Test_vs_DistributorTM_Italy
 Nummer van transactions reported als identified in conflict met Knowledge en Experience, using MiFID services Advice van Portefeuille Management.
 If 00050 is set naar D van B</xs:documentation>
+											<xs:documentation xml:lang="es">07040_Knowledge_and_Experience_AND_With_Suitability_Test_vs_DistributorTM_Italy
+Numero de transacciones reportadas como identificadas en conflicto con conocimientos y experiencia, utilizando servicios MiFID de asesoramiento o gestion de carteras.
+Si 00050 esta establecido en D o B</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
 	<xs:complexType name="FundDynamicDataType">
@@ -10,6 +9,7 @@
 			<xs:documentation xml:lang="fr">Dynamique données pour funds y compris total actif values, portfolios, et benchmark données</xs:documentation>
 			<xs:documentation xml:lang="nl">Dynamisch gegevens voor funds inclusief totaal actief values, portfolios, en benchmark gegevens</xs:documentation>
 			<xs:documentation xml:lang="es">Datos dinámicos para fondos incluyendo valores totales de activos, carteras y datos de benchmark</xs:documentation>
+		<xs:documentation xml:lang="it">[AUTO] Dati dinamici per i fondi, inclusi valori patrimoniali totali, portafogli e dati di benchmark</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TotalAssetValues" minOccurs="0">
@@ -19,6 +19,7 @@
 					<xs:documentation xml:lang="fr">Total NAV (volume) de fonds</xs:documentation>
 					<xs:documentation xml:lang="nl">Totaal NAV (volume) van fonds</xs:documentation>
 					<xs:documentation xml:lang="es">NAV total (volumen) del fondo</xs:documentation>
+				<xs:documentation xml:lang="it">[AUTO] NAV totale (volume) del fondo</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -33,6 +34,7 @@
 					<xs:documentation xml:lang="fr">All portefeuille related données (pas à be used pour umbrella structures)</xs:documentation>
 					<xs:documentation xml:lang="nl">All portefeuille related gegevens (niet naar be used voor umbrella structures)</xs:documentation>
 					<xs:documentation xml:lang="es">Todos los datos relacionados con la cartera (no usar para estructuras paraguas)</xs:documentation>
+				<xs:documentation xml:lang="it">[AUTO] Tutti i dati relativi al portafoglio (da non utilizzare per le strutture ad ombrello)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -47,6 +49,7 @@
 					<xs:documentation xml:lang="fr">Benchmark données de fonds</xs:documentation>
 					<xs:documentation xml:lang="nl">Benchmark gegevens van fonds</xs:documentation>
 					<xs:documentation xml:lang="es">Datos de benchmark del fondo</xs:documentation>
+				<xs:documentation xml:lang="it">[AUTO] Dati di riferimento del fondo</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -63,6 +66,7 @@
 			<xs:documentation xml:lang="fr">Dynamique benchmark données y compris values et component values</xs:documentation>
 			<xs:documentation xml:lang="nl">Dynamisch benchmark gegevens inclusief values en component values</xs:documentation>
 			<xs:documentation xml:lang="es">Datos dinámicos de benchmark incluyendo valores y valores de componentes</xs:documentation>
+		<xs:documentation xml:lang="it">[AUTO] Dati di benchmark dinamici inclusi valori e valori dei componenti</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
@@ -72,6 +76,7 @@
 					<xs:documentation xml:lang="fr">Link à Benchmark Statique Données</xs:documentation>
 					<xs:documentation xml:lang="nl">Link naar Benchmark Statisch Gegevens</xs:documentation>
 					<xs:documentation xml:lang="es">Enlace a los datos estáticos de benchmark</xs:documentation>
+				<xs:documentation xml:lang="it">[AUTO] Collegamento ai dati statici di benchmark</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">

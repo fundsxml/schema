@@ -1,139 +1,148 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) von XMLSpy2013 (s IT Solutions AT Spardat GmbH z.B. Buchhaltung) bearbeitet --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
-	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
-	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
-	<xs:complexType name="FundDynamicDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="en">Dynamic data for funds including total asset values, portfolios, and benchmark data</xs:documentation>
-			<xs:documentation xml:lang="de">[AUTO] Dynamische Daten für Funds einschließlich Gesamtvermögenswerten, Portfolios und Benchmark-Daten</xs:documentation>
-			<xs:documentation xml:lang="fr">Dynamique données pour funds y compris total actif values, portfolios, et benchmark données</xs:documentation>
-			<xs:documentation xml:lang="nl">Dynamisch gegevens voor funds inclusief totaal actief values, portfolios, en benchmark gegevens</xs:documentation>
-			<xs:documentation xml:lang="es">Datos dinámicos para fondos incluyendo valores totales de activos, carteras y datos de benchmark</xs:documentation>
-		<xs:documentation xml:lang="it">[AUTO] Dati dinamici per i fondi, inclusi valori patrimoniali totali, portafogli e dati di benchmark</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="TotalAssetValues" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Total NAV (volume) of fund</xs:documentation>
-					<xs:documentation xml:lang="de">[AUTO] Gesamtes NAV (Volumen) des Fund</xs:documentation>
-					<xs:documentation xml:lang="fr">Total NAV (volume) de fonds</xs:documentation>
-					<xs:documentation xml:lang="nl">Totaal NAV (volume) van fonds</xs:documentation>
-					<xs:documentation xml:lang="es">NAV total (volumen) del fondo</xs:documentation>
-				<xs:documentation xml:lang="it">[AUTO] NAV totale (volume) del fondo</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="TotalAssetValue" type="TotalAssetValueType" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="Portfolios" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">All portfolio related data (not to be used for umbrella structures)</xs:documentation>
-					<xs:documentation xml:lang="de">[AUTO] Alle portfoliobezogenen Daten (nicht für Umbrella-Strukturen zu verwenden)</xs:documentation>
-					<xs:documentation xml:lang="fr">All portefeuille related données (pas à be used pour umbrella structures)</xs:documentation>
-					<xs:documentation xml:lang="nl">All portefeuille related gegevens (niet naar be used voor umbrella structures)</xs:documentation>
-					<xs:documentation xml:lang="es">Todos los datos relacionados con la cartera (no usar para estructuras paraguas)</xs:documentation>
-				<xs:documentation xml:lang="it">[AUTO] Tutti i dati relativi al portafoglio (da non utilizzare per le strutture ad ombrello)</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Portfolio" type="PortfolioType" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="Benchmarks" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Benchmark data of fund</xs:documentation>
-					<xs:documentation xml:lang="de">[AUTO] Benchmark-Daten des Fund</xs:documentation>
-					<xs:documentation xml:lang="fr">Benchmark données de fonds</xs:documentation>
-					<xs:documentation xml:lang="nl">Benchmark gegevens van fonds</xs:documentation>
-					<xs:documentation xml:lang="es">Datos de benchmark del fondo</xs:documentation>
-				<xs:documentation xml:lang="it">[AUTO] Dati di riferimento del fondo</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Benchmark" type="BenchmarkDynamicDataType" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="BenchmarkDynamicDataType">
-		<xs:annotation>
-			<xs:documentation xml:lang="en">Dynamic benchmark data including values and component values</xs:documentation>
-			<xs:documentation xml:lang="de">[AUTO] Dynamische Benchmark-Daten einschließlich Werten und Komponentenwerten</xs:documentation>
-			<xs:documentation xml:lang="fr">Dynamique benchmark données y compris values et component values</xs:documentation>
-			<xs:documentation xml:lang="nl">Dynamisch benchmark gegevens inclusief values en component values</xs:documentation>
-			<xs:documentation xml:lang="es">Datos dinámicos de benchmark incluyendo valores y valores de componentes</xs:documentation>
-		<xs:documentation xml:lang="it">[AUTO] Dati di benchmark dinamici inclusi valori e valori dei componenti</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="BenchmarkID" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Link to Benchmark Static Data</xs:documentation>
-					<xs:documentation xml:lang="de">[AUTO] Verknüpfung zu den statischen Benchmark-Daten</xs:documentation>
-					<xs:documentation xml:lang="fr">Link à Benchmark Statique Données</xs:documentation>
-					<xs:documentation xml:lang="nl">Link naar Benchmark Statisch Gegevens</xs:documentation>
-					<xs:documentation xml:lang="es">Enlace a los datos estáticos de benchmark</xs:documentation>
-				<xs:documentation xml:lang="it">[AUTO] Collegamento ai dati statici di benchmark</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="255"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Values">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Value" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Date" type="xs:date"/>
-									<xs:element name="ValueType">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Price"/>
-												<xs:enumeration value="Total Return"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="Value" type="AmountType"/>
-									<xs:element name="Components" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="Component" maxOccurs="unbounded">
-													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="BenchmarkComponentID" minOccurs="0">
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:maxLength value="255"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element name="ValueType">
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Price"/>
-																		<xs:enumeration value="Total Return"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element name="Value" type="AmountType"/>
-														</xs:sequence>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:altova="http://www.altova.com/xml-schema-extensions"
+           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           vc:minVersion="1.1">
+   <xs:include schemaLocation="FundsXML4_Core.xsd"/>
+   <xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
+   <xs:complexType name="BenchmarkDynamicDataType">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Dynamic benchmark data including values and component values</xs:documentation>
+         <xs:documentation xml:lang="de">[AUTO] Dynamische Benchmark-Daten einschließlich Werten und Komponentenwerten</xs:documentation>
+         <xs:documentation xml:lang="fr">Dynamique benchmark données y compris values et component values</xs:documentation>
+         <xs:documentation xml:lang="nl">Dynamisch benchmark gegevens inclusief values en component values</xs:documentation>
+         <xs:documentation xml:lang="es">Datos dinámicos de benchmark incluyendo valores y valores de componentes</xs:documentation>
+         <xs:documentation xml:lang="it">Dati di benchmark dinamici inclusi valori e valori dei componenti</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="BenchmarkID">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Link to Benchmark Static Data</xs:documentation>
+               <xs:documentation xml:lang="de">[AUTO] Verknüpfung zu den statischen Benchmark-Daten</xs:documentation>
+               <xs:documentation xml:lang="fr">Link à Benchmark Statique Données</xs:documentation>
+               <xs:documentation xml:lang="nl">Link naar Benchmark Statisch Gegevens</xs:documentation>
+               <xs:documentation xml:lang="es">Enlace a los datos estáticos de benchmark</xs:documentation>
+               <xs:documentation xml:lang="it">Collegamento ai dati statici di benchmark</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="255"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="Values">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="Value">
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="Date" type="xs:date"/>
+                           <xs:element name="ValueType">
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Price"/>
+                                    <xs:enumeration value="Total Return"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
+                           </xs:element>
+                           <xs:element name="Value" type="AmountType"/>
+                           <xs:element minOccurs="0" name="Components">
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="Component">
+                                       <xs:complexType>
+                                          <xs:sequence>
+                                             <xs:element minOccurs="0" name="BenchmarkComponentID">
+                                                <xs:simpleType>
+                                                   <xs:restriction base="xs:string">
+                                                      <xs:maxLength value="255"/>
+                                                   </xs:restriction>
+                                                </xs:simpleType>
+                                             </xs:element>
+                                             <xs:element name="ValueType">
+                                                <xs:simpleType>
+                                                   <xs:restriction base="xs:string">
+                                                      <xs:enumeration value="Price"/>
+                                                      <xs:enumeration value="Total Return"/>
+                                                   </xs:restriction>
+                                                </xs:simpleType>
+                                             </xs:element>
+                                             <xs:element name="Value" type="AmountType"/>
+                                          </xs:sequence>
+                                       </xs:complexType>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FundDynamicDataType">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Dynamic data for funds including total asset values, portfolios, and benchmark data</xs:documentation>
+         <xs:documentation xml:lang="de">[AUTO] Dynamische Daten für Funds einschließlich Gesamtvermögenswerten, Portfolios und Benchmark-Daten</xs:documentation>
+         <xs:documentation xml:lang="fr">Dynamique données pour funds y compris total actif values, portfolios, et benchmark données</xs:documentation>
+         <xs:documentation xml:lang="nl">Dynamisch gegevens voor funds inclusief totaal actief values, portfolios, en benchmark gegevens</xs:documentation>
+         <xs:documentation xml:lang="es">Datos dinámicos para fondos incluyendo valores totales de activos, carteras y datos de benchmark</xs:documentation>
+         <xs:documentation xml:lang="it">Dati dinamici per i fondi, inclusi valori patrimoniali totali, portafogli e dati di benchmark</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="TotalAssetValues">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Total NAV (volume) of fund</xs:documentation>
+               <xs:documentation xml:lang="de">[AUTO] Gesamtes NAV (Volumen) des Fund</xs:documentation>
+               <xs:documentation xml:lang="fr">Total NAV (volume) de fonds</xs:documentation>
+               <xs:documentation xml:lang="nl">Totaal NAV (volume) van fonds</xs:documentation>
+               <xs:documentation xml:lang="es">NAV total (volumen) del fondo</xs:documentation>
+               <xs:documentation xml:lang="it">NAV totale (volume) del fondo</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element maxOccurs="unbounded"
+                              name="TotalAssetValue"
+                              type="TotalAssetValueType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element minOccurs="0" name="Portfolios">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">All portfolio related data (not to be used for umbrella structures)</xs:documentation>
+               <xs:documentation xml:lang="de">[AUTO] Alle portfoliobezogenen Daten (nicht für Umbrella-Strukturen zu verwenden)</xs:documentation>
+               <xs:documentation xml:lang="fr">All portefeuille related données (pas à be used pour umbrella structures)</xs:documentation>
+               <xs:documentation xml:lang="nl">All portefeuille related gegevens (niet naar be used voor umbrella structures)</xs:documentation>
+               <xs:documentation xml:lang="es">Todos los datos relacionados con la cartera (no usar para estructuras paraguas)</xs:documentation>
+               <xs:documentation xml:lang="it">Tutti i dati relativi al portafoglio (da non utilizzare per le strutture ad ombrello)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="Portfolio" type="PortfolioType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element minOccurs="0" name="Benchmarks">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Benchmark data of fund</xs:documentation>
+               <xs:documentation xml:lang="de">[AUTO] Benchmark-Daten des Fund</xs:documentation>
+               <xs:documentation xml:lang="fr">Benchmark données de fonds</xs:documentation>
+               <xs:documentation xml:lang="nl">Benchmark gegevens van fonds</xs:documentation>
+               <xs:documentation xml:lang="es">Datos de benchmark del fondo</xs:documentation>
+               <xs:documentation xml:lang="it">Dati di riferimento del fondo</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element maxOccurs="unbounded"
+                              name="Benchmark"
+                              type="BenchmarkDynamicDataType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

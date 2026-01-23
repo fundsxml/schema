@@ -1,1287 +1,745 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:altova="http://www.altova.com/xml-schema-extensions"
-           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           attributeFormDefault="unqualified"
-           elementFormDefault="qualified"
-           vc:minVersion="1.1">
-   <xs:include schemaLocation="FundsXML4_Core.xsd"/>
-   <xs:complexType name="EMIR_ReportType">
-      <xs:annotation>
-         <xs:documentation xml:lang="en">EMIR report type containing counterparty data, contract data and transaction data for derivatives trade reporting to trade repositories</xs:documentation>
-         <xs:documentation xml:lang="de">EMIR Report-Typ mit Kontrahentendaten, Vertragsdaten und Transaktionsdaten für Derivate-Trade-Reporting an Trade Repositories</xs:documentation>
-         <xs:documentation xml:lang="fr">Type de rapport EMIR contenant données de contrepartie, données de contrat et données de transaction pour le reporting de trades de dérivés aux trade repositories</xs:documentation>
-         <xs:documentation xml:lang="nl">EMIR rapport type met tegenpartijgegevens, contractgegevens en transactiegegevens voor derivaten trade reporting aan trade repositories</xs:documentation>
-         <xs:documentation xml:lang="es">Tipo de informe EMIR con datos de contraparte, datos de contrato y datos de transaccion para reporting de derivados a trade repositories</xs:documentation>
-         <xs:documentation xml:lang="it">Tipo di report EMIR contenente dati sulla controparte, dati sui contratti e dati sulle transazioni per la segnalazione delle negoziazioni di derivati ​​ai repository di dati sulle negoziazioni</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element minOccurs="0"
-                     name="FundOrShareClassIdentifiers"
-                     type="FundOrShareClassIdentifiersType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
-               <xs:documentation xml:lang="de">Fonds- oder Anteilsklassen-Identifikatoren zur einfachen Verknüpfung mit anderen Fonds- oder Anteilsklassendaten</xs:documentation>
-               <xs:documentation xml:lang="fr">Fonds ou classe d'actions identifiers pour easy connection à autre fonds ou classe d'actions données</xs:documentation>
-               <xs:documentation xml:lang="nl">Fonds van aandelenklasse identifiers voor easy connection naar overig fonds van aandelenklasse gegevens</xs:documentation>
-               <xs:documentation xml:lang="es">Identificadores de fondo o clase de acciones para conexion facil con otros datos de fondo o clase de acciones</xs:documentation>
-               <xs:documentation xml:lang="it">Identificatori di fondi o classi di azioni per una facile connessione ad altri dati di fondi o classi di azioni</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element minOccurs="0" name="DataSupplier" type="DataSupplierType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Definition of data source (investment company, vendor, ...)</xs:documentation>
-               <xs:documentation xml:lang="de">Definition der Datenquelle (Investmentgesellschaft, Anbieter, ...)</xs:documentation>
-               <xs:documentation xml:lang="fr">Definition de données source (investissement company, vendor, ...)</xs:documentation>
-               <xs:documentation xml:lang="nl">Definition van gegevens source (belegging company, vendor, ...)</xs:documentation>
-               <xs:documentation xml:lang="es">Definicion de la fuente de datos (sociedad de inversion, proveedor, ...)</xs:documentation>
-               <xs:documentation xml:lang="it">Definizione della fonte dei dati (società di investimento, fornitore, ...)</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="CounterpartyData">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Section 1</xs:documentation>
-               <xs:documentation xml:lang="de">Abschnitt 1</xs:documentation>
-               <xs:documentation xml:lang="fr">Section 1</xs:documentation>
-               <xs:documentation xml:lang="nl">Sectie 1</xs:documentation>
-               <xs:documentation xml:lang="es">Seccion 1</xs:documentation>
-               <xs:documentation xml:lang="it">Sezione 1</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element name="ReportingTimestamp" type="xs:dateTime">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 1 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 1 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 1 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 1 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 1 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 1 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="CounterpartyID" type="EMIRIDType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 2 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 2 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 2 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 2 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 2 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 2 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="OtherCounterpartyID" type="EMIRIDType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 3 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 3 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 3 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 3 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 3 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 3 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="CounterpartyName">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 4 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 4 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 4 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 4 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 4 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 4 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:maxLength value="100"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="CounterpartyDomicile">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 5 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 5 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 5 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 5 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 5 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 5 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:maxLength value="500"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="CounterpartyCorporateSector">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 6 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 6 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 6 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 6 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 6 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 6 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:maxLength value="1"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element name="CounterpartyNature">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 7 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 7 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 7 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 7 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 7 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 7 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:maxLength value="1"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="BrokerID" type="EMIRIDType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 8 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 8 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 8 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 8 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 8 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 8 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ReportingEntityID" type="EMIRIDType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 9 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 9 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 9 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 9 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 9 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 9 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ClearingMemberID" type="EMIRIDType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 10 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 10 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 10 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 10 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 10 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 10 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="BeneficiaryID" type="EMIRIDType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 11 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 11 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 11 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 11 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 11 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 11 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="TradingCapacity">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 12 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 12 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 12 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 12 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 12 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 12 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:maxLength value="1"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element name="CounterpartySide">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 13 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 13 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 13 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 13 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 13 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 13 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:maxLength value="1"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element name="CounterpartyNonEEAFlag" type="xs:boolean">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 14 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 14 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 14 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 14 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 14 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 14 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ContractLinkFlag" type="xs:boolean">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 15 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 15 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 15 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 15 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 15 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 15 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ClearingTresholdFlag" type="xs:boolean">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 16 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 16 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 16 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 16 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 16 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 16 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ContractMtMValue" type="xs:decimal">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 17 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 17 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 17 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 17 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 17 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 17 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0"
-                              name="ContractMtMValueCurrency"
-                              type="ISOCurrencyCodeType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 18 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 18 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 18 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 18 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 18 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 18 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ValuationDate" type="xs:date">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 19 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 19 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 19 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 19 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 19 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 19 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ValuationTime" type="xs:time">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 20 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 20 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 20 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 20 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 20 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 20 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ValuationType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 21 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 21 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 21 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 21 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 21 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 21 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:maxLength value="1"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="Collateralisation">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 22 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 22 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 22 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 22 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 22 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 22 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:maxLength value="2"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="CollateralPortfolioFlag" type="xs:boolean">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 23 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 23 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 23 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 23 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 23 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 23 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="CollateralPortfolioCode">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 24 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 24 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 24 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 24 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 24 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 24 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:nonNegativeInteger">
-                           <xs:totalDigits value="10"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="CollateralValue" type="xs:decimal">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 25 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 25 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 25 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 25 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 25 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 25 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="CollateralCurrency" type="ISOCurrencyCodeType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">field 26 according to annex table 1 EMIR ITS and RTS</xs:documentation>
-                        <xs:documentation xml:lang="de">Feld 26 gemäß Anhang Tabelle 1 EMIR ITS und RTS</xs:documentation>
-                        <xs:documentation xml:lang="fr">champ 26 selon le tableau de l'annexe 1 EMIR ITS et RTS</xs:documentation>
-                        <xs:documentation xml:lang="nl">veld 26 volgens bijlage tabel 1 EMIR ITS en RTS</xs:documentation>
-                        <xs:documentation xml:lang="es">campo 26 segun anexo tabla 1 EMIR ITS y RTS</xs:documentation>
-                        <xs:documentation xml:lang="it">campo 26 secondo la tabella allegato 1 EMIR ITS e RTS</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
-         <xs:element name="CommonData">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Section 2</xs:documentation>
-               <xs:documentation xml:lang="de">Abschnitt 2</xs:documentation>
-               <xs:documentation xml:lang="fr">Section 2</xs:documentation>
-               <xs:documentation xml:lang="nl">Sectie 2</xs:documentation>
-               <xs:documentation xml:lang="es">Seccion 2</xs:documentation>
-               <xs:documentation xml:lang="it">Sezione 2</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element name="ContractType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">Section 2a</xs:documentation>
-                        <xs:documentation xml:lang="de">Abschnitt 2a</xs:documentation>
-                        <xs:documentation xml:lang="fr">Section 2a</xs:documentation>
-                        <xs:documentation xml:lang="nl">Sectie 2a</xs:documentation>
-                        <xs:documentation xml:lang="es">Seccion 2a</xs:documentation>
-                        <xs:documentation xml:lang="it">Sezione 2a</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element name="TaxonomyUsed">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 1 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 1 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 1 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 1 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 1 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 1 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="1"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element name="ProductID1">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 2 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 2 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 2 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 2 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 2 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 2 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="2"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="ProductID2">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 3 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 3 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 3 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 3 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 3 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 3 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="2"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="Underlying">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 4 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 4 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 4 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 4 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 4 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 4 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="20"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element name="NotionalCurrency1" type="ISOCurrencyCodeType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 5 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 5 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 5 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 5 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 5 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 5 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="NotionalCurrency2" type="ISOCurrencyCodeType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 6 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 6 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 6 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 6 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 6 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 6 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="DeliverableCurrency" type="ISOCurrencyCodeType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 7 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 7 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 7 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 7 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 7 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 7 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element name="TransactionDetails">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">Section 2b</xs:documentation>
-                        <xs:documentation xml:lang="de">Abschnitt 2b</xs:documentation>
-                        <xs:documentation xml:lang="fr">Section 2b</xs:documentation>
-                        <xs:documentation xml:lang="nl">Sectie 2b</xs:documentation>
-                        <xs:documentation xml:lang="es">Seccion 2b</xs:documentation>
-                        <xs:documentation xml:lang="it">Sezione 2b</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element name="TradeID">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 8 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 8 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 8 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 8 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 8 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 8 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="52"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element name="TransactionReferenceNumber">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 9 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 9 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 9 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 9 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 9 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 9 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="40"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element name="ExecutionVenue">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 10 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 10 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 10 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 10 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 10 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 10 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="4"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element name="CompressionFlag" type="xs:boolean">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 11 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 11 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 11 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 11 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 11 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 11 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="PriceRate" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 12 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 12 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 12 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 12 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 12 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 12 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="PriceNotation" type="ISOCurrencyCodeType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 13 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 13 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 13 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 13 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 13 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 13 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="NotionalAmount" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 14 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 14 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 14 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 14 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 14 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 14 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="PriceMultiplier" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 15 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 15 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 15 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 15 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 15 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 15 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="Quantity" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 16 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 16 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 16 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 16 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 16 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 16 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="UpFrontPayment" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 17 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 17 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 17 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 17 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 17 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 17 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="DeliveryType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 18 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 18 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 18 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 18 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 18 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 18 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="1"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element name="ExecutionTimestamp" type="xs:dateTime">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 19 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 19 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 19 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 19 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 19 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 19 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="EffectiveDate" type="xs:date">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 20 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 20 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 20 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 20 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 20 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 20 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="MaturityDate" type="xs:date">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 21 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 21 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 21 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 21 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 21 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 21 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="TerminationDate" type="xs:date">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 22 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 22 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 22 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 22 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 22 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 22 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="SettlementDates">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 23 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 23 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 23 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 23 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 23 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 23 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:complexType>
-                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" name="SettlementDate" type="xs:date">
-                                       <xs:annotation>
-                                          <xs:documentation xml:lang="en">ISO 8601 date format.</xs:documentation>
-                                          <xs:documentation xml:lang="de">ISO 8601 Datum format.</xs:documentation>
-                                          <xs:documentation xml:lang="fr">ISO 8601 date format.</xs:documentation>
-                                          <xs:documentation xml:lang="nl">ISO 8601 datum format.</xs:documentation>
-                                          <xs:documentation xml:lang="es">Formato de fecha ISO 8601.</xs:documentation>
-                                          <xs:documentation xml:lang="it">Formato data ISO 8601.</xs:documentation>
-                                       </xs:annotation>
-                                    </xs:element>
-                                 </xs:sequence>
-                              </xs:complexType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="MasterAgreementType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 24 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 24 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 24 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 24 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 24 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 24 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="50"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="MasterAgreementVersion">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 25 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 25 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 25 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 25 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 25 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 25 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:positiveInteger">
-                                    <xs:totalDigits value="4"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element name="RiskMitigationReporting">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">Section 2c</xs:documentation>
-                        <xs:documentation xml:lang="de">Abschnitt 2c</xs:documentation>
-                        <xs:documentation xml:lang="fr">Section 2c</xs:documentation>
-                        <xs:documentation xml:lang="nl">Sectie 2c</xs:documentation>
-                        <xs:documentation xml:lang="es">Seccion 2c</xs:documentation>
-                        <xs:documentation xml:lang="it">Sezione 2c</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element minOccurs="0" name="ConfirmationTimestamp" type="xs:dateTime">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 26according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 26gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 26selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 26volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 26segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 26secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="ConfirmationMeans">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">27 Whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.
+<!-- Mit XMLSpy v2015 rel. 3 (http://www.altova.com) von Peter Raffelsberger (Pioneer Investments Austria) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
+	<xs:complexType name="EMIRType">
+		<xs:sequence>
+			<xs:element name="EMIR_Report" type="EMIR_ReportType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="EMIRIDType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="11"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EMIR_ReportType">
+		<xs:sequence>
+			<xs:element name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Definition of data source (investment company, vendor, ...)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CounterpartyData">
+				<xs:annotation>
+					<xs:documentation>Section 1</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ReportingTimestamp" type="xs:dateTime">
+							<xs:annotation>
+								<xs:documentation>field 1 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CounterpartyID" type="EMIRIDType">
+							<xs:annotation>
+								<xs:documentation>field 2 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="OtherCounterpartyID" type="EMIRIDType">
+							<xs:annotation>
+								<xs:documentation>field 3 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CounterpartyName" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 4 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="100"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CounterpartyDomicile" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 5 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="500"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CounterpartyCorporateSector" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 6 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CounterpartyNature">
+							<xs:annotation>
+								<xs:documentation>field 7 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="BrokerID" type="EMIRIDType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 8 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ReportingEntityID" type="EMIRIDType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 9 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ClearingMemberID" type="EMIRIDType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 10 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BeneficiaryID" type="EMIRIDType">
+							<xs:annotation>
+								<xs:documentation>field 11 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TradingCapacity">
+							<xs:annotation>
+								<xs:documentation>field 12 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CounterpartySide">
+							<xs:annotation>
+								<xs:documentation>field 13 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CounterpartyNonEEAFlag" type="xs:boolean">
+							<xs:annotation>
+								<xs:documentation>field 14 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ContractLinkFlag" type="xs:boolean" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 15 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ClearingTresholdFlag" type="xs:boolean" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 16 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ContractMtMValue" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 17 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ContractMtMValueCurrency" type="ISOCurrencyCodeType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 18 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ValuationDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 19 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ValuationTime" type="xs:time" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 20 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ValuationType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 21 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Collateralisation" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 22 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="2"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CollateralPortfolioFlag" type="xs:boolean" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 23 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CollateralPortfolioCode" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 24 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:totalDigits value="10"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CollateralValue" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 25 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CollateralCurrency" type="ISOCurrencyCodeType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>field 26 according to annex table 1 EMIR ITS and RTS</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CommonData">
+				<xs:annotation>
+					<xs:documentation>Section 2</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ContractType">
+							<xs:annotation>
+								<xs:documentation>Section 2a</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TaxonomyUsed">
+										<xs:annotation>
+											<xs:documentation>field 1 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="1"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ProductID1">
+										<xs:annotation>
+											<xs:documentation>field 2 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ProductID2" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 3 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Underlying" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 4 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="20"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="NotionalCurrency1" type="ISOCurrencyCodeType">
+										<xs:annotation>
+											<xs:documentation>field 5 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="NotionalCurrency2" type="ISOCurrencyCodeType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 6 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DeliverableCurrency" type="ISOCurrencyCodeType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 7 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TransactionDetails">
+							<xs:annotation>
+								<xs:documentation>Section 2b</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TradeID">
+										<xs:annotation>
+											<xs:documentation>field 8 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="52"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="TransactionReferenceNumber">
+										<xs:annotation>
+											<xs:documentation>field 9 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="40"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ExecutionVenue">
+										<xs:annotation>
+											<xs:documentation>field 10 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="4"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="CompressionFlag" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation>field 11 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PriceRate" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>field 12 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PriceNotation" type="ISOCurrencyCodeType">
+										<xs:annotation>
+											<xs:documentation>field 13 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="NotionalAmount" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>field 14 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PriceMultiplier" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>field 15 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Quantity" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>field 16 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="UpFrontPayment" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 17 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DeliveryType">
+										<xs:annotation>
+											<xs:documentation>field 18 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="1"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ExecutionTimestamp" type="xs:dateTime">
+										<xs:annotation>
+											<xs:documentation>field 19 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="EffectiveDate" type="xs:date">
+										<xs:annotation>
+											<xs:documentation>field 20 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 21 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TerminationDate" type="xs:date" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 22 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SettlementDates" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 23 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="SettlementDate" type="xs:date" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>ISO 8601 date format.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="MasterAgreementType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 24 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="50"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="MasterAgreementVersion" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 25 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:totalDigits value="4"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="RiskMitigationReporting">
+							<xs:annotation>
+								<xs:documentation>Section 2c</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ConfirmationTimestamp" type="xs:dateTime" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 26according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ConfirmationMeans">
+										<xs:annotation>
+											<xs:documentation>27 Whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.
 
 Y=Non-electronically confirmed, N=Non-confirmed,
 E=Electronically confirmed.</xs:documentation>
-                                 <xs:documentation xml:lang="de">27 Ob der Vertrag elektronisch bestätigt, nicht-elektronisch bestätigt wurde oder unbestätigt bleibt.
-
-Y=Non-electronically confirmed, N=Non-confirmed,
-E=Electronically confirmed.</xs:documentation>
-                                 <xs:documentation xml:lang="fr">27 Whether contract was electronically confirmed, non-electronically confirmed ou remains unconfirmed.
-
-Y=Non-electronically confirmed, N=Non-confirmed,
-E=Electronically confirmed.</xs:documentation>
-                                 <xs:documentation xml:lang="nl">27 Whether contract was electronically confirmed, non-electronically confirmed van remains unconfirmed.
-
-Y=Non-electronically confirmed, N=Non-confirmed,
-E=Electronically confirmed.</xs:documentation>
-                                 <xs:documentation xml:lang="es">27 Si el contrato fue confirmado electronicamente, confirmado no electronicamente o permanece sin confirmar.
-
-Y=Confirmado no electronicamente, N=No confirmado,
-E=Confirmado electronicamente.</xs:documentation>
-                                 <xs:documentation xml:lang="it">27 Se il contratto è stato confermato elettronicamente, confermato non elettronicamente o rimane non confermato.
-
-Y=Non confermato elettronicamente, N=Non confermato,
-E=Confermato elettronicamente.</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="1"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element name="Clearing">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">Section 2d</xs:documentation>
-                        <xs:documentation xml:lang="de">Abschnitt 2d</xs:documentation>
-                        <xs:documentation xml:lang="fr">Section 2d</xs:documentation>
-                        <xs:documentation xml:lang="nl">Sectie 2d</xs:documentation>
-                        <xs:documentation xml:lang="es">Seccion 2d</xs:documentation>
-                        <xs:documentation xml:lang="it">Sezione 2d</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element name="ClearingObligationFlag" type="xs:boolean">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 28 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 28 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 28 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 28 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 28 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 28 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element name="ClearedFlag" type="xs:boolean">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 29 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 29 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 29 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 29 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 29 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 29 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="ClearingTimestamp" type="xs:dateTime">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 30 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 30 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 30 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 30 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 30 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 30 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="CcpID">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 31 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 31 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 31 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 31 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 31 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 31 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="20"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="IntragroupFlag" type="xs:boolean">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 32 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 32 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 32 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 32 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 32 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 32 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="InterestRates">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">Section 2e</xs:documentation>
-                        <xs:documentation xml:lang="de">Abschnitt 2e</xs:documentation>
-                        <xs:documentation xml:lang="fr">Section 2e</xs:documentation>
-                        <xs:documentation xml:lang="nl">Sectie 2e</xs:documentation>
-                        <xs:documentation xml:lang="es">Seccion 2e</xs:documentation>
-                        <xs:documentation xml:lang="it">Sezione 2e</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element minOccurs="0" name="FixedRateLeg1" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 33 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 33 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 33 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 33 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 33 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 33 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="FixedRateLeg2" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 34 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 34 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 34 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 34 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 34 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 34 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="FixedRateDayCount" type="xs:string">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 35 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 35 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 35 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 35 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 35 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 35 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="FixedLegPaymentFrequency" type="xs:string">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 36 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 36 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 36 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 36 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 36 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 36 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="FloatingRatePaymentFrequency" type="xs:string">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 37 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 37 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 37 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 37 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 37 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 37 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="FloatingRateResetFrequency" type="xs:string">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 38 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 38 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 38 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 38 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 38 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 38 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="FloatingRateLeg1" type="xs:string">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 39 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 39 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 39 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 39 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 39 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 39 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="FloatingRateLeg2" type="xs:string">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 40 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 40 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 40 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 40 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 40 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 40 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="ForeignExchange">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">Section 2f</xs:documentation>
-                        <xs:documentation xml:lang="de">Abschnitt 2f</xs:documentation>
-                        <xs:documentation xml:lang="fr">Section 2f</xs:documentation>
-                        <xs:documentation xml:lang="nl">Sectie 2f</xs:documentation>
-                        <xs:documentation xml:lang="es">Seccion 2f</xs:documentation>
-                        <xs:documentation xml:lang="it">Sezione 2f</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element minOccurs="0" name="Currency2" type="ISOCurrencyCodeType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 41 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 41 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 41 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 41 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 41 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 41 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="ExchangeRate1" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 42 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 42 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 42 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 42 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 42 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 42 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="ForwardExchangeRate" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 43 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 43 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 43 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 43 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 43 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 43 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="ExchangeRateBasis">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 44 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 44 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 44 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 44 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 44 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 44 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="7"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="Commodities">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">Section 2g</xs:documentation>
-                        <xs:documentation xml:lang="de">Abschnitt 2g</xs:documentation>
-                        <xs:documentation xml:lang="fr">Section 2g</xs:documentation>
-                        <xs:documentation xml:lang="nl">Sectie 2g</xs:documentation>
-                        <xs:documentation xml:lang="es">Seccion 2g</xs:documentation>
-                        <xs:documentation xml:lang="it">Sezione 2g</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element minOccurs="0" name="General">
-                              <xs:complexType>
-                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="CommodityBase">
-                                       <xs:annotation>
-                                          <xs:documentation xml:lang="en">field 45 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                          <xs:documentation xml:lang="de">Feld 45 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                          <xs:documentation xml:lang="fr">champ 45 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                          <xs:documentation xml:lang="nl">veld 45 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                          <xs:documentation xml:lang="es">campo 45 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                          <xs:documentation xml:lang="it">campo 45 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                       </xs:annotation>
-                                       <xs:simpleType>
-                                          <xs:restriction base="xs:string">
-                                             <xs:maxLength value="2"/>
-                                          </xs:restriction>
-                                       </xs:simpleType>
-                                    </xs:element>
-                                    <xs:element minOccurs="0" name="CommodityDetails">
-                                       <xs:annotation>
-                                          <xs:documentation xml:lang="en">field 46 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                          <xs:documentation xml:lang="de">Feld 46 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                          <xs:documentation xml:lang="fr">champ 46 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                          <xs:documentation xml:lang="nl">veld 46 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                          <xs:documentation xml:lang="es">campo 46 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                          <xs:documentation xml:lang="it">campo 46 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                       </xs:annotation>
-                                       <xs:simpleType>
-                                          <xs:restriction base="xs:string">
-                                             <xs:maxLength value="2"/>
-                                          </xs:restriction>
-                                       </xs:simpleType>
-                                    </xs:element>
-                                 </xs:sequence>
-                              </xs:complexType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="Energy">
-                              <xs:complexType>
-                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="DeliveryPoint">
-                                       <xs:annotation>
-                                          <xs:documentation xml:lang="en">field 47 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                          <xs:documentation xml:lang="de">Feld 47 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                          <xs:documentation xml:lang="fr">champ 47 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                          <xs:documentation xml:lang="nl">veld 47 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                          <xs:documentation xml:lang="es">campo 47 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                          <xs:documentation xml:lang="it">campo 47 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                       </xs:annotation>
-                                       <xs:simpleType>
-                                          <xs:restriction base="xs:string">
-                                             <xs:maxLength value="16"/>
-                                          </xs:restriction>
-                                       </xs:simpleType>
-                                    </xs:element>
-                                    <xs:element minOccurs="0" name="InterconnectionPoint">
-                                       <xs:annotation>
-                                          <xs:documentation xml:lang="en">field 48 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                          <xs:documentation xml:lang="de">Feld 48 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                          <xs:documentation xml:lang="fr">champ 48 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                          <xs:documentation xml:lang="nl">veld 48 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                          <xs:documentation xml:lang="es">campo 48 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                          <xs:documentation xml:lang="it">campo 48 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                       </xs:annotation>
-                                       <xs:simpleType>
-                                          <xs:restriction base="xs:string">
-                                             <xs:maxLength value="50"/>
-                                          </xs:restriction>
-                                       </xs:simpleType>
-                                    </xs:element>
-                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="LoadTypes">
-                                       <xs:annotation>
-                                          <xs:documentation xml:lang="en">field 49 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                          <xs:documentation xml:lang="de">Feld 49 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                          <xs:documentation xml:lang="fr">champ 49 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                          <xs:documentation xml:lang="nl">veld 49 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                          <xs:documentation xml:lang="es">campo 49 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                          <xs:documentation xml:lang="it">campo 49 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                       </xs:annotation>
-                                       <xs:complexType>
-                                          <xs:sequence>
-                                             <xs:element minOccurs="0" name="LoadType">
-                                                <xs:annotation>
-                                                   <xs:documentation xml:lang="en">field 49 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="de">Feld 49 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="fr">champ 49 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="nl">veld 49 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="es">campo 49 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="it">campo 49 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                                </xs:annotation>
-                                                <xs:simpleType>
-                                                   <xs:restriction base="xs:string">
-                                                      <xs:maxLength value="2"/>
-                                                   </xs:restriction>
-                                                </xs:simpleType>
-                                             </xs:element>
-                                             <xs:element minOccurs="0" name="DeliveryStart" type="xs:dateTime">
-                                                <xs:annotation>
-                                                   <xs:documentation xml:lang="en">field 50 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="de">Feld 50 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="fr">champ 50 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="nl">veld 50 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="es">campo 50 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="it">campo 50 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                                </xs:annotation>
-                                             </xs:element>
-                                             <xs:element minOccurs="0" name="DeliveryEnd" type="xs:dateTime">
-                                                <xs:annotation>
-                                                   <xs:documentation xml:lang="en">field 51 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="de">Feld 51 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="fr">champ 51 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="nl">veld 51 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="es">campo 51 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="it">campo 51 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                                </xs:annotation>
-                                             </xs:element>
-                                             <xs:element minOccurs="0" name="ContractCapacity">
-                                                <xs:annotation>
-                                                   <xs:documentation xml:lang="en">field 52 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="de">Feld 52 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="fr">champ 52 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="nl">veld 52 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="es">campo 52 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="it">campo 52 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                                </xs:annotation>
-                                                <xs:simpleType>
-                                                   <xs:restriction base="xs:string">
-                                                      <xs:maxLength value="50"/>
-                                                   </xs:restriction>
-                                                </xs:simpleType>
-                                             </xs:element>
-                                             <xs:element minOccurs="0" name="QuantityUnit" type="xs:decimal">
-                                                <xs:annotation>
-                                                   <xs:documentation xml:lang="en">field 53 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="de">Feld 53 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="fr">champ 53 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="nl">veld 53 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="es">campo 53 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="it">campo 53 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                                </xs:annotation>
-                                             </xs:element>
-                                             <xs:element minOccurs="0" name="PriceTimeIntervalQuantities" type="xs:decimal">
-                                                <xs:annotation>
-                                                   <xs:documentation xml:lang="en">field 54 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="de">Feld 54 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="fr">champ 54 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="nl">veld 54 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="es">campo 54 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                                   <xs:documentation xml:lang="it">campo 54 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                                                </xs:annotation>
-                                             </xs:element>
-                                          </xs:sequence>
-                                       </xs:complexType>
-                                    </xs:element>
-                                 </xs:sequence>
-                              </xs:complexType>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="Options">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">Section 2h</xs:documentation>
-                        <xs:documentation xml:lang="de">Abschnitt 2h</xs:documentation>
-                        <xs:documentation xml:lang="fr">Section 2h</xs:documentation>
-                        <xs:documentation xml:lang="nl">Sectie 2h</xs:documentation>
-                        <xs:documentation xml:lang="es">Seccion 2h</xs:documentation>
-                        <xs:documentation xml:lang="it">Sezione 2h</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element minOccurs="0" name="OptionType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 55 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 55 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 55 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 55 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 55 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 55 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:enumeration value="Call"/>
-                                    <xs:enumeration value="Put"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="OptionStyle">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 56 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 56 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 56 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 56 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 56 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 56 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="1"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="StrikePrice" type="xs:decimal">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 57 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 57 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 57 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 57 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 57 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 57 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ReportModifications">
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element name="ActionType">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 58 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 58 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 58 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 58 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 58 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 58 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="1"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="ActionTypeDetails">
-                              <xs:annotation>
-                                 <xs:documentation xml:lang="en">field 59 according to annex table 2 EMIR ITS and RTS</xs:documentation>
-                                 <xs:documentation xml:lang="de">Feld 59 gemäß Anhang Tabelle 2 EMIR ITS und RTS</xs:documentation>
-                                 <xs:documentation xml:lang="fr">champ 59 selon le tableau de l'annexe 2 EMIR ITS et RTS</xs:documentation>
-                                 <xs:documentation xml:lang="nl">veld 59 volgens bijlage tabel 2 EMIR ITS en RTS</xs:documentation>
-                                 <xs:documentation xml:lang="es">campo 59 segun anexo tabla 2 EMIR ITS y RTS</xs:documentation>
-                                 <xs:documentation xml:lang="it">campo 59 secondo la tabella allegato 2 EMIR ITS e RTS</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                 <xs:restriction base="xs:string">
-                                    <xs:maxLength value="50"/>
-                                 </xs:restriction>
-                              </xs:simpleType>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
-      </xs:sequence>
-   </xs:complexType>
-   <xs:simpleType name="EMIRIDType">
-      <xs:annotation>
-         <xs:documentation xml:lang="en">EMIR identifier type for LEI, UTI or other regulatory identifiers with length between 11 and 50 characters</xs:documentation>
-         <xs:documentation xml:lang="de">EMIR Identifier-Typ für LEI, UTI oder andere regulatorische Kennungen mit Länge zwischen 11 und 50 Zeichen</xs:documentation>
-         <xs:documentation xml:lang="fr">Type d'identifiant EMIR pour LEI, UTI ou autres identifiants réglementaires avec une longueur entre 11 et 50 caractères</xs:documentation>
-         <xs:documentation xml:lang="nl">EMIR identifier type voor LEI, UTI of andere regulatory identifiers met lengte tussen 11 en 50 tekens</xs:documentation>
-         <xs:documentation xml:lang="es">Tipo de identificador EMIR para LEI, UTI u otros identificadores regulatorios con longitud entre 11 y 50 caracteres</xs:documentation>
-         <xs:documentation xml:lang="it">Tipo di identificatore EMIR per LEI, UTI o altri identificatori normativi con lunghezza compresa tra 11 e 50 caratteri</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:minLength value="11"/>
-         <xs:maxLength value="50"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="EMIRType">
-      <xs:annotation>
-         <xs:documentation xml:lang="en">Container type for EMIR (European Market Infrastructure Regulation) derivatives reporting containing trade repository reports</xs:documentation>
-         <xs:documentation xml:lang="de">Container-Typ für EMIR (European Market Infrastructure Regulation) Derivate-Reporting mit Trade Repository Berichten</xs:documentation>
-         <xs:documentation xml:lang="fr">Type conteneur pour EMIR (European Market Infrastructure Regulation) reporting de dérivés contenant des rapports de trade repository</xs:documentation>
-         <xs:documentation xml:lang="nl">Container type voor EMIR (European Market Infrastructure Regulation) derivaten reporting met trade repository rapporten</xs:documentation>
-         <xs:documentation xml:lang="es">Tipo contenedor para EMIR (European Market Infrastructure Regulation) reporting de derivados con informes de trade repository</xs:documentation>
-         <xs:documentation xml:lang="it">Tipo di contenitore per la reportistica sui derivati ​​EMIR (Regolamento sulle infrastrutture del mercato europeo) contenente i report del trade repository</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element maxOccurs="unbounded" name="EMIR_Report" type="EMIR_ReportType"/>
-      </xs:sequence>
-   </xs:complexType>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="1"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Clearing">
+							<xs:annotation>
+								<xs:documentation>Section 2d</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ClearingObligationFlag" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation>field 28 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ClearedFlag" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation>field 29 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ClearingTimestamp" type="xs:dateTime" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 30 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CcpID" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 31 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="20"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="IntragroupFlag" type="xs:boolean" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 32 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="InterestRates" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Section 2e</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="FixedRateLeg1" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 33 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FixedRateLeg2" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 34 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FixedRateDayCount" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 35 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FixedLegPaymentFrequency" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 36 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FloatingRatePaymentFrequency" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 37 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FloatingRateResetFrequency" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 38 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FloatingRateLeg1" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 39 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="FloatingRateLeg2" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 40 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ForeignExchange" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Section 2f</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Currency2" type="ISOCurrencyCodeType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 41 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ExchangeRate1" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 42 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ForwardExchangeRate" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 43 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ExchangeRateBasis" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 44 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="7"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Commodities" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Section 2g</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="General" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CommodityBase" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>field 45 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="2"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="CommodityDetails" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>field 46 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="2"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Energy" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="DeliveryPoint" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>field 47 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="16"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InterconnectionPoint" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>field 48 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:maxLength value="50"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="LoadTypes" minOccurs="0" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>field 49 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="LoadType" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>field 49 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:maxLength value="2"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="DeliveryStart" type="xs:dateTime" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>field 50 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="DeliveryEnd" type="xs:dateTime" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>field 51 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ContractCapacity" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>field 52 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:maxLength value="50"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="QuantityUnit" type="xs:decimal" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>field 53 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="PriceTimeIntervalQuantities" type="xs:decimal" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>field 54 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Options" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Section 2h</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="OptionType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 55 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Call"/>
+												<xs:enumeration value="Put"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="OptionStyle" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 56 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="1"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="StrikePrice" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 57 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ReportModifications">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ActionType">
+										<xs:annotation>
+											<xs:documentation>field 58 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="1"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ActionTypeDetails" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>field 59 according to annex table 2 EMIR ITS and RTS</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="50"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

@@ -14,6 +14,7 @@
          <xs:documentation xml:lang="nl">Benchmark index provider bedrijf met ESMA-registratiestatus (EU Benchmark Regulation)</xs:documentation>
          <xs:documentation xml:lang="es">Empresa proveedora del benchmark index con estado de registro ESMA (EU Benchmark Regulation)</xs:documentation>
          <xs:documentation xml:lang="it">Società fornitrice di indici di riferimento con status di registrazione ESMA (regolamento sui benchmark dell'UE)</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Benchmark index provider company with ESMA registration status (EU Benchmark Regulation)</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:extension base="CompanyType">
@@ -31,6 +32,7 @@
          <xs:documentation xml:lang="nl">Statische benchmark gegevens inclusief naam, valuta, provider en benchmark components voor blended benchmarks</xs:documentation>
          <xs:documentation xml:lang="es">Datos estaticos del benchmark incluyendo nombre, divisa, proveedor y componentes del benchmark para blended benchmarks</xs:documentation>
          <xs:documentation xml:lang="it">Dati di benchmark statici tra cui nome, valuta, fornitore e componenti di benchmark per benchmark misti</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Static benchmark data including name, currency, provider and benchmark components for blended benchmarks</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="BenchmarkID">
@@ -41,6 +43,7 @@
                <xs:documentation xml:lang="nl">Link naar Benchmark Dynamisch Gegevens</xs:documentation>
                <xs:documentation xml:lang="es">Enlace a los datos dinamicos del Benchmark</xs:documentation>
                <xs:documentation xml:lang="it">Collegamento ai dati dinamici di benchmark</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Odkaz na Benchmark Dynamic Data</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -80,6 +83,7 @@
                <xs:documentation xml:lang="nl">official, intern, prestatie attribution, etc.</xs:documentation>
                <xs:documentation xml:lang="es">oficial, interno, performance attribution, etc.</xs:documentation>
                <xs:documentation xml:lang="it">ufficiale, interno, attribuzione delle prestazioni, ecc.</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] official, internal, performance attribution, etc.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:attribute name="ListedType" type="BenchmarkUsageType"/>
@@ -94,6 +98,7 @@
                <xs:documentation xml:lang="nl">als blended Benchmark</xs:documentation>
                <xs:documentation xml:lang="es">si blended Benchmark</xs:documentation>
                <xs:documentation xml:lang="it">se benchmark misto</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] if blended Benchmark</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -137,6 +142,7 @@
          <xs:documentation xml:lang="nl">Classificatie van benchmark gebruik: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
          <xs:documentation xml:lang="es">Clasificacion del uso del benchmark: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
          <xs:documentation xml:lang="it">Classificazione di utilizzo del benchmark: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Classification of benchmark usage: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
       </xs:annotation>
       <xs:restriction base="xs:string">
          <xs:enumeration value="OFFICIAL"/>
@@ -154,6 +160,7 @@
          <xs:documentation xml:lang="nl">Container voor bedrijven geassocieerd met een fonds (custodian, auditor, administrator, etc.)</xs:documentation>
          <xs:documentation xml:lang="es">Contenedor para empresas asociadas con un fondo (custodian, auditor, administrator, etc.)</xs:documentation>
          <xs:documentation xml:lang="it">Contenitore per le società associate ad un fondo (custode, revisore, amministratore, ecc.)</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Kontejner pro companies associated with a fund (custodian, auditor, administrator, etc.)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="Company" type="FundCompanyType"/>
@@ -167,6 +174,7 @@
          <xs:documentation xml:lang="nl">Company informatie met role assignment voor funds</xs:documentation>
          <xs:documentation xml:lang="es">Informacion de la empresa con asignacion de rol para fondos</xs:documentation>
          <xs:documentation xml:lang="it">Informazioni aziendali con assegnazione dei ruoli per i fondi</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Company information with role assignment for funds</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:choice>
@@ -201,6 +209,7 @@
          <xs:documentation xml:lang="nl">Statisch master gegevens voor funds inclusief juridisch structuur, key dates, en administrative informatie</xs:documentation>
          <xs:documentation xml:lang="es">Datos maestros estaticos para fondos incluyendo estructura legal, fechas clave e informacion administrativa</xs:documentation>
          <xs:documentation xml:lang="it">Dati anagrafici statici per i fondi, tra cui struttura giuridica, date chiave e informazioni amministrative</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Static master data for funds including legal structure, key dates, and administrative information</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="DomicileCountry" type="ISOCountryCodeType">
@@ -211,6 +220,7 @@
                <xs:documentation xml:lang="nl">ISO Land Code met two characters</xs:documentation>
                <xs:documentation xml:lang="es">Codigo de pais ISO con dos caracteres</xs:documentation>
                <xs:documentation xml:lang="it">Codice Paese ISO con due caratteri</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] ISO Country Code with two characters</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:choice>
@@ -222,6 +232,7 @@
                   <xs:documentation xml:lang="nl">Juridisch structuur van enumeration: UCITS, AIF, SICAV, ...</xs:documentation>
                   <xs:documentation xml:lang="es">Estructura legal de enumeracion: UCITS, AIF, SICAV, ...</xs:documentation>
                   <xs:documentation xml:lang="it">Struttura giuridica da enumerazione: OICVM, FIA, SICAV,...</xs:documentation>
+                  <xs:documentation xml:lang="cs">[AUTO] Legal structure from enumeration: UCITS, AIF, SICAV, ...</xs:documentation>
                </xs:annotation>
                <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -253,6 +264,7 @@
                   <xs:documentation xml:lang="nl">Free text juridisch structuur als niet in enumeration</xs:documentation>
                   <xs:documentation xml:lang="es">Estructura legal en texto libre si no esta en la enumeracion</xs:documentation>
                   <xs:documentation xml:lang="it">Struttura giuridica a testo libero se non in enumerazione</xs:documentation>
+                  <xs:documentation xml:lang="cs">[AUTO] Free text legal structure if not in enumeration</xs:documentation>
                </xs:annotation>
             </xs:element>
          </xs:choice>
@@ -264,6 +276,7 @@
                <xs:documentation xml:lang="nl">Oprichting datum van fonds</xs:documentation>
                <xs:documentation xml:lang="es">Fecha de constitucion del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Data di inizio del fondo</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Inception date of fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="StartOfFiscalYear" type="DayMonthType">
@@ -274,6 +287,7 @@
                <xs:documentation xml:lang="nl">First day van fiscal year (day/month)</xs:documentation>
                <xs:documentation xml:lang="es">Primer dia del ejercicio fiscal (dia/mes)</xs:documentation>
                <xs:documentation xml:lang="it">Primo giorno dell'anno fiscale (giorno/mese)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] First day of fiscal year (day/month)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="EndOfFiscalYear" type="DayMonthType">
@@ -284,6 +298,7 @@
                <xs:documentation xml:lang="nl">Last day van fiscal year (day/month)</xs:documentation>
                <xs:documentation xml:lang="es">Ultimo dia del ejercicio fiscal (dia/mes)</xs:documentation>
                <xs:documentation xml:lang="it">Ultimo giorno dell'anno fiscale (giorno/mese)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Last day of fiscal year (day/month)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="OpenClosedEnded">
@@ -294,6 +309,7 @@
                <xs:documentation xml:lang="nl">Bepaalt of aandelen kunnen worden gekocht of niet: OPEN of CLOSED</xs:documentation>
                <xs:documentation xml:lang="es">Define si las participaciones pueden comprarse o no: OPEN o CLOSED</xs:documentation>
                <xs:documentation xml:lang="it">Definisce se le azioni possono essere acquistate o meno: APERTE o CHIUSE</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Defines whether shares can be bought or not: OPEN or CLOSED</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -310,6 +326,7 @@
                <xs:documentation xml:lang="nl">HARD: Nobody can koop new shares. SOFT: Only existing investors can koop new shares</xs:documentation>
                <xs:documentation xml:lang="es">HARD: Nadie puede comprar nuevas participaciones. SOFT: Solo los inversores existentes pueden comprar nuevas participaciones</xs:documentation>
                <xs:documentation xml:lang="it">DIFFICILE: Nessuno può acquistare nuove azioni. SOFT: solo gli investitori esistenti possono acquistare nuove azioni</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] HARD: Nobody can buy new shares. SOFT: Only existing investors can buy new shares</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -326,6 +343,7 @@
                <xs:documentation xml:lang="nl">Maturity datum (planned end datum) van fonds</xs:documentation>
                <xs:documentation xml:lang="es">Fecha de vencimiento (fecha de finalizacion prevista) del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Data di scadenza (data di fine prevista) del fondo</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Maturity date (planned end date) of fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="LiquidationDate" type="xs:date">
@@ -336,6 +354,7 @@
                <xs:documentation xml:lang="nl">Datum wanneer fonds heeft been gesloten (due naar low volume, merger, ...)</xs:documentation>
                <xs:documentation xml:lang="es">Fecha en que el fondo fue cerrado (debido a bajo volumen, fusion, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Data in cui il fondo è stato chiuso (a causa di volume ridotto, fusione, ...)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Date when fund has been closed (due to low volume, merger, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="LiquidationReason">
@@ -346,6 +365,7 @@
                <xs:documentation xml:lang="nl">Liquidation reason: Client Exit, Low Volume, Merger van Overig</xs:documentation>
                <xs:documentation xml:lang="es">Motivo de liquidacion: Salida de cliente, Bajo volumen, Fusion u Otro</xs:documentation>
                <xs:documentation xml:lang="it">Motivo della liquidazione: uscita del cliente, volume ridotto, fusione o altro</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Liquidation reason: Client Exit, Low Volume, Merger or Other</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -364,6 +384,7 @@
                <xs:documentation xml:lang="nl">Fonds administrator company</xs:documentation>
                <xs:documentation xml:lang="es">Sociedad administradora del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Società amministratrice di fondi</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Fund administrator company</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Auditor" type="CompanyType">
@@ -374,6 +395,7 @@
                <xs:documentation xml:lang="nl">Fonds auditor company</xs:documentation>
                <xs:documentation xml:lang="es">Sociedad auditora del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Società di revisione di fondi</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Fund auditor company</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Custodian" type="CompanyType">
@@ -384,6 +406,7 @@
                <xs:documentation xml:lang="nl">Bewaarder bank van fonds</xs:documentation>
                <xs:documentation xml:lang="es">Banco depositario del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Banca depositaria del fondo</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Custodian bank of the fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InvestmentCompany" type="CompanyType">
@@ -394,6 +417,7 @@
                <xs:documentation xml:lang="nl">Belegging company managing fonds</xs:documentation>
                <xs:documentation xml:lang="es">Sociedad de inversion que gestiona el fondo</xs:documentation>
                <xs:documentation xml:lang="it">Società di investimento che gestisce il fondo</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Investment company managing the fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FundTexts">
@@ -404,6 +428,7 @@
                <xs:documentation xml:lang="nl">Collection van fonds-related texts</xs:documentation>
                <xs:documentation xml:lang="es">Coleccion de textos relacionados con el fondo</xs:documentation>
                <xs:documentation xml:lang="it">Raccolta di testi relativi ai fondi</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Collection of fund-related texts</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -419,6 +444,7 @@
                <xs:documentation xml:lang="nl">Indicates als SICAV is self-managed</xs:documentation>
                <xs:documentation xml:lang="es">Indica si la SICAV es autogestionada</xs:documentation>
                <xs:documentation xml:lang="it">Indica se la SICAV è autogestita</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda the SICAV is self-managed</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="CustomAttributes" type="AttributesType">
@@ -429,6 +455,7 @@
                <xs:documentation xml:lang="nl">Custom attributes voor aanvullend fonds gegevens</xs:documentation>
                <xs:documentation xml:lang="es">Atributos personalizados para datos adicionales del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Attributi personalizzati per dati aggiuntivi sui fondi</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Custom attributes for additional fund data</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Classifications" type="ClassificationsType">
@@ -439,6 +466,7 @@
                <xs:documentation xml:lang="nl">Fonds classifications van diverse systems</xs:documentation>
                <xs:documentation xml:lang="es">Clasificaciones del fondo de varios sistemas</xs:documentation>
                <xs:documentation xml:lang="it">Classificazioni dei fondi da vari sistemi</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Fund classifications from various systems</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Companies" type="FundCompaniesType">
@@ -449,6 +477,7 @@
                <xs:documentation xml:lang="nl">Companies related naar fonds met their roles</xs:documentation>
                <xs:documentation xml:lang="es">Empresas relacionadas con el fondo y sus roles</xs:documentation>
                <xs:documentation xml:lang="it">Aziende legate al fondo con i rispettivi ruoli</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Companies related to the fund with their roles</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PortfolioManagers">
@@ -459,6 +488,7 @@
                <xs:documentation xml:lang="nl">Informatie about person van persons dat manage fonds</xs:documentation>
                <xs:documentation xml:lang="es">Informacion sobre la persona o personas que gestionan el fondo</xs:documentation>
                <xs:documentation xml:lang="it">Informazioni sulla persona o sulle persone che gestiscono il fondo</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Information about the person or persons that manage the fund</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -473,6 +503,7 @@
                                  <xs:documentation xml:lang="nl">Naam van portefeuille beheerder</xs:documentation>
                                  <xs:documentation xml:lang="es">Nombre del gestor de cartera</xs:documentation>
                                  <xs:documentation xml:lang="it">Nome del gestore del portafoglio</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Název the portfolio manager</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="StartDate" type="xs:date">
@@ -483,6 +514,7 @@
                                  <xs:documentation xml:lang="nl">Start datum van welke fonds beheerder was responsible voor managing portefeuille</xs:documentation>
                                  <xs:documentation xml:lang="es">Fecha de inicio desde la cual el gestor del fondo fue responsable de la gestion de la cartera</xs:documentation>
                                  <xs:documentation xml:lang="it">Data di inizio dalla quale il gestore del fondo era responsabile della gestione del portafoglio</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Start date from which the fund manager was responsible for managing the portfolio</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="Role" type="xs:string">
@@ -493,6 +525,7 @@
                                  <xs:documentation xml:lang="nl">Role van portefeuille beheerder</xs:documentation>
                                  <xs:documentation xml:lang="es">Rol del gestor de cartera</xs:documentation>
                                  <xs:documentation xml:lang="it">Ruolo del gestore di portafoglio</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Role of the portfolio manager</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="YearOfBirth" type="xs:gYear">
@@ -503,6 +536,7 @@
                                  <xs:documentation xml:lang="nl">Datum van birth van portefeuille beheerder</xs:documentation>
                                  <xs:documentation xml:lang="es">Fecha de nacimiento del gestor de cartera</xs:documentation>
                                  <xs:documentation xml:lang="it">Data di nascita del gestore del portafoglio</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Datum birth of the portfolio manager</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="Gender">
@@ -513,6 +547,7 @@
                                  <xs:documentation xml:lang="nl">Gender van portefeuille beheerder</xs:documentation>
                                  <xs:documentation xml:lang="es">Genero del gestor de cartera</xs:documentation>
                                  <xs:documentation xml:lang="it">Sesso del gestore del portafoglio</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Gender of the portfolio manager</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -530,6 +565,7 @@
                                  <xs:documentation xml:lang="nl">Datum wanneer portefeuille beheerder started professioneel career in financial industry</xs:documentation>
                                  <xs:documentation xml:lang="es">Fecha en que el gestor de cartera inicio su carrera profesional en la industria financiera</xs:documentation>
                                  <xs:documentation xml:lang="it">Data in cui il gestore del portafoglio ha iniziato la carriera professionale nel settore finanziario</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Date when the portfolio manager started professional career in the financial industry</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="Biography">
@@ -540,6 +576,7 @@
                                  <xs:documentation xml:lang="nl">Biography van Portefeuille Beheerder</xs:documentation>
                                  <xs:documentation xml:lang="es">Biografia del gestor de cartera</xs:documentation>
                                  <xs:documentation xml:lang="it">Biografia del Gestore di Portafoglio</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Biography of the Portfolio Manager</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -551,6 +588,7 @@
                                           <xs:documentation xml:lang="nl">Brief curriculum vitae (CV) van portefeuille beheerder</xs:documentation>
                                           <xs:documentation xml:lang="es">Breve curriculum vitae (CV) del gestor de cartera</xs:documentation>
                                           <xs:documentation xml:lang="it">Breve curriculum vitae (CV) del gestore del portafoglio</xs:documentation>
+                                          <xs:documentation xml:lang="cs">[AUTO] Brief curriculum vitae (CV) of the portfolio manager</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="BiographyLanguage" type="ISOLanguageCodeType">
@@ -561,6 +599,7 @@
                                           <xs:documentation xml:lang="nl">Language van portefeuille beheerder's brief biography</xs:documentation>
                                           <xs:documentation xml:lang="es">Idioma de la breve biografia del gestor de cartera</xs:documentation>
                                           <xs:documentation xml:lang="it">Lingua della breve biografia del gestore del portafoglio</xs:documentation>
+                                          <xs:documentation xml:lang="cs">[AUTO] Language of the portfolio manager's brief biography</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -580,6 +619,7 @@
                <xs:documentation xml:lang="nl">Benchmarks gebruikt voor vergelijking van fondsprestaties</xs:documentation>
                <xs:documentation xml:lang="es">Benchmarks utilizados para la comparacion del rendimiento del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Benchmark utilizzati per confrontare la performance dei fondi</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Benchmarks used for fund performance comparison</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -601,6 +641,7 @@
                <xs:documentation xml:lang="nl">Hedging strategy van fonds</xs:documentation>
                <xs:documentation xml:lang="es">Estrategia de cobertura del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Strategia di copertura del fondo</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Hedging strategy of the fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="OngoingCosts">
@@ -611,6 +652,7 @@
                <xs:documentation xml:lang="nl">Kosten structuur volgens prospectus</xs:documentation>
                <xs:documentation xml:lang="es">Estructura de comisiones segun el folleto</xs:documentation>
                <xs:documentation xml:lang="it">Struttura tariffaria secondo il prospetto</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Fee structure according to prospectus</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence maxOccurs="unbounded">
@@ -625,6 +667,7 @@
                                  <xs:documentation xml:lang="nl">Kosten type: Ongoing Costs (OGC), Prestatie Kosten, Transactie Costs</xs:documentation>
                                  <xs:documentation xml:lang="es">Tipo de coste: Costes corrientes (OGC), Comision de exito, Costes de transaccion</xs:documentation>
                                  <xs:documentation xml:lang="it">Tipologia di costo: Costi correnti (OGC), Commissione di performance, Costi di transazione</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Cost type: Ongoing Costs (OGC), Performance Fee, Transaction Costs</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -647,6 +690,7 @@
                                  <xs:documentation xml:lang="nl">Absolute bedrag per 10,000 in fonds valuta</xs:documentation>
                                  <xs:documentation xml:lang="es">Importe absoluto por 10.000 en la divisa del fondo</xs:documentation>
                                  <xs:documentation xml:lang="it">Importo assoluto per 10.000 nella valuta del fondo</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Absolute amount per 10,000 in fund currency</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -663,6 +707,7 @@
                <xs:documentation xml:lang="nl">Financial Instrument SFDR Product Type - Referentie naar SFDR regulation article (6, 8, van 9). 6=geen Art.8/9 product, 8=ESG characteristics, 9=ESG objective</xs:documentation>
                <xs:documentation xml:lang="es">Tipo de producto SFDR del instrumento financiero - Referencia al articulo del reglamento SFDR (6, 8 o 9). 6=sin producto Art.8/9, 8=caracteristicas ESG, 9=objetivo ESG</xs:documentation>
                <xs:documentation xml:lang="it">Tipo di prodotto SFDR di strumenti finanziari - Riferimento all'articolo del regolamento SFDR (6, 8 o 9). 6=nessun prodotto Art.8/9, 8=caratteristiche ESG, 9=obiettivo ESG</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Financial Instrument SFDR Product Type - Reference to the SFDR regulation article (6, 8, or 9). 6=no Art.8/9 product, 8=ESG characteristics, 9=ESG objective</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:int">
@@ -683,6 +728,7 @@
          <xs:documentation xml:lang="nl">Statisch gegevens specifiek naar enkel funds (non-umbrella structuur)</xs:documentation>
          <xs:documentation xml:lang="es">Datos estaticos especificos para fondos individuales (estructura no paraguas)</xs:documentation>
          <xs:documentation xml:lang="it">Dati statici specifici dei singoli fondi (struttura non ad ombrello)</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Static data specific to single funds (non-umbrella structure)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="Advisor" type="CompanyType">
@@ -693,6 +739,7 @@
                <xs:documentation xml:lang="nl">Belegging advisor voor enkel fonds</xs:documentation>
                <xs:documentation xml:lang="es">Asesor de inversiones para el fondo individual</xs:documentation>
                <xs:documentation xml:lang="it">Consulente per gli investimenti del fondo unico</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Investment advisor for the single fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Managers">
@@ -703,6 +750,7 @@
                <xs:documentation xml:lang="nl">Belegging managers van enkel fonds</xs:documentation>
                <xs:documentation xml:lang="es">Gestores de inversiones del fondo individual</xs:documentation>
                <xs:documentation xml:lang="it">Gestori degli investimenti del fondo unico</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Investment managers of the single fund</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -718,6 +766,7 @@
                <xs:documentation xml:lang="nl">Belegging policies van enkel fonds</xs:documentation>
                <xs:documentation xml:lang="es">Politicas de inversion del fondo individual</xs:documentation>
                <xs:documentation xml:lang="it">Politiche di investimento del fondo unico</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Investment policies of the single fund</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -733,6 +782,7 @@
                <xs:documentation xml:lang="nl">Aandeel exchanges waar fonds is listed (4-character MIC codes)</xs:documentation>
                <xs:documentation xml:lang="es">Bolsas de valores donde el fondo esta cotizado (codigos MIC de 4 caracteres)</xs:documentation>
                <xs:documentation xml:lang="it">Borse in cui è quotato il fondo (codici MIC a 4 caratteri)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Stock exchanges where the fund is listed (4-character MIC codes)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -754,6 +804,7 @@
                <xs:documentation xml:lang="nl">Indicates als fonds is beurs traded (ETF)</xs:documentation>
                <xs:documentation xml:lang="es">Indica si el fondo cotiza en bolsa (ETF)</xs:documentation>
                <xs:documentation xml:lang="it">Indica se il fondo è negoziato in borsa (ETF)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda the fund is exchange traded (ETF)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FundOfFundFlag" type="xs:boolean">
@@ -764,6 +815,7 @@
                <xs:documentation xml:lang="nl">Indicates als dit is een fonds van funds</xs:documentation>
                <xs:documentation xml:lang="es">Indica si se trata de un fondo de fondos</xs:documentation>
                <xs:documentation xml:lang="it">Indica se si tratta di un fondo di fondi</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda this is a fund of funds</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SocialResponsibleFlag" type="xs:boolean">
@@ -774,6 +826,7 @@
                <xs:documentation xml:lang="nl">Indicates als fonds follows socially responsible belegging criteria</xs:documentation>
                <xs:documentation xml:lang="es">Indica si el fondo sigue criterios de inversion socialmente responsable</xs:documentation>
                <xs:documentation xml:lang="it">Indica se il fondo segue criteri di investimento socialmente responsabili</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda the fund follows socially responsible investment criteria</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ManagementType">
@@ -784,6 +837,7 @@
                <xs:documentation xml:lang="nl">Management type: ACTIVE van PASSIVE</xs:documentation>
                <xs:documentation xml:lang="es">Tipo de gestion: ACTIVE o PASSIVE</xs:documentation>
                <xs:documentation xml:lang="it">Tipo di gestione: ATTIVA o PASSIVA</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Management type: ACTIVE or PASSIVE</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -800,6 +854,7 @@
                <xs:documentation xml:lang="nl">Geeft aan of prijzen worden gepubliceerd</xs:documentation>
                <xs:documentation xml:lang="es">Indica si los precios se publican</xs:documentation>
                <xs:documentation xml:lang="it">Indica se i prezzi sono pubblicati</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda prices are published</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SalesCategory">
@@ -810,6 +865,7 @@
                <xs:documentation xml:lang="nl">Sales categorie: PUBLIC, RETAIL, RETAIL-HNW, SPECIAL</xs:documentation>
                <xs:documentation xml:lang="es">Categoria de venta: PUBLIC, RETAIL, RETAIL-HNW, SPECIAL</xs:documentation>
                <xs:documentation xml:lang="it">Categorie di vendita: PUBLIC, RETAIL, RETAIL-HNW, SPECIAL</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Sales category: PUBLIC, RETAIL, RETAIL-HNW, SPECIAL</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -828,6 +884,7 @@
                <xs:documentation xml:lang="nl">Recommended bezit period in years</xs:documentation>
                <xs:documentation xml:lang="es">Periodo de tenencia recomendado en anos</xs:documentation>
                <xs:documentation xml:lang="it">Periodo di detenzione consigliato in anni</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Recommended holding period in years</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -844,6 +901,7 @@
                <xs:documentation xml:lang="nl">Identifiers van master fonds als dit is een feeder fonds</xs:documentation>
                <xs:documentation xml:lang="es">Identificadores del fondo master si este es un fondo feeder</xs:documentation>
                <xs:documentation xml:lang="it">Identificativi del fondo master se si tratta di un fondo feeder</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Identifiers of the master fund if this is a feeder fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="IsMasterFor" type="IdentifiersType">
@@ -854,6 +912,7 @@
                <xs:documentation xml:lang="nl">Identifiers van feeder funds als dit is een master fonds</xs:documentation>
                <xs:documentation xml:lang="es">Identificadores de los fondos feeder si este es un fondo master</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori dei fondi feeder se si tratta di un fondo master</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Identifiers of feeder funds if this is a master fund</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -866,6 +925,7 @@
          <xs:documentation xml:lang="nl">Container voor bedrijven geassocieerd met een subfund</xs:documentation>
          <xs:documentation xml:lang="es">Contenedor para empresas asociadas con un subfondo</xs:documentation>
          <xs:documentation xml:lang="it">Contenitore per le aziende associate ad un comparto</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Kontejner pro companies associated with a subfund</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="Company" type="SubfundCompanyType"/>
@@ -879,6 +939,7 @@
          <xs:documentation xml:lang="nl">Bedrijf geassocieerd met een subfund met roldefinitie (auditor, custodian, paying agent, etc.)</xs:documentation>
          <xs:documentation xml:lang="es">Empresa asociada con un subfondo con definicion de rol (auditor, custodian, paying agent, etc.)</xs:documentation>
          <xs:documentation xml:lang="it">Società associata ad un comparto con definizione del ruolo (revisore dei conti, banca depositaria, agente pagatore, ecc.)</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Company associated with a subfund with role definition (auditor, custodian, paying agent, etc.)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:choice>
@@ -916,6 +977,7 @@
          <xs:documentation xml:lang="nl">Statisch gegevens specifiek naar subfunds within een umbrella structuur</xs:documentation>
          <xs:documentation xml:lang="es">Datos estaticos especificos para subfondos dentro de una estructura paraguas</xs:documentation>
          <xs:documentation xml:lang="it">Dati statici specifici dei comparti all'interno di una struttura multicomparto</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Static data specific to subfunds within an umbrella structure</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="InceptionDate" type="xs:date">
@@ -926,6 +988,7 @@
                <xs:documentation xml:lang="nl">Oprichting datum van subfund</xs:documentation>
                <xs:documentation xml:lang="es">Fecha de constitucion del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Data di lancio del comparto</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Inception date of subfund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="MaturityDate" type="xs:date">
@@ -936,6 +999,7 @@
                <xs:documentation xml:lang="nl">Maturity datum (planned end datum) van subfund</xs:documentation>
                <xs:documentation xml:lang="es">Fecha de vencimiento (fecha de finalizacion prevista) del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Data di scadenza (data di fine prevista) del comparto</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Maturity date (planned end date) of subfund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="LiquidationDate" type="xs:date">
@@ -946,6 +1010,7 @@
                <xs:documentation xml:lang="nl">Datum wanneer subfund heeft been gesloten (due naar low volume, merger, ...)</xs:documentation>
                <xs:documentation xml:lang="es">Fecha en que el subfondo fue cerrado (debido a bajo volumen, fusion, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Data di chiusura del comparto (a causa di volume ridotto, fusione, ...)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Date when subfund has been closed (due to low volume, merger, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="LiquidationReason">
@@ -956,6 +1021,7 @@
                <xs:documentation xml:lang="nl">Liquidation reason: Client Exit, Low Volume, Merger van Overig</xs:documentation>
                <xs:documentation xml:lang="es">Motivo de liquidacion: Salida de cliente, Bajo volumen, Fusion u Otro</xs:documentation>
                <xs:documentation xml:lang="it">Motivo della liquidazione: uscita del cliente, volume ridotto, fusione o altro</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Liquidation reason: Client Exit, Low Volume, Merger or Other</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -974,6 +1040,7 @@
                <xs:documentation xml:lang="nl">Belegging advisor voor subfund</xs:documentation>
                <xs:documentation xml:lang="es">Asesor de inversiones para el subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Consulente per gli investimenti del comparto</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Investment advisor for the subfund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Companies" type="SubfundCompaniesType">
@@ -984,6 +1051,7 @@
                <xs:documentation xml:lang="nl">Companies related naar subfund met their roles</xs:documentation>
                <xs:documentation xml:lang="es">Empresas relacionadas con el subfondo y sus roles</xs:documentation>
                <xs:documentation xml:lang="it">Società legate al comparto con i rispettivi ruoli</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Companies related to the subfund with their roles</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Managers">
@@ -994,6 +1062,7 @@
                <xs:documentation xml:lang="nl">Belegging managers van subfund</xs:documentation>
                <xs:documentation xml:lang="es">Gestores de inversiones del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Gestori degli investimenti del comparto</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Investment managers of the subfund</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1009,6 +1078,7 @@
                <xs:documentation xml:lang="nl">Belegging policies van subfund</xs:documentation>
                <xs:documentation xml:lang="es">Politicas de inversion del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Politiche di investimento del comparto</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Investment policies of the subfund</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1024,6 +1094,7 @@
                <xs:documentation xml:lang="nl">Aandeel exchanges waar subfund is listed (4-character MIC codes)</xs:documentation>
                <xs:documentation xml:lang="es">Bolsas de valores donde el subfondo esta cotizado (codigos MIC de 4 caracteres)</xs:documentation>
                <xs:documentation xml:lang="it">Borse in cui è quotato il comparto (codici MIC a 4 caratteri)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Stock exchanges where the subfund is listed (4-character MIC codes)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1045,6 +1116,7 @@
                <xs:documentation xml:lang="nl">Indicates als subfund is beurs traded (ETF)</xs:documentation>
                <xs:documentation xml:lang="es">Indica si el subfondo cotiza en bolsa (ETF)</xs:documentation>
                <xs:documentation xml:lang="it">Indica se il comparto è negoziato in borsa (ETF)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda the subfund is exchange traded (ETF)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FundOfFundFlag" type="xs:boolean">
@@ -1055,6 +1127,7 @@
                <xs:documentation xml:lang="nl">Indicates als dit is een fonds van funds</xs:documentation>
                <xs:documentation xml:lang="es">Indica si se trata de un fondo de fondos</xs:documentation>
                <xs:documentation xml:lang="it">Indica se si tratta di un fondo di fondi</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda this is a fund of funds</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SocialResponsibleFlag" type="xs:boolean">
@@ -1065,6 +1138,7 @@
                <xs:documentation xml:lang="nl">Indicates als subfund follows socially responsible belegging criteria</xs:documentation>
                <xs:documentation xml:lang="es">Indica si el subfondo sigue criterios de inversion socialmente responsable</xs:documentation>
                <xs:documentation xml:lang="it">Indica se il comparto segue criteri di investimento socialmente responsabili</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda the subfund follows socially responsible investment criteria</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ManagementType">
@@ -1075,6 +1149,7 @@
                <xs:documentation xml:lang="nl">Management type: ACTIVE van PASSIVE</xs:documentation>
                <xs:documentation xml:lang="es">Tipo de gestion: ACTIVE o PASSIVE</xs:documentation>
                <xs:documentation xml:lang="it">Tipo di gestione: ATTIVA o PASSIVA</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Management type: ACTIVE or PASSIVE</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1093,6 +1168,7 @@
                <xs:documentation xml:lang="nl">Geeft aan of prijzen worden gepubliceerd</xs:documentation>
                <xs:documentation xml:lang="es">Indica si los precios se publican</xs:documentation>
                <xs:documentation xml:lang="it">Indica se i prezzi sono pubblicati</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Označuje, zda prices are published</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="OpenClosedEnded">
@@ -1103,6 +1179,7 @@
                <xs:documentation xml:lang="nl">Bepaalt of aandelen kunnen worden gekocht: OPEN of CLOSED</xs:documentation>
                <xs:documentation xml:lang="es">Define si las participaciones pueden comprarse: OPEN o CLOSED</xs:documentation>
                <xs:documentation xml:lang="it">Definisce se le azioni possono essere acquistate: APERTE o CHIUSE</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Defines whether shares can be bought: OPEN or CLOSED</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1121,6 +1198,7 @@
                <xs:documentation xml:lang="nl">HARD: Nobody can koop new shares. SOFT: Only existing investors can koop new shares</xs:documentation>
                <xs:documentation xml:lang="es">HARD: Nadie puede comprar nuevas participaciones. SOFT: Solo los inversores existentes pueden comprar nuevas participaciones</xs:documentation>
                <xs:documentation xml:lang="it">DIFFICILE: Nessuno può acquistare nuove azioni. SOFT: solo gli investitori esistenti possono acquistare nuove azioni</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] HARD: Nobody can buy new shares. SOFT: Only existing investors can buy new shares</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1138,6 +1216,7 @@
                <xs:documentation xml:lang="nl">Sales categorie: PUBLIC, RETAIL, RETAIL-HNW, SPECIAL</xs:documentation>
                <xs:documentation xml:lang="es">Categoria de venta: PUBLIC, RETAIL, RETAIL-HNW, SPECIAL</xs:documentation>
                <xs:documentation xml:lang="it">Categorie di vendita: PUBLIC, RETAIL, RETAIL-HNW, SPECIAL</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Sales category: PUBLIC, RETAIL, RETAIL-HNW, SPECIAL</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1158,6 +1237,7 @@
                <xs:documentation xml:lang="nl">Recommended bezit period in years</xs:documentation>
                <xs:documentation xml:lang="es">Periodo de tenencia recomendado en anos</xs:documentation>
                <xs:documentation xml:lang="it">Periodo di detenzione consigliato in anni</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Recommended holding period in years</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1174,6 +1254,7 @@
                <xs:documentation xml:lang="nl">Identifiers van master fonds als dit is een feeder fonds</xs:documentation>
                <xs:documentation xml:lang="es">Identificadores del fondo master si este es un fondo feeder</xs:documentation>
                <xs:documentation xml:lang="it">Identificativi del fondo master se si tratta di un fondo feeder</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Identifiers of the master fund if this is a feeder fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="IsMasterFor" type="IdentifiersType">
@@ -1184,6 +1265,7 @@
                <xs:documentation xml:lang="nl">Identifiers van feeder funds als dit is een master fonds</xs:documentation>
                <xs:documentation xml:lang="es">Identificadores de los fondos feeder si este es un fondo master</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori dei fondi feeder se si tratta di un fondo master</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Identifiers of feeder funds if this is a master fund</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FundTexts">
@@ -1194,6 +1276,7 @@
                <xs:documentation xml:lang="nl">Collection van subfund-related texts</xs:documentation>
                <xs:documentation xml:lang="es">Coleccion de textos relacionados con el subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Raccolta di testi relativi ai comparti</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Collection of subfund-related texts</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1209,6 +1292,7 @@
                <xs:documentation xml:lang="nl">Custom attributes voor aanvullend subfund gegevens</xs:documentation>
                <xs:documentation xml:lang="es">Atributos personalizados para datos adicionales del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Attributi personalizzati per dati aggiuntivi sui comparti</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Custom attributes for additional subfund data</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>

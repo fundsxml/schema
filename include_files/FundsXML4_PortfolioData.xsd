@@ -16,6 +16,8 @@
          <xs:documentation xml:lang="es">Contenedor para desgloses de cartera por diferentes dimensiones (moneda, país, tipo de activo, duración, rating, etc.)</xs:documentation>
          <xs:documentation xml:lang="it">Contenitore per la suddivisione del portafoglio in base a varie dimensioni (valuta, paese, tipologia di asset, durata, rating, ecc.)</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Kontejner pro portfolio breakdowns by various dimensions (currency, country, asset type, duration, rating, etc.)</xs:documentation>
+
+         <xs:documentation xml:lang="hu">Tarolo a portfolio megoszlasokhoz kulonbozo dimenziok szerint (penznem, orszag, eszkoz tipus, futamido, besorolas, stb.)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="BreakDown">
@@ -94,6 +96,8 @@
          <xs:documentation xml:lang="es">Cálculos de exposición de cartera con diferentes metodologías (Commitment Approach, AIFMD, etc.)</xs:documentation>
          <xs:documentation xml:lang="it">Calcoli dell'esposizione del portafoglio utilizzando diverse metodologie (approccio basato sugli impegni, AIFMD, ecc.)</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Portfolio exposure calculations using different methodologies (Commitment Approach, AIFMD, etc.)</xs:documentation>
+
+         <xs:documentation xml:lang="hu">Portfolio kitettseg szamitasok kulonbozo modszertanok hasznalataval (kotelezettsegvallalasi megkozelites, AIFMD, stb.)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="Exposure">
@@ -119,6 +123,8 @@
          <xs:documentation xml:lang="es">Tipo de cálculo de valor total alternativo (p.ej. Hold-To-Maturity, Fair Value) con importe</xs:documentation>
          <xs:documentation xml:lang="it">Tipo di calcolo alternativo del valore totale (ad esempio, Hold-To-Maturity, Fair Value) con importo</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Alternative total value calculation type (e.g., Hold-To-Maturity, Fair Value) with amount</xs:documentation>
+
+         <xs:documentation xml:lang="hu">Alternativ teljes ertek szamitasi tipus (pl. lejaratig tartott, valos ertek) osszeggel</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Type" type="xs:string">
@@ -138,6 +144,8 @@
          <xs:documentation xml:lang="es">Datos de cartera completos incluyendo posiciones, transacciones, ganancias, holdings descompuestos y desgloses a fecha NAV</xs:documentation>
          <xs:documentation xml:lang="it">Dati completi del portafoglio, comprese posizioni, transazioni, utili, partecipazioni scomposte e ripartizioni alla data del NAV</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Complete portfolio data including positions, transactions, earnings, decomposed holdings and breakdowns as of NAV date</xs:documentation>
+
+         <xs:documentation xml:lang="hu">Teljes portfolio adat beleertve a poziciokat, tranzakciokat, hozamokat, felbontott befekteteseket es megoszlasokat a NAV datum szerint</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="NavDate" type="xs:date">
@@ -149,6 +157,8 @@
                <xs:documentation xml:lang="es">Fecha NAV para todos los datos en esta sección</xs:documentation>
                <xs:documentation xml:lang="it">NavDate per tutti i dati all'interno di questa sezione</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] NavDate for all data within this section</xs:documentation>
+
+               <xs:documentation xml:lang="hu">NAV datum az osszes adathoz ebben a szakaszban</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Positions" type="PositionsType">
@@ -160,6 +170,8 @@
                <xs:documentation xml:lang="es">Todas las posiciones/holdings del fondo/cartera (incluyendo cuentas, ingresos y comisiones)</xs:documentation>
                <xs:documentation xml:lang="it">Tutte le posizioni/partecipazioni del fondo/portafoglio (compresi conti, utili e commissioni)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] All positions/holdings of fund/portfolio (including accounts, earnings and fees)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">Az alap/portfolio osszes pozicioja/befektetese (beleertve a szamlakat, hozamokat es dijakat)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Transactions" type="TransactionsType">
@@ -171,6 +183,8 @@
                <xs:documentation xml:lang="es">Transacciones dentro de la cartera (valores y otros activos comprados o vendidos)</xs:documentation>
                <xs:documentation xml:lang="it">Operazioni all'interno del portafoglio (titoli e altre attività acquistate o vendute)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Transactions within the portfolio (securities and other assets bought or sold)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">Tranzakciok a portfolion belul (vasarolt vagy eladott ertekpapirok es egyeb eszkozok)</xs:documentation>
             </xs:annotation>
             <xs:key name="transactionID">
                <xs:selector xpath="Transaction"/>
@@ -186,6 +200,8 @@
                <xs:documentation xml:lang="es">Datos de ganancias (cupones, dividendos, distribuciones) resultantes de posiciones en valores</xs:documentation>
                <xs:documentation xml:lang="it">Dati sugli utili (cedole, dividendi, distribuzioni) derivanti da posizioni in titoli</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Earnings data (coupons, dividends, distributions) resulting from security positions</xs:documentation>
+
+               <xs:documentation xml:lang="hu">Hozam adatok (kuponok, osztalekek, szetosztasok) az ertekpapir poziciokbol</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:complexContent>
@@ -207,6 +223,8 @@
                <xs:documentation xml:lang="es">Posiciones descompuestas (los holdings de clases de acciones se reemplazan por las posiciones proporcionales del subfondo)</xs:documentation>
                <xs:documentation xml:lang="it">Posizioni scomposte (le partecipazioni nelle classi di azioni vengono sostituite dalle posizioni ridotte del comparto)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Decomposed positions (holdings of share classes are replaced by the scaled down positions of the subfund)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Decomposed positions (holdings of share classes are replaced by the scaled down positions of the subfund)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="BreakDowns" type="BreakDownsType">
@@ -218,6 +236,8 @@
                <xs:documentation xml:lang="es">Todos los tipos de datos de desglose (incluyendo exposición a divisas)</xs:documentation>
                <xs:documentation xml:lang="it">Tutti i tipi di dati di dettaglio (compresa l'esposizione valutaria)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] All kind of break down data (including currency exposure)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] All kind of break down data (including currency exposure)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="RiskCodes">
@@ -229,6 +249,8 @@
                <xs:documentation xml:lang="es">Lista de códigos de riesgo (indicadores de riesgo, cifras clave de riesgo)</xs:documentation>
                <xs:documentation xml:lang="it">Elenco dei codici di rischio (indicatori di rischio, cifre chiave di rischio)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Seznam risk codes (risk indicators, key risk figures)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] List of risk codes (risk indicators, key risk figures)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -241,6 +263,8 @@
                         <xs:documentation xml:lang="es">Valor del código de riesgo</xs:documentation>
                         <xs:documentation xml:lang="it">Valore del codice di rischio</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Risk code value</xs:documentation>
+
+                        <xs:documentation xml:lang="hu">[AUTO] Risk code value</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -257,6 +281,8 @@
          <xs:documentation xml:lang="es">Posiciones descompuestas look-through donde los holdings de fund-of-fund se reemplazan por las posiciones del subfondo subyacente</xs:documentation>
          <xs:documentation xml:lang="it">Posizioni scomposte look-through in cui le partecipazioni nel fondo di fondi sono sostituite dalle posizioni del comparto sottostante</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Look-through decomposed positions where fund-of-fund holdings are replaced by the underlying subfund positions</xs:documentation>
+
+         <xs:documentation xml:lang="hu">[AUTO] Look-through decomposed positions where fund-of-fund holdings are replaced by the underlying subfund positions</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="LookThroughLevels" type="xs:positiveInteger">
@@ -285,6 +311,8 @@
          <xs:documentation xml:lang="es">Contenedor para todas las posiciones/holdings de cartera</xs:documentation>
          <xs:documentation xml:lang="it">Contenitore per tutte le posizioni/partecipazioni del portafoglio</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Kontejner pro all portfolio positions/holdings</xs:documentation>
+
+         <xs:documentation xml:lang="hu">[AUTO] Container for all portfolio positions/holdings</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="Position" type="PositionType"/>
@@ -299,6 +327,8 @@
          <xs:documentation xml:lang="es">Posición de cartera individual con referencia a datos maestros de activos, cantidad, valor de mercado y detalles contables</xs:documentation>
          <xs:documentation xml:lang="it">Unica posizione di portafoglio con riferimento ad anagrafiche cespiti, quantità, valore di mercato e dettagli contabili</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Single portfolio position with reference to asset master data, quantity, market value and accounting details</xs:documentation>
+
+         <xs:documentation xml:lang="hu">[AUTO] Single portfolio position with reference to asset master data, quantity, market value and accounting details</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="UniqueID">
@@ -310,6 +340,8 @@
                <xs:documentation xml:lang="es">Identificador único que referencia al elemento correspondiente en el bloque AssetMasterData</xs:documentation>
                <xs:documentation xml:lang="it">Identificatore univoco che fa riferimento all'elemento corrispondente nel blocco AssetMasterData</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Unique identifier referencing the corresponding element in the AssetMasterData block</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Unique identifier referencing the corresponding element in the AssetMasterData block</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:IDREF">
@@ -326,6 +358,8 @@
                <xs:documentation xml:lang="es">Identificadores del instrumento (como ISIN, Ticker, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori dello strumento (come ISIN, Ticker, ...)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Identifiers of instrument (like ISIN, Ticker, ...)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">Az instrumentum azonositoi (pl. ISIN, Ticker, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Currency" type="ISOCurrencyCodeType">
@@ -337,6 +371,8 @@
                <xs:documentation xml:lang="es">Moneda de valoración (moneda original del valor/derivado/efectivo). Para FX Forward, esta es la Base CCY.</xs:documentation>
                <xs:documentation xml:lang="it">Valuta di valutazione (valuta originale del titolo/derivato/contanti). Per FX Forward, questo è il CCY di base.</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Valuation currency (original currency of security/derivative/cash). For FX Forward, this is the Base CCY.</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Valuation currency (original currency of security/derivative/cash). For FX Forward, this is the Base CCY.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="TotalValue" type="FundAmountType">
@@ -348,6 +384,8 @@
                <xs:documentation xml:lang="es">Valor total de la posición (incluyendo intereses ...). La suma de todos los valores totales en moneda del fondo debe ser igual al volumen del fondo (NAV total del fondo)</xs:documentation>
                <xs:documentation xml:lang="it">Valore totale della posizione (compresi gli interessi...). La somma di tutti i valori totali nella valuta del fondo deve essere uguale al volume del fondo (nav totale del fondo)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Total value of position (including interests ...). Sum of all total values in fund currency must be equal to fund volume (total nav of fund)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Total value of position (including interests ...). Sum of all total values in fund currency must be equal to fund volume (total nav of fund)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="OtherTotalValues">
@@ -359,6 +397,8 @@
                <xs:documentation xml:lang="es">Valores totales adicionales (p.ej. Hold-To-Maturity)</xs:documentation>
                <xs:documentation xml:lang="it">Ulteriori valori totali (es. Hold-To-Maturity)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Additional total values (e.g. Hold-To-Maturity)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Additional total values (e.g. Hold-To-Maturity)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -377,6 +417,8 @@
                <xs:documentation xml:lang="es">Porcentaje del valor total basado en el valor total de activos (del fondo o clase de acciones)</xs:documentation>
                <xs:documentation xml:lang="it">Percentuale del valore totale in base al valore patrimoniale totale (del fondo o della classe di azioni)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Percentage of total value based on total asset value (of fund or share class)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Percentage of total value based on total asset value (of fund or share class)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="AveragePurchasePrice" type="FundAmountType">
@@ -388,6 +430,8 @@
                <xs:documentation xml:lang="es">Precio promedio de compra (considerando todas las transacciones relacionadas con esta posición)</xs:documentation>
                <xs:documentation xml:lang="it">Prezzo medio di acquisto (considerando tutte le transazioni relative a questa posizione)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Average purchase price (considering all transactions related to this position)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Average purchase price (considering all transactions related to this position)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="AveragePurchaseFXRate" type="FXRatesType">
@@ -399,6 +443,8 @@
                <xs:documentation xml:lang="es">Tipos de cambio promedio de compra (considerando todas las transacciones relacionadas con esta posición)</xs:documentation>
                <xs:documentation xml:lang="it">Tassi medi di cambio di acquisto (considerando tutte le transazioni relative a questa posizione)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Average purchase fx rates (considering all transactions related to this position)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Average purchase fx rates (considering all transactions related to this position)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Exposures" type="ExposureType">
@@ -410,6 +456,8 @@
                <xs:documentation xml:lang="es">Exposición de la posición (para diferentes enfoques)</xs:documentation>
                <xs:documentation xml:lang="it">Esposizione della posizione (per diversi approcci)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Exposure of position (for different approaches)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Exposure of position (for different approaches)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FXRates" type="FXRatesType">
@@ -421,6 +469,8 @@
                <xs:documentation xml:lang="es">Tipos de cambio utilizados para la valoración de la posición</xs:documentation>
                <xs:documentation xml:lang="it">Tassi FX utilizzati per la valutazione della posizione</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] FX rates used for evaluation of position</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] FX rates used for evaluation of position</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PriceDate" type="xs:date">
@@ -432,6 +482,8 @@
                <xs:documentation xml:lang="es">Fecha de la información de precios utilizada para la valoración del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Data delle informazioni sui prezzi prese per la valutazione del fondo</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Datum pricing information taken for fund valuation</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Date of pricing information taken for fund valuation</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PricingSource">
@@ -443,6 +495,8 @@
                <xs:documentation xml:lang="es">Fuente de precios (incluyendo posiciones OTC)</xs:documentation>
                <xs:documentation xml:lang="it">Fonte del prezzo (comprese le posizioni OTC)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Pricing source (including OTC positions)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Pricing source (including OTC positions)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:choice>
@@ -455,6 +509,8 @@
                         <xs:documentation xml:lang="es">Fuente de precios con lista de enumeración</xs:documentation>
                         <xs:documentation xml:lang="it">Origine dei prezzi con elenco di enumerazione</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Pricing source with enumeration list</xs:documentation>
+
+                        <xs:documentation xml:lang="hu">[AUTO] Pricing source with enumeration list</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -480,6 +536,8 @@
                         <xs:documentation xml:lang="es">Fuente de precios en texto libre</xs:documentation>
                         <xs:documentation xml:lang="it">Fonte dei prezzi del testo libero</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Free text pricing source</xs:documentation>
+
+                        <xs:documentation xml:lang="hu">[AUTO] Free text pricing source</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:choice>
@@ -495,6 +553,8 @@
                   <xs:documentation xml:lang="es">Detalles para posiciones de acciones</xs:documentation>
                   <xs:documentation xml:lang="it">Dettagli per le posizioni azionarie</xs:documentation>
                   <xs:documentation xml:lang="cs">[AUTO] Details for equity positions</xs:documentation>
+
+                  <xs:documentation xml:lang="hu">[AUTO] Details for equity positions</xs:documentation>
                </xs:annotation>
                <xs:complexType>
                   <xs:sequence>
@@ -507,6 +567,8 @@
                            <xs:documentation xml:lang="es">Unidades de acciones</xs:documentation>
                            <xs:documentation xml:lang="it">Unità di capitale</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Units of equity</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Units of equity</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -516,6 +578,8 @@
                            <xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -530,6 +594,8 @@
                            <xs:documentation xml:lang="es">Valor de mercado de la posición (excluyendo dividendos)</xs:documentation>
                            <xs:documentation xml:lang="it">Valore di mercato della posizione (esclusi i dividendi)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Market value of position (excluding dividends)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Market value of position (excluding dividends)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="BookRate" type="FundAmountType">
@@ -541,6 +607,8 @@
                            <xs:documentation xml:lang="es">Precio contable</xs:documentation>
                            <xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Book rate</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Book rate</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PurchaseValue" type="FundAmountType">
@@ -552,6 +620,8 @@
                            <xs:documentation xml:lang="es">Valor de compra de la posición</xs:documentation>
                            <xs:documentation xml:lang="it">Valore di acquisto della posizione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Purchase value of position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Purchase value of position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="DividendsDue" type="FundAmountType">
@@ -563,6 +633,8 @@
                            <xs:documentation xml:lang="es">Dividendos a cobrar de la posición</xs:documentation>
                            <xs:documentation xml:lang="it">Dividendi dovuti di posizione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Dividends due of position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Dividends due of position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="LendedFlag" type="xs:boolean">
@@ -574,6 +646,8 @@
                            <xs:documentation xml:lang="es">Indicador de que parte de la posición está prestada</xs:documentation>
                            <xs:documentation xml:lang="it">Flag che indica che parte della posizione è prestata</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Příznak označující that part of position is lended</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Flag indicating that part of position is lended</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="LendedUnits" type="xs:decimal">
@@ -585,6 +659,8 @@
                            <xs:documentation xml:lang="es">Número de acciones prestadas</xs:documentation>
                            <xs:documentation xml:lang="it">Numero di azioni prestate</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Počet lended equities</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Number of lended equities</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="IndicatorRaffled" type="xs:boolean">
@@ -596,6 +672,8 @@
                            <xs:documentation xml:lang="es">Indica si el valor ha sido sorteado</xs:documentation>
                            <xs:documentation xml:lang="it">Indica se la cauzione è stata sorteggiata</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Označuje, zda security has been raffled</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Indicates whether security has been raffled</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -610,6 +688,8 @@
                   <xs:documentation xml:lang="es">Detalles para posiciones de bonos</xs:documentation>
                   <xs:documentation xml:lang="it">Dettagli delle posizioni obbligazionarie</xs:documentation>
                   <xs:documentation xml:lang="cs">[AUTO] Details for bond positions</xs:documentation>
+
+                  <xs:documentation xml:lang="hu">[AUTO] Details for bond positions</xs:documentation>
                </xs:annotation>
                <xs:complexType>
                   <xs:sequence>
@@ -622,6 +702,8 @@
                            <xs:documentation xml:lang="es">Valor nominal (unidades) del bono</xs:documentation>
                            <xs:documentation xml:lang="it">Valore nominale (unità) dell'obbligazione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Nominal value (units) of bond</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Nominal value (units) of bond</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OriginalFace" type="xs:decimal">
@@ -633,6 +715,8 @@
                            <xs:documentation xml:lang="es">Valor nominal de un bono en el momento de la compra</xs:documentation>
                            <xs:documentation xml:lang="it">Valore nominale di un'obbligazione quando viene acquistata</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Par value of a bond when it has been bought</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Par value of a bond when it has been bought</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -644,6 +728,8 @@
                            <xs:documentation xml:lang="es">Precio limpio (en diferentes monedas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo pulito (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Clean price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Clean price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -655,6 +741,8 @@
                            <xs:documentation xml:lang="es">Precios adicionales (p.ej. hold to maturity)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzi aggiuntivi (ad es. mantenuti fino alla scadenza)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Additional prices (e.g. hold to maturity)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Additional prices (e.g. hold to maturity)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="DirtyPrice" type="FundAmountType">
@@ -666,6 +754,8 @@
                            <xs:documentation xml:lang="es">Precio sucio (incluyendo intereses)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo sporco (compresi gli interessi)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Dirty Price (including interests)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Dirty Price (including interests)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="MarketValue" type="FundAmountType">
@@ -677,6 +767,8 @@
                            <xs:documentation xml:lang="es">Valor de mercado de la posición en valores excluyendo intereses</xs:documentation>
                            <xs:documentation xml:lang="it">Valore di mercato della posizione di titolo senza interessi</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Market value of security position without interests</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Market value of security position without interests</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="InterestClaimNet" type="FundAmountType">
@@ -686,6 +778,8 @@
                            <xs:documentation xml:lang="es">Valor neto del derecho a intereses</xs:documentation>
                            <xs:documentation xml:lang="it">Valore netto degli interessi richiesti</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Interest claim net value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Interest claim net value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="InterestClaimGross" type="FundAmountType">
@@ -695,6 +789,8 @@
                            <xs:documentation xml:lang="es">Valor bruto del derecho a intereses</xs:documentation>
                            <xs:documentation xml:lang="it">Valore lordo della richiesta di interessi</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Interest claim gross value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Interest claim gross value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="AccruedInterestDays" type="xs:integer">
@@ -704,6 +800,8 @@
                            <xs:documentation xml:lang="es">Número de días de intereses devengados</xs:documentation>
                            <xs:documentation xml:lang="it">Numero di giorni di interessi maturati</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Počet accrued interest days</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Number of accrued interest days</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="ZeroBondInterestClaimNet" type="FundAmountType">
@@ -713,6 +811,8 @@
                            <xs:documentation xml:lang="es">Valor neto del derecho a intereses de la posición de bonos cupón cero</xs:documentation>
                            <xs:documentation xml:lang="it">Valore netto della richiesta di interessi della posizione obbligazionaria pari a zero</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Interest claim net value of zero bond position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Interest claim net value of zero bond position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0"
@@ -724,6 +824,8 @@
                            <xs:documentation xml:lang="es">Valor bruto del derecho a intereses de la posición de bonos cupón cero</xs:documentation>
                            <xs:documentation xml:lang="it">Valore lordo della richiesta di interessi della posizione obbligazionaria zero</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Interest claim gross value of zero bond position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Interest claim gross value of zero bond position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0"
@@ -735,6 +837,8 @@
                            <xs:documentation xml:lang="es">Derecho de impuesto sobre ganancias de capital de la posición de bonos cupón cero</xs:documentation>
                            <xs:documentation xml:lang="it">Pretesa fiscale sui rendimenti di capitale della posizione obbligazionaria pari a zero</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Capital yields tax claim of zero bond position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Capital yields tax claim of zero bond position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="ZeroBondYield" type="xs:decimal">
@@ -744,6 +848,8 @@
                            <xs:documentation xml:lang="es">Rendimiento del bono cupón cero (porcentaje)</xs:documentation>
                            <xs:documentation xml:lang="it">Rendimento di zero bond (percentuale)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Yield of zero bond (percentage)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Yield of zero bond (percentage)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Indexfactor" type="xs:decimal">
@@ -753,6 +859,8 @@
                            <xs:documentation xml:lang="es">Factor índice del bono</xs:documentation>
                            <xs:documentation xml:lang="it">Fattore indice dell'obbligazione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Index factor of bond</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Index factor of bond</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Poolfactor" type="xs:decimal">
@@ -762,6 +870,8 @@
                            <xs:documentation xml:lang="es">Factor de pool del bono</xs:documentation>
                            <xs:documentation xml:lang="it">Fattore di pool del legame</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Pool factor of bond</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Pool factor of bond</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="BookRate" type="FundAmountType">
@@ -771,6 +881,8 @@
                            <xs:documentation xml:lang="es">Precio contable</xs:documentation>
                            <xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Book rate</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Book rate</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PurchaseValue" type="FundAmountType">
@@ -780,6 +892,8 @@
                            <xs:documentation xml:lang="es">Valor de compra</xs:documentation>
                            <xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Purchase Value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Purchase Value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="AcrualIndexedBond" type="xs:boolean">
@@ -789,6 +903,8 @@
                            <xs:documentation xml:lang="es">Indica si es un bono indexado devengado</xs:documentation>
                            <xs:documentation xml:lang="it">Indica se si tratta di un bond indicizzato alla competenza</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Označuje, zda it is an acrual indexed bond</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Indicates whether it is an acrual indexed bond</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="DateLastCouponPayment" type="xs:date">
@@ -798,6 +914,8 @@
                            <xs:documentation xml:lang="es">Fecha en que se pagará el último cupón</xs:documentation>
                            <xs:documentation xml:lang="it">Data in cui verrà pagato l'ultimo coupon</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Date when last coupon will be payed</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Date when last coupon will be payed</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="LendedFlag" type="xs:boolean">
@@ -807,6 +925,8 @@
                            <xs:documentation xml:lang="es">Indica si (parte de) la posición está prestada</xs:documentation>
                            <xs:documentation xml:lang="it">Indica se (parte della) posizione è prestata</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Označuje, zda (part of) position is lended</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Indicates whether (part of) position is lended</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="LendedUnits" type="xs:decimal">
@@ -816,6 +936,8 @@
                            <xs:documentation xml:lang="es">Número de lended units</xs:documentation>
                            <xs:documentation xml:lang="it">Numero di unità prestate</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Počet lended units</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Number of lended units</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="IndicatorRaffled" type="xs:boolean">
@@ -825,6 +947,8 @@
                            <xs:documentation xml:lang="es">Indica si el bono ha sido sorteado</xs:documentation>
                            <xs:documentation xml:lang="it">Indica se il bond è stato sorteggiato</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Označuje, zda bond has been raffled</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Indicates whether bond has been raffled</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="CollateralValue" type="FundAmountType">
@@ -848,6 +972,8 @@
                            <xs:documentation xml:lang="es">Número de shares</xs:documentation>
                            <xs:documentation xml:lang="it">Numero di azioni</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Počet shares</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Number of shares</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -857,6 +983,8 @@
                            <xs:documentation xml:lang="es">Clean price (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo pulito (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Clean price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Clean price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -871,6 +999,8 @@
                            <xs:documentation xml:lang="es">Precio contable</xs:documentation>
                            <xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Book rate</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Book rate</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PurchaseValue" type="FundAmountType">
@@ -880,6 +1010,8 @@
                            <xs:documentation xml:lang="es">Valor de compra</xs:documentation>
                            <xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Purchase Value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Purchase Value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="DividendsDue" type="FundAmountType">
@@ -889,6 +1021,8 @@
                            <xs:documentation xml:lang="es">Dividends due de la posición</xs:documentation>
                            <xs:documentation xml:lang="it">Dividendi dovuti di posizione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Dividends due of position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Dividends due of position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="LendedFlag" type="xs:boolean">
@@ -898,6 +1032,8 @@
                            <xs:documentation xml:lang="es">Indica si (parte de) la posición está prestada</xs:documentation>
                            <xs:documentation xml:lang="it">Indica se (parte della) posizione è prestata</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Označuje, zda (part of) position is lended</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Indicates whether (part of) position is lended</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="LendedUnits" type="xs:decimal">
@@ -907,6 +1043,8 @@
                            <xs:documentation xml:lang="es">Número de lended units</xs:documentation>
                            <xs:documentation xml:lang="it">Numero di unità prestate</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Počet lended units</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Number of lended units</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="IndicatorRaffled" type="xs:boolean">
@@ -916,6 +1054,8 @@
                            <xs:documentation xml:lang="es">Indica si el bono ha sido sorteado</xs:documentation>
                            <xs:documentation xml:lang="it">Indica se il bond è stato sorteggiato</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Označuje, zda bond has been raffled</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Indicates whether bond has been raffled</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -934,6 +1074,8 @@
                            <xs:documentation xml:lang="es">Unidades de warrant</xs:documentation>
                            <xs:documentation xml:lang="it">Unità di mandato</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Units of warrant</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Units of warrant</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -943,6 +1085,8 @@
                            <xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -957,6 +1101,8 @@
                            <xs:documentation xml:lang="es">Precio contable</xs:documentation>
                            <xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Book rate</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Book rate</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PurchaseValue" type="FundAmountType">
@@ -966,6 +1112,8 @@
                            <xs:documentation xml:lang="es">Valor de compra</xs:documentation>
                            <xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Purchase Value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Purchase Value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -984,6 +1132,8 @@
                            <xs:documentation xml:lang="es">Unidades de certificado</xs:documentation>
                            <xs:documentation xml:lang="it">Unità di certificato</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Units of certificate</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Units of certificate</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="LendedFlag" type="xs:boolean">
@@ -993,6 +1143,8 @@
                            <xs:documentation xml:lang="es">Indica si (parte de) la posición está prestada</xs:documentation>
                            <xs:documentation xml:lang="it">Indica se (parte della) posizione è prestata</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Označuje, zda (part of) position is lended</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Indicates whether (part of) position is lended</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="LendedUnits" type="xs:decimal">
@@ -1002,6 +1154,8 @@
                            <xs:documentation xml:lang="es">Número de lended units</xs:documentation>
                            <xs:documentation xml:lang="it">Numero di unità prestate</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Počet lended units</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Number of lended units</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -1011,6 +1165,8 @@
                            <xs:documentation xml:lang="es">Precio of Certificate (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo del certificato (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price of Certificate (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price of Certificate (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1034,6 +1190,8 @@
                            <xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -1048,6 +1206,8 @@
                            <xs:documentation xml:lang="es">Precio contable</xs:documentation>
                            <xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Book rate</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Book rate</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PurchaseValue" type="FundAmountType">
@@ -1057,6 +1217,8 @@
                            <xs:documentation xml:lang="es">Valor de compra</xs:documentation>
                            <xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Purchase Value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Purchase Value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="HedgeRatio" type="PercentageType">
@@ -1066,6 +1228,8 @@
                            <xs:documentation xml:lang="es">Hedging ratio (porcentaje)</xs:documentation>
                            <xs:documentation xml:lang="it">Rapporto di copertura (percentuale)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Hedging ratio (percentage)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Hedging ratio (percentage)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1084,6 +1248,8 @@
                            <xs:documentation xml:lang="es">Número de contratos (may be negative)</xs:documentation>
                            <xs:documentation xml:lang="it">Numero di contratti (può essere negativo)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Počet contracts (may be negative)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Number of contracts (may be negative)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -1093,6 +1259,8 @@
                            <xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -1107,6 +1275,8 @@
                            <xs:documentation xml:lang="es">Preliminary Profit/Loss (current valuation of future posición)</xs:documentation>
                            <xs:documentation xml:lang="it">Profitto/perdita preliminare (valutazione attuale della posizione futura)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Preliminary Profit/Loss (current valuation of future position)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Preliminary Profit/Loss (current valuation of future position)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="BookRate" type="FundAmountType">
@@ -1116,6 +1286,8 @@
                            <xs:documentation xml:lang="es">Precio contable</xs:documentation>
                            <xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Book rate</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Book rate</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="VariationMarginDaily" type="FundAmountType">
@@ -1125,6 +1297,8 @@
                            <xs:documentation xml:lang="es">Margen de variación diario</xs:documentation>
                            <xs:documentation xml:lang="it">Margine di variazione giornaliero</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Daily variation margin</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Daily variation margin</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="VariationMarginOverall" type="FundAmountType">
@@ -1134,6 +1308,8 @@
                            <xs:documentation xml:lang="es">Overall valor de variation margin</xs:documentation>
                            <xs:documentation xml:lang="it">Valore complessivo del margine di variazione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Overall value of variation margin</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Overall value of variation margin</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="HedgeRatio" type="PercentageType">
@@ -1143,6 +1319,8 @@
                            <xs:documentation xml:lang="es">Hedging ratio (porcentaje)</xs:documentation>
                            <xs:documentation xml:lang="it">Rapporto di copertura (percentuale)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Hedging ratio (percentage)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Hedging ratio (percentage)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1161,6 +1339,8 @@
                            <xs:documentation xml:lang="es">Hedging ratio (porcentaje)</xs:documentation>
                            <xs:documentation xml:lang="it">Rapporto di copertura (percentuale)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Hedging ratio (percentage)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Hedging ratio (percentage)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="FxRateForEvaluation" type="xs:decimal">
@@ -1184,6 +1364,8 @@
                            <xs:documentation xml:lang="es">Hedging ratio (porcentaje)</xs:documentation>
                            <xs:documentation xml:lang="it">Rapporto di copertura (percentuale)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Hedging ratio (percentage)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Hedging ratio (percentage)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="CurrentSpread" type="xs:decimal">
@@ -1244,6 +1426,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="de">Preis der Aktie (in verschiedenen Währungen)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="MarketValue" type="FundAmountType">
@@ -1257,6 +1441,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="de">Zinsabgrenzung</xs:documentation>
                            <xs:documentation xml:lang="it">Maturazione di interessi</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Interest accruals</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Interest accruals</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1347,6 +1533,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Valor de mercado de la posición</xs:documentation>
                            <xs:documentation xml:lang="it">Valore di mercato della posizione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Market value of position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Market value of position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="RentIncome" type="FundAmountType">
@@ -1356,6 +1544,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Ingresos por alquiler</xs:documentation>
                            <xs:documentation xml:lang="it">Reddito da affitto</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Rent income</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Rent income</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="RentAccruals" type="FundAmountType">
@@ -1365,6 +1555,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Rent devengos</xs:documentation>
                            <xs:documentation xml:lang="it">Ratei di affitto</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Rent accruals</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Rent accruals</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="MaintenanceReserve" type="FundAmountType">
@@ -1374,6 +1566,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Reserva de mantenimiento (20%) para el activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Riserva di mantenimento (20%) del patrimonio immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Maintenance reserve (20%) for the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Maintenance reserve (20%) for the real estate asset</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="MaintenanceProvision" type="FundAmountType">
@@ -1383,6 +1577,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Provisión de mantenimiento para el activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Fondo di mantenimento del patrimonio immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Maintenance provision for the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Maintenance provision for the real estate asset</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="AncillaryCosts">
@@ -1392,6 +1588,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Costes accesorios del activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Costi accessori del bene immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Ancillary costs of the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Ancillary costs of the real estate asset</xs:documentation>
                         </xs:annotation>
                         <xs:complexType>
                            <xs:sequence>
@@ -1402,6 +1600,8 @@ negative - paying premiums</xs:documentation>
                                     <xs:documentation xml:lang="es">Costes accesorios pendientes</xs:documentation>
                                     <xs:documentation xml:lang="it">Spese accessorie ancora da liquidare</xs:documentation>
                                     <xs:documentation xml:lang="cs">[AUTO] Ancillary costs outstanding</xs:documentation>
+
+                                    <xs:documentation xml:lang="hu">[AUTO] Ancillary costs outstanding</xs:documentation>
                                  </xs:annotation>
                               </xs:element>
                               <xs:element minOccurs="0" name="Accrued" type="FundAmountType">
@@ -1411,6 +1611,8 @@ negative - paying premiums</xs:documentation>
                                     <xs:documentation xml:lang="es">Costes accesorios ya devengados</xs:documentation>
                                     <xs:documentation xml:lang="it">Costi accessori già maturati</xs:documentation>
                                     <xs:documentation xml:lang="cs">[AUTO] Ancillary costs already accrued</xs:documentation>
+
+                                    <xs:documentation xml:lang="hu">[AUTO] Ancillary costs already accrued</xs:documentation>
                                  </xs:annotation>
                               </xs:element>
                            </xs:sequence>
@@ -1423,6 +1625,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Depósito de alquiler para el activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Deposito cauzionale per l'asset immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Rent deposit for the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Rent deposit for the real estate asset</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="RentReceivables" type="FundAmountType">
@@ -1432,6 +1636,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Cuentas por cobrar de alquiler pendientes</xs:documentation>
                            <xs:documentation xml:lang="it">Crediti per affitti insoluti</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Oustanding rent receivables</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Oustanding rent receivables</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="TaxLiabilities" type="FundAmountType">
@@ -1441,6 +1647,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Pasivos fiscales consolidados para el activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Passività fiscale consolidata per il patrimonio immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Consolidated tax liabilities for the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Consolidated tax liabilities for the real estate asset</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="VacancyCosts" type="FundAmountType">
@@ -1450,6 +1658,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Costes de vacancia del activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Costi di sfitto del bene immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Vacancy costs of the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Vacancy costs of the real estate asset</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PlannedMaintenanceCosts" type="FundAmountType">
@@ -1465,6 +1675,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Otros ingresos del activo inmobiliario; p.ej. cargos de arrendamiento de edificios, etc.</xs:documentation>
                            <xs:documentation xml:lang="it">Altri proventi del patrimonio immobiliare; ad esempio canoni di locazione di edifici, ecc.</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Other income of the real estate asset; e.g.building lease charges etc.</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Other income of the real estate asset; e.g.building lease charges etc.</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherAssets" type="FundAmountType">
@@ -1474,6 +1686,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Otros activos correspondientes al activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Altri beni corrispondenti al patrimonio immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Other assets corresponding to the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Other assets corresponding to the real estate asset</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherLiabilities" type="FundAmountType">
@@ -1483,6 +1697,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Otros pasivos correspondientes al activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Altre passività corrispondenti al patrimonio immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Other liabilities corresponding to the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Other liabilities corresponding to the real estate asset</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0"
@@ -1494,6 +1710,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Valor de mercado actual de otros activos no financieros correspondientes al activo inmobiliario</xs:documentation>
                            <xs:documentation xml:lang="it">Valore corrente di mercato delle altre attività non finanziarie corrispondenti al bene immobiliare</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Current market value of other non financial assets corresponding to the real estate asset</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Current market value of other non financial assets corresponding to the real estate asset</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1512,6 +1730,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Unidades de REIT</xs:documentation>
                            <xs:documentation xml:lang="it">Quote di REIT</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Units of REIT</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Units of REIT</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -1521,6 +1741,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -1535,6 +1757,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Valor de mercado de la posición (excluyendo dividendos)</xs:documentation>
                            <xs:documentation xml:lang="it">Valore di mercato della posizione (esclusi i dividendi)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Market value of position (excluding dividends)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Market value of position (excluding dividends)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PurchaseValue" type="FundAmountType">
@@ -1544,6 +1768,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Purchase value de la posición</xs:documentation>
                            <xs:documentation xml:lang="it">Valore di acquisto della posizione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Purchase value of position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Purchase value of position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="DividendsDue" type="FundAmountType">
@@ -1553,6 +1779,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Dividends due de la posición</xs:documentation>
                            <xs:documentation xml:lang="it">Dividendi dovuti di posizione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Dividends due of position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Dividends due of position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1571,6 +1799,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="MarketValue" type="FundAmountType">
@@ -1585,6 +1815,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Interest devengos</xs:documentation>
                            <xs:documentation xml:lang="it">Maturazione di interessi</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Interest accruals</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Interest accruals</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1603,6 +1835,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Unidades de derecho</xs:documentation>
                            <xs:documentation xml:lang="it">Unità di diritto</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Units of right</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Units of right</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -1612,6 +1846,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -1626,6 +1862,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Valor de mercado de la posición (excluyendo dividendos)</xs:documentation>
                            <xs:documentation xml:lang="it">Valore di mercato della posizione (esclusi i dividendi)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Market value of position (excluding dividends)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Market value of position (excluding dividends)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PurchaseValue" type="FundAmountType">
@@ -1635,6 +1873,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Purchase value de la posición</xs:documentation>
                            <xs:documentation xml:lang="it">Valore di acquisto della posizione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Purchase value of position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Purchase value of position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1647,6 +1887,8 @@ negative - paying premiums</xs:documentation>
                   <xs:documentation xml:lang="es">Detalles para materias primas (vacío)</xs:documentation>
                   <xs:documentation xml:lang="it">Dettagli per le materie prime (vuoto)</xs:documentation>
                   <xs:documentation xml:lang="cs">[AUTO] Details for commodities (empty)</xs:documentation>
+
+                  <xs:documentation xml:lang="hu">[AUTO] Details for commodities (empty)</xs:documentation>
                </xs:annotation>
                <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1661,6 +1903,8 @@ negative - paying premiums</xs:documentation>
                   <xs:documentation xml:lang="es">Detalles para capital privado (vacío)</xs:documentation>
                   <xs:documentation xml:lang="it">Dettagli per private equity (vuoto)</xs:documentation>
                   <xs:documentation xml:lang="cs">[AUTO] Details for private equity (empty)</xs:documentation>
+
+                  <xs:documentation xml:lang="hu">[AUTO] Details for private equity (empty)</xs:documentation>
                </xs:annotation>
                <xs:complexType>
                   <xs:sequence>
@@ -1671,6 +1915,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Qué porcentaje de la empresa (SPV) es propiedad de esta posición</xs:documentation>
                            <xs:documentation xml:lang="it">Quanta percentuale della Società (SPV) è posseduta da questa posizione</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] How many percent of the Company (SPV) is owned by this position</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] How many percent of the Company (SPV) is owned by this position</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1689,6 +1935,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Valor nominal (units) of CP or CD</xs:documentation>
                            <xs:documentation xml:lang="it">Valore nominale (unità) di CP o CD</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Nominal value (units) of CP or CD</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Nominal value (units) of CP or CD</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="Price" type="FundAmountType">
@@ -1698,6 +1946,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Clean price (en diferentes divisas)</xs:documentation>
                            <xs:documentation xml:lang="it">Prezzo pulito (in diverse valute)</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Clean price (in different currencies)</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Clean price (in different currencies)</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="DirtyPrice" type="FundAmountType">
@@ -1717,6 +1967,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Valor neto del derecho a intereses</xs:documentation>
                            <xs:documentation xml:lang="it">Valore netto degli interessi richiesti</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Interest claim net value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Interest claim net value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="InterestClaimGross" type="FundAmountType">
@@ -1726,6 +1978,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Valor bruto del derecho a intereses</xs:documentation>
                            <xs:documentation xml:lang="it">Valore lordo della richiesta di interessi</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Interest claim gross value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Interest claim gross value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="AccruedInterestDays" type="xs:integer">
@@ -1735,6 +1989,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Número de días de intereses devengados</xs:documentation>
                            <xs:documentation xml:lang="it">Numero di giorni di interessi maturati</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Počet accrued interest days</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Number of accrued interest days</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="PurchaseValue" type="FundAmountType">
@@ -1744,6 +2000,8 @@ negative - paying premiums</xs:documentation>
                            <xs:documentation xml:lang="es">Valor de compra</xs:documentation>
                            <xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
                            <xs:documentation xml:lang="cs">[AUTO] Purchase Value</xs:documentation>
+
+                           <xs:documentation xml:lang="hu">[AUTO] Purchase Value</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1757,6 +2015,8 @@ negative - paying premiums</xs:documentation>
                <xs:documentation xml:lang="es">Impuesto sobre ganancias de capital claim de la posición</xs:documentation>
                <xs:documentation xml:lang="it">Rendimenti di capitale pretesa fiscale di posizione</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Capital yields tax claim of position</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Capital yields tax claim of position</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InflationaryAdjustment" type="PercentageType">
@@ -1766,6 +2026,8 @@ negative - paying premiums</xs:documentation>
                <xs:documentation xml:lang="es">Inflationary adjustment de la posición</xs:documentation>
                <xs:documentation xml:lang="it">Aggiustamento inflazionistico della posizione</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Inflationary adjustment of position</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Inflationary adjustment of position</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="RiskCodes">
@@ -1775,6 +2037,8 @@ negative - paying premiums</xs:documentation>
                <xs:documentation xml:lang="es">Risk figures de la posición</xs:documentation>
                <xs:documentation xml:lang="it">Figure di rischio di posizione</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Risk figures of position</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Risk figures of position</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1785,6 +2049,8 @@ negative - paying premiums</xs:documentation>
                         <xs:documentation xml:lang="es">Cifra de riesgo</xs:documentation>
                         <xs:documentation xml:lang="it">Figura di rischio</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Risk figure</xs:documentation>
+
+                        <xs:documentation xml:lang="hu">[AUTO] Risk figure</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1818,6 +2084,8 @@ negative - paying premiums</xs:documentation>
          <xs:documentation xml:lang="es">Detalles del subyacente de la posición incluyendo identificadores, moneda, emisor, precio, delta y ponderación para derivados y productos estructurados</xs:documentation>
          <xs:documentation xml:lang="it">Dettagli della posizione sottostante, inclusi identificatori, valuta, emittente, prezzo, delta e ponderazione per derivati ​​e prodotti strutturati</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Position underlying details including identifiers, currency, issuer, price, delta and weight for derivatives and structured products</xs:documentation>
+
+         <xs:documentation xml:lang="hu">[AUTO] Position underlying details including identifiers, currency, issuer, price, delta and weight for derivatives and structured products</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="UniqueID" type="xs:IDREF"/>
@@ -1840,6 +2108,8 @@ negative - paying premiums</xs:documentation>
          <xs:documentation xml:lang="es">Indicador de riesgo o cifra clave de riesgo (VaR, Duration, Beta, Sharpe Ratio, etc.) con valor y parámetros de cálculo</xs:documentation>
          <xs:documentation xml:lang="it">Indicatore di rischio o indicatore chiave di rischio (VaR, Duration, Beta, Sharpe Ratio, ecc.) con valore e parametri di calcolo</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Risk indicator or key risk figure (VaR, Duration, Beta, Sharpe Ratio, etc.) with value and calculation parameters</xs:documentation>
+
+         <xs:documentation xml:lang="hu">[AUTO] Risk indicator or key risk figure (VaR, Duration, Beta, Sharpe Ratio, etc.) with value and calculation parameters</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:choice>
@@ -1948,6 +2218,8 @@ Yield</xs:documentation>
                <xs:documentation xml:lang="es">Valor de risk code</xs:documentation>
                <xs:documentation xml:lang="it">Valore del codice di rischio</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Hodnota risk code</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Value of risk code</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Frequency" type="FrequencyType">
@@ -1957,6 +2229,8 @@ Yield</xs:documentation>
                <xs:documentation xml:lang="es">Frequency of data utilizado para calculation</xs:documentation>
                <xs:documentation xml:lang="it">Frequenza dei dati utilizzati per il calcolo</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Frequency of data used for calculation</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Frequency of data used for calculation</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DateFrom" type="xs:date">
@@ -1966,6 +2240,8 @@ Yield</xs:documentation>
                <xs:documentation xml:lang="es">Inicio del período para valor de riesgo</xs:documentation>
                <xs:documentation xml:lang="it">Inizio del periodo per il valore di rischio</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Start of period for risk value</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Start of period for risk value</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DateTo" type="xs:date">
@@ -1975,6 +2251,8 @@ Yield</xs:documentation>
                <xs:documentation xml:lang="es">Fin del período para valor de riesgo</xs:documentation>
                <xs:documentation xml:lang="it">Fine del periodo per il valore di rischio</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] End of period for risk value</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] End of period for risk value</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element default="false" name="Annualization" type="xs:boolean">
@@ -1985,6 +2263,8 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
                <xs:documentation xml:lang="es">Indica si risk value has been annualized (false of not applicable)</xs:documentation>
                <xs:documentation xml:lang="it">Indica se il valore del rischio è stato annualizzato (falso o non applicabile)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Označuje, zda risk value has been annualized (false of not applicable)</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Indicates whether risk value has been annualized (false of not applicable)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Description" type="Text1000Type">
@@ -1994,6 +2274,8 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
                <xs:documentation xml:lang="es">Descripción del método de cálculo</xs:documentation>
                <xs:documentation xml:lang="it">Descrizione del metodo di calcolo</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Description of calculation method</xs:documentation>
+
+               <xs:documentation xml:lang="hu">[AUTO] Description of calculation method</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>

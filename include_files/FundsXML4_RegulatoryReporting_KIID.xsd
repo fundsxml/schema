@@ -15,6 +15,7 @@
          <xs:documentation xml:lang="es">Tipo contenedor para múltiples UCITS Key Investor Information Documents (KIIDs) según el Reglamento de la Comisión Europea 583/2010</xs:documentation>
          <xs:documentation xml:lang="it">Tipologia di contenitore per più documenti contenenti informazioni chiave per gli investitori (KIID) OICVM ai sensi del Regolamento della Commissione Europea 583/2010</xs:documentation>
          <xs:documentation xml:lang="cs">[AUTO] Container type for multiple UCITS Key Investor Information Documents (KIIDs) according to EU Commission Regulation 583/2010</xs:documentation>
+         <xs:documentation xml:lang="hu">[AUTO] Container Tipus for multiple UCITS Kiemelt Befektetoi Informaciok Documents (KIIDs) according to EU Commission Szabalyozas 583/2010</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="KIID" type="KIIDType"/>
@@ -43,6 +44,9 @@ Per i titoli fissi e le esclusioni di responsabilità, un esempio di testo possi
          <xs:documentation xml:lang="cs">[AUTO] One Key Investor Information Document resulting from a merger of fixed texts (in the appropriate language) and data of a specific fund.
 Annotations include reference to articles numbers of EU Commission Regulation # 583/2010
 For fixed headings and disclaimers, an example of possible or imposed text is displayed between quotes like 'Disclaimer'</xs:documentation>
+         <xs:documentation xml:lang="hu">[AUTO] One Kiemelt Befektetoi Informaciok Dokumentum resulting from a merger of fixed texts (in the appropriate language) and Adat of a specific Alap.
+Annotations include reference to articles numbers of EU Commission Szabalyozas # 583/2010
+For fixed headings and disclaimers, an example of possible or imposed text is displayed between quotes like 'Disclaimer'</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0"
@@ -56,6 +60,7 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
                <xs:documentation xml:lang="es">Identificadores de fondo o clase de participaciones para una fácil conexión con otros datos del fondo o clase de participaciones</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori di fondi o classi di azioni per una facile connessione ad altri dati di fondi o classi di azioni</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Alap or Sorozat identifiers for easy connection to other Alap or Sorozat Adat</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataSupplier" type="DataSupplierType">
@@ -67,6 +72,7 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
                <xs:documentation xml:lang="es">Definición de la fuente de datos (sociedad de inversión, proveedor, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Definizione della fonte dei dati (società di investimento, fornitore, ...)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Definition of data source (investment company, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Definition of Adat source (Befektetes Tarsasag, vendor, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="CoverPage">
@@ -78,6 +84,7 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
                <xs:documentation xml:lang="es">Textos fijos de la portada. Art. 4.2 y 4.3</xs:documentation>
                <xs:documentation xml:lang="it">Testi fissi della copertina. Articoli 4.2 e 4.3</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Cover page fixed texts. Art 4.2 and 4.3</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Cover page fixed texts. Art 4.2 and 4.3</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -90,6 +97,7 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
                         <xs:documentation xml:lang="es">Encabezado 'Datos fundamentales para el inversor'</xs:documentation>
                         <xs:documentation xml:lang="it">Rubrica "Informazioni chiave per gli investitori"</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Heading 'Key Investor Information'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] Heading 'Kiemelt Befektetoi Informaciok'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="GlobalDisclaimer" type="xs:string">
@@ -101,6 +109,7 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
                         <xs:documentation xml:lang="es">'Este documento le proporciona...'</xs:documentation>
                         <xs:documentation xml:lang="it">"Il presente documento fornisce..."</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'This document provides you with...'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'This Dokumentum provides you with...'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -115,6 +124,7 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
                <xs:documentation xml:lang="es">Art. 4-4 Identificación del fondo o clase(s) de participaciones</xs:documentation>
                <xs:documentation xml:lang="it">Art.4-4 Identificazione del fondo o della/e classe/i di azioni</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Art.4-4 Fund or Share class(es) identification</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Art.4-4 Alap or Sorozat(es) identification</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -131,6 +141,7 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
                                  <xs:documentation xml:lang="es">'ISIN:'</xs:documentation>
                                  <xs:documentation xml:lang="it">"ISIN:"</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'ISIN:'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'ISIN:'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="ShareClassISIN" type="xs:string">
@@ -142,6 +153,7 @@ For fixed headings and disclaimers, an example of possible or imposed text is di
                                  <xs:documentation xml:lang="es">Código ISIN de la clase de participaciones</xs:documentation>
                                  <xs:documentation xml:lang="it">Codice ISIN della classe di azioni</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] ISIN code of the share class</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] ISIN Kod of the Sorozat</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="MainShareClassIndicator" type="xs:boolean">
@@ -160,6 +172,8 @@ La rentabilidad y el indicador de riesgo se calculan con los datos de la clase d
 Le performance e l'indicatore di rischio sono calcolati utilizzando i dati delle principali classi di azioni.</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Indicator set to true if the current share class is the main share class.
 Performances and risk indicator are computed with the main share class data.</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Indicator set to true if the current Sorozat is the main Sorozat.
+Performances and Kockazati mutato are computed with the main Sorozat Adat.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -174,6 +188,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">Nombre del fondo paraguas, si lo hay</xs:documentation>
                         <xs:documentation xml:lang="it">Nome del fondo ombrello, se presente</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Umbrella fund name, if any</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] Umbrella Alap Nev, if any</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="SubfundName" type="xs:string">
@@ -185,6 +200,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">Nombre del subfondo o compartimento</xs:documentation>
                         <xs:documentation xml:lang="it">Nome del comparto o del compartimento</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Subfund or compartment name</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] Subfund or compartment Nev</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -199,6 +215,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                <xs:documentation xml:lang="es">'Estos datos fundamentales para el inversor son exactos a...'</xs:documentation>
                <xs:documentation xml:lang="it">"Le informazioni chiave per gli investitori sono accurate al momento..."</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] 'This key investor information is accurate as at..'</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] 'This Kiemelt Befektetoi Informaciok is accurate as at..'</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="PublicationDate" type="xs:date">
@@ -210,6 +227,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                <xs:documentation xml:lang="es">Art. 4-13</xs:documentation>
                <xs:documentation xml:lang="it">Art.4-13</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Art.4-13</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Art.4-13</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="AssetManagementCompany">
@@ -221,6 +239,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                <xs:documentation xml:lang="es">Art. 4-5 y 6</xs:documentation>
                <xs:documentation xml:lang="it">Art.4-5 e 6</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Art.4-5 and 6</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Art.4-5 and 6</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -233,6 +252,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">'Este fondo está gestionado por...'</xs:documentation>
                         <xs:documentation xml:lang="it">"Questo fondo è gestito da..."</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'This fund is managed by...'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'This Alap is managed by...'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="AssetManagementCompanyName" type="xs:string">
@@ -244,6 +264,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">4-5</xs:documentation>
                         <xs:documentation xml:lang="it">4-5</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 4-5</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 4-5</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0"
@@ -257,6 +278,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">4-6</xs:documentation>
                         <xs:documentation xml:lang="it">4-6</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 4-6</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 4-6</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -271,6 +293,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                <xs:documentation xml:lang="es">Idioma utilizado para el KIID actual</xs:documentation>
                <xs:documentation xml:lang="it">Lingua utilizzata per l'attuale KIID</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Language used for the current KIID</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Language used for the current KIID</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ObjectivesAndInvestmentPolicy">
@@ -282,6 +305,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                <xs:documentation xml:lang="es">Art. 7</xs:documentation>
                <xs:documentation xml:lang="it">Art.7</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Art.7</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Art.7</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -294,6 +318,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">'Objetivos y política de inversión'</xs:documentation>
                         <xs:documentation xml:lang="it">"Obiettivi e politica di investimento"</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'Objectives and Investment Policy'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'Objectives and Befektetes Policy'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="GeneralStrategyDescription" type="xs:string">
@@ -305,6 +330,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-1 complemento y/o 7-4</xs:documentation>
                         <xs:documentation xml:lang="it">Complemento 7-1 e/o 7-4</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-1 complement an/or 7-4</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-1 complement an/or 7-4</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="MainAssetsHeading" type="xs:string">
@@ -316,6 +342,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-1a 'Principales categorías de activos'</xs:documentation>
                         <xs:documentation xml:lang="it">7-1a 'Principali categorie di beni'</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-1a 'Main asset categories'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-1a 'Main Eszkoz categories'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element maxOccurs="unbounded" name="FinancialInstruments">
@@ -327,6 +354,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-1a Categorías de instrumentos en los que el fondo puede invertir</xs:documentation>
                         <xs:documentation xml:lang="it">7-1a Categorie di strumenti in cui il fondo può investire</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-1a Instruments categories the fund may invest in</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-1a Instruments categories the Alap may invest in</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -339,6 +367,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">Categoría de instrumentos elegibles</xs:documentation>
                                  <xs:documentation xml:lang="it">Categoria di strumenti ammissibili</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Category of eligible instruments</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Category of eligible instruments</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="InstrumentCategoryDescription" type="xs:string">
@@ -350,6 +379,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">1-7-1c - Descripción de los criterios de selección de categoría de instrumentos (geográficos, económicos, de mercado, ...)</xs:documentation>
                                  <xs:documentation xml:lang="it">1-7-1c - Descrizione dei criteri di selezione delle categorie di strumenti (geografici, economici, di mercato, ...)</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 1-7-1c - Description of instrument category selection criteria (geographical, economic, market, ...)</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 1-7-1c - Leiras of instrument category selection criteria (geographical, economic, market, ...)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -364,6 +394,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-1b 'Frecuencia de suscripción/reembolso: '</xs:documentation>
                         <xs:documentation xml:lang="it">7-1b 'Frequenza di sottoscrizione/rimborso: '</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-1b 'Frequency of Subscription/redemtion: '</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-1b 'Gyakorisag of Subscription/redemtion: '</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DealingFrequency" type="xs:string">
@@ -375,6 +406,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-1b Frecuencia de negociación para suscripción/reembolso (diaria, semanal, mensual, ...)</xs:documentation>
                         <xs:documentation xml:lang="it">7-1b Frequenza di negoziazione per la sottoscrizione/riscatto (giornaliera, settimanale, mensile, ...)</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-1b Dealing frequency for subscription/redemption (daily, weekly, monthly, ...)</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-1b Dealing Gyakorisag for subscription/redemption (Napi, Heti, Havi, ...)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DistributionPolicyHeading" type="xs:string">
@@ -386,6 +418,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-1e 'Política de distribución: '</xs:documentation>
                         <xs:documentation xml:lang="it">7-1e 'Politica di distribuzione: '</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-1e 'Distribution policy: '</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-1e 'Forgalmazas policy: '</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DistributionPolicy" type="xs:string">
@@ -397,6 +430,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-1e Descripción de la política de distribución o capitalización</xs:documentation>
                         <xs:documentation xml:lang="it">7-1e Descrizione della distribuzione o della capitalizzazione</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-1e Distribution or Capitalization description</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-1e Forgalmazas or Capitalization Leiras</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="Benchmark">
@@ -408,6 +442,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-1d Referencia a un índice de referencia</xs:documentation>
                         <xs:documentation xml:lang="it">7-1d Riferimento a un benchmark</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-1d Reference to a benchmark</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-1d Reference to a benchmark</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -420,6 +455,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">'El fondo hace referencia al siguiente índice de referencia: '</xs:documentation>
                                  <xs:documentation xml:lang="it">'Il fondo fa riferimento al seguente benchmark: '</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'The fund refers to the following benchmark: '</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'The Alap refers to the following benchmark: '</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="BenchmarkName" type="xs:string"/>
@@ -432,6 +468,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">Descripción del grado de libertad en relación con el índice de referencia</xs:documentation>
                                  <xs:documentation xml:lang="it">Descrizione del grado di libertà rispetto al benchmark</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Description of the degree of freedom in relation to the benchmark</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Leiras of the degree of freedom in relation to the benchmark</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -446,6 +483,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">7-2</xs:documentation>
                         <xs:documentation xml:lang="it">7-2</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 7-2</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 7-2</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -458,6 +496,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">'Información adicional sobre la estrategia: '</xs:documentation>
                                  <xs:documentation xml:lang="it">'Ulteriori informazioni sulla strategia: '</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'Additional information on strategy: '</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'Additional Informacio on strategy: '</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="DebtSecuritiesDetails">
@@ -469,6 +508,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">7-2a</xs:documentation>
                                  <xs:documentation xml:lang="it">7-2a</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 7-2a</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 7-2a</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -481,6 +521,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">7-2a Indicación de los emisores permitidos: gobiernos, empresas,...</xs:documentation>
                                           <xs:documentation xml:lang="it">7-2a Indicazione degli emittenti consentiti: governi, imprese,...</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 7-2a Indication of issuers allowed: governments, corporate,...</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 7-2a Indication of issuers allowed: governments, corporate,...</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="MinimumRating" type="xs:string">
@@ -492,6 +533,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">7-2a</xs:documentation>
                                           <xs:documentation xml:lang="it">7-2a</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 7-2a</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 7-2a</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -506,6 +548,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">7-2c Crecimiento, Valor o altos dividendos</xs:documentation>
                                  <xs:documentation xml:lang="it">7-2c Crescita, valore o dividendi elevati</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 7-2c Growth, Value or High dividends</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 7-2c Growth, Ertek or High dividends</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="SpecificTechniquesHeading" type="xs:string">
@@ -517,6 +560,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">7-2d 'Técnicas específicas de gestión de activos utilizadas: '</xs:documentation>
                                  <xs:documentation xml:lang="it">7-2d 'Tecniche specifiche di gestione patrimoniale utilizzate:'</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 7-2d 'Specific asset management techniques used: '</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 7-2d 'Specific Eszkoz management techniques used: '</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="SpecificTechniquesDescription" type="xs:string">
@@ -528,6 +572,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">7-2d Ej. Cobertura, arbitraje, apalancamiento, etc.</xs:documentation>
                                  <xs:documentation xml:lang="it">7-2d Es. Copertura, arbitraggio, leva finanziaria, ecc.</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 7-2d Eg. Hedging, arbitrage, leverage, etc.</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 7-2d Eg. Hedging, arbitrage, leverage, etc.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="TransactionsCostsStatement" type="xs:string">
@@ -539,6 +584,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">1-7-2e Impacto de los costes de transacción de la cartera debido a la estrategia del fondo</xs:documentation>
                                  <xs:documentation xml:lang="it">1-7-2e Impatto dei costi di transazione del portafoglio dovuti alla strategia del fondo</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 1-7-2e Impact of portfolio transaction costs due to the fund strategy</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 1-7-2e Impact of portfolio Tranzakcio Koltsegek due to the Alap strategy</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="MinimumRecommendedTermHeading" type="xs:string">
@@ -550,6 +596,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">7-1f 'Recomendación: este fondo puede no ser apropiado para inversores...'</xs:documentation>
                                  <xs:documentation xml:lang="it">7-1f "Raccomandazione: questo fondo potrebbe non essere adatto agli investitori..."</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 7-1f 'Recommendation: this fund may not be appropriate for investors...'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 7-1f 'Recommendation: this Alap may not be appropriate for investors...'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="MinimumRecommendedTerm" type="xs:string">
@@ -561,6 +608,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">1-7-2f Declaración sobre el período mínimo de tenencia como elemento esencial</xs:documentation>
                                  <xs:documentation xml:lang="it">1-7-2f Dichiarazione sul periodo minimo di detenzione come elemento essenziale</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 1-7-2f Statement on minimum holding period as an essential element</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 1-7-2f Statement on minimum Tartasi idoszak as an essential element</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -575,6 +623,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">Art. 7-2b y 36 Información adicional para un fondo estructurado</xs:documentation>
                         <xs:documentation xml:lang="it">Art.7-2b e 36 Informazioni aggiuntive per un fondo strutturato</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Art.7-2b and 36 Additional information for a structured fund</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] Art.7-2b and 36 Additional Informacio for a structured Alap</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -587,6 +636,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">Descripción de los elementos necesarios para una correcta comprensión del rendimiento</xs:documentation>
                                  <xs:documentation xml:lang="it">Descrizione degli elementi necessari per una corretta comprensione del pay-off</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Description of elements necessary for a correct understanding of the pay-off</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Leiras of elements necessary for a correct understanding of the pay-off</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="PerformanceFactors" type="xs:string"/>
@@ -599,6 +649,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">Referencias a los detalles del algoritmo (referencia al folleto)</xs:documentation>
                                  <xs:documentation xml:lang="it">Riferimenti ai dettagli dell'algoritmo (riferimento al prospetto)</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] References to the details of the algorithm (reference to the prospectus)</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] References to the details of the algorithm (reference to the prospectus)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element maxOccurs="unbounded" name="PerformanceScenario">
@@ -610,6 +661,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">Art. 36</xs:documentation>
                                  <xs:documentation xml:lang="it">Art.36</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Art.36</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Art.36</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -624,6 +676,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">Descripción del escenario de rentabilidad</xs:documentation>
                                           <xs:documentation xml:lang="it">Descrizione dello scenario prestazionale</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Description of the performance scenario</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] Leiras of the Teljesitmeny forgatokonyv</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="ScenarioResultingPay-off" type="xs:decimal">
@@ -635,6 +688,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">Porcentaje</xs:documentation>
                                           <xs:documentation xml:lang="it">Percentuale</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Percentage</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] Szazalek</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -649,6 +703,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">36-6 Los escenarios son solo ejemplos de posibles situaciones</xs:documentation>
                                  <xs:documentation xml:lang="it">36-6 Gli scenari sono solo esempi di possibili situazioni</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 36-6 Scenarios are just examples of possible situations</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 36-6 Scenarios are just examples of possible situations</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -666,6 +721,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                <xs:documentation xml:lang="es">Art. 8</xs:documentation>
                <xs:documentation xml:lang="it">Art.8</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Art.8</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Art.8</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -678,6 +734,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">8-1 'Perfil de riesgo y remuneración'</xs:documentation>
                         <xs:documentation xml:lang="it">8-1 'Profilo di rischio e rendimento'</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 8-1 'Risk and Return Profile'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 8-1 'Kockazat and Hozam Profile'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="SyntheticRiskIndicator">
@@ -695,6 +752,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">'Menor riesgo'</xs:documentation>
                                           <xs:documentation xml:lang="it">"Rischio inferiore"</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 'Lower risk'</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 'Lower Kockazat'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="UpperRight" type="xs:string">
@@ -706,6 +764,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">'Mayor riesgo'</xs:documentation>
                                           <xs:documentation xml:lang="it">"Rischio più alto"</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 'Higher risk'</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 'Higher Kockazat'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="LowerLeft" type="xs:string">
@@ -717,6 +776,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">'Remuneración típicamente inferior'</xs:documentation>
                                           <xs:documentation xml:lang="it">"Rendimenti generalmente più bassi"</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 'Typically lower rewards'</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 'Typically lower rewards'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="LowerRight" type="xs:string">
@@ -728,6 +788,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">'Remuneración típicamente superior'</xs:documentation>
                                           <xs:documentation xml:lang="it">"Premi generalmente più alti"</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 'Typically higher rewards'</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 'Typically higher rewards'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -742,6 +803,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">8-4a a 8-4d</xs:documentation>
                                  <xs:documentation xml:lang="it">da 8-4a a 8-4d</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 8-4a to 8-4d</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 8-4a to 8-4d</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -754,6 +816,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">'Comentarios sobre el indicador de riesgo:'</xs:documentation>
                                           <xs:documentation xml:lang="it">"Commenti sugli indicatori di rischio:"</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 'Risk indicator comments:'</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 'Kockazati mutato comments:'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Explanation4a" type="xs:string">
@@ -765,6 +828,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">8-4a Los datos históricos no constituyen una indicación del perfil de riesgo futuro</xs:documentation>
                                           <xs:documentation xml:lang="it">8-4a I dati storici non sono indicativi del profilo di rischio futuro</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 8-4a Historical data is no indication  of future risk profile</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 8-4a Historical Adat is no indication  of future Kockazat profile</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Explanation4b" type="xs:string">
@@ -776,6 +840,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">8-4b El valor del indicador puede variar con el tiempo</xs:documentation>
                                           <xs:documentation xml:lang="it">8-4b Valore dell'indicatore passibile di variazione nel tempo</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 8-4b Indicator value liable to change over time</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 8-4b Indicator Ertek liable to change over time</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Explanation4c" type="xs:string">
@@ -787,6 +852,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">8-4c El valor más bajo del indicador no significa libre de riesgo</xs:documentation>
                                           <xs:documentation xml:lang="it">8-4c Il valore più basso dell'indicatore non significa assenza di rischi</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 8-4c Lowest indicator value doesn't mean risk-free</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 8-4c Lowest indicator Ertek doesn't mean Kockazat-free</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Explanation4d" type="xs:string">
@@ -798,6 +864,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">8-4d Explicación de por qué el fondo está en su categoría de riesgo</xs:documentation>
                                           <xs:documentation xml:lang="it">8-4d Spiegazione del motivo per cui il fondo si trova nella sua categoria di rischio</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 8-4d  Explanation of why the fund is in its risk category</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 8-4d  Explanation of why the Alap is in its Kockazat category</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="Explanation4e" type="xs:string">
@@ -809,6 +876,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                           <xs:documentation xml:lang="es">Detalles de la garantía o protección del capital</xs:documentation>
                                           <xs:documentation xml:lang="it">Dettagli della garanzia o protezione del capitale</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Details of capital guarantee or protection</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] Details of capital guarantee or protection</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -823,6 +891,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">Valor numérico del indicador de riesgo (de 1 a 7)</xs:documentation>
                                  <xs:documentation xml:lang="it">Valore numerico dell'indicatore di rischio (da 1 a 7)</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Numerical value of risk indicator (from 1 to 7)</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Numerical Ertek of Kockazati mutato (from 1 to 7)</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:int">
@@ -840,6 +909,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">8-3</xs:documentation>
                                  <xs:documentation xml:lang="it">8-3</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 8-3</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 8-3</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -854,6 +924,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">8-1b y 8-5 Factores de riesgo no incluidos en el indicador de riesgo sintético (crédito, liquidez, contraparte, operacional, derivados,...).</xs:documentation>
                         <xs:documentation xml:lang="it">8-1b e 8-5 Fattori di rischio non inclusi nell'indicatore sintetico di rischio (rischi di credito, liquidità, controparte, operativi, derivati,...).</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 8-1b and 8-5 Risk factors not included in the synthetic risk indicator (credit, liquidity,counterparty, operational, derivative risks,...).</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 8-1b and 8-5 Kockazat factors not included in the synthetic Kockazati mutato (credit, liquidity,Partner, operational, Derivativa risks,...).</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -866,6 +937,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">'Otra información sobre los riesgos de este fondo:'</xs:documentation>
                                  <xs:documentation xml:lang="it">"Altre informazioni sui rischi di questo fondo:"</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'Other information about this fund's risks:'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'Other Informacio about this Alap's risks:'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="CreditRisk" type="xs:string">
@@ -877,6 +949,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">8-5a Riesgo de crédito para valores de deuda</xs:documentation>
                                  <xs:documentation xml:lang="it">8-5a Rischio di credito dei titoli di debito</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 8-5a Credit risk for debt securities</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 8-5a Credit Kockazat for debt securities</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="LiquidityRisk" type="xs:string">
@@ -888,6 +961,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">8-5b Descripción del riesgo de liquidez</xs:documentation>
                                  <xs:documentation xml:lang="it">8-5b Descrizione del rischio di liquidità</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 8-5b Liquidity risk description</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 8-5b Liquidity Kockazat Leiras</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="CounterpartyRisk" type="xs:string">
@@ -899,6 +973,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">8-5c Descripción del riesgo de contraparte</xs:documentation>
                                  <xs:documentation xml:lang="it">8-5c Descrizione del rischio di controparte</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 8-5c Counterparty risk description</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 8-5c Partner Kockazat Leiras</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="OperationalRisks" type="xs:string">
@@ -910,6 +985,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">8-5d</xs:documentation>
                                  <xs:documentation xml:lang="it">8-5d</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 8-5d</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 8-5d</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="DerivativesRisk" type="xs:string">
@@ -921,6 +997,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">8-5e Descripción del riesgo de derivados</xs:documentation>
                                  <xs:documentation xml:lang="it">8-5e Descrizione del rischio dei derivati</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 8-5e Derivatives risk description</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 8-5e Derivativak Kockazat Leiras</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -938,6 +1015,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                <xs:documentation xml:lang="es">Art. 10 a 14 Descripción de los gastos aplicables al fondo</xs:documentation>
                <xs:documentation xml:lang="it">Art. da 10 a 14 Descrizione degli oneri applicabili al fondo</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Art.10 to 14 Description of charges applicable to the fund</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Art.10 to 14 Leiras of charges applicable to the Alap</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -950,6 +1028,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">'Gastos de este fondo'</xs:documentation>
                         <xs:documentation xml:lang="it">"Spese per questo fondo"</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'Charges for this Fund'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'Charges for this Alap'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="EntryAndExitChargesHeading" type="xs:string">
@@ -961,6 +1040,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">'Gastos no recurrentes percibidos antes o después de la inversión'</xs:documentation>
                         <xs:documentation xml:lang="it">"Spese una tantum addebitate prima o dopo l'investimento"</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'One-off charges taken before or after you invest'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'One-off charges taken before or after you invest'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="EntryCharges">
@@ -972,6 +1052,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">10-2a Porcentaje máximo de la comisión de suscripción</xs:documentation>
                         <xs:documentation xml:lang="it">10-2a Percentuale massima della quota di abbonamento</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 10-2a Maximum subscription fee percentage</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 10-2a Maximum subscription fee Szazalek</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -984,6 +1065,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">'Gastos de entrada'</xs:documentation>
                                  <xs:documentation xml:lang="it">"Spese di ingresso"</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'Entry charge'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'Belepesi koltseg'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="MaximumPercentage" type="xs:decimal"/>
@@ -999,6 +1081,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">'Este porcentaje es un máximo.'</xs:documentation>
                                  <xs:documentation xml:lang="it">"Questa percentuale è il massimo."</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'This percentage is a maximum.'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'This Szazalek is a maximum.'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1013,6 +1096,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">10-2a Porcentaje máximo de la comisión de reembolso</xs:documentation>
                         <xs:documentation xml:lang="it">10-2a Percentuale massima della commissione di rimborso</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 10-2a Maximum redemption fee percentage</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 10-2a Maximum redemption fee Szazalek</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1025,6 +1109,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">'Gastos de salida'</xs:documentation>
                                  <xs:documentation xml:lang="it">"Commissioni di uscita"</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'Exit charge'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'Kilepesi koltseg'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="MaximumPercentage" type="xs:decimal"/>
@@ -1040,6 +1125,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">'Este porcentaje es un máximo.'</xs:documentation>
                                  <xs:documentation xml:lang="it">"Questa percentuale è il massimo."</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'This percentage is a maximum.'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'This Szazalek is a maximum.'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1054,6 +1140,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">'Los gastos de entrada y salida indicados son importes máximos. En algunos casos podría pagar menos - puede informarse con su asesor financiero.'</xs:documentation>
                         <xs:documentation xml:lang="it">«Le spese di sottoscrizione e di rimborso indicate rappresentano gli importi massimi. In alcuni casi potresti pagare di meno: puoi informarti presso il tuo consulente finanziario.'</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'The entry and exit charges shown are maximum figures. In some cases you might pay less – you can find this out from your financial adviser.'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'The entry and exit charges shown are maximum figures. In some cases you might pay less – you can find this out from your financial adviser.'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0"
@@ -1067,6 +1154,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">'Estos porcentajes son importes máximos.'</xs:documentation>
                         <xs:documentation xml:lang="it">"Queste percentuali sono cifre massime."</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'These percentages are maximum figures.'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'These percentages are maximum figures.'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="AnnualChargesGeneralHeading" type="xs:string">
@@ -1078,6 +1166,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">'Gastos detraídos del fondo a lo largo de un año'</xs:documentation>
                         <xs:documentation xml:lang="it">"Spese prelevate dal fondo in un anno"</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'Charges taken from the fund over a year'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'Charges taken from the Alap over a Ev'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="OngoingCharges">
@@ -1089,6 +1178,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                         <xs:documentation xml:lang="es">10-2b Porcentaje real de los gastos detraídos del fondo (año anterior)</xs:documentation>
                         <xs:documentation xml:lang="it">10-2b Percentuale effettiva delle spese prelevate dal Fondo (anno precedente)</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 10-2b Actual percentage of charges taken from the Fund (previous year)</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 10-2b Actual Szazalek of charges taken from the Alap (previous Ev)</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1101,6 +1191,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">'Gastos corrientes'</xs:documentation>
                                  <xs:documentation xml:lang="it">"Spese correnti"</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'Ongoing charges'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'Folyo koltsegek'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="ActualPercentage" type="xs:decimal">
@@ -1112,6 +1203,7 @@ Performances and risk indicator are computed with the main share class data.</xs
                                  <xs:documentation xml:lang="es">Último porcentaje conocido de gastos corrientes</xs:documentation>
                                  <xs:documentation xml:lang="it">Ultima percentuale nota delle spese correnti</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Last known ongoing charges percentage</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Last known Folyo koltsegek Szazalek</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="ClosingMonth">
@@ -1129,6 +1221,8 @@ MM/AAAA</xs:documentation>
                                  <xs:documentation xml:lang="it">Ultimo mese di chiusura per le spese correnti
 MM/AAAA</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Last closing month for ongoing charges
+MM/YYYY</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Last closing month for Folyo koltsegek
 MM/YYYY</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
@@ -1154,6 +1248,8 @@ MM/YYYY</xs:documentation>
 24-2 Utilizzato anche se si stimano le spese correnti</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 11-1b Statement explaining that the ongoing charges figure is based on the last year's expenses.
 24-2 Also used if ongoing charges are estimated</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 11-1b Statement explaining that the Folyo koltsegek figure is based on the last Ev's expenses.
+24-2 Also used if Folyo koltsegek are estimated</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="OngoingChargesDisclaimer" type="xs:string"/>
@@ -1166,6 +1262,7 @@ MM/YYYY</xs:documentation>
                                  <xs:documentation xml:lang="es">'La cifra de gastos corrientes se basa en los gastos del ejercicio finalizado en ' [MesCierre]</xs:documentation>
                                  <xs:documentation xml:lang="it">"L'importo relativo alle spese correnti si basa sulle spese per l'anno terminato" [ClosingMonth]</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'The ongoing charges figure is based on expenses for the year ending ' [ClosingMonth]</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'The Folyo koltsegek figure is based on expenses for the Ev ending ' [ClosingMonth]</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1180,6 +1277,7 @@ MM/YYYY</xs:documentation>
                         <xs:documentation xml:lang="es">11-2a(i) Declaración explicando que los gastos se utilizan para pagar los costes de funcionamiento del fondo.</xs:documentation>
                         <xs:documentation xml:lang="it">11-2a(i) Dichiarazione che spiega che le spese vengono utilizzate per pagare i costi di gestione del fondo.</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 11-2a(i) Statement explaining that the charges are used to pay the running costs of the fund.</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 11-2a(i) Statement explaining that the charges are used to pay the running Koltsegek of the Alap.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="ChargesDisclaimer2" type="xs:string">
@@ -1191,6 +1289,7 @@ MM/YYYY</xs:documentation>
                         <xs:documentation xml:lang="es">14 Referencia al folleto del fondo para más detalles</xs:documentation>
                         <xs:documentation xml:lang="it">14 Per maggiori dettagli fare riferimento al prospetto del fondo</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 14 Reference to fund's prospectus for more details</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 14 Reference to Alap's prospectus for more details</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="ChargesNotIncludedDisclaimer" type="xs:string">
@@ -1216,6 +1315,9 @@ MM/YYYY</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'This figure may vary from year to year. It excludes:
 •	Performance fees.
 •	Portfolio transaction costs, except in the case of an entry/exit charge paid by the UCITS when buying or selling units in another CIV.'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'This figure may vary from Ev to Ev. It excludes:
+•	Performance fees.
+•	Portfolio Tranzakcio Koltsegek, except in the case of an entry/Kilepesi koltseg paid by the UCITS when buying or selling units in another CIV.'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="OtherFees">
@@ -1227,6 +1329,7 @@ MM/YYYY</xs:documentation>
                         <xs:documentation xml:lang="es">Art. 12 Detalles de otras comisiones</xs:documentation>
                         <xs:documentation xml:lang="it">Art.12 Altri dettagli sulle tariffe</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Art.12 Other fees details</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] Art.12 Other fees details</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1239,6 +1342,7 @@ MM/YYYY</xs:documentation>
                                  <xs:documentation xml:lang="es">'Gastos detraídos del fondo en determinadas condiciones específicas'</xs:documentation>
                                  <xs:documentation xml:lang="it">"Spese prelevate dal fondo a determinate condizioni specifiche"</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'Charges taken from the fund under certain specific conditions'</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'Charges taken from the Alap under certain specific conditions'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherFee">
@@ -1250,6 +1354,7 @@ MM/YYYY</xs:documentation>
                                  <xs:documentation xml:lang="es">Detalles de otras comisiones</xs:documentation>
                                  <xs:documentation xml:lang="it">Altri dettagli sulle tariffe</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Other fees details</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Other fees details</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -1262,6 +1367,7 @@ MM/YYYY</xs:documentation>
                                           <xs:documentation xml:lang="es">Ej. Comisión de rentabilidad, Comisión de canje, Comisiones del fondo principal, Comisión todo incluido,...</xs:documentation>
                                           <xs:documentation xml:lang="it">Per esempio. Commissione di performance, commissione di conversione, commissione del fondo master, commissione tutto compreso,...</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Eg. Performance fee, Switch fee, Master fund fees, All-inclusive fee,...</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] Eg. Performance fee, Switch fee, Master Alap fees, All-inclusive fee,...</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Description" type="xs:string">
@@ -1273,6 +1379,7 @@ MM/YYYY</xs:documentation>
                                           <xs:documentation xml:lang="es">Descripción de la comisión actual (condiciones,...)</xs:documentation>
                                           <xs:documentation xml:lang="it">Descrizione della tariffa attuale (condizioni,...)</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Description of current fee (conditions,...)</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] Leiras of current fee (conditions,...)</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="CalculationDescription" type="xs:string">
@@ -1284,6 +1391,7 @@ MM/YYYY</xs:documentation>
                                           <xs:documentation xml:lang="es">Reglas de cálculo para la comisión actual</xs:documentation>
                                           <xs:documentation xml:lang="it">Regole di calcolo per la tariffa attuale</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Calculation rules for the current fee</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] Calculation rules for the current fee</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="MaximumPercentage" type="xs:decimal"/>
@@ -1300,6 +1408,7 @@ MM/YYYY</xs:documentation>
                                                    <xs:documentation xml:lang="es">Último mes de cierre para la comisión actual MM/AAAA</xs:documentation>
                                                    <xs:documentation xml:lang="it">Ultimo mese di chiusura per la tariffa corrente MM/AAAA</xs:documentation>
                                                    <xs:documentation xml:lang="cs">[AUTO] Last closing month for current fee MM/YYYY</xs:documentation>
+                                                   <xs:documentation xml:lang="hu">[AUTO] Last closing month for current fee MM/YYYY</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:string"/>
@@ -1333,6 +1442,8 @@ No se proporciona para fondos estructurados</xs:documentation>
 Da non erogare per i fondi strutturati</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Art.15 to 19
 Not to be provided for structured funds</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Art.15 to 19
+Not to be provided for structured funds</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1345,6 +1456,7 @@ Not to be provided for structured funds</xs:documentation>
                         <xs:documentation xml:lang="es">'Rentabilidad histórica'</xs:documentation>
                         <xs:documentation xml:lang="it">"Prestazioni passate"</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'Past performance'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'Past performance'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element maxOccurs="10" minOccurs="0" name="Performance">
@@ -1363,6 +1475,8 @@ Solo se utilizan años completos de existencia del fondo.</xs:documentation>
 Vengono utilizzati solo gli anni interi di esistenza del fondo.</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Zero to ten past years perfomances, according to fund existence duration.
 Only full years of existence of the fund are used.</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] Zero to ten past years perfomances, according to Alap existence duration.
+Only full years of existence of the Alap are used.</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1375,6 +1489,7 @@ Only full years of existence of the fund are used.</xs:documentation>
                                  <xs:documentation xml:lang="es">Formato de cuatro dígitos AAAA</xs:documentation>
                                  <xs:documentation xml:lang="it">Formato a quattro cifre AAAA</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Four digits format YYYY</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Four digits format YYYY</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="FundPerformanceValue" type="xs:decimal">
@@ -1386,6 +1501,7 @@ Only full years of existence of the fund are used.</xs:documentation>
                                  <xs:documentation xml:lang="es">Porcentaje</xs:documentation>
                                  <xs:documentation xml:lang="it">Percentuale</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Percentage</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Szazalek</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="BenchmarkPerformanceValue" type="xs:decimal">
@@ -1397,6 +1513,7 @@ Only full years of existence of the fund are used.</xs:documentation>
                                  <xs:documentation xml:lang="es">Rentabilidad del índice de referencia si está disponible (Porcentaje)</xs:documentation>
                                  <xs:documentation xml:lang="it">Performance del benchmark, se disponibile (percentuale)</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Benchmark performance if available (Percentage)</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Benchmark performance if available (Szazalek)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="MaterialChangeIndicator" type="xs:boolean">
@@ -1408,6 +1525,7 @@ Only full years of existence of the fund are used.</xs:documentation>
                                  <xs:documentation xml:lang="es">17-1 y 17-2 Indica que durante el año se produjo un cambio significativo con impacto en la rentabilidad (s/n)</xs:documentation>
                                  <xs:documentation xml:lang="it">17-1 e 17-2 Indica che nel corso dell'anno si è verificato un cambiamento materiale che ha avuto un impatto sulla performance (sì/no)</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 17-1 and 17-2  Indicates that a material change having an impact on performance occurred during the year (y/n)</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 17-1 and 17-2  Indicates that a material change having an impact on performance occurred during the Ev (y/n)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="SimulatedPerformanceIndicator" type="xs:boolean">
@@ -1419,6 +1537,7 @@ Only full years of existence of the fund are used.</xs:documentation>
                                  <xs:documentation xml:lang="es">19-2 Indica que la rentabilidad ha sido simulada</xs:documentation>
                                  <xs:documentation xml:lang="it">19-2 Indica che la performance è stata simulata</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 19-2 Indicates that the performance has been simulated</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 19-2 Indicates that the performance has been simulated</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1461,6 +1580,11 @@ a - Limited value for future performance
 b - List of charges and fees included for computation
 c - Year of creation of the fund
 d - Currency used for calculation</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 15-5a to 5d
+a - Limited Ertek for future performance
+b - List of charges and fees included for computation
+c - Ev of creation of the Alap
+d - Penznem used for calculation</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="CurrencyUsedHeading" type="xs:string">
@@ -1472,6 +1596,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">'Divisa utilizada para el cálculo: ' [DivisaUtilizada]</xs:documentation>
                         <xs:documentation xml:lang="it">'Valuta utilizzata per il calcolo: ' [CurrencyUsed]</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'Currency used for calculation: ' [CurrencyUsed]</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'Penznem used for calculation: ' [CurrencyUsed]</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="CurrencyUsed" type="ISOCurrencyCodeType">
@@ -1483,6 +1608,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">Divisa utilizada para el cálculo de la rentabilidad</xs:documentation>
                         <xs:documentation xml:lang="it">Valuta utilizzata per il calcolo della performance</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] Currency used for performance calculation</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] Penznem used for performance calculation</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="PerformanceYearImpactHeading" type="xs:string">
@@ -1494,6 +1620,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">'Evento con impacto en la rentabilidad en ' [Año con MaterialChangeIndicator="y"]</xs:documentation>
                         <xs:documentation xml:lang="it">"Evento che incide sulle prestazioni in" [Anno con MaterialChandeIndicator="y"]</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'Event impacting performance in ' [Year with MaterialChandeIndicator="y"]</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'Event impacting performance in ' [Ev with MaterialChandeIndicator="y"]</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1508,6 +1635,7 @@ d - Currency used for calculation</xs:documentation>
                <xs:documentation xml:lang="es">Art. 20 y 21</xs:documentation>
                <xs:documentation xml:lang="it">Art.20 e 21</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Art.20 and 21</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] Art.20 and 21</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1520,6 +1648,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">'Información práctica'</xs:documentation>
                         <xs:documentation xml:lang="it">"Informazioni pratiche"</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'Practical information'</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'Practical Informacio'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DepositaryNameHeading" type="xs:string">
@@ -1531,6 +1660,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">'Depositario: '</xs:documentation>
                         <xs:documentation xml:lang="it">'Depositario: '</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 'Depositary: '</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 'Depositary: '</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DepositaryName" type="xs:string">
@@ -1542,6 +1672,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">20-1a</xs:documentation>
                         <xs:documentation xml:lang="it">20-1a</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 20-1a</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 20-1a</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="FurtherInformation">
@@ -1553,6 +1684,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">20-1b y 1c Dónde encontrar...</xs:documentation>
                         <xs:documentation xml:lang="it">20-1b e 1c Dove trovare...</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 20-1b and 1c Where to find...</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 20-1b and 1c Where to find...</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1565,6 +1697,7 @@ d - Currency used for calculation</xs:documentation>
                                  <xs:documentation xml:lang="es">Dónde y cómo obtener información adicional de forma gratuita: folleto, informe anual, NAVs...</xs:documentation>
                                  <xs:documentation xml:lang="it">Dove e come ottenere gratuitamente ulteriori informazioni: prosecuzione, relazione annuale, NAV...</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Where and how to obtain further information free of charge: prosectus, annual report, NAVs...</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Where and how to obtain further Informacio free of charge: prosectus, Eves Jelentes, NAVs...</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="AdditionalInformationLanguagesHeading" type="xs:string">
@@ -1576,6 +1709,7 @@ d - Currency used for calculation</xs:documentation>
                                  <xs:documentation xml:lang="es">'Esta información está disponible en los siguientes idiomas: '</xs:documentation>
                                  <xs:documentation xml:lang="it">'Queste informazioni sono disponibili nelle seguenti lingue: '</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 'This information is available in the following languages: '</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 'This Informacio is available in the following languages: '</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element maxOccurs="unbounded"
@@ -1589,6 +1723,7 @@ d - Currency used for calculation</xs:documentation>
                                  <xs:documentation xml:lang="es">Lista de idiomas disponibles</xs:documentation>
                                  <xs:documentation xml:lang="it">Elenco delle lingue disponibili</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Seznam languages available</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] List of languages available</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1603,6 +1738,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">20-1d Impacto del país de residencia en los impuestos</xs:documentation>
                         <xs:documentation xml:lang="it">20-1d Impatto del paese di residenza sulle tasse</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 20-1d Impact of country of residence on taxes</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 20-1d Impact of country of residence on taxes</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="AMCompanyLiabilityDisclaimer" type="xs:string">
@@ -1614,6 +1750,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">20-1e</xs:documentation>
                         <xs:documentation xml:lang="it">20-1e</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 20-1e</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 20-1e</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="CompartmentSwitchInformation" type="xs:string">
@@ -1625,6 +1762,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">20-3 Declaración sobre la posibilidad de canje entre compartimentos</xs:documentation>
                         <xs:documentation xml:lang="it">20-3 Dichiarazione sulla possibilità di passaggio da un compartimento all'altro</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 20-3 Statement on possibility of switch between compartments</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 20-3 Statement on possibility of switch between compartments</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MainsShareClassInformation" type="xs:string">
@@ -1636,6 +1774,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">20-3 Nombre de la clase de participaciones utilizada para el KIID actual</xs:documentation>
                         <xs:documentation xml:lang="it">20-3 Nome della classe di azioni utilizzata per il KIID attuale</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 20-3 Name of the share class used for the current KIID</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 20-3 Nev of the Sorozat used for the current KIID</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element maxOccurs="unbounded"
@@ -1650,6 +1789,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">21-1 Posibles fuentes adicionales de información: folleto, informes anuales, sitio(s) web, etc.</xs:documentation>
                         <xs:documentation xml:lang="it">21-1 Possibili ulteriori fonti di informazione: prospetto, relazioni annuali, sito(i) web), ecc.</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 21-1 Possible additional sources of information: prospectus, annual reports, website(s), etc.</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 21-1 Possible additional sources of Informacio: prospectus, Eves reports, website(s), etc.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element maxOccurs="3"
@@ -1685,6 +1825,10 @@ d - Currency used for calculation</xs:documentation>
 2a KIID describes a compartment
 2b Information on segregation of assets and liabilities of each compartment
 2c Information on switch between compartments (how to...)</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 25-2 Specific Informacio for compartment funds
+2a KIID describes a compartment
+2b Informacio on segregation of assets and liabilities of each compartment
+2c Informacio on switch between compartments (how to...)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MasterFundInformation">
@@ -1696,6 +1840,7 @@ d - Currency used for calculation</xs:documentation>
                         <xs:documentation xml:lang="es">34 Información adicional si el fondo es un subordinado de un fondo principal</xs:documentation>
                         <xs:documentation xml:lang="it">34 Informazioni aggiuntive se il fondo è feeder di un fondo master</xs:documentation>
                         <xs:documentation xml:lang="cs">[AUTO] 34 Additional information if the fund is a feeder of a master fund</xs:documentation>
+                        <xs:documentation xml:lang="hu">[AUTO] 34 Additional Informacio if the Alap is a feeder of a master Alap</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1708,6 +1853,7 @@ d - Currency used for calculation</xs:documentation>
                                  <xs:documentation xml:lang="es">34-2a</xs:documentation>
                                  <xs:documentation xml:lang="it">34-2a</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] 34-2a</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] 34-2a</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -1720,6 +1866,7 @@ d - Currency used for calculation</xs:documentation>
                                           <xs:documentation xml:lang="es">Declaración explicando dónde encontrar información sobre el fondo principal (folleto, KIID, informes anuales, etc.)</xs:documentation>
                                           <xs:documentation xml:lang="it">Dichiarazione che spiega dove trovare informazioni sul fondo master (prospetto, KIID, relazioni annuali, ecc.)</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Statement explaining where to find information about the master fund (prospectus, KIID, annual reports, etc.)</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] Statement explaining where to find Informacio about the master Alap (prospectus, KIID, Eves reports, etc.)</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element maxOccurs="unbounded" name="Language" type="ISOCountryCodeType">
@@ -1731,6 +1878,7 @@ d - Currency used for calculation</xs:documentation>
                                           <xs:documentation xml:lang="es">Lista de idioma(s) en los que la información está disponible</xs:documentation>
                                           <xs:documentation xml:lang="it">Elenco delle lingue in cui sono disponibili le informazioni</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Seznam language(s) in which information is available</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] List of language(s) in which Informacio is available</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="Media" type="xs:string">
@@ -1742,6 +1890,7 @@ d - Currency used for calculation</xs:documentation>
                                           <xs:documentation xml:lang="es">Medio(s) disponible(s): papel, CD, Web, etc.</xs:documentation>
                                           <xs:documentation xml:lang="it">Supporti disponibili: cartaceo, CD, Web, ecc.</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] Available media(s): paper, CD, Web, etc.</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] Available media(s): paper, CD, Web, etc.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Cost" type="xs:string">
@@ -1753,6 +1902,7 @@ d - Currency used for calculation</xs:documentation>
                                           <xs:documentation xml:lang="es">'Entrega gratuita' o descripción de las tarifas a pagar por los medios</xs:documentation>
                                           <xs:documentation xml:lang="it">"Consegna gratuita" o descrizione delle tariffe da pagare per i media</xs:documentation>
                                           <xs:documentation xml:lang="cs">[AUTO] 'Free delivery' or description of fees to be paid for medias</xs:documentation>
+                                          <xs:documentation xml:lang="hu">[AUTO] 'Free delivery' or Leiras of fees to be paid for medias</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -1767,6 +1917,7 @@ d - Currency used for calculation</xs:documentation>
                                  <xs:documentation xml:lang="es">País de domicilio del fondo principal</xs:documentation>
                                  <xs:documentation xml:lang="it">Paese di domicilio del fondo master</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] Country of domicile of the master fund</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] Country of domicile of the master Alap</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="Disclaimer" type="xs:string">
@@ -1778,6 +1929,7 @@ d - Currency used for calculation</xs:documentation>
                                  <xs:documentation xml:lang="es">Cuando el fondo principal está establecido en otro país, declaración explicando que esto puede afectar el tratamiento fiscal del fondo subordinado.</xs:documentation>
                                  <xs:documentation xml:lang="it">Quando il fondo master è costituito in un altro paese, la dichiarazione che spiega ciò può influenzare il trattamento fiscale del feeder.</xs:documentation>
                                  <xs:documentation xml:lang="cs">[AUTO] When master fund is established in another country, statement explaining this may affect the feeder's tax treatment.</xs:documentation>
+                                 <xs:documentation xml:lang="hu">[AUTO] When master Alap is established in another country, statement explaining this may affect the feeder's tax treatment.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>

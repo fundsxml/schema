@@ -6199,30 +6199,6 @@ Z   New issue</xs:documentation>
                </xs:restriction>
             </xs:simpleType>
          </xs:element>
-         <xs:element name="TradeDate" type="xs:date">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Trade date - the date on which the repo transaction was agreed</xs:documentation>
-               <xs:documentation xml:lang="de">Handelstag - Datum an dem das Repo-Geschäft abgeschlossen wurde</xs:documentation>
-               <xs:documentation xml:lang="fr">Date de transaction - la date à laquelle l'opération repo a été conclue</xs:documentation>
-               <xs:documentation xml:lang="nl">Handelsdatum - de datum waarop de repo-transactie is overeengekomen</xs:documentation>
-               <xs:documentation xml:lang="es">Fecha de negociación - la fecha en que se acordó la operación repo</xs:documentation>
-               <xs:documentation xml:lang="it">Data di negoziazione - la data in cui è stata concordata l'operazione repo</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Trade date - the date on which the repo transaction was agreed</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Trade date - the date on which the repo transaction was agreed</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="SettlementDate" type="xs:date">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Settlement date of near leg (start date) - the date on which cash and collateral are exchanged</xs:documentation>
-               <xs:documentation xml:lang="de">Valutatag der ersten Seite (Startdatum) - Datum an dem Geld und Sicherheiten ausgetauscht werden</xs:documentation>
-               <xs:documentation xml:lang="fr">Date de règlement de la première branche (date de début) - la date à laquelle les espèces et les garanties sont échangées</xs:documentation>
-               <xs:documentation xml:lang="nl">Afwikkelingsdatum van de eerste poot (startdatum) - de datum waarop geld en onderpand worden uitgewisseld</xs:documentation>
-               <xs:documentation xml:lang="es">Fecha de liquidación del tramo inicial (fecha de inicio) - la fecha en que se intercambian efectivo y garantías</xs:documentation>
-               <xs:documentation xml:lang="it">Data di regolamento della prima gamba (data di inizio) - la data in cui vengono scambiati contanti e garanzie</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Settlement date of near leg (start date)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Settlement date of near leg (start date)</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="TermType">
             <xs:annotation>
                <xs:documentation xml:lang="en">Term type of the repo: Open (no fixed maturity), Overnight (T+1), TomNext (T+2), Term (fixed maturity), Extendable (with rollover option)</xs:documentation>
@@ -6243,18 +6219,6 @@ Z   New issue</xs:documentation>
                   <xs:enumeration value="Extendable"/>
                </xs:restriction>
             </xs:simpleType>
-         </xs:element>
-         <xs:element minOccurs="0" name="MaturityDate" type="xs:date">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Maturity date of far leg (end date) - optional for open repos</xs:documentation>
-               <xs:documentation xml:lang="de">Fälligkeitsdatum der zweiten Seite (Enddatum) - optional bei offenen Repos</xs:documentation>
-               <xs:documentation xml:lang="fr">Date d'échéance de la deuxième branche (date de fin) - optionnel pour les repos ouverts</xs:documentation>
-               <xs:documentation xml:lang="nl">Vervaldatum van de tweede poot (einddatum) - optioneel voor open repos</xs:documentation>
-               <xs:documentation xml:lang="es">Fecha de vencimiento del tramo final (fecha de fin) - opcional para repos abiertos</xs:documentation>
-               <xs:documentation xml:lang="it">Data di scadenza della seconda gamba (data di fine) - opzionale per repo aperti</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Maturity date of far leg (end date) - optional for open repos</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Maturity date of far leg (end date) - optional for open repos</xs:documentation>
-            </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="NoticePeriod" type="xs:nonNegativeInteger">
             <xs:annotation>
@@ -6278,55 +6242,6 @@ Z   New issue</xs:documentation>
                <xs:documentation xml:lang="it">Valuta dell'operazione repo (gamba contante)</xs:documentation>
                <xs:documentation xml:lang="cs">[AUTO] Currency of the repo transaction (cash leg)</xs:documentation>
                <xs:documentation xml:lang="hu">[AUTO] Currency of the repo transaction (cash leg)</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="CashAmount" type="xs:decimal">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Principal cash amount (near leg purchase price)</xs:documentation>
-               <xs:documentation xml:lang="de">Nominaler Geldbetrag (Kaufpreis der ersten Seite)</xs:documentation>
-               <xs:documentation xml:lang="fr">Montant en espèces principal (prix d'achat de la première branche)</xs:documentation>
-               <xs:documentation xml:lang="nl">Hoofdsom kasbedrag (aankoopprijs eerste poot)</xs:documentation>
-               <xs:documentation xml:lang="es">Importe de efectivo principal (precio de compra del tramo inicial)</xs:documentation>
-               <xs:documentation xml:lang="it">Importo in contanti principale (prezzo di acquisto della prima gamba)</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Principal cash amount (near leg purchase price)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Principal cash amount (near leg purchase price)</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element minOccurs="0" name="RepurchaseAmount" type="xs:decimal">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Repurchase amount (far leg) - includes principal plus interest. Optional for open repos.</xs:documentation>
-               <xs:documentation xml:lang="de">Rückkaufbetrag (zweite Seite) - beinhaltet Nominalbetrag plus Zinsen. Optional bei offenen Repos.</xs:documentation>
-               <xs:documentation xml:lang="fr">Montant de rachat (deuxième branche) - comprend le principal plus les intérêts. Optionnel pour les repos ouverts.</xs:documentation>
-               <xs:documentation xml:lang="nl">Terugkoopbedrag (tweede poot) - inclusief hoofdsom plus rente. Optioneel voor open repos.</xs:documentation>
-               <xs:documentation xml:lang="es">Importe de recompra (tramo final) - incluye principal más intereses. Opcional para repos abiertos.</xs:documentation>
-               <xs:documentation xml:lang="it">Importo di riacquisto (seconda gamba) - include capitale più interessi. Opzionale per repo aperti.</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Repurchase amount (far leg) - includes principal plus interest</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Repurchase amount (far leg) - includes principal plus interest</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="NominalAmount" type="xs:decimal">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Nominal/face value of the collateral securities</xs:documentation>
-               <xs:documentation xml:lang="de">Nominalbetrag/Nennwert der Sicherheiten</xs:documentation>
-               <xs:documentation xml:lang="fr">Valeur nominale/faciale des titres en garantie</xs:documentation>
-               <xs:documentation xml:lang="nl">Nominale/nominale waarde van de onderpandeffecten</xs:documentation>
-               <xs:documentation xml:lang="es">Valor nominal de los valores en garantía</xs:documentation>
-               <xs:documentation xml:lang="it">Valore nominale/facciale dei titoli in garanzia</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Nominal/face value of the collateral securities</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Nominal/face value of the collateral securities</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="Counterparty" type="CompanyType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Counterparty details</xs:documentation>
-               <xs:documentation xml:lang="de">[AUTO] Details zur Gegenpartei</xs:documentation>
-               <xs:documentation xml:lang="fr">Contrepartie details</xs:documentation>
-               <xs:documentation xml:lang="nl">Tegenpartij details</xs:documentation>
-               <xs:documentation xml:lang="es">Detalles de la contraparte</xs:documentation>
-               <xs:documentation xml:lang="it">Dettagli della controparte</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Counterparty details</xs:documentation>
-
-               <xs:documentation xml:lang="hu">Partner részletei</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element maxOccurs="unbounded"
@@ -6725,18 +6640,6 @@ Z   New issue</xs:documentation>
                </xs:restriction>
             </xs:simpleType>
          </xs:element>
-         <xs:element name="Rate" type="xs:decimal">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Repo rate in percent (for fixed rate) or all-in rate including spread (for floating)</xs:documentation>
-               <xs:documentation xml:lang="de">Repo-Satz in Prozent (bei festem Zinssatz) oder Gesamtzins inkl. Spread (bei variablem Zinssatz)</xs:documentation>
-               <xs:documentation xml:lang="fr">Taux repo en pourcentage (pour taux fixe) ou taux global incluant spread (pour variable)</xs:documentation>
-               <xs:documentation xml:lang="nl">Repo-tarief in procent (voor vaste rente) of totale rente inclusief spread (voor variabele)</xs:documentation>
-               <xs:documentation xml:lang="es">Tasa repo en porcentaje (para tipo fijo) o tasa total incluyendo spread (para variable)</xs:documentation>
-               <xs:documentation xml:lang="it">Tasso repo in percentuale (per tasso fisso) o tasso complessivo incluso spread (per variabile)</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Repo rate in percent</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Repo rate in percent</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element minOccurs="0" name="ReferenceRateIndex">
             <xs:annotation>
                <xs:documentation xml:lang="en">Reference rate index for floating rate repos (e.g., ESTR, SOFR, SONIA, TONAR)</xs:documentation>
@@ -6761,18 +6664,6 @@ Z   New issue</xs:documentation>
                   <xs:enumeration value="Other"/>
                </xs:restriction>
             </xs:simpleType>
-         </xs:element>
-         <xs:element minOccurs="0" name="Spread" type="xs:decimal">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Spread over reference rate in basis points (for floating rate repos)</xs:documentation>
-               <xs:documentation xml:lang="de">Aufschlag über Referenzzins in Basispunkten (für variable Repos)</xs:documentation>
-               <xs:documentation xml:lang="fr">Spread sur le taux de référence en points de base (pour repos à taux variable)</xs:documentation>
-               <xs:documentation xml:lang="nl">Spread boven referentierente in basispunten (voor variabele repos)</xs:documentation>
-               <xs:documentation xml:lang="es">Spread sobre el tipo de referencia en puntos básicos (para repos de tipo variable)</xs:documentation>
-               <xs:documentation xml:lang="it">Spread sul tasso di riferimento in punti base (per repo a tasso variabile)</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Spread over reference rate in basis points</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Spread over reference rate in basis points</xs:documentation>
-            </xs:annotation>
          </xs:element>
          <xs:element name="DayCountConvention">
             <xs:annotation>
@@ -6899,49 +6790,6 @@ Z   New issue</xs:documentation>
                   <xs:enumeration value="OSLA"/>
                   <xs:enumeration value="GMSLA"/>
                   <xs:enumeration value="Other"/>
-               </xs:restriction>
-            </xs:simpleType>
-         </xs:element>
-         <xs:element minOccurs="0" name="ExecutionVenue" type="MICCodeType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">MIC code of execution venue, or XOFF for OTC bilateral transactions</xs:documentation>
-               <xs:documentation xml:lang="de">MIC-Code des Ausführungsplatzes, oder XOFF für bilaterale OTC-Geschäfte</xs:documentation>
-               <xs:documentation xml:lang="fr">Code MIC du lieu d'exécution, ou XOFF pour les transactions bilatérales OTC</xs:documentation>
-               <xs:documentation xml:lang="nl">MIC-code van uitvoeringsplaats, of XOFF voor bilaterale OTC-transacties</xs:documentation>
-               <xs:documentation xml:lang="es">Código MIC del lugar de ejecución, o XOFF para transacciones bilaterales OTC</xs:documentation>
-               <xs:documentation xml:lang="it">Codice MIC della sede di esecuzione, o XOFF per transazioni bilaterali OTC</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] MIC code of execution venue</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] MIC code of execution venue</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element minOccurs="0" name="UTI" type="Text64Type">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Unique Transaction Identifier (UTI) for SFTR reporting</xs:documentation>
-               <xs:documentation xml:lang="de">Unique Transaction Identifier (UTI) für SFTR-Meldungen</xs:documentation>
-               <xs:documentation xml:lang="fr">Identifiant unique de transaction (UTI) pour le reporting SFTR</xs:documentation>
-               <xs:documentation xml:lang="nl">Unique Transaction Identifier (UTI) voor SFTR-rapportage</xs:documentation>
-               <xs:documentation xml:lang="es">Identificador único de transacción (UTI) para informes SFTR</xs:documentation>
-               <xs:documentation xml:lang="it">Identificativo univoco della transazione (UTI) per la segnalazione SFTR</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Unique Transaction Identifier (UTI) for SFTR reporting</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Unique Transaction Identifier (UTI) for SFTR reporting</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element minOccurs="0" name="SettlementType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">Settlement method: DVP - Delivery versus Payment, FOP - Free of Payment, HIC - Hold in Custody</xs:documentation>
-               <xs:documentation xml:lang="de">Abwicklungsmethode: DVP - Lieferung gegen Zahlung, FOP - frei von Zahlung, HIC - Verwahrung beim Verwahrer</xs:documentation>
-               <xs:documentation xml:lang="fr">Méthode de règlement: DVP - Livraison contre paiement, FOP - Libre de paiement, HIC - Conservation en dépôt</xs:documentation>
-               <xs:documentation xml:lang="nl">Afwikkelingsmethode: DVP - Levering tegen betaling, FOP - Vrij van betaling, HIC - Bewaring bij bewaarder</xs:documentation>
-               <xs:documentation xml:lang="es">Método de liquidación: DVP - Entrega contra pago, FOP - Libre de pago, HIC - Custodia en depósito</xs:documentation>
-               <xs:documentation xml:lang="it">Metodo di regolamento: DVP - Consegna contro pagamento, FOP - Libero da pagamento, HIC - Custodia presso depositario</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] Settlement method: DVP, FOP, HIC</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Settlement method: DVP, FOP, HIC</xs:documentation>
-            </xs:annotation>
-            <xs:simpleType>
-               <xs:restriction base="xs:string">
-                  <xs:enumeration value="DVP"/>
-                  <xs:enumeration value="FOP"/>
-                  <xs:enumeration value="HIC"/>
                </xs:restriction>
             </xs:simpleType>
          </xs:element>

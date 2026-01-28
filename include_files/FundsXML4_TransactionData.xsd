@@ -744,15 +744,15 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
          </xs:element>
          <xs:element name="TransactionKind">
             <xs:annotation>
-               <xs:documentation xml:lang="en">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL</xs:documentation>
-               <xs:documentation xml:lang="de">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL</xs:documentation>
-               <xs:documentation xml:lang="fr">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL</xs:documentation>
-               <xs:documentation xml:lang="nl">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL</xs:documentation>
-               <xs:documentation xml:lang="es">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL</xs:documentation>
-               <xs:documentation xml:lang="it">ACQUISTA, VENDI, LENDING_BUY, LENDING_SELL, CORP_ACTION, CONTANTI, REPO_OPEN, REPO_CLOSE, REPO_ROLL</xs:documentation>
-               <xs:documentation xml:lang="cs">[AUTO] BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL</xs:documentation>
+               <xs:documentation xml:lang="en">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
+               <xs:documentation xml:lang="de">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
+               <xs:documentation xml:lang="fr">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
+               <xs:documentation xml:lang="nl">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
+               <xs:documentation xml:lang="es">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
+               <xs:documentation xml:lang="it">ACQUISTA, VENDI, LENDING_BUY, LENDING_SELL, CORP_ACTION, CONTANTI, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
 
-               <xs:documentation xml:lang="hu">[AUTO] BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL</xs:documentation>
+               <xs:documentation xml:lang="hu">[AUTO] BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -765,6 +765,12 @@ Coupon, Dividend, Fund distribution, ...</xs:documentation>
                   <xs:enumeration value="REPO_OPEN"/>
                   <xs:enumeration value="REPO_CLOSE"/>
                   <xs:enumeration value="REPO_ROLL"/>
+                  <xs:enumeration value="DERIV_OPEN"/>
+                  <xs:enumeration value="DERIV_CLOSE"/>
+                  <xs:enumeration value="DERIV_EXERCISE"/>
+                  <xs:enumeration value="DERIV_EXPIRE"/>
+                  <xs:enumeration value="DERIV_ASSIGN"/>
+                  <xs:enumeration value="DERIV_ROLL"/>
                </xs:restriction>
             </xs:simpleType>
          </xs:element>
@@ -1324,6 +1330,259 @@ and further detail related to the respective type of transaction.</xs:documentat
                            </xs:restriction>
                         </xs:simpleType>
                      </xs:element>
+
+                     <!-- New common transaction fields -->
+                     <xs:element name="NumberOfContracts" type="xs:decimal">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Number of contracts traded in this transaction</xs:documentation>
+                           <xs:documentation xml:lang="de">Anzahl der in dieser Transaktion gehandelten Kontrakte</xs:documentation>
+                           <xs:documentation xml:lang="fr">Nombre de contrats negocies dans cette transaction</xs:documentation>
+                           <xs:documentation xml:lang="nl">Aantal contracten verhandeld in deze transactie</xs:documentation>
+                           <xs:documentation xml:lang="es">Numero de contratos negociados en esta transaccion</xs:documentation>
+                           <xs:documentation xml:lang="it">Numero di contratti negoziati in questa transazione</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] Number of contracts traded in this transaction</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] Number of contracts traded in this transaction</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="PricePerContract" type="AmountType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Trade price per contract</xs:documentation>
+                           <xs:documentation xml:lang="de">Handelspreis pro Kontrakt</xs:documentation>
+                           <xs:documentation xml:lang="fr">Prix de negociation par contrat</xs:documentation>
+                           <xs:documentation xml:lang="nl">Handelsprijs per contract</xs:documentation>
+                           <xs:documentation xml:lang="es">Precio de negociacion por contrato</xs:documentation>
+                           <xs:documentation xml:lang="it">Prezzo di negoziazione per contratto</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] Trade price per contract</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] Trade price per contract</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="PremiumAmount" type="AmountType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Premium paid or received for this transaction (EMIR 2.28)</xs:documentation>
+                           <xs:documentation xml:lang="de">Gezahlte oder erhaltene Praemie fuer diese Transaktion (EMIR 2.28)</xs:documentation>
+                           <xs:documentation xml:lang="fr">Prime payee ou recue pour cette transaction (EMIR 2.28)</xs:documentation>
+                           <xs:documentation xml:lang="nl">Premie betaald of ontvangen voor deze transactie (EMIR 2.28)</xs:documentation>
+                           <xs:documentation xml:lang="es">Prima pagada o recibida por esta transaccion (EMIR 2.28)</xs:documentation>
+                           <xs:documentation xml:lang="it">Premio pagato o ricevuto per questa transazione (EMIR 2.28)</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] Premium paid or received for this transaction (EMIR 2.28)</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] Premium paid or received for this transaction (EMIR 2.28)</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="UTI" type="Text64Type">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Unique Transaction Identifier for EMIR reporting (EMIR 1.1)</xs:documentation>
+                           <xs:documentation xml:lang="de">Eindeutige Transaktionskennung fuer EMIR-Meldungen (EMIR 1.1)</xs:documentation>
+                           <xs:documentation xml:lang="fr">Identifiant unique de transaction pour le reporting EMIR (EMIR 1.1)</xs:documentation>
+                           <xs:documentation xml:lang="nl">Unieke transactie-identificatie voor EMIR-rapportage (EMIR 1.1)</xs:documentation>
+                           <xs:documentation xml:lang="es">Identificador unico de transaccion para informes EMIR (EMIR 1.1)</xs:documentation>
+                           <xs:documentation xml:lang="it">Identificatore univoco della transazione per la segnalazione EMIR (EMIR 1.1)</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] Unique Transaction Identifier for EMIR reporting (EMIR 1.1)</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] Unique Transaction Identifier for EMIR reporting (EMIR 1.1)</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="ExecutionVenue" type="MICCodeType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">MIC code of the execution venue where this transaction was executed (EMIR 2.41)</xs:documentation>
+                           <xs:documentation xml:lang="de">MIC-Code des Ausfuehrungsplatzes, an dem diese Transaktion ausgefuehrt wurde (EMIR 2.41)</xs:documentation>
+                           <xs:documentation xml:lang="fr">Code MIC du lieu d'execution ou cette transaction a ete executee (EMIR 2.41)</xs:documentation>
+                           <xs:documentation xml:lang="nl">MIC-code van de uitvoeringslocatie waar deze transactie is uitgevoerd (EMIR 2.41)</xs:documentation>
+                           <xs:documentation xml:lang="es">Codigo MIC del centro de ejecucion donde se ejecuto esta transaccion (EMIR 2.41)</xs:documentation>
+                           <xs:documentation xml:lang="it">Codice MIC della sede di esecuzione in cui e stata eseguita questa transazione (EMIR 2.41)</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] MIC code of the execution venue where this transaction was executed (EMIR 2.41)</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] MIC code of the execution venue where this transaction was executed (EMIR 2.41)</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="ClearingStatus">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Clearing status of this transaction (EMIR 2.35)</xs:documentation>
+                           <xs:documentation xml:lang="de">Clearing-Status dieser Transaktion (EMIR 2.35)</xs:documentation>
+                           <xs:documentation xml:lang="fr">Statut de compensation de cette transaction (EMIR 2.35)</xs:documentation>
+                           <xs:documentation xml:lang="nl">Clearingstatus van deze transactie (EMIR 2.35)</xs:documentation>
+                           <xs:documentation xml:lang="es">Estado de compensacion de esta transaccion (EMIR 2.35)</xs:documentation>
+                           <xs:documentation xml:lang="it">Stato di compensazione di questa transazione (EMIR 2.35)</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] Clearing status of this transaction (EMIR 2.35)</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] Clearing status of this transaction (EMIR 2.35)</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:enumeration value="CLEARED"/>
+                              <xs:enumeration value="NON_CLEARED"/>
+                              <xs:enumeration value="INTENDED"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="CCP" type="CompanyType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Central Counterparty for this transaction (EMIR 2.37)</xs:documentation>
+                           <xs:documentation xml:lang="de">Zentrale Gegenpartei fuer diese Transaktion (EMIR 2.37)</xs:documentation>
+                           <xs:documentation xml:lang="fr">Contrepartie centrale pour cette transaction (EMIR 2.37)</xs:documentation>
+                           <xs:documentation xml:lang="nl">Centrale tegenpartij voor deze transactie (EMIR 2.37)</xs:documentation>
+                           <xs:documentation xml:lang="es">Contraparte central para esta transaccion (EMIR 2.37)</xs:documentation>
+                           <xs:documentation xml:lang="it">Controparte centrale per questa transazione (EMIR 2.37)</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] Central Counterparty for this transaction (EMIR 2.37)</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] Central Counterparty for this transaction (EMIR 2.37)</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="InitialMargin" type="AmountType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Initial margin posted for this position</xs:documentation>
+                           <xs:documentation xml:lang="de">Anfangsmargin fuer diese Position</xs:documentation>
+                           <xs:documentation xml:lang="fr">Marge initiale deposee pour cette position</xs:documentation>
+                           <xs:documentation xml:lang="nl">Initiele marge geplaatst voor deze positie</xs:documentation>
+                           <xs:documentation xml:lang="es">Margen inicial depositado para esta posicion</xs:documentation>
+                           <xs:documentation xml:lang="it">Margine iniziale depositato per questa posizione</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] Initial margin posted for this position</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] Initial margin posted for this position</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="VariationMargin" type="AmountType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Variation margin (daily mark-to-market adjustment)</xs:documentation>
+                           <xs:documentation xml:lang="de">Variation Margin (taegliche Mark-to-Market-Anpassung)</xs:documentation>
+                           <xs:documentation xml:lang="fr">Marge de variation (ajustement quotidien mark-to-market)</xs:documentation>
+                           <xs:documentation xml:lang="nl">Variatiemarge (dagelijkse mark-to-market aanpassing)</xs:documentation>
+                           <xs:documentation xml:lang="es">Margen de variacion (ajuste diario mark-to-market)</xs:documentation>
+                           <xs:documentation xml:lang="it">Margine di variazione (aggiustamento giornaliero mark-to-market)</xs:documentation>
+                           <xs:documentation xml:lang="cs">[AUTO] Variation margin (daily mark-to-market adjustment)</xs:documentation>
+                           <xs:documentation xml:lang="hu">[AUTO] Variation margin (daily mark-to-market adjustment)</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+
+                     <!-- Type-specific transaction fields -->
+                     <xs:choice minOccurs="0">
+                        <xs:element name="OptionTransaction">
+                           <xs:annotation>
+                              <xs:documentation xml:lang="en">Option-specific transaction details</xs:documentation>
+                              <xs:documentation xml:lang="de">Optionsspezifische Transaktionsdetails</xs:documentation>
+                              <xs:documentation xml:lang="fr">Details de transaction specifiques aux options</xs:documentation>
+                              <xs:documentation xml:lang="nl">Optie-specifieke transactiedetails</xs:documentation>
+                              <xs:documentation xml:lang="es">Detalles de transaccion especificos de opciones</xs:documentation>
+                              <xs:documentation xml:lang="it">Dettagli della transazione specifici per le opzioni</xs:documentation>
+                              <xs:documentation xml:lang="cs">[AUTO] Option-specific transaction details</xs:documentation>
+                              <xs:documentation xml:lang="hu">[AUTO] Option-specific transaction details</xs:documentation>
+                           </xs:annotation>
+                           <xs:complexType>
+                              <xs:sequence>
+                                 <xs:element minOccurs="0" name="ExerciseDate" type="xs:date">
+                                    <xs:annotation>
+                                       <xs:documentation xml:lang="en">Date when the option was exercised</xs:documentation>
+                                       <xs:documentation xml:lang="de">Datum, an dem die Option ausgeubt wurde</xs:documentation>
+                                       <xs:documentation xml:lang="fr">Date a laquelle l'option a ete exercee</xs:documentation>
+                                       <xs:documentation xml:lang="nl">Datum waarop de optie is uitgeoefend</xs:documentation>
+                                       <xs:documentation xml:lang="es">Fecha en que se ejercio la opcion</xs:documentation>
+                                       <xs:documentation xml:lang="it">Data in cui l'opzione e stata esercitata</xs:documentation>
+                                       <xs:documentation xml:lang="cs">[AUTO] Date when the option was exercised</xs:documentation>
+                                       <xs:documentation xml:lang="hu">[AUTO] Date when the option was exercised</xs:documentation>
+                                    </xs:annotation>
+                                 </xs:element>
+                                 <xs:element minOccurs="0" name="ExerciseType">
+                                    <xs:annotation>
+                                       <xs:documentation xml:lang="en">Whether the option was fully or partially exercised</xs:documentation>
+                                       <xs:documentation xml:lang="de">Ob die Option vollstaendig oder teilweise ausgeubt wurde</xs:documentation>
+                                       <xs:documentation xml:lang="fr">Si l'option a ete exercee en totalite ou partiellement</xs:documentation>
+                                       <xs:documentation xml:lang="nl">Of de optie volledig of gedeeltelijk is uitgeoefend</xs:documentation>
+                                       <xs:documentation xml:lang="es">Si la opcion se ejercio total o parcialmente</xs:documentation>
+                                       <xs:documentation xml:lang="it">Se l'opzione e stata esercitata completamente o parzialmente</xs:documentation>
+                                       <xs:documentation xml:lang="cs">[AUTO] Whether the option was fully or partially exercised</xs:documentation>
+                                       <xs:documentation xml:lang="hu">[AUTO] Whether the option was fully or partially exercised</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                       <xs:restriction base="xs:string">
+                                          <xs:enumeration value="FULL"/>
+                                          <xs:enumeration value="PARTIAL"/>
+                                       </xs:restriction>
+                                    </xs:simpleType>
+                                 </xs:element>
+                                 <xs:element minOccurs="0" name="ExerciseQuantity" type="xs:decimal">
+                                    <xs:annotation>
+                                       <xs:documentation xml:lang="en">Number of contracts exercised (for partial exercise)</xs:documentation>
+                                       <xs:documentation xml:lang="de">Anzahl der ausgeubten Kontrakte (bei Teilausubung)</xs:documentation>
+                                       <xs:documentation xml:lang="fr">Nombre de contrats exerces (pour exercice partiel)</xs:documentation>
+                                       <xs:documentation xml:lang="nl">Aantal uitgeoefende contracten (bij gedeeltelijke uitoefening)</xs:documentation>
+                                       <xs:documentation xml:lang="es">Numero de contratos ejercidos (para ejercicio parcial)</xs:documentation>
+                                       <xs:documentation xml:lang="it">Numero di contratti esercitati (per esercizio parziale)</xs:documentation>
+                                       <xs:documentation xml:lang="cs">[AUTO] Number of contracts exercised (for partial exercise)</xs:documentation>
+                                       <xs:documentation xml:lang="hu">[AUTO] Number of contracts exercised (for partial exercise)</xs:documentation>
+                                    </xs:annotation>
+                                 </xs:element>
+                              </xs:sequence>
+                           </xs:complexType>
+                        </xs:element>
+                        <xs:element name="FutureTransaction">
+                           <xs:annotation>
+                              <xs:documentation xml:lang="en">Futures-specific transaction details</xs:documentation>
+                              <xs:documentation xml:lang="de">Futures-spezifische Transaktionsdetails</xs:documentation>
+                              <xs:documentation xml:lang="fr">Details de transaction specifiques aux futures</xs:documentation>
+                              <xs:documentation xml:lang="nl">Futures-specifieke transactiedetails</xs:documentation>
+                              <xs:documentation xml:lang="es">Detalles de transaccion especificos de futuros</xs:documentation>
+                              <xs:documentation xml:lang="it">Dettagli della transazione specifici per i futures</xs:documentation>
+                              <xs:documentation xml:lang="cs">[AUTO] Futures-specific transaction details</xs:documentation>
+                              <xs:documentation xml:lang="hu">[AUTO] Futures-specific transaction details</xs:documentation>
+                           </xs:annotation>
+                           <xs:complexType>
+                              <xs:sequence>
+                                 <xs:element minOccurs="0" name="DeliveryIntention">
+                                    <xs:annotation>
+                                       <xs:documentation xml:lang="en">Delivery intention for this position (may differ from contract standard)</xs:documentation>
+                                       <xs:documentation xml:lang="de">Lieferabsicht fuer diese Position (kann vom Kontraktstandard abweichen)</xs:documentation>
+                                       <xs:documentation xml:lang="fr">Intention de livraison pour cette position (peut differer du standard du contrat)</xs:documentation>
+                                       <xs:documentation xml:lang="nl">Leveringsintentie voor deze positie (kan afwijken van contractstandaard)</xs:documentation>
+                                       <xs:documentation xml:lang="es">Intencion de entrega para esta posicion (puede diferir del estandar del contrato)</xs:documentation>
+                                       <xs:documentation xml:lang="it">Intenzione di consegna per questa posizione (puo differire dallo standard del contratto)</xs:documentation>
+                                       <xs:documentation xml:lang="cs">[AUTO] Delivery intention for this position (may differ from contract standard)</xs:documentation>
+                                       <xs:documentation xml:lang="hu">[AUTO] Delivery intention for this position (may differ from contract standard)</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                       <xs:restriction base="xs:string">
+                                          <xs:enumeration value="PHYSICAL"/>
+                                          <xs:enumeration value="CASH"/>
+                                       </xs:restriction>
+                                    </xs:simpleType>
+                                 </xs:element>
+                              </xs:sequence>
+                           </xs:complexType>
+                        </xs:element>
+                        <xs:element name="SwapTransaction">
+                           <xs:annotation>
+                              <xs:documentation xml:lang="en">Swap-specific transaction details</xs:documentation>
+                              <xs:documentation xml:lang="de">Swap-spezifische Transaktionsdetails</xs:documentation>
+                              <xs:documentation xml:lang="fr">Details de transaction specifiques aux swaps</xs:documentation>
+                              <xs:documentation xml:lang="nl">Swap-specifieke transactiedetails</xs:documentation>
+                              <xs:documentation xml:lang="es">Detalles de transaccion especificos de swaps</xs:documentation>
+                              <xs:documentation xml:lang="it">Dettagli della transazione specifici per gli swap</xs:documentation>
+                              <xs:documentation xml:lang="cs">[AUTO] Swap-specific transaction details</xs:documentation>
+                              <xs:documentation xml:lang="hu">[AUTO] Swap-specific transaction details</xs:documentation>
+                           </xs:annotation>
+                           <xs:complexType>
+                              <xs:sequence>
+                                 <xs:element minOccurs="0" name="UpfrontPayment" type="AmountType">
+                                    <xs:annotation>
+                                       <xs:documentation xml:lang="en">Upfront payment at swap inception</xs:documentation>
+                                       <xs:documentation xml:lang="de">Vorauszahlung bei Swap-Abschluss</xs:documentation>
+                                       <xs:documentation xml:lang="fr">Paiement initial a l'ouverture du swap</xs:documentation>
+                                       <xs:documentation xml:lang="nl">Vooruitbetaling bij swapafsluiting</xs:documentation>
+                                       <xs:documentation xml:lang="es">Pago inicial al inicio del swap</xs:documentation>
+                                       <xs:documentation xml:lang="it">Pagamento anticipato all'apertura dello swap</xs:documentation>
+                                       <xs:documentation xml:lang="cs">[AUTO] Upfront payment at swap inception</xs:documentation>
+                                       <xs:documentation xml:lang="hu">[AUTO] Upfront payment at swap inception</xs:documentation>
+                                    </xs:annotation>
+                                 </xs:element>
+                                 <xs:element minOccurs="0" name="PartialTerminationAmount" type="AmountType">
+                                    <xs:annotation>
+                                       <xs:documentation xml:lang="en">Amount for partial termination of swap</xs:documentation>
+                                       <xs:documentation xml:lang="de">Betrag fuer Teilbeendigung des Swaps</xs:documentation>
+                                       <xs:documentation xml:lang="fr">Montant pour resiliation partielle du swap</xs:documentation>
+                                       <xs:documentation xml:lang="nl">Bedrag voor gedeeltelijke beeindiging van swap</xs:documentation>
+                                       <xs:documentation xml:lang="es">Importe para terminacion parcial del swap</xs:documentation>
+                                       <xs:documentation xml:lang="it">Importo per risoluzione parziale dello swap</xs:documentation>
+                                       <xs:documentation xml:lang="cs">[AUTO] Amount for partial termination of swap</xs:documentation>
+                                       <xs:documentation xml:lang="hu">[AUTO] Amount for partial termination of swap</xs:documentation>
+                                    </xs:annotation>
+                                 </xs:element>
+                              </xs:sequence>
+                           </xs:complexType>
+                        </xs:element>
+                     </xs:choice>
                   </xs:sequence>
                </xs:complexType>
             </xs:element>

@@ -379,6 +379,23 @@ B ... Boolean</xs:documentation>
 			<xs:enumeration value="SIC"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="DayCountConventionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Day count convention for interest calculation</xs:documentation>
+			<xs:documentation xml:lang="de">Zinsberechnungsmethode</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ACT/360"/>
+			<xs:enumeration value="ACT/365"/>
+			<xs:enumeration value="ACT/ACT"/>
+			<xs:enumeration value="30/360"/>
+			<xs:enumeration value="30/365"/>
+			<xs:enumeration value="30B/360"/>
+			<xs:enumeration value="30E/360"/>
+			<xs:enumeration value="30U/360"/>
+			<xs:enumeration value="BusinessDays/252"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="CompanyType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Detailed data of Company/Issuer</xs:documentation>

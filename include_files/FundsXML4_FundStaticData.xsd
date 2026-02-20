@@ -8,6 +8,7 @@
    <xs:include schemaLocation="FundsXML4_Core.xsd"/>
    <xs:complexType name="BenchmarkProviderCompany">
       <xs:annotation>
+         <xs:documentation>Benchmark index provider company with ESMA registration status (EU Benchmark Regulation)</xs:documentation>
          <xs:documentation xml:lang="en">Benchmark index provider company with ESMA registration status (EU Benchmark Regulation)</xs:documentation>
          <xs:documentation xml:lang="de">Benchmark Index Provider Company mit ESMA-Registrierungsstatus (EU Benchmark Regulation)</xs:documentation>
          <xs:documentation xml:lang="fr">Société provider de benchmark index avec statut d'enregistrement ESMA (EU Benchmark Regulation)</xs:documentation>
@@ -21,13 +22,26 @@
       <xs:complexContent>
          <xs:extension base="CompanyType">
             <xs:sequence>
-               <xs:element minOccurs="0" name="IsESMARegisterd" type="xs:boolean"/>
+               <xs:element minOccurs="0" name="IsESMARegisterd" type="xs:boolean">
+                  <xs:annotation>
+                     <xs:documentation>Whether the benchmark provider is ESMA registered under EU Benchmark Regulation</xs:documentation>
+                     <xs:documentation xml:lang="en">Whether the benchmark provider is ESMA registered under EU Benchmark Regulation</xs:documentation>
+                     <xs:documentation xml:lang="de">Ob der Benchmark-Provider unter der EU Benchmark-Verordnung bei ESMA registriert ist</xs:documentation>
+                     <xs:documentation xml:lang="fr">Si le fournisseur de benchmark est enregistré auprès de l'ESMA en vertu du règlement européen sur les indices de référence</xs:documentation>
+                     <xs:documentation xml:lang="nl">Of de benchmarkprovider ESMA-geregistreerd is onder de EU Benchmark-verordening</xs:documentation>
+                     <xs:documentation xml:lang="es">Si el proveedor del benchmark está registrado en ESMA según el Reglamento europeo de índices de referencia</xs:documentation>
+                     <xs:documentation xml:lang="it">Se il fornitore di benchmark è registrato presso l'ESMA ai sensi del regolamento europeo sui benchmark</xs:documentation>
+                     <xs:documentation xml:lang="cs">[AUTO] Whether the benchmark provider is ESMA registered under EU Benchmark Regulation</xs:documentation>
+                     <xs:documentation xml:lang="hu">Hogy a benchmark szolgáltató ESMA-regisztrált-e az EU Benchmark Rendelet alapján</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
             </xs:sequence>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
    <xs:complexType name="BenchmarkStaticDataType">
       <xs:annotation>
+         <xs:documentation>Static benchmark data including name, currency, provider and benchmark components for blended benchmarks</xs:documentation>
          <xs:documentation xml:lang="en">Static benchmark data including name, currency, provider and benchmark components for blended benchmarks</xs:documentation>
          <xs:documentation xml:lang="de">Statische Benchmark-Daten einschließlich Name, Währung, Provider und Benchmark Components für Blended Benchmarks</xs:documentation>
          <xs:documentation xml:lang="fr">Données statiques de benchmark incluant nom, devise, provider et benchmark components pour blended benchmarks</xs:documentation>
@@ -41,6 +55,7 @@
       <xs:sequence>
          <xs:element minOccurs="0" name="BenchmarkID">
             <xs:annotation>
+               <xs:documentation>Link to Benchmark Dynamic Data</xs:documentation>
                <xs:documentation xml:lang="en">Link to Benchmark Dynamic Data</xs:documentation>
                <xs:documentation xml:lang="de">Link zu Benchmark Dynamisch Daten</xs:documentation>
                <xs:documentation xml:lang="fr">Link à Benchmark Dynamique Données</xs:documentation>
@@ -58,15 +73,61 @@
             </xs:simpleType>
          </xs:element>
          <xs:element name="Name">
+            <xs:annotation>
+               <xs:documentation>Name of the benchmark</xs:documentation>
+               <xs:documentation xml:lang="en">Name of the benchmark</xs:documentation>
+               <xs:documentation xml:lang="de">Name des Benchmarks</xs:documentation>
+               <xs:documentation xml:lang="fr">Nom du benchmark</xs:documentation>
+               <xs:documentation xml:lang="nl">Naam van de benchmark</xs:documentation>
+               <xs:documentation xml:lang="es">Nombre del benchmark</xs:documentation>
+               <xs:documentation xml:lang="it">Nome del benchmark</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Název benchmarku</xs:documentation>
+               <xs:documentation xml:lang="hu">A benchmark neve</xs:documentation>
+            </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
                   <xs:maxLength value="255"/>
                </xs:restriction>
             </xs:simpleType>
          </xs:element>
-         <xs:element name="Currency" type="ISOCurrencyCodeType"/>
-         <xs:element minOccurs="0" name="Provider" type="BenchmarkProviderCompany"/>
+         <xs:element name="Currency" type="ISOCurrencyCodeType">
+            <xs:annotation>
+               <xs:documentation>Currency of the benchmark (ISO 4217)</xs:documentation>
+               <xs:documentation xml:lang="en">Currency of the benchmark (ISO 4217)</xs:documentation>
+               <xs:documentation xml:lang="de">Währung des Benchmarks (ISO 4217)</xs:documentation>
+               <xs:documentation xml:lang="fr">Devise du benchmark (ISO 4217)</xs:documentation>
+               <xs:documentation xml:lang="nl">Valuta van de benchmark (ISO 4217)</xs:documentation>
+               <xs:documentation xml:lang="es">Divisa del benchmark (ISO 4217)</xs:documentation>
+               <xs:documentation xml:lang="it">Valuta del benchmark (ISO 4217)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Měna benchmarku (ISO 4217)</xs:documentation>
+               <xs:documentation xml:lang="hu">A benchmark pénzneme (ISO 4217)</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Provider" type="BenchmarkProviderCompany">
+            <xs:annotation>
+               <xs:documentation>Benchmark index provider company</xs:documentation>
+               <xs:documentation xml:lang="en">Benchmark index provider company</xs:documentation>
+               <xs:documentation xml:lang="de">Benchmark-Index-Provider-Unternehmen</xs:documentation>
+               <xs:documentation xml:lang="fr">Société fournisseur d'indice de benchmark</xs:documentation>
+               <xs:documentation xml:lang="nl">Benchmark index provider bedrijf</xs:documentation>
+               <xs:documentation xml:lang="es">Empresa proveedora del índice de benchmark</xs:documentation>
+               <xs:documentation xml:lang="it">Società fornitrice dell'indice di benchmark</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Benchmark index provider company</xs:documentation>
+               <xs:documentation xml:lang="hu">Benchmark index szolgáltató vállalat</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element minOccurs="0" name="BenchmarkType">
+            <xs:annotation>
+               <xs:documentation>Type of benchmark (Market Index, Blended, Custom, etc.)</xs:documentation>
+               <xs:documentation xml:lang="en">Type of benchmark (Market Index, Blended, Custom, etc.)</xs:documentation>
+               <xs:documentation xml:lang="de">Art des Benchmarks (Marktindex, Blended, Custom, etc.)</xs:documentation>
+               <xs:documentation xml:lang="fr">Type de benchmark (indice de marché, mixte, personnalisé, etc.)</xs:documentation>
+               <xs:documentation xml:lang="nl">Type benchmark (marktindex, blended, aangepast, etc.)</xs:documentation>
+               <xs:documentation xml:lang="es">Tipo de benchmark (índice de mercado, mixto, personalizado, etc.)</xs:documentation>
+               <xs:documentation xml:lang="it">Tipo di benchmark (indice di mercato, misto, personalizzato, ecc.)</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Typ benchmarku (tržní index, smíšený, vlastní atd.)</xs:documentation>
+               <xs:documentation xml:lang="hu">A benchmark típusa (piaci index, kevert, egyedi stb.)</xs:documentation>
+            </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
                   <xs:enumeration value="Market Index"/>
@@ -83,6 +144,7 @@
          </xs:element>
          <xs:element minOccurs="0" name="BenchmarkUsage">
             <xs:annotation>
+               <xs:documentation>official, internal, performance attribution, etc.</xs:documentation>
                <xs:documentation xml:lang="en">official, internal, performance attribution, etc.</xs:documentation>
                <xs:documentation xml:lang="de">official, intern, Performance attribution, etc.</xs:documentation>
                <xs:documentation xml:lang="fr">official, interne, performance attribution, etc.</xs:documentation>
@@ -100,6 +162,7 @@
          </xs:element>
          <xs:element minOccurs="0" name="BenchmarkComponents">
             <xs:annotation>
+               <xs:documentation>if blended Benchmark</xs:documentation>
                <xs:documentation xml:lang="en">if blended Benchmark</xs:documentation>
                <xs:documentation xml:lang="de">wenn blended Benchmark</xs:documentation>
                <xs:documentation xml:lang="fr">si blended Benchmark</xs:documentation>
@@ -113,28 +176,121 @@
             <xs:complexType>
                <xs:sequence>
                   <xs:element maxOccurs="unbounded" name="BenchmarkComponent">
+                     <xs:annotation>
+                        <xs:documentation>Single component of a blended benchmark</xs:documentation>
+                        <xs:documentation xml:lang="en">Single component of a blended benchmark</xs:documentation>
+                        <xs:documentation xml:lang="de">Einzelne Komponente eines Blended-Benchmarks</xs:documentation>
+                        <xs:documentation xml:lang="fr">Composant unique d'un benchmark mixte</xs:documentation>
+                        <xs:documentation xml:lang="nl">Enkele component van een blended benchmark</xs:documentation>
+                        <xs:documentation xml:lang="es">Componente individual de un benchmark mixto</xs:documentation>
+                        <xs:documentation xml:lang="it">Singolo componente di un benchmark misto</xs:documentation>
+                        <xs:documentation xml:lang="cs">[AUTO] Jednotlivá komponenta smíšeného benchmarku</xs:documentation>
+                        <xs:documentation xml:lang="hu">Egy kevert benchmark egyedi komponense</xs:documentation>
+                     </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
                            <xs:element minOccurs="0" name="BenchmarkComponentID">
+                              <xs:annotation>
+                                 <xs:documentation>Unique identifier for this benchmark component</xs:documentation>
+                                 <xs:documentation xml:lang="en">Unique identifier for this benchmark component</xs:documentation>
+                                 <xs:documentation xml:lang="de">Eindeutiger Identifikator für diese Benchmark-Komponente</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Identifiant unique pour ce composant de benchmark</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Unieke identificatie voor deze benchmarkcomponent</xs:documentation>
+                                 <xs:documentation xml:lang="es">Identificador único para este componente del benchmark</xs:documentation>
+                                 <xs:documentation xml:lang="it">Identificatore univoco per questo componente di benchmark</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Jedinečný identifikátor této komponenty benchmarku</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A benchmark komponens egyedi azonosítója</xs:documentation>
+                              </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
                                     <xs:maxLength value="255"/>
                                  </xs:restriction>
                               </xs:simpleType>
                            </xs:element>
-                           <xs:element name="ValidFrom" type="xs:date"/>
-                           <xs:element minOccurs="0" name="ValidTo" type="xs:date"/>
+                           <xs:element name="ValidFrom" type="xs:date">
+                              <xs:annotation>
+                                 <xs:documentation>Start date of validity for this component</xs:documentation>
+                                 <xs:documentation xml:lang="en">Start date of validity for this component</xs:documentation>
+                                 <xs:documentation xml:lang="de">Gültig-ab-Datum für diese Komponente</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Date de début de validité pour ce composant</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Startdatum van geldigheid voor deze component</xs:documentation>
+                                 <xs:documentation xml:lang="es">Fecha de inicio de validez para este componente</xs:documentation>
+                                 <xs:documentation xml:lang="it">Data di inizio validità per questo componente</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Datum začátku platnosti této komponenty</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A komponens érvényességi kezdődátuma</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="ValidTo" type="xs:date">
+                              <xs:annotation>
+                                 <xs:documentation>End date of validity for this component</xs:documentation>
+                                 <xs:documentation xml:lang="en">End date of validity for this component</xs:documentation>
+                                 <xs:documentation xml:lang="de">Gültig-bis-Datum für diese Komponente</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Date de fin de validité pour ce composant</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Einddatum van geldigheid voor deze component</xs:documentation>
+                                 <xs:documentation xml:lang="es">Fecha de fin de validez para este componente</xs:documentation>
+                                 <xs:documentation xml:lang="it">Data di fine validità per questo componente</xs:documentation>
+                                 <xs:documentation xml:lang="cs">[AUTO] Datum konce platnosti této komponenty</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A komponens érvényességi záródátuma</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
                            <xs:sequence>
                               <xs:element name="Name">
+                                 <xs:annotation>
+                                    <xs:documentation>Name of the benchmark component</xs:documentation>
+                                    <xs:documentation xml:lang="en">Name of the benchmark component</xs:documentation>
+                                    <xs:documentation xml:lang="de">Name der Benchmark-Komponente</xs:documentation>
+                                    <xs:documentation xml:lang="fr">Nom du composant de benchmark</xs:documentation>
+                                    <xs:documentation xml:lang="nl">Naam van de benchmarkcomponent</xs:documentation>
+                                    <xs:documentation xml:lang="es">Nombre del componente del benchmark</xs:documentation>
+                                    <xs:documentation xml:lang="it">Nome del componente di benchmark</xs:documentation>
+                                    <xs:documentation xml:lang="cs">[AUTO] Název komponenty benchmarku</xs:documentation>
+                                    <xs:documentation xml:lang="hu">A benchmark komponens neve</xs:documentation>
+                                 </xs:annotation>
                                  <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                        <xs:maxLength value="255"/>
                                     </xs:restriction>
                                  </xs:simpleType>
                               </xs:element>
-                              <xs:element minOccurs="0" name="Provider" type="BenchmarkProviderCompany"/>
-                              <xs:element name="Identifier" type="IdentifiersType"/>
-                              <xs:element name="Weight" type="PercentageType"/>
+                              <xs:element minOccurs="0" name="Provider" type="BenchmarkProviderCompany">
+                                 <xs:annotation>
+                                    <xs:documentation>Provider of the benchmark component index</xs:documentation>
+                                    <xs:documentation xml:lang="en">Provider of the benchmark component index</xs:documentation>
+                                    <xs:documentation xml:lang="de">Provider des Benchmark-Komponenten-Index</xs:documentation>
+                                    <xs:documentation xml:lang="fr">Fournisseur de l'indice du composant de benchmark</xs:documentation>
+                                    <xs:documentation xml:lang="nl">Provider van de benchmark component index</xs:documentation>
+                                    <xs:documentation xml:lang="es">Proveedor del índice del componente del benchmark</xs:documentation>
+                                    <xs:documentation xml:lang="it">Fornitore dell'indice del componente di benchmark</xs:documentation>
+                                    <xs:documentation xml:lang="cs">[AUTO] Poskytovatel indexu komponenty benchmarku</xs:documentation>
+                                    <xs:documentation xml:lang="hu">A benchmark komponens index szolgáltatója</xs:documentation>
+                                 </xs:annotation>
+                              </xs:element>
+                              <xs:element name="Identifier" type="IdentifiersType">
+                                 <xs:annotation>
+                                    <xs:documentation>Identifiers for the benchmark component (ISIN, Bloomberg, etc.)</xs:documentation>
+                                    <xs:documentation xml:lang="en">Identifiers for the benchmark component (ISIN, Bloomberg, etc.)</xs:documentation>
+                                    <xs:documentation xml:lang="de">Identifikatoren der Benchmark-Komponente (ISIN, Bloomberg, etc.)</xs:documentation>
+                                    <xs:documentation xml:lang="fr">Identifiants du composant de benchmark (ISIN, Bloomberg, etc.)</xs:documentation>
+                                    <xs:documentation xml:lang="nl">Identificatiecodes van de benchmarkcomponent (ISIN, Bloomberg, etc.)</xs:documentation>
+                                    <xs:documentation xml:lang="es">Identificadores del componente del benchmark (ISIN, Bloomberg, etc.)</xs:documentation>
+                                    <xs:documentation xml:lang="it">Identificatori del componente di benchmark (ISIN, Bloomberg, ecc.)</xs:documentation>
+                                    <xs:documentation xml:lang="cs">[AUTO] Identifikátory komponenty benchmarku (ISIN, Bloomberg atd.)</xs:documentation>
+                                    <xs:documentation xml:lang="hu">A benchmark komponens azonosítói (ISIN, Bloomberg stb.)</xs:documentation>
+                                 </xs:annotation>
+                              </xs:element>
+                              <xs:element name="Weight" type="PercentageType">
+                                 <xs:annotation>
+                                    <xs:documentation>Weight of the component in the blended benchmark (percentage)</xs:documentation>
+                                    <xs:documentation xml:lang="en">Weight of the component in the blended benchmark (percentage)</xs:documentation>
+                                    <xs:documentation xml:lang="de">Gewichtung der Komponente im Blended-Benchmark (Prozent)</xs:documentation>
+                                    <xs:documentation xml:lang="fr">Pondération du composant dans le benchmark mixte (pourcentage)</xs:documentation>
+                                    <xs:documentation xml:lang="nl">Gewicht van de component in de blended benchmark (percentage)</xs:documentation>
+                                    <xs:documentation xml:lang="es">Ponderación del componente en el benchmark mixto (porcentaje)</xs:documentation>
+                                    <xs:documentation xml:lang="it">Peso del componente nel benchmark misto (percentuale)</xs:documentation>
+                                    <xs:documentation xml:lang="cs">[AUTO] Váha komponenty ve smíšeném benchmarku (procento)</xs:documentation>
+                                    <xs:documentation xml:lang="hu">A komponens súlya a kevert benchmarkban (százalék)</xs:documentation>
+                                 </xs:annotation>
+                              </xs:element>
                            </xs:sequence>
                         </xs:sequence>
                      </xs:complexType>
@@ -146,22 +302,82 @@
    </xs:complexType>
    <xs:simpleType name="BenchmarkUsageType">
       <xs:annotation>
+         <xs:documentation>Classification of benchmark usage: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
          <xs:documentation xml:lang="en">Classification of benchmark usage: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
          <xs:documentation xml:lang="de">Klassifikation der Benchmark-Verwendung: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
          <xs:documentation xml:lang="fr">Classification de l'utilisation du benchmark: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
          <xs:documentation xml:lang="nl">Classificatie van benchmark gebruik: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
-         <xs:documentation xml:lang="es">Clasificacion del uso del benchmark: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
+         <xs:documentation xml:lang="es">Clasificación del uso del benchmark: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
          <xs:documentation xml:lang="it">Classificazione di utilizzo del benchmark: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
-         <xs:documentation xml:lang="cs">[AUTO] Classification of benchmark usage: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
-
-         <xs:documentation xml:lang="hu">[AUTO] Classification of benchmark usage: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
+         <xs:documentation xml:lang="cs">[AUTO] Klasifikace použití benchmarku: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
+         <xs:documentation xml:lang="hu">A benchmark használatának besorolása: OFFICIAL, INTERNAL, PERFORMANCE ATTRIBUTION, PRIIP KID, UCITS KIID</xs:documentation>
       </xs:annotation>
       <xs:restriction base="xs:string">
-         <xs:enumeration value="OFFICIAL"/>
-         <xs:enumeration value="INTERNAL"/>
-         <xs:enumeration value="PERFORMANCE ATTRIBUTION"/>
-         <xs:enumeration value="PRIIP KID"/>
-         <xs:enumeration value="UCITS KIID"/>
+         <xs:enumeration value="OFFICIAL">
+            <xs:annotation>
+               <xs:documentation>Official benchmark of the fund</xs:documentation>
+               <xs:documentation xml:lang="en">Official benchmark of the fund</xs:documentation>
+               <xs:documentation xml:lang="de">Offizieller Benchmark des Fonds</xs:documentation>
+               <xs:documentation xml:lang="fr">Benchmark officiel du fonds</xs:documentation>
+               <xs:documentation xml:lang="nl">Officiële benchmark van het fonds</xs:documentation>
+               <xs:documentation xml:lang="es">Benchmark oficial del fondo</xs:documentation>
+               <xs:documentation xml:lang="it">Benchmark ufficiale del fondo</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Oficiální benchmark fondu</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alap hivatalos benchmarkja</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="INTERNAL">
+            <xs:annotation>
+               <xs:documentation>Internal benchmark for management purposes</xs:documentation>
+               <xs:documentation xml:lang="en">Internal benchmark for management purposes</xs:documentation>
+               <xs:documentation xml:lang="de">Interner Benchmark für Managementzwecke</xs:documentation>
+               <xs:documentation xml:lang="fr">Benchmark interne à des fins de gestion</xs:documentation>
+               <xs:documentation xml:lang="nl">Interne benchmark voor managementdoeleinden</xs:documentation>
+               <xs:documentation xml:lang="es">Benchmark interno para fines de gestión</xs:documentation>
+               <xs:documentation xml:lang="it">Benchmark interno per scopi gestionali</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Interní benchmark pro účely řízení</xs:documentation>
+               <xs:documentation xml:lang="hu">Belső benchmark kezelési célokra</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PERFORMANCE ATTRIBUTION">
+            <xs:annotation>
+               <xs:documentation>Benchmark used for performance attribution analysis</xs:documentation>
+               <xs:documentation xml:lang="en">Benchmark used for performance attribution analysis</xs:documentation>
+               <xs:documentation xml:lang="de">Benchmark für die Performance-Attribution-Analyse</xs:documentation>
+               <xs:documentation xml:lang="fr">Benchmark utilisé pour l'analyse d'attribution de performance</xs:documentation>
+               <xs:documentation xml:lang="nl">Benchmark gebruikt voor performance-attributieanalyse</xs:documentation>
+               <xs:documentation xml:lang="es">Benchmark utilizado para el análisis de atribución de rendimiento</xs:documentation>
+               <xs:documentation xml:lang="it">Benchmark utilizzato per l'analisi di attribuzione della performance</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Benchmark používaný pro analýzu atribuce výkonnosti</xs:documentation>
+               <xs:documentation xml:lang="hu">Teljesítmény-hozzárendelés elemzéséhez használt benchmark</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="PRIIP KID">
+            <xs:annotation>
+               <xs:documentation>Benchmark as referenced in PRIIPs KID document</xs:documentation>
+               <xs:documentation xml:lang="en">Benchmark as referenced in PRIIPs KID document</xs:documentation>
+               <xs:documentation xml:lang="de">Benchmark wie im PRIIPs-KID-Dokument referenziert</xs:documentation>
+               <xs:documentation xml:lang="fr">Benchmark tel que référencé dans le document PRIIPs KID</xs:documentation>
+               <xs:documentation xml:lang="nl">Benchmark zoals vermeld in het PRIIPs KID-document</xs:documentation>
+               <xs:documentation xml:lang="es">Benchmark como se referencia en el documento PRIIPs KID</xs:documentation>
+               <xs:documentation xml:lang="it">Benchmark come riferito nel documento PRIIPs KID</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Benchmark uvedený v dokumentu PRIIPs KID</xs:documentation>
+               <xs:documentation xml:lang="hu">Benchmark a PRIIPs KID dokumentumban hivatkozottak szerint</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UCITS KIID">
+            <xs:annotation>
+               <xs:documentation>Benchmark as referenced in UCITS KIID document</xs:documentation>
+               <xs:documentation xml:lang="en">Benchmark as referenced in UCITS KIID document</xs:documentation>
+               <xs:documentation xml:lang="de">Benchmark wie im UCITS-KIID-Dokument referenziert</xs:documentation>
+               <xs:documentation xml:lang="fr">Benchmark tel que référencé dans le document UCITS KIID</xs:documentation>
+               <xs:documentation xml:lang="nl">Benchmark zoals vermeld in het UCITS KIID-document</xs:documentation>
+               <xs:documentation xml:lang="es">Benchmark como se referencia en el documento UCITS KIID</xs:documentation>
+               <xs:documentation xml:lang="it">Benchmark come riferito nel documento UCITS KIID</xs:documentation>
+               <xs:documentation xml:lang="cs">[AUTO] Benchmark uvedený v dokumentu UCITS KIID</xs:documentation>
+               <xs:documentation xml:lang="hu">Benchmark az UCITS KIID dokumentumban hivatkozottak szerint</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
       </xs:restriction>
    </xs:simpleType>
    <xs:complexType name="FundCompaniesType">

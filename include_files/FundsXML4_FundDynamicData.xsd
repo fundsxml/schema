@@ -5,6 +5,7 @@
 	<xs:include schemaLocation="FundsXML4_PortfolioData.xsd"/>
 	<xs:complexType name="BenchmarkDynamicDataType">
 		<xs:annotation>
+			<xs:documentation>Dynamic benchmark data including values and component values</xs:documentation>
 			<xs:documentation xml:lang="en">Dynamic benchmark data including values and component values</xs:documentation>
 			<xs:documentation xml:lang="de">[AUTO] Dynamische Benchmark-Daten einschließlich Werten und Komponentenwerten</xs:documentation>
 			<xs:documentation xml:lang="fr">Dynamique benchmark données y compris values et component values</xs:documentation>
@@ -17,6 +18,7 @@
 		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
 				<xs:annotation>
+					<xs:documentation>Link to Benchmark Static Data</xs:documentation>
 					<xs:documentation xml:lang="en">Link to Benchmark Static Data</xs:documentation>
 					<xs:documentation xml:lang="de">[AUTO] Verknüpfung zu den statischen Benchmark-Daten</xs:documentation>
 					<xs:documentation xml:lang="fr">Link à Benchmark Statique Données</xs:documentation>
@@ -33,13 +35,58 @@
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Values">
+				<xs:annotation>
+					<xs:documentation>Container for benchmark values over time</xs:documentation>
+					<xs:documentation xml:lang="en">Container for benchmark values over time</xs:documentation>
+					<xs:documentation xml:lang="de">Container für Benchmark-Werte über die Zeit</xs:documentation>
+					<xs:documentation xml:lang="fr">Conteneur pour les valeurs de benchmark dans le temps</xs:documentation>
+					<xs:documentation xml:lang="nl">Container voor benchmarkwaarden over de tijd</xs:documentation>
+					<xs:documentation xml:lang="es">Contenedor para valores de benchmark a lo largo del tiempo</xs:documentation>
+					<xs:documentation xml:lang="it">Contenitore per i valori di benchmark nel tempo</xs:documentation>
+					<xs:documentation xml:lang="cs">[AUTO] Kontejner pro hodnoty benchmarku v čase</xs:documentation>
+					<xs:documentation xml:lang="hu">Benchmark értékek tárolója az idő folyamán</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Value" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Single benchmark value entry for a specific date</xs:documentation>
+								<xs:documentation xml:lang="en">Single benchmark value entry for a specific date</xs:documentation>
+								<xs:documentation xml:lang="de">Einzelner Benchmark-Werteintrag für ein bestimmtes Datum</xs:documentation>
+								<xs:documentation xml:lang="fr">Entrée de valeur de benchmark unique pour une date spécifique</xs:documentation>
+								<xs:documentation xml:lang="nl">Enkele benchmarkwaarde-invoer voor een specifieke datum</xs:documentation>
+								<xs:documentation xml:lang="es">Entrada individual de valor de benchmark para una fecha específica</xs:documentation>
+								<xs:documentation xml:lang="it">Singola voce di valore di benchmark per una data specifica</xs:documentation>
+								<xs:documentation xml:lang="cs">[AUTO] Jednotlivý záznam hodnoty benchmarku pro konkrétní datum</xs:documentation>
+								<xs:documentation xml:lang="hu">Egyedi benchmark értékbejegyzés egy adott dátumra</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Date" type="xs:date"/>
+									<xs:element name="Date" type="xs:date">
+										<xs:annotation>
+											<xs:documentation>Date of the benchmark value</xs:documentation>
+											<xs:documentation xml:lang="en">Date of the benchmark value</xs:documentation>
+											<xs:documentation xml:lang="de">Datum des Benchmark-Werts</xs:documentation>
+											<xs:documentation xml:lang="fr">Date de la valeur du benchmark</xs:documentation>
+											<xs:documentation xml:lang="nl">Datum van de benchmarkwaarde</xs:documentation>
+											<xs:documentation xml:lang="es">Fecha del valor del benchmark</xs:documentation>
+											<xs:documentation xml:lang="it">Data del valore di benchmark</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Datum hodnoty benchmarku</xs:documentation>
+											<xs:documentation xml:lang="hu">A benchmark érték dátuma</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="ValueType">
+										<xs:annotation>
+											<xs:documentation>Type of value: Price or Total Return</xs:documentation>
+											<xs:documentation xml:lang="en">Type of value: Price or Total Return</xs:documentation>
+											<xs:documentation xml:lang="de">Art des Werts: Price oder Total Return</xs:documentation>
+											<xs:documentation xml:lang="fr">Type de valeur : Price ou Total Return</xs:documentation>
+											<xs:documentation xml:lang="nl">Type waarde: Price of Total Return</xs:documentation>
+											<xs:documentation xml:lang="es">Tipo de valor: Price o Total Return</xs:documentation>
+											<xs:documentation xml:lang="it">Tipo di valore: Price o Total Return</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Typ hodnoty: Price nebo Total Return</xs:documentation>
+											<xs:documentation xml:lang="hu">Az érték típusa: Price vagy Total Return</xs:documentation>
+										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Price"/>
@@ -47,14 +94,59 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="Value" type="AmountType"/>
+									<xs:element name="Value" type="AmountType">
+										<xs:annotation>
+											<xs:documentation>The benchmark value amount</xs:documentation>
+											<xs:documentation xml:lang="en">The benchmark value amount</xs:documentation>
+											<xs:documentation xml:lang="de">Der Benchmark-Wertbetrag</xs:documentation>
+											<xs:documentation xml:lang="fr">Le montant de la valeur du benchmark</xs:documentation>
+											<xs:documentation xml:lang="nl">Het benchmarkwaardebedrag</xs:documentation>
+											<xs:documentation xml:lang="es">El importe del valor del benchmark</xs:documentation>
+											<xs:documentation xml:lang="it">L'importo del valore di benchmark</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Částka hodnoty benchmarku</xs:documentation>
+											<xs:documentation xml:lang="hu">A benchmark érték összege</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="Components" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Component values for blended benchmarks</xs:documentation>
+											<xs:documentation xml:lang="en">Component values for blended benchmarks</xs:documentation>
+											<xs:documentation xml:lang="de">Komponentenwerte für Blended-Benchmarks</xs:documentation>
+											<xs:documentation xml:lang="fr">Valeurs des composants pour les benchmarks mixtes</xs:documentation>
+											<xs:documentation xml:lang="nl">Componentwaarden voor blended benchmarks</xs:documentation>
+											<xs:documentation xml:lang="es">Valores de componentes para benchmarks mixtos</xs:documentation>
+											<xs:documentation xml:lang="it">Valori dei componenti per benchmark misti</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Hodnoty komponent pro smíšené benchmarky</xs:documentation>
+											<xs:documentation xml:lang="hu">Komponensértékek kevert benchmarkokhoz</xs:documentation>
+										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="Component" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Single component value entry</xs:documentation>
+														<xs:documentation xml:lang="en">Single component value entry</xs:documentation>
+														<xs:documentation xml:lang="de">Einzelner Komponentenwert-Eintrag</xs:documentation>
+														<xs:documentation xml:lang="fr">Entrée de valeur de composant unique</xs:documentation>
+														<xs:documentation xml:lang="nl">Enkele componentwaarde-invoer</xs:documentation>
+														<xs:documentation xml:lang="es">Entrada individual de valor de componente</xs:documentation>
+														<xs:documentation xml:lang="it">Singola voce di valore del componente</xs:documentation>
+														<xs:documentation xml:lang="cs">[AUTO] Jednotlivý záznam hodnoty komponenty</xs:documentation>
+														<xs:documentation xml:lang="hu">Egyedi komponensérték-bejegyzés</xs:documentation>
+													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
 															<xs:element name="BenchmarkComponentID" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Link to the static benchmark component definition</xs:documentation>
+																	<xs:documentation xml:lang="en">Link to the static benchmark component definition</xs:documentation>
+																	<xs:documentation xml:lang="de">Verknüpfung zur statischen Benchmark-Komponenten-Definition</xs:documentation>
+																	<xs:documentation xml:lang="fr">Lien vers la définition statique du composant de benchmark</xs:documentation>
+																	<xs:documentation xml:lang="nl">Link naar de statische benchmarkcomponent-definitie</xs:documentation>
+																	<xs:documentation xml:lang="es">Enlace a la definición estática del componente del benchmark</xs:documentation>
+																	<xs:documentation xml:lang="it">Collegamento alla definizione statica del componente di benchmark</xs:documentation>
+																	<xs:documentation xml:lang="cs">[AUTO] Odkaz na statickou definici komponenty benchmarku</xs:documentation>
+																	<xs:documentation xml:lang="hu">Hivatkozás a statikus benchmark komponens definícióra</xs:documentation>
+																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
 																		<xs:maxLength value="255"/>
@@ -62,6 +154,17 @@
 																</xs:simpleType>
 															</xs:element>
 															<xs:element name="ValueType">
+																<xs:annotation>
+																	<xs:documentation>Type of component value: Price or Total Return</xs:documentation>
+																	<xs:documentation xml:lang="en">Type of component value: Price or Total Return</xs:documentation>
+																	<xs:documentation xml:lang="de">Art des Komponentenwerts: Price oder Total Return</xs:documentation>
+																	<xs:documentation xml:lang="fr">Type de valeur du composant : Price ou Total Return</xs:documentation>
+																	<xs:documentation xml:lang="nl">Type componentwaarde: Price of Total Return</xs:documentation>
+																	<xs:documentation xml:lang="es">Tipo de valor del componente: Price o Total Return</xs:documentation>
+																	<xs:documentation xml:lang="it">Tipo di valore del componente: Price o Total Return</xs:documentation>
+																	<xs:documentation xml:lang="cs">[AUTO] Typ hodnoty komponenty: Price nebo Total Return</xs:documentation>
+																	<xs:documentation xml:lang="hu">A komponens érték típusa: Price vagy Total Return</xs:documentation>
+																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
 																		<xs:enumeration value="Price"/>
@@ -69,8 +172,32 @@
 																	</xs:restriction>
 																</xs:simpleType>
 															</xs:element>
-															<xs:element name="Value" type="AmountType"/>
-															<xs:element name="Constituents" type="PositionsType" minOccurs="0"/>
+															<xs:element name="Value" type="AmountType">
+																<xs:annotation>
+																	<xs:documentation>The benchmark component value amount</xs:documentation>
+																	<xs:documentation xml:lang="en">The benchmark component value amount</xs:documentation>
+																	<xs:documentation xml:lang="de">Der Benchmark-Komponentenwert-Betrag</xs:documentation>
+																	<xs:documentation xml:lang="fr">Le montant de la valeur du composant de benchmark</xs:documentation>
+																	<xs:documentation xml:lang="nl">Het benchmarkcomponentwaardebedrag</xs:documentation>
+																	<xs:documentation xml:lang="es">El importe del valor del componente del benchmark</xs:documentation>
+																	<xs:documentation xml:lang="it">L'importo del valore del componente di benchmark</xs:documentation>
+																	<xs:documentation xml:lang="cs">[AUTO] Částka hodnoty komponenty benchmarku</xs:documentation>
+																	<xs:documentation xml:lang="hu">A benchmark komponens érték összege</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="Constituents" type="PositionsType" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Portfolio positions constituting this benchmark component</xs:documentation>
+																	<xs:documentation xml:lang="en">Portfolio positions constituting this benchmark component</xs:documentation>
+																	<xs:documentation xml:lang="de">Portfolio-Positionen, die diese Benchmark-Komponente bilden</xs:documentation>
+																	<xs:documentation xml:lang="fr">Positions du portefeuille constituant ce composant de benchmark</xs:documentation>
+																	<xs:documentation xml:lang="nl">Portefeuilleposities die deze benchmarkcomponent vormen</xs:documentation>
+																	<xs:documentation xml:lang="es">Posiciones de cartera que constituyen este componente del benchmark</xs:documentation>
+																	<xs:documentation xml:lang="it">Posizioni di portafoglio che costituiscono questo componente di benchmark</xs:documentation>
+																	<xs:documentation xml:lang="cs">[AUTO] Portfoliové pozice tvořící tuto komponentu benchmarku</xs:documentation>
+																	<xs:documentation xml:lang="hu">A benchmark komponenst alkotó portfólió pozíciók</xs:documentation>
+																</xs:annotation>
+															</xs:element>
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
@@ -83,7 +210,19 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Constituents" type="PositionsType" minOccurs="0"/>
+			<xs:element name="Constituents" type="PositionsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Portfolio positions constituting the overall benchmark</xs:documentation>
+					<xs:documentation xml:lang="en">Portfolio positions constituting the overall benchmark</xs:documentation>
+					<xs:documentation xml:lang="de">Portfolio-Positionen, die den gesamten Benchmark bilden</xs:documentation>
+					<xs:documentation xml:lang="fr">Positions du portefeuille constituant le benchmark global</xs:documentation>
+					<xs:documentation xml:lang="nl">Portefeuilleposities die de totale benchmark vormen</xs:documentation>
+					<xs:documentation xml:lang="es">Posiciones de cartera que constituyen el benchmark general</xs:documentation>
+					<xs:documentation xml:lang="it">Posizioni di portafoglio che costituiscono il benchmark complessivo</xs:documentation>
+					<xs:documentation xml:lang="cs">[AUTO] Portfoliové pozice tvořící celkový benchmark</xs:documentation>
+					<xs:documentation xml:lang="hu">A teljes benchmarkot alkotó portfólió pozíciók</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="FundDynamicDataType">

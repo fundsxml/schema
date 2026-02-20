@@ -5927,18 +5927,6 @@ Z   New issue</xs:documentation>
 					<xs:documentation xml:lang="hu">[AUTO] Notice period in business days for termination of open repos</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Currency" type="ISOCurrencyCodeType">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Currency of the repo transaction (cash leg)</xs:documentation>
-					<xs:documentation xml:lang="de">Währung des Repo-Geschäfts (Geldseite)</xs:documentation>
-					<xs:documentation xml:lang="fr">Devise de l'opération repo (branche espèces)</xs:documentation>
-					<xs:documentation xml:lang="nl">Valuta van de repo-transactie (geldpoot)</xs:documentation>
-					<xs:documentation xml:lang="es">Moneda de la operación repo (tramo de efectivo)</xs:documentation>
-					<xs:documentation xml:lang="it">Valuta dell'operazione repo (gamba contante)</xs:documentation>
-					<xs:documentation xml:lang="cs">[AUTO] Currency of the repo transaction (cash leg)</xs:documentation>
-					<xs:documentation xml:lang="hu">[AUTO] Currency of the repo transaction (cash leg)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="StockMarket" type="MICCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Mic of the Stockmarket of the asset</xs:documentation>
@@ -6209,6 +6197,18 @@ Z   New issue</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="MaturityDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Maturity date of the repo (far leg date)</xs:documentation>
+					<xs:documentation xml:lang="de">Fälligkeitsdatum des Repo-Geschäfts (Datum der zweiten Seite)</xs:documentation>
+					<xs:documentation xml:lang="fr">Date d'échéance de l'opération repo (date de la deuxième branche)</xs:documentation>
+					<xs:documentation xml:lang="nl">Vervaldatum van de repo-transactie (datum tweede poot)</xs:documentation>
+					<xs:documentation xml:lang="es">Fecha de vencimiento de la operación repo (fecha del tramo final)</xs:documentation>
+					<xs:documentation xml:lang="it">Data di scadenza dell'operazione repo (data seconda gamba)</xs:documentation>
+					<xs:documentation xml:lang="cs">[AUTO] Maturity date of the repo transaction</xs:documentation>
+					<xs:documentation xml:lang="hu">[AUTO] Maturity date of the repo transaction</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="SecurityIDPledge" type="IdentifiersType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Security code of the pledge</xs:documentation>
@@ -6293,71 +6293,7 @@ Z   New issue</xs:documentation>
 					<xs:documentation xml:lang="hu">[AUTO] Number of decimals</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RateType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Interest rate type: Fixed - fixed rate for entire term, Floating - variable rate linked to reference index</xs:documentation>
-					<xs:documentation xml:lang="de">Zinstyp: Fixed - fester Zinssatz für gesamte Laufzeit, Floating - variabler Zinssatz an Referenzzins gekoppelt</xs:documentation>
-					<xs:documentation xml:lang="fr">Type de taux: Fixed - taux fixe pour toute la durée, Floating - taux variable lié à un indice de référence</xs:documentation>
-					<xs:documentation xml:lang="nl">Rentetype: Fixed - vaste rente voor gehele looptijd, Floating - variabele rente gekoppeld aan referentieindex</xs:documentation>
-					<xs:documentation xml:lang="es">Tipo de interés: Fixed - tipo fijo para todo el plazo, Floating - tipo variable vinculado a índice de referencia</xs:documentation>
-					<xs:documentation xml:lang="it">Tipo di tasso: Fixed - tasso fisso per l'intera durata, Floating - tasso variabile legato a indice di riferimento</xs:documentation>
-					<xs:documentation xml:lang="cs">[AUTO] Interest rate type: Fixed or Floating</xs:documentation>
-					<xs:documentation xml:lang="hu">[AUTO] Interest rate type: Fixed or Floating</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Fixed"/>
-						<xs:enumeration value="Floating"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="ReferenceRateIndex" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Reference rate index for floating rate repos (e.g., ESTR, SOFR, SONIA, TONAR)</xs:documentation>
-					<xs:documentation xml:lang="de">Referenzzins-Index für variable Repos (z.B. ESTR, SOFR, SONIA, TONAR)</xs:documentation>
-					<xs:documentation xml:lang="fr">Indice de taux de référence pour les repos à taux variable (ex: ESTR, SOFR, SONIA, TONAR)</xs:documentation>
-					<xs:documentation xml:lang="nl">Referentierente-index voor variabele repos (bijv. ESTR, SOFR, SONIA, TONAR)</xs:documentation>
-					<xs:documentation xml:lang="es">Índice de tipo de referencia para repos de tipo variable (ej: ESTR, SOFR, SONIA, TONAR)</xs:documentation>
-					<xs:documentation xml:lang="it">Indice del tasso di riferimento per repo a tasso variabile (es: ESTR, SOFR, SONIA, TONAR)</xs:documentation>
-					<xs:documentation xml:lang="cs">[AUTO] Reference rate index for floating rate repos</xs:documentation>
-					<xs:documentation xml:lang="hu">[AUTO] Reference rate index for floating rate repos</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="ESTR"/>
-						<xs:enumeration value="SOFR"/>
-						<xs:enumeration value="SONIA"/>
-						<xs:enumeration value="TONAR"/>
-						<xs:enumeration value="SARON"/>
-						<xs:enumeration value="CORRA"/>
-						<xs:enumeration value="HONIA"/>
-						<xs:enumeration value="TONA"/>
-						<xs:enumeration value="Other"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="DayCountConvention" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Day count convention for interest calculation on the repo rate</xs:documentation>
-					<xs:documentation xml:lang="de">Zinsberechnungsmethode für den Repo-Zins</xs:documentation>
-					<xs:documentation xml:lang="fr">Convention de décompte des jours pour le calcul des intérêts sur le taux repo</xs:documentation>
-					<xs:documentation xml:lang="nl">Dagtellingconventie voor renteberekening op het repo-tarief</xs:documentation>
-					<xs:documentation xml:lang="es">Convención de conteo de días para el cálculo de intereses sobre la tasa repo</xs:documentation>
-					<xs:documentation xml:lang="it">Convenzione di conteggio dei giorni per il calcolo degli interessi sul tasso repo</xs:documentation>
-					<xs:documentation xml:lang="cs">[AUTO] Day count convention for interest calculation</xs:documentation>
-					<xs:documentation xml:lang="hu">[AUTO] Day count convention for interest calculation</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="ACT/360"/>
-						<xs:enumeration value="ACT/365"/>
-						<xs:enumeration value="ACT/ACT"/>
-						<xs:enumeration value="30/360"/>
-						<xs:enumeration value="30E/360"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="GeneralCollateralFlag" type="xs:boolean">
+			<xs:element name="GeneralCollateralFlag" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">True if General Collateral (GC) repo where any eligible security can be delivered, False if Special repo with specific collateral</xs:documentation>
 					<xs:documentation xml:lang="de">True bei General Collateral (GC) Repo wo beliebige zulässige Wertpapiere geliefert werden können, False bei Special Repo mit spezifischem Collateral</xs:documentation>
@@ -6463,6 +6399,134 @@ Z   New issue</xs:documentation>
 						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SettlementType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Settlement method: DVP - Delivery versus Payment, FOP - Free of Payment, HIC - Hold in Custody</xs:documentation>
+					<xs:documentation xml:lang="de">Abwicklungsmethode: DVP - Lieferung gegen Zahlung, FOP - frei von Zahlung, HIC - Verwahrung beim Verwahrer</xs:documentation>
+					<xs:documentation xml:lang="fr">Méthode de règlement: DVP - Livraison contre paiement, FOP - Libre de paiement, HIC - Conservation en dépôt</xs:documentation>
+					<xs:documentation xml:lang="nl">Afwikkelingsmethode: DVP - Levering tegen betaling, FOP - Vrij van betaling, HIC - Bewaring bij bewaarder</xs:documentation>
+					<xs:documentation xml:lang="es">Método de liquidación: DVP - Entrega contra pago, FOP - Libre de pago, HIC - Custodia en depósito</xs:documentation>
+					<xs:documentation xml:lang="it">Metodo di regolamento: DVP - Consegna contro pagamento, FOP - Libero da pagamento, HIC - Custodia presso depositario</xs:documentation>
+					<xs:documentation xml:lang="cs">[AUTO] Settlement method: DVP, FOP, HIC</xs:documentation>
+					<xs:documentation xml:lang="hu">[AUTO] Settlement method: DVP, FOP, HIC</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="DVP"/>
+						<xs:enumeration value="FOP"/>
+						<xs:enumeration value="HIC"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Legs" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Leg" maxOccurs="3">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="LegType">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Type of repo leg: NEAR - initial exchange of cash and collateral, FAR - final exchange at maturity, PARTIAL - partial early termination</xs:documentation>
+											<xs:documentation xml:lang="de">Typ der Repo-Seite: NEAR - erster Austausch von Geld und Sicherheiten, FAR - Schlussaustausch bei Fälligkeit, PARTIAL - teilweise vorzeitige Beendigung</xs:documentation>
+											<xs:documentation xml:lang="fr">Type de branche repo: NEAR - échange initial de liquidités et garanties, FAR - échange final à l'échéance, PARTIAL - résiliation partielle anticipée</xs:documentation>
+											<xs:documentation xml:lang="nl">Type repo-poot: NEAR - initiële uitwisseling van geld en onderpand, FAR - finale uitwisseling op vervaldatum, PARTIAL - gedeeltelijke vroegtijdige beëindiging</xs:documentation>
+											<xs:documentation xml:lang="es">Tipo de tramo repo: NEAR - intercambio inicial de efectivo y garantías, FAR - intercambio final al vencimiento, PARTIAL - terminación parcial anticipada</xs:documentation>
+											<xs:documentation xml:lang="it">Tipo di gamba repo: NEAR - scambio iniziale di contanti e garanzie, FAR - scambio finale alla scadenza, PARTIAL - terminazione parziale anticipata</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Type of repo leg: NEAR, FAR, PARTIAL</xs:documentation>
+											<xs:documentation xml:lang="hu">[AUTO] Type of repo leg: NEAR, FAR, PARTIAL</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="NEAR"/>
+												<xs:enumeration value="FAR"/>
+												<xs:enumeration value="PARTIAL"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Currency of the repo (cash leg)</xs:documentation>
+											<xs:documentation xml:lang="de">Währung des Repo-Geschäfts (Geldseite)</xs:documentation>
+											<xs:documentation xml:lang="fr">Devise de l'opération repo (branche espèces)</xs:documentation>
+											<xs:documentation xml:lang="nl">Valuta van de repo-transactie (geldpoot)</xs:documentation>
+											<xs:documentation xml:lang="es">Moneda de la operación repo (tramo de efectivo)</xs:documentation>
+											<xs:documentation xml:lang="it">Valuta dell'operazione repo (gamba contante)</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Currency of the repo transaction (cash leg)</xs:documentation>
+											<xs:documentation xml:lang="hu">[AUTO] Currency of the repo transaction (cash leg)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CashAmount" type="FundAmountType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Cash amount exchanged in this leg</xs:documentation>
+											<xs:documentation xml:lang="de">Geldbetrag, der in dieser Seite der Transaktion ausgetauscht wird</xs:documentation>
+											<xs:documentation xml:lang="fr">Montant en espèces échangé dans cette branche de la transaction</xs:documentation>
+											<xs:documentation xml:lang="nl">Geldbedrag uitgewisseld in deze poot van de transactie</xs:documentation>
+											<xs:documentation xml:lang="es">Importe en efectivo intercambiado en este tramo de la transacción</xs:documentation>
+											<xs:documentation xml:lang="it">Importo in contanti scambiato in questa gamba della transazione</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Cash amount exchanged in this leg</xs:documentation>
+											<xs:documentation xml:lang="hu">[AUTO] Cash amount exchanged in this leg</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="RateType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Interest rate type: Fixed - fixed rate for entire term, Floating - variable rate linked to reference index</xs:documentation>
+											<xs:documentation xml:lang="de">Zinstyp: Fixed - fester Zinssatz für gesamte Laufzeit, Floating - variabler Zinssatz an Referenzzins gekoppelt</xs:documentation>
+											<xs:documentation xml:lang="fr">Type de taux: Fixed - taux fixe pour toute la durée, Floating - taux variable lié à un indice de référence</xs:documentation>
+											<xs:documentation xml:lang="nl">Rentetype: Fixed - vaste rente voor gehele looptijd, Floating - variabele rente gekoppeld aan referentieindex</xs:documentation>
+											<xs:documentation xml:lang="es">Tipo de interés: Fixed - tipo fijo para todo el plazo, Floating - tipo variable vinculado a índice de referencia</xs:documentation>
+											<xs:documentation xml:lang="it">Tipo di tasso: Fixed - tasso fisso per l'intera durata, Floating - tasso variabile legato a indice di riferimento</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Interest rate type: Fixed or Floating</xs:documentation>
+											<xs:documentation xml:lang="hu">[AUTO] Interest rate type: Fixed or Floating</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Fixed"/>
+												<xs:enumeration value="Floating"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="ReferenceRateIndexUniqueID" type="xs:ID" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Reference rate index for floating rate repos (e.g., ESTR, SOFR, SONIA, TONAR) - Link to AssetMasterData (AssetType Index)</xs:documentation>
+											<xs:documentation xml:lang="de">Referenzzins-Index für variable Repos (z.B. ESTR, SOFR, SONIA, TONAR)</xs:documentation>
+											<xs:documentation xml:lang="fr">Indice de taux de référence pour les repos à taux variable (ex: ESTR, SOFR, SONIA, TONAR)</xs:documentation>
+											<xs:documentation xml:lang="nl">Referentierente-index voor variabele repos (bijv. ESTR, SOFR, SONIA, TONAR)</xs:documentation>
+											<xs:documentation xml:lang="es">Índice de tipo de referencia para repos de tipo variable (ej: ESTR, SOFR, SONIA, TONAR)</xs:documentation>
+											<xs:documentation xml:lang="it">Indice del tasso di riferimento per repo a tasso variabile (es: ESTR, SOFR, SONIA, TONAR)</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Reference rate index for floating rate repos</xs:documentation>
+											<xs:documentation xml:lang="hu">[AUTO] Reference rate index for floating rate repos</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CollateralNominal" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Nominal value of collateral securities transferred</xs:documentation>
+											<xs:documentation xml:lang="de">Nominalwert der übertragenen Sicherheiten</xs:documentation>
+											<xs:documentation xml:lang="fr">Valeur nominale des titres en garantie transférés</xs:documentation>
+											<xs:documentation xml:lang="nl">Nominale waarde van overgedragen onderpandeffecten</xs:documentation>
+											<xs:documentation xml:lang="es">Valor nominal de los valores en garantía transferidos</xs:documentation>
+											<xs:documentation xml:lang="it">Valore nominale dei titoli in garanzia trasferiti</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Nominal value of collateral securities transferred</xs:documentation>
+											<xs:documentation xml:lang="hu">[AUTO] Nominal value of collateral securities transferred</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="RepoRate" type="xs:decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="en">Repo rate in percent</xs:documentation>
+											<xs:documentation xml:lang="de">Repo-Satz in Prozent für diese Transaktion</xs:documentation>
+											<xs:documentation xml:lang="fr">Taux repo en pourcentage applicable à cette transaction</xs:documentation>
+											<xs:documentation xml:lang="nl">Repo-tarief in procent van toepassing op deze transactie</xs:documentation>
+											<xs:documentation xml:lang="es">Tasa repo en porcentaje aplicable a esta transacción</xs:documentation>
+											<xs:documentation xml:lang="it">Tasso repo in percentuale applicabile a questa transazione</xs:documentation>
+											<xs:documentation xml:lang="cs">[AUTO] Repo rate in percent</xs:documentation>
+											<xs:documentation xml:lang="hu">[AUTO] Repo rate in percent</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>

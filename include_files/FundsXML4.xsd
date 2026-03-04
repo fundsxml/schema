@@ -33,6 +33,7 @@
          <xs:documentation xml:lang="es">Elemento raíz de FundsXML 4.2.11</xs:documentation>
          <xs:documentation xml:lang="it">Elemento radice di FundsXML 4.2.11</xs:documentation>
          <xs:documentation xml:lang="hu">A FundsXML 4.2.11 gyokéreleme</xs:documentation>
+         <xs:documentation xml:lang="cs">Kořenový element FundsXML 4.2.11</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
@@ -45,6 +46,7 @@
                   <xs:documentation xml:lang="es">Metadatos del documento xml (como identificador único, fecha, proveedor de datos, idioma, ...)</xs:documentation>
                   <xs:documentation xml:lang="it">Metadati del documento xml (come identificatore univoco, data, fornitore di dati, lingua, ...)</xs:documentation>
                   <xs:documentation xml:lang="hu">Az XML dokumentum metaadatai (egyedi azonosító, dátum, adatszolgáltató, nyelv, ...)</xs:documentation>
+                  <xs:documentation xml:lang="cs">Metadata XML dokumentu (jako jedinečné ID, datum, dodavatel dat, jazyk, ...)</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="Funds">
@@ -56,6 +58,7 @@
                   <xs:documentation xml:lang="es">Lista de fondos, umbrellas, sicavs, carteras ...</xs:documentation>
                   <xs:documentation xml:lang="it">Elenco di fondi, umbrella, sicav, portafogli ...</xs:documentation>
                   <xs:documentation xml:lang="hu">Alapok, ernyőalapok, SICAV-ok, portfóliók listája...</xs:documentation>
+                  <xs:documentation xml:lang="cs">Seznam fondů, zastřešujících fondů, SICAV, portfolií ...</xs:documentation>
                </xs:annotation>
                <xs:complexType>
                   <xs:sequence>
@@ -68,6 +71,7 @@
                            <xs:documentation xml:lang="es">Todos los datos relacionados con fondos individuales, umbrellas, sicavs, carteras</xs:documentation>
                            <xs:documentation xml:lang="it">Tutti i dati relativi a fondi individuali, umbrella, sicav, portafogli</xs:documentation>
                            <xs:documentation xml:lang="hu">Az egyedi alapokra, ernyőalapokra, SICAV-okra, portfóliókra vonatkozó összes adat</xs:documentation>
+                           <xs:documentation xml:lang="cs">Všechna data související s jednotlivými fondy, zastřešujícími fondy, SICAV, portfolii</xs:documentation>
                         </xs:annotation>
                         <xs:key name="benchmarkID">
                            <xs:selector xpath="FundStaticData/Benchmarks/Benchmark"/>
@@ -92,6 +96,7 @@
                   <xs:documentation xml:lang="es">Datos dinámicos de sociedades gestoras de activos</xs:documentation>
                   <xs:documentation xml:lang="it">Dati dinamici delle società di gestione patrimoniale</xs:documentation>
                   <xs:documentation xml:lang="hu">Vagyonkezelő társaságok dinamikus adatai</xs:documentation>
+                  <xs:documentation xml:lang="cs">Dynamická data společností pro správu aktiv</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AssetMasterData" type="AssetMasterDataType">
@@ -103,6 +108,7 @@
                   <xs:documentation xml:lang="es">Datos maestros de valores, derivados y todos los demás activos de cartera</xs:documentation>
                   <xs:documentation xml:lang="it">Dati anagrafici di titoli, derivati e tutti gli altri asset di portafoglio</xs:documentation>
                   <xs:documentation xml:lang="hu">Értékpapírok, derivatívák és minden egyéb portfólióeszköz törzsadatai</xs:documentation>
+                  <xs:documentation xml:lang="cs">Kmenová data cenných papírů, derivátů a všech ostatních portfoliových aktiv</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="Documents" type="DocumentsType">
@@ -114,6 +120,7 @@
                   <xs:documentation xml:lang="es">Colección de documentos regulatorios y de marketing (KIDs, prospectos, factsheets, informes anuales, etc.) relacionados con fondos, subfondos o clases de acciones. Los documentos pueden proporcionarse como URLs o incrustados como contenido base64Binary</xs:documentation>
                   <xs:documentation xml:lang="it">Raccolta di documenti normativi e di marketing (KID, prospetti, factsheet, relazioni annuali, ecc.) relativi a fondi, comparti o classi di azioni. I documenti possono essere forniti come URL o incorporati come contenuto base64Binary</xs:documentation>
                   <xs:documentation xml:lang="hu">Alapokkal, részalapokkal vagy befektetési jegy osztályokkal kapcsolatos szabályozási és marketing dokumentumok gyűjteménye (KID-ek, tájékoztatók, adatlapok, éves jelentések stb.). A dokumentumok URL-ként vagy base64Binary tartalomként beágyazva biztosíthatók</xs:documentation>
+                  <xs:documentation xml:lang="cs">Sbírka regulatorních a marketingových dokumentů (KID, prospekty, informační listy, výroční zprávy atd.) souvisejících s fondy, podfondy nebo třídami akcií. Dokumenty mohou být poskytnuty jako URL nebo vloženy jako obsah base64Binary</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0"
@@ -127,6 +134,7 @@
                   <xs:documentation xml:lang="es">Reporting regulatorio directo e indirecto</xs:documentation>
                   <xs:documentation xml:lang="it">Reporting normativo diretto e indiretto</xs:documentation>
                   <xs:documentation xml:lang="hu">Közvetlen és közvetett szabályozási jelentéstétel</xs:documentation>
+                  <xs:documentation xml:lang="cs">Přímé a nepřímé regulatorní výkaznictví</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0"
@@ -140,6 +148,7 @@
                   <xs:documentation xml:lang="es">Datos específicos del país a nivel superior (como se define en 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
                   <xs:documentation xml:lang="it">Dati specifici del paese al livello superiore (come definito in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
                   <xs:documentation xml:lang="hu">Országspecifikus adatok a legfelső szinten (a 'FundsXML4_CountrySpecificData_xx.xsd' fájlban meghatározottak szerint)</xs:documentation>
+                  <xs:documentation xml:lang="cs">Specifická data země na nejvyšší úrovni (jak je definováno v 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" ref="ds:Signature"/>
@@ -155,21 +164,87 @@
          <xs:documentation xml:lang="es">Todos los datos estáticos para segmentos incluyendo fecha de creación, fecha de liquidación, gestor y descripción</xs:documentation>
          <xs:documentation xml:lang="it">Tutti i dati statici per i segmenti inclusi data di creazione, data di liquidazione, gestore e descrizione</xs:documentation>
          <xs:documentation xml:lang="hu">A szegmensek összes statikus adata, beleértve az indulási dátumot, a felszámolási dátumot, a kezelőt és a leírást</xs:documentation>
+         <xs:documentation xml:lang="cs">Všechna statická data pro segmenty včetně data založení, data likvidace, správce a popisu</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element minOccurs="0" name="InceptionDate" type="xs:date"/>
-         <xs:element minOccurs="0" name="LiquidationDate" type="xs:date"/>
-         <xs:element minOccurs="0" name="Manager" type="CompanyType"/>
+         <xs:element minOccurs="0" name="InceptionDate" type="xs:date">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Inception date of the segment</xs:documentation>
+               <xs:documentation xml:lang="de">Auflagedatum des Segments</xs:documentation>
+               <xs:documentation xml:lang="fr">Date de création du segment</xs:documentation>
+               <xs:documentation xml:lang="nl">Oprichtingsdatum van het segment</xs:documentation>
+               <xs:documentation xml:lang="es">Fecha de creación del segmento</xs:documentation>
+               <xs:documentation xml:lang="it">Data di creazione del segmento</xs:documentation>
+               <xs:documentation xml:lang="hu">A szegmens indulási dátuma</xs:documentation>
+               <xs:documentation xml:lang="cs">Datum založení segmentu</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="LiquidationDate" type="xs:date">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Liquidation date of the segment</xs:documentation>
+               <xs:documentation xml:lang="de">Liquidationsdatum des Segments</xs:documentation>
+               <xs:documentation xml:lang="fr">Date de liquidation du segment</xs:documentation>
+               <xs:documentation xml:lang="nl">Liquidatiedatum van het segment</xs:documentation>
+               <xs:documentation xml:lang="es">Fecha de liquidación del segmento</xs:documentation>
+               <xs:documentation xml:lang="it">Data di liquidazione del segmento</xs:documentation>
+               <xs:documentation xml:lang="hu">A szegmens felszámolási dátuma</xs:documentation>
+               <xs:documentation xml:lang="cs">Datum likvidace segmentu</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Manager" type="CompanyType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Manager of the segment</xs:documentation>
+               <xs:documentation xml:lang="de">Manager des Segments</xs:documentation>
+               <xs:documentation xml:lang="fr">Gestionnaire du segment</xs:documentation>
+               <xs:documentation xml:lang="nl">Beheerder van het segment</xs:documentation>
+               <xs:documentation xml:lang="es">Gestor del segmento</xs:documentation>
+               <xs:documentation xml:lang="it">Gestore del segmento</xs:documentation>
+               <xs:documentation xml:lang="hu">A szegmens kezelője</xs:documentation>
+               <xs:documentation xml:lang="cs">Správce segmentu</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element maxOccurs="unbounded" minOccurs="0" name="Description">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Description of segment in specified language</xs:documentation>
+               <xs:documentation xml:lang="de">Beschreibung des Segments in der angegebenen Sprache</xs:documentation>
+               <xs:documentation xml:lang="fr">Description du segment dans la langue spécifiée</xs:documentation>
+               <xs:documentation xml:lang="nl">Beschrijving van het segment in de opgegeven taal</xs:documentation>
+               <xs:documentation xml:lang="es">Descripción del segmento en el idioma especificado</xs:documentation>
+               <xs:documentation xml:lang="it">Descrizione del segmento nella lingua specificata</xs:documentation>
+               <xs:documentation xml:lang="hu">A szegmens leírása a megadott nyelven</xs:documentation>
+               <xs:documentation xml:lang="cs">Popis segmentu v zadaném jazyce</xs:documentation>
+            </xs:annotation>
             <xs:complexType>
                <xs:simpleContent>
                   <xs:extension base="xs:string">
-                     <xs:attribute name="language" type="xs:language" use="required"/>
+                     <xs:attribute name="language" type="xs:language" use="required">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">Language of the description (ISO 639-1)</xs:documentation>
+                           <xs:documentation xml:lang="de">Sprache der Beschreibung (ISO 639-1)</xs:documentation>
+                           <xs:documentation xml:lang="fr">Langue de la description (ISO 639-1)</xs:documentation>
+                           <xs:documentation xml:lang="nl">Taal van de beschrijving (ISO 639-1)</xs:documentation>
+                           <xs:documentation xml:lang="es">Idioma de la descripción (ISO 639-1)</xs:documentation>
+                           <xs:documentation xml:lang="it">Lingua della descrizione (ISO 639-1)</xs:documentation>
+                           <xs:documentation xml:lang="hu">A leírás nyelve (ISO 639-1)</xs:documentation>
+                           <xs:documentation xml:lang="cs">Jazyk popisu (ISO 639-1)</xs:documentation>
+                        </xs:annotation>
+                     </xs:attribute>
                   </xs:extension>
                </xs:simpleContent>
             </xs:complexType>
          </xs:element>
-         <xs:element minOccurs="0" name="CustomAttributes" type="AttributesType"/>
+         <xs:element minOccurs="0" name="CustomAttributes" type="AttributesType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Custom attributes for additional segment data</xs:documentation>
+               <xs:documentation xml:lang="de">Benutzerdefinierte Attribute für zusätzliche Segmentdaten</xs:documentation>
+               <xs:documentation xml:lang="fr">Attributs personnalisés pour les données supplémentaires du segment</xs:documentation>
+               <xs:documentation xml:lang="nl">Aangepaste attributen voor aanvullende segmentgegevens</xs:documentation>
+               <xs:documentation xml:lang="es">Atributos personalizados para datos adicionales del segmento</xs:documentation>
+               <xs:documentation xml:lang="it">Attributi personalizzati per dati aggiuntivi del segmento</xs:documentation>
+               <xs:documentation xml:lang="hu">Egyéni attribútumok a szegmens további adataihoz</xs:documentation>
+               <xs:documentation xml:lang="cs">Vlastní atributy pro další data segmentu</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="SegmentDynamicDataType">
@@ -181,6 +256,7 @@
          <xs:documentation xml:lang="es">Datos dinámicos de un segmento de fondo incluyendo total asset values y portfolio holdings</xs:documentation>
          <xs:documentation xml:lang="it">Dati dinamici di un segmento di fondo inclusi valori patrimoniali totali e posizioni di portafoglio</xs:documentation>
          <xs:documentation xml:lang="hu">Egy alap szegmens dinamikus adatai, beleértve a teljes eszközértékeket és a portfólió állományokat</xs:documentation>
+         <xs:documentation xml:lang="cs">Dynamická data segmentu fondu včetně celkových hodnot aktiv a portfoliových pozic</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="TotalAssetValues">
@@ -192,12 +268,24 @@
                <xs:documentation xml:lang="es">NAV total (volumen) del fondo</xs:documentation>
                <xs:documentation xml:lang="it">NAV totale (volume) del fondo</xs:documentation>
                <xs:documentation xml:lang="hu">Az alap teljes NAV-ja (volumene)</xs:documentation>
+               <xs:documentation xml:lang="cs">Celkový NAV (objem) fondu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
                   <xs:element maxOccurs="unbounded"
                               name="TotalAssetValue"
-                              type="TotalAssetValueType"/>
+                              type="TotalAssetValueType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Total asset value entry for a specific date</xs:documentation>
+                        <xs:documentation xml:lang="de">Total Asset Value Eintrag für ein bestimmtes Datum</xs:documentation>
+                        <xs:documentation xml:lang="fr">Entrée de la valeur totale d'actifs pour une date spécifique</xs:documentation>
+                        <xs:documentation xml:lang="nl">Total asset value vermelding voor een specifieke datum</xs:documentation>
+                        <xs:documentation xml:lang="es">Entrada de valor total de activos para una fecha específica</xs:documentation>
+                        <xs:documentation xml:lang="it">Voce del valore patrimoniale totale per una data specifica</xs:documentation>
+                        <xs:documentation xml:lang="hu">Teljes eszközérték bejegyzés egy adott dátumra</xs:documentation>
+                        <xs:documentation xml:lang="cs">Záznam celkové hodnoty aktiv pro konkrétní datum</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
@@ -210,10 +298,22 @@
                <xs:documentation xml:lang="es">Todos los datos relacionados con la cartera</xs:documentation>
                <xs:documentation xml:lang="it">Tutti i dati relativi al portafoglio</xs:documentation>
                <xs:documentation xml:lang="hu">Minden portfólióval kapcsolatos adat</xs:documentation>
+               <xs:documentation xml:lang="cs">Všechna data související s portfoliem</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
-                  <xs:element maxOccurs="unbounded" name="Portfolio" type="PortfolioType"/>
+                  <xs:element maxOccurs="unbounded" name="Portfolio" type="PortfolioType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Portfolio data of the segment</xs:documentation>
+                        <xs:documentation xml:lang="de">Portfoliodaten des Segments</xs:documentation>
+                        <xs:documentation xml:lang="fr">Données du portefeuille du segment</xs:documentation>
+                        <xs:documentation xml:lang="nl">Portefeuillegegevens van het segment</xs:documentation>
+                        <xs:documentation xml:lang="es">Datos de cartera del segmento</xs:documentation>
+                        <xs:documentation xml:lang="it">Dati di portafoglio del segmento</xs:documentation>
+                        <xs:documentation xml:lang="hu">A szegmens portfólió adatai</xs:documentation>
+                        <xs:documentation xml:lang="cs">Data portfolia segmentu</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
@@ -228,6 +328,7 @@
          <xs:documentation xml:lang="es">Documento regulatorio o de marketing (KID, prospecto, factsheet, informe anual) con metadatos y contenido</xs:documentation>
          <xs:documentation xml:lang="it">Documento normativo o di marketing (KID, prospetto, factsheet, relazione annuale) con metadati e contenuto</xs:documentation>
          <xs:documentation xml:lang="hu">Szabályozási vagy marketing dokumentum (KID, tájékoztató, adatlap, éves jelentés) metaadatokkal és tartalommal</xs:documentation>
+         <xs:documentation xml:lang="cs">Regulatorní nebo marketingový dokument (KID, prospekt, informační list, výroční zpráva) s metadaty a obsahem</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Type">
@@ -239,6 +340,7 @@
                <xs:documentation xml:lang="es">Tipo de documento</xs:documentation>
                <xs:documentation xml:lang="it">Tipo di documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum típusa</xs:documentation>
+               <xs:documentation xml:lang="cs">Typ dokumentu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:choice>
@@ -251,6 +353,7 @@
                         <xs:documentation xml:lang="es">Enumeraciones p.ej. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
                         <xs:documentation xml:lang="it">Enumerazioni es. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
                         <xs:documentation xml:lang="hu">Felsorolások, pl. AIFMD-AnnexIV, Éves jelentés, Féléves jelentés, Könyvvizsgálói jelentés, Adatlap, Tájékoztató, PRIIPS-KID</xs:documentation>
+                        <xs:documentation xml:lang="cs">Výčty např. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -281,6 +384,7 @@
                         <xs:documentation xml:lang="es">Descripción de otros tipos de documentos</xs:documentation>
                         <xs:documentation xml:lang="it">Descrizione di altri tipi di documenti</xs:documentation>
                         <xs:documentation xml:lang="hu">Egyéb dokumentumtípusok leírása</xs:documentation>
+                        <xs:documentation xml:lang="cs">Popis ostatních typů dokumentů</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="Text128Type">
@@ -300,6 +404,7 @@
                <xs:documentation xml:lang="es">Versión del documento</xs:documentation>
                <xs:documentation xml:lang="it">Versione del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum verziója</xs:documentation>
+               <xs:documentation xml:lang="cs">Verze dokumentu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Language" type="xs:language">
@@ -311,6 +416,7 @@
                <xs:documentation xml:lang="es">Idioma del documento</xs:documentation>
                <xs:documentation xml:lang="it">Lingua del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum nyelve</xs:documentation>
+               <xs:documentation xml:lang="cs">Jazyk dokumentu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="TranslationsAvailable" type="xs:boolean">
@@ -322,6 +428,7 @@
                <xs:documentation xml:lang="es">Indica si este documento está disponible en otras versiones de idioma</xs:documentation>
                <xs:documentation xml:lang="it">Indica se questo documento è disponibile in altre versioni linguistiche</xs:documentation>
                <xs:documentation xml:lang="hu">Jelzi, hogy a dokumentum elérhető-e más nyelvi változatokban</xs:documentation>
+               <xs:documentation xml:lang="cs">Označuje, zda je tento dokument dostupný v jiných jazykových verzích</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PublicationCountries">
@@ -333,6 +440,7 @@
                <xs:documentation xml:lang="es">Lista de países de publicación del documento</xs:documentation>
                <xs:documentation xml:lang="it">Elenco dei paesi di pubblicazione del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum publikálási országainak listája</xs:documentation>
+               <xs:documentation xml:lang="cs">Seznam zemí publikace dokumentu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -345,6 +453,7 @@
                         <xs:documentation xml:lang="es">Código ISO de dos letras del país</xs:documentation>
                         <xs:documentation xml:lang="it">Codice ISO a due lettere del paese</xs:documentation>
                         <xs:documentation xml:lang="hu">Az ország kétbetűs ISO kódja</xs:documentation>
+                        <xs:documentation xml:lang="cs">Dvoupísmenný ISO kód země</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -359,12 +468,46 @@
                <xs:documentation xml:lang="es">Fondo del documento</xs:documentation>
                <xs:documentation xml:lang="it">Fondo del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum alapja</xs:documentation>
+               <xs:documentation xml:lang="cs">Fond dokumentu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
-                  <xs:element name="Identifiers" type="IdentifiersType"/>
-                  <xs:element minOccurs="0" name="Name" type="Text256Type"/>
-                  <xs:element minOccurs="0" name="Currency" type="ISOCurrencyCodeType"/>
+                  <xs:element name="Identifiers" type="IdentifiersType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Identifiers of the fund</xs:documentation>
+                        <xs:documentation xml:lang="de">Identifikatoren des Fonds</xs:documentation>
+                        <xs:documentation xml:lang="fr">Identifiants du fonds</xs:documentation>
+                        <xs:documentation xml:lang="nl">Identificaties van het fonds</xs:documentation>
+                        <xs:documentation xml:lang="es">Identificadores del fondo</xs:documentation>
+                        <xs:documentation xml:lang="it">Identificatori del fondo</xs:documentation>
+                        <xs:documentation xml:lang="hu">Az alap azonosítói</xs:documentation>
+                        <xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Name" type="Text256Type">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Name of the fund</xs:documentation>
+                        <xs:documentation xml:lang="de">Name des Fonds</xs:documentation>
+                        <xs:documentation xml:lang="fr">Nom du fonds</xs:documentation>
+                        <xs:documentation xml:lang="nl">Naam van het fonds</xs:documentation>
+                        <xs:documentation xml:lang="es">Nombre del fondo</xs:documentation>
+                        <xs:documentation xml:lang="it">Nome del fondo</xs:documentation>
+                        <xs:documentation xml:lang="hu">Az alap neve</xs:documentation>
+                        <xs:documentation xml:lang="cs">Název fondu</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Currency" type="ISOCurrencyCodeType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Currency of the fund</xs:documentation>
+                        <xs:documentation xml:lang="de">Währung des Fonds</xs:documentation>
+                        <xs:documentation xml:lang="fr">Devise du fonds</xs:documentation>
+                        <xs:documentation xml:lang="nl">Valuta van het fonds</xs:documentation>
+                        <xs:documentation xml:lang="es">Moneda del fondo</xs:documentation>
+                        <xs:documentation xml:lang="it">Valuta del fondo</xs:documentation>
+                        <xs:documentation xml:lang="hu">Az alap pénzneme</xs:documentation>
+                        <xs:documentation xml:lang="cs">Měna fondu</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
@@ -377,15 +520,59 @@
                <xs:documentation xml:lang="es">Subfondos del documento</xs:documentation>
                <xs:documentation xml:lang="it">Comparti del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum részalapjai</xs:documentation>
+               <xs:documentation xml:lang="cs">Podfondy dokumentu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
                   <xs:element maxOccurs="unbounded" name="Subfund">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Subfund associated with the document</xs:documentation>
+                        <xs:documentation xml:lang="de">Dem Dokument zugeordneter Subfonds</xs:documentation>
+                        <xs:documentation xml:lang="fr">Compartiment associé au document</xs:documentation>
+                        <xs:documentation xml:lang="nl">Subfonds gekoppeld aan het document</xs:documentation>
+                        <xs:documentation xml:lang="es">Subfondo asociado al documento</xs:documentation>
+                        <xs:documentation xml:lang="it">Comparto associato al documento</xs:documentation>
+                        <xs:documentation xml:lang="hu">A dokumentumhoz társított részalap</xs:documentation>
+                        <xs:documentation xml:lang="cs">Podfond přiřazený k dokumentu</xs:documentation>
+                     </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
-                           <xs:element name="Identifiers" type="IdentifiersType"/>
-                           <xs:element minOccurs="0" name="Name" type="Text256Type"/>
-                           <xs:element minOccurs="0" name="Currency" type="ISOCurrencyCodeType"/>
+                           <xs:element name="Identifiers" type="IdentifiersType">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">Identifiers of the subfund</xs:documentation>
+                                 <xs:documentation xml:lang="de">Identifikatoren des Subfonds</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Identifiants du compartiment</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Identificaties van het subfonds</xs:documentation>
+                                 <xs:documentation xml:lang="es">Identificadores del subfondo</xs:documentation>
+                                 <xs:documentation xml:lang="it">Identificatori del comparto</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A részalap azonosítói</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Identifikátory podfondu</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="Name" type="Text256Type">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">Name of the subfund</xs:documentation>
+                                 <xs:documentation xml:lang="de">Name des Subfonds</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Nom du compartiment</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Naam van het subfonds</xs:documentation>
+                                 <xs:documentation xml:lang="es">Nombre del subfondo</xs:documentation>
+                                 <xs:documentation xml:lang="it">Nome del comparto</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A részalap neve</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Název podfondu</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="Currency" type="ISOCurrencyCodeType">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">Currency of the subfund</xs:documentation>
+                                 <xs:documentation xml:lang="de">Währung des Subfonds</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Devise du compartiment</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Valuta van het subfonds</xs:documentation>
+                                 <xs:documentation xml:lang="es">Moneda del subfondo</xs:documentation>
+                                 <xs:documentation xml:lang="it">Valuta del comparto</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A részalap pénzneme</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Měna podfondu</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
                         </xs:sequence>
                      </xs:complexType>
                   </xs:element>
@@ -401,15 +588,59 @@
                <xs:documentation xml:lang="es">Clases de acciones del documento</xs:documentation>
                <xs:documentation xml:lang="it">Classi di azioni del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum befektetési jegy osztályai</xs:documentation>
+               <xs:documentation xml:lang="cs">Třídy akcií dokumentu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
                   <xs:element maxOccurs="unbounded" name="ShareClass">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Share class associated with the document</xs:documentation>
+                        <xs:documentation xml:lang="de">Dem Dokument zugeordnete Anteilsklasse</xs:documentation>
+                        <xs:documentation xml:lang="fr">Classe d'actions associée au document</xs:documentation>
+                        <xs:documentation xml:lang="nl">Share class gekoppeld aan het document</xs:documentation>
+                        <xs:documentation xml:lang="es">Clase de acciones asociada al documento</xs:documentation>
+                        <xs:documentation xml:lang="it">Classe di azioni associata al documento</xs:documentation>
+                        <xs:documentation xml:lang="hu">A dokumentumhoz társított befektetési jegy osztály</xs:documentation>
+                        <xs:documentation xml:lang="cs">Třída akcií přiřazená k dokumentu</xs:documentation>
+                     </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
-                           <xs:element name="Identifiers" type="IdentifiersType"/>
-                           <xs:element minOccurs="0" name="Name" type="Text256Type"/>
-                           <xs:element minOccurs="0" name="Currency" type="ISOCurrencyCodeType"/>
+                           <xs:element name="Identifiers" type="IdentifiersType">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">Identifiers of the share class</xs:documentation>
+                                 <xs:documentation xml:lang="de">Identifikatoren der Anteilsklasse</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Identifiants de la classe d'actions</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Identificaties van de share class</xs:documentation>
+                                 <xs:documentation xml:lang="es">Identificadores de la clase de acciones</xs:documentation>
+                                 <xs:documentation xml:lang="it">Identificatori della classe di azioni</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A befektetési jegy osztály azonosítói</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Identifikátory třídy akcií</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="Name" type="Text256Type">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">Name of the share class</xs:documentation>
+                                 <xs:documentation xml:lang="de">Name der Anteilsklasse</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Nom de la classe d'actions</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Naam van de share class</xs:documentation>
+                                 <xs:documentation xml:lang="es">Nombre de la clase de acciones</xs:documentation>
+                                 <xs:documentation xml:lang="it">Nome della classe di azioni</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A befektetési jegy osztály neve</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Název třídy akcií</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="Currency" type="ISOCurrencyCodeType">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">Currency of the share class</xs:documentation>
+                                 <xs:documentation xml:lang="de">Währung der Anteilsklasse</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Devise de la classe d'actions</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Valuta van de share class</xs:documentation>
+                                 <xs:documentation xml:lang="es">Moneda de la clase de acciones</xs:documentation>
+                                 <xs:documentation xml:lang="it">Valuta della classe di azioni</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A befektetési jegy osztály pénzneme</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Měna třídy akcií</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
                         </xs:sequence>
                      </xs:complexType>
                   </xs:element>
@@ -425,6 +656,7 @@
                <xs:documentation xml:lang="es">Nombre del documento</xs:documentation>
                <xs:documentation xml:lang="it">Nome del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum neve</xs:documentation>
+               <xs:documentation xml:lang="cs">Název dokumentu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FileName" type="Text256Type">
@@ -436,6 +668,7 @@
                <xs:documentation xml:lang="es">Nombre del archivo (incluyendo extensión del archivo)</xs:documentation>
                <xs:documentation xml:lang="it">Nome del file (inclusa estensione del file)</xs:documentation>
                <xs:documentation xml:lang="hu">A fájl neve (beleértve a fájl kiterjesztését)</xs:documentation>
+               <xs:documentation xml:lang="cs">Název souboru (včetně přípony)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ForPublicUsage" type="xs:boolean">
@@ -447,6 +680,7 @@
                <xs:documentation xml:lang="es">Indica si el documento puede publicarse al público. Si es false, el documento está restringido solo para uso interno (p.ej. informes internos)</xs:documentation>
                <xs:documentation xml:lang="it">Indica se il documento può essere pubblicato al pubblico. Se false, il documento è riservato solo per uso interno (es. report interni)</xs:documentation>
                <xs:documentation xml:lang="hu">Jelzi, hogy a dokumentum nyilvánosságra hozható-e. Ha hamis, a dokumentum csak belső használatra korlátozódik (pl. belső jelentések)</xs:documentation>
+               <xs:documentation xml:lang="cs">Označuje, zda může být dokument zveřejněn. Pokud je false, dokument je omezen pouze na interní použití (např. interní zprávy)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Restrictions" type="xs:string">
@@ -458,6 +692,7 @@
                <xs:documentation xml:lang="es">Descripción de restricciones</xs:documentation>
                <xs:documentation xml:lang="it">Descrizione delle restrizioni</xs:documentation>
                <xs:documentation xml:lang="hu">A korlátozások leírása</xs:documentation>
+               <xs:documentation xml:lang="cs">Popis omezení</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Format" type="Text256Type">
@@ -469,6 +704,7 @@
                <xs:documentation xml:lang="es">Formato técnico del documento: PDF, XML, Excel, Word, Image, ...</xs:documentation>
                <xs:documentation xml:lang="it">Formato tecnico del documento: PDF, XML, Excel, Word, Image, ...</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum technikai formátuma: PDF, XML, Excel, Word, Kép, ...</xs:documentation>
+               <xs:documentation xml:lang="cs">Technický formát dokumentu: PDF, XML, Excel, Word, Obrázek, ...</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Signature">
@@ -480,6 +716,7 @@
                <xs:documentation xml:lang="es">Define si una firma está disponible: No, Digital, Scan</xs:documentation>
                <xs:documentation xml:lang="it">Definisce se una firma è disponibile: No, Digital, Scan</xs:documentation>
                <xs:documentation xml:lang="hu">Meghatározza, hogy aláírás elérhető-e: Nem, Digitális, Szkennelt</xs:documentation>
+               <xs:documentation xml:lang="cs">Definuje, zda je podpis dostupný: Ne, Digitální, Sken</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -498,6 +735,7 @@
                <xs:documentation xml:lang="es">Fecha en que se generó el documento</xs:documentation>
                <xs:documentation xml:lang="it">Data in cui è stato generato il documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum generálásának dátuma</xs:documentation>
+               <xs:documentation xml:lang="cs">Datum vytvoření dokumentu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ModificationDate" type="xs:date">
@@ -509,6 +747,7 @@
                <xs:documentation xml:lang="es">Fecha de la última modificación (p.ej. para KID)</xs:documentation>
                <xs:documentation xml:lang="it">Data dell'ultima modifica (es. per KID)</xs:documentation>
                <xs:documentation xml:lang="hu">Az utolsó módosítás dátuma (pl. KID esetén)</xs:documentation>
+               <xs:documentation xml:lang="cs">Datum poslední změny (např. pro KID)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ExpirationDate" type="xs:date">
@@ -520,6 +759,7 @@
                <xs:documentation xml:lang="es">El documento es válido hasta esta fecha de vencimiento</xs:documentation>
                <xs:documentation xml:lang="it">Il documento è valido fino a questa data di scadenza</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum érvényessége ezen lejárati dátumig</xs:documentation>
+               <xs:documentation xml:lang="cs">Dokument je platný do tohoto data expirace</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataSupplier" type="DataSupplierType">
@@ -531,6 +771,7 @@
                <xs:documentation xml:lang="es">Proveedor de datos del documento</xs:documentation>
                <xs:documentation xml:lang="it">Fornitore di dati del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum adatszolgáltatója</xs:documentation>
+               <xs:documentation xml:lang="cs">Dodavatel dat dokumentu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Attributes" type="AttributesType">
@@ -542,6 +783,7 @@
                <xs:documentation xml:lang="es">Atributos del documento (dependiendo del tipo de documento)</xs:documentation>
                <xs:documentation xml:lang="it">Attributi del documento (a seconda del tipo di documento)</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum attribútumai (a dokumentum típusától függően)</xs:documentation>
+               <xs:documentation xml:lang="cs">Atributy dokumentu (v závislosti na typu dokumentu)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SizeInBytes" type="xs:positiveInteger">
@@ -553,6 +795,7 @@
                <xs:documentation xml:lang="es">Tamaño del documento en bytes (tamaño exacto de datos binarios, tamaño estimado en caso de descarga)</xs:documentation>
                <xs:documentation xml:lang="it">Dimensione del documento in byte (dimensione esatta per dati binari, dimensione stimata in caso di download)</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum mérete bájtokban (a bináris adatok pontos mérete, letöltés esetén becsült méret)</xs:documentation>
+               <xs:documentation xml:lang="cs">Velikost dokumentu v bajtech (přesná velikost binárních dat, odhadovaná velikost v případě stažení)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DocumentURL" type="xs:anyURI">
@@ -564,6 +807,7 @@
                <xs:documentation xml:lang="es">Enlace del documento para descarga</xs:documentation>
                <xs:documentation xml:lang="it">Link del documento per il download</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum letöltési linkje</xs:documentation>
+               <xs:documentation xml:lang="cs">Odkaz na dokument ke stažení</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="BinaryData" type="xs:base64Binary">
@@ -575,6 +819,7 @@
                <xs:documentation xml:lang="es">Documento en formato xml base64Binary</xs:documentation>
                <xs:documentation xml:lang="it">Documento in formato xml base64Binary</xs:documentation>
                <xs:documentation xml:lang="hu">Dokumentum xml base64Binary formátumban</xs:documentation>
+               <xs:documentation xml:lang="cs">Dokument ve formátu xml base64Binary</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -588,6 +833,7 @@
          <xs:documentation xml:lang="es">Metadatos para la entrega de archivos incluyendo identificación del documento, fecha de contenido e información del proveedor de datos</xs:documentation>
          <xs:documentation xml:lang="it">Metadati per la consegna dei file inclusi identificazione del documento, data del contenuto e informazioni sul fornitore di dati</xs:documentation>
          <xs:documentation xml:lang="hu">A fájlkézbesítés metaadatai, beleértve a dokumentum azonosítását, a tartalmi dátumot és az adatszolgáltató adatait</xs:documentation>
+         <xs:documentation xml:lang="cs">Metadata pro doručení souboru včetně identifikace dokumentu, data obsahu a informací o dodavateli dat</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="UniqueDocumentID" type="Text128Type">
@@ -599,6 +845,7 @@
                <xs:documentation xml:lang="es">Identificador del documento (único por proveedor de datos)</xs:documentation>
                <xs:documentation xml:lang="it">Identificatore del documento (unico per fornitore di dati)</xs:documentation>
                <xs:documentation xml:lang="hu">Dokumentumazonosító (adatszolgáltatónként egyedi)</xs:documentation>
+               <xs:documentation xml:lang="cs">Identifikátor dokumentu (jedinečný na dodavatele dat)</xs:documentation>
                <xs:appinfo>
                   <altova:exampleValues>
                      <altova:example value="20240830_0001"/>
@@ -615,6 +862,7 @@
                <xs:documentation xml:lang="es">Marca de tiempo de la generación del documento</xs:documentation>
                <xs:documentation xml:lang="it">Timestamp della generazione del documento</xs:documentation>
                <xs:documentation xml:lang="hu">A dokumentum generálásának időbélyege</xs:documentation>
+               <xs:documentation xml:lang="cs">Časové razítko generování dokumentu</xs:documentation>
                <xs:appinfo>
                   <altova:exampleValues>
                      <altova:example value="2024-09-26T18:37:12.1559196+02:00"/>
@@ -631,6 +879,7 @@
                <xs:documentation xml:lang="es">Versión del esquema FundsXML (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Versione dello schema FundsXML (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
                <xs:documentation xml:lang="hu">FundsXML séma verzió (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
+               <xs:documentation xml:lang="cs">Verze schématu FundsXML (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -671,7 +920,8 @@
                <xs:documentation xml:lang="nl">Hoofddatum voor de inhoud, indien niet anders gespecificeerd in de sectie</xs:documentation>
                <xs:documentation xml:lang="es">Fecha principal del contenido, si no se especifica diferente dentro de la sección</xs:documentation>
                <xs:documentation xml:lang="it">Data principale del contenuto, se non specificata diversamente nella sezione</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Main date for content, if not specified different within section</xs:documentation>
+               <xs:documentation xml:lang="hu">A tartalom fő dátuma, ha nem más dátum van megadva az adott szekción belül</xs:documentation>
+               <xs:documentation xml:lang="cs">Hlavní datum obsahu, pokud není v sekci specifikováno jinak</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="DataSupplier" type="DataSupplierType">
@@ -682,7 +932,8 @@
                <xs:documentation xml:lang="nl">Definitie van de gegevensbron (beleggingsmaatschappij, leverancier, ...). Alleen gebruikt voor informatiedoeleinden.</xs:documentation>
                <xs:documentation xml:lang="es">Definición de la fuente de datos (sociedad de inversión, proveedor, ...). Usado solo con fines informativos.</xs:documentation>
                <xs:documentation xml:lang="it">Definizione della fonte dei dati (società di investimento, fornitore, ...). Utilizzato solo a scopo informativo.</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Definition of data source (investment company, vendor, ...). Used only for information purpose.</xs:documentation>
+               <xs:documentation xml:lang="hu">Az adatforrás definíciója (befektetési társaság, szolgáltató, ...). Used only for information purpose.</xs:documentation>
+               <xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel, ...). Používá se pouze pro informační účely.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataOperation">
@@ -693,7 +944,8 @@
                <xs:documentation xml:lang="nl">INITIAL: Eerste keer dat gegevens worden geleverd, bevat alle benodigde informatie om een systeem op te zetten. AMEND: Updates of wijzigingen aan bestaande gegevens (correcties, toevoegingen, modificaties). DELETE: Verwijdering van specifieke gegevens uit het systeem, vereist RelatedDocumentIDs.</xs:documentation>
                <xs:documentation xml:lang="es">INITIAL: Primera vez que se entregan datos, incluye toda la información necesaria para configurar un sistema. AMEND: Actualizaciones o cambios a datos existentes (correcciones, adiciones, modificaciones). DELETE: Eliminación de datos específicos del sistema, requiere RelatedDocumentIDs.</xs:documentation>
                <xs:documentation xml:lang="it">INITIAL: Prima consegna dei dati, include tutte le informazioni necessarie per configurare un sistema. AMEND: Aggiornamenti o modifiche ai dati esistenti (correzioni, aggiunte, modifiche). DELETE: Eliminazione di dati specifici dal sistema, richiede RelatedDocumentIDs.</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] INITIAL: First time data is delivered, includes all necessary information to set up a system. AMEND: Updates or changes to existing data (corrections, additions, modifications). DELETE: Removal of specific data from the system, requires RelatedDocumentIDs.</xs:documentation>
+               <xs:documentation xml:lang="hu">INITIAL: Első adatszolgáltatás, tartalmazza a rendszer beállításához szükséges összes információt. AMEND: Meglévő adatok frissítése vagy módosítása (javítások, kiegészítések, módosítások). DELETE: Adott adatok eltávolítása a rendszerből, RelatedDocumentIDs szükséges.</xs:documentation>
+               <xs:documentation xml:lang="cs">INITIAL: První dodávka dat, zahrnuje všechny potřebné informace pro nastavení systému. AMEND: Aktualizace nebo změny stávajících dat (opravy, doplnění, úpravy). DELETE: Odstranění konkrétních dat ze systému, vyžaduje RelatedDocumentIDs.</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -713,7 +965,8 @@
                <xs:documentation xml:lang="nl">Identificaties van gerelateerde documenten voor niet-initiële gegevensleveringen</xs:documentation>
                <xs:documentation xml:lang="es">Identificadores de documentos relacionados para entregas de datos no iniciales</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori di documenti correlati per consegne di dati non iniziali</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Identifiers of related documents for non-initial data deliveries</xs:documentation>
+               <xs:documentation xml:lang="hu">Kapcsolódó dokumentumok azonosítói nem kezdeti adatszolgáltatásokhoz</xs:documentation>
+               <xs:documentation xml:lang="cs">Identifikátory souvisejících dokumentů pro neinicializační dodávky dat</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -737,7 +990,8 @@
                <xs:documentation xml:lang="nl">ISO-taalcode met twee tekens. Wordt als standaard gebruikt als geen andere taal is opgegeven.</xs:documentation>
                <xs:documentation xml:lang="es">Código ISO de idioma con dos caracteres. Se usa como predeterminado si no se especifica otro idioma.</xs:documentation>
                <xs:documentation xml:lang="it">Codice lingua ISO a due caratteri. Utilizzato come predefinito se non viene specificata altra lingua.</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] ISO code of language with two characters. This is used as default if no other Language is specified.</xs:documentation>
+               <xs:documentation xml:lang="hu">Kétkarakteres ISO nyelvkód. Alapértelmezettként használatos, ha nincs más nyelv megadva.</xs:documentation>
+               <xs:documentation xml:lang="cs">Dvouznakový ISO kód jazyka. Používá se jako výchozí, pokud není specifikován jiný jazyk.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ModuleUsage">
@@ -748,11 +1002,22 @@
                <xs:documentation xml:lang="nl">Lijst van gebruikte schemamodules</xs:documentation>
                <xs:documentation xml:lang="es">Lista de módulos de esquema utilizados</xs:documentation>
                <xs:documentation xml:lang="it">Elenco dei moduli dello schema utilizzati</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] List of used schema modules</xs:documentation>
+               <xs:documentation xml:lang="hu">A használt sémamodulok listája</xs:documentation>
+               <xs:documentation xml:lang="cs">Seznam použitých modulů schématu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
                   <xs:element maxOccurs="unbounded" name="Module">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Schema module with optional sub-module specification</xs:documentation>
+                        <xs:documentation xml:lang="de">Schema-Modul mit optionaler Sub-Modul-Spezifikation</xs:documentation>
+                        <xs:documentation xml:lang="fr">Module de schéma avec spécification optionnelle de sous-module</xs:documentation>
+                        <xs:documentation xml:lang="nl">Schemamodule met optionele sub-modulespecificatie</xs:documentation>
+                        <xs:documentation xml:lang="es">Módulo de esquema con especificación opcional de sub-módulo</xs:documentation>
+                        <xs:documentation xml:lang="it">Modulo dello schema con specifica opzionale di sotto-modulo</xs:documentation>
+                        <xs:documentation xml:lang="hu">Sémamodul opcionális al-modul specifikációval</xs:documentation>
+                        <xs:documentation xml:lang="cs">Modul schématu s volitelnou specifikací sub-modulu</xs:documentation>
+                     </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
                            <xs:element name="Name">
@@ -763,7 +1028,8 @@
                                  <xs:documentation xml:lang="nl">Modulenaam zoals vermeld in de enumeratie. Kan worden gebruikt om imports te optimaliseren.</xs:documentation>
                                  <xs:documentation xml:lang="es">Nombre del módulo como se lista en la enumeración. Puede usarse para optimizar importaciones.</xs:documentation>
                                  <xs:documentation xml:lang="it">Nome del modulo come elencato nell'enumerazione. Può essere utilizzato per ottimizzare le importazioni.</xs:documentation>
-                                 <xs:documentation xml:lang="hu">[AUTO] Module name as listed in enumeration. Can be used to optimize imports.</xs:documentation>
+                                 <xs:documentation xml:lang="hu">Modulnév a felsorolásban megadottak szerint. Az importálás optimalizálásához használható.</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Název modulu podle výčtu. Lze použít k optimalizaci importů.</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -793,7 +1059,18 @@
                            <xs:element maxOccurs="unbounded"
                                        minOccurs="0"
                                        name="SubModule"
-                                       type="xs:string"/>
+                                       type="xs:string">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">Sub-module specification within a module</xs:documentation>
+                                 <xs:documentation xml:lang="de">Sub-Modul-Spezifikation innerhalb eines Moduls</xs:documentation>
+                                 <xs:documentation xml:lang="fr">Spécification de sous-module au sein d'un module</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Sub-modulespecificatie binnen een module</xs:documentation>
+                                 <xs:documentation xml:lang="es">Especificación de sub-módulo dentro de un módulo</xs:documentation>
+                                 <xs:documentation xml:lang="it">Specifica di sotto-modulo all'interno di un modulo</xs:documentation>
+                                 <xs:documentation xml:lang="hu">Al-modul specifikáció egy modulon belül</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Specifikace sub-modulu v rámci modulu</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
                         </xs:sequence>
                      </xs:complexType>
                   </xs:element>
@@ -808,16 +1085,83 @@
                <xs:documentation xml:lang="nl">Landspecifieke documentgegevens</xs:documentation>
                <xs:documentation xml:lang="es">Datos de documento específicos del país</xs:documentation>
                <xs:documentation xml:lang="it">Dati del documento specifici del paese</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Country specific document data</xs:documentation>
+               <xs:documentation xml:lang="hu">Országspecifikus dokumentumadatok</xs:documentation>
+               <xs:documentation xml:lang="cs">Specifická dokumentová data země</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
-                  <xs:element minOccurs="0" name="AT" type="CountrySpecificControlDataATType"/>
-                  <xs:element minOccurs="0" name="DE" type="CountrySpecificControlDataDEType"/>
-                  <xs:element minOccurs="0" name="DK" type="CountrySpecificControlDataDKType"/>
-                  <xs:element minOccurs="0" name="FR" type="CountrySpecificControlDataFRType"/>
-                  <xs:element minOccurs="0" name="LU" type="CountrySpecificControlDataLUType"/>
-                  <xs:element minOccurs="0" name="NL" type="CountrySpecificControlDataNLType"/>
+                  <xs:element minOccurs="0" name="AT" type="CountrySpecificControlDataATType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Austria-specific control data</xs:documentation>
+                        <xs:documentation xml:lang="de">Österreich-spezifische Kontrolldaten</xs:documentation>
+                        <xs:documentation xml:lang="fr">Données de contrôle spécifiques à l'Autriche</xs:documentation>
+                        <xs:documentation xml:lang="nl">Oostenrijk-specifieke controlegegevens</xs:documentation>
+                        <xs:documentation xml:lang="es">Datos de control específicos de Austria</xs:documentation>
+                        <xs:documentation xml:lang="it">Dati di controllo specifici per l'Austria</xs:documentation>
+                        <xs:documentation xml:lang="hu">Ausztria-specifikus vezérlő adatok</xs:documentation>
+                        <xs:documentation xml:lang="cs">Kontrolní data specifická pro Rakousko</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="DE" type="CountrySpecificControlDataDEType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Germany-specific control data</xs:documentation>
+                        <xs:documentation xml:lang="de">Deutschland-spezifische Kontrolldaten</xs:documentation>
+                        <xs:documentation xml:lang="fr">Données de contrôle spécifiques à l'Allemagne</xs:documentation>
+                        <xs:documentation xml:lang="nl">Duitsland-specifieke controlegegevens</xs:documentation>
+                        <xs:documentation xml:lang="es">Datos de control específicos de Alemania</xs:documentation>
+                        <xs:documentation xml:lang="it">Dati di controllo specifici per la Germania</xs:documentation>
+                        <xs:documentation xml:lang="hu">Németország-specifikus vezérlő adatok</xs:documentation>
+                        <xs:documentation xml:lang="cs">Kontrolní data specifická pro Německo</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="DK" type="CountrySpecificControlDataDKType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Denmark-specific control data</xs:documentation>
+                        <xs:documentation xml:lang="de">Dänemark-spezifische Kontrolldaten</xs:documentation>
+                        <xs:documentation xml:lang="fr">Données de contrôle spécifiques au Danemark</xs:documentation>
+                        <xs:documentation xml:lang="nl">Denemarken-specifieke controlegegevens</xs:documentation>
+                        <xs:documentation xml:lang="es">Datos de control específicos de Dinamarca</xs:documentation>
+                        <xs:documentation xml:lang="it">Dati di controllo specifici per la Danimarca</xs:documentation>
+                        <xs:documentation xml:lang="hu">Dánia-specifikus vezérlő adatok</xs:documentation>
+                        <xs:documentation xml:lang="cs">Kontrolní data specifická pro Dánsko</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="FR" type="CountrySpecificControlDataFRType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">France-specific control data</xs:documentation>
+                        <xs:documentation xml:lang="de">Frankreich-spezifische Kontrolldaten</xs:documentation>
+                        <xs:documentation xml:lang="fr">Données de contrôle spécifiques à la France</xs:documentation>
+                        <xs:documentation xml:lang="nl">Frankrijk-specifieke controlegegevens</xs:documentation>
+                        <xs:documentation xml:lang="es">Datos de control específicos de Francia</xs:documentation>
+                        <xs:documentation xml:lang="it">Dati di controllo specifici per la Francia</xs:documentation>
+                        <xs:documentation xml:lang="hu">Franciaország-specifikus vezérlő adatok</xs:documentation>
+                        <xs:documentation xml:lang="cs">Kontrolní data specifická pro Francii</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="LU" type="CountrySpecificControlDataLUType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Luxembourg-specific control data</xs:documentation>
+                        <xs:documentation xml:lang="de">Luxemburg-spezifische Kontrolldaten</xs:documentation>
+                        <xs:documentation xml:lang="fr">Données de contrôle spécifiques au Luxembourg</xs:documentation>
+                        <xs:documentation xml:lang="nl">Luxemburg-specifieke controlegegevens</xs:documentation>
+                        <xs:documentation xml:lang="es">Datos de control específicos de Luxemburgo</xs:documentation>
+                        <xs:documentation xml:lang="it">Dati di controllo specifici per il Lussemburgo</xs:documentation>
+                        <xs:documentation xml:lang="hu">Luxemburg-specifikus vezérlő adatok</xs:documentation>
+                        <xs:documentation xml:lang="cs">Kontrolní data specifická pro Lucembursko</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="NL" type="CountrySpecificControlDataNLType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Netherlands-specific control data</xs:documentation>
+                        <xs:documentation xml:lang="de">Niederlande-spezifische Kontrolldaten</xs:documentation>
+                        <xs:documentation xml:lang="fr">Données de contrôle spécifiques aux Pays-Bas</xs:documentation>
+                        <xs:documentation xml:lang="nl">Nederland-specifieke controlegegevens</xs:documentation>
+                        <xs:documentation xml:lang="es">Datos de control específicos de los Países Bajos</xs:documentation>
+                        <xs:documentation xml:lang="it">Dati di controllo specifici per i Paesi Bassi</xs:documentation>
+                        <xs:documentation xml:lang="hu">Hollandia-specifikus vezérlő adatok</xs:documentation>
+                        <xs:documentation xml:lang="cs">Kontrolní data specifická pro Nizozemsko</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
@@ -829,7 +1173,8 @@
                <xs:documentation xml:lang="nl">Aanvullende informatie die niet past in de bovenstaande knooppunten</xs:documentation>
                <xs:documentation xml:lang="es">Información adicional que no encaja en los nodos anteriores</xs:documentation>
                <xs:documentation xml:lang="it">Informazioni aggiuntive che non rientrano nei nodi precedenti</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Additional information which does not fit into the nodes above</xs:documentation>
+               <xs:documentation xml:lang="hu">További információk, amelyek nem illeszkednek a fenti csomópontokba</xs:documentation>
+               <xs:documentation xml:lang="cs">Další informace, které se nevejdou do výše uvedených uzlů</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -842,7 +1187,8 @@
          <xs:documentation xml:lang="nl">Fonds segment (sub-portfolio of pocket) typisch beheerd door een specifieke fund manager binnen een multi-manager structuur</xs:documentation>
          <xs:documentation xml:lang="es">Segmento de fondo (sub-portfolio o pocket) típicamente gestionado por un fund manager específico dentro de una estructura multi-manager</xs:documentation>
          <xs:documentation xml:lang="it">Segmento di fondo (sub-portafoglio o pocket) tipicamente gestito da un fund manager specifico in una struttura multi-manager</xs:documentation>
-         <xs:documentation xml:lang="hu">[AUTO] Fund segment (sub-portfolio or pocket) typically managed by a specific fund manager within a multi-manager structure</xs:documentation>
+         <xs:documentation xml:lang="hu">Alap szegmens (alportfólió vagy zseb), amelyet jellemzően egy adott alapkezelő kezel egy multi-manager struktúrán belül</xs:documentation>
+         <xs:documentation xml:lang="cs">Segment fondu (sub-portfolio nebo pocket), typicky spravovaný konkrétním správcem fondu v rámci multi-manažerské struktury</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Identifiers" type="IdentifiersType">
@@ -854,6 +1200,7 @@
                <xs:documentation xml:lang="es">Identificadores del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori del fondo</xs:documentation>
                <xs:documentation xml:lang="hu">Alap azonosítók</xs:documentation>
+               <xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Name" type="Text500Type">
@@ -864,7 +1211,8 @@
                <xs:documentation xml:lang="nl">Naam van het segment</xs:documentation>
                <xs:documentation xml:lang="es">Nombre del segmento</xs:documentation>
                <xs:documentation xml:lang="it">Nome del segmento</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Name of segment</xs:documentation>
+               <xs:documentation xml:lang="hu">Name of segment</xs:documentation>
+               <xs:documentation xml:lang="cs">Název segmentu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -875,7 +1223,8 @@
                <xs:documentation xml:lang="nl">Valuta van het segment</xs:documentation>
                <xs:documentation xml:lang="es">Moneda del segmento</xs:documentation>
                <xs:documentation xml:lang="it">Valuta del segmento</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Currency of segment</xs:documentation>
+               <xs:documentation xml:lang="hu">Currency of segment</xs:documentation>
+               <xs:documentation xml:lang="cs">Měna segmentu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SegmentStaticData" type="SegmentStaticDataType">
@@ -886,7 +1235,8 @@
                <xs:documentation xml:lang="nl">Oprichtingsdatum, beheerder, beschrijving, ...</xs:documentation>
                <xs:documentation xml:lang="es">Fecha de creación, gestor, descripción, ...</xs:documentation>
                <xs:documentation xml:lang="it">Data di creazione, gestore, descrizione, ...</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Inception, manager, description, ...</xs:documentation>
+               <xs:documentation xml:lang="hu">Inception, manager, description, ...</xs:documentation>
+               <xs:documentation xml:lang="cs">Datum založení, správce, popis, ...</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
@@ -899,8 +1249,8 @@
                <xs:documentation xml:lang="nl">Total asset values, portefeuillegegevens</xs:documentation>
                <xs:documentation xml:lang="es">Total asset values, datos de cartera</xs:documentation>
                <xs:documentation xml:lang="it">Valori patrimoniali totali, dati di portafoglio</xs:documentation>
-               <xs:documentation xml:lang="it">Valori patrimoniali totali, dati di portafoglio</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Total asset values, portfolio data</xs:documentation>
+               <xs:documentation xml:lang="hu">Total asset values, portfolio data</xs:documentation>
+               <xs:documentation xml:lang="cs">Celkové hodnoty aktiv, data portfolia</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ShareClasses">
@@ -911,7 +1261,8 @@
                <xs:documentation xml:lang="nl">Lijst van share classes van het segment</xs:documentation>
                <xs:documentation xml:lang="es">Lista de clases de acciones del segmento</xs:documentation>
                <xs:documentation xml:lang="it">Elenco delle classi di azioni del segmento</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] List of share classes of segment</xs:documentation>
+               <xs:documentation xml:lang="hu">List of share classes of segment</xs:documentation>
+               <xs:documentation xml:lang="cs">Seznam tříd akcií segmentu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -923,7 +1274,8 @@
                         <xs:documentation xml:lang="nl">Statische en dynamische gegevens van een share class</xs:documentation>
                         <xs:documentation xml:lang="es">Datos estáticos y dinámicos de una clase de acciones</xs:documentation>
                         <xs:documentation xml:lang="it">Dati statici e dinamici di una classe di azioni</xs:documentation>
-                        <xs:documentation xml:lang="hu">[AUTO] Static and dynamic data of a share class</xs:documentation>
+                        <xs:documentation xml:lang="hu">Static and dynamic data of a share class</xs:documentation>
+                        <xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -937,11 +1289,23 @@
                <xs:documentation xml:lang="nl">Gegevens gerelateerd aan subsegmenten / subpockets van fondsen (typisch beheerd door verschillende fund managers)</xs:documentation>
                <xs:documentation xml:lang="es">Datos relacionados con subsegmentos / subpockets de fondos (típicamente gestionados por diferentes fund managers)</xs:documentation>
                <xs:documentation xml:lang="it">Dati relativi a sottosegmenti / sottopocket di fondi (tipicamente gestiti da diversi fund manager)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Data related to subsegments / subpockets of funds (typically managed by different fund managers)</xs:documentation>
+               <xs:documentation xml:lang="hu">Data related to subsegments / subpockets of funds (typically managed by different fund managers)</xs:documentation>
+               <xs:documentation xml:lang="cs">Data související se subsegmenty / podkapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
-                  <xs:element maxOccurs="unbounded" name="Segment" type="SegmentType"/>
+                  <xs:element maxOccurs="unbounded" name="Segment" type="SegmentType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Subsegment within the current segment</xs:documentation>
+                        <xs:documentation xml:lang="de">Subsegment innerhalb des aktuellen Segments</xs:documentation>
+                        <xs:documentation xml:lang="fr">Sous-segment au sein du segment actuel</xs:documentation>
+                        <xs:documentation xml:lang="nl">Subsegment binnen het huidige segment</xs:documentation>
+                        <xs:documentation xml:lang="es">Subsegmento dentro del segmento actual</xs:documentation>
+                        <xs:documentation xml:lang="it">Sottosegmento all'interno del segmento attuale</xs:documentation>
+                        <xs:documentation xml:lang="hu">Al-szegmens az aktuális szegmensen belül</xs:documentation>
+                        <xs:documentation xml:lang="cs">Podsegment v rámci aktuálního segmentu</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
@@ -955,7 +1319,8 @@
          <xs:documentation xml:lang="nl">Container voor alle regelgevende reporting gegevens inclusief direct reporting (EMT, EET, EFT) en indirect reporting (Solvency II TPT, PRIIPs)</xs:documentation>
          <xs:documentation xml:lang="es">Contenedor para todos los datos de reporting regulatorio incluyendo direct reporting (EMT, EET, EFT) e indirect reporting (Solvency II TPT, PRIIPs)</xs:documentation>
          <xs:documentation xml:lang="it">Contenitore per tutti i dati di reporting normativo inclusi direct reporting (EMT, EET, EFT) e indirect reporting (Solvency II TPT, PRIIPs)</xs:documentation>
-         <xs:documentation xml:lang="hu">[AUTO] Container for all regulatory reporting data including direct reporting (EMT, EET, EFT) and indirect reporting (Solvency II TPT, PRIIPs)</xs:documentation>
+         <xs:documentation xml:lang="hu">Az összes szabályozási jelentési adat tárolója, beleértve a közvetlen jelentéseket (EMT, EET, EFT) és a közvetett jelentéseket (Solvency II TPT, PRIIPs)</xs:documentation>
+         <xs:documentation xml:lang="cs">Kontejner pro všechna regulatorní vykazovací data včetně přímého vykazování (EMT, EET, EFT) a nepřímého vykazování (Solvency II TPT, PRIIPs)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="DirectReporting" type="DirectReportingType">
@@ -966,7 +1331,8 @@
                <xs:documentation xml:lang="nl">Regelgevende gegevens uitgewisseld tussen fund manufacturers en distributors/platforms binnen de professionele distributieketen (bijv. MiFID product governance gegevens)</xs:documentation>
                <xs:documentation xml:lang="es">Datos regulatorios intercambiados entre fund manufacturers y distributors/plataformas dentro de la cadena de distribución profesional (p.ej. datos de MiFID product governance)</xs:documentation>
                <xs:documentation xml:lang="it">Dati normativi scambiati tra fund manufacturer e distributori/piattaforme nella catena di distribuzione professionale (es. dati di MiFID product governance)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Regulatory data exchanged between fund manufacturers and distributors/platforms within the professional distribution chain (e.g., MiFID product governance data)</xs:documentation>
+               <xs:documentation xml:lang="hu">Szabályozási adatok, amelyeket az alapgyártók és a forgalmazók/platformok cserélnek a professzionális forgalmazási láncon belül (pl. MiFID termékfelügyeleti adatok)</xs:documentation>
+               <xs:documentation xml:lang="cs">Regulatorní data vyměňovaná mezi výrobci fondů a distributory/platformami v rámci profesionálního distribučního řetězce (např. data MiFID product governance)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="IndirectReporting" type="IndirectReportingType">
@@ -977,7 +1343,8 @@
                <xs:documentation xml:lang="nl">Regelgevende openbaarmakingsgegevens verstrekt aan eindbeleggers, zowel retail (PRIIPs KID) als institutioneel (Solvency reporting gegevens)</xs:documentation>
                <xs:documentation xml:lang="es">Datos de divulgación regulatoria proporcionados a inversores finales, tanto retail (PRIIPs KID) como institucionales (datos de Solvency reporting)</xs:documentation>
                <xs:documentation xml:lang="it">Dati di divulgazione normativa forniti agli investitori finali, sia retail (PRIIPs KID) che istituzionali (dati di Solvency reporting)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Regulatory disclosure data provided to end investors, both retail (PRIIPs KID) and institutional (Solvency reporting data)</xs:documentation>
+               <xs:documentation xml:lang="hu">Szabályozási közzétételi adatok a végbefektetők számára, mind lakossági (PRIIPs KID), mind intézményi (Solvency jelentési adatok)</xs:documentation>
+               <xs:documentation xml:lang="cs">Regulatorní data pro zveřejnění poskytovaná koncovým investorům, jak retailovým (PRIIPs KID), tak institucionálním (data Solvency reporting)</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -990,7 +1357,8 @@
          <xs:documentation xml:lang="nl">Regelgevende gegevens voor B2B-uitwisseling tussen fund manufacturers en distributors (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
          <xs:documentation xml:lang="es">Datos regulatorios para intercambio B2B entre fund manufacturers y distributors (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
          <xs:documentation xml:lang="it">Dati normativi per lo scambio B2B tra fund manufacturer e distributori (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
-         <xs:documentation xml:lang="hu">[AUTO] Regulatory data for B2B exchange between fund manufacturers and distributors (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
+         <xs:documentation xml:lang="hu">B2B adatcsere alapgyártók és forgalmazók között (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
+         <xs:documentation xml:lang="cs">Regulatorní data pro B2B výměnu mezi výrobci fondů a distributory (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="EMIR" type="EMIRType">
@@ -1012,7 +1380,8 @@
                <xs:documentation xml:lang="nl">Volgens EUROPEAN MIFID TEMPLATE - EMT V1.0 van 2017-08-03</xs:documentation>
                <xs:documentation xml:lang="es">Según EUROPEAN MIFID TEMPLATE - EMT V1.0 de 2017-08-03</xs:documentation>
                <xs:documentation xml:lang="it">Secondo EUROPEAN MIFID TEMPLATE - EMT V1.0 del 2017-08-03</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] According to EUROPEAN MIFID TEMPLATE - EMT V1.0 as of 2017-08-03</xs:documentation>
+               <xs:documentation xml:lang="hu">Az EUROPEAN MIFID TEMPLATE - EMT V1.0 szerint (2017-08-03)</xs:documentation>
+               <xs:documentation xml:lang="cs">Podle EUROPEAN MIFID TEMPLATE - EMT V1.0 ze dne 2017-08-03</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="EMT_V3" type="EMTType_V3">
@@ -1024,7 +1393,8 @@
                <xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 van 2019-11-25</xs:documentation>
                <xs:documentation xml:lang="es">Según FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 de 2019-11-25</xs:documentation>
                <xs:documentation xml:lang="it">Secondo FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 del 2019-11-25</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] According to FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 as of 2019-11-25</xs:documentation>
+               <xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 szerint (2019-11-25)</xs:documentation>
+               <xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 ze dne 2019-11-25</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="EMT_V4" type="EMTType_V4">
@@ -1035,7 +1405,8 @@
                <xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE - EMT V4.0 van 2022-03-14</xs:documentation>
                <xs:documentation xml:lang="es">Según FinDatEx MiFID TEMPLATE - EMT V4.0 de 2022-03-14</xs:documentation>
                <xs:documentation xml:lang="it">Secondo FinDatEx MiFID TEMPLATE - EMT V4.0 del 2022-03-14</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] According to FinDatEx MiFID TEMPLATE - EMT V4.0 as of 2022-03-14</xs:documentation>
+               <xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE - EMT V4.0 szerint (2022-03-14)</xs:documentation>
+               <xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.0 ze dne 2022-03-14</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="EMT_V4_1" type="EMTType_V41">
@@ -1046,7 +1417,8 @@
                <xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE - EMT V4.1 van 2023-03-07</xs:documentation>
                <xs:documentation xml:lang="es">Según FinDatEx MiFID TEMPLATE - EMT V4.1 de 2023-03-07</xs:documentation>
                <xs:documentation xml:lang="it">Secondo FinDatEx MiFID TEMPLATE - EMT V4.1 del 2023-03-07</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] According to FinDatEx MiFID TEMPLATE - EMT V4.1 as of 2023-03-07</xs:documentation>
+               <xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE - EMT V4.1 szerint (2023-03-07)</xs:documentation>
+               <xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.1 ze dne 2023-03-07</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="EMT_V4_2" type="EMTType_V42">
@@ -1057,7 +1429,8 @@
                <xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE - EMT V4.2 van 2024-04-05</xs:documentation>
                <xs:documentation xml:lang="es">Según FinDatEx MiFID TEMPLATE - EMT V4.2 de 2024-04-05</xs:documentation>
                <xs:documentation xml:lang="it">Secondo FinDatEx MiFID TEMPLATE - EMT V4.2 del 2024-04-05</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] According to FinDatEx MiFID TEMPLATE - EMT V4.2 as of 2024-04-05</xs:documentation>
+               <xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE - EMT V4.2 szerint (2024-04-05)</xs:documentation>
+               <xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.2 ze dne 2024-04-05</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="EMT_V4_3" type="EMTType_V43">
@@ -1068,7 +1441,8 @@
                <xs:documentation xml:lang="nl">Volgens FinDatEx MiFID TEMPLATE - EMT V4.3 van 2025-11-03</xs:documentation>
                <xs:documentation xml:lang="es">Según FinDatEx MiFID TEMPLATE - EMT V4.3 de 2025-11-03</xs:documentation>
                <xs:documentation xml:lang="it">Secondo FinDatEx MiFID TEMPLATE - EMT V4.3 del 2025-11-03</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] According to FinDatEx MiFID TEMPLATE - EMT V4.3 as of 2026-01-15</xs:documentation>
+               <xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE - EMT V4.3 szerint (2026-01-15)</xs:documentation>
+               <xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.3 ze dne 2026-01-15</xs:documentation>
                <xs:appinfo source="@since 4.2.10"/>
             </xs:annotation>
          </xs:element>
@@ -1080,7 +1454,8 @@
                <xs:documentation xml:lang="nl">Volgens FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
                <xs:documentation xml:lang="es">Según FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
                <xs:documentation xml:lang="it">Secondo FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] According to FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
+               <xs:documentation xml:lang="hu">A FinDatEx szerint: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
+               <xs:documentation xml:lang="cs">Podle FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="EET1.0" type="EETsType">
@@ -1091,7 +1466,8 @@
                <xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
                <xs:documentation xml:lang="es">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
                <xs:documentation xml:lang="it">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
+               <xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.0 (2022-03-14)</xs:documentation>
+               <xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
                <xs:appinfo source="@deprecated"/>
             </xs:annotation>
          </xs:element>
@@ -1103,7 +1479,8 @@
                <xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
                <xs:documentation xml:lang="es">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
                <xs:documentation xml:lang="it">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+               <xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+               <xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
                <xs:appinfo source="@deprecated"/>
             </xs:annotation>
          </xs:element>
@@ -1115,7 +1492,8 @@
                <xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
                <xs:documentation xml:lang="es">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
                <xs:documentation xml:lang="it">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+               <xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+               <xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
                <xs:appinfo source="@deprecated"/>
             </xs:annotation>
          </xs:element>
@@ -1127,7 +1505,8 @@
                <xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
                <xs:documentation xml:lang="es">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
                <xs:documentation xml:lang="it">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+               <xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+               <xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
                <xs:appinfo source="@deprecated"/>
             </xs:annotation>
          </xs:element>
@@ -1139,7 +1518,8 @@
                <xs:documentation xml:lang="nl">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
                <xs:documentation xml:lang="es">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
                <xs:documentation xml:lang="it">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
+               <xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
+               <xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -1152,10 +1532,22 @@
          <xs:documentation xml:lang="nl">Container voor meerdere fonds-gerelateerde documenten (KIDs, prospectuses, factsheets, reports)</xs:documentation>
          <xs:documentation xml:lang="es">Contenedor para múltiples documentos relacionados con fondos (KIDs, prospectos, factsheets, informes)</xs:documentation>
          <xs:documentation xml:lang="it">Contenitore per documenti multipli relativi ai fondi (KID, prospetti, factsheet, relazioni)</xs:documentation>
-         <xs:documentation xml:lang="hu">[AUTO] Container for multiple fund-related documents (KIDs, prospectuses, factsheets, reports)</xs:documentation>
+         <xs:documentation xml:lang="hu">Alapokkal kapcsolatos dokumentumok konténere (KID-ek, tájékoztatók, adatlapok, jelentések)</xs:documentation>
+         <xs:documentation xml:lang="cs">Kontejner pro více dokumentů souvisejících s fondem (KID, prospekty, informační listy, zprávy)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element maxOccurs="unbounded" name="Document" type="DocumentType"/>
+         <xs:element maxOccurs="unbounded" name="Document" type="DocumentType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Individual document with metadata and content</xs:documentation>
+               <xs:documentation xml:lang="de">Einzelnes Dokument mit Metadaten und Inhalt</xs:documentation>
+               <xs:documentation xml:lang="fr">Document individuel avec métadonnées et contenu</xs:documentation>
+               <xs:documentation xml:lang="nl">Individueel document met metadata en inhoud</xs:documentation>
+               <xs:documentation xml:lang="es">Documento individual con metadatos y contenido</xs:documentation>
+               <xs:documentation xml:lang="it">Documento individuale con metadati e contenuto</xs:documentation>
+               <xs:documentation xml:lang="hu">Egyedi dokumentum metaadatokkal és tartalommal</xs:documentation>
+               <xs:documentation xml:lang="cs">Jednotlivý dokument s metadaty a obsahem</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="FundType">
@@ -1166,7 +1558,8 @@
          <xs:documentation xml:lang="nl">Volledige fonds structuur inclusief identifiers, statische/dynamische gegevens, en ofwel single fund of umbrella met subfunds</xs:documentation>
          <xs:documentation xml:lang="es">Estructura completa del fondo incluyendo identifiers, datos estáticos/dinámicos, y ya sea single fund o umbrella con subfunds</xs:documentation>
          <xs:documentation xml:lang="it">Struttura completa del fondo inclusi identificatori, dati statici/dinamici, e single fund o umbrella con comparti</xs:documentation>
-         <xs:documentation xml:lang="hu">[AUTO] Complete fund structure including identifiers, static/dynamic data, and either single fund or umbrella with subfunds</xs:documentation>
+         <xs:documentation xml:lang="hu">Komplett alap struktúra az azonosítókkal, statikus/dinamikus adatokkal, és vagy egyedi alap, vagy ernyőalap részalapokkal</xs:documentation>
+         <xs:documentation xml:lang="cs">Kompletní struktura fondu včetně identifikátorů, statických/dynamických dat a buď jednoho fondu, nebo zastřešujícího fondu s podfondy</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Identifiers" type="IdentifiersType">
@@ -1177,7 +1570,8 @@
                <xs:documentation xml:lang="nl">Identificaties van het fonds</xs:documentation>
                <xs:documentation xml:lang="es">Identificadores del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori del fondo</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Identifiers of fund</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alap azonosítói</xs:documentation>
+               <xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Names" type="NamesType">
@@ -1188,7 +1582,8 @@
                <xs:documentation xml:lang="nl">Namen van het fonds</xs:documentation>
                <xs:documentation xml:lang="es">Nombres del fondo</xs:documentation>
                <xs:documentation xml:lang="it">Nomi del fondo</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Names of fund</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alap nevei</xs:documentation>
+               <xs:documentation xml:lang="cs">Názvy fondu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -1199,7 +1594,8 @@
                <xs:documentation xml:lang="nl">Hoofdvaluta van het fonds (typisch gebruikt door de custodian voor berekening van totale NAV)</xs:documentation>
                <xs:documentation xml:lang="es">Moneda principal del fondo (típicamente usada por el custodio para el cálculo del NAV total)</xs:documentation>
                <xs:documentation xml:lang="it">Valuta principale del fondo (tipicamente usata dal depositario per il calcolo del NAV totale)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Main currency of fund (typically used by custodian for calculation of total NAV)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alap fő pénzneme (jellemzően a letétkezelő használja a teljes NAV kiszámításához)</xs:documentation>
+               <xs:documentation xml:lang="cs">Hlavní měna fondu (typicky používaná depozitářem pro výpočet celkového NAV)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="SingleFundFlag" type="xs:boolean">
@@ -1210,7 +1606,8 @@
                <xs:documentation xml:lang="nl">Definieert of dit een enkelvoudig fonds of een umbrella-achtige structuur met subfondsen is</xs:documentation>
                <xs:documentation xml:lang="es">Define si es un fondo único o una estructura tipo umbrella con subfondos</xs:documentation>
                <xs:documentation xml:lang="it">Definisce se è un fondo singolo o una struttura tipo umbrella con comparti</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Defines whether this is a single fund or an umbrella like structure with subfunds</xs:documentation>
+               <xs:documentation xml:lang="hu">Meghatározza, hogy ez egy egyedi alap vagy egy ernyőszerű struktúra részalapokkal</xs:documentation>
+               <xs:documentation xml:lang="cs">Definuje, zda se jedná o jednotlivý fond nebo zastřešující strukturu s podfondy</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataSupplier" type="DataSupplierType">
@@ -1221,7 +1618,8 @@
                <xs:documentation xml:lang="nl">Definitie van de gegevensbron (beleggingsmaatschappij, leverancier, ...)</xs:documentation>
                <xs:documentation xml:lang="es">Definición de la fuente de datos (sociedad de inversión, proveedor, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Definizione della fonte dei dati (società di investimento, fornitore, ...)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Definition of data source (investment company, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az adatforrás definíciója (befektetési társaság, szolgáltató, ...)</xs:documentation>
+               <xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FundStaticData" type="FundStaticDataType">
@@ -1232,7 +1630,8 @@
                <xs:documentation xml:lang="nl">Belangrijkste statische gegevens van het fonds (Boekjaar, Custody, ...)</xs:documentation>
                <xs:documentation xml:lang="es">Principales datos estáticos del fondo (Año fiscal, Custody, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Principali dati statici del fondo (Anno fiscale, Custody, ...)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Main static data of fund (Fiscal Year, Custody, ...)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alap fő statikus adatai (pénzügyi év, letétkezelés, ...)</xs:documentation>
+               <xs:documentation xml:lang="cs">Hlavní statická data fondu (fiskální rok, úschova, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FundDynamicData" type="FundDynamicDataType">
@@ -1243,7 +1642,8 @@
                <xs:documentation xml:lang="nl">Dynamische gegevens van het fonds (totale waarden, holdings, transacties, uitsplitsingen, ...)</xs:documentation>
                <xs:documentation xml:lang="es">Datos dinámicos del fondo (valores totales, holdings, transacciones, desgloses, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Dati dinamici del fondo (valori totali, posizioni, transazioni, dettagli, ...)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Dynamic data of fund (total values, holdings, transactions, breakdowns, ...)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alap dinamikus adatai (teljes értékek, pozíciók, tranzakciók, bontások, ...)</xs:documentation>
+               <xs:documentation xml:lang="cs">Dynamická data fondu (celkové hodnoty, pozice, transakce, struktury, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:choice minOccurs="0">
@@ -1255,7 +1655,8 @@
                   <xs:documentation xml:lang="nl">Gebruik dit knooppunt voor niet-umbrella fondsstructuren</xs:documentation>
                   <xs:documentation xml:lang="es">Use este nodo para estructuras de fondos no-umbrella</xs:documentation>
                   <xs:documentation xml:lang="it">Utilizzare questo nodo per strutture di fondi non-umbrella</xs:documentation>
-                  <xs:documentation xml:lang="hu">[AUTO] Use this node for non-umbrella fund structures</xs:documentation>
+                  <xs:documentation xml:lang="hu">Ezt a csomópontot nem ernyőalapú struktúrákhoz használja</xs:documentation>
+                  <xs:documentation xml:lang="cs">Tento uzel použijte pro struktury bez zastřešujícího fondu</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element name="Subfunds">
@@ -1266,7 +1667,8 @@
                   <xs:documentation xml:lang="nl">Gebruik dit knooppunt voor umbrella fondsstructuren</xs:documentation>
                   <xs:documentation xml:lang="es">Use este nodo para estructuras de fondos umbrella</xs:documentation>
                   <xs:documentation xml:lang="it">Utilizzare questo nodo per strutture di fondi umbrella</xs:documentation>
-                  <xs:documentation xml:lang="hu">[AUTO] Use this node for umbrella fund structures</xs:documentation>
+                  <xs:documentation xml:lang="hu">Ezt a csomópontot ernyőalapú struktúrákhoz használja</xs:documentation>
+                  <xs:documentation xml:lang="cs">Tento uzel použijte pro struktury zastřešujícího fondu</xs:documentation>
                </xs:annotation>
                <xs:complexType>
                   <xs:sequence>
@@ -1278,7 +1680,8 @@
                            <xs:documentation xml:lang="nl">Statische en dynamische gegevens van een subfonds</xs:documentation>
                            <xs:documentation xml:lang="es">Datos estáticos y dinámicos de un subfondo</xs:documentation>
                            <xs:documentation xml:lang="it">Dati statici e dinamici di un comparto</xs:documentation>
-                           <xs:documentation xml:lang="hu">[AUTO] Static and dynamic data of a subfund</xs:documentation>
+                           <xs:documentation xml:lang="hu">Egy részalap statikus és dinamikus adatai</xs:documentation>
+                           <xs:documentation xml:lang="cs">Statická a dynamická data podfondu</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1295,7 +1698,8 @@
                <xs:documentation xml:lang="nl">Landspecifieke gegevens van het fonds (zoals gedefinieerd in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
                <xs:documentation xml:lang="es">Datos específicos del país del fondo (como se define en 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
                <xs:documentation xml:lang="it">Dati specifici del paese del fondo (come definito in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Country specific data of fund (as defined in 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alap országspecifikus adatai (a 'FundsXML4_CountrySpecificData_xx.xsd' fájlban meghatározottak szerint)</xs:documentation>
+               <xs:documentation xml:lang="cs">Specifická data fondu podle země (jak je definováno v 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -1308,7 +1712,8 @@
          <xs:documentation xml:lang="nl">Subfund binnen een umbrella fund structuur met eigen identifiers, statische/dynamische gegevens en share classes</xs:documentation>
          <xs:documentation xml:lang="es">Subfund dentro de una estructura umbrella fund con sus propios identifiers, datos estáticos/dinámicos y clases de acciones</xs:documentation>
          <xs:documentation xml:lang="it">Subfund all'interno di una struttura umbrella fund con propri identificatori, dati statici/dinamici e classi di azioni</xs:documentation>
-         <xs:documentation xml:lang="hu">[AUTO] Subfund within an umbrella fund structure with its own identifiers, static/dynamic data and share classes</xs:documentation>
+         <xs:documentation xml:lang="hu">Részalap egy ernyőalapú struktúrán belül saját azonosítókkal, statikus/dinamikus adatokkal és befektetési jegy osztályokkal</xs:documentation>
+         <xs:documentation xml:lang="cs">Podfond v rámci zastřešující fondové struktury s vlastními identifikátory, statickými/dynamickými daty a třídami akcií</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Identifiers" type="IdentifiersType">
@@ -1319,7 +1724,8 @@
                <xs:documentation xml:lang="nl">Identificaties van het subfonds</xs:documentation>
                <xs:documentation xml:lang="es">Identificadores del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori del comparto</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Identifiers of subfund</xs:documentation>
+               <xs:documentation xml:lang="hu">A részalap azonosítói</xs:documentation>
+               <xs:documentation xml:lang="cs">Identifikátory podfondu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Names" type="NamesType">
@@ -1330,7 +1736,8 @@
                <xs:documentation xml:lang="nl">Namen van het subfonds</xs:documentation>
                <xs:documentation xml:lang="es">Nombres del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Nomi del comparto</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Names of subfund</xs:documentation>
+               <xs:documentation xml:lang="hu">A részalap nevei</xs:documentation>
+               <xs:documentation xml:lang="cs">Názvy podfondu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -1341,7 +1748,8 @@
                <xs:documentation xml:lang="nl">Valuta van het subfonds</xs:documentation>
                <xs:documentation xml:lang="es">Moneda del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Valuta del comparto</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Currency of subfund</xs:documentation>
+               <xs:documentation xml:lang="hu">A részalap pénzneme</xs:documentation>
+               <xs:documentation xml:lang="cs">Měna podfondu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SubfundStaticData" type="SubfundStaticDataType">
@@ -1352,7 +1760,8 @@
                <xs:documentation xml:lang="nl">Statische gegevens van het subfonds (vergelijkbaar met statische gegevens van een enkelvoudig fonds)</xs:documentation>
                <xs:documentation xml:lang="es">Datos estáticos del subfondo (similares a los datos estáticos de un fondo único)</xs:documentation>
                <xs:documentation xml:lang="it">Dati statici del comparto (simili ai dati statici di un fondo singolo)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Static data of subfund (similar to static data of single fund)</xs:documentation>
+               <xs:documentation xml:lang="hu">A részalap statikus adatai (hasonló az egyedi alap statikus adataihoz)</xs:documentation>
+               <xs:documentation xml:lang="cs">Statická data podfondu (podobná statickým datům jednotlivého fondu)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SubfundDynamicData" type="FundDynamicDataType">
@@ -1363,8 +1772,8 @@
                <xs:documentation xml:lang="nl">Total asset values, portefeuillegegevens</xs:documentation>
                <xs:documentation xml:lang="es">Total asset values, datos de cartera</xs:documentation>
                <xs:documentation xml:lang="it">Valori patrimoniali totali, dati di portafoglio</xs:documentation>
-               <xs:documentation xml:lang="it">Valori patrimoniali totali, dati di portafoglio</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Total asset values, portfolio data</xs:documentation>
+               <xs:documentation xml:lang="hu">Total asset values, portfolio data</xs:documentation>
+               <xs:documentation xml:lang="cs">Celkové hodnoty aktiv, data portfolia</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ShareClasses">
@@ -1375,7 +1784,8 @@
                <xs:documentation xml:lang="nl">Lijst van share classes van het subfonds</xs:documentation>
                <xs:documentation xml:lang="es">Lista de clases de acciones del subfondo</xs:documentation>
                <xs:documentation xml:lang="it">Elenco delle classi di azioni del comparto</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] List of share classes of subfund</xs:documentation>
+               <xs:documentation xml:lang="hu">A részalap befektetési jegy osztályainak listája</xs:documentation>
+               <xs:documentation xml:lang="cs">Seznam tříd akcií podfondu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1387,7 +1797,8 @@
                         <xs:documentation xml:lang="nl">Statische en dynamische gegevens van een share class</xs:documentation>
                         <xs:documentation xml:lang="es">Datos estáticos y dinámicos de una clase de acciones</xs:documentation>
                         <xs:documentation xml:lang="it">Dati statici e dinamici di una classe di azioni</xs:documentation>
-                        <xs:documentation xml:lang="hu">[AUTO] Static and dynamic data of a share class</xs:documentation>
+                        <xs:documentation xml:lang="hu">Static and dynamic data of a share class</xs:documentation>
+                        <xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1401,11 +1812,23 @@
                <xs:documentation xml:lang="nl">Gegevens gerelateerd aan segmenten/pockets van fondsen (typisch beheerd door verschillende fund managers)</xs:documentation>
                <xs:documentation xml:lang="es">Datos relacionados con segmentos/pockets de fondos (típicamente gestionados por diferentes fund managers)</xs:documentation>
                <xs:documentation xml:lang="it">Dati relativi a segmenti/pocket di fondi (tipicamente gestiti da diversi fund manager)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Data related to segments/pockets of funds (typically managed by different fund managers)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alapok szegmenseire/zsebjeire vonatkozó adatok (jellemzően különböző alapkezelők kezelik)</xs:documentation>
+               <xs:documentation xml:lang="cs">Data související se segmenty/kapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
-                  <xs:element maxOccurs="unbounded" name="Segment" type="SegmentType"/>
+                  <xs:element maxOccurs="unbounded" name="Segment" type="SegmentType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Segment within the subfund</xs:documentation>
+                        <xs:documentation xml:lang="de">Segment innerhalb des Subfonds</xs:documentation>
+                        <xs:documentation xml:lang="fr">Segment au sein du compartiment</xs:documentation>
+                        <xs:documentation xml:lang="nl">Segment binnen het subfonds</xs:documentation>
+                        <xs:documentation xml:lang="es">Segmento dentro del subfondo</xs:documentation>
+                        <xs:documentation xml:lang="it">Segmento all'interno del comparto</xs:documentation>
+                        <xs:documentation xml:lang="hu">Szegmens a részalapon belül</xs:documentation>
+                        <xs:documentation xml:lang="cs">Segment v rámci podfondu</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
@@ -1419,7 +1842,8 @@
          <xs:documentation xml:lang="nl">Single fund (geen umbrella) structuur met statische gegevens, share classes en optionele segments</xs:documentation>
          <xs:documentation xml:lang="es">Estructura single fund (no umbrella) con datos estáticos, clases de acciones y segmentos opcionales</xs:documentation>
          <xs:documentation xml:lang="it">Struttura single fund (non umbrella) con dati statici, classi di azioni e segmenti opzionali</xs:documentation>
-         <xs:documentation xml:lang="hu">[AUTO] Single fund (non-umbrella) structure containing static data, share classes and optional segments</xs:documentation>
+         <xs:documentation xml:lang="hu">Egyedi alap (nem ernyőalapú) struktúra statikus adatokkal, befektetési jegy osztályokkal és opcionális szegmensekkel</xs:documentation>
+         <xs:documentation xml:lang="cs">Struktura jednotlivého fondu (bez zastřešení) obsahující statická data, třídy akcií a volitelné segmenty</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0"
@@ -1432,7 +1856,8 @@
                <xs:documentation xml:lang="nl">Statische gegevens van het enkelvoudige fonds (vergelijkbaar met statische gegevens van een subfonds)</xs:documentation>
                <xs:documentation xml:lang="es">Datos estáticos del fondo único (similares a los datos estáticos de un subfondo)</xs:documentation>
                <xs:documentation xml:lang="it">Dati statici del fondo singolo (simili ai dati statici di un comparto)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Static data of single fund (similar to static data of subfund)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az egyedi alap statikus adatai (hasonló a részalap statikus adataihoz)</xs:documentation>
+               <xs:documentation xml:lang="cs">Statická data jednotlivého fondu (podobná statickým datům podfondu)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ShareClasses">
@@ -1443,7 +1868,8 @@
                <xs:documentation xml:lang="nl">Lijst van share classes van het enkelvoudige fonds</xs:documentation>
                <xs:documentation xml:lang="es">Lista de clases de acciones del fondo único</xs:documentation>
                <xs:documentation xml:lang="it">Elenco delle classi di azioni del fondo singolo</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] List of share classes of single fund</xs:documentation>
+               <xs:documentation xml:lang="hu">Az egyedi alap befektetési jegy osztályainak listája</xs:documentation>
+               <xs:documentation xml:lang="cs">Seznam tříd akcií jednotlivého fondu</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1455,7 +1881,8 @@
                         <xs:documentation xml:lang="nl">Statische en dynamische gegevens van een share class</xs:documentation>
                         <xs:documentation xml:lang="es">Datos estáticos y dinámicos de una clase de acciones</xs:documentation>
                         <xs:documentation xml:lang="it">Dati statici e dinamici di una classe di azioni</xs:documentation>
-                        <xs:documentation xml:lang="hu">[AUTO] Static and dynamic data of a share class</xs:documentation>
+                        <xs:documentation xml:lang="hu">Static and dynamic data of a share class</xs:documentation>
+                        <xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1469,11 +1896,23 @@
                <xs:documentation xml:lang="nl">Gegevens gerelateerd aan segmenten/pockets van fondsen (typisch beheerd door verschillende fund managers)</xs:documentation>
                <xs:documentation xml:lang="es">Datos relacionados con segmentos/pockets de fondos (típicamente gestionados por diferentes fund managers)</xs:documentation>
                <xs:documentation xml:lang="it">Dati relativi a segmenti/pocket di fondi (tipicamente gestiti da diversi fund manager)</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Data related to segments/pockets of funds (typically managed by different fund managers)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az alapok szegmenseire/zsebjeire vonatkozó adatok (jellemzően különböző alapkezelők kezelik)</xs:documentation>
+               <xs:documentation xml:lang="cs">Data související se segmenty/kapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
-                  <xs:element maxOccurs="unbounded" name="Segment" type="SegmentType"/>
+                  <xs:element maxOccurs="unbounded" name="Segment" type="SegmentType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Segment within the single fund</xs:documentation>
+                        <xs:documentation xml:lang="de">Segment innerhalb des Einzelfonds</xs:documentation>
+                        <xs:documentation xml:lang="fr">Segment au sein du fonds individuel</xs:documentation>
+                        <xs:documentation xml:lang="nl">Segment binnen het enkele fonds</xs:documentation>
+                        <xs:documentation xml:lang="es">Segmento dentro del fondo individual</xs:documentation>
+                        <xs:documentation xml:lang="it">Segmento all'interno del fondo singolo</xs:documentation>
+                        <xs:documentation xml:lang="hu">Szegmens az egyes alapon belül</xs:documentation>
+                        <xs:documentation xml:lang="cs">Segment v rámci jednotlivého fondu</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
@@ -1487,7 +1926,8 @@
          <xs:documentation xml:lang="nl">Regelgevende openbaarmakingsgegevens voor eindbeleggers: Solvency II TPT voor institutionele beleggers en PRIIPs voor retail beleggers</xs:documentation>
          <xs:documentation xml:lang="es">Datos de divulgación regulatoria para inversores finales: Solvency II TPT para inversores institucionales y PRIIPs para inversores retail</xs:documentation>
          <xs:documentation xml:lang="it">Dati di divulgazione normativa per investitori finali: Solvency II TPT per investitori istituzionali e PRIIPs per investitori retail</xs:documentation>
-         <xs:documentation xml:lang="hu">[AUTO] Regulatory disclosure data for end investors: Solvency II TPT for institutional investors and PRIIPs for retail investors</xs:documentation>
+         <xs:documentation xml:lang="hu">Szabályozási közzétételi adatok a végbefektetők számára: Solvency II TPT az intézményi befektetők és PRIIPs a lakossági befektetők számára</xs:documentation>
+         <xs:documentation xml:lang="cs">Regulatorní data pro zveřejnění koncovým investorům: Solvency II TPT pro institucionální investory a PRIIPs pro retailové investory</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0"
@@ -1501,7 +1941,8 @@
                <xs:documentation xml:lang="nl">Speciaal verrijkte inventaris voor Solvency II. Deze XML-implementatie is compatibel met het "Tripartite Template". Verwijst naar versie 4 van 3/4/2018 van dit "TPT V4"-formaat.</xs:documentation>
                <xs:documentation xml:lang="es">Inventario especialmente enriquecido para Solvency II. Esta implementación XML es compatible con el "Tripartite Template". Se refiere a la versión 4 del 3/4/2018 de este formato "TPT V4".</xs:documentation>
                <xs:documentation xml:lang="it">Inventario particolarmente arricchito per Solvency II. Questa implementazione XML è compatibile con il "Tripartite Template". Si riferisce alla versione 4 del 3/4/2018 di questo formato "TPT V4".</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". It refers to version 4 dated 3/4/2018 of this "TPT V4" format.</xs:documentation>
+               <xs:documentation xml:lang="hu">Speciálisan gazdagított leltár a Solvency II számára. Ez az XML implementáció kompatibilis a „Tripartite Template"-tel. A „TPT V4" formátum 4. verziójára (2018. 4. 3.) hivatkozik.</xs:documentation>
+               <xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Odkazuje na verzi 4 ze dne 3. 4. 2018 tohoto formátu „TPT V4".</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
@@ -1514,7 +1955,8 @@
                <xs:documentation xml:lang="nl">Speciaal verrijkte inventaris voor Solvency II. Deze XML-implementatie is compatibel met het "Tripartite Template". Volgens FinDatEx Versie 5.0 Tripartite Template (TPT) voor SII Asset Data reporting van 2020-01-16</xs:documentation>
                <xs:documentation xml:lang="es">Inventario especialmente enriquecido para Solvency II. Esta implementación XML es compatible con el "Tripartite Template". Según FinDatEx Versión 5.0 Tripartite Template (TPT) para SII Asset Data reporting de 2020-01-16</xs:documentation>
                <xs:documentation xml:lang="it">Inventario particolarmente arricchito per Solvency II. Questa implementazione XML è compatibile con il "Tripartite Template". Secondo FinDatEx Versione 5.0 Tripartite Template (TPT) per SII Asset Data reporting del 2020-01-16</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 5.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2020-01-16</xs:documentation>
+               <xs:documentation xml:lang="hu">Speciálisan gazdagított leltár a Solvency II számára. Ez az XML implementáció kompatibilis a „Tripartite Template"-tel. A FinDatEx 5.0 verziójú Tripartite Template (TPT) szerint SII eszközadat-jelentéshez (2020-01-16)</xs:documentation>
+               <xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 5.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2020-01-16</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
@@ -1528,7 +1970,8 @@
                <xs:documentation xml:lang="nl">Speciaal verrijkte inventaris voor Solvency II. Deze XML-implementatie is compatibel met het "Tripartite Template". Volgens FinDatEx Versie 6.0 Tripartite Template (TPT) voor SII Asset Data reporting van 2022-03-14</xs:documentation>
                <xs:documentation xml:lang="es">Inventario especialmente enriquecido para Solvency II. Esta implementación XML es compatible con el "Tripartite Template". Según FinDatEx Versión 6.0 Tripartite Template (TPT) para SII Asset Data reporting de 2022-03-14</xs:documentation>
                <xs:documentation xml:lang="it">Inventario particolarmente arricchito per Solvency II. Questa implementazione XML è compatibile con il "Tripartite Template". Secondo FinDatEx Versione 6.0 Tripartite Template (TPT) per SII Asset Data reporting del 2022-03-14</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 6.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2022-03-14</xs:documentation>
+               <xs:documentation xml:lang="hu">Speciálisan gazdagított leltár a Solvency II számára. Ez az XML implementáció kompatibilis a „Tripartite Template"-tel. A FinDatEx 6.0 verziójú Tripartite Template (TPT) szerint SII eszközadat-jelentéshez (2022-03-14)</xs:documentation>
+               <xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 6.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2022-03-14</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
@@ -1541,7 +1984,8 @@
                <xs:documentation xml:lang="nl">Speciaal verrijkte inventaris voor Solvency II. Deze XML-implementatie is compatibel met het "Tripartite Template". Volgens FinDatEx Versie 7.0 Tripartite Template (TPT) voor SII Asset Data reporting van 2024-11-25</xs:documentation>
                <xs:documentation xml:lang="es">Inventario especialmente enriquecido para Solvency II. Esta implementación XML es compatible con el "Tripartite Template". Según FinDatEx Versión 7.0 Tripartite Template (TPT) para SII Asset Data reporting de 2024-11-25</xs:documentation>
                <xs:documentation xml:lang="it">Inventario particolarmente arricchito per Solvency II. Questa implementazione XML è compatibile con il "Tripartite Template". Secondo FinDatEx Versione 7.0 Tripartite Template (TPT) per SII Asset Data reporting del 2024-11-25</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] Special enriched inventory for Solvency II. This XML implementation is compatible with the "Tripartite Template". According to FinDatEx Version 7.0 Tripartite Template (TPT) for SII Asset Data reporting as of 2024-11-25</xs:documentation>
+               <xs:documentation xml:lang="hu">Speciálisan gazdagított leltár a Solvency II számára. Ez az XML implementáció kompatibilis a „Tripartite Template"-tel. A FinDatEx 7.0 verziójú Tripartite Template (TPT) szerint SII eszközadat-jelentéshez (2024-11-25)</xs:documentation>
+               <xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 7.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2024-11-25</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PRIIPS" type="PRIIPSType">
@@ -1553,7 +1997,8 @@
                <xs:documentation xml:lang="nl">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
                <xs:documentation xml:lang="es">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
                <xs:documentation xml:lang="it">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
+               <xs:documentation xml:lang="hu">EPT 20170728 TERVEZET SABLON 1.1 CEPT - 20170621 SABLON 1.0</xs:documentation>
+               <xs:documentation xml:lang="cs">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PRIIPS_V20" type="PRIIPSType_V20">
@@ -1564,7 +2009,8 @@
                <xs:documentation xml:lang="nl">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 en EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
                <xs:documentation xml:lang="es">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 y EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
                <xs:documentation xml:lang="it">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 e EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
-               <xs:documentation xml:lang="hu">[AUTO] EUROPEAN PRIIPs TEMPLATE - EPT V2.0 and EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
+               <xs:documentation xml:lang="hu">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 és EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
+               <xs:documentation xml:lang="cs">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 a EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>

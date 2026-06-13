@@ -11,7 +11,7 @@
 			<xs:documentation xml:lang="es">Tipo contenedor para m\u00faltiples rendimientos (cupones, dividendos, distribuciones) de posiciones de valores en una cartera de fondos</xs:documentation>
 			<xs:documentation xml:lang="it">Tipo di contenitore per guadagni multipli (cedole, dividendi, distribuzioni) da posizioni di titoli in un portafoglio di fondi</xs:documentation>
 			<xs:documentation xml:lang="cs">Typ kontejneru pro více výnosů (kupóny, dividendy, distribuce) z pozic cenných papírů v portfoliu fondu</xs:documentation>
-			<xs:documentation xml:lang="hu">Tarolo tipus tobb hozamhoz (kuponok, osztalekek, szetosztasok) az ertekpapir poziciokbol egy alap portfolioban</xs:documentation>
+			<xs:documentation xml:lang="hu">Tároló típus több hozamhoz (kuponok, osztalékok, szétosztások) az értékpapír pozíciókból egy alap portfólióban</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Earning" type="EarningType" maxOccurs="unbounded">
@@ -23,7 +23,7 @@
 					<xs:documentation xml:lang="es">Datos de rendimiento (cup\u00f3n individual, dividendo o distribuci\u00f3n) resultante de una posici\u00f3n de valores</xs:documentation>
 					<xs:documentation xml:lang="it">Dati sui guadagni (cedola unica, dividendo o distribuzione) derivanti da una posizione in titoli</xs:documentation>
 					<xs:documentation xml:lang="cs">Údaje o výnosu (jednotlivý kupón, dividenda nebo distribuce) plynoucím z pozice v cenném papíru</xs:documentation>
-					<xs:documentation xml:lang="hu">Hozam adat (egyedi kupon, osztalek vagy szetosztasi) egy ertekpapir poziciobol</xs:documentation>
+					<xs:documentation xml:lang="hu">Hozam adat (egyedi kupon, osztalék vagy szétosztási) egy értékpapír pozícióból</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -37,7 +37,7 @@
 			<xs:documentation xml:lang="es">Registro de rendimiento individual que contiene datos de cup\u00f3n, dividendo o distribuci\u00f3n de una posici\u00f3n de valores incluyendo importes, fechas, informaci\u00f3n fiscal y detalles de contabilizaci\u00f3n</xs:documentation>
 			<xs:documentation xml:lang="it">Record di guadagno singolo contenente dati su cedole, dividendi o distribuzione da una posizione di titolo, inclusi importi, date, informazioni fiscali e dettagli di prenotazione</xs:documentation>
 			<xs:documentation xml:lang="cs">Jednotlivý záznam výnosu obsahující údaje o kupónu, dividendě nebo distribuci z pozice cenného papíru včetně částek, dat, daňových informací a účetních detailů</xs:documentation>
-			<xs:documentation xml:lang="hu">Egyedi hozam rekord kupon, osztalek vagy szetosztasi adatokkal egy ertekpapir poziciobol, beleertve az osszegeket, datumokat, ado informaciokat es konyvelesi reszleteket</xs:documentation>
+			<xs:documentation xml:lang="hu">Egyedi hozam rekord kupon, osztalék vagy szétosztási adatokkal egy értékpapír pozícióból, beleértve az összegeket, dátumokat, adó információkat és könyvelési részleteket</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EarningID" type="Text256Type">
@@ -49,7 +49,7 @@
 					<xs:documentation xml:lang="es">ID de rendimiento \u00fanico</xs:documentation>
 					<xs:documentation xml:lang="it">ID guadagno univoco</xs:documentation>
 					<xs:documentation xml:lang="cs">Jedinečné ID výnosu (Earning ID)</xs:documentation>
-					<xs:documentation xml:lang="hu">Egyedi hozam azonosito</xs:documentation>
+					<xs:documentation xml:lang="hu">Egyedi hozam azonosító</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CancellationFlag" type="xs:boolean" minOccurs="0">
@@ -73,7 +73,7 @@
 					<xs:documentation xml:lang="es">ID de rendimiento del rendimiento cancelado</xs:documentation>
 					<xs:documentation xml:lang="it">ID guadagno del guadagno annullato</xs:documentation>
 					<xs:documentation xml:lang="cs">ID výnosu stornovaného výnosu</xs:documentation>
-					<xs:documentation xml:lang="hu">A visszavont hozam azonositoja</xs:documentation>
+					<xs:documentation xml:lang="hu">A visszavont hozam azonosítója</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AssetUniqueID" minOccurs="0">
@@ -85,7 +85,7 @@
 					<xs:documentation xml:lang="es">ID \u00fanico de activo (enlace a AssetMasterData)</xs:documentation>
 					<xs:documentation xml:lang="it">ID univoco dell'asset (link a AssetMasterData)</xs:documentation>
 					<xs:documentation xml:lang="cs">Jedinečné ID aktiva (odkaz na AssetMasterData)</xs:documentation>
-					<xs:documentation xml:lang="hu">Az eszkoz egyedi azonositoja (hivatkozas az AssetMasterData-ra)</xs:documentation>
+					<xs:documentation xml:lang="hu">Az eszköz egyedi azonosítója (hivatkozás az AssetMasterData-ra)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:IDREF">
@@ -102,7 +102,7 @@
 					<xs:documentation xml:lang="es">Identificadores del instrumento (como ISIN, Ticker, ...)</xs:documentation>
 					<xs:documentation xml:lang="it">Identificatori dello strumento (come ISIN, Ticker, ...)</xs:documentation>
 					<xs:documentation xml:lang="cs">Identifikátory nástroje (např. ISIN, Ticker, ...)</xs:documentation>
-					<xs:documentation xml:lang="hu">Az instrumentum azonositoi (pl. ISIN, Ticker, ...)</xs:documentation>
+					<xs:documentation xml:lang="hu">Az instrumentum azonosítói (pl. ISIN, Ticker, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EarningKind">
@@ -143,7 +143,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="es">Fecha de cierre / fecha de operaci\u00f3n</xs:documentation>
 					<xs:documentation xml:lang="it">Data di chiusura/data di negoziazione</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum uzavření / datum obchodu</xs:documentation>
-					<xs:documentation xml:lang="hu">Zaro datum / kereskedesi datum</xs:documentation>
+					<xs:documentation xml:lang="hu">Záró dátum / kereskedési dátum</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EntryDate" type="xs:date">
@@ -155,7 +155,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="es">Fecha en que el rendimiento ha sido contabilizado en la cartera</xs:documentation>
 					<xs:documentation xml:lang="it">Data in cui i guadagni sono stati contabilizzati nel portafoglio</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum, kdy byl výnos zaúčtován do portfolia</xs:documentation>
-					<xs:documentation xml:lang="hu">A datum, amikor a hozam a portfolioba konyvelesre kerult</xs:documentation>
+					<xs:documentation xml:lang="hu">A dátum, amikor a hozam a portfólióba könyvelésre került</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ValutaDate" type="xs:date" minOccurs="0">
@@ -167,7 +167,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="es">Fecha valor</xs:documentation>
 					<xs:documentation xml:lang="it">Data valuta</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum valuty</xs:documentation>
-					<xs:documentation xml:lang="hu">Erteknap</xs:documentation>
+					<xs:documentation xml:lang="hu">Értéknap</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EntryCurrency" type="ISOCurrencyCodeType">
@@ -203,7 +203,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="es">Valor de contabilizaci\u00f3n</xs:documentation>
 					<xs:documentation xml:lang="it">Valore della prenotazione</xs:documentation>
 					<xs:documentation xml:lang="cs">Účetní hodnota</xs:documentation>
-					<xs:documentation xml:lang="hu">Konyvelesi ertek</xs:documentation>
+					<xs:documentation xml:lang="hu">Könyvelési érték</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Interests" type="FundAmountType" minOccurs="0">
@@ -215,7 +215,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="es">Valor de intereses</xs:documentation>
 					<xs:documentation xml:lang="it">Valore degli interessi</xs:documentation>
 					<xs:documentation xml:lang="cs">Hodnota úroků</xs:documentation>
-					<xs:documentation xml:lang="hu">Kamat ertek</xs:documentation>
+					<xs:documentation xml:lang="hu">Kamat érték</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FXRates" type="FXRatesType" minOccurs="0">

@@ -28,6 +28,7 @@
 			<xs:documentation xml:lang="cs">Kořenový element FundsXML 4.2.11</xs:documentation>
 			<xs:documentation xml:lang="da">Rodelement i FundsXML 4.2.11</xs:documentation>
 			<xs:documentation xml:lang="pl">Element główny (root) FundsXML 4.2.11</xs:documentation>
+			<xs:documentation xml:lang="sv">Rotelement för FundsXML 4.2.11</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -43,6 +44,7 @@
 						<xs:documentation xml:lang="cs">Metadata XML dokumentu (jako jedinečné ID, datum, dodavatel dat, jazyk, ...)</xs:documentation>
 						<xs:documentation xml:lang="da">Metadata for xml-dokumentet (såsom unik id, dato, dataleverandør, sprog, ...)</xs:documentation>
 						<xs:documentation xml:lang="pl">Metadane dokumentu xml (np. unikalny identyfikator, data, dostawca danych, język, ...)</xs:documentation>
+						<xs:documentation xml:lang="sv">Metadata för xml-dokumentet (såsom unikt id, datum, datauppgiftslämnare, språk, ...)</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Funds" minOccurs="0">
@@ -57,6 +59,7 @@
 						<xs:documentation xml:lang="cs">Seznam fondů, zastřešujících fondů, SICAV, portfolií ...</xs:documentation>
 						<xs:documentation xml:lang="da">Liste over fonde, umbrellas, sicavs, porteføljer ...</xs:documentation>
 						<xs:documentation xml:lang="pl">Lista funduszy, parasoli, sicav, portfeli ...</xs:documentation>
+						<xs:documentation xml:lang="sv">Lista över fonder, paraplyfonder, sicavs, portföljer ...</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -72,6 +75,7 @@
 									<xs:documentation xml:lang="cs">Všechna data související s jednotlivými fondy, zastřešujícími fondy, SICAV, portfolii</xs:documentation>
 									<xs:documentation xml:lang="da">Alle data relateret til single fund, umbrella, sicav og portefølje</xs:documentation>
 									<xs:documentation xml:lang="pl">Wszystkie dane dotyczące pojedynczego funduszu, struktury parasolowej, sicav, portfela</xs:documentation>
+									<xs:documentation xml:lang="sv">All data relaterad till enskild fond, paraply, sicav, portfölj</xs:documentation>
 								</xs:annotation>
 								<xs:key name="benchmarkID">
 									<xs:selector xpath="FundStaticData/Benchmarks/Benchmark"/>
@@ -97,6 +101,7 @@
 						<xs:documentation xml:lang="cs">Dynamická data společností pro správu aktiv</xs:documentation>
 						<xs:documentation xml:lang="da">Dynamiske data om kapitalforvaltningsselskaber</xs:documentation>
 						<xs:documentation xml:lang="pl">Dane dynamiczne towarzystw zarządzających aktywami</xs:documentation>
+						<xs:documentation xml:lang="sv">Dynamiska data om fondförvaltningsbolag</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="AssetMasterData" type="AssetMasterDataType" minOccurs="0">
@@ -111,6 +116,7 @@
 						<xs:documentation xml:lang="cs">Kmenová data cenných papírů, derivátů a všech ostatních portfoliových aktiv</xs:documentation>
 						<xs:documentation xml:lang="da">Stamdata for værdipapirer, derivater og alle øvrige porteføljeaktiver</xs:documentation>
 						<xs:documentation xml:lang="pl">Dane podstawowe papierów wartościowych, instrumentów pochodnych i wszystkich innych aktywów portfelowych</xs:documentation>
+						<xs:documentation xml:lang="sv">Stamdata för värdepapper, derivat och alla andra portföljtillgångar</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Documents" type="DocumentsType" minOccurs="0">
@@ -125,6 +131,7 @@
 						<xs:documentation xml:lang="cs">Sbírka regulatorních a marketingových dokumentů (KID, prospekty, informační listy, výroční zprávy atd.) souvisejících s fondy, podfondy nebo třídami akcií. Dokumenty mohou být poskytnuty jako URL nebo vloženy jako obsah base64Binary</xs:documentation>
 						<xs:documentation xml:lang="da">Samling af regulatoriske dokumenter og markedsføringsdokumenter (KID'er, prospekter, factsheets, årsrapporter osv.) relateret til fonde, underfonde eller share classes. Dokumenter kan leveres som URL'er eller indlejres som base64Binary-indhold</xs:documentation>
 						<xs:documentation xml:lang="pl">Zbiór dokumentów regulacyjnych i marketingowych (KID, prospekty, karty informacyjne, raporty roczne itp.) związanych z funduszami, subfunduszami lub Share Class. Dokumenty mogą być dostarczane jako adresy URL lub osadzane jako treść base64Binary</xs:documentation>
+						<xs:documentation xml:lang="sv">Samling av regulatoriska och marknadsföringsdokument (KID:er, prospekt, faktablad, årsrapporter osv.) relaterade till fonder, delfonder eller share classes. Dokument kan tillhandahållas som URL:er eller inbäddas som base64Binary-innehåll</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="RegulatoryReportings" type="RegulatoryReportingsType" minOccurs="0">
@@ -139,6 +146,7 @@
 						<xs:documentation xml:lang="cs">Přímé a nepřímé regulatorní výkaznictví</xs:documentation>
 						<xs:documentation xml:lang="da">Direkte og indirekte regulatorisk rapportering</xs:documentation>
 						<xs:documentation xml:lang="pl">Bezpośrednie i pośrednie sprawozdawczość regulacyjna</xs:documentation>
+						<xs:documentation xml:lang="sv">Direkt och indirekt regulatorisk rapportering</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="CountrySpecificData" type="CountrySpecificDataType" minOccurs="0">
@@ -153,6 +161,7 @@
 						<xs:documentation xml:lang="cs">Specifická data země na nejvyšší úrovni (jak je definováno v 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 						<xs:documentation xml:lang="da">Landespecifikke data på topniveau (som defineret i 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 						<xs:documentation xml:lang="pl">Dane specyficzne dla kraju na najwyższym poziomie (zgodnie z definicją w 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+						<xs:documentation xml:lang="sv">Landspecifika uppgifter på toppnivå (enligt definition i 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="ds:Signature" minOccurs="0"/>
@@ -171,6 +180,7 @@
 			<xs:documentation xml:lang="cs">Metadata pro doručení souboru včetně identifikace dokumentu, data obsahu a informací o dodavateli dat</xs:documentation>
 			<xs:documentation xml:lang="da">Metadata for filleverancen, herunder dokumentidentifikation, indholdsdato og oplysninger om dataleverandør</xs:documentation>
 			<xs:documentation xml:lang="pl">Metadane dotyczące dostarczenia pliku, w tym identyfikacja dokumentu, data treści oraz informacje o dostawcy danych</xs:documentation>
+			<xs:documentation xml:lang="sv">Metadata för filleverans inklusive dokumentidentifiering, innehållsdatum och information om datauppgiftslämnare</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="UniqueDocumentID" type="Text128Type">
@@ -185,6 +195,7 @@
 					<xs:documentation xml:lang="cs">Identifikátor dokumentu (jedinečný na dodavatele dat)</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentidentifikator (unik pr. dataleverandør)</xs:documentation>
 					<xs:documentation xml:lang="pl">Identyfikator dokumentu (unikalny dla każdego dostawcy danych)</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokumentidentifierare (unik per dataleverantör)</xs:documentation>
 					<xs:appinfo>
 						<altova:exampleValues>
 							<altova:example value="20240830_0001"/>
@@ -204,6 +215,7 @@
 					<xs:documentation xml:lang="cs">Časové razítko generování dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Tidsstempel for dokumentgenerering</xs:documentation>
 					<xs:documentation xml:lang="pl">Znacznik czasu wygenerowania dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Tidsstämpel för dokumentgenerering</xs:documentation>
 					<xs:appinfo>
 						<altova:exampleValues>
 							<altova:example value="2024-09-26T18:37:12.1559196+02:00"/>
@@ -223,6 +235,7 @@
 					<xs:documentation xml:lang="cs">Verze schématu FundsXML (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
 					<xs:documentation xml:lang="da">FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
 					<xs:documentation xml:lang="pl">FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
+					<xs:documentation xml:lang="sv">FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -267,6 +280,7 @@
 					<xs:documentation xml:lang="cs">Hlavní datum obsahu, pokud není v sekci specifikováno jinak</xs:documentation>
 					<xs:documentation xml:lang="da">Hoveddato for indholdet, hvis ikke andet er angivet inden for sektionen</xs:documentation>
 					<xs:documentation xml:lang="pl">Główna data dla treści, jeśli nie określono inaczej w danej sekcji</xs:documentation>
+					<xs:documentation xml:lang="sv">Huvuddatum för innehåll, om inte annat anges inom sektionen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType">
@@ -281,6 +295,7 @@
 					<xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel, ...). Používá se pouze pro informační účely.</xs:documentation>
 					<xs:documentation xml:lang="da">Definition af datakilde (investeringsselskab, vendor, ...). Anvendes kun til informationsformål.</xs:documentation>
 					<xs:documentation xml:lang="pl">Definicja źródła danych (towarzystwo inwestycyjne, dostawca, ...). Wykorzystywane wyłącznie w celach informacyjnych.</xs:documentation>
+					<xs:documentation xml:lang="sv">Definition av datakälla (investeringsbolag, leverantör, ...). Används endast i informationssyfte.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataOperation" minOccurs="0">
@@ -295,6 +310,7 @@
 					<xs:documentation xml:lang="cs">INITIAL: První dodávka dat, zahrnuje všechny potřebné informace pro nastavení systému. AMEND: Aktualizace nebo změny stávajících dat (opravy, doplnění, úpravy). DELETE: Odstranění konkrétních dat ze systému, vyžaduje RelatedDocumentIDs.</xs:documentation>
 					<xs:documentation xml:lang="da">INITIAL: Første gang data leveres, indeholder alle nødvendige oplysninger til at opsætte et system. AMEND: Opdateringer eller ændringer af eksisterende data (rettelser, tilføjelser, ændringer). DELETE: Fjernelse af specifikke data fra systemet, kræver RelatedDocumentIDs.</xs:documentation>
 					<xs:documentation xml:lang="pl">INITIAL: Pierwsze dostarczenie danych, obejmuje wszystkie niezbędne informacje do skonfigurowania systemu. AMEND: Aktualizacje lub zmiany istniejących danych (korekty, uzupełnienia, modyfikacje). DELETE: Usunięcie określonych danych z systemu, wymaga RelatedDocumentIDs.</xs:documentation>
+					<xs:documentation xml:lang="sv">INITIAL: Första gången data levereras, innehåller all nödvändig information för att sätta upp ett system. AMEND: Uppdateringar eller ändringar av befintliga data (rättelser, tillägg, modifieringar). DELETE: Borttagning av specifika data från systemet, kräver RelatedDocumentIDs.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -318,6 +334,7 @@
 					<xs:documentation xml:lang="cs">Identifikátory souvisejících dokumentů pro neinicializační dodávky dat</xs:documentation>
 					<xs:documentation xml:lang="da">Identifikatorer for relaterede dokumenter ved ikke-initielle dataleverancer</xs:documentation>
 					<xs:documentation xml:lang="pl">Identyfikatory powiązanych dokumentów dla dostaw danych innych niż początkowe</xs:documentation>
+					<xs:documentation xml:lang="sv">Identifierare för relaterade dokument för icke-initiala dataleveranser</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -345,6 +362,7 @@
 					<xs:documentation xml:lang="cs">Dvouznakový ISO kód jazyka. Používá se jako výchozí, pokud není specifikován jiný jazyk.</xs:documentation>
 					<xs:documentation xml:lang="da">ISO-kode for sprog med to tegn. Dette anvendes som standard, hvis intet andet sprog er angivet.</xs:documentation>
 					<xs:documentation xml:lang="pl">Dwuznakowy kod ISO języka. Jest stosowany jako domyślny, jeśli nie określono innego języka.</xs:documentation>
+					<xs:documentation xml:lang="sv">ISO-kod för språk med två tecken. Detta används som standard om inget annat språk anges.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ModuleUsage" minOccurs="0">
@@ -359,6 +377,7 @@
 					<xs:documentation xml:lang="cs">Seznam použitých modulů schématu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over anvendte skemamoduler</xs:documentation>
 					<xs:documentation xml:lang="pl">Lista użytych modułów schematu</xs:documentation>
+					<xs:documentation xml:lang="sv">Lista över använda schemamoduler</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -374,6 +393,7 @@
 								<xs:documentation xml:lang="cs">Modul schématu s volitelnou specifikací sub-modulu</xs:documentation>
 								<xs:documentation xml:lang="da">Skemamodul med valgfri specifikation af undermodul</xs:documentation>
 								<xs:documentation xml:lang="pl">Moduł schematu z opcjonalnym określeniem podmodułu</xs:documentation>
+								<xs:documentation xml:lang="sv">Schemamodul med valfri specifikation av undermodul</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -389,6 +409,7 @@
 											<xs:documentation xml:lang="cs">Název modulu podle výčtu. Lze použít k optimalizaci importů.</xs:documentation>
 											<xs:documentation xml:lang="da">Modulnavn som anført i opregningen. Kan bruges til at optimere imports.</xs:documentation>
 											<xs:documentation xml:lang="pl">Nazwa modułu wymieniona w wyliczeniu. Może być używana do optymalizacji importów.</xs:documentation>
+											<xs:documentation xml:lang="sv">Modulnamn som det listas i uppräkningen. Kan användas för att optimera importer.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -427,6 +448,7 @@
 											<xs:documentation xml:lang="cs">Specifikace sub-modulu v rámci modulu</xs:documentation>
 											<xs:documentation xml:lang="da">Specifikation af undermodul inden for et modul</xs:documentation>
 											<xs:documentation xml:lang="pl">Specyfikacja podmodułu w ramach modułu</xs:documentation>
+											<xs:documentation xml:lang="sv">Undermodulspecifikation inom en modul</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -447,6 +469,7 @@
 					<xs:documentation xml:lang="cs">Specifická dokumentová data země</xs:documentation>
 					<xs:documentation xml:lang="da">Landespecifikke dokumentdata</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane dokumentu specyficzne dla kraju</xs:documentation>
+					<xs:documentation xml:lang="sv">Landspecifika dokumentuppgifter</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -462,6 +485,7 @@
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Rakousko</xs:documentation>
 								<xs:documentation xml:lang="da">Østrig-specifikke kontroldata</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Austrii</xs:documentation>
+								<xs:documentation xml:lang="sv">Österrikespecifik kontrolldata</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DE" type="CountrySpecificControlDataDEType" minOccurs="0">
@@ -476,6 +500,7 @@
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Německo</xs:documentation>
 								<xs:documentation xml:lang="da">Tysklandsspecifikke kontroldata</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Niemiec</xs:documentation>
+								<xs:documentation xml:lang="sv">Tysklandsspecifika kontrolldata</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DK" type="CountrySpecificControlDataDKType" minOccurs="0">
@@ -490,6 +515,7 @@
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Dánsko</xs:documentation>
 								<xs:documentation xml:lang="da">Danmarks-specifikke kontroldata</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Danii</xs:documentation>
+								<xs:documentation xml:lang="sv">Danmarksspecifika kontrolldata</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="FR" type="CountrySpecificControlDataFRType" minOccurs="0">
@@ -504,6 +530,7 @@
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Francii</xs:documentation>
 								<xs:documentation xml:lang="da">Frankrig-specifikke kontroldata</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Francji</xs:documentation>
+								<xs:documentation xml:lang="sv">Frankrikespecifika kontrolluppgifter</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="LU" type="CountrySpecificControlDataLUType" minOccurs="0">
@@ -518,6 +545,7 @@
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Lucembursko</xs:documentation>
 								<xs:documentation xml:lang="da">Luxembourg-specifikke kontroldata</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Luksemburga</xs:documentation>
+								<xs:documentation xml:lang="sv">Luxemburgsspecifika kontrolldata</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="NL" type="CountrySpecificControlDataNLType" minOccurs="0">
@@ -532,6 +560,7 @@
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Nizozemsko</xs:documentation>
 								<xs:documentation xml:lang="da">Nederlandsk-specifikke kontroldata</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Holandii</xs:documentation>
+								<xs:documentation xml:lang="sv">Nederländsk-specifika kontrolldata</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -549,6 +578,7 @@
 					<xs:documentation xml:lang="cs">Další informace, které se nevejdou do výše uvedených uzlů</xs:documentation>
 					<xs:documentation xml:lang="da">Yderligere oplysninger, der ikke passer ind i noderne ovenfor</xs:documentation>
 					<xs:documentation xml:lang="pl">Dodatkowe informacje, które nie pasują do powyższych węzłów</xs:documentation>
+					<xs:documentation xml:lang="sv">Ytterligare information som inte passar in i noderna ovan</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -565,6 +595,7 @@
 			<xs:documentation xml:lang="cs">Regulatorní data pro B2B výměnu mezi výrobci fondů a distributory (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
 			<xs:documentation xml:lang="da">Regulatoriske data til B2B-udveksling mellem fondsproducenter og distributører (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
 			<xs:documentation xml:lang="pl">Dane regulacyjne do wymiany B2B między producentami funduszy a dystrybutorami (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
+			<xs:documentation xml:lang="sv">Regulatoriska data för B2B-utbyte mellan fondtillverkare och distributörer (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EMIR" type="EMIRType" minOccurs="0">
@@ -590,6 +621,7 @@
 					<xs:documentation xml:lang="cs">Podle EUROPEAN MIFID TEMPLATE - EMT V1.0 ze dne 2017-08-03</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. EUROPEAN MIFID TEMPLATE - EMT V1.0 pr. 2017-08-03</xs:documentation>
 					<xs:documentation xml:lang="pl">Zgodnie z EUROPEAN MIFID TEMPLATE - EMT V1.0 z dnia 2017-08-03</xs:documentation>
+					<xs:documentation xml:lang="sv">Enligt EUROPEAN MIFID TEMPLATE - EMT V1.0 per 2017-08-03</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V3" type="EMTType_V3" minOccurs="0">
@@ -605,6 +637,7 @@
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 ze dne 2019-11-25</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 pr. 2019-11-25</xs:documentation>
 					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 z dnia 2019-11-25</xs:documentation>
+					<xs:documentation xml:lang="sv">Enligt FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 per 2019-11-25</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4" type="EMTType_V4" minOccurs="0">
@@ -619,6 +652,7 @@
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.0 ze dne 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE - EMT V4.0 pr. 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE - EMT V4.0 z dnia 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="sv">Enligt FinDatEx MiFID TEMPLATE - EMT V4.0 per 2022-03-14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_1" type="EMTType_V41" minOccurs="0">
@@ -633,6 +667,7 @@
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.1 ze dne 2023-03-07</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE - EMT V4.1 pr. 2023-03-07</xs:documentation>
 					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE - EMT V4.1 z dnia 2023-03-07</xs:documentation>
+					<xs:documentation xml:lang="sv">Enligt FinDatEx MiFID TEMPLATE - EMT V4.1 per 2023-03-07</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_2" type="EMTType_V42" minOccurs="0">
@@ -647,6 +682,7 @@
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.2 ze dne 2024-04-05</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE - EMT V4.2 pr. 2024-04-05</xs:documentation>
 					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE - EMT V4.2 z dnia 2024-04-05</xs:documentation>
+					<xs:documentation xml:lang="sv">Enligt FinDatEx MiFID TEMPLATE - EMT V4.2 per 2024-04-05</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_3" type="EMTType_V43" minOccurs="0">
@@ -661,6 +697,7 @@
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.3 ze dne 2026-01-15</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE - EMT V4.3 pr. 2026-01-15</xs:documentation>
 					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE - EMT V4.3 z dnia 2026-01-15</xs:documentation>
+					<xs:documentation xml:lang="sv">Enligt FinDatEx MiFID TEMPLATE - EMT V4.3 per 2026-01-15</xs:documentation>
 					<xs:appinfo source="@since 4.2.10"/>
 				</xs:annotation>
 			</xs:element>
@@ -676,6 +713,7 @@
 					<xs:documentation xml:lang="cs">Podle FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
 					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
+					<xs:documentation xml:lang="sv">Enligt FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.0" type="EETsType" minOccurs="0">
@@ -690,6 +728,7 @@
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="sv">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
@@ -705,6 +744,7 @@
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
 					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+					<xs:documentation xml:lang="sv">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
@@ -720,6 +760,7 @@
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
 					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+					<xs:documentation xml:lang="sv">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
@@ -735,6 +776,7 @@
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
 					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+					<xs:documentation xml:lang="sv">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
@@ -750,6 +792,7 @@
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
 					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
+					<xs:documentation xml:lang="sv">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -766,6 +809,7 @@
 			<xs:documentation xml:lang="cs">Kontejner pro více dokumentů souvisejících s fondem (KID, prospekty, informační listy, zprávy)</xs:documentation>
 			<xs:documentation xml:lang="da">Container til flere fondsrelaterede dokumenter (KID'er, prospekter, factsheets, rapporter)</xs:documentation>
 			<xs:documentation xml:lang="pl">Kontener dla wielu dokumentów związanych z funduszem (KID, prospekty, karty informacyjne, raporty)</xs:documentation>
+			<xs:documentation xml:lang="sv">Container för flera fondrelaterade dokument (KID:er, prospekt, faktablad, rapporter)</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Document" type="DocumentType" maxOccurs="unbounded">
@@ -780,6 +824,7 @@
 					<xs:documentation xml:lang="cs">Jednotlivý dokument s metadaty a obsahem</xs:documentation>
 					<xs:documentation xml:lang="da">Individuelt dokument med metadata og indhold</xs:documentation>
 					<xs:documentation xml:lang="pl">Pojedynczy dokument z metadanymi i treścią</xs:documentation>
+					<xs:documentation xml:lang="sv">Enskilt dokument med metadata och innehåll</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -796,6 +841,7 @@
 			<xs:documentation xml:lang="cs">Regulatorní nebo marketingový dokument (KID, prospekt, informační list, výroční zpráva) s metadaty a obsahem</xs:documentation>
 			<xs:documentation xml:lang="da">Regulatorisk eller markedsføringsmæssigt dokument (KID, prospekt, factsheet, årsrapport) med metadata og indhold</xs:documentation>
 			<xs:documentation xml:lang="pl">Dokument regulacyjny lub marketingowy (KID, prospekt, factsheet, raport roczny) z metadanymi i treścią</xs:documentation>
+			<xs:documentation xml:lang="sv">Regulatoriskt dokument eller marknadsföringsdokument (KID, prospekt, faktablad, årsrapport) med metadata och innehåll</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type">
@@ -810,6 +856,7 @@
 					<xs:documentation xml:lang="cs">Typ dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Type af dokument</xs:documentation>
 					<xs:documentation xml:lang="pl">Typ dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Typ av dokument</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
@@ -825,6 +872,7 @@
 								<xs:documentation xml:lang="cs">Výčty např. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
 								<xs:documentation xml:lang="da">Opregninger, f.eks. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
 								<xs:documentation xml:lang="pl">Wyliczenia np. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
+								<xs:documentation xml:lang="sv">Uppräkningar t.ex. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -858,6 +906,7 @@
 								<xs:documentation xml:lang="cs">Popis ostatních typů dokumentů</xs:documentation>
 								<xs:documentation xml:lang="da">Beskrivelse af andre dokumenttyper</xs:documentation>
 								<xs:documentation xml:lang="pl">Opis innych typów dokumentów</xs:documentation>
+								<xs:documentation xml:lang="sv">Beskrivning av andra dokumenttyper</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="Text128Type">
@@ -880,6 +929,7 @@
 					<xs:documentation xml:lang="cs">Verze dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Version af dokument</xs:documentation>
 					<xs:documentation xml:lang="pl">Wersja dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokumentets version</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Language" type="xs:language">
@@ -894,6 +944,7 @@
 					<xs:documentation xml:lang="cs">Jazyk dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets sprog</xs:documentation>
 					<xs:documentation xml:lang="pl">Język dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokumentets språk</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TranslationsAvailable" type="xs:boolean" minOccurs="0">
@@ -908,6 +959,7 @@
 					<xs:documentation xml:lang="cs">Označuje, zda je tento dokument dostupný v jiných jazykových verzích</xs:documentation>
 					<xs:documentation xml:lang="da">Angiver, om dette dokument er tilgængeligt i andre sprogversioner</xs:documentation>
 					<xs:documentation xml:lang="pl">Wskazuje, czy dokument jest dostępny w innych wersjach językowych</xs:documentation>
+					<xs:documentation xml:lang="sv">Anger huruvida detta dokument finns tillgängligt i andra språkversioner</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PublicationCountries" minOccurs="0">
@@ -922,6 +974,7 @@
 					<xs:documentation xml:lang="cs">Seznam zemí publikace dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over publikationslande for dokumentet</xs:documentation>
 					<xs:documentation xml:lang="pl">Lista krajów publikacji dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Lista över publiceringsländer för dokumentet</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -937,6 +990,7 @@
 								<xs:documentation xml:lang="cs">Dvoupísmenný ISO kód země</xs:documentation>
 								<xs:documentation xml:lang="da">Tobogstavs ISO-kode for landet</xs:documentation>
 								<xs:documentation xml:lang="pl">Dwuliterowy kod kraju ISO</xs:documentation>
+								<xs:documentation xml:lang="sv">Tvåställig ISO-landskod</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -954,6 +1008,7 @@
 					<xs:documentation xml:lang="cs">Fond dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets fond</xs:documentation>
 					<xs:documentation xml:lang="pl">Fundusz dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Fond för dokumentet</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -969,6 +1024,7 @@
 								<xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
 								<xs:documentation xml:lang="da">Fondens identifikatorer</xs:documentation>
 								<xs:documentation xml:lang="pl">Identyfikatory funduszu</xs:documentation>
+								<xs:documentation xml:lang="sv">Fondens identifierare</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Name" type="Text256Type" minOccurs="0">
@@ -983,6 +1039,7 @@
 								<xs:documentation xml:lang="cs">Název fondu</xs:documentation>
 								<xs:documentation xml:lang="da">Navn på fonden</xs:documentation>
 								<xs:documentation xml:lang="pl">Nazwa funduszu</xs:documentation>
+								<xs:documentation xml:lang="sv">Namn på fonden</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -997,6 +1054,7 @@
 								<xs:documentation xml:lang="cs">Měna fondu</xs:documentation>
 								<xs:documentation xml:lang="da">Fondens valuta</xs:documentation>
 								<xs:documentation xml:lang="pl">Waluta funduszu</xs:documentation>
+								<xs:documentation xml:lang="sv">Fondens valuta</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1014,6 +1072,7 @@
 					<xs:documentation xml:lang="cs">Podfondy dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets delfonde</xs:documentation>
 					<xs:documentation xml:lang="pl">Subfundusze dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Subfunds i dokumentet</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1029,6 +1088,7 @@
 								<xs:documentation xml:lang="cs">Podfond přiřazený k dokumentu</xs:documentation>
 								<xs:documentation xml:lang="da">Delfond tilknyttet dokumentet</xs:documentation>
 								<xs:documentation xml:lang="pl">Subfundusz powiązany z dokumentem</xs:documentation>
+								<xs:documentation xml:lang="sv">Subfund kopplad till dokumentet</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -1044,6 +1104,7 @@
 											<xs:documentation xml:lang="cs">Identifikátory podfondu</xs:documentation>
 											<xs:documentation xml:lang="da">Delfondens identifikatorer</xs:documentation>
 											<xs:documentation xml:lang="pl">Identyfikatory subfunduszu</xs:documentation>
+											<xs:documentation xml:lang="sv">Delfondens identifierare</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Name" type="Text256Type" minOccurs="0">
@@ -1058,6 +1119,7 @@
 											<xs:documentation xml:lang="cs">Název podfondu</xs:documentation>
 											<xs:documentation xml:lang="da">Navn på delfonden</xs:documentation>
 											<xs:documentation xml:lang="pl">Nazwa subfunduszu</xs:documentation>
+											<xs:documentation xml:lang="sv">Namn på delfonden</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -1072,6 +1134,7 @@
 											<xs:documentation xml:lang="cs">Měna podfondu</xs:documentation>
 											<xs:documentation xml:lang="da">Subfondens valuta</xs:documentation>
 											<xs:documentation xml:lang="pl">Waluta subfunduszu</xs:documentation>
+											<xs:documentation xml:lang="sv">Delfondens valuta</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1092,6 +1155,7 @@
 					<xs:documentation xml:lang="cs">Třídy akcií dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Share Classes for dokumentet</xs:documentation>
 					<xs:documentation xml:lang="pl">Share Classes dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Share Classes för dokumentet</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1107,6 +1171,7 @@
 								<xs:documentation xml:lang="cs">Třída akcií přiřazená k dokumentu</xs:documentation>
 								<xs:documentation xml:lang="da">Share Class tilknyttet dokumentet</xs:documentation>
 								<xs:documentation xml:lang="pl">Share Class powiązana z dokumentem</xs:documentation>
+								<xs:documentation xml:lang="sv">Share Class kopplad till dokumentet</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -1122,6 +1187,7 @@
 											<xs:documentation xml:lang="cs">Identifikátory třídy akcií</xs:documentation>
 											<xs:documentation xml:lang="da">Share Class'ens identifikatorer</xs:documentation>
 											<xs:documentation xml:lang="pl">Identyfikatory Share Class</xs:documentation>
+											<xs:documentation xml:lang="sv">Share Class identifierare</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Name" type="Text256Type" minOccurs="0">
@@ -1136,6 +1202,7 @@
 											<xs:documentation xml:lang="cs">Název třídy akcií</xs:documentation>
 											<xs:documentation xml:lang="da">Navn på share class'en</xs:documentation>
 											<xs:documentation xml:lang="pl">Nazwa Share Class</xs:documentation>
+											<xs:documentation xml:lang="sv">Namn på Share Class</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -1150,6 +1217,7 @@
 											<xs:documentation xml:lang="cs">Měna třídy akcií</xs:documentation>
 											<xs:documentation xml:lang="da">Share class' valuta</xs:documentation>
 											<xs:documentation xml:lang="pl">Waluta danej Share Class</xs:documentation>
+											<xs:documentation xml:lang="sv">Aktieklassens valuta</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1170,6 +1238,7 @@
 					<xs:documentation xml:lang="cs">Název dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Navn på dokument</xs:documentation>
 					<xs:documentation xml:lang="pl">Nazwa dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Namn på dokument</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FileName" type="Text256Type" minOccurs="0">
@@ -1184,6 +1253,7 @@
 					<xs:documentation xml:lang="cs">Název souboru (včetně přípony)</xs:documentation>
 					<xs:documentation xml:lang="da">Navn på fil (inklusive filtypenavn)</xs:documentation>
 					<xs:documentation xml:lang="pl">Nazwa pliku (wraz z rozszerzeniem pliku)</xs:documentation>
+					<xs:documentation xml:lang="sv">Namn på fil (inklusive filändelse)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ForPublicUsage" type="xs:boolean" minOccurs="0">
@@ -1198,6 +1268,7 @@
 					<xs:documentation xml:lang="cs">Označuje, zda může být dokument zveřejněn. Pokud je false, dokument je omezen pouze na interní použití (např. interní zprávy)</xs:documentation>
 					<xs:documentation xml:lang="da">Angiver, om dokumentet kan offentliggøres. Når false, er dokumentet begrænset til intern brug (f.eks. interne rapporter)</xs:documentation>
 					<xs:documentation xml:lang="pl">Wskazuje, czy dokument może być opublikowany publicznie. Gdy false, dokument jest ograniczony wyłącznie do użytku wewnętrznego (np. raporty wewnętrzne)</xs:documentation>
+					<xs:documentation xml:lang="sv">Anger huruvida dokumentet kan publiceras till allmänheten. När false är dokumentet begränsat till endast internt bruk (t.ex. interna rapporter)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Restrictions" type="xs:string" minOccurs="0">
@@ -1212,6 +1283,7 @@
 					<xs:documentation xml:lang="cs">Popis omezení</xs:documentation>
 					<xs:documentation xml:lang="da">Beskrivelse af restriktioner</xs:documentation>
 					<xs:documentation xml:lang="pl">Opis ograniczeń</xs:documentation>
+					<xs:documentation xml:lang="sv">Beskrivning av begränsningar</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Format" type="Text256Type">
@@ -1226,6 +1298,7 @@
 					<xs:documentation xml:lang="cs">Technický formát dokumentu: PDF, XML, Excel, Word, Obrázek, ...</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets tekniske format: PDF, XML, Excel, Word, Image, ...</xs:documentation>
 					<xs:documentation xml:lang="pl">Format techniczny dokumentu: PDF, XML, Excel, Word, Image, ...</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokumentets tekniska format: PDF, XML, Excel, Word, Image, ...</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Signature" minOccurs="0">
@@ -1240,6 +1313,7 @@
 					<xs:documentation xml:lang="cs">Definuje, zda je podpis dostupný: Ne, Digitální, Sken</xs:documentation>
 					<xs:documentation xml:lang="da">Definerer om underskrift er tilgængelig: No, Digital, Scan</xs:documentation>
 					<xs:documentation xml:lang="pl">Definiuje, czy podpis jest dostępny: No, Digital, Scan</xs:documentation>
+					<xs:documentation xml:lang="sv">Definierar om signatur är tillgänglig: No, Digital, Scan</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1261,6 +1335,7 @@
 					<xs:documentation xml:lang="cs">Datum vytvoření dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dato hvor dokumentet blev genereret</xs:documentation>
 					<xs:documentation xml:lang="pl">Data wygenerowania dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Datum då dokumentet genererades</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ModificationDate" type="xs:date" minOccurs="0">
@@ -1275,6 +1350,7 @@
 					<xs:documentation xml:lang="cs">Datum poslední změny (např. pro KID)</xs:documentation>
 					<xs:documentation xml:lang="da">Dato for seneste ændring (f.eks. for KID)</xs:documentation>
 					<xs:documentation xml:lang="pl">Data ostatniej zmiany (np. dla KID)</xs:documentation>
+					<xs:documentation xml:lang="sv">Datum för senaste ändring (t.ex. för KID)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ExpirationDate" type="xs:date" minOccurs="0">
@@ -1289,6 +1365,7 @@
 					<xs:documentation xml:lang="cs">Dokument je platný do tohoto data expirace</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentet er gyldigt indtil denne udløbsdato</xs:documentation>
 					<xs:documentation xml:lang="pl">Dokument jest ważny do tej daty wygaśnięcia</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokumentet är giltigt fram till detta utgångsdatum</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
@@ -1303,6 +1380,7 @@
 					<xs:documentation xml:lang="cs">Dodavatel dat dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dataleverandør af dokument</xs:documentation>
 					<xs:documentation xml:lang="pl">Dostawca danych dokumentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokumentets datalevererantör</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Attributes" type="AttributesType" minOccurs="0">
@@ -1317,6 +1395,7 @@
 					<xs:documentation xml:lang="cs">Atributy dokumentu (v závislosti na typu dokumentu)</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets attributter (afhængigt af dokumenttype)</xs:documentation>
 					<xs:documentation xml:lang="pl">Atrybuty dokumentu (w zależności od typu dokumentu)</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokumentattribut (beroende på typ av dokument)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SizeInBytes" type="xs:positiveInteger" minOccurs="0">
@@ -1331,6 +1410,7 @@
 					<xs:documentation xml:lang="cs">Velikost dokumentu v bajtech (přesná velikost binárních dat, odhadovaná velikost v případě stažení)</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets størrelse i bytes (nøjagtig størrelse af binære data, anslået størrelse ved download)</xs:documentation>
 					<xs:documentation xml:lang="pl">Rozmiar dokumentu w bajtach (dokładny rozmiar danych binarnych, szacowany rozmiar w przypadku pobierania)</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokumentets storlek i byte (exakt storlek på binärdata, uppskattad storlek vid nedladdning)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DocumentURL" type="xs:anyURI" minOccurs="0">
@@ -1345,6 +1425,7 @@
 					<xs:documentation xml:lang="cs">Odkaz na dokument ke stažení</xs:documentation>
 					<xs:documentation xml:lang="da">Link til dokument for download</xs:documentation>
 					<xs:documentation xml:lang="pl">Link do dokumentu do pobrania</xs:documentation>
+					<xs:documentation xml:lang="sv">Länk till dokument för nedladdning</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BinaryData" type="xs:base64Binary" minOccurs="0">
@@ -1359,6 +1440,7 @@
 					<xs:documentation xml:lang="cs">Dokument ve formátu xml base64Binary</xs:documentation>
 					<xs:documentation xml:lang="da">Dokument i xml base64Binary-format</xs:documentation>
 					<xs:documentation xml:lang="pl">Dokument w formacie xml base64Binary</xs:documentation>
+					<xs:documentation xml:lang="sv">Dokument i xml base64Binary-format</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1375,6 +1457,7 @@
 			<xs:documentation xml:lang="cs">Kompletní struktura fondu včetně identifikátorů, statických/dynamických dat a buď jednoho fondu, nebo zastřešujícího fondu s podfondy</xs:documentation>
 			<xs:documentation xml:lang="da">Komplet fondsstruktur inklusive identifikatorer, statiske/dynamiske data og enten enkeltfond eller paraply med underfonde</xs:documentation>
 			<xs:documentation xml:lang="pl">Kompletna struktura funduszu obejmująca identyfikatory, dane statyczne/dynamiczne oraz fundusz pojedynczy albo fundusz parasolowy z subfunduszami</xs:documentation>
+			<xs:documentation xml:lang="sv">Fullständig fondstruktur inklusive identifierare, statiska/dynamiska data och antingen en enskild fond eller en paraplyfond med delfonder</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
@@ -1389,6 +1472,7 @@
 					<xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Fondens identifikatorer</xs:documentation>
 					<xs:documentation xml:lang="pl">Identyfikatory funduszu</xs:documentation>
+					<xs:documentation xml:lang="sv">Fondens identifierare</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Names" type="NamesType">
@@ -1403,6 +1487,7 @@
 					<xs:documentation xml:lang="cs">Názvy fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Navne på fonden</xs:documentation>
 					<xs:documentation xml:lang="pl">Nazwy funduszu</xs:documentation>
+					<xs:documentation xml:lang="sv">Namn på fond</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -1417,6 +1502,7 @@
 					<xs:documentation xml:lang="cs">Hlavní měna fondu (typicky používaná depozitářem pro výpočet celkového NAV)</xs:documentation>
 					<xs:documentation xml:lang="da">Fondens hovedvaluta (anvendes typisk af depositaren til beregning af samlet NAV)</xs:documentation>
 					<xs:documentation xml:lang="pl">Główna waluta funduszu (zwykle używana przez depozytariusza do obliczania całkowitego NAV)</xs:documentation>
+					<xs:documentation xml:lang="sv">Fondens huvudvaluta (används vanligtvis av förvaringsinstitutet för beräkning av totalt NAV)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SingleFundFlag" type="xs:boolean">
@@ -1431,6 +1517,7 @@
 					<xs:documentation xml:lang="cs">Definuje, zda se jedná o jednotlivý fond nebo zastřešující strukturu s podfondy</xs:documentation>
 					<xs:documentation xml:lang="da">Definerer om dette er en single fund eller en umbrella-lignende struktur med underfonde</xs:documentation>
 					<xs:documentation xml:lang="pl">Definiuje, czy jest to pojedynczy fundusz, czy struktura typu parasolowego (umbrella) z subfunduszami</xs:documentation>
+					<xs:documentation xml:lang="sv">Definierar om detta är en enskild fond eller en paraplyliknande struktur med delfonder</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
@@ -1445,6 +1532,7 @@
 					<xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel, ...)</xs:documentation>
 					<xs:documentation xml:lang="da">Definition af datakilde (investeringsselskab, vendor, ...)</xs:documentation>
 					<xs:documentation xml:lang="pl">Definicja źródła danych (towarzystwo inwestycyjne, dostawca, ...)</xs:documentation>
+					<xs:documentation xml:lang="sv">Definition av datakälla (investeringsbolag, leverantör, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FundStaticData" type="FundStaticDataType" minOccurs="0">
@@ -1459,6 +1547,7 @@
 					<xs:documentation xml:lang="cs">Hlavní statická data fondu (fiskální rok, úschova, ...)</xs:documentation>
 					<xs:documentation xml:lang="da">Vigtigste statiske data om fonden (regnskabsår, depot, ...)</xs:documentation>
 					<xs:documentation xml:lang="pl">Główne dane statyczne funduszu (rok obrotowy, depozyt, ...)</xs:documentation>
+					<xs:documentation xml:lang="sv">Huvudsakliga statiska data för fonden (räkenskapsår, förvaring, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FundDynamicData" type="FundDynamicDataType" minOccurs="0">
@@ -1473,6 +1562,7 @@
 					<xs:documentation xml:lang="cs">Dynamická data fondu (celkové hodnoty, pozice, transakce, struktury, ...)</xs:documentation>
 					<xs:documentation xml:lang="da">Dynamiske data for fonden (samlede værdier, beholdninger, transaktioner, opdelinger, ...)</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane dynamiczne funduszu (wartości całkowite, udziały, transakcje, podziały, ...)</xs:documentation>
+					<xs:documentation xml:lang="sv">Dynamiska data om fonden (totala värden, innehav, transaktioner, uppdelningar, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -1488,6 +1578,7 @@
 						<xs:documentation xml:lang="cs">Tento uzel použijte pro struktury bez zastřešujícího fondu</xs:documentation>
 						<xs:documentation xml:lang="da">Anvend denne node til ikke-umbrella fund-strukturer</xs:documentation>
 						<xs:documentation xml:lang="pl">Użyj tego węzła dla struktur funduszy nieparasolowych (non-umbrella)</xs:documentation>
+						<xs:documentation xml:lang="sv">Använd denna nod för fondstrukturer som inte är paraplyfonder</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Subfunds">
@@ -1502,6 +1593,7 @@
 						<xs:documentation xml:lang="cs">Tento uzel použijte pro struktury zastřešujícího fondu</xs:documentation>
 						<xs:documentation xml:lang="da">Anvend denne node til umbrella fund-strukturer</xs:documentation>
 						<xs:documentation xml:lang="pl">Użyj tego węzła dla struktur funduszy parasolowych (umbrella)</xs:documentation>
+						<xs:documentation xml:lang="sv">Använd denna nod för paraplyfondstrukturer</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -1517,6 +1609,7 @@
 									<xs:documentation xml:lang="cs">Statická a dynamická data podfondu</xs:documentation>
 									<xs:documentation xml:lang="da">Statiske og dynamiske data for en delfond</xs:documentation>
 									<xs:documentation xml:lang="pl">Dane statyczne i dynamiczne subfunduszu</xs:documentation>
+									<xs:documentation xml:lang="sv">Statiska och dynamiska data för en subfund</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1535,6 +1628,7 @@
 					<xs:documentation xml:lang="cs">Specifická data fondu podle země (jak je definováno v 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 					<xs:documentation xml:lang="da">Landespecifikke data for fonden (som defineret i 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane funduszu specyficzne dla kraju (zgodnie z definicją w 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+					<xs:documentation xml:lang="sv">Landspecifika uppgifter för fonden (enligt definition i 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1551,6 +1645,7 @@
 			<xs:documentation xml:lang="cs">Regulatorní data pro zveřejnění koncovým investorům: Solvency II TPT pro institucionální investory a PRIIPs pro retailové investory</xs:documentation>
 			<xs:documentation xml:lang="da">Regulatoriske oplysningsdata til slutinvestorer: Solvency II TPT for institutionelle investorer og PRIIPs for retailinvestorer</xs:documentation>
 			<xs:documentation xml:lang="pl">Regulacyjne dane do ujawnienia dla inwestorów końcowych: Solvency II TPT dla inwestorów instytucjonalnych oraz PRIIPs dla inwestorów detalicznych</xs:documentation>
+			<xs:documentation xml:lang="sv">Regulatoriska upplysningsdata för slutinvesterare: Solvency II TPT för institutionella investerare och PRIIPs för retailinvesterare</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TripartiteTemplateSolvencyII" type="TripartiteTemplateSolvencyIIType" minOccurs="0">
@@ -1566,6 +1661,7 @@
 					<xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Odkazuje na verzi 4 ze dne 3. 4. 2018 tohoto formátu „TPT V4".</xs:documentation>
 					<xs:documentation xml:lang="da">Særligt beriget inventar for Solvency II. Denne XML-implementering er kompatibel med "Tripartite Template". Den henviser til version 4 dateret 3/4/2018 af dette "TPT V4"-format.</xs:documentation>
 					<xs:documentation xml:lang="pl">Specjalny wzbogacony rejestr dla Solvency II. Ta implementacja XML jest zgodna z "Tripartite Template". Odnosi się do wersji 4 z dnia 3/4/2018 tego formatu "TPT V4".</xs:documentation>
+					<xs:documentation xml:lang="sv">Särskilt utökat innehav för Solvency II. Denna XML-implementering är kompatibel med "Tripartite Template". Den hänvisar till version 4 daterad 2018-03-04 av detta "TPT V4"-format.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V5" type="TripartiteTemplateSolvencyIIType_V5" minOccurs="0">
@@ -1580,6 +1676,7 @@
 					<xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 5.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2020-01-16</xs:documentation>
 					<xs:documentation xml:lang="da">Særligt beriget inventar for Solvency II. Denne XML-implementering er kompatibel med "Tripartite Template". I henhold til FinDatEx Version 5.0 Tripartite Template (TPT) for SII Asset Data-rapportering pr. 2020-01-16</xs:documentation>
 					<xs:documentation xml:lang="pl">Specjalny wzbogacony rejestr dla Solvency II. Ta implementacja XML jest zgodna z "Tripartite Template". Zgodnie z FinDatEx Wersja 5.0 Tripartite Template (TPT) dla raportowania danych o aktywach SII na dzień 2020-01-16</xs:documentation>
+					<xs:documentation xml:lang="sv">Särskilt utökat innehav för Solvency II. Denna XML-implementering är kompatibel med "Tripartite Template". Enligt FinDatEx Version 5.0 Tripartite Template (TPT) för SII-tillgångsdatarapportering per 2020-01-16</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V6" type="TripartiteTemplateSolvencyIIType_V6" minOccurs="0">
@@ -1595,6 +1692,7 @@
 					<xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 6.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="da">Særligt beriget inventar for Solvency II. Denne XML-implementering er kompatibel med "Tripartite Template". I henhold til FinDatEx Version 6.0 Tripartite Template (TPT) for SII Asset Data-rapportering pr. 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="pl">Specjalny wzbogacony rejestr dla Solvency II. Ta implementacja XML jest zgodna z "Tripartite Template". Zgodnie z FinDatEx Wersja 6.0 Tripartite Template (TPT) dla raportowania danych o aktywach SII na dzień 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="sv">Särskilt utökat innehav för Solvency II. Denna XML-implementering är kompatibel med "Tripartite Template". Enligt FinDatEx Version 6.0 Tripartite Template (TPT) för SII-tillgångsdatarapportering per 2022-03-14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V7" type="TripartiteTemplateSolvencyIIType_V7" minOccurs="0">
@@ -1609,6 +1707,7 @@
 					<xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 7.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2024-11-25</xs:documentation>
 					<xs:documentation xml:lang="da">Særligt beriget inventar for Solvency II. Denne XML-implementering er kompatibel med "Tripartite Template". I henhold til FinDatEx Version 7.0 Tripartite Template (TPT) for SII Asset Data-rapportering pr. 2024-11-25</xs:documentation>
 					<xs:documentation xml:lang="pl">Specjalny wzbogacony rejestr dla Solvency II. Ta implementacja XML jest zgodna z "Tripartite Template". Zgodnie z FinDatEx Wersja 7.0 Tripartite Template (TPT) dla raportowania danych o aktywach SII na dzień 2024-11-25</xs:documentation>
+					<xs:documentation xml:lang="sv">Särskilt utökat innehav för Solvency II. Denna XML-implementering är kompatibel med "Tripartite Template". Enligt FinDatEx Version 7.0 Tripartite Template (TPT) för SII-tillgångsdatarapportering per 2024-11-25</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRIIPS" type="PRIIPSType" minOccurs="0">
@@ -1624,6 +1723,7 @@
 					<xs:documentation xml:lang="cs">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
 					<xs:documentation xml:lang="da">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
 					<xs:documentation xml:lang="pl">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
+					<xs:documentation xml:lang="sv">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRIIPS_V20" type="PRIIPSType_V20" minOccurs="0">
@@ -1638,6 +1738,7 @@
 					<xs:documentation xml:lang="cs">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 a EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 og EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
 					<xs:documentation xml:lang="pl">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 oraz EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
+					<xs:documentation xml:lang="sv">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 och EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1654,6 +1755,7 @@
 			<xs:documentation xml:lang="cs">Kontejner pro všechna regulatorní vykazovací data včetně přímého vykazování (EMT, EET, EFT) a nepřímého vykazování (Solvency II TPT, PRIIPs)</xs:documentation>
 			<xs:documentation xml:lang="da">Container til alle regulatoriske rapporteringsdata inklusive direkte rapportering (EMT, EET, EFT) og indirekte rapportering (Solvency II TPT, PRIIPs)</xs:documentation>
 			<xs:documentation xml:lang="pl">Kontener dla wszystkich danych raportowania regulacyjnego, w tym raportowania bezpośredniego (EMT, EET, EFT) oraz raportowania pośredniego (Solvency II TPT, PRIIPs)</xs:documentation>
+			<xs:documentation xml:lang="sv">Container för alla regulatoriska rapporteringsdata inklusive direkt rapportering (EMT, EET, EFT) och indirekt rapportering (Solvency II TPT, PRIIPs)</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="DirectReporting" type="DirectReportingType" minOccurs="0">
@@ -1668,6 +1770,7 @@
 					<xs:documentation xml:lang="cs">Regulatorní data vyměňovaná mezi výrobci fondů a distributory/platformami v rámci profesionálního distribučního řetězce (např. data MiFID product governance)</xs:documentation>
 					<xs:documentation xml:lang="da">Regulatoriske data, der udveksles mellem fondsproducenter og distributører/platforme inden for den professionelle distributionskæde (f.eks. MiFID product governance-data)</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane regulacyjne wymieniane między producentami funduszy a dystrybutorami/platformami w ramach profesjonalnego łańcucha dystrybucji (np. dane dotyczące zarządzania produktem zgodnie z MiFID)</xs:documentation>
+					<xs:documentation xml:lang="sv">Regulatoriska data som utbyts mellan fondtillverkare och distributörer/plattformar inom den professionella distributionskedjan (t.ex. MiFID-produktstyrningsdata)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IndirectReporting" type="IndirectReportingType" minOccurs="0">
@@ -1682,6 +1785,7 @@
 					<xs:documentation xml:lang="cs">Regulatorní data pro zveřejnění poskytovaná koncovým investorům, jak retailovým (PRIIPs KID), tak institucionálním (data Solvency reporting)</xs:documentation>
 					<xs:documentation xml:lang="da">Regulatoriske oplysningsdata, der stilles til rådighed for slutinvestorer, både retail (PRIIPs KID) og institutionelle (Solvency-rapporteringsdata)</xs:documentation>
 					<xs:documentation xml:lang="pl">Regulacyjne dane do ujawnienia przekazywane inwestorom końcowym, zarówno detalicznym (PRIIPs KID), jak i instytucjonalnym (dane sprawozdawcze Solvency)</xs:documentation>
+					<xs:documentation xml:lang="sv">Regulatoriska upplysningsdata som tillhandahålls slutinvesterare, både retail (PRIIPs KID) och institutionella (Solvency-rapporteringsdata)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1698,6 +1802,7 @@
 			<xs:documentation xml:lang="cs">Dynamická data segmentu fondu včetně celkových hodnot aktiv a portfoliových pozic</xs:documentation>
 			<xs:documentation xml:lang="da">Dynamiske data for et fondssegment inklusive samlede aktivværdier og porteføljebeholdninger</xs:documentation>
 			<xs:documentation xml:lang="pl">Dane dynamiczne segmentu funduszu, w tym całkowite wartości aktywów oraz pozycje portfela</xs:documentation>
+			<xs:documentation xml:lang="sv">Dynamiska data för ett fondsegment inklusive totala tillgångsvärden och portföljinnehav</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TotalAssetValues" minOccurs="0">
@@ -1712,6 +1817,7 @@
 					<xs:documentation xml:lang="cs">Celkový NAV (objem) fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Samlet NAV (volumen) for fonden</xs:documentation>
 					<xs:documentation xml:lang="pl">Łączny NAV (wolumen) funduszu</xs:documentation>
+					<xs:documentation xml:lang="sv">Totalt NAV (volym) för fonden</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1727,6 +1833,7 @@
 								<xs:documentation xml:lang="cs">Záznam celkové hodnoty aktiv pro konkrétní datum</xs:documentation>
 								<xs:documentation xml:lang="da">Post for samlet aktivværdi for en bestemt dato</xs:documentation>
 								<xs:documentation xml:lang="pl">Wpis łącznej wartości aktywów dla określonej daty</xs:documentation>
+								<xs:documentation xml:lang="sv">Post för totalt tillgångsvärde för ett specifikt datum</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1744,6 +1851,7 @@
 					<xs:documentation xml:lang="cs">Všechna data související s portfoliem</xs:documentation>
 					<xs:documentation xml:lang="da">Alle porteføljerelaterede data</xs:documentation>
 					<xs:documentation xml:lang="pl">Wszystkie dane dotyczące portfela</xs:documentation>
+					<xs:documentation xml:lang="sv">All portföljrelaterad data</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1759,6 +1867,7 @@
 								<xs:documentation xml:lang="cs">Data portfolia segmentu</xs:documentation>
 								<xs:documentation xml:lang="da">Porteføljedata for segmentet</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane portfela segmentu</xs:documentation>
+								<xs:documentation xml:lang="sv">Portföljdata för segmentet</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1778,6 +1887,7 @@
 			<xs:documentation xml:lang="cs">Všechna statická data pro segmenty včetně data založení, data likvidace, správce a popisu</xs:documentation>
 			<xs:documentation xml:lang="da">Alle stamdata for Segments, herunder oprettelsesdato, likvidationsdato, forvalter og beskrivelse</xs:documentation>
 			<xs:documentation xml:lang="pl">Wszystkie dane statyczne dla segmentów, w tym data utworzenia, data likwidacji, zarządzający i opis</xs:documentation>
+			<xs:documentation xml:lang="sv">All statisk data för segment inklusive startdatum, likvidationsdatum, förvaltare och beskrivning</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="InceptionDate" type="xs:date" minOccurs="0">
@@ -1792,6 +1902,7 @@
 					<xs:documentation xml:lang="cs">Datum založení segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Segmentets oprettelsesdato</xs:documentation>
 					<xs:documentation xml:lang="pl">Data utworzenia segmentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Segmentets startdatum</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="LiquidationDate" type="xs:date" minOccurs="0">
@@ -1806,6 +1917,7 @@
 					<xs:documentation xml:lang="cs">Datum likvidace segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Likvidationsdato for segmentet</xs:documentation>
 					<xs:documentation xml:lang="pl">Data likwidacji segmentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Likvidationsdatum för segmentet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Manager" type="CompanyType" minOccurs="0">
@@ -1820,6 +1932,7 @@
 					<xs:documentation xml:lang="cs">Správce segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Forvalter af segmentet</xs:documentation>
 					<xs:documentation xml:lang="pl">Zarządzający segmentem</xs:documentation>
+					<xs:documentation xml:lang="sv">Förvaltare av segmentet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" minOccurs="0" maxOccurs="unbounded">
@@ -1834,6 +1947,7 @@
 					<xs:documentation xml:lang="cs">Popis segmentu v zadaném jazyce</xs:documentation>
 					<xs:documentation xml:lang="da">Beskrivelse af segment på det angivne sprog</xs:documentation>
 					<xs:documentation xml:lang="pl">Opis segmentu w określonym języku</xs:documentation>
+					<xs:documentation xml:lang="sv">Beskrivning av segment på angivet språk</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -1850,6 +1964,7 @@
 									<xs:documentation xml:lang="cs">Jazyk popisu (ISO 639-1)</xs:documentation>
 									<xs:documentation xml:lang="da">Sprog for beskrivelsen (ISO 639-1)</xs:documentation>
 									<xs:documentation xml:lang="pl">Język opisu (ISO 639-1)</xs:documentation>
+									<xs:documentation xml:lang="sv">Beskrivningens språk (ISO 639-1)</xs:documentation>
 								</xs:annotation>
 							</xs:attribute>
 						</xs:extension>
@@ -1868,6 +1983,7 @@
 					<xs:documentation xml:lang="cs">Vlastní atributy pro další data segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Brugerdefinerede attributter for yderligere segmentdata</xs:documentation>
 					<xs:documentation xml:lang="pl">Atrybuty niestandardowe dla dodatkowych danych segmentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Anpassade attribut för ytterligare segmentdata</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1884,6 +2000,7 @@
 			<xs:documentation xml:lang="cs">Segment fondu (sub-portfolio nebo pocket), typicky spravovaný konkrétním správcem fondu v rámci multi-manažerské struktury</xs:documentation>
 			<xs:documentation xml:lang="da">Fondssegment (delportefølje eller pocket), der typisk forvaltes af en bestemt fondsforvalter inden for en multi-manager-struktur</xs:documentation>
 			<xs:documentation xml:lang="pl">Segment funduszu (subportfel lub pocket) zazwyczaj zarządzany przez określonego zarządzającego funduszem w ramach struktury multi-manager</xs:documentation>
+			<xs:documentation xml:lang="sv">Fondsegment (delportfölj eller pocket) som vanligtvis förvaltas av en specifik fondförvaltare inom en multi-manager-struktur</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
@@ -1898,6 +2015,7 @@
 					<xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Fondsidentifikatorer</xs:documentation>
 					<xs:documentation xml:lang="pl">Identyfikatory funduszu</xs:documentation>
+					<xs:documentation xml:lang="sv">Fondidentifierare</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="Text500Type">
@@ -1912,6 +2030,7 @@
 					<xs:documentation xml:lang="cs">Název segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Navn på segment</xs:documentation>
 					<xs:documentation xml:lang="pl">Nazwa segmentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Namn på segment</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -1926,6 +2045,7 @@
 					<xs:documentation xml:lang="cs">Měna segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Segmentets valuta</xs:documentation>
 					<xs:documentation xml:lang="pl">Waluta segmentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Segmentets valuta</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SegmentStaticData" type="SegmentStaticDataType" minOccurs="0">
@@ -1940,6 +2060,7 @@
 					<xs:documentation xml:lang="cs">Datum založení, správce, popis, ...</xs:documentation>
 					<xs:documentation xml:lang="da">Oprettelse, forvalter, beskrivelse, ...</xs:documentation>
 					<xs:documentation xml:lang="pl">Utworzenie, zarządzający, opis, ...</xs:documentation>
+					<xs:documentation xml:lang="sv">Start, förvaltare, beskrivning, ...</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SegmentDynamicData" type="SegmentDynamicDataType" minOccurs="0">
@@ -1954,6 +2075,7 @@
 					<xs:documentation xml:lang="cs">Celkové hodnoty aktiv, data portfolia</xs:documentation>
 					<xs:documentation xml:lang="da">Samlede aktivværdier, porteføljedata</xs:documentation>
 					<xs:documentation xml:lang="pl">Łączne wartości aktywów, dane portfela</xs:documentation>
+					<xs:documentation xml:lang="sv">Totala tillgångsvärden, portföljdata</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
@@ -1968,6 +2090,7 @@
 					<xs:documentation xml:lang="cs">Seznam tříd akcií segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over share classes for segmentet</xs:documentation>
 					<xs:documentation xml:lang="pl">Lista Share Classes segmentu</xs:documentation>
+					<xs:documentation xml:lang="sv">Lista över share classes i segmentet</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1983,6 +2106,7 @@
 								<xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
 								<xs:documentation xml:lang="da">Statiske og dynamiske data for en Share Class</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane statyczne i dynamiczne Share Class</xs:documentation>
+								<xs:documentation xml:lang="sv">Statiska och dynamiska data för en share class</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2000,6 +2124,7 @@
 					<xs:documentation xml:lang="cs">Data související se subsegmenty / podkapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
 					<xs:documentation xml:lang="da">Data vedrørende subsegmenter/subpockets af fonde (typisk forvaltet af forskellige fondsforvaltere)</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane dotyczące subsegmentów / subpocketów funduszy (zwykle zarządzanych przez różnych zarządzających funduszami)</xs:documentation>
+					<xs:documentation xml:lang="sv">Uppgifter som hänför sig till delsegment / delpockets i fonder (vanligtvis förvaltade av olika fondförvaltare)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2015,6 +2140,7 @@
 								<xs:documentation xml:lang="cs">Podsegment v rámci aktuálního segmentu</xs:documentation>
 								<xs:documentation xml:lang="da">Undersegment inden for det aktuelle segment</xs:documentation>
 								<xs:documentation xml:lang="pl">Podsegment w ramach bieżącego segmentu</xs:documentation>
+								<xs:documentation xml:lang="sv">Undersegment inom det aktuella segmentet</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2034,6 +2160,7 @@
 			<xs:documentation xml:lang="cs">Struktura jednotlivého fondu (bez zastřešení) obsahující statická data, třídy akcií a volitelné segmenty</xs:documentation>
 			<xs:documentation xml:lang="da">Enkeltfondsstruktur (ikke-paraply) med statiske data, Share Classes og valgfrie segmenter</xs:documentation>
 			<xs:documentation xml:lang="pl">Struktura pojedynczego funduszu (nieparasolowego) zawierająca dane statyczne, Share Classes oraz opcjonalne segmenty</xs:documentation>
+			<xs:documentation xml:lang="sv">Struktur för enskild fond (icke-paraply) som innehåller statiska data, share classes och valfria segment</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SingleFundStaticData" type="SingleFundStaticDataType" minOccurs="0">
@@ -2048,6 +2175,7 @@
 					<xs:documentation xml:lang="cs">Statická data jednotlivého fondu (podobná statickým datům podfondu)</xs:documentation>
 					<xs:documentation xml:lang="da">Statiske data for enkeltfond (svarende til statiske data for delfond)</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane statyczne pojedynczego funduszu (podobne do danych statycznych subfunduszu)</xs:documentation>
+					<xs:documentation xml:lang="sv">Statiska data för en enskild fond (liknar statiska data för en subfund)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
@@ -2062,6 +2190,7 @@
 					<xs:documentation xml:lang="cs">Seznam tříd akcií jednotlivého fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over share classes for single fund</xs:documentation>
 					<xs:documentation xml:lang="pl">Lista Share Classes single fund</xs:documentation>
+					<xs:documentation xml:lang="sv">Lista över share classes i den enskilda fonden</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2077,6 +2206,7 @@
 								<xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
 								<xs:documentation xml:lang="da">Statiske og dynamiske data for en Share Class</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane statyczne i dynamiczne Share Class</xs:documentation>
+								<xs:documentation xml:lang="sv">Statiska och dynamiska data för en share class</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2094,6 +2224,7 @@
 					<xs:documentation xml:lang="cs">Data související se segmenty/kapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
 					<xs:documentation xml:lang="da">Data vedrørende segmenter/pockets af fonde (typisk forvaltet af forskellige fondsforvaltere)</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane dotyczące segmentów/pocketów funduszy (zwykle zarządzanych przez różnych zarządzających funduszami)</xs:documentation>
+					<xs:documentation xml:lang="sv">Uppgifter som hänför sig till segment/pockets i fonder (vanligtvis förvaltade av olika fondförvaltare)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2109,6 +2240,7 @@
 								<xs:documentation xml:lang="cs">Segment v rámci jednotlivého fondu</xs:documentation>
 								<xs:documentation xml:lang="da">Segment inden for den enkelte fond</xs:documentation>
 								<xs:documentation xml:lang="pl">Segment w ramach pojedynczego funduszu</xs:documentation>
+								<xs:documentation xml:lang="sv">Segment inom den enskilda fonden (single fund)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2128,6 +2260,7 @@
 			<xs:documentation xml:lang="cs">Podfond v rámci zastřešující fondové struktury s vlastními identifikátory, statickými/dynamickými daty a třídami akcií</xs:documentation>
 			<xs:documentation xml:lang="da">Delfond inden for en paraplyfondsstruktur med egne identifikatorer, statiske/dynamiske data og Share Classes</xs:documentation>
 			<xs:documentation xml:lang="pl">Subfundusz w ramach struktury funduszu parasolowego z własnymi identyfikatorami, danymi statycznymi/dynamicznymi oraz Share Classes</xs:documentation>
+			<xs:documentation xml:lang="sv">Subfund inom en paraplyfondstruktur med egna identifierare, statiska/dynamiska data och share classes</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
@@ -2142,6 +2275,7 @@
 					<xs:documentation xml:lang="cs">Identifikátory podfondu</xs:documentation>
 					<xs:documentation xml:lang="da">Delfondens identifikatorer</xs:documentation>
 					<xs:documentation xml:lang="pl">Identyfikatory subfunduszu</xs:documentation>
+					<xs:documentation xml:lang="sv">Delfondens identifierare</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Names" type="NamesType">
@@ -2156,6 +2290,7 @@
 					<xs:documentation xml:lang="cs">Názvy podfondu</xs:documentation>
 					<xs:documentation xml:lang="da">Navne på delfonden</xs:documentation>
 					<xs:documentation xml:lang="pl">Nazwy subfunduszu</xs:documentation>
+					<xs:documentation xml:lang="sv">Namn på delfond</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -2170,6 +2305,7 @@
 					<xs:documentation xml:lang="cs">Měna podfondu</xs:documentation>
 					<xs:documentation xml:lang="da">Subfondens valuta</xs:documentation>
 					<xs:documentation xml:lang="pl">Waluta subfunduszu</xs:documentation>
+					<xs:documentation xml:lang="sv">Delfondens valuta</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubfundStaticData" type="SubfundStaticDataType" minOccurs="0">
@@ -2184,6 +2320,7 @@
 					<xs:documentation xml:lang="cs">Statická data podfondu (podobná statickým datům jednotlivého fondu)</xs:documentation>
 					<xs:documentation xml:lang="da">Statiske data for delfond (svarende til statiske data for enkeltfond)</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane statyczne subfunduszu (podobne do danych statycznych pojedynczego funduszu)</xs:documentation>
+					<xs:documentation xml:lang="sv">Statiska data för en subfund (liknar statiska data för en enskild fond)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubfundDynamicData" type="FundDynamicDataType" minOccurs="0">
@@ -2198,6 +2335,7 @@
 					<xs:documentation xml:lang="cs">Celkové hodnoty aktiv, data portfolia</xs:documentation>
 					<xs:documentation xml:lang="da">Samlede aktivværdier, porteføljedata</xs:documentation>
 					<xs:documentation xml:lang="pl">Łączne wartości aktywów, dane portfela</xs:documentation>
+					<xs:documentation xml:lang="sv">Totala tillgångsvärden, portföljdata</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
@@ -2212,6 +2350,7 @@
 					<xs:documentation xml:lang="cs">Seznam tříd akcií podfondu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over share classes for subfund</xs:documentation>
 					<xs:documentation xml:lang="pl">Lista Share Classes subfunduszu</xs:documentation>
+					<xs:documentation xml:lang="sv">Lista över share classes i delfonden</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2227,6 +2366,7 @@
 								<xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
 								<xs:documentation xml:lang="da">Statiske og dynamiske data for en Share Class</xs:documentation>
 								<xs:documentation xml:lang="pl">Dane statyczne i dynamiczne Share Class</xs:documentation>
+								<xs:documentation xml:lang="sv">Statiska och dynamiska data för en share class</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2244,6 +2384,7 @@
 					<xs:documentation xml:lang="cs">Data související se segmenty/kapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
 					<xs:documentation xml:lang="da">Data vedrørende segmenter/pockets af fonde (typisk forvaltet af forskellige fondsforvaltere)</xs:documentation>
 					<xs:documentation xml:lang="pl">Dane dotyczące segmentów/pocketów funduszy (zwykle zarządzanych przez różnych zarządzających funduszami)</xs:documentation>
+					<xs:documentation xml:lang="sv">Uppgifter som hänför sig till segment/pockets i fonder (vanligtvis förvaltade av olika fondförvaltare)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2259,6 +2400,7 @@
 								<xs:documentation xml:lang="cs">Segment v rámci podfondu</xs:documentation>
 								<xs:documentation xml:lang="da">Segment inden for underfonden</xs:documentation>
 								<xs:documentation xml:lang="pl">Segment w ramach subfunduszu</xs:documentation>
+								<xs:documentation xml:lang="sv">Segment inom delfonden</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>

@@ -18,6 +18,7 @@
          <xs:documentation xml:lang="hu">EUROPEAN Visszajelzes Sablon - EFT</xs:documentation>
          <xs:documentation xml:lang="da">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
          <xs:documentation xml:lang="pl">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
+         <xs:documentation xml:lang="sv">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0"
@@ -34,6 +35,7 @@
                <xs:documentation xml:lang="hu">Alap- vagy Share Class-azonosítók az egyéb alap- vagy Share Class-adatokhoz való egyszerű kapcsolódás érdekében</xs:documentation>
                <xs:documentation xml:lang="da">Identifikatorer for fond eller Share Class til nem forbindelse til andre fonds- eller Share Class-data</xs:documentation>
                <xs:documentation xml:lang="pl">Identyfikatory funduszu lub Share Class umożliwiające łatwe powiązanie z innymi danymi funduszu lub Share Class</xs:documentation>
+               <xs:documentation xml:lang="sv">Fond- eller Share Class-identifierare för enkel koppling till andra fond- eller Share Class-data</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataSupplier" type="DataSupplierType">
@@ -48,6 +50,7 @@
                <xs:documentation xml:lang="hu">Az adatforrás meghatározása (befektetési társaság, vendor, ...)</xs:documentation>
                <xs:documentation xml:lang="da">Definition af datakilde (investeringsselskab, vendor, ...)</xs:documentation>
                <xs:documentation xml:lang="pl">Definicja źródła danych (towarzystwo inwestycyjne, dostawca, ...)</xs:documentation>
+               <xs:documentation xml:lang="sv">Definition av datakälla (investeringsbolag, leverantör, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="DataSetInformation">
@@ -62,6 +65,7 @@
          	   <xs:documentation xml:lang="cs">Informace o datové sadě včetně verze EFT a rozsahu reportingu</xs:documentation>
          	   <xs:documentation xml:lang="da">Datasætoplysninger inklusive EFT-version og rapporteringsomfang</xs:documentation>
          	   <xs:documentation xml:lang="pl">Informacje o zbiorze danych, w tym wersja EFT i zakres sprawozdawczości</xs:documentation>
+         	   <xs:documentation xml:lang="sv">Information om datamängd inklusive EFT-version och rapporteringsomfattning</xs:documentation>
          	</xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -77,6 +81,7 @@
                   	   <xs:documentation xml:lang="cs">Informace o reportu a rozsahu včetně verze a typu reportingu</xs:documentation>
                   	   <xs:documentation xml:lang="da">Rapportoplysninger og omfang inklusive version og rapporteringstype</xs:documentation>
                   	   <xs:documentation xml:lang="pl">Informacje o raporcie i jego zakresie, w tym wersja i typ sprawozdawczości</xs:documentation>
+                  	   <xs:documentation xml:lang="sv">Rapportinformation och omfattning inklusive version och rapporteringstyp</xs:documentation>
                   	</xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -102,6 +107,8 @@ Az EFT használt verziója: V1 további értesítésig</xs:documentation>
 Anvendt version af EFT: V1 indtil videre</xs:documentation>
                                  <xs:documentation xml:lang="pl">00010_EFT_Version
 Użyta wersja EFT: V1 do odwołania</xs:documentation>
+                                 <xs:documentation xml:lang="sv">00010_EFT_Version
+Använd version av EFT: V1 tills vidare</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -131,6 +138,8 @@ Az EFT-fájl létrehozásának dátuma és időpontja</xs:documentation>
 Dato og klokkeslæt for oprettelsen af EFT-filen</xs:documentation>
                                  <xs:documentation xml:lang="pl">00020_File_Generation_Date_and_Time
 Data i godzina utworzenia pliku EFT</xs:documentation>
+                                 <xs:documentation xml:lang="sv">00020_File_Generation_Date_and_Time
+Datum och tid för skapandet av EFT-filen</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="PeriodStartData" type="xs:date">
@@ -155,6 +164,8 @@ Azon időszak kezdőnapja, amely alatt a forgalmazás történt</xs:documentatio
 Startdato for den periode, hvor distribution har fundet sted</xs:documentation>
                                  <xs:documentation xml:lang="pl">00030_Reporting_Period_Start_Data
 Data początku okresu, w którym nastąpiła dystrybucja</xs:documentation>
+                                 <xs:documentation xml:lang="sv">00030_Reporting_Period_Start_Data
+Startdatum för den period under vilken distribution har skett</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="PeriodEndData" type="xs:date">
@@ -179,6 +190,8 @@ Azon időszak zárónapja, amely alatt a forgalmazás történt</xs:documentatio
 Slutdato for den periode, hvor distribution har fundet sted</xs:documentation>
                                  <xs:documentation xml:lang="pl">00040_Reporting_Period_End_Data
 Data końca okresu, w którym nastąpiła dystrybucja</xs:documentation>
+                                 <xs:documentation xml:lang="sv">00040_Reporting_Period_End_Data
+Slutdatum för den period under vilken distribution har skett</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="ReferenceTargetMarket">
@@ -213,6 +226,9 @@ M (Manufacturer) / D (Distributor)/ B (Both)</xs:documentation>
                                  <xs:documentation xml:lang="pl">00050_Reference_ Target_ Market
 Określa referencyjny Target Market, względem którego raportowane są odchylenia
 M (Manufacturer) / D (Distributor)/ B (Both)</xs:documentation>
+                                 <xs:documentation xml:lang="sv">00050_Reference_ Target_ Market
+Definierar den referens-Target Market som avvikelser rapporteras mot
+M (Manufacturer) / D (Distributor)/ B (Both)</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -237,6 +253,7 @@ M (Manufacturer) / D (Distributor)/ B (Both)</xs:documentation>
                   	   <xs:documentation xml:lang="cs">Informace o předkládajícím/distribučním subjektu</xs:documentation>
                   	   <xs:documentation xml:lang="da">Information om den indberettende/distribuerende enhed</xs:documentation>
                   	   <xs:documentation xml:lang="pl">Informacje o podmiocie przekazującym/dystrybuującym</xs:documentation>
+                  	   <xs:documentation xml:lang="sv">Information om den inlämnande/distribuerande enheten</xs:documentation>
                   	</xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -262,6 +279,8 @@ A pénzügyi eszközt forgalmazó szervezet neve. Az, aki a forgalmazói célpia
 Navn på den enhed, der distribuerer det finansielle instrument. Den, der er ansvarlig for Distributor Target Market</xs:documentation>
                                  <xs:documentation xml:lang="pl">01010_Submitter_Entity_Name
 Nazwa Podmiotu dystrybuującego instrument finansowy. Podmiotu odpowiedzialnego za Distributor Target Market</xs:documentation>
+                                 <xs:documentation xml:lang="sv">01010_Submitter_Entity_Name
+Namn på den enhet som distribuerar det finansiella instrumentet. Den som ansvarar för Distributor Target Market</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -311,6 +330,10 @@ LEI, National Identity Number, N</xs:documentation>
 Identyfikacja Podmiotu dystrybuującego
 : podmiotu odpowiedzialnego za Distributor Target Market lub Nic (N)
 LEI, National Identity Number, N</xs:documentation>
+                                 <xs:documentation xml:lang="sv">01020_Submitter_Entity_identifier
+Identifiering av distributionsenheten
+: den som ansvarar för Distributor Target Market eller Inget (N)
+LEI, National Identity Number, N</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -350,6 +373,9 @@ L eller NI eller No</xs:documentation>
                                  <xs:documentation xml:lang="pl">02030_Recipient_Entity_identifier_Type
 LEI podmiotu odbiorcy lub identyfikator krajowy lub Nic
 L lub NI lub No</xs:documentation>
+                                 <xs:documentation xml:lang="sv">02030_Recipient_Entity_identifier_Type
+LEI för mottagarenheten eller National identifier eller Inget
+L eller NI eller No</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -421,6 +447,12 @@ Jedna z następujących pozycji
 -  Distributor (podmiot dokonujący sprzedaży)
 - Intermediary (np. platforma)
 M lub D lub I (intermediary / platforma)</xs:documentation>
+                                 <xs:documentation xml:lang="sv">02040_Recipient_Entity_Position_In_The_Distribution_Chain
+En av följande poster
+- Manufacturer
+-  Distributor (Den som gör försäljningen)
+- Intermediary (t.ex. plattform)
+M eller D eller I (intermediary / plattform)</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -445,6 +477,7 @@ M lub D lub I (intermediary / platforma)</xs:documentation>
                   	   <xs:documentation xml:lang="cs">Informace o subjektu výrobce produktu</xs:documentation>
                   	   <xs:documentation xml:lang="da">Information om produktproducentenheden</xs:documentation>
                   	   <xs:documentation xml:lang="pl">Informacje o podmiocie wytwarzającym produkt (product manufacturer)</xs:documentation>
+                  	   <xs:documentation xml:lang="sv">Information om produkttillverkarens enhet</xs:documentation>
                   	</xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -470,6 +503,8 @@ A pénzügyi eszközt előállító szervezet neve. Az, aki a gyártói (Manufac
 Navn på den enhed, der producerer det finansielle instrument. Den, der er ansvarlig for Manufacturer Target Market</xs:documentation>
                                  <xs:documentation xml:lang="pl">03010_Manufacturer_Entity_Name
 Nazwa Podmiotu wytwarzającego instrument finansowy. Podmiotu odpowiedzialnego za Manufacturer Target Market</xs:documentation>
+                                 <xs:documentation xml:lang="sv">03010_Manufacturer_Entity_Name
+Namn på den enhet som producerar det finansiella instrumentet. Den som ansvarar för Manufacturer Target Market</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -509,6 +544,9 @@ LEI, nationalt identitetsnummer, N</xs:documentation>
                                  <xs:documentation xml:lang="pl">03020_Manufacturer_identifier
 Identyfikacja podmiotu będącego producentem
 LEI, krajowy numer identyfikacyjny, N</xs:documentation>
+                                 <xs:documentation xml:lang="sv">03020_Manufacturer_identifier
+Identifiering av Manufacturer-enheten
+LEI, nationellt identitetsnummer, N</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -548,6 +586,9 @@ L eller NI eller No</xs:documentation>
                                  <xs:documentation xml:lang="pl">03030_Manufacturer_identifier_Type
 LEI producenta lub identyfikator krajowy albo brak
 L lub NI lub No</xs:documentation>
+                                 <xs:documentation xml:lang="sv">03030_Manufacturer_identifier_Type
+LEI för Manufacturer eller nationell identifierare eller inget
+L eller NI eller No</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -575,6 +616,7 @@ L lub NI lub No</xs:documentation>
          	   <xs:documentation xml:lang="cs">Obecné informace o finančním nástroji včetně identifikace a klasifikace</xs:documentation>
          	   <xs:documentation xml:lang="da">Generelle oplysninger om finansielt instrument, herunder identifikation og klassifikation</xs:documentation>
          	   <xs:documentation xml:lang="pl">Ogólne informacje o instrumencie finansowym, w tym identyfikacja i klasyfikacja</xs:documentation>
+         	   <xs:documentation xml:lang="sv">Allmän information om finansiellt instrument inklusive identifiering och klassificering</xs:documentation>
          	</xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -650,6 +692,13 @@ W celu identyfikacji konkretnego instrumentu finansowego należy zastosować nas
   - inne uznane kody (np.: CUSIP, Bloomberg Ticker, Reuters RIC)
   - kod nadany przez podmiot, gdy powyższe opcje są niedostępne. Kod musi być unikalny i utrzymywany w spójności w czasie.
   - puste, jeśli 04020 ma wartość 11</xs:documentation>
+                        <xs:documentation xml:lang="sv">04010_Financial_Instrument_Identifying_Data
+Identifiering av det finansiella instrumentet
+Använd följande prioritering för identifiering av ett specifikt finansiellt instrument:
+  - ISO 6166-kod för ISIN när sådan finns tillgänglig
+  - Andra erkända koder (t.ex.: CUSIP, Bloomberg Ticker, Reuters RIC)
+  - Kod tilldelad av företaget, när ovanstående alternativ inte är tillgängliga. Koden måste vara unik och hållas konsekvent över tid.
+  - tomt om 04020 är satt till 11</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -809,6 +858,21 @@ Należy zastosować jedną z opcji z poniższej zamkniętej listy:
 10 - LEI
 11 - Aggregated Class of products
 99 - Kod nadany przez podmiot</xs:documentation>
+                        <xs:documentation xml:lang="sv">04020_Type_Of_Identification_Code_For_The_Financial_Instrument
+Kodifiering vald för att identifiera det finansiella instrumentet eller Aggregated Class of Products
+Ett av alternativen i följande slutna lista ska användas:
+1 - ISO 6166 för ISIN-kod
+2 - CUSIP (The Committee on Uniform Securities Identification Procedures-nummer tilldelat av CUSIP Service Bureau för amerikanska och kanadensiska bolag)
+3 - SEDOL (Stock Exchange Daily Official List för London Stock Exchange)
+4 – WKN (Wertpapier Kenn-Nummer, det alfanumeriska tyska identifieringsnumret)
+5 - Bloomberg Ticker (Bloombergs bokstavskod som identifierar ett bolags värdepapper)
+6 - BBGID (The Bloomberg Global ID)
+7 - Reuters RIC (Reuters instrument code)
+8 – FIGI (Financial Instrument Global Identifier)
+9 - Annan kod från medlemmar i Association of National Numbering Agencies
+10 - LEI
+11 - Aggregated Class of products
+99 - Kod tilldelad av företaget</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:int">
@@ -849,6 +913,8 @@ A pénzügyi eszköz neve, ha alkalmazható</xs:documentation>
 Navn på det finansielle instrument, hvis relevant</xs:documentation>
                         <xs:documentation xml:lang="pl">04030_Financial_Instrument_Name
 Nazwa instrumentu finansowego, jeśli dotyczy</xs:documentation>
+                        <xs:documentation xml:lang="sv">04030_Financial_Instrument_Name
+Det finansiella instrumentets namn, i tillämpliga fall</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -878,6 +944,8 @@ Az ügyletek teljes számát jelenti, abszolút számban kifejezve. Tartalmazza 
 Betyder det samlede antal transaktioner udtrykt i absolut antal. Inkluderer volumener i Positive, Negative og uden for Positive.</xs:documentation>
                         <xs:documentation xml:lang="pl">04040_Financial_Instrument_Total_Number_Of_Transactions
 Oznacza całkowitą liczbę transakcji wyrażoną w liczbie bezwzględnej. Obejmuje wolumeny dodatnie (Positive), ujemne (Negative) oraz spoza Positive.</xs:documentation>
+                        <xs:documentation xml:lang="sv">04040_Financial_Instrument_Total_Number_Of_Transactions
+Avser totalt antal transaktioner uttryckt i absolut antal. Inkluderar volymer i Positive, Negative och utanför Positve.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -895,6 +963,7 @@ Oznacza całkowitą liczbę transakcji wyrażoną w liczbie bezwzględnej. Obejm
                <xs:documentation xml:lang="hu">Deviation Jelentes - Gyarto Celcsoport Perspective</xs:documentation>
                <xs:documentation xml:lang="da">Afvigelsesrapport - Manufacturer Target Market-perspektiv</xs:documentation>
                <xs:documentation xml:lang="pl">Raport odchyleń - perspektywa rynku docelowego producenta (Manufacturer Target Market)</xs:documentation>
+               <xs:documentation xml:lang="sv">Avvikelserapport - Tillverkarens målmarknadsperspektiv</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -910,6 +979,7 @@ Oznacza całkowitą liczbę transakcji wyrażoną w liczbie bezwzględnej. Obejm
                         <xs:documentation xml:lang="hu">Célpiacon kívüli (Outside Target Market, OTM) és/vagy negatív célpiacon (Negative Target Market, NTM) történő értékesítések - tranzakciók számaként jelentve</xs:documentation>
                         <xs:documentation xml:lang="da">Salg uden for målmarkedet (OTM) og/eller i negativt målmarked (NTM) - Rapporteret som antal transaktioner</xs:documentation>
                         <xs:documentation xml:lang="pl">Sprzedaż poza rynkiem docelowym (OTM) i/lub na negatywnym rynku docelowym (NTM) - Raportowana jako liczba transakcji</xs:documentation>
+                        <xs:documentation xml:lang="sv">Försäljning utanför Target Market (OTM) och/eller i Negative Target Market (NTM) - Rapporteras som antal transaktioner</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -945,6 +1015,9 @@ Hvis 00050 er sat til M eller B</xs:documentation>
                                  <xs:documentation xml:lang="pl">05010_Retail_Investor_Type_AND_Self_Service
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Retail Investor Type, przy użyciu usług MiFID Execution Only lub Self Service with Appropriateness Test
 Jeśli  00050 ma wartość M lub B</xs:documentation>
+                                 <xs:documentation xml:lang="sv">05010_Retail_Investor_Type_AND_Self_Service
+Antal transaktioner som rapporterats som identifierade i konflikt med Retail Investor Type, med användning av MiFID-tjänsterna Execution Only eller Self Service med Appropriateness Test
+Om 00050 är satt till M eller B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -971,6 +1044,8 @@ Az olyan ügyletek száma, amelyek a Retail Investor Type-pal ütközőként ker
 Antal transaktioner indberettet som identificeret i konflikt med Retail Investor Type, ved brug af MiFID-tjenesterne Advice eller Portfolio Management.</xs:documentation>
                                  <xs:documentation xml:lang="pl">05020_Retail_Investor_Type_AND_Execution_With_Suitability_Test
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Retail Investor Type, przy użyciu usług MiFID Advice lub Portfolio Management.</xs:documentation>
+                                 <xs:documentation xml:lang="sv">05020_Retail_Investor_Type_AND_Execution_With_Suitability_Test
+Antal transaktioner som rapporterats som identifierade i konflikt med Retail Investor Type, med användning av MiFID-tjänsterna Advice eller Portfolio Management.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -997,6 +1072,8 @@ Az olyan ügyletek száma, amelyek a Knowledge and Experience-szel ütközőkén
 Antal transaktioner indberettet som identificeret i konflikt med Knowledge and Experience, ved brug af MiFID-tjenesterne Execution Only eller Self Service med Appropriateness Test.</xs:documentation>
                                  <xs:documentation xml:lang="pl">05030_Knowledge_and_Experience_AND_Self_Service
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Knowledge and Experience, przy użyciu usług MiFID Execution Only lub Self Service with Appropriateness Test.</xs:documentation>
+                                 <xs:documentation xml:lang="sv">05030_Knowledge_and_Experience_AND_Self_Service
+Antal transaktioner som rapporterats som identifierade i konflikt med Knowledge and Experience, med användning av MiFID-tjänsterna Execution Only eller Self Service med Appropriateness Test.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -1023,6 +1100,8 @@ Az olyan ügyletek száma, amelyek a Knowledge and Experience-szel ütközőkén
 Antal transaktioner indberettet som identificeret i konflikt med Knowledge and Experience, ved brug af MiFID-tjenesterne Advice eller Portfolio Management.</xs:documentation>
                                  <xs:documentation xml:lang="pl">05040_Knowledge_and_Experience_AND_With_Suitability_Test
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Knowledge and Experience, przy użyciu usług MiFID Advice lub Portfolio Management.</xs:documentation>
+                                 <xs:documentation xml:lang="sv">05040_Knowledge_and_Experience_AND_With_Suitability_Test
+Antal transaktioner som rapporterats som identifierade i konflikt med Knowledge and Experience, med användning av MiFID-tjänsterna Advice eller Portfolio Management.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -1049,6 +1128,8 @@ Az olyan ügyletek száma, amelyek az Ability To Bear Losses-szel ütközőként
 Antal transaktioner indberettet som identificeret i konflikt med Ability To Bear Losses, ved brug af MiFID-tjenesterne Advice eller Portfolio Management.</xs:documentation>
                                  <xs:documentation xml:lang="pl">05050_Ability_To_Bear_Losses_AND_With_Suitability_Test_France
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Ability To Bear Losses, przy użyciu usług MiFID Advice lub Portfolio Management.</xs:documentation>
+                                 <xs:documentation xml:lang="sv">05050_Ability_To_Bear_Losses_AND_With_Suitability_Test_France
+Antal transaktioner som rapporterats som identifierade i konflikt med Ability To Bear Losses, med användning av MiFID-tjänsterna Advice eller Portfolio Management.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1066,6 +1147,7 @@ Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Ability To Be
                         <xs:documentation xml:lang="hu">A forgalmazási stratégiára vonatkozó jelentési mezők bővítése (ESMA 51. bekezdés)</xs:documentation>
                         <xs:documentation xml:lang="da">Udvidelse af rapporteringsfelter for distributionsstrategi (ESMA pkt. 51)</xs:documentation>
                         <xs:documentation xml:lang="pl">Rozszerzenie pól raportowania strategii dystrybucji (ESMA par. 51)</xs:documentation>
+                        <xs:documentation xml:lang="sv">Utvidgning av rapporteringsfält för distributionsstrategi (ESMA punkt 51)</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1092,6 +1174,8 @@ Az ESMA Product Governance Guidelines 51. cikkére hivatkozva ez a mező annak k
 Med henvisning til ESMA Product Governance Guidelines artikel 51 bruges dette felt til at oplyse, om distributørens Distribution Strategy er udvidet i forhold til den Distribution Strategy, som manufactureren har tiltænkt med hensyn til Retail Clients.</xs:documentation>
                                  <xs:documentation xml:lang="pl">06010_Outside_Intended_Distribution_Strategy_Retail_And_Self_Service
 W odniesieniu do artykułu 51 wytycznych ESMA dotyczących zarządzania produktami (Product Governance Guidelines), pole to służy do ujawnienia, czy strategia dystrybucji dystrybutora jest poszerzona w stosunku do strategii dystrybucji zamierzonej przez producenta w odniesieniu do klientów detalicznych.</xs:documentation>
+                                 <xs:documentation xml:lang="sv">06010_Outside_Intended_Distribution_Strategy_Retail_And_Self_Service
+Med hänvisning till ESMA Product Governance Guidelines artikel 51 används detta fält för att ange huruvida distributörens Distribution Strategy utvidgas i förhållande till den Distribution Strategy som tillverkaren avsett med avseende på Retail Clients.</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -1118,6 +1202,7 @@ W odniesieniu do artykułu 51 wytycznych ESMA dotyczących zarządzania produkta
                <xs:documentation xml:lang="hu">Eltérési jelentés - Forgalmazói célpiaci (Target Market) nézőpont (Olaszország esetén - csak akkor, ha olasz forgalmazóról van szó, specifikus forgalmazási megállapodással)</xs:documentation>
                <xs:documentation xml:lang="da">Afvigelsesrapport - Distributor Target Market-perspektiv (For Italien - kun hvis det er en italiensk distributør med en specifik distributionsaftale)</xs:documentation>
                <xs:documentation xml:lang="pl">Raport odchyleń - perspektywa rynku docelowego dystrybutora (Target Market) (dla Włoch - tylko jeśli jest to włoski dystrybutor z określoną umową dystrybucyjną)</xs:documentation>
+               <xs:documentation xml:lang="sv">Avvikelserapport - Distributörens målmarknadsperspektiv (För Italien - endast om det är en italiensk distributör med ett specifikt distributionsavtal)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1133,6 +1218,7 @@ W odniesieniu do artykułu 51 wytycznych ESMA dotyczących zarządzania produkta
                   	   <xs:documentation xml:lang="cs">Prodeje mimo nebo ne na cílovém trhu - statistiky odchylek</xs:documentation>
                   	   <xs:documentation xml:lang="da">Salg uden for eller ikke i målmarkedet - afvigelsesstatistik</xs:documentation>
                   	   <xs:documentation xml:lang="pl">Sprzedaż poza rynkiem docelowym lub niezgodna z rynkiem docelowym - statystyki odchyleń</xs:documentation>
+                  	   <xs:documentation xml:lang="sv">Försäljning utanför eller ej inom Target Market - avvikelsestatistik</xs:documentation>
                   	</xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1170,6 +1256,9 @@ Hvis 00050 er sat til D eller B</xs:documentation>
                                  <xs:documentation xml:lang="pl">07010_Retail_Investor_Type_AND_Self_Service_vs_DistributorTM_Italy
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Retail Investor Type, przy użyciu usług MiFID Execution Only lub Self Service with Appropriateness Test.
 Jeśli  00050 ma wartość D lub B</xs:documentation>
+                                 <xs:documentation xml:lang="sv">07010_Retail_Investor_Type_AND_Self_Service_vs_DistributorTM_Italy
+Antal transaktioner som rapporterats som identifierade i konflikt med Retail Investor Type, med användning av MiFID-tjänsterna Execution Only eller Self Service med Appropriateness Test.
+Om 00050 är satt till D eller B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -1206,6 +1295,9 @@ Hvis 00050 er sat til D eller B</xs:documentation>
                                  <xs:documentation xml:lang="pl">07020_Retail_Investor_Type_AND_Advice_vs_DistributorTM_Italy
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Retail Investor Type, przy użyciu usługi MiFID Advice.
 Jeśli  00050 ma wartość D lub B</xs:documentation>
+                                 <xs:documentation xml:lang="sv">07020_Retail_Investor_Type_AND_Advice_vs_DistributorTM_Italy
+Antal transaktioner som rapporterats som identifierade i konflikt med Retail Investor Type, med användning av MiFID-tjänsten Advice.
+Om 00050 är satt till D eller B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -1242,6 +1334,9 @@ Hvis 00050 er sat til D eller B</xs:documentation>
                                  <xs:documentation xml:lang="pl">07030_Knowledge_and_Experience_AND_Self_Service_vs_DistributorTM_Italy
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Knowledge and Experience, przy użyciu usług MiFID Execution Only lub Self Service with Appropriateness Test.
 Jeśli  00050 ma wartość D lub B</xs:documentation>
+                                 <xs:documentation xml:lang="sv">07030_Knowledge_and_Experience_AND_Self_Service_vs_DistributorTM_Italy
+Antal transaktioner som rapporterats som identifierade i konflikt med Knowledge and Experience, med användning av MiFID-tjänsterna Execution Only eller Self Service med Appropriateness Test.
+Om 00050 är satt till D eller B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -1278,6 +1373,9 @@ Hvis 00050 er sat til D eller B</xs:documentation>
                                  <xs:documentation xml:lang="pl">07040_Knowledge_and_Experience_AND_With_Suitability_Test_vs_DistributorTM_Italy
 Liczba transakcji zgłoszonych jako zidentyfikowane w konflikcie z Knowledge and Experience, przy użyciu usług MiFID Advice lub Portfolio Management.
 Jeśli  00050 ma wartość D lub B</xs:documentation>
+                                 <xs:documentation xml:lang="sv">07040_Knowledge_and_Experience_AND_With_Suitability_Test_vs_DistributorTM_Italy
+Antal transaktioner som rapporterats som identifierade i konflikt med Knowledge and Experience, med användning av MiFID-tjänsterna Advice eller Portfolio Management.
+Om 00050 är satt till D eller B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1300,6 +1398,7 @@ Jeśli  00050 ma wartość D lub B</xs:documentation>
          <xs:documentation xml:lang="hu">EUROPEAN Visszajelzes Sablon - EFT</xs:documentation>
          <xs:documentation xml:lang="da">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
          <xs:documentation xml:lang="pl">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
+         <xs:documentation xml:lang="sv">EUROPEAN FEEDBACK TEMPLATE - EFT</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="EFT" type="EFTReportType">
@@ -1314,6 +1413,7 @@ Jeśli  00050 ma wartość D lub B</xs:documentation>
          	   <xs:documentation xml:lang="cs">Jednotlivý EFT report zpětné vazby distribuce</xs:documentation>
          	   <xs:documentation xml:lang="da">Enkelt EFT-rapport med distributionsfeedback</xs:documentation>
          	   <xs:documentation xml:lang="pl">Pojedynczy raport informacji zwrotnej o dystrybucji EFT</xs:documentation>
+         	   <xs:documentation xml:lang="sv">Enskild EFT-distributionsåterkopplingsrapport</xs:documentation>
          	</xs:annotation>
          </xs:element>
       </xs:sequence>

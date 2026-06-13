@@ -15,6 +15,7 @@
 			<xs:documentation xml:lang="cs">Dynamická data benchmarku včetně hodnot a hodnot komponent</xs:documentation>
 			<xs:documentation xml:lang="hu">Dinamikus benchmark adatok, beleértve az értékeket és a komponens értékeket</xs:documentation>
 			<xs:documentation xml:lang="da">Dynamiske benchmark-data inklusive værdier og komponentværdier</xs:documentation>
+			<xs:documentation xml:lang="pl">Dynamiczne dane Benchmark, w tym wartości oraz wartości komponentów</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="BenchmarkID" minOccurs="0">
@@ -29,6 +30,7 @@
 					<xs:documentation xml:lang="cs">Odkaz na statická data benchmarku</xs:documentation>
 					<xs:documentation xml:lang="hu">Hivatkozás a benchmark statikus adataira</xs:documentation>
 					<xs:documentation xml:lang="da">Link til Benchmark Static Data</xs:documentation>
+					<xs:documentation xml:lang="pl">Link do Benchmark Static Data</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -48,6 +50,7 @@
 					<xs:documentation xml:lang="cs">Kontejner pro hodnoty benchmarku v čase</xs:documentation>
 					<xs:documentation xml:lang="hu">Benchmark értékek tárolója az idő folyamán</xs:documentation>
 					<xs:documentation xml:lang="da">Container til benchmarkværdier over tid</xs:documentation>
+					<xs:documentation xml:lang="pl">Kontener dla wartości benchmarku w czasie</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -63,6 +66,7 @@
 								<xs:documentation xml:lang="cs">Jednotlivý záznam hodnoty benchmarku pro konkrétní datum</xs:documentation>
 								<xs:documentation xml:lang="hu">Egyedi benchmark értékbejegyzés egy adott dátumra</xs:documentation>
 								<xs:documentation xml:lang="da">Enkelt Benchmark-værdipost for en bestemt dato</xs:documentation>
+								<xs:documentation xml:lang="pl">Pojedynczy wpis wartości Benchmark dla określonej daty</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -78,6 +82,7 @@
 											<xs:documentation xml:lang="cs">Datum hodnoty benchmarku</xs:documentation>
 											<xs:documentation xml:lang="hu">A benchmark érték dátuma</xs:documentation>
 											<xs:documentation xml:lang="da">Dato for benchmark-værdien</xs:documentation>
+											<xs:documentation xml:lang="pl">Data wartości Benchmarku</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ValueType">
@@ -92,6 +97,7 @@
 											<xs:documentation xml:lang="cs">Typ hodnoty: Price nebo Total Return</xs:documentation>
 											<xs:documentation xml:lang="hu">Az érték típusa: Price vagy Total Return</xs:documentation>
 											<xs:documentation xml:lang="da">Værditype: Price eller Total Return</xs:documentation>
+											<xs:documentation xml:lang="pl">Rodzaj wartości: Price lub Total Return</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -112,6 +118,7 @@
 											<xs:documentation xml:lang="cs">Částka hodnoty benchmarku</xs:documentation>
 											<xs:documentation xml:lang="hu">A benchmark érték összege</xs:documentation>
 											<xs:documentation xml:lang="da">Benchmark-værdibeløbet</xs:documentation>
+											<xs:documentation xml:lang="pl">Kwota wartości benchmarku</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Components" minOccurs="0">
@@ -126,6 +133,7 @@
 											<xs:documentation xml:lang="cs">Hodnoty komponent pro smíšené benchmarky</xs:documentation>
 											<xs:documentation xml:lang="hu">Komponensértékek kevert benchmarkokhoz</xs:documentation>
 											<xs:documentation xml:lang="da">Komponentværdier for blandede benchmarks</xs:documentation>
+											<xs:documentation xml:lang="pl">Wartości składowe dla benchmarków mieszanych (blended)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -141,6 +149,7 @@
 														<xs:documentation xml:lang="cs">Jednotlivý záznam hodnoty komponenty</xs:documentation>
 														<xs:documentation xml:lang="hu">Egyedi komponensérték-bejegyzés</xs:documentation>
 														<xs:documentation xml:lang="da">Enkelt komponentværdipost</xs:documentation>
+														<xs:documentation xml:lang="pl">Pojedynczy wpis wartości składnika</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -156,6 +165,7 @@
 																	<xs:documentation xml:lang="cs">Odkaz na statickou definici komponenty benchmarku</xs:documentation>
 																	<xs:documentation xml:lang="hu">Hivatkozás a statikus benchmark komponens definícióra</xs:documentation>
 																	<xs:documentation xml:lang="da">Link til den statiske benchmark-komponentdefinition</xs:documentation>
+																	<xs:documentation xml:lang="pl">Link do statycznej definicji komponentu benchmarku</xs:documentation>
 																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
@@ -175,6 +185,7 @@
 																	<xs:documentation xml:lang="cs">Typ hodnoty komponenty: Price nebo Total Return</xs:documentation>
 																	<xs:documentation xml:lang="hu">A komponens érték típusa: Price vagy Total Return</xs:documentation>
 																	<xs:documentation xml:lang="da">Type af komponentværdi: Price eller Total Return</xs:documentation>
+																	<xs:documentation xml:lang="pl">Typ wartości składnika: Price lub Total Return</xs:documentation>
 																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
@@ -195,6 +206,7 @@
 																	<xs:documentation xml:lang="cs">Částka hodnoty komponenty benchmarku</xs:documentation>
 																	<xs:documentation xml:lang="hu">A benchmark komponens érték összege</xs:documentation>
 																	<xs:documentation xml:lang="da">Benchmark-komponentens værdibeløb</xs:documentation>
+																	<xs:documentation xml:lang="pl">Kwota wartości składnika benchmarku</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 															<xs:element name="Constituents" type="PositionsType" minOccurs="0">
@@ -209,6 +221,7 @@
 																	<xs:documentation xml:lang="cs">Portfoliové pozice tvořící tuto komponentu benchmarku</xs:documentation>
 																	<xs:documentation xml:lang="hu">A benchmark komponenst alkotó portfólió pozíciók</xs:documentation>
 																	<xs:documentation xml:lang="da">Porteføljepositioner, der udgør denne benchmarkkomponent</xs:documentation>
+																	<xs:documentation xml:lang="pl">Pozycje portfela tworzące ten komponent benchmarku</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 														</xs:sequence>
@@ -235,6 +248,7 @@
 					<xs:documentation xml:lang="cs">Portfoliové pozice tvořící celkový benchmark</xs:documentation>
 					<xs:documentation xml:lang="hu">A teljes benchmarkot alkotó portfólió pozíciók</xs:documentation>
 					<xs:documentation xml:lang="da">Porteføljepositioner, der udgør den samlede benchmark</xs:documentation>
+					<xs:documentation xml:lang="pl">Pozycje portfela tworzące cały benchmark</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -250,6 +264,7 @@
 			<xs:documentation xml:lang="cs">Dynamická data fondů včetně celkových hodnot aktiv, portfolií a dat benchmarku</xs:documentation>
 			<xs:documentation xml:lang="hu">Alapok dinamikus adatai, beleértve a teljes eszközértékeket, a portfóliókat és a benchmark adatokat</xs:documentation>
 			<xs:documentation xml:lang="da">Dynamiske data for fonde inklusive samlede aktivværdier, porteføljer og benchmark-data</xs:documentation>
+			<xs:documentation xml:lang="pl">Dane dynamiczne funduszy, w tym całkowite wartości aktywów, portfele oraz dane Benchmark</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TotalAssetValues" minOccurs="0">
@@ -263,6 +278,7 @@
 					<xs:documentation xml:lang="cs">Celková NAV (objem) fondu</xs:documentation>
 					<xs:documentation xml:lang="hu">Az alap teljes NAV-ja (volumene)</xs:documentation>
 					<xs:documentation xml:lang="da">Samlet NAV (volumen) for fonden</xs:documentation>
+					<xs:documentation xml:lang="pl">Łączny NAV (wolumen) funduszu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -277,6 +293,7 @@
 						      <xs:documentation xml:lang="hu">Teljes eszközérték bejegyzés egy adott dátumra</xs:documentation>
 						      <xs:documentation xml:lang="cs">Záznam celkové hodnoty aktiv pro konkrétní datum</xs:documentation>
 						      <xs:documentation xml:lang="da">Post for samlet aktivværdi for en bestemt dato</xs:documentation>
+						      <xs:documentation xml:lang="pl">Wpis łącznej wartości aktywów dla określonej daty</xs:documentation>
 						   </xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -293,6 +310,7 @@
 					<xs:documentation xml:lang="cs">Všechna data související s portfoliem (nepoužívat pro zastřešující struktury)</xs:documentation>
 					<xs:documentation xml:lang="hu">Minden portfólióval kapcsolatos adat (ernyőstruktúrákhoz nem használható)</xs:documentation>
 					<xs:documentation xml:lang="da">Alle porteføljerelaterede data (må ikke anvendes til umbrella-strukturer)</xs:documentation>
+					<xs:documentation xml:lang="pl">Wszystkie dane dotyczące portfela (nie stosować dla struktur parasolowych)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -307,6 +325,7 @@
 						      <xs:documentation xml:lang="hu">Portfólió állomány adatok</xs:documentation>
 						      <xs:documentation xml:lang="cs">Data portfoliových pozic</xs:documentation>
 						      <xs:documentation xml:lang="da">Data om porteføljebeholdninger</xs:documentation>
+						      <xs:documentation xml:lang="pl">Dane o portfelu papierów wartościowych (holdings)</xs:documentation>
 						   </xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -323,6 +342,7 @@
 					<xs:documentation xml:lang="cs">Data benchmarku fondu</xs:documentation>
 					<xs:documentation xml:lang="hu">Az alap benchmark adatai</xs:documentation>
 					<xs:documentation xml:lang="da">Benchmark-data for fonden</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane benchmarku funduszu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -337,6 +357,7 @@
 						      <xs:documentation xml:lang="hu">Dinamikus benchmark adatok a teljesítmény-összehasonlításhoz</xs:documentation>
 						      <xs:documentation xml:lang="cs">Dynamická data benchmarku pro srovnání výkonnosti</xs:documentation>
 						      <xs:documentation xml:lang="da">Dynamiske benchmark-data til performance-sammenligning</xs:documentation>
+						      <xs:documentation xml:lang="pl">Dynamiczne dane Benchmark do porównywania wyników</xs:documentation>
 						   </xs:annotation>
 						</xs:element>
 					</xs:sequence>

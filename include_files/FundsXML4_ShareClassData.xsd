@@ -21,6 +21,7 @@
 
          <xs:documentation xml:lang="hu">Allokáció megoszlása befektető típus szerint</xs:documentation>
          <xs:documentation xml:lang="da">Allokeringsopdeling efter investortype</xs:documentation>
+         <xs:documentation xml:lang="pl">Podział alokacji według typu inwestora</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="NavDate" type="xs:date">
@@ -35,6 +36,7 @@
 
                <xs:documentation xml:lang="hu">NAV dátum az allokációs adatokhoz</xs:documentation>
                <xs:documentation xml:lang="da">NAV-dato for allokeringsdataene</xs:documentation>
+               <xs:documentation xml:lang="pl">Data NAV dla danych alokacji</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="InvestorTypes" type="InvestorTypesType">
@@ -49,6 +51,7 @@
 
                <xs:documentation xml:lang="hu">Magán, intézményi, vagyonkezelő, bankok, nyugdíjalapok, biztosítók, treasury, jótékonysági szervezetek, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
                <xs:documentation xml:lang="da">Private, institutionelle, asset manager, banker, pensionsfonde, forsikringer, treasury, velgørende organisationer, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
+               <xs:documentation xml:lang="pl">Prywatny, Instytucjonalny, Asset Manager, Banki, Fundusze emerytalne, Ubezpieczyciele, Treasury, Organizacje charytatywne, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="NumberOfShares" type="xs:decimal">
@@ -63,6 +66,7 @@
 
                <xs:documentation xml:lang="hu">Az adott befektető típus által tartott részvények száma</xs:documentation>
                <xs:documentation xml:lang="da">Antal andele besiddet af denne investortype</xs:documentation>
+               <xs:documentation xml:lang="pl">Liczba jednostek posiadanych przez ten typ inwestora</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -79,6 +83,7 @@
 
          <xs:documentation xml:lang="hu">Számítási időszak típusa a teljesítmény adatokhoz (1 nap, 1 hét, 1 hónap, 3 hónap, 6 hónap, év elejétől, 1-10 év, indulás óta, egyedi)</xs:documentation>
          <xs:documentation xml:lang="da">Beregningsperiodetype for performancetal (1 Day, 1 Week, 1 Month, 3 Months, 6 Months, YTD, 1-10 Years, Since launch, Specific)</xs:documentation>
+         <xs:documentation xml:lang="pl">Typ okresu obliczeniowego dla wartości wyników (1 dzień, 1 tydzień, 1 miesiąc, 3 miesiące, 6 miesięcy, YTD, 1-10 lat, Od wprowadzenia, Specyficzny)</xs:documentation>
       </xs:annotation>
       <xs:restriction base="xs:string">
          <xs:enumeration value="1 Day"/>
@@ -107,6 +112,7 @@
 
          <xs:documentation xml:lang="hu">Egyedi adatpont dátummal és értékkel</xs:documentation>
          <xs:documentation xml:lang="da">Enkelt datapunkt med dato og værdi</xs:documentation>
+         <xs:documentation xml:lang="pl">Pojedynczy punkt danych z datą i wartością</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Date" type="xs:date">
@@ -121,6 +127,7 @@
 
                <xs:documentation xml:lang="hu">Az adatpont dátuma</xs:documentation>
                <xs:documentation xml:lang="da">Datapunktets dato</xs:documentation>
+               <xs:documentation xml:lang="pl">Data punktu danych</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Value" type="xs:decimal">
@@ -135,6 +142,7 @@
 
                <xs:documentation xml:lang="hu">Érték ezen az adatponton</xs:documentation>
                <xs:documentation xml:lang="da">Værdi ved dette datapunkt</xs:documentation>
+               <xs:documentation xml:lang="pl">Wartość w tym punkcie danych</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="TimeStamp" type="xs:time">
@@ -149,6 +157,7 @@
 
                <xs:documentation xml:lang="hu">Idobelyeg a napon beluli adatpontokhoz</xs:documentation>
                <xs:documentation xml:lang="da">Tidsstempel for intradag-datapunkter</xs:documentation>
+               <xs:documentation xml:lang="pl">Znacznik czasu dla punktów danych śróddziennych</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -165,6 +174,7 @@
 
          <xs:documentation xml:lang="hu">Dátum intervallum típusa az adatgyakorisághoz (napon belüli, napi, heti, havi, negyedéves, éves)</xs:documentation>
          <xs:documentation xml:lang="da">Datointervaltype for datafrekvens (Intraday, Daily, Weekly, Monthly, Quarterly, Yearly)</xs:documentation>
+         <xs:documentation xml:lang="pl">Typ interwału dat dla częstotliwości danych (Intraday, Daily, Weekly, Monthly, Quarterly, Yearly)</xs:documentation>
       </xs:annotation>
       <xs:restriction base="xs:string">
          <xs:enumeration value="Intraday"/>
@@ -188,6 +198,7 @@
 
          <xs:documentation xml:lang="hu">Osztalék szétosztási információ</xs:documentation>
          <xs:documentation xml:lang="da">Information om udbyttedistribution</xs:documentation>
+         <xs:documentation xml:lang="pl">Informacje o wypłacie dywidendy</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="ActionCode">
@@ -202,6 +213,7 @@
 
                <xs:documentation xml:lang="hu">Műveleti kód: Létrehozás(C), Módosítás(M) vagy Törlés(D)</xs:documentation>
                <xs:documentation xml:lang="da">Operationel kode: Create(C), Modify(M) eller Delete(D)</xs:documentation>
+               <xs:documentation xml:lang="pl">Kod operacyjny: Create(C), Modify(M) lub Delete(D)</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -224,6 +236,7 @@
 
                <xs:documentation xml:lang="hu">BECSULT vagy HIVATALOS</xs:documentation>
                <xs:documentation xml:lang="da">ESTIMATED eller OFFICIAL</xs:documentation>
+               <xs:documentation xml:lang="pl">ESTIMATED lub OFFICIAL</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -246,6 +259,7 @@
 
                <xs:documentation xml:lang="hu">Bejelentési vagy deklarációs dátum</xs:documentation>
                <xs:documentation xml:lang="da">Bekendtgørelses- eller erklæringsdato</xs:documentation>
+               <xs:documentation xml:lang="pl">Data ogłoszenia lub deklaracji</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="RecordDate" type="xs:date">
@@ -260,6 +274,7 @@
 
                <xs:documentation xml:lang="hu">Fordulonap</xs:documentation>
                <xs:documentation xml:lang="da">Record-dato</xs:documentation>
+               <xs:documentation xml:lang="pl">Dzień ustalenia praw (record date)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ExDate" type="xs:date">
@@ -274,6 +289,7 @@
 
                <xs:documentation xml:lang="hu">Osztalekszelvenynelkuli nap</xs:documentation>
                <xs:documentation xml:lang="da">Ex-udbyttedato</xs:documentation>
+               <xs:documentation xml:lang="pl">Data ex dywidendy</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="PaymentDate" type="xs:date">
@@ -288,6 +304,7 @@
 
                <xs:documentation xml:lang="hu">Osztalék kifizetési dátum</xs:documentation>
                <xs:documentation xml:lang="da">Betalingsdato for udbytte</xs:documentation>
+               <xs:documentation xml:lang="pl">Data wypłaty dywidendy</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="PaymentCurrency" type="ISOCurrencyCodeType">
@@ -302,6 +319,7 @@
 
                <xs:documentation xml:lang="hu">Kifizetes penzeme</xs:documentation>
                <xs:documentation xml:lang="da">Betalingsvaluta</xs:documentation>
+               <xs:documentation xml:lang="pl">Waluta płatności</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="GrossDividendAmount">
@@ -316,6 +334,7 @@
 
                <xs:documentation xml:lang="hu">Brutto osztalek osszeg</xs:documentation>
                <xs:documentation xml:lang="da">Bruttoudbyttebeløb</xs:documentation>
+               <xs:documentation xml:lang="pl">Kwota dywidendy brutto</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -331,6 +350,7 @@
 
                         <xs:documentation xml:lang="hu">Bruttó osztalék összeg teljes értéke</xs:documentation>
                         <xs:documentation xml:lang="da">Bruttoudbyttebeløb, samlet værdi</xs:documentation>
+                        <xs:documentation xml:lang="pl">Łączna wartość kwoty dywidendy brutto</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="PerShare" type="PositiveAmountType">
@@ -345,6 +365,7 @@
 
                         <xs:documentation xml:lang="hu">Bruttó osztalék összeg részvényenként</xs:documentation>
                         <xs:documentation xml:lang="da">Bruttoudbyttebeløb pr. andel</xs:documentation>
+                        <xs:documentation xml:lang="pl">Kwota dywidendy brutto na akcję</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -362,6 +383,7 @@
 
                <xs:documentation xml:lang="hu">Netto osztalek osszeg</xs:documentation>
                <xs:documentation xml:lang="da">Netto udbyttebeløb</xs:documentation>
+               <xs:documentation xml:lang="pl">Kwota dywidendy netto</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -377,6 +399,7 @@
 
                         <xs:documentation xml:lang="hu">Nettó osztalék összeg teljes értéke</xs:documentation>
                         <xs:documentation xml:lang="da">Netto udbyttebeløb, samlet værdi</xs:documentation>
+                        <xs:documentation xml:lang="pl">Łączna wartość kwoty dywidendy netto</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="PerShare" type="PositiveAmountType">
@@ -391,6 +414,7 @@
 
                         <xs:documentation xml:lang="hu">Nettó osztalék összeg részvényenként</xs:documentation>
                         <xs:documentation xml:lang="da">Netto udbyttebeløb pr. andel</xs:documentation>
+                        <xs:documentation xml:lang="pl">Kwota dywidendy netto na jeden tytuł uczestnictwa</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -408,6 +432,7 @@
 
                <xs:documentation xml:lang="hu">Újrabefektetési ráta százalékban</xs:documentation>
                <xs:documentation xml:lang="da">Geninvesteringssats i procent</xs:documentation>
+               <xs:documentation xml:lang="pl">Stopa reinwestycji w procentach</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="EqualizationRate" type="PercentageType">
@@ -422,6 +447,7 @@
 
                <xs:documentation xml:lang="hu">Kiegyenlítési ráta százalékban</xs:documentation>
                <xs:documentation xml:lang="da">Equaliseringssats i procent</xs:documentation>
+               <xs:documentation xml:lang="pl">Stopa wyrównania (equalization) w procentach</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PartialPaymentFlag" type="xs:boolean">
@@ -436,6 +462,7 @@
 
                <xs:documentation xml:lang="hu">Osztalék részleges kifizetésének indikátora (alapértelmezett: false)</xs:documentation>
                <xs:documentation xml:lang="da">Indikator for delvis udbetaling af udbytte (standard: false)</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskaźnik częściowej wypłaty dywidendy (domyślnie: false)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DistributionFlag" type="xs:boolean">
@@ -450,6 +477,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy az osztalék kifizetésre kerül-e (alapértelmezett: true)</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om udbytte vil blive udloddet (standard: true)</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy dywidenda będzie wypłacana (domyślnie: true)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ExceptionalFlag" type="xs:boolean">
@@ -464,6 +492,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy az osztalék éves ütemezés szerint lett-e tervezve vagy sem</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om udbytte er planlagt på en årlig tidsplan eller ej</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy dywidenda została zaplanowana w harmonogramie rocznym, czy nie</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="IntermediaryFlag" type="xs:boolean">
@@ -478,6 +507,7 @@
 
                <xs:documentation xml:lang="hu">Közbenső osztalék indikátora</xs:documentation>
                <xs:documentation xml:lang="da">Indikator for foreløbigt udbytte</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskaźnik dywidendy zaliczkowej</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Comments" type="Text1000Type">
@@ -492,6 +522,7 @@
 
                <xs:documentation xml:lang="hu">További információ szöveges formában, mint például "a FinTech által kiszámítva és elosztva"</xs:documentation>
                <xs:documentation xml:lang="da">Yderligere oplysninger i tekstformat som "has been calculated and distributed by FinTech"</xs:documentation>
+               <xs:documentation xml:lang="pl">Dodatkowe informacje w formacie tekstowym, np. "zostało obliczone i rozdystrybuowane przez FinTech"</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -508,6 +539,7 @@
 
          <xs:documentation xml:lang="hu">Díjadatok egy adott időszakra</xs:documentation>
          <xs:documentation xml:lang="da">Gebyrdata for en specifik periode</xs:documentation>
+         <xs:documentation xml:lang="pl">Dane opłaty dla określonego okresu</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="BeginDate" type="xs:date">
@@ -522,6 +554,7 @@
 
                <xs:documentation xml:lang="hu">Az időszak kezdő dátuma</xs:documentation>
                <xs:documentation xml:lang="da">Startdato for perioden</xs:documentation>
+               <xs:documentation xml:lang="pl">Data początkowa okresu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="EndDate" type="xs:date">
@@ -536,6 +569,7 @@
 
                <xs:documentation xml:lang="hu">Az időszak záró dátuma</xs:documentation>
                <xs:documentation xml:lang="da">Slutdato for periode</xs:documentation>
+               <xs:documentation xml:lang="pl">Data końcowa okresu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="CurrentDate" type="xs:date">
@@ -550,6 +584,7 @@
 
                <xs:documentation xml:lang="hu">Csak az OngoingPeriod esetében. Aktuális dátum (vagy utolsó számítási dátum).</xs:documentation>
                <xs:documentation xml:lang="da">Kun for OngoingPeriod. Aktuel dato (eller seneste beregningsdato).</xs:documentation>
+               <xs:documentation xml:lang="pl">Tylko dla OngoingPeriod. Bieżąca data (lub data ostatniego obliczenia).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Values">
@@ -563,6 +598,7 @@
                <xs:documentation xml:lang="hu">Díjértékek különböző befektetési szinteken</xs:documentation>
                <xs:documentation xml:lang="cs">Hodnoty poplatků na různých investičních úrovních</xs:documentation>
                <xs:documentation xml:lang="da">Gebyrværdier på forskellige investeringsniveauer</xs:documentation>
+               <xs:documentation xml:lang="pl">Wartości opłat na różnych poziomach inwestycji</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -578,6 +614,7 @@
 
                         <xs:documentation xml:lang="hu">A portfólió vagy share class teljes nettó eszközértéke, amelyet a díj referenciájaként használnak.</xs:documentation>
                         <xs:documentation xml:lang="da">Samlede nettoaktiver for porteføljen eller Share Class, der anvendes som reference for gebyret.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Łączne aktywa netto Portfela lub Share Class użyte jako odniesienie dla opłaty.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="CalculationBasis">
@@ -592,6 +629,7 @@
 
                         <xs:documentation xml:lang="hu">A díjszámítás alapja, ha eltér a TNA-tól</xs:documentation>
                         <xs:documentation xml:lang="da">Grundlag for gebyrberegning, hvis forskelligt fra TNA</xs:documentation>
+                        <xs:documentation xml:lang="pl">Podstawa obliczania opłaty, jeśli różni się od TNA</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -607,6 +645,7 @@
 
                                  <xs:documentation xml:lang="hu">A számítási alap meghatározása (amelyre a PercentageOfBasis vonatkozik).</xs:documentation>
                                  <xs:documentation xml:lang="da">Definition af beregningsgrundlaget (som PercentageOfBasis gælder for).</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Definicja podstawy obliczeniowej (do której odnosi się PercentageOfBasis).</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="BasisValue" type="FundAmountType">
@@ -621,6 +660,7 @@
 
                                  <xs:documentation xml:lang="hu">A Basis tényleges összege</xs:documentation>
                                  <xs:documentation xml:lang="da">Faktisk beløb for Basis</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Rzeczywista kwota podstawy (Basis)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="FeeAsPercentageOfBasis" type="PercentageType">
@@ -634,6 +674,7 @@
                                  <xs:documentation xml:lang="hu">Díj a bázisösszeg százalékában</xs:documentation>
                                  <xs:documentation xml:lang="cs">Poplatek jako procento ze základní částky</xs:documentation>
                                  <xs:documentation xml:lang="da">Gebyr som procentdel af grundbeløbet</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Opłata jako procent kwoty bazowej</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -650,6 +691,7 @@
                         <xs:documentation xml:lang="hu">Díj a teljes nettó eszközérték százalékában</xs:documentation>
                         <xs:documentation xml:lang="cs">Poplatek jako procento celkových čistých aktiv</xs:documentation>
                         <xs:documentation xml:lang="da">Gebyr som procentdel af samlede nettoaktiver</xs:documentation>
+                        <xs:documentation xml:lang="pl">Opłata jako procent łącznych aktywów netto</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="ActualFeeAmount" type="FundAmountType">
@@ -664,6 +706,7 @@
 
                         <xs:documentation xml:lang="hu">Az aktuális díj tényleges összege a Period időszakra (a Currency attribútumként megadva)</xs:documentation>
                         <xs:documentation xml:lang="da">Faktisk beløb for det aktuelle gebyr for perioden (med Currency som attribut)</xs:documentation>
+                        <xs:documentation xml:lang="pl">Rzeczywista kwota bieżącej opłaty za okres (z walutą jako atrybutem)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -680,6 +723,7 @@
                <xs:documentation xml:lang="hu">Számítási paraméterek a díjszámításhoz</xs:documentation>
                <xs:documentation xml:lang="cs">Parametry výpočtu pro výpočet poplatků</xs:documentation>
                <xs:documentation xml:lang="da">Beregningsparametre for gebyrberegning</xs:documentation>
+               <xs:documentation xml:lang="pl">Parametry kalkulacyjne do obliczania opłat</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -695,6 +739,7 @@
 
                         <xs:documentation xml:lang="hu">A díjszámításhoz használt változó/paraméter</xs:documentation>
                         <xs:documentation xml:lang="da">Variabel/parameter anvendt til gebyrberegning</xs:documentation>
+                        <xs:documentation xml:lang="pl">Zmienna/parametr stosowany do obliczenia opłaty (Fee)</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -710,6 +755,7 @@
 
                                  <xs:documentation xml:lang="hu">A változó neve</xs:documentation>
                                  <xs:documentation xml:lang="da">Navn på variabel</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Nazwa zmiennej</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="Value" type="xs:decimal">
@@ -724,6 +770,7 @@
 
                                  <xs:documentation xml:lang="hu">Az indikátor értéke</xs:documentation>
                                  <xs:documentation xml:lang="da">Værdi af indikator</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Wartość wskaźnika (Indicator)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -746,6 +793,7 @@
 
          <xs:documentation xml:lang="hu">Díjinformációk gyűjteménye</xs:documentation>
          <xs:documentation xml:lang="da">Samling af gebyroplysninger</xs:documentation>
+         <xs:documentation xml:lang="pl">Zbiór informacji o opłatach</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="Fee" type="ShareClassFeeType">
@@ -760,6 +808,7 @@
 
                <xs:documentation xml:lang="hu">Az alap által fizetett vagy kapott díj részletei</xs:documentation>
                <xs:documentation xml:lang="da">Detaljer om gebyr betalt eller modtaget af fonden</xs:documentation>
+               <xs:documentation xml:lang="pl">Szczegóły opłaty zapłaconej lub otrzymanej przez fundusz</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -776,6 +825,7 @@
 
          <xs:documentation xml:lang="hu">Jegyzési és visszaváltási áramlási adatok</xs:documentation>
          <xs:documentation xml:lang="da">Flowdata for tegning og indløsning</xs:documentation>
+         <xs:documentation xml:lang="pl">Dane o przepływach subskrypcji i umorzeń</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="ActionCode">
@@ -790,6 +840,7 @@
 
                <xs:documentation xml:lang="hu">Műveleti kód: az alábbi információ létrehozása (C), módosítása (M), törlése (D)</xs:documentation>
                <xs:documentation xml:lang="da">Operationel kode: Create(C), Modify(M), Delete(D) for nedenstående information</xs:documentation>
+               <xs:documentation xml:lang="pl">Kod operacyjny: Create(C), Modify(M), Delete(D) poniższych informacji</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -812,6 +863,7 @@
 
                <xs:documentation xml:lang="hu">Meghatározza, hogy az adatok már csoportosítva vannak-e meghatározott mezők szerint; a "Nothing" azt jelzi, hogy az információ külön tranzakciós szinten áll rendelkezésre</xs:documentation>
                <xs:documentation xml:lang="da">Definerer om data allerede er grupperet efter bestemte felter; "Nothing" angiver, at informationen er på separat transaktionsniveau</xs:documentation>
+               <xs:documentation xml:lang="pl">Definiuje, czy dane są już zgrupowane według określonych pól; "Nothing" oznacza, że informacje znajdują się na poziomie pojedynczych transakcji</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -840,6 +892,7 @@
 
                <xs:documentation xml:lang="hu">Meghatározza a csoportosított adatok időszakát (ha a DataGroupedBy dátummezőt tartalmaz)</xs:documentation>
                <xs:documentation xml:lang="da">Definerer tidsperioden for grupperede data (hvis DataGroupedBy indeholder et datofelt)</xs:documentation>
+               <xs:documentation xml:lang="pl">Definiuje okres czasu dla zgrupowanych danych (jeśli DataGroupedBy zawiera pole daty)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="TransactionID" type="Text256Type">
@@ -854,6 +907,7 @@
 
                <xs:documentation xml:lang="hu">A tranzakció egyedi azonosítója (törlésekhez is szükséges)</xs:documentation>
                <xs:documentation xml:lang="da">Unikt ID for transaktion (også nødvendigt ved annulleringer)</xs:documentation>
+               <xs:documentation xml:lang="pl">Unikalny identyfikator transakcji (wymagany również przy anulowaniach)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="TradeDate" type="xs:date">
@@ -868,6 +922,7 @@
 
                <xs:documentation xml:lang="hu">A kereskedés kezdeményezésének dátuma</xs:documentation>
                <xs:documentation xml:lang="da">Dato, hvor handlen blev initieret</xs:documentation>
+               <xs:documentation xml:lang="pl">Data zainicjowania transakcji (trade)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="AccountingDate" type="xs:date">
@@ -882,6 +937,7 @@
 
                <xs:documentation xml:lang="hu">Az a dátum, amikor a tranzakciót a könyvelési rendszerben könyvelték</xs:documentation>
                <xs:documentation xml:lang="da">Dato, hvor transaktionen er bogført i regnskabssystemet</xs:documentation>
+               <xs:documentation xml:lang="pl">Data zaksięgowania transakcji w systemie księgowym</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SettlementDate" type="xs:date">
@@ -896,6 +952,7 @@
 
                <xs:documentation xml:lang="hu">Az a dátum, amikor a tranzakció elszámolásra került</xs:documentation>
                <xs:documentation xml:lang="da">Dato, hvor transaktionen er afviklet</xs:documentation>
+               <xs:documentation xml:lang="pl">Data rozliczenia transakcji</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ValueDate" type="xs:date">
@@ -910,6 +967,7 @@
 
                <xs:documentation xml:lang="hu">Az a dátum, amikor a tranzakció az ügyfél számláján hatályba lép</xs:documentation>
                <xs:documentation xml:lang="da">Dato hvor transaktionen har virkning på kundekontoen</xs:documentation>
+               <xs:documentation xml:lang="pl">Data, w której transakcja jest skuteczna na rachunku klienta</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="TransactionType">
@@ -924,6 +982,7 @@
 
                <xs:documentation xml:lang="hu">Jegyzés vagy visszaváltás (SUB,RED)</xs:documentation>
                <xs:documentation xml:lang="da">Tegning eller indløsning (SUB,RED)</xs:documentation>
+               <xs:documentation xml:lang="pl">Subskrypcja lub umorzenie (SUB,RED)</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -947,6 +1006,7 @@
 
                <xs:documentation xml:lang="hu">újrabefektetett osztalék, tőkevisszafizetés, tőkeemelés zárt végű alapok esetén, kiegészítő befektetés, kötelezettségek visszafizetése, szerkezetátalakítási terv</xs:documentation>
                <xs:documentation xml:lang="da">geninvesteret udbytte, kapitaltilbagebetaling, kapitalforhøjelse for closed-ended fonde, yderligere investering, tilbagebetaling af forpligtelser, omstruktureringsplan</xs:documentation>
+               <xs:documentation xml:lang="pl">reinwestowana dywidenda, zwrot kapitału, podwyższenie kapitału dla funduszy zamkniętych, dodatkowa inwestycja, spłata zobowiązań, plan restrukturyzacji</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Netted" type="xs:boolean">
@@ -961,6 +1021,7 @@
 
                <xs:documentation xml:lang="hu">Hogy az adatok már nettósítva vannak-e vagy sem</xs:documentation>
                <xs:documentation xml:lang="da">Hvorvidt data allerede er nettet eller ej</xs:documentation>
+               <xs:documentation xml:lang="pl">Czy dane są już skompensowane (netted), czy nie</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Cancellation" type="xs:boolean">
@@ -975,6 +1036,7 @@
 
                <xs:documentation xml:lang="hu">Törlés indikátora</xs:documentation>
                <xs:documentation xml:lang="da">Indikator for annullering</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskaźnik anulowania</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="OriginalTransactionID" type="Text256Type">
@@ -989,6 +1051,7 @@
 
                <xs:documentation xml:lang="hu">A törölt tranzakció eredeti azonosítója</xs:documentation>
                <xs:documentation xml:lang="da">Oprindeligt ID for annulleret transaktion</xs:documentation>
+               <xs:documentation xml:lang="pl">Pierwotny identyfikator anulowanej transakcji</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Units" type="xs:decimal">
@@ -1003,6 +1066,7 @@
 
                <xs:documentation xml:lang="hu">A vásárolt vagy eladott részvények/egységek száma (mindig pozitívnak kell lennie)</xs:documentation>
                <xs:documentation xml:lang="da">Antal andele/units købt eller solgt (bør altid være positivt)</xs:documentation>
+               <xs:documentation xml:lang="pl">Liczba kupionych lub sprzedanych jednostek/udziałów (powinna być zawsze dodatnia)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FXRate" type="FXRatesType">
@@ -1017,6 +1081,7 @@
 
                <xs:documentation xml:lang="hu">A tranzakcióhoz használt devizaárfolyam</xs:documentation>
                <xs:documentation xml:lang="da">Vekselkurs anvendt for transaktion</xs:documentation>
+               <xs:documentation xml:lang="pl">Kurs wymiany walut użyty dla transakcji</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="TotalValue" type="FundAmountType">
@@ -1031,6 +1096,7 @@
 
                <xs:documentation xml:lang="hu">A tranzakció teljes értéke</xs:documentation>
                <xs:documentation xml:lang="da">Transaktionens samlede værdi</xs:documentation>
+               <xs:documentation xml:lang="pl">Łączna wartość transakcji</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Channel" type="Text256Type">
@@ -1045,6 +1111,7 @@
 
                <xs:documentation xml:lang="hu">Retail, intézményi, Wholesale, weboldal, forgalmazási partner stb.</xs:documentation>
                <xs:documentation xml:lang="da">Retail, institutionel, wholesale, hjemmeside, distributionspartner osv.</xs:documentation>
+               <xs:documentation xml:lang="pl">Retail, Institutional, Wholesale, strona internetowa, partner dystrybucyjny itp.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InvestorID" type="Text256Type">
@@ -1059,6 +1126,7 @@
 
                <xs:documentation xml:lang="hu">A befektető egyedi azonosítója</xs:documentation>
                <xs:documentation xml:lang="da">Unikt ID for investor</xs:documentation>
+               <xs:documentation xml:lang="pl">Unikalny identyfikator inwestora</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InvestorTypes" type="InvestorTypesType">
@@ -1073,6 +1141,7 @@
 
                <xs:documentation xml:lang="hu">Magán, intézményi, vagyonkezelő, bankok, nyugdíjalapok, biztosítók, treasury, jótékonysági szervezetek, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
                <xs:documentation xml:lang="da">Private, institutionelle, asset manager, banker, pensionsfonde, forsikringer, treasury, velgørende organisationer, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
+               <xs:documentation xml:lang="pl">Prywatny, Instytucjonalny, Asset Manager, Banki, Fundusze emerytalne, Ubezpieczyciele, Treasury, Organizacje charytatywne, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InvestorCountry" type="ISOCountryCodeType">
@@ -1087,6 +1156,7 @@
 
                <xs:documentation xml:lang="hu">A befektető országa</xs:documentation>
                <xs:documentation xml:lang="da">Investorens land</xs:documentation>
+               <xs:documentation xml:lang="pl">Kraj inwestora</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -1103,6 +1173,7 @@
 
          <xs:documentation xml:lang="hu">High watermark információ a Performance Fee számításához</xs:documentation>
          <xs:documentation xml:lang="da">High watermark-oplysninger til beregning af Performance Fee</xs:documentation>
+         <xs:documentation xml:lang="pl">Informacje o High watermark na potrzeby obliczenia Performance Fee</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="ExistingFlag" type="xs:boolean">
@@ -1117,6 +1188,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy létezik-e high watermark</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om der findes et high watermark</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy istnieje high watermark</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Percentage" type="PercentageType">
@@ -1131,6 +1203,7 @@
 
                <xs:documentation xml:lang="hu">High watermark százalékként</xs:documentation>
                <xs:documentation xml:lang="da">High watermark i procent</xs:documentation>
+               <xs:documentation xml:lang="pl">High watermark jako procent</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Amount" type="FundAmountType">
@@ -1145,6 +1218,7 @@
 
                <xs:documentation xml:lang="hu">High watermark abszolút összegként</xs:documentation>
                <xs:documentation xml:lang="da">High watermark som absolut beløb</xs:documentation>
+               <xs:documentation xml:lang="pl">High watermark jako kwota bezwzględna</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Description" type="Text1000Type">
@@ -1159,6 +1233,7 @@
 
                <xs:documentation xml:lang="hu">A high watermark mechanizmus leírása</xs:documentation>
                <xs:documentation xml:lang="da">Beskrivelse af high watermark-mekanisme</xs:documentation>
+               <xs:documentation xml:lang="pl">Opis mechanizmu high watermark</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PeriodicalResetFlag" type="xs:boolean">
@@ -1173,6 +1248,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy a high watermark periodikusan visszaállításra kerül-e</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om high watermark nulstilles periodisk</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy high watermark jest okresowo resetowany</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ResetFrequency" type="FrequencyType">
@@ -1187,6 +1263,7 @@
 
                <xs:documentation xml:lang="hu">A high watermark visszaállításának gyakorisága</xs:documentation>
                <xs:documentation xml:lang="da">Frekvens af high watermark-nulstilling</xs:documentation>
+               <xs:documentation xml:lang="pl">Częstotliwość resetu high watermark</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -1203,6 +1280,7 @@
 
          <xs:documentation xml:lang="hu">Információ egy befektetőről</xs:documentation>
          <xs:documentation xml:lang="da">Information om en investor</xs:documentation>
+         <xs:documentation xml:lang="pl">Informacje o inwestorze</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="Date" type="xs:date">
@@ -1217,6 +1295,7 @@
 
                <xs:documentation xml:lang="hu">A befektetői adatok referenciadátuma</xs:documentation>
                <xs:documentation xml:lang="da">Referencedato for investordata</xs:documentation>
+               <xs:documentation xml:lang="pl">Data odniesienia dla danych o inwestorach</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InvestorID" type="Text256Type">
@@ -1231,6 +1310,7 @@
 
                <xs:documentation xml:lang="hu">A befektető egyedi azonosítója</xs:documentation>
                <xs:documentation xml:lang="da">Unik identifikator for investoren</xs:documentation>
+               <xs:documentation xml:lang="pl">Unikalny identyfikator inwestora</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InvestorName" type="Text500Type">
@@ -1245,6 +1325,7 @@
 
                <xs:documentation xml:lang="hu">A befektető neve</xs:documentation>
                <xs:documentation xml:lang="da">Navn på investoren</xs:documentation>
+               <xs:documentation xml:lang="pl">Nazwa inwestora</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InvestorCountry" type="ISOCountryCodeType">
@@ -1259,6 +1340,7 @@
 
                <xs:documentation xml:lang="hu">A befektető országa</xs:documentation>
                <xs:documentation xml:lang="da">Investorens land</xs:documentation>
+               <xs:documentation xml:lang="pl">Kraj inwestora</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InvestorTypes" type="InvestorTypesType">
@@ -1273,6 +1355,7 @@
 
                <xs:documentation xml:lang="hu">Magán, intézményi, vagyonkezelő, bankok, nyugdíjalapok, biztosítók, treasury, jótékonysági szervezetek, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
                <xs:documentation xml:lang="da">Private, institutionelle, asset manager, banker, pensionsfonde, forsikringer, treasury, velgørende organisationer, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
+               <xs:documentation xml:lang="pl">Prywatny, Instytucjonalny, Asset Manager, Banki, Fundusze emerytalne, Ubezpieczyciele, Treasury, Organizacje charytatywne, … (AIFMD "ID 208 - Investor Group Type")</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="NumberOfShares" type="xs:decimal">
@@ -1287,6 +1370,7 @@
 
                <xs:documentation xml:lang="hu">A befektető által birtokolt részvények száma</xs:documentation>
                <xs:documentation xml:lang="da">Antal andele ejet af investoren</xs:documentation>
+               <xs:documentation xml:lang="pl">Liczba tytułów uczestnictwa posiadanych przez inwestora</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -1303,6 +1387,7 @@
 
          <xs:documentation xml:lang="hu">A befektetői típusok osztályozása különböző szabályozási keretrendszerek szerint</xs:documentation>
          <xs:documentation xml:lang="da">Klassifikation af investortyper i henhold til forskellige regulatoriske rammer</xs:documentation>
+         <xs:documentation xml:lang="pl">Klasyfikacja typów inwestorów według różnych ram regulacyjnych</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="ECB">
@@ -1317,6 +1402,7 @@
 
                <xs:documentation xml:lang="hu">Befektetői típus az EKB besorolása szerint</xs:documentation>
                <xs:documentation xml:lang="da">Investortype i henhold til ECB-klassifikation</xs:documentation>
+               <xs:documentation xml:lang="pl">Typ inwestora zgodnie z klasyfikacją EBC</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1338,6 +1424,7 @@
 
                <xs:documentation xml:lang="hu">Befektetői típus az EMIR besorolása szerint</xs:documentation>
                <xs:documentation xml:lang="da">Investortype i henhold til EMIR-klassifikation</xs:documentation>
+               <xs:documentation xml:lang="pl">Typ inwestora zgodnie z klasyfikacją EMIR</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1364,6 +1451,7 @@
 
                <xs:documentation xml:lang="hu">Befektetői típus az AIFMD besorolás szerint (ID 208 - Investor Group Type)</xs:documentation>
                <xs:documentation xml:lang="da">Investortype i henhold til AIFMD-klassifikation (ID 208 - Investor Group Type)</xs:documentation>
+               <xs:documentation xml:lang="pl">Typ inwestora zgodnie z klasyfikacją AIFMD (ID 208 - Investor Group Type)</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1392,6 +1480,7 @@
 
                <xs:documentation xml:lang="hu">Befektetői típus a központi bank besorolása szerint</xs:documentation>
                <xs:documentation xml:lang="da">Investortype i henhold til centralbankens klassifikation</xs:documentation>
+               <xs:documentation xml:lang="pl">Typ inwestora zgodnie z klasyfikacją banku centralnego</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1406,6 +1495,7 @@
                         <xs:documentation xml:lang="hu">Adóügyi illetőség országa</xs:documentation>
                         <xs:documentation xml:lang="cs">Země daňového domicilu</xs:documentation>
                         <xs:documentation xml:lang="da">Skattemæssigt hjemstedsland</xs:documentation>
+                        <xs:documentation xml:lang="pl">Kraj rezydencji podatkowej</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="ForeignFlag" type="xs:boolean">
@@ -1419,6 +1509,7 @@
                         <xs:documentation xml:lang="hu">Külföldi adóstátuszt jelző jelölő</xs:documentation>
                         <xs:documentation xml:lang="cs">Příznak cizího daňového statusu</xs:documentation>
                         <xs:documentation xml:lang="da">Flag, der angiver udenlandsk skattestatus</xs:documentation>
+                        <xs:documentation xml:lang="pl">Flaga wskazująca status podatkowy za granicą</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="Category">
@@ -1432,6 +1523,7 @@
                         <xs:documentation xml:lang="hu">Adókategória besorolás</xs:documentation>
                         <xs:documentation xml:lang="cs">Klasifikace daňové kategorie</xs:documentation>
                         <xs:documentation xml:lang="da">Klassifikation af skattekategori</xs:documentation>
+                        <xs:documentation xml:lang="pl">Klasyfikacja kategorii podatkowej</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -1470,6 +1562,7 @@
 
                <xs:documentation xml:lang="hu">Befektetői típus a FundSquare besorolása szerint</xs:documentation>
                <xs:documentation xml:lang="da">Investortype i henhold til FundSquare-klassifikation</xs:documentation>
+               <xs:documentation xml:lang="pl">Typ inwestora zgodnie z klasyfikacją FundSquare</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1496,6 +1589,7 @@
 
          <xs:documentation xml:lang="hu">Teljesítményadatokhoz kapcsolódó adatok</xs:documentation>
          <xs:documentation xml:lang="da">Data relateret til performancetal</xs:documentation>
+         <xs:documentation xml:lang="pl">Dane dotyczące wskaźników wyników (performance)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="ActionCode">
@@ -1510,6 +1604,7 @@
 
                <xs:documentation xml:lang="hu">Műveleti kód: az alábbi információ létrehozása (C), módosítása (M), törlése (D)</xs:documentation>
                <xs:documentation xml:lang="da">Operationel kode: Create(C), Modify(M), Delete(D) for nedenstående information</xs:documentation>
+               <xs:documentation xml:lang="pl">Kod operacyjny: Create(C), Modify(M), Delete(D) poniższych informacji</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -1530,6 +1625,7 @@
                <xs:documentation xml:lang="hu">A befektetési jegy osztály teljes hozam adatai</xs:documentation>
                <xs:documentation xml:lang="cs">Data celkového výnosu třídy akcií</xs:documentation>
                <xs:documentation xml:lang="da">Data for samlet afkast for Share Class</xs:documentation>
+               <xs:documentation xml:lang="pl">Dane o łącznej stopie zwrotu Share Class</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1544,6 +1640,7 @@
                         <xs:documentation xml:lang="hu">Egyedi teljes hozam bejegyzés</xs:documentation>
                         <xs:documentation xml:lang="cs">Jednotlivý záznam celkového výnosu</xs:documentation>
                         <xs:documentation xml:lang="da">Individuel post for totalafkast</xs:documentation>
+                        <xs:documentation xml:lang="pl">Pojedynczy wpis całkowitej stopy zwrotu (total return)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1560,6 +1657,7 @@
                <xs:documentation xml:lang="hu">A befektetési jegy osztály teljesítményadatai</xs:documentation>
                <xs:documentation xml:lang="cs">Data výkonnosti třídy akcií</xs:documentation>
                <xs:documentation xml:lang="da">Performancedata for share class'en</xs:documentation>
+               <xs:documentation xml:lang="pl">Dane o wynikach (performance) klasy jednostek (share class)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1574,6 +1672,7 @@
                         <xs:documentation xml:lang="hu">Egyedi teljesítmény bejegyzés</xs:documentation>
                         <xs:documentation xml:lang="cs">Jednotlivý záznam výkonnosti</xs:documentation>
                         <xs:documentation xml:lang="da">Individuel performancepost</xs:documentation>
+                        <xs:documentation xml:lang="pl">Pojedynczy wpis wyników (performance)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1590,6 +1689,7 @@
                <xs:documentation xml:lang="hu">A befektetési jegy osztály minősítései</xs:documentation>
                <xs:documentation xml:lang="cs">Hodnocení třídy akcií</xs:documentation>
                <xs:documentation xml:lang="da">Ratings for Share Class</xs:documentation>
+               <xs:documentation xml:lang="pl">Ratingi danej Share Class</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1604,6 +1704,7 @@
                         <xs:documentation xml:lang="hu">Egyedi minősítési bejegyzés</xs:documentation>
                         <xs:documentation xml:lang="cs">Jednotlivý záznam hodnocení</xs:documentation>
                         <xs:documentation xml:lang="da">Individuel ratingpost</xs:documentation>
+                        <xs:documentation xml:lang="pl">Pojedynczy wpis ratingu</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1623,6 +1724,7 @@
 
          <xs:documentation xml:lang="hu">Teljesítményadatok, beleértve a számítási módszert és az időszakot</xs:documentation>
          <xs:documentation xml:lang="da">Performancedata inklusive beregningsmetode og periode</xs:documentation>
+         <xs:documentation xml:lang="pl">Dane o wynikach (performance) wraz z metodą obliczania i okresem</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="ValidityDate" type="xs:date">
@@ -1637,6 +1739,7 @@
 
                <xs:documentation xml:lang="hu">Az a dátum, amelyre a teljesítményérték érvényes</xs:documentation>
                <xs:documentation xml:lang="da">Dato, som performanceværdien er gyldig for</xs:documentation>
+               <xs:documentation xml:lang="pl">Data, dla której obowiązuje wartość Performance</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="CalculationPeriod" type="CalculationPeriodType">
@@ -1651,6 +1754,7 @@
 
                <xs:documentation xml:lang="hu">Az időszak, amelyre a teljesítményt számítják</xs:documentation>
                <xs:documentation xml:lang="da">Periode, over hvilken performance beregnes</xs:documentation>
+               <xs:documentation xml:lang="pl">Okres, za który obliczany jest wynik (performance)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="PercentageValue" type="PercentageType">
@@ -1665,6 +1769,7 @@
 
                <xs:documentation xml:lang="hu">Teljesítményérték százalékban</xs:documentation>
                <xs:documentation xml:lang="da">Performanceværdi som procentdel</xs:documentation>
+               <xs:documentation xml:lang="pl">Wartość wyniku (performance) w procentach</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element default="0"
@@ -1682,6 +1787,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy a teljesítmény évesítve van-e</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om performance er annualiseret</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy wyniki są annualizowane</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="CalculationMethod" type="xs:string">
@@ -1696,6 +1802,7 @@
 
                <xs:documentation xml:lang="hu">A teljesítményszámításhoz használt módszer</xs:documentation>
                <xs:documentation xml:lang="da">Metode anvendt til Performance-beregning</xs:documentation>
+               <xs:documentation xml:lang="pl">Metoda stosowana do obliczania wyników (performance)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="StartCalculationDate" type="xs:date">
@@ -1710,6 +1817,7 @@
 
                <xs:documentation xml:lang="hu">A teljesítményszámítás kezdődátuma</xs:documentation>
                <xs:documentation xml:lang="da">Startdato for performanceberegning</xs:documentation>
+               <xs:documentation xml:lang="pl">Data początkowa obliczania wyników</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Investment">
@@ -1723,6 +1831,7 @@
                <xs:documentation xml:lang="hu">Befektetési összegek és megtakarítási terv részletei</xs:documentation>
                <xs:documentation xml:lang="cs">Investiční částky a detaily spořicího plánu</xs:documentation>
                <xs:documentation xml:lang="da">Investeringsbeløb og detaljer om opsparingsplan</xs:documentation>
+               <xs:documentation xml:lang="pl">Kwoty inwestycji oraz szczegóły planu oszczędnościowego</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:choice>
@@ -1737,6 +1846,7 @@
                         <xs:documentation xml:lang="hu">Egyösszegű befektetési összeg</xs:documentation>
                         <xs:documentation xml:lang="cs">Jednorázová investiční částka</xs:documentation>
                         <xs:documentation xml:lang="da">Enkelt engangsinvesteringsbeløb</xs:documentation>
+                        <xs:documentation xml:lang="pl">Pojedyncza kwota inwestycji jednorazowej</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:sequence>
@@ -1751,6 +1861,7 @@
                            <xs:documentation xml:lang="hu">Megtakarítási terv befektetési összeg</xs:documentation>
                            <xs:documentation xml:lang="cs">Investiční částka spořicího plánu</xs:documentation>
                            <xs:documentation xml:lang="da">Investeringsbeløb for opsparingsplan</xs:documentation>
+                           <xs:documentation xml:lang="pl">Kwota inwestycji w ramach planu oszczędnościowego</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="SavingsPlanFrequency" type="FrequencyType">
@@ -1764,6 +1875,7 @@
                            <xs:documentation xml:lang="hu">A megtakarítási terv befizetéseinek gyakorisága</xs:documentation>
                            <xs:documentation xml:lang="cs">Frekvence plateb spořicího plánu</xs:documentation>
                            <xs:documentation xml:lang="da">Frekvens af opsparingsplanbetalinger</xs:documentation>
+                           <xs:documentation xml:lang="pl">Częstotliwość wpłat w planie systematycznego oszczędzania</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -1781,6 +1893,7 @@
                <xs:documentation xml:lang="hu">Dátumintervallum az adatsorokhoz</xs:documentation>
                <xs:documentation xml:lang="cs">Časový interval pro datové řady</xs:documentation>
                <xs:documentation xml:lang="da">Datointerval for dataserie</xs:documentation>
+               <xs:documentation xml:lang="pl">Interwał dat dla serii danych</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataSeries">
@@ -1794,6 +1907,7 @@
                <xs:documentation xml:lang="hu">Idősor adatpontok</xs:documentation>
                <xs:documentation xml:lang="cs">Datové body časových řad</xs:documentation>
                <xs:documentation xml:lang="da">Tidsseriedatapunkter</xs:documentation>
+               <xs:documentation xml:lang="pl">Punkty danych szeregu czasowego</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1808,6 +1922,7 @@
                         <xs:documentation xml:lang="hu">Egyedi adatpont egy idősorban</xs:documentation>
                         <xs:documentation xml:lang="cs">Jednotlivý datový bod v časové řadě</xs:documentation>
                         <xs:documentation xml:lang="da">Individuelt datapunkt i en tidsserie</xs:documentation>
+                        <xs:documentation xml:lang="pl">Pojedynczy punkt danych w szeregu czasowym</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1827,6 +1942,7 @@
 
          <xs:documentation xml:lang="hu">Rating információk a ratingügynökségektől</xs:documentation>
          <xs:documentation xml:lang="da">Ratingoplysninger fra ratingbureauer</xs:documentation>
+         <xs:documentation xml:lang="pl">Informacje ratingowe od agencji ratingowych</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Note" type="Text256Type">
@@ -1841,6 +1957,7 @@
 
                <xs:documentation xml:lang="hu">Rating minősítés vagy fokozat</xs:documentation>
                <xs:documentation xml:lang="da">Ratingnote eller -karakter</xs:documentation>
+               <xs:documentation xml:lang="pl">Nota lub ocena ratingowa</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="NumericalValue" type="xs:decimal">
@@ -1855,6 +1972,7 @@
 
                <xs:documentation xml:lang="hu">Numerikus minősítési érték</xs:documentation>
                <xs:documentation xml:lang="da">Numerisk ratingværdi</xs:documentation>
+               <xs:documentation xml:lang="pl">Liczbowa wartość ratingu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ValidityStartDate" type="xs:date">
@@ -1869,6 +1987,7 @@
 
                <xs:documentation xml:lang="hu">A rating érvényességének kezdődátuma</xs:documentation>
                <xs:documentation xml:lang="da">Startdato for ratingens gyldighed</xs:documentation>
+               <xs:documentation xml:lang="pl">Data początkowa ważności ratingu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ValidityEndDate" type="xs:date">
@@ -1883,6 +2002,7 @@
 
                <xs:documentation xml:lang="hu">A minősítés érvényességének záró dátuma</xs:documentation>
                <xs:documentation xml:lang="da">Slutdato for ratinggyldighed</xs:documentation>
+               <xs:documentation xml:lang="pl">Data końcowa ważności ratingu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ValidityEndRationale" type="xs:string">
@@ -1897,6 +2017,7 @@
 
                <xs:documentation xml:lang="hu">A rating érvényességének megszűnési oka</xs:documentation>
                <xs:documentation xml:lang="da">Årsag til ophør af ratingens gyldighed</xs:documentation>
+               <xs:documentation xml:lang="pl">Przyczyna zakończenia ważności ratingu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:choice>
@@ -1911,6 +2032,7 @@
                   <xs:documentation xml:lang="hu">Minősítő ügynökség a felsorolásból</xs:documentation>
                   <xs:documentation xml:lang="cs">Ratingová agentura z výčtu</xs:documentation>
                   <xs:documentation xml:lang="da">Ratingbureau fra opregning</xs:documentation>
+                  <xs:documentation xml:lang="pl">Agencja ratingowa z listy wyliczeniowej</xs:documentation>
                </xs:annotation>
                <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1933,6 +2055,7 @@
                   <xs:documentation xml:lang="hu">Szabad szöveges minősítő ügynökség neve</xs:documentation>
                   <xs:documentation xml:lang="cs">Název ratingové agentury volným textem</xs:documentation>
                   <xs:documentation xml:lang="da">Fritekst for ratingbureauets navn</xs:documentation>
+                  <xs:documentation xml:lang="pl">Nazwa agencji ratingowej jako dowolny tekst</xs:documentation>
                </xs:annotation>
             </xs:element>
          </xs:choice>
@@ -1947,6 +2070,7 @@
                <xs:documentation xml:lang="hu">Minősítési leírások több nyelven</xs:documentation>
                <xs:documentation xml:lang="cs">Popisy hodnocení ve více jazycích</xs:documentation>
                <xs:documentation xml:lang="da">Ratingbeskrivelser på flere sprog</xs:documentation>
+               <xs:documentation xml:lang="pl">Opisy ratingu w wielu językach</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1961,6 +2085,7 @@
                         <xs:documentation xml:lang="hu">Minősítési leírás egy adott nyelven</xs:documentation>
                         <xs:documentation xml:lang="cs">Popis hodnocení v konkrétním jazyce</xs:documentation>
                         <xs:documentation xml:lang="da">Ratingbeskrivelse på et bestemt sprog</xs:documentation>
+                        <xs:documentation xml:lang="pl">Opis ratingu w określonym języku</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1975,6 +2100,7 @@
                                  <xs:documentation xml:lang="hu">A leírás nyelve</xs:documentation>
                                  <xs:documentation xml:lang="cs">Jazyk popisu</xs:documentation>
                                  <xs:documentation xml:lang="da">Sprog for beskrivelsen</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Język opisu</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="Description" type="xs:string">
@@ -1988,6 +2114,7 @@
                                  <xs:documentation xml:lang="hu">Leírás szövege</xs:documentation>
                                  <xs:documentation xml:lang="cs">Text popisu</xs:documentation>
                                  <xs:documentation xml:lang="da">Beskrivelsestekst</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Tekst opisu</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="Caption" type="xs:string">
@@ -2001,6 +2128,7 @@
                                  <xs:documentation xml:lang="hu">A minősítés felirata vagy címe</xs:documentation>
                                  <xs:documentation xml:lang="cs">Titulek nebo název hodnocení</xs:documentation>
                                  <xs:documentation xml:lang="da">Overskrift eller titel for ratingen</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Nagłówek lub tytuł ratingu</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -2023,6 +2151,7 @@
 
          <xs:documentation xml:lang="hu">Egy Share Class díjstruktúrája</xs:documentation>
          <xs:documentation xml:lang="da">Gebyrstruktur for en Share Class</xs:documentation>
+         <xs:documentation xml:lang="pl">Struktura opłat dla danej Share Class</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Type" type="Text256Type">
@@ -2037,6 +2166,7 @@
 
                <xs:documentation xml:lang="hu">A díj típusa</xs:documentation>
                <xs:documentation xml:lang="da">Type af gebyr</xs:documentation>
+               <xs:documentation xml:lang="pl">Typ opłaty</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="PayReceive">
@@ -2051,6 +2181,7 @@
 
                <xs:documentation xml:lang="hu">Indikátor: az alap által fizetett vagy az alap által kapott</xs:documentation>
                <xs:documentation xml:lang="da">Indikator Betalt af fonden eller Modtaget af fonden</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskaźnik: Paid by the fund (zapłacone przez fundusz) lub Received by the fund (otrzymane przez fundusz)</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -2072,6 +2203,7 @@
 
                <xs:documentation xml:lang="hu">A díj minimális értéke a TotalNetAssets százalékában</xs:documentation>
                <xs:documentation xml:lang="da">Mindste værdi af gebyr som procentdel af TotalNetAssets</xs:documentation>
+               <xs:documentation xml:lang="pl">Minimalna wartość opłaty jako procent TotalNetAssets</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Maximum" type="PercentageType">
@@ -2086,6 +2218,7 @@
 
                <xs:documentation xml:lang="hu">A díj maximális értéke a TotalNetAssets százalékában</xs:documentation>
                <xs:documentation xml:lang="da">Maksimal værdi af gebyr som procentdel af TotalNetAssets</xs:documentation>
+               <xs:documentation xml:lang="pl">Maksymalna wartość opłaty jako procent TotalNetAssets</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="CalculationMethod" type="Text1000Type">
@@ -2100,6 +2233,7 @@
 
                <xs:documentation xml:lang="hu">A számítási módszer leírása</xs:documentation>
                <xs:documentation xml:lang="da">Beskrivelse af beregningsmetode</xs:documentation>
+               <xs:documentation xml:lang="pl">Opis metody obliczeniowej</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataByPeriods">
@@ -2114,6 +2248,7 @@
 
                <xs:documentation xml:lang="hu">A díjra vonatkozó dinamikus adatok</xs:documentation>
                <xs:documentation xml:lang="da">Dynamiske data for gebyret</xs:documentation>
+               <xs:documentation xml:lang="pl">Dane dynamiczne dla opłaty (Fee)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -2129,6 +2264,7 @@
 
                         <xs:documentation xml:lang="hu">Múltbeli és folyamatban lévő időszakok adatai. Folyamatban lévő időszak a napról napra elhatárolt díjak esetén. Csak a legutóbbi dátum kerül tárolásra.</xs:documentation>
                         <xs:documentation xml:lang="da">Data for tidligere og igangværende perioder. Igangværende periode for gebyrer med dag-til-dag-periodisering. Kun den seneste dato gemmes.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Dane okresów przeszłych i bieżących. Okres bieżący dla opłat naliczanych dzień po dniu. Przechowywana jest tylko najnowsza data.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -2148,6 +2284,7 @@
 
          <xs:documentation xml:lang="hu">Egy részvényosztály (Share Class) áradatai, beleértve a NAV-ot és a jegyzési/visszaváltási árakat</xs:documentation>
          <xs:documentation xml:lang="da">Prisdata for en share class inklusive NAV og tegnings-/indløsningskurser</xs:documentation>
+         <xs:documentation xml:lang="pl">Dane cenowe dla klasy jednostek (share class) obejmujące NAV oraz ceny subskrypcji/odkupu</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="ActionCode">
@@ -2162,6 +2299,7 @@
 
                <xs:documentation xml:lang="hu">Műveleti kód: Létrehozás(C), Módosítás(M) vagy Törlés(D)</xs:documentation>
                <xs:documentation xml:lang="da">Operationel kode: Create(C), Modify(M) eller Delete(D)</xs:documentation>
+               <xs:documentation xml:lang="pl">Kod operacyjny: Create(C), Modify(M) lub Delete(D)</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -2184,6 +2322,7 @@
 
                <xs:documentation xml:lang="hu">A számított egy jegyre jutó ár dátuma, ha nem ismert, hogy értékelési ár vagy számítási ár</xs:documentation>
                <xs:documentation xml:lang="da">Dato for den beregnede kurs pr. andel, hvis du ikke ved, om det er valuation price eller calculation price</xs:documentation>
+               <xs:documentation xml:lang="pl">Data obliczonej ceny za jednostkę, jeśli nie wiadomo, czy jest to cena wyceny czy cena obliczeniowa</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PriceCalculationDate" type="xs:date">
@@ -2198,6 +2337,7 @@
 
                <xs:documentation xml:lang="hu">Az a dátum, amikor az egy jegyre jutó árat számítják</xs:documentation>
                <xs:documentation xml:lang="da">Dato hvor kursen pr. andel beregnes</xs:documentation>
+               <xs:documentation xml:lang="pl">Data, w której obliczana jest cena za jednostkę uczestnictwa</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PriceValuationDate" type="xs:date">
@@ -2212,6 +2352,7 @@
 
                <xs:documentation xml:lang="hu">Az egy részvényre jutó ár értékelési dátuma. Megadja, hogy melyik értékelési dátumot használják az árszámításhoz.</xs:documentation>
                <xs:documentation xml:lang="da">Værdiansættelsesdato for prisen pr. andel. Angiver hvilken værdiansættelsesdato der anvendes til prisberegning.</xs:documentation>
+               <xs:documentation xml:lang="pl">Data wyceny ceny na jednostkę. Wskazuje, która data wyceny jest stosowana do obliczenia ceny.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="PriceCurrency" type="ISOCurrencyCodeType">
@@ -2226,6 +2367,7 @@
 
                <xs:documentation xml:lang="hu">A számított ár devizaneme (használja a 3 karakteres ISO 4217 kódot)</xs:documentation>
                <xs:documentation xml:lang="da">Valuta for den beregnede kurs (brug ISO-koden på 3 tegn 4217)</xs:documentation>
+               <xs:documentation xml:lang="pl">Waluta obliczonej ceny (należy użyć 3-znakowego kodu ISO 4217)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="PriceNature">
@@ -2240,6 +2382,7 @@
 
                <xs:documentation xml:lang="hu">Információ arról, hogy a számított ár hivatalos, becsült vagy technikai ár-e</xs:documentation>
                <xs:documentation xml:lang="da">Information om, hvorvidt den beregnede kurs er en officiel, estimeret eller teknisk kurs</xs:documentation>
+               <xs:documentation xml:lang="pl">Informacja, czy obliczona cena jest ceną oficjalną, szacunkową czy techniczną</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -2263,6 +2406,7 @@
 
                <xs:documentation xml:lang="hu">Részvényenként számított nettó eszközérték</xs:documentation>
                <xs:documentation xml:lang="da">Net Asset Value beregnet pr. andel</xs:documentation>
+               <xs:documentation xml:lang="pl">Wartość aktywów netto obliczona na jeden tytuł uczestnictwa</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:decimal">
@@ -2283,6 +2427,7 @@
 
                <xs:documentation xml:lang="hu">Jegyzési ár részvényenként</xs:documentation>
                <xs:documentation xml:lang="da">Tegningskurs pr. andel</xs:documentation>
+               <xs:documentation xml:lang="pl">Cena subskrypcji za jednostkę</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="RedemptionPrice" type="xs:decimal">
@@ -2297,6 +2442,7 @@
 
                <xs:documentation xml:lang="hu">Visszaváltási ár részvényenként</xs:documentation>
                <xs:documentation xml:lang="da">Indløsningspris pr. andel</xs:documentation>
+               <xs:documentation xml:lang="pl">Cena umorzenia na jednostkę</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="OtherPrices" type="OtherPricesType">
@@ -2311,6 +2457,7 @@
 
                <xs:documentation xml:lang="hu">További ártípusok</xs:documentation>
                <xs:documentation xml:lang="da">Yderligere kurstyper</xs:documentation>
+               <xs:documentation xml:lang="pl">Dodatkowe typy cen</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="SplitFactor" type="xs:decimal">
@@ -2325,6 +2472,7 @@
 
                <xs:documentation xml:lang="hu">Felosztási tényező NAV-split esetén</xs:documentation>
                <xs:documentation xml:lang="da">Split-faktor i tilfælde af NAV-split</xs:documentation>
+               <xs:documentation xml:lang="pl">Współczynnik splitu w przypadku splitu NAV</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -2341,6 +2489,7 @@
 
          <xs:documentation xml:lang="hu">Teljes adatszerkezet egy részvényosztályhoz, beleértve a statikus és dinamikus adatokat</xs:documentation>
          <xs:documentation xml:lang="da">Komplet datastruktur for en share class inklusive statiske og dynamiske data</xs:documentation>
+         <xs:documentation xml:lang="pl">Kompletna struktura danych dla Share Class obejmująca dane statyczne i dynamiczne</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Identifiers" type="IdentifiersType">
@@ -2355,6 +2504,7 @@
 
                <xs:documentation xml:lang="hu">Részvényosztály azonosítói</xs:documentation>
                <xs:documentation xml:lang="da">Share Class-identifikatorer</xs:documentation>
+               <xs:documentation xml:lang="pl">Identyfikatory Share Class</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Names" type="NamesType">
@@ -2369,6 +2519,7 @@
 
                <xs:documentation xml:lang="hu">A Share Class nevei</xs:documentation>
                <xs:documentation xml:lang="da">Navne på share class'en</xs:documentation>
+               <xs:documentation xml:lang="pl">Nazwy Share Class</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -2383,6 +2534,7 @@
 
                <xs:documentation xml:lang="hu">Részvényosztály pénzneme</xs:documentation>
                <xs:documentation xml:lang="da">Share Class-valuta</xs:documentation>
+               <xs:documentation xml:lang="pl">Waluta Share Class</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ShareClassType" type="ShareClassTypeType">
@@ -2397,6 +2549,7 @@
 
                <xs:documentation xml:lang="hu">A share class típusa (A,B,I,...) a típus leírásával együtt</xs:documentation>
                <xs:documentation xml:lang="da">Type af Share Class (A,B,I,...) sammen med en beskrivelse af typen</xs:documentation>
+               <xs:documentation xml:lang="pl">Typ Share Class (A,B,I,...) wraz z opisem typu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="InceptionDate" type="xs:date">
@@ -2411,6 +2564,7 @@
 
                <xs:documentation xml:lang="hu">A Share Class indulási dátuma</xs:documentation>
                <xs:documentation xml:lang="da">Share Class'ens oprettelsesdato</xs:documentation>
+               <xs:documentation xml:lang="pl">Data utworzenia Share Class</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="LiquidationDate" type="xs:date">
@@ -2425,6 +2579,7 @@
 
                <xs:documentation xml:lang="hu">Az a dátum, amikor a Share Class megszüntetésre került (alacsony volumen, fúzió miatt, ...)</xs:documentation>
                <xs:documentation xml:lang="da">Dato hvor share class blev lukket (på grund af lavt volumen, fusion, ...)</xs:documentation>
+               <xs:documentation xml:lang="pl">Data zamknięcia Share Class (z powodu niskiego wolumenu, połączenia, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="LiquidationReason">
@@ -2439,6 +2594,7 @@
 
                <xs:documentation xml:lang="hu">Felszámolás oka: Client Exit, Low Volume, Merger vagy Other</xs:documentation>
                <xs:documentation xml:lang="da">Likvidationsårsag: Client Exit, Low Volume, Merger eller Other</xs:documentation>
+               <xs:documentation xml:lang="pl">Powód likwidacji: Client Exit, Low Volume, Merger lub Other</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -2461,6 +2617,7 @@
 
                <xs:documentation xml:lang="hu">Információkat tartalmaz arról, hogy a részvényosztályt hol regisztrálták és forgalmazzák</xs:documentation>
                <xs:documentation xml:lang="da">Indeholder oplysninger om, hvor share class er registreret og distribueret</xs:documentation>
+               <xs:documentation xml:lang="pl">Zawiera informacje o tym, gdzie dana Share Class jest zarejestrowana i dystrybuowana</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -2475,6 +2632,7 @@
                         <xs:documentation xml:lang="hu">A befektetési jegy osztály regisztrációs országa</xs:documentation>
                         <xs:documentation xml:lang="cs">Země registrace třídy akcií</xs:documentation>
                         <xs:documentation xml:lang="da">Registreringsland for share class</xs:documentation>
+                        <xs:documentation xml:lang="pl">Kraj rejestracji dla danej Share Class</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -2490,6 +2648,7 @@
 
                                  <xs:documentation xml:lang="hu">Részvényosztály regisztrációs országai (fogadó országok)</xs:documentation>
                                  <xs:documentation xml:lang="da">Registreringslande for Share Class (værtslande)</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Kraje rejestracji Share Class (kraje przyjmujące)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="Status">
@@ -2504,6 +2663,7 @@
 
                                  <xs:documentation xml:lang="hu">További információ egy adott országban történő regisztrációról</xs:documentation>
                                  <xs:documentation xml:lang="da">Yderligere oplysninger om registreringen i et bestemt land</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Dodatkowe informacje o rejestracji w danym kraju</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -2524,6 +2684,7 @@
 
                                  <xs:documentation xml:lang="hu">Az a dátum, amikor az alapot vagy Share Class-t az adott országban regisztrálják vagy törlik a nyilvántartásból</xs:documentation>
                                  <xs:documentation xml:lang="da">Dato hvor fonden eller share class registreres eller afregistreres i landet</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Data rejestracji lub wyrejestrowania funduszu lub Share Class w danym kraju</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="SubStatus">
@@ -2538,6 +2699,7 @@
 
                                  <xs:documentation xml:lang="hu">Jelzi, hogy létezik-e befektetői korlátozás a kapcsolódó regisztrációs országra vonatkozóan</xs:documentation>
                                  <xs:documentation xml:lang="da">Angiver, om der findes en investorbegrænsning for det relevante registreringsland</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Wskazuje, czy istnieje ograniczenie dla inwestorów w odniesieniu do danego kraju rejestracji</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -2564,6 +2726,7 @@
 
                                  <xs:documentation xml:lang="hu">További információ egy adott országban történő marketing-forgalmazásról</xs:documentation>
                                  <xs:documentation xml:lang="da">Yderligere oplysninger om markedsføringsdistributionen i et bestemt land</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Dodatkowe informacje o dystrybucji marketingowej w danym kraju</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -2584,6 +2747,7 @@
 
                                  <xs:documentation xml:lang="hu">Az a dátum, amikor az alap vagy Share Class forgalmazása az adott országban megkezdődött vagy befejeződött</xs:documentation>
                                  <xs:documentation xml:lang="da">Dato hvor distributionen af fonden eller share class startede eller sluttede i landet</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Data rozpoczęcia lub zakończenia dystrybucji funduszu lub Share Class w danym kraju</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -2604,6 +2768,7 @@
 
                <xs:documentation xml:lang="hu">Egy részvényosztály vásárlására vonatkozó korlátozásokat ad meg</xs:documentation>
                <xs:documentation xml:lang="da">Angiver restriktioner for køb af en Share Class</xs:documentation>
+               <xs:documentation xml:lang="pl">Określa ograniczenia dotyczące nabycia Share Class</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -2619,6 +2784,7 @@
 
                         <xs:documentation xml:lang="hu">Jelzi a minimális kezdeti jegyzési értéket a vonatkozó pénznemben. 0 EUR azt jelenti, hogy nincs alkalmazandó minimum.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiver den minimale indledende tegningsværdi i den relevante valuta. 0 EUR betyder, at der ikke gælder noget minimum.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskazuje minimalną początkową wartość subskrypcji w odpowiedniej walucie. 0 EUR oznacza, że nie obowiązuje minimum.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MinSubscriptionShares" type="xs:decimal">
@@ -2633,6 +2799,7 @@
 
                         <xs:documentation xml:lang="hu">Jelzi a megvásárolandó egységek/részvények minimális kezdeti számát, ha van ilyen. A 0 azt jelenti, hogy nincs alkalmazandó minimum.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiver det minimale antal andele/aktier, der som udgangspunkt skal købes, hvis et sådant findes. 0 betyder, at der ikke gælder noget minimum.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskazuje minimalną początkową liczbę jednostek/tytułów uczestnictwa, które muszą zostać nabyte, jeśli dotyczy. 0 oznacza, że nie obowiązuje minimum.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0"
@@ -2649,6 +2816,7 @@
 
                         <xs:documentation xml:lang="hu">Jelzi a minimális jegyzési értéket a meglévő befektetők számára a vonatkozó pénznemben kifejezve. 0 EUR azt jelenti, hogy nincs alkalmazandó minimum.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiver den minimale tegningsværdi for eksisterende investorer udtrykt i den relevante valuta. 0 EUR betyder, at der ikke gælder noget minimum.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskazuje minimalną wartość subskrypcji dla istniejących inwestorów wyrażoną w odpowiedniej walucie. 0 EUR oznacza, że nie obowiązuje minimum.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0"
@@ -2665,6 +2833,7 @@
 
                         <xs:documentation xml:lang="hu">Jelzi az egységek/részvények minimális számát, amelyet a meglévő befektetőknek meg kell vásárolniuk, ha van ilyen. A 0 azt jelenti, hogy nincs alkalmazandó minimum.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiver det minimale antal andele/aktier, der skal købes af eksisterende investorer, hvis et sådant findes. 0 betyder, at der ikke gælder noget minimum.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskazuje minimalną liczbę jednostek/tytułów uczestnictwa, które muszą zostać nabyte przez istniejących inwestorów, jeśli dotyczy. 0 oznacza, że nie obowiązuje minimum.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MinRegularInvestmentAmount" type="AmountType">
@@ -2679,6 +2848,7 @@
 
                         <xs:documentation xml:lang="hu">Jelzi a megengedett minimális rendszeres befektetési összeget (pl. 1000 EUR). 0 EUR azt jelenti, hogy nincs minimális rendszeres befektetés.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiver det tilladte minimumsbeløb for regelmæssig investering (f.eks. EUR 1000). 0 EUR betyder, at der ikke er nogen minimum regelmæssig investering.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskazuje dopuszczalną minimalną kwotę regularnej inwestycji (Minimum Regular Investment) (np. EUR 1000). 0 EUR oznacza, że nie ma minimalnej regularnej inwestycji.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MinRegularInvestmentShares" type="xs:decimal">
@@ -2693,6 +2863,7 @@
 
                         <xs:documentation xml:lang="hu">Adja meg az engedélyezett minimális rendszeres befektetést egységekben/részvényekben. A formátum numerikus érték (pl. ha 1 részvény, akkor adjon meg 1-et). A 0 azt jelenti, hogy nincs alkalmazandó minimális rendszeres befektetés egységekben/részvényekben.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiv det minimale regelmæssige investeringsbeløb i andele/aktier, der er tilladt. Formatet er en numerisk værdi (f.eks. hvis 1 andel, så angiv 1). 0 betyder, at der ikke er noget gældende minimalt regelmæssigt investeringsbeløb i andele/aktier.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wprowadź minimalną regularną inwestycję dozwoloną w jednostkach/udziałach. Format to wartość numeryczna (np. jeśli 1 udział, wprowadź 1). 0 oznacza, że nie ma zastosowania minimalna regularna inwestycja w jednostkach/udziałach.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="OtherSubscriptionRestrictions" type="xs:string">
@@ -2707,6 +2878,7 @@
 
                         <xs:documentation xml:lang="hu">Jelezzen minden egyéb korlátozást, amely korlátozhatja a befektető jegyzési képességét.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiv eventuelle andre restriktioner, der kan begrænse en investors mulighed for at tegne.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskaż wszelkie inne ograniczenia, które mogą ograniczać możliwość subskrypcji przez inwestora.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -2724,6 +2896,7 @@
 
                <xs:documentation xml:lang="hu">Egy részvényosztály értékesítésére vonatkozó korlátozásokat ad meg.</xs:documentation>
                <xs:documentation xml:lang="da">Angiver restriktioner for salg af en Share Class.</xs:documentation>
+               <xs:documentation xml:lang="pl">Określa ograniczenia dotyczące sprzedaży Share Class.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -2739,6 +2912,7 @@
 
                         <xs:documentation xml:lang="hu">Jelzi a maximális visszaváltási értéket a vonatkozó pénznemben. 0 EUR azt jelenti, hogy nincs alkalmazandó maximális visszaváltási érték.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiver den maksimale indløsningsværdi i den relevante valuta. 0 EUR betyder, at der ikke er nogen gældende maksimal indløsningsværdi.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskazuje maksymalną wartość umorzenia w odpowiedniej walucie. 0 EUR oznacza, że nie obowiązuje maksymalna wartość umorzenia.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MaxRedemptionShares" type="xs:decimal">
@@ -2753,6 +2927,7 @@
 
                         <xs:documentation xml:lang="hu">Jelzi a visszaváltható egységek/részvények maximális számát. A 0 azt jelenti, hogy nincs alkalmazandó maximális részvényszám.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiver det maksimale antal andele/aktier, der må indløses. 0 betyder, at der ikke er noget gældende maksimalt antal aktier.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskazuje maksymalną liczbę jednostek/tytułów uczestnictwa, które mogą zostać umorzone. 0 oznacza, że nie obowiązuje maksymalna liczba tytułów uczestnictwa.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MinHoldingPeriod" type="xs:decimal">
@@ -2767,6 +2942,7 @@
 
                         <xs:documentation xml:lang="hu">Jelzi azon hónapok számát, ameddig a részvényeket tartani kell, mielőtt a visszaváltás megengedett lenne.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiver det antal måneder, aktierne skal beholdes, før indløsning er tilladt.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskazuje liczbę miesięcy, przez które tytuły uczestnictwa muszą być utrzymywane przed dopuszczeniem umorzenia.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="OtherRedemptionRestrictions" type="xs:string">
@@ -2781,6 +2957,7 @@
 
                         <xs:documentation xml:lang="hu">Jelezzen minden egyéb korlátozást, amely korlátozhatja a befektető visszaváltási képességét.</xs:documentation>
                         <xs:documentation xml:lang="da">Angiv eventuelle andre restriktioner, der kan begrænse en investors mulighed for at indløse.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wskaż wszelkie inne ograniczenia, które mogą ograniczać możliwość wykupu przez inwestora.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -2798,6 +2975,7 @@
 
                <xs:documentation xml:lang="hu">elavult (deprecated)</xs:documentation>
                <xs:documentation xml:lang="da">forældet</xs:documentation>
+               <xs:documentation xml:lang="pl">wycofany z użycia</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="OpenToNewInvestorsFlag" type="xs:boolean">
@@ -2812,6 +2990,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy a Share Class nyitott-e új befektetők számára</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om Share Class'en er åben for nye investorer</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy Share Class jest otwarta dla nowych inwestorów</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="CurrencyHedgedFlag" type="xs:boolean">
@@ -2826,6 +3005,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy a Share Class pénzneme fedezett-e</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om Share Class-valutaen er afdækket</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy waluta Share Class jest zabezpieczona (hedged)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="FundHedgingStrategy" type="HedgingStrategyType">
@@ -2840,6 +3020,7 @@
 
                <xs:documentation xml:lang="hu">A Share Class-ra alkalmazott fedezeti stratégia</xs:documentation>
                <xs:documentation xml:lang="da">Hedging-strategi anvendt på Share Class'en</xs:documentation>
+               <xs:documentation xml:lang="pl">Strategia zabezpieczająca stosowana wobec Share Class</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="IsLeveragedFlag" type="xs:boolean">
@@ -2854,6 +3035,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy a Share Class-hoz használnak-e tőkeáttételt</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om der anvendes gearing for Share Class'en</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy dla danej Share Class stosowana jest dźwignia finansowa</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="IsReferenceShareClass" type="xs:boolean">
@@ -2868,6 +3050,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy ez az alap referencia Share Class-a-e</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om dette er fondens reference-Share Class</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy jest to referencyjna Share Class funduszu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="IsPublicFlag" type="xs:boolean">
@@ -2882,6 +3065,7 @@
 
                <xs:documentation xml:lang="hu">Meghatározza, hogy az ár közzétételre kerül-e</xs:documentation>
                <xs:documentation xml:lang="da">Definerer om kursen offentliggøres</xs:documentation>
+               <xs:documentation xml:lang="pl">Definiuje, czy cena jest publikowana</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Prices">
@@ -2896,6 +3080,7 @@
 
                <xs:documentation xml:lang="hu">Árral kapcsolatos adatok</xs:documentation>
                <xs:documentation xml:lang="da">Prisrelaterede data</xs:documentation>
+               <xs:documentation xml:lang="pl">Dane dotyczące cen</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -2910,6 +3095,7 @@
                         <xs:documentation xml:lang="hu">A befektetési jegy osztály ára</xs:documentation>
                         <xs:documentation xml:lang="cs">Cena třídy akcií</xs:documentation>
                         <xs:documentation xml:lang="da">Pris på share class'en</xs:documentation>
+                        <xs:documentation xml:lang="pl">Cena klasy jednostek (share class)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -2927,6 +3113,7 @@
 
                <xs:documentation xml:lang="hu">A share class teljes NAV-ja (volumene)</xs:documentation>
                <xs:documentation xml:lang="da">Samlet NAV (volumen) for Share Class</xs:documentation>
+               <xs:documentation xml:lang="pl">Łączny NAV (wolumen) Share Class</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -2943,6 +3130,7 @@
                         <xs:documentation xml:lang="hu">A befektetési jegy osztály teljes eszközértéke</xs:documentation>
                         <xs:documentation xml:lang="cs">Celková hodnota aktiv třídy akcií</xs:documentation>
                         <xs:documentation xml:lang="da">Samlet aktivværdi for Share Class</xs:documentation>
+                        <xs:documentation xml:lang="pl">Łączna wartość aktywów Share Class</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -2960,6 +3148,7 @@
 
                <xs:documentation xml:lang="hu">Osztalékkal kapcsolatos adatok</xs:documentation>
                <xs:documentation xml:lang="da">Udbytterelaterede data</xs:documentation>
+               <xs:documentation xml:lang="pl">Dane dotyczące dywidendy</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -2974,6 +3163,7 @@
                         <xs:documentation xml:lang="hu">A befektetési jegy osztály kifizetése</xs:documentation>
                         <xs:documentation xml:lang="cs">Výplata distribuce třídy akcií</xs:documentation>
                         <xs:documentation xml:lang="da">Distributionsbetaling for share class</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wypłata z tytułu dystrybucji dla Share Class</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -2991,6 +3181,7 @@
 
                <xs:documentation xml:lang="hu">Az alap által fizetett vagy kapott díjak részletei</xs:documentation>
                <xs:documentation xml:lang="da">Detaljer om gebyrer betalt eller modtaget af fonden</xs:documentation>
+               <xs:documentation xml:lang="pl">Szczegóły opłat zapłaconych lub otrzymanych przez fundusz</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Flows">
@@ -3005,6 +3196,7 @@
 
                <xs:documentation xml:lang="hu">Jegyzések és visszaváltások (egyedi tranzakciós adatok és/vagy aggregált adatok)</xs:documentation>
                <xs:documentation xml:lang="da">Tegninger og indløsninger (data for enkelttransaktioner og/eller aggregerede data)</xs:documentation>
+               <xs:documentation xml:lang="pl">Subskrypcje i umorzenia (dane pojedynczych transakcji i/lub dane zagregowane)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -3019,6 +3211,7 @@
                         <xs:documentation xml:lang="hu">Pénzáramlás bejegyzés (jegyzés/visszaváltás)</xs:documentation>
                         <xs:documentation xml:lang="cs">Záznam peněžního toku (úpis/odkup)</xs:documentation>
                         <xs:documentation xml:lang="da">Pengestrømspost (tegning/indløsning)</xs:documentation>
+                        <xs:documentation xml:lang="pl">Wpis przepływu pieniężnego (subskrypcja/umorzenie)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -3033,6 +3226,7 @@
                      <xs:documentation xml:lang="hu">Az áramlási időszak kezdő dátuma</xs:documentation>
                      <xs:documentation xml:lang="cs">Datum začátku období toku</xs:documentation>
                      <xs:documentation xml:lang="da">Startdato for flowperioden</xs:documentation>
+                     <xs:documentation xml:lang="pl">Data początkowa okresu przepływu</xs:documentation>
                   </xs:annotation>
                </xs:attribute>
                <xs:attribute name="to" type="xs:date">
@@ -3046,6 +3240,7 @@
                      <xs:documentation xml:lang="hu">Az áramlási időszak befejezési dátuma</xs:documentation>
                      <xs:documentation xml:lang="cs">Datum konce období toku</xs:documentation>
                      <xs:documentation xml:lang="da">Slutdato for flowperioden</xs:documentation>
+                     <xs:documentation xml:lang="pl">Data końcowa okresu przepływu</xs:documentation>
                   </xs:annotation>
                </xs:attribute>
             </xs:complexType>
@@ -3064,6 +3259,7 @@
 
                <xs:documentation xml:lang="hu">Teljesítményértékek, total return értékek, minősítések</xs:documentation>
                <xs:documentation xml:lang="da">Performanceværdier, total return-værdier, ratings</xs:documentation>
+               <xs:documentation xml:lang="pl">Wartości wyników (performance), wartości total return, ratingi</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Portfolios">
@@ -3078,6 +3274,7 @@
 
                <xs:documentation xml:lang="hu">Portfólióhoz kapcsolódó adatok (csak ezen Share Class esetében)</xs:documentation>
                <xs:documentation xml:lang="da">Porteføljerelaterede data (kun for denne share class)</xs:documentation>
+               <xs:documentation xml:lang="pl">Dane dotyczące portfela (wyłącznie tej klasy jednostek (share class))</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -3093,6 +3290,7 @@
 
                         <xs:documentation xml:lang="hu">Portfólióadatok, beleértve a teljes nettó eszközértékeket, pozíciókat, tranzakciókat, bontásokat, ...</xs:documentation>
                         <xs:documentation xml:lang="da">Porteføljedata inklusive samlede net asset values, positioner, transaktioner, opdelinger, ...</xs:documentation>
+                        <xs:documentation xml:lang="pl">Dane portfela obejmujące całkowite wartości aktywów netto, pozycje, transakcje, podziały, ...</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -3110,6 +3308,7 @@
 
                <xs:documentation xml:lang="hu">Ezen országok befektetői nem vásárolhatják meg ezt a Share Class-t</xs:documentation>
                <xs:documentation xml:lang="da">Investorer fra disse lande kan ikke købe denne share class</xs:documentation>
+               <xs:documentation xml:lang="pl">Inwestorzy z tych krajów nie mogą nabywać tej Share Class</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -3124,6 +3323,7 @@
                         <xs:documentation xml:lang="hu">Az adóadatok országa</xs:documentation>
                         <xs:documentation xml:lang="cs">Země daňových údajů</xs:documentation>
                         <xs:documentation xml:lang="da">Skattedataenes land</xs:documentation>
+                        <xs:documentation xml:lang="pl">Kraj danych podatkowych</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -3141,6 +3341,7 @@
 
                <xs:documentation xml:lang="hu">High watermark részletei</xs:documentation>
                <xs:documentation xml:lang="da">High watermark-detaljer</xs:documentation>
+               <xs:documentation xml:lang="pl">Szczegóły High watermark</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="PEA_EligibleFlag" type="xs:boolean">
@@ -3155,6 +3356,7 @@
 
                <xs:documentation xml:lang="hu">A francia Plan d'Epargne en Actions (PEA) szerinti elfogadhatóság jelzése</xs:documentation>
                <xs:documentation xml:lang="da">Angiver berettigelse til den franske Plan d'Epargne en Actions (PEA)</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje kwalifikowalność do francuskiego Plan d'Epargne en Actions (PEA)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="RetailInvestorsOnly" type="xs:boolean">
@@ -3169,6 +3371,7 @@
 
                <xs:documentation xml:lang="hu">Jelzi, hogy a Share Class csak lakossági befektetők számára elérhető-e</xs:documentation>
                <xs:documentation xml:lang="da">Angiver, om Share Class'en kun er for detailinvestorer</xs:documentation>
+               <xs:documentation xml:lang="pl">Wskazuje, czy Share Class jest przeznaczona wyłącznie dla inwestorów detalicznych</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="UK_RDR_Flag" type="xs:boolean">
@@ -3183,6 +3386,7 @@
 
                <xs:documentation xml:lang="hu">Kizárólag lakossági (Retail) részvényosztály a brit definíció szerint</xs:documentation>
                <xs:documentation xml:lang="da">Share Class kun til retail i henhold til britisk definition</xs:documentation>
+               <xs:documentation xml:lang="pl">Share Class wyłącznie detaliczna zgodnie z definicją brytyjską</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="TransferAgent" type="CompanyType">
@@ -3197,6 +3401,7 @@
 
                <xs:documentation xml:lang="hu">A share class-ért felelős transfer agent</xs:documentation>
                <xs:documentation xml:lang="da">Transfer agent ansvarlig for Share Class</xs:documentation>
+               <xs:documentation xml:lang="pl">Agent transferowy odpowiedzialny za daną Share Class</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Investors">
@@ -3211,6 +3416,7 @@
 
                <xs:documentation xml:lang="hu">Befektetők listája</xs:documentation>
                <xs:documentation xml:lang="da">Liste over investorer</xs:documentation>
+               <xs:documentation xml:lang="pl">Lista inwestorów</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -3225,6 +3431,7 @@
                         <xs:documentation xml:lang="hu">Befektető típusa az allokációhoz</xs:documentation>
                         <xs:documentation xml:lang="cs">Typ investora pro alokaci</xs:documentation>
                         <xs:documentation xml:lang="da">Investortype for allokeringen</xs:documentation>
+                        <xs:documentation xml:lang="pl">Typ inwestora dla alokacji</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -3242,6 +3449,7 @@
 
                <xs:documentation xml:lang="hu">Bontás befektetői típusok szerint</xs:documentation>
                <xs:documentation xml:lang="da">Opdeling efter investortyper</xs:documentation>
+               <xs:documentation xml:lang="pl">Podział według typów inwestorów</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -3256,6 +3464,7 @@
                         <xs:documentation xml:lang="hu">Egyedi allokációs bejegyzés</xs:documentation>
                         <xs:documentation xml:lang="cs">Jednotlivý záznam alokace</xs:documentation>
                         <xs:documentation xml:lang="da">Individuel allokeringspost</xs:documentation>
+                        <xs:documentation xml:lang="pl">Pojedynczy wpis alokacji</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -3273,6 +3482,7 @@
 
                <xs:documentation xml:lang="hu">Információ egy Share Class kereskedési helyeiről</xs:documentation>
                <xs:documentation xml:lang="da">Information om markedspladserne for en Share Class</xs:documentation>
+               <xs:documentation xml:lang="pl">Informacje o miejscach obrotu (market places) Share Class</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -3287,6 +3497,7 @@
                         <xs:documentation xml:lang="hu">Kereskedési hely, ahol a befektetési jegy osztály kereskedése zajlik</xs:documentation>
                         <xs:documentation xml:lang="cs">Tržiště, kde se třída akcií obchoduje</xs:documentation>
                         <xs:documentation xml:lang="da">Markedsplads, hvor share class'en handles</xs:documentation>
+                        <xs:documentation xml:lang="pl">Miejsce obrotu, na którym notowana jest Share Class</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -3302,6 +3513,7 @@
 
                                  <xs:documentation xml:lang="hu">A piaci azonosító kód (Market Identifier Code, MIC) egy egyedi azonosító kód, amelyet az értékpapír-kereskedési tőzsdék, szabályozott és nem szabályozott kereskedési piacok azonosítására használnak. A MIC egy négy alfabetikus karakterből álló kód, amelyet az ISO 10383 határoz meg.</xs:documentation>
                                  <xs:documentation xml:lang="da">Market Identifier Code (MIC) er en unik identifikationskode, der anvendes til at identificere børser for værdipapirhandel samt regulerede og ikke-regulerede handelsmarkeder. MIC er en kode på fire alfabetiske tegn og er defineret i ISO 10383.</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Market Identifier Code (MIC) to unikalny kod identyfikacyjny używany do identyfikacji giełd papierów wartościowych, regulowanych i nieregulowanych rynków obrotu. MIC jest czteroliterowym kodem alfabetycznym i jest zdefiniowany w normie ISO 10383.</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -3321,6 +3533,7 @@
 
                                  <xs:documentation xml:lang="hu">Az adott piactéren a kapcsolódó share class esetében megengedett NAV-pénznem</xs:documentation>
                                  <xs:documentation xml:lang="da">NAV-valutaen, der er tilladt på den pågældende markedsplads for den tilknyttede Share Class</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Waluta NAV dozwolona na danym rynku dla powiązanej Share Class</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="TradingCurrency" type="ISOCurrencyCodeType">
@@ -3335,6 +3548,7 @@
 
                                  <xs:documentation xml:lang="hu">Az adott piactéren a megadott NAV-pénznemhez használt kereskedési pénznem (Trading Currency)</xs:documentation>
                                  <xs:documentation xml:lang="da">Handelsvalutaen, der anvendes på den pågældende markedsplads for den angivne NAV-valuta</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Waluta obrotu używana na danym rynku dla określonej waluty NAV</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="MarketMaker">
@@ -3348,6 +3562,7 @@
                                  <xs:documentation xml:lang="hu">A befektetési jegy osztály árjegyzője</xs:documentation>
                                  <xs:documentation xml:lang="cs">Tvůrce trhu pro třídu akcií</xs:documentation>
                                  <xs:documentation xml:lang="da">Market maker for share class'en</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Market maker dla Share Class</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -3363,6 +3578,7 @@
 
                                           <xs:documentation xml:lang="hu">A Market Maker neve</xs:documentation>
                                           <xs:documentation xml:lang="da">Navn på Market Maker</xs:documentation>
+                                          <xs:documentation xml:lang="pl">Nazwa market makera</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Identifier" type="IdentifiersType">
@@ -3377,6 +3593,7 @@
 
                                           <xs:documentation xml:lang="hu">A Market Maker azonosítói</xs:documentation>
                                           <xs:documentation xml:lang="da">Identifikatorer for Market Maker</xs:documentation>
+                                          <xs:documentation xml:lang="pl">Identyfikatory Market Makera</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -3400,6 +3617,7 @@
 
                <xs:documentation xml:lang="hu">Általános struktúra olyan egyedi, specifikus adatokhoz, amelyek máshol nem tárolhatók</xs:documentation>
                <xs:documentation xml:lang="da">Generisk struktur for brugerdefinerede specifikke data, som ikke kan lagres andetsteds</xs:documentation>
+               <xs:documentation xml:lang="pl">Struktura ogólna dla niestandardowych danych specyficznych, których nie można przechować w innym miejscu</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
@@ -3416,6 +3634,7 @@
 
                <xs:documentation xml:lang="hu">Országspecifikus adatok a Share Class-hoz</xs:documentation>
                <xs:documentation xml:lang="da">Landespecifikke data for share class</xs:documentation>
+               <xs:documentation xml:lang="pl">Dane specyficzne dla kraju dla danej Share Class</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -3432,6 +3651,7 @@
 
          <xs:documentation xml:lang="hu">Total return adatok, beleértve a pénznemet és a számítási időszakokat</xs:documentation>
          <xs:documentation xml:lang="da">Data for samlet afkast inklusive valuta og beregningsperioder</xs:documentation>
+         <xs:documentation xml:lang="pl">Dane o łącznej stopie zwrotu, w tym waluta i okresy obliczeniowe</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -3446,6 +3666,7 @@
 
                <xs:documentation xml:lang="hu">A teljes hozamérték devizaneme</xs:documentation>
                <xs:documentation xml:lang="da">Valuta for total return-værdien</xs:documentation>
+               <xs:documentation xml:lang="pl">Waluta wartości total return</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Value">
@@ -3460,6 +3681,7 @@
 
                <xs:documentation xml:lang="hu">Abszolút és/vagy százalékos érték</xs:documentation>
                <xs:documentation xml:lang="da">Absolut og/eller procentvis værdi</xs:documentation>
+               <xs:documentation xml:lang="pl">Wartość bezwzględna i/lub procentowa</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:choice>
@@ -3474,6 +3696,7 @@
                         <xs:documentation xml:lang="hu">Abszolút összeg</xs:documentation>
                         <xs:documentation xml:lang="cs">Absolutní hodnota částky</xs:documentation>
                         <xs:documentation xml:lang="da">Absolut værdibeløb</xs:documentation>
+                        <xs:documentation xml:lang="pl">Kwota wartości bezwzględnej</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:sequence>
@@ -3488,6 +3711,7 @@
                            <xs:documentation xml:lang="hu">Százalékos érték</xs:documentation>
                            <xs:documentation xml:lang="cs">Procentuální hodnota</xs:documentation>
                            <xs:documentation xml:lang="da">Procentværdi</xs:documentation>
+                           <xs:documentation xml:lang="pl">Wartość procentowa</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="AbsoluteValue" type="xs:decimal">
@@ -3501,6 +3725,7 @@
                            <xs:documentation xml:lang="hu">Abszolút összeg 10 000 egységenként az alap pénznemében</xs:documentation>
                            <xs:documentation xml:lang="cs">Absolutní částka na 10 000 jednotek v měně fondu</xs:documentation>
                            <xs:documentation xml:lang="da">Absolut værdi pr. 10.000 enheder i fondsvaluta</xs:documentation>
+                           <xs:documentation xml:lang="pl">Wartość bezwzględna na 10 000 jednostek w walucie funduszu</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -3518,6 +3743,7 @@
                <xs:documentation xml:lang="hu">A költségadatok érvényességi dátuma</xs:documentation>
                <xs:documentation xml:lang="cs">Datum platnosti údajů o nákladech</xs:documentation>
                <xs:documentation xml:lang="da">Gyldighedsdato for omkostningsdataene</xs:documentation>
+               <xs:documentation xml:lang="pl">Data ważności danych o kosztach</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="CalculationPeriod" type="CalculationPeriodType">
@@ -3531,6 +3757,7 @@
                <xs:documentation xml:lang="hu">A költségadatok számítási időszaka</xs:documentation>
                <xs:documentation xml:lang="cs">Výpočetní období pro údaje o nákladech</xs:documentation>
                <xs:documentation xml:lang="da">Beregningsperiode for omkostningsdataene</xs:documentation>
+               <xs:documentation xml:lang="pl">Okres obliczeniowy dla danych o kosztach</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="AnnualizedFlag" type="xs:boolean">
@@ -3544,6 +3771,7 @@
                <xs:documentation xml:lang="hu">Jelölő, hogy az érték évesített-e</xs:documentation>
                <xs:documentation xml:lang="cs">Příznak, zda je hodnota anualizovaná</xs:documentation>
                <xs:documentation xml:lang="da">Flag, der angiver, om værdien er annualiseret</xs:documentation>
+               <xs:documentation xml:lang="pl">Flaga wskazująca, czy wartość jest annualizowana</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="CalculationMethod" type="Text500Type">
@@ -3557,6 +3785,7 @@
                <xs:documentation xml:lang="hu">A költségszámításhoz használt módszer</xs:documentation>
                <xs:documentation xml:lang="cs">Metoda použitá pro výpočet nákladů</xs:documentation>
                <xs:documentation xml:lang="da">Metode anvendt til omkostningsberegning</xs:documentation>
+               <xs:documentation xml:lang="pl">Metoda stosowana do obliczania kosztów</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="Investment">
@@ -3571,6 +3800,7 @@
 
                <xs:documentation xml:lang="hu">Egyszeri vagy megtakarítási terv (savings plan) befektetési összegei</xs:documentation>
                <xs:documentation xml:lang="da">Investeringsbeløb for engangs- eller opsparingsplan</xs:documentation>
+               <xs:documentation xml:lang="pl">Kwoty inwestycji jednorazowej lub w ramach planu oszczędnościowego</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:choice>
@@ -3585,6 +3815,7 @@
                         <xs:documentation xml:lang="hu">Egyösszegű befektetési összeg</xs:documentation>
                         <xs:documentation xml:lang="cs">Jednorázová investiční částka</xs:documentation>
                         <xs:documentation xml:lang="da">Enkelt engangsinvesteringsbeløb</xs:documentation>
+                        <xs:documentation xml:lang="pl">Pojedyncza kwota inwestycji jednorazowej</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:sequence>
@@ -3599,6 +3830,7 @@
                            <xs:documentation xml:lang="hu">Megtakarítási terv befektetési összeg</xs:documentation>
                            <xs:documentation xml:lang="cs">Investiční částka spořicího plánu</xs:documentation>
                            <xs:documentation xml:lang="da">Investeringsbeløb for opsparingsplan</xs:documentation>
+                           <xs:documentation xml:lang="pl">Kwota inwestycji w ramach planu oszczędnościowego</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                      <xs:element minOccurs="0" name="SavingsPlanFrequency" type="FrequencyType">
@@ -3612,6 +3844,7 @@
                            <xs:documentation xml:lang="hu">A megtakarítási terv befizetéseinek gyakorisága</xs:documentation>
                            <xs:documentation xml:lang="cs">Frekvence plateb spořicího plánu</xs:documentation>
                            <xs:documentation xml:lang="da">Frekvens af opsparingsplanbetalinger</xs:documentation>
+                           <xs:documentation xml:lang="pl">Częstotliwość wpłat w planie systematycznego oszczędzania</xs:documentation>
                         </xs:annotation>
                      </xs:element>
                   </xs:sequence>
@@ -3630,6 +3863,7 @@
 
                <xs:documentation xml:lang="hu">A teljesítményszámítás kezdődátuma</xs:documentation>
                <xs:documentation xml:lang="da">Startdato for performanceberegning</xs:documentation>
+               <xs:documentation xml:lang="pl">Data początkowa obliczania wyników</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="CorrectionCoefficient" type="xs:decimal">
@@ -3644,6 +3878,7 @@
 
                <xs:documentation xml:lang="hu">A számításhoz alkalmazott korrekciós együttható</xs:documentation>
                <xs:documentation xml:lang="da">Korrektionskoefficient anvendt på beregningen</xs:documentation>
+               <xs:documentation xml:lang="pl">Współczynnik korygujący zastosowany w obliczeniach</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="ReinvestmentCoefficient" type="xs:decimal">
@@ -3658,6 +3893,7 @@
 
                <xs:documentation xml:lang="hu">Újrabefektetési együttható az osztalék újrabefektetéséhez</xs:documentation>
                <xs:documentation xml:lang="da">Geninvesteringskoefficient for geninvestering af udbytte</xs:documentation>
+               <xs:documentation xml:lang="pl">Współczynnik reinwestycji dla reinwestowania dywidendy</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>

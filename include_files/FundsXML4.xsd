@@ -27,6 +27,7 @@
 			<xs:documentation xml:lang="hu">A FundsXML 4.2.11 gyokéreleme</xs:documentation>
 			<xs:documentation xml:lang="cs">Kořenový element FundsXML 4.2.11</xs:documentation>
 			<xs:documentation xml:lang="da">Rodelement i FundsXML 4.2.11</xs:documentation>
+			<xs:documentation xml:lang="pl">Element główny (root) FundsXML 4.2.11</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -41,6 +42,7 @@
 						<xs:documentation xml:lang="hu">Az XML dokumentum metaadatai (egyedi azonosító, dátum, adatszolgáltató, nyelv, ...)</xs:documentation>
 						<xs:documentation xml:lang="cs">Metadata XML dokumentu (jako jedinečné ID, datum, dodavatel dat, jazyk, ...)</xs:documentation>
 						<xs:documentation xml:lang="da">Metadata for xml-dokumentet (såsom unik id, dato, dataleverandør, sprog, ...)</xs:documentation>
+						<xs:documentation xml:lang="pl">Metadane dokumentu xml (np. unikalny identyfikator, data, dostawca danych, język, ...)</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Funds" minOccurs="0">
@@ -54,6 +56,7 @@
 						<xs:documentation xml:lang="hu">Alapok, ernyőalapok, SICAV-ok, portfóliók listája...</xs:documentation>
 						<xs:documentation xml:lang="cs">Seznam fondů, zastřešujících fondů, SICAV, portfolií ...</xs:documentation>
 						<xs:documentation xml:lang="da">Liste over fonde, umbrellas, sicavs, porteføljer ...</xs:documentation>
+						<xs:documentation xml:lang="pl">Lista funduszy, parasoli, sicav, portfeli ...</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -68,6 +71,7 @@
 									<xs:documentation xml:lang="hu">Az egyedi alapokra, ernyőalapokra, SICAV-okra, portfóliókra vonatkozó összes adat</xs:documentation>
 									<xs:documentation xml:lang="cs">Všechna data související s jednotlivými fondy, zastřešujícími fondy, SICAV, portfolii</xs:documentation>
 									<xs:documentation xml:lang="da">Alle data relateret til single fund, umbrella, sicav og portefølje</xs:documentation>
+									<xs:documentation xml:lang="pl">Wszystkie dane dotyczące pojedynczego funduszu, struktury parasolowej, sicav, portfela</xs:documentation>
 								</xs:annotation>
 								<xs:key name="benchmarkID">
 									<xs:selector xpath="FundStaticData/Benchmarks/Benchmark"/>
@@ -92,6 +96,7 @@
 						<xs:documentation xml:lang="hu">Vagyonkezelő társaságok dinamikus adatai</xs:documentation>
 						<xs:documentation xml:lang="cs">Dynamická data společností pro správu aktiv</xs:documentation>
 						<xs:documentation xml:lang="da">Dynamiske data om kapitalforvaltningsselskaber</xs:documentation>
+						<xs:documentation xml:lang="pl">Dane dynamiczne towarzystw zarządzających aktywami</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="AssetMasterData" type="AssetMasterDataType" minOccurs="0">
@@ -105,6 +110,7 @@
 						<xs:documentation xml:lang="hu">Értékpapírok, derivatívák és minden egyéb portfólióeszköz törzsadatai</xs:documentation>
 						<xs:documentation xml:lang="cs">Kmenová data cenných papírů, derivátů a všech ostatních portfoliových aktiv</xs:documentation>
 						<xs:documentation xml:lang="da">Stamdata for værdipapirer, derivater og alle øvrige porteføljeaktiver</xs:documentation>
+						<xs:documentation xml:lang="pl">Dane podstawowe papierów wartościowych, instrumentów pochodnych i wszystkich innych aktywów portfelowych</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Documents" type="DocumentsType" minOccurs="0">
@@ -118,6 +124,7 @@
 						<xs:documentation xml:lang="hu">Alapokkal, részalapokkal vagy befektetési jegy osztályokkal kapcsolatos szabályozási és marketing dokumentumok gyűjteménye (KID-ek, tájékoztatók, adatlapok, éves jelentések stb.). A dokumentumok URL-ként vagy base64Binary tartalomként beágyazva biztosíthatók</xs:documentation>
 						<xs:documentation xml:lang="cs">Sbírka regulatorních a marketingových dokumentů (KID, prospekty, informační listy, výroční zprávy atd.) souvisejících s fondy, podfondy nebo třídami akcií. Dokumenty mohou být poskytnuty jako URL nebo vloženy jako obsah base64Binary</xs:documentation>
 						<xs:documentation xml:lang="da">Samling af regulatoriske dokumenter og markedsføringsdokumenter (KID'er, prospekter, factsheets, årsrapporter osv.) relateret til fonde, underfonde eller share classes. Dokumenter kan leveres som URL'er eller indlejres som base64Binary-indhold</xs:documentation>
+						<xs:documentation xml:lang="pl">Zbiór dokumentów regulacyjnych i marketingowych (KID, prospekty, karty informacyjne, raporty roczne itp.) związanych z funduszami, subfunduszami lub Share Class. Dokumenty mogą być dostarczane jako adresy URL lub osadzane jako treść base64Binary</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="RegulatoryReportings" type="RegulatoryReportingsType" minOccurs="0">
@@ -131,6 +138,7 @@
 						<xs:documentation xml:lang="hu">Közvetlen és közvetett szabályozási jelentéstétel</xs:documentation>
 						<xs:documentation xml:lang="cs">Přímé a nepřímé regulatorní výkaznictví</xs:documentation>
 						<xs:documentation xml:lang="da">Direkte og indirekte regulatorisk rapportering</xs:documentation>
+						<xs:documentation xml:lang="pl">Bezpośrednie i pośrednie sprawozdawczość regulacyjna</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="CountrySpecificData" type="CountrySpecificDataType" minOccurs="0">
@@ -144,6 +152,7 @@
 						<xs:documentation xml:lang="hu">Országspecifikus adatok a legfelső szinten (a 'FundsXML4_CountrySpecificData_xx.xsd' fájlban meghatározottak szerint)</xs:documentation>
 						<xs:documentation xml:lang="cs">Specifická data země na nejvyšší úrovni (jak je definováno v 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 						<xs:documentation xml:lang="da">Landespecifikke data på topniveau (som defineret i 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+						<xs:documentation xml:lang="pl">Dane specyficzne dla kraju na najwyższym poziomie (zgodnie z definicją w 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="ds:Signature" minOccurs="0"/>
@@ -161,6 +170,7 @@
 			<xs:documentation xml:lang="hu">A fájlkézbesítés metaadatai, beleértve a dokumentum azonosítását, a tartalmi dátumot és az adatszolgáltató adatait</xs:documentation>
 			<xs:documentation xml:lang="cs">Metadata pro doručení souboru včetně identifikace dokumentu, data obsahu a informací o dodavateli dat</xs:documentation>
 			<xs:documentation xml:lang="da">Metadata for filleverancen, herunder dokumentidentifikation, indholdsdato og oplysninger om dataleverandør</xs:documentation>
+			<xs:documentation xml:lang="pl">Metadane dotyczące dostarczenia pliku, w tym identyfikacja dokumentu, data treści oraz informacje o dostawcy danych</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="UniqueDocumentID" type="Text128Type">
@@ -174,6 +184,7 @@
 					<xs:documentation xml:lang="hu">Dokumentumazonosító (adatszolgáltatónként egyedi)</xs:documentation>
 					<xs:documentation xml:lang="cs">Identifikátor dokumentu (jedinečný na dodavatele dat)</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentidentifikator (unik pr. dataleverandør)</xs:documentation>
+					<xs:documentation xml:lang="pl">Identyfikator dokumentu (unikalny dla każdego dostawcy danych)</xs:documentation>
 					<xs:appinfo>
 						<altova:exampleValues>
 							<altova:example value="20240830_0001"/>
@@ -192,6 +203,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum generálásának időbélyege</xs:documentation>
 					<xs:documentation xml:lang="cs">Časové razítko generování dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Tidsstempel for dokumentgenerering</xs:documentation>
+					<xs:documentation xml:lang="pl">Znacznik czasu wygenerowania dokumentu</xs:documentation>
 					<xs:appinfo>
 						<altova:exampleValues>
 							<altova:example value="2024-09-26T18:37:12.1559196+02:00"/>
@@ -210,6 +222,7 @@
 					<xs:documentation xml:lang="hu">FundsXML séma verzió (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
 					<xs:documentation xml:lang="cs">Verze schématu FundsXML (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
 					<xs:documentation xml:lang="da">FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
+					<xs:documentation xml:lang="pl">FundsXML Schema Version (4.0.0, 4.0.1, 4.1.0, ...)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -253,6 +266,7 @@
 					<xs:documentation xml:lang="hu">A tartalom fő dátuma, ha nem más dátum van megadva az adott szekción belül</xs:documentation>
 					<xs:documentation xml:lang="cs">Hlavní datum obsahu, pokud není v sekci specifikováno jinak</xs:documentation>
 					<xs:documentation xml:lang="da">Hoveddato for indholdet, hvis ikke andet er angivet inden for sektionen</xs:documentation>
+					<xs:documentation xml:lang="pl">Główna data dla treści, jeśli nie określono inaczej w danej sekcji</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType">
@@ -266,6 +280,7 @@
 					<xs:documentation xml:lang="hu">Az adatforrás meghatározása (befektetési társaság, vendor, ...). Csak tájékoztatási célra.</xs:documentation>
 					<xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel, ...). Používá se pouze pro informační účely.</xs:documentation>
 					<xs:documentation xml:lang="da">Definition af datakilde (investeringsselskab, vendor, ...). Anvendes kun til informationsformål.</xs:documentation>
+					<xs:documentation xml:lang="pl">Definicja źródła danych (towarzystwo inwestycyjne, dostawca, ...). Wykorzystywane wyłącznie w celach informacyjnych.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataOperation" minOccurs="0">
@@ -279,6 +294,7 @@
 					<xs:documentation xml:lang="hu">INITIAL: Első adatszolgáltatás, tartalmazza a rendszer beállításához szükséges összes információt. AMEND: Meglévő adatok frissítése vagy módosítása (javítások, kiegészítések, módosítások). DELETE: Adott adatok eltávolítása a rendszerből, RelatedDocumentIDs szükséges.</xs:documentation>
 					<xs:documentation xml:lang="cs">INITIAL: První dodávka dat, zahrnuje všechny potřebné informace pro nastavení systému. AMEND: Aktualizace nebo změny stávajících dat (opravy, doplnění, úpravy). DELETE: Odstranění konkrétních dat ze systému, vyžaduje RelatedDocumentIDs.</xs:documentation>
 					<xs:documentation xml:lang="da">INITIAL: Første gang data leveres, indeholder alle nødvendige oplysninger til at opsætte et system. AMEND: Opdateringer eller ændringer af eksisterende data (rettelser, tilføjelser, ændringer). DELETE: Fjernelse af specifikke data fra systemet, kræver RelatedDocumentIDs.</xs:documentation>
+					<xs:documentation xml:lang="pl">INITIAL: Pierwsze dostarczenie danych, obejmuje wszystkie niezbędne informacje do skonfigurowania systemu. AMEND: Aktualizacje lub zmiany istniejących danych (korekty, uzupełnienia, modyfikacje). DELETE: Usunięcie określonych danych z systemu, wymaga RelatedDocumentIDs.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -301,6 +317,7 @@
 					<xs:documentation xml:lang="hu">Kapcsolódó dokumentumok azonosítói nem kezdeti adatszolgáltatásokhoz</xs:documentation>
 					<xs:documentation xml:lang="cs">Identifikátory souvisejících dokumentů pro neinicializační dodávky dat</xs:documentation>
 					<xs:documentation xml:lang="da">Identifikatorer for relaterede dokumenter ved ikke-initielle dataleverancer</xs:documentation>
+					<xs:documentation xml:lang="pl">Identyfikatory powiązanych dokumentów dla dostaw danych innych niż początkowe</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -327,6 +344,7 @@
 					<xs:documentation xml:lang="hu">Kétkarakteres ISO nyelvkód. Alapértelmezettként használatos, ha nincs más nyelv megadva.</xs:documentation>
 					<xs:documentation xml:lang="cs">Dvouznakový ISO kód jazyka. Používá se jako výchozí, pokud není specifikován jiný jazyk.</xs:documentation>
 					<xs:documentation xml:lang="da">ISO-kode for sprog med to tegn. Dette anvendes som standard, hvis intet andet sprog er angivet.</xs:documentation>
+					<xs:documentation xml:lang="pl">Dwuznakowy kod ISO języka. Jest stosowany jako domyślny, jeśli nie określono innego języka.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ModuleUsage" minOccurs="0">
@@ -340,6 +358,7 @@
 					<xs:documentation xml:lang="hu">A használt sémamodulok listája</xs:documentation>
 					<xs:documentation xml:lang="cs">Seznam použitých modulů schématu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over anvendte skemamoduler</xs:documentation>
+					<xs:documentation xml:lang="pl">Lista użytych modułów schematu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -354,6 +373,7 @@
 								<xs:documentation xml:lang="hu">Sémamodul opcionális al-modul specifikációval</xs:documentation>
 								<xs:documentation xml:lang="cs">Modul schématu s volitelnou specifikací sub-modulu</xs:documentation>
 								<xs:documentation xml:lang="da">Skemamodul med valgfri specifikation af undermodul</xs:documentation>
+								<xs:documentation xml:lang="pl">Moduł schematu z opcjonalnym określeniem podmodułu</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -368,6 +388,7 @@
 											<xs:documentation xml:lang="hu">Modulnév a felsorolásban megadottak szerint. Az importálás optimalizálásához használható.</xs:documentation>
 											<xs:documentation xml:lang="cs">Název modulu podle výčtu. Lze použít k optimalizaci importů.</xs:documentation>
 											<xs:documentation xml:lang="da">Modulnavn som anført i opregningen. Kan bruges til at optimere imports.</xs:documentation>
+											<xs:documentation xml:lang="pl">Nazwa modułu wymieniona w wyliczeniu. Może być używana do optymalizacji importów.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -405,6 +426,7 @@
 											<xs:documentation xml:lang="hu">Al-modul specifikáció egy modulon belül</xs:documentation>
 											<xs:documentation xml:lang="cs">Specifikace sub-modulu v rámci modulu</xs:documentation>
 											<xs:documentation xml:lang="da">Specifikation af undermodul inden for et modul</xs:documentation>
+											<xs:documentation xml:lang="pl">Specyfikacja podmodułu w ramach modułu</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -424,6 +446,7 @@
 					<xs:documentation xml:lang="hu">Országspecifikus dokumentumadatok</xs:documentation>
 					<xs:documentation xml:lang="cs">Specifická dokumentová data země</xs:documentation>
 					<xs:documentation xml:lang="da">Landespecifikke dokumentdata</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane dokumentu specyficzne dla kraju</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -438,6 +461,7 @@
 								<xs:documentation xml:lang="hu">Ausztria-specifikus vezérlő adatok</xs:documentation>
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Rakousko</xs:documentation>
 								<xs:documentation xml:lang="da">Østrig-specifikke kontroldata</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Austrii</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DE" type="CountrySpecificControlDataDEType" minOccurs="0">
@@ -451,6 +475,7 @@
 								<xs:documentation xml:lang="hu">Németország-specifikus vezérlő adatok</xs:documentation>
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Německo</xs:documentation>
 								<xs:documentation xml:lang="da">Tysklandsspecifikke kontroldata</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Niemiec</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DK" type="CountrySpecificControlDataDKType" minOccurs="0">
@@ -464,6 +489,7 @@
 								<xs:documentation xml:lang="hu">Dánia-specifikus vezérlő adatok</xs:documentation>
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Dánsko</xs:documentation>
 								<xs:documentation xml:lang="da">Danmarks-specifikke kontroldata</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Danii</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="FR" type="CountrySpecificControlDataFRType" minOccurs="0">
@@ -477,6 +503,7 @@
 								<xs:documentation xml:lang="hu">Franciaország-specifikus vezérlő adatok</xs:documentation>
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Francii</xs:documentation>
 								<xs:documentation xml:lang="da">Frankrig-specifikke kontroldata</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Francji</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="LU" type="CountrySpecificControlDataLUType" minOccurs="0">
@@ -490,6 +517,7 @@
 								<xs:documentation xml:lang="hu">Luxemburg-specifikus vezérlő adatok</xs:documentation>
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Lucembursko</xs:documentation>
 								<xs:documentation xml:lang="da">Luxembourg-specifikke kontroldata</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Luksemburga</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="NL" type="CountrySpecificControlDataNLType" minOccurs="0">
@@ -503,6 +531,7 @@
 								<xs:documentation xml:lang="hu">Hollandia-specifikus vezérlő adatok</xs:documentation>
 								<xs:documentation xml:lang="cs">Kontrolní data specifická pro Nizozemsko</xs:documentation>
 								<xs:documentation xml:lang="da">Nederlandsk-specifikke kontroldata</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane kontrolne specyficzne dla Holandii</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -519,6 +548,7 @@
 					<xs:documentation xml:lang="hu">További információk, amelyek nem illeszkednek a fenti csomópontokba</xs:documentation>
 					<xs:documentation xml:lang="cs">Další informace, které se nevejdou do výše uvedených uzlů</xs:documentation>
 					<xs:documentation xml:lang="da">Yderligere oplysninger, der ikke passer ind i noderne ovenfor</xs:documentation>
+					<xs:documentation xml:lang="pl">Dodatkowe informacje, które nie pasują do powyższych węzłów</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -534,6 +564,7 @@
 			<xs:documentation xml:lang="hu">B2B adatcsere alapgyártók és forgalmazók között (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
 			<xs:documentation xml:lang="cs">Regulatorní data pro B2B výměnu mezi výrobci fondů a distributory (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
 			<xs:documentation xml:lang="da">Regulatoriske data til B2B-udveksling mellem fondsproducenter og distributører (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
+			<xs:documentation xml:lang="pl">Dane regulacyjne do wymiany B2B między producentami funduszy a dystrybutorami (MiFID EMT, SFDR EET, Distribution Feedback EFT)</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EMIR" type="EMIRType" minOccurs="0">
@@ -558,6 +589,7 @@
 					<xs:documentation xml:lang="hu">Az EUROPEAN MIFID TEMPLATE - EMT V1.0 szerint (2017-08-03)</xs:documentation>
 					<xs:documentation xml:lang="cs">Podle EUROPEAN MIFID TEMPLATE - EMT V1.0 ze dne 2017-08-03</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. EUROPEAN MIFID TEMPLATE - EMT V1.0 pr. 2017-08-03</xs:documentation>
+					<xs:documentation xml:lang="pl">Zgodnie z EUROPEAN MIFID TEMPLATE - EMT V1.0 z dnia 2017-08-03</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V3" type="EMTType_V3" minOccurs="0">
@@ -572,6 +604,7 @@
 					<xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 szerint (2019-11-25)</xs:documentation>
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 ze dne 2019-11-25</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 pr. 2019-11-25</xs:documentation>
+					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE V3.0 - EMT V3.0 z dnia 2019-11-25</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4" type="EMTType_V4" minOccurs="0">
@@ -585,6 +618,7 @@
 					<xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE - EMT V4.0 szerint (2022-03-14)</xs:documentation>
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.0 ze dne 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE - EMT V4.0 pr. 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE - EMT V4.0 z dnia 2022-03-14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_1" type="EMTType_V41" minOccurs="0">
@@ -598,6 +632,7 @@
 					<xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE - EMT V4.1 szerint (2023-03-07)</xs:documentation>
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.1 ze dne 2023-03-07</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE - EMT V4.1 pr. 2023-03-07</xs:documentation>
+					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE - EMT V4.1 z dnia 2023-03-07</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_2" type="EMTType_V42" minOccurs="0">
@@ -611,6 +646,7 @@
 					<xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE - EMT V4.2 szerint (2024-04-05)</xs:documentation>
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.2 ze dne 2024-04-05</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE - EMT V4.2 pr. 2024-04-05</xs:documentation>
+					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE - EMT V4.2 z dnia 2024-04-05</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT_V4_3" type="EMTType_V43" minOccurs="0">
@@ -624,6 +660,7 @@
 					<xs:documentation xml:lang="hu">A FinDatEx MiFID TEMPLATE - EMT V4.3 szerint (2026-01-15)</xs:documentation>
 					<xs:documentation xml:lang="cs">Podle FinDatEx MiFID TEMPLATE - EMT V4.3 ze dne 2026-01-15</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx MiFID TEMPLATE - EMT V4.3 pr. 2026-01-15</xs:documentation>
+					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx MiFID TEMPLATE - EMT V4.3 z dnia 2026-01-15</xs:documentation>
 					<xs:appinfo source="@since 4.2.10"/>
 				</xs:annotation>
 			</xs:element>
@@ -638,6 +675,7 @@
 					<xs:documentation xml:lang="hu">A FinDatEx szerint: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
 					<xs:documentation xml:lang="cs">Podle FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
 					<xs:documentation xml:lang="da">Iht. FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
+					<xs:documentation xml:lang="pl">Zgodnie z FinDatEx: EUROPEAN FEEDBACK TEMPLATE - EFT V1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EET1.0" type="EETsType" minOccurs="0">
@@ -651,6 +689,7 @@
 					<xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.0 (2022-03-14)</xs:documentation>
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.0 2022-03-14</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
@@ -665,6 +704,7 @@
 					<xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
+					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.1</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
@@ -679,6 +719,7 @@
 					<xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
+					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.1.1</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
@@ -693,6 +734,7 @@
 					<xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
+					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.1.2</xs:documentation>
 					<xs:appinfo source="@deprecated"/>
 				</xs:annotation>
 			</xs:element>
@@ -707,6 +749,7 @@
 					<xs:documentation xml:lang="hu">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
 					<xs:documentation xml:lang="cs">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
+					<xs:documentation xml:lang="pl">EUROPEAN ESG TEMPLATE - EET V1.1.3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -722,6 +765,7 @@
 			<xs:documentation xml:lang="hu">Alapokkal kapcsolatos dokumentumok konténere (KID-ek, tájékoztatók, adatlapok, jelentések)</xs:documentation>
 			<xs:documentation xml:lang="cs">Kontejner pro více dokumentů souvisejících s fondem (KID, prospekty, informační listy, zprávy)</xs:documentation>
 			<xs:documentation xml:lang="da">Container til flere fondsrelaterede dokumenter (KID'er, prospekter, factsheets, rapporter)</xs:documentation>
+			<xs:documentation xml:lang="pl">Kontener dla wielu dokumentów związanych z funduszem (KID, prospekty, karty informacyjne, raporty)</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Document" type="DocumentType" maxOccurs="unbounded">
@@ -735,6 +779,7 @@
 					<xs:documentation xml:lang="hu">Egyedi dokumentum metaadatokkal és tartalommal</xs:documentation>
 					<xs:documentation xml:lang="cs">Jednotlivý dokument s metadaty a obsahem</xs:documentation>
 					<xs:documentation xml:lang="da">Individuelt dokument med metadata og indhold</xs:documentation>
+					<xs:documentation xml:lang="pl">Pojedynczy dokument z metadanymi i treścią</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -750,6 +795,7 @@
 			<xs:documentation xml:lang="hu">Szabályozási vagy marketing dokumentum (KID, tájékoztató, adatlap, éves jelentés) metaadatokkal és tartalommal</xs:documentation>
 			<xs:documentation xml:lang="cs">Regulatorní nebo marketingový dokument (KID, prospekt, informační list, výroční zpráva) s metadaty a obsahem</xs:documentation>
 			<xs:documentation xml:lang="da">Regulatorisk eller markedsføringsmæssigt dokument (KID, prospekt, factsheet, årsrapport) med metadata og indhold</xs:documentation>
+			<xs:documentation xml:lang="pl">Dokument regulacyjny lub marketingowy (KID, prospekt, factsheet, raport roczny) z metadanymi i treścią</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type">
@@ -763,6 +809,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum típusa</xs:documentation>
 					<xs:documentation xml:lang="cs">Typ dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Type af dokument</xs:documentation>
+					<xs:documentation xml:lang="pl">Typ dokumentu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
@@ -777,6 +824,7 @@
 								<xs:documentation xml:lang="hu">Felsorolások, pl. AIFMD-AnnexIV, Éves jelentés, Féléves jelentés, Könyvvizsgálói jelentés, Adatlap, Tájékoztató, PRIIPS-KID</xs:documentation>
 								<xs:documentation xml:lang="cs">Výčty např. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
 								<xs:documentation xml:lang="da">Opregninger, f.eks. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
+								<xs:documentation xml:lang="pl">Wyliczenia np. AIFMD-AnnexIV, AnnualReport, HalfYearReport, AuditReport, Factsheet, Prospectus, PRIIPS-KID</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -809,6 +857,7 @@
 								<xs:documentation xml:lang="hu">Egyéb dokumentumtípusok leírása</xs:documentation>
 								<xs:documentation xml:lang="cs">Popis ostatních typů dokumentů</xs:documentation>
 								<xs:documentation xml:lang="da">Beskrivelse af andre dokumenttyper</xs:documentation>
+								<xs:documentation xml:lang="pl">Opis innych typów dokumentów</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="Text128Type">
@@ -830,6 +879,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum verziója</xs:documentation>
 					<xs:documentation xml:lang="cs">Verze dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Version af dokument</xs:documentation>
+					<xs:documentation xml:lang="pl">Wersja dokumentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Language" type="xs:language">
@@ -843,6 +893,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum nyelve</xs:documentation>
 					<xs:documentation xml:lang="cs">Jazyk dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets sprog</xs:documentation>
+					<xs:documentation xml:lang="pl">Język dokumentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TranslationsAvailable" type="xs:boolean" minOccurs="0">
@@ -856,6 +907,7 @@
 					<xs:documentation xml:lang="hu">Jelzi, hogy a dokumentum elérhető-e más nyelvi változatokban</xs:documentation>
 					<xs:documentation xml:lang="cs">Označuje, zda je tento dokument dostupný v jiných jazykových verzích</xs:documentation>
 					<xs:documentation xml:lang="da">Angiver, om dette dokument er tilgængeligt i andre sprogversioner</xs:documentation>
+					<xs:documentation xml:lang="pl">Wskazuje, czy dokument jest dostępny w innych wersjach językowych</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PublicationCountries" minOccurs="0">
@@ -869,6 +921,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum publikálási országainak listája</xs:documentation>
 					<xs:documentation xml:lang="cs">Seznam zemí publikace dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over publikationslande for dokumentet</xs:documentation>
+					<xs:documentation xml:lang="pl">Lista krajów publikacji dokumentu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -883,6 +936,7 @@
 								<xs:documentation xml:lang="hu">Az ország kétbetűs ISO kódja</xs:documentation>
 								<xs:documentation xml:lang="cs">Dvoupísmenný ISO kód země</xs:documentation>
 								<xs:documentation xml:lang="da">Tobogstavs ISO-kode for landet</xs:documentation>
+								<xs:documentation xml:lang="pl">Dwuliterowy kod kraju ISO</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -899,6 +953,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum alapja</xs:documentation>
 					<xs:documentation xml:lang="cs">Fond dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets fond</xs:documentation>
+					<xs:documentation xml:lang="pl">Fundusz dokumentu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -913,6 +968,7 @@
 								<xs:documentation xml:lang="hu">Az alap azonosítói</xs:documentation>
 								<xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
 								<xs:documentation xml:lang="da">Fondens identifikatorer</xs:documentation>
+								<xs:documentation xml:lang="pl">Identyfikatory funduszu</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Name" type="Text256Type" minOccurs="0">
@@ -926,6 +982,7 @@
 								<xs:documentation xml:lang="hu">Az alap neve</xs:documentation>
 								<xs:documentation xml:lang="cs">Název fondu</xs:documentation>
 								<xs:documentation xml:lang="da">Navn på fonden</xs:documentation>
+								<xs:documentation xml:lang="pl">Nazwa funduszu</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -939,6 +996,7 @@
 								<xs:documentation xml:lang="hu">Az alap pénzneme</xs:documentation>
 								<xs:documentation xml:lang="cs">Měna fondu</xs:documentation>
 								<xs:documentation xml:lang="da">Fondens valuta</xs:documentation>
+								<xs:documentation xml:lang="pl">Waluta funduszu</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -955,6 +1013,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum részalapjai</xs:documentation>
 					<xs:documentation xml:lang="cs">Podfondy dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets delfonde</xs:documentation>
+					<xs:documentation xml:lang="pl">Subfundusze dokumentu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -969,6 +1028,7 @@
 								<xs:documentation xml:lang="hu">A dokumentumhoz társított részalap</xs:documentation>
 								<xs:documentation xml:lang="cs">Podfond přiřazený k dokumentu</xs:documentation>
 								<xs:documentation xml:lang="da">Delfond tilknyttet dokumentet</xs:documentation>
+								<xs:documentation xml:lang="pl">Subfundusz powiązany z dokumentem</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -983,6 +1043,7 @@
 											<xs:documentation xml:lang="hu">A részalap azonosítói</xs:documentation>
 											<xs:documentation xml:lang="cs">Identifikátory podfondu</xs:documentation>
 											<xs:documentation xml:lang="da">Delfondens identifikatorer</xs:documentation>
+											<xs:documentation xml:lang="pl">Identyfikatory subfunduszu</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Name" type="Text256Type" minOccurs="0">
@@ -996,6 +1057,7 @@
 											<xs:documentation xml:lang="hu">A részalap neve</xs:documentation>
 											<xs:documentation xml:lang="cs">Název podfondu</xs:documentation>
 											<xs:documentation xml:lang="da">Navn på delfonden</xs:documentation>
+											<xs:documentation xml:lang="pl">Nazwa subfunduszu</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -1009,6 +1071,7 @@
 											<xs:documentation xml:lang="hu">A részalap pénzneme</xs:documentation>
 											<xs:documentation xml:lang="cs">Měna podfondu</xs:documentation>
 											<xs:documentation xml:lang="da">Subfondens valuta</xs:documentation>
+											<xs:documentation xml:lang="pl">Waluta subfunduszu</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1028,6 +1091,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum befektetési jegy osztályai</xs:documentation>
 					<xs:documentation xml:lang="cs">Třídy akcií dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Share Classes for dokumentet</xs:documentation>
+					<xs:documentation xml:lang="pl">Share Classes dokumentu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1042,6 +1106,7 @@
 								<xs:documentation xml:lang="hu">A dokumentumhoz társított befektetési jegy osztály</xs:documentation>
 								<xs:documentation xml:lang="cs">Třída akcií přiřazená k dokumentu</xs:documentation>
 								<xs:documentation xml:lang="da">Share Class tilknyttet dokumentet</xs:documentation>
+								<xs:documentation xml:lang="pl">Share Class powiązana z dokumentem</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -1056,6 +1121,7 @@
 											<xs:documentation xml:lang="hu">A befektetési jegy osztály azonosítói</xs:documentation>
 											<xs:documentation xml:lang="cs">Identifikátory třídy akcií</xs:documentation>
 											<xs:documentation xml:lang="da">Share Class'ens identifikatorer</xs:documentation>
+											<xs:documentation xml:lang="pl">Identyfikatory Share Class</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Name" type="Text256Type" minOccurs="0">
@@ -1069,6 +1135,7 @@
 											<xs:documentation xml:lang="hu">A befektetési jegy osztály neve</xs:documentation>
 											<xs:documentation xml:lang="cs">Název třídy akcií</xs:documentation>
 											<xs:documentation xml:lang="da">Navn på share class'en</xs:documentation>
+											<xs:documentation xml:lang="pl">Nazwa Share Class</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -1082,6 +1149,7 @@
 											<xs:documentation xml:lang="hu">A befektetési jegy osztály pénzneme</xs:documentation>
 											<xs:documentation xml:lang="cs">Měna třídy akcií</xs:documentation>
 											<xs:documentation xml:lang="da">Share class' valuta</xs:documentation>
+											<xs:documentation xml:lang="pl">Waluta danej Share Class</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1101,6 +1169,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum neve</xs:documentation>
 					<xs:documentation xml:lang="cs">Název dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Navn på dokument</xs:documentation>
+					<xs:documentation xml:lang="pl">Nazwa dokumentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FileName" type="Text256Type" minOccurs="0">
@@ -1114,6 +1183,7 @@
 					<xs:documentation xml:lang="hu">A fájl neve (beleértve a fájl kiterjesztését)</xs:documentation>
 					<xs:documentation xml:lang="cs">Název souboru (včetně přípony)</xs:documentation>
 					<xs:documentation xml:lang="da">Navn på fil (inklusive filtypenavn)</xs:documentation>
+					<xs:documentation xml:lang="pl">Nazwa pliku (wraz z rozszerzeniem pliku)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ForPublicUsage" type="xs:boolean" minOccurs="0">
@@ -1127,6 +1197,7 @@
 					<xs:documentation xml:lang="hu">Jelzi, hogy a dokumentum nyilvánosságra hozható-e. Ha hamis, a dokumentum csak belső használatra korlátozódik (pl. belső jelentések)</xs:documentation>
 					<xs:documentation xml:lang="cs">Označuje, zda může být dokument zveřejněn. Pokud je false, dokument je omezen pouze na interní použití (např. interní zprávy)</xs:documentation>
 					<xs:documentation xml:lang="da">Angiver, om dokumentet kan offentliggøres. Når false, er dokumentet begrænset til intern brug (f.eks. interne rapporter)</xs:documentation>
+					<xs:documentation xml:lang="pl">Wskazuje, czy dokument może być opublikowany publicznie. Gdy false, dokument jest ograniczony wyłącznie do użytku wewnętrznego (np. raporty wewnętrzne)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Restrictions" type="xs:string" minOccurs="0">
@@ -1140,6 +1211,7 @@
 					<xs:documentation xml:lang="hu">A korlátozások leírása</xs:documentation>
 					<xs:documentation xml:lang="cs">Popis omezení</xs:documentation>
 					<xs:documentation xml:lang="da">Beskrivelse af restriktioner</xs:documentation>
+					<xs:documentation xml:lang="pl">Opis ograniczeń</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Format" type="Text256Type">
@@ -1153,6 +1225,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum technikai formátuma: PDF, XML, Excel, Word, Kép, ...</xs:documentation>
 					<xs:documentation xml:lang="cs">Technický formát dokumentu: PDF, XML, Excel, Word, Obrázek, ...</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets tekniske format: PDF, XML, Excel, Word, Image, ...</xs:documentation>
+					<xs:documentation xml:lang="pl">Format techniczny dokumentu: PDF, XML, Excel, Word, Image, ...</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Signature" minOccurs="0">
@@ -1166,6 +1239,7 @@
 					<xs:documentation xml:lang="hu">Meghatározza, hogy aláírás elérhető-e: Nem, Digitális, Szkennelt</xs:documentation>
 					<xs:documentation xml:lang="cs">Definuje, zda je podpis dostupný: Ne, Digitální, Sken</xs:documentation>
 					<xs:documentation xml:lang="da">Definerer om underskrift er tilgængelig: No, Digital, Scan</xs:documentation>
+					<xs:documentation xml:lang="pl">Definiuje, czy podpis jest dostępny: No, Digital, Scan</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1186,6 +1260,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum generálásának dátuma</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum vytvoření dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dato hvor dokumentet blev genereret</xs:documentation>
+					<xs:documentation xml:lang="pl">Data wygenerowania dokumentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ModificationDate" type="xs:date" minOccurs="0">
@@ -1199,6 +1274,7 @@
 					<xs:documentation xml:lang="hu">Az utolsó módosítás dátuma (pl. KID esetén)</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum poslední změny (např. pro KID)</xs:documentation>
 					<xs:documentation xml:lang="da">Dato for seneste ændring (f.eks. for KID)</xs:documentation>
+					<xs:documentation xml:lang="pl">Data ostatniej zmiany (np. dla KID)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ExpirationDate" type="xs:date" minOccurs="0">
@@ -1212,6 +1288,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum érvényessége ezen lejárati dátumig</xs:documentation>
 					<xs:documentation xml:lang="cs">Dokument je platný do tohoto data expirace</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentet er gyldigt indtil denne udløbsdato</xs:documentation>
+					<xs:documentation xml:lang="pl">Dokument jest ważny do tej daty wygaśnięcia</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
@@ -1225,6 +1302,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum adatszolgáltatója</xs:documentation>
 					<xs:documentation xml:lang="cs">Dodavatel dat dokumentu</xs:documentation>
 					<xs:documentation xml:lang="da">Dataleverandør af dokument</xs:documentation>
+					<xs:documentation xml:lang="pl">Dostawca danych dokumentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Attributes" type="AttributesType" minOccurs="0">
@@ -1238,6 +1316,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum attribútumai (a dokumentum típusától függően)</xs:documentation>
 					<xs:documentation xml:lang="cs">Atributy dokumentu (v závislosti na typu dokumentu)</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets attributter (afhængigt af dokumenttype)</xs:documentation>
+					<xs:documentation xml:lang="pl">Atrybuty dokumentu (w zależności od typu dokumentu)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SizeInBytes" type="xs:positiveInteger" minOccurs="0">
@@ -1251,6 +1330,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum mérete bájtokban (a bináris adatok pontos mérete, letöltés esetén becsült méret)</xs:documentation>
 					<xs:documentation xml:lang="cs">Velikost dokumentu v bajtech (přesná velikost binárních dat, odhadovaná velikost v případě stažení)</xs:documentation>
 					<xs:documentation xml:lang="da">Dokumentets størrelse i bytes (nøjagtig størrelse af binære data, anslået størrelse ved download)</xs:documentation>
+					<xs:documentation xml:lang="pl">Rozmiar dokumentu w bajtach (dokładny rozmiar danych binarnych, szacowany rozmiar w przypadku pobierania)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DocumentURL" type="xs:anyURI" minOccurs="0">
@@ -1264,6 +1344,7 @@
 					<xs:documentation xml:lang="hu">A dokumentum letöltési linkje</xs:documentation>
 					<xs:documentation xml:lang="cs">Odkaz na dokument ke stažení</xs:documentation>
 					<xs:documentation xml:lang="da">Link til dokument for download</xs:documentation>
+					<xs:documentation xml:lang="pl">Link do dokumentu do pobrania</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BinaryData" type="xs:base64Binary" minOccurs="0">
@@ -1277,6 +1358,7 @@
 					<xs:documentation xml:lang="hu">Dokumentum xml base64Binary formátumban</xs:documentation>
 					<xs:documentation xml:lang="cs">Dokument ve formátu xml base64Binary</xs:documentation>
 					<xs:documentation xml:lang="da">Dokument i xml base64Binary-format</xs:documentation>
+					<xs:documentation xml:lang="pl">Dokument w formacie xml base64Binary</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1292,6 +1374,7 @@
 			<xs:documentation xml:lang="hu">Komplett alap struktúra az azonosítókkal, statikus/dinamikus adatokkal, és vagy egyedi alap, vagy ernyőalap részalapokkal</xs:documentation>
 			<xs:documentation xml:lang="cs">Kompletní struktura fondu včetně identifikátorů, statických/dynamických dat a buď jednoho fondu, nebo zastřešujícího fondu s podfondy</xs:documentation>
 			<xs:documentation xml:lang="da">Komplet fondsstruktur inklusive identifikatorer, statiske/dynamiske data og enten enkeltfond eller paraply med underfonde</xs:documentation>
+			<xs:documentation xml:lang="pl">Kompletna struktura funduszu obejmująca identyfikatory, dane statyczne/dynamiczne oraz fundusz pojedynczy albo fundusz parasolowy z subfunduszami</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
@@ -1305,6 +1388,7 @@
 					<xs:documentation xml:lang="hu">Az alap azonosítói</xs:documentation>
 					<xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Fondens identifikatorer</xs:documentation>
+					<xs:documentation xml:lang="pl">Identyfikatory funduszu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Names" type="NamesType">
@@ -1318,6 +1402,7 @@
 					<xs:documentation xml:lang="hu">Az alap nevei</xs:documentation>
 					<xs:documentation xml:lang="cs">Názvy fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Navne på fonden</xs:documentation>
+					<xs:documentation xml:lang="pl">Nazwy funduszu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -1331,6 +1416,7 @@
 					<xs:documentation xml:lang="hu">Az alap fő pénzneme (jellemzően a letétkezelő használja a teljes NAV kiszámításához)</xs:documentation>
 					<xs:documentation xml:lang="cs">Hlavní měna fondu (typicky používaná depozitářem pro výpočet celkového NAV)</xs:documentation>
 					<xs:documentation xml:lang="da">Fondens hovedvaluta (anvendes typisk af depositaren til beregning af samlet NAV)</xs:documentation>
+					<xs:documentation xml:lang="pl">Główna waluta funduszu (zwykle używana przez depozytariusza do obliczania całkowitego NAV)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SingleFundFlag" type="xs:boolean">
@@ -1344,6 +1430,7 @@
 					<xs:documentation xml:lang="hu">Meghatározza, hogy ez egy egyedi alap vagy egy ernyőszerű struktúra részalapokkal</xs:documentation>
 					<xs:documentation xml:lang="cs">Definuje, zda se jedná o jednotlivý fond nebo zastřešující strukturu s podfondy</xs:documentation>
 					<xs:documentation xml:lang="da">Definerer om dette er en single fund eller en umbrella-lignende struktur med underfonde</xs:documentation>
+					<xs:documentation xml:lang="pl">Definiuje, czy jest to pojedynczy fundusz, czy struktura typu parasolowego (umbrella) z subfunduszami</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DataSupplier" type="DataSupplierType" minOccurs="0">
@@ -1357,6 +1444,7 @@
 					<xs:documentation xml:lang="hu">Az adatforrás definíciója (befektetési társaság, szolgáltató, ...)</xs:documentation>
 					<xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel, ...)</xs:documentation>
 					<xs:documentation xml:lang="da">Definition af datakilde (investeringsselskab, vendor, ...)</xs:documentation>
+					<xs:documentation xml:lang="pl">Definicja źródła danych (towarzystwo inwestycyjne, dostawca, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FundStaticData" type="FundStaticDataType" minOccurs="0">
@@ -1370,6 +1458,7 @@
 					<xs:documentation xml:lang="hu">Az alap fő statikus adatai (pénzügyi év, letétkezelés, ...)</xs:documentation>
 					<xs:documentation xml:lang="cs">Hlavní statická data fondu (fiskální rok, úschova, ...)</xs:documentation>
 					<xs:documentation xml:lang="da">Vigtigste statiske data om fonden (regnskabsår, depot, ...)</xs:documentation>
+					<xs:documentation xml:lang="pl">Główne dane statyczne funduszu (rok obrotowy, depozyt, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FundDynamicData" type="FundDynamicDataType" minOccurs="0">
@@ -1383,6 +1472,7 @@
 					<xs:documentation xml:lang="hu">Az alap dinamikus adatai (teljes értékek, pozíciók, tranzakciók, bontások, ...)</xs:documentation>
 					<xs:documentation xml:lang="cs">Dynamická data fondu (celkové hodnoty, pozice, transakce, struktury, ...)</xs:documentation>
 					<xs:documentation xml:lang="da">Dynamiske data for fonden (samlede værdier, beholdninger, transaktioner, opdelinger, ...)</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane dynamiczne funduszu (wartości całkowite, udziały, transakcje, podziały, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -1397,6 +1487,7 @@
 						<xs:documentation xml:lang="hu">Ezt a csomópontot nem ernyőalapú struktúrákhoz használja</xs:documentation>
 						<xs:documentation xml:lang="cs">Tento uzel použijte pro struktury bez zastřešujícího fondu</xs:documentation>
 						<xs:documentation xml:lang="da">Anvend denne node til ikke-umbrella fund-strukturer</xs:documentation>
+						<xs:documentation xml:lang="pl">Użyj tego węzła dla struktur funduszy nieparasolowych (non-umbrella)</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Subfunds">
@@ -1410,6 +1501,7 @@
 						<xs:documentation xml:lang="hu">Ezt a csomópontot ernyőalapú struktúrákhoz használja</xs:documentation>
 						<xs:documentation xml:lang="cs">Tento uzel použijte pro struktury zastřešujícího fondu</xs:documentation>
 						<xs:documentation xml:lang="da">Anvend denne node til umbrella fund-strukturer</xs:documentation>
+						<xs:documentation xml:lang="pl">Użyj tego węzła dla struktur funduszy parasolowych (umbrella)</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -1424,6 +1516,7 @@
 									<xs:documentation xml:lang="hu">Egy részalap statikus és dinamikus adatai</xs:documentation>
 									<xs:documentation xml:lang="cs">Statická a dynamická data podfondu</xs:documentation>
 									<xs:documentation xml:lang="da">Statiske og dynamiske data for en delfond</xs:documentation>
+									<xs:documentation xml:lang="pl">Dane statyczne i dynamiczne subfunduszu</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1441,6 +1534,7 @@
 					<xs:documentation xml:lang="hu">Az alap országspecifikus adatai (a 'FundsXML4_CountrySpecificData_xx.xsd' fájlban meghatározottak szerint)</xs:documentation>
 					<xs:documentation xml:lang="cs">Specifická data fondu podle země (jak je definováno v 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 					<xs:documentation xml:lang="da">Landespecifikke data for fonden (som defineret i 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane funduszu specyficzne dla kraju (zgodnie z definicją w 'FundsXML4_CountrySpecificData_xx.xsd')</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1456,6 +1550,7 @@
 			<xs:documentation xml:lang="hu">Szabályozási közzétételi adatok a végbefektetők számára: Solvency II TPT az intézményi befektetők és PRIIPs a lakossági befektetők számára</xs:documentation>
 			<xs:documentation xml:lang="cs">Regulatorní data pro zveřejnění koncovým investorům: Solvency II TPT pro institucionální investory a PRIIPs pro retailové investory</xs:documentation>
 			<xs:documentation xml:lang="da">Regulatoriske oplysningsdata til slutinvestorer: Solvency II TPT for institutionelle investorer og PRIIPs for retailinvestorer</xs:documentation>
+			<xs:documentation xml:lang="pl">Regulacyjne dane do ujawnienia dla inwestorów końcowych: Solvency II TPT dla inwestorów instytucjonalnych oraz PRIIPs dla inwestorów detalicznych</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TripartiteTemplateSolvencyII" type="TripartiteTemplateSolvencyIIType" minOccurs="0">
@@ -1470,6 +1565,7 @@
 					<xs:documentation xml:lang="hu">Speciálisan gazdagított leltár a Solvency II számára. Ez az XML implementáció kompatibilis a „Tripartite Template"-tel. A „TPT V4" formátum 4. verziójára (2018. 4. 3.) hivatkozik.</xs:documentation>
 					<xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Odkazuje na verzi 4 ze dne 3. 4. 2018 tohoto formátu „TPT V4".</xs:documentation>
 					<xs:documentation xml:lang="da">Særligt beriget inventar for Solvency II. Denne XML-implementering er kompatibel med "Tripartite Template". Den henviser til version 4 dateret 3/4/2018 af dette "TPT V4"-format.</xs:documentation>
+					<xs:documentation xml:lang="pl">Specjalny wzbogacony rejestr dla Solvency II. Ta implementacja XML jest zgodna z "Tripartite Template". Odnosi się do wersji 4 z dnia 3/4/2018 tego formatu "TPT V4".</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V5" type="TripartiteTemplateSolvencyIIType_V5" minOccurs="0">
@@ -1483,6 +1579,7 @@
 					<xs:documentation xml:lang="hu">Speciálisan gazdagított leltár a Solvency II számára. Ez az XML implementáció kompatibilis a „Tripartite Template"-tel. A FinDatEx 5.0 verziójú Tripartite Template (TPT) szerint SII eszközadat-jelentéshez (2020-01-16)</xs:documentation>
 					<xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 5.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2020-01-16</xs:documentation>
 					<xs:documentation xml:lang="da">Særligt beriget inventar for Solvency II. Denne XML-implementering er kompatibel med "Tripartite Template". I henhold til FinDatEx Version 5.0 Tripartite Template (TPT) for SII Asset Data-rapportering pr. 2020-01-16</xs:documentation>
+					<xs:documentation xml:lang="pl">Specjalny wzbogacony rejestr dla Solvency II. Ta implementacja XML jest zgodna z "Tripartite Template". Zgodnie z FinDatEx Wersja 5.0 Tripartite Template (TPT) dla raportowania danych o aktywach SII na dzień 2020-01-16</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V6" type="TripartiteTemplateSolvencyIIType_V6" minOccurs="0">
@@ -1497,6 +1594,7 @@
 					<xs:documentation xml:lang="hu">Speciálisan gazdagított leltár a Solvency II számára. Ez az XML implementáció kompatibilis a „Tripartite Template"-tel. A FinDatEx 6.0 verziójú Tripartite Template (TPT) szerint SII eszközadat-jelentéshez (2022-03-14)</xs:documentation>
 					<xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 6.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2022-03-14</xs:documentation>
 					<xs:documentation xml:lang="da">Særligt beriget inventar for Solvency II. Denne XML-implementering er kompatibel med "Tripartite Template". I henhold til FinDatEx Version 6.0 Tripartite Template (TPT) for SII Asset Data-rapportering pr. 2022-03-14</xs:documentation>
+					<xs:documentation xml:lang="pl">Specjalny wzbogacony rejestr dla Solvency II. Ta implementacja XML jest zgodna z "Tripartite Template". Zgodnie z FinDatEx Wersja 6.0 Tripartite Template (TPT) dla raportowania danych o aktywach SII na dzień 2022-03-14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TripartiteTemplateSolvencyII_V7" type="TripartiteTemplateSolvencyIIType_V7" minOccurs="0">
@@ -1510,6 +1608,7 @@
 					<xs:documentation xml:lang="hu">Speciálisan gazdagított leltár a Solvency II számára. Ez az XML implementáció kompatibilis a „Tripartite Template"-tel. A FinDatEx 7.0 verziójú Tripartite Template (TPT) szerint SII eszközadat-jelentéshez (2024-11-25)</xs:documentation>
 					<xs:documentation xml:lang="cs">Speciálně obohacený inventář pro Solvency II. Tato XML implementace je kompatibilní s „Tripartite Template". Podle FinDatEx verze 7.0 Tripartite Template (TPT) pro vykazování SII Asset Data ze dne 2024-11-25</xs:documentation>
 					<xs:documentation xml:lang="da">Særligt beriget inventar for Solvency II. Denne XML-implementering er kompatibel med "Tripartite Template". I henhold til FinDatEx Version 7.0 Tripartite Template (TPT) for SII Asset Data-rapportering pr. 2024-11-25</xs:documentation>
+					<xs:documentation xml:lang="pl">Specjalny wzbogacony rejestr dla Solvency II. Ta implementacja XML jest zgodna z "Tripartite Template". Zgodnie z FinDatEx Wersja 7.0 Tripartite Template (TPT) dla raportowania danych o aktywach SII na dzień 2024-11-25</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRIIPS" type="PRIIPSType" minOccurs="0">
@@ -1524,6 +1623,7 @@
 					<xs:documentation xml:lang="hu">EPT 20170728 TERVEZET SABLON 1.1 CEPT - 20170621 SABLON 1.0</xs:documentation>
 					<xs:documentation xml:lang="cs">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
 					<xs:documentation xml:lang="da">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
+					<xs:documentation xml:lang="pl">EPT 20170728 DRAFT TEMPLATE 1.1 CEPT - 20170621 TEMPLATE 1.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PRIIPS_V20" type="PRIIPSType_V20" minOccurs="0">
@@ -1537,6 +1637,7 @@
 					<xs:documentation xml:lang="hu">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 és EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
 					<xs:documentation xml:lang="cs">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 a EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
 					<xs:documentation xml:lang="da">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 og EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
+					<xs:documentation xml:lang="pl">EUROPEAN PRIIPs TEMPLATE - EPT V2.0 oraz EUROPEAN COMFORT PRIIPs TEMPLATE - CEPT V2.0</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1552,6 +1653,7 @@
 			<xs:documentation xml:lang="hu">Az összes szabályozási jelentési adat tárolója, beleértve a közvetlen jelentéseket (EMT, EET, EFT) és a közvetett jelentéseket (Solvency II TPT, PRIIPs)</xs:documentation>
 			<xs:documentation xml:lang="cs">Kontejner pro všechna regulatorní vykazovací data včetně přímého vykazování (EMT, EET, EFT) a nepřímého vykazování (Solvency II TPT, PRIIPs)</xs:documentation>
 			<xs:documentation xml:lang="da">Container til alle regulatoriske rapporteringsdata inklusive direkte rapportering (EMT, EET, EFT) og indirekte rapportering (Solvency II TPT, PRIIPs)</xs:documentation>
+			<xs:documentation xml:lang="pl">Kontener dla wszystkich danych raportowania regulacyjnego, w tym raportowania bezpośredniego (EMT, EET, EFT) oraz raportowania pośredniego (Solvency II TPT, PRIIPs)</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="DirectReporting" type="DirectReportingType" minOccurs="0">
@@ -1565,6 +1667,7 @@
 					<xs:documentation xml:lang="hu">Szabályozási adatok, amelyeket az alapgyártók és a forgalmazók/platformok cserélnek a professzionális forgalmazási láncon belül (pl. MiFID termékfelügyeleti adatok)</xs:documentation>
 					<xs:documentation xml:lang="cs">Regulatorní data vyměňovaná mezi výrobci fondů a distributory/platformami v rámci profesionálního distribučního řetězce (např. data MiFID product governance)</xs:documentation>
 					<xs:documentation xml:lang="da">Regulatoriske data, der udveksles mellem fondsproducenter og distributører/platforme inden for den professionelle distributionskæde (f.eks. MiFID product governance-data)</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane regulacyjne wymieniane między producentami funduszy a dystrybutorami/platformami w ramach profesjonalnego łańcucha dystrybucji (np. dane dotyczące zarządzania produktem zgodnie z MiFID)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IndirectReporting" type="IndirectReportingType" minOccurs="0">
@@ -1578,6 +1681,7 @@
 					<xs:documentation xml:lang="hu">Szabályozási közzétételi adatok a végbefektetők számára, mind lakossági (PRIIPs KID), mind intézményi (Solvency jelentési adatok)</xs:documentation>
 					<xs:documentation xml:lang="cs">Regulatorní data pro zveřejnění poskytovaná koncovým investorům, jak retailovým (PRIIPs KID), tak institucionálním (data Solvency reporting)</xs:documentation>
 					<xs:documentation xml:lang="da">Regulatoriske oplysningsdata, der stilles til rådighed for slutinvestorer, både retail (PRIIPs KID) og institutionelle (Solvency-rapporteringsdata)</xs:documentation>
+					<xs:documentation xml:lang="pl">Regulacyjne dane do ujawnienia przekazywane inwestorom końcowym, zarówno detalicznym (PRIIPs KID), jak i instytucjonalnym (dane sprawozdawcze Solvency)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1593,6 +1697,7 @@
 			<xs:documentation xml:lang="hu">Egy alap szegmens dinamikus adatai, beleértve a teljes eszközértékeket és a portfólió állományokat</xs:documentation>
 			<xs:documentation xml:lang="cs">Dynamická data segmentu fondu včetně celkových hodnot aktiv a portfoliových pozic</xs:documentation>
 			<xs:documentation xml:lang="da">Dynamiske data for et fondssegment inklusive samlede aktivværdier og porteføljebeholdninger</xs:documentation>
+			<xs:documentation xml:lang="pl">Dane dynamiczne segmentu funduszu, w tym całkowite wartości aktywów oraz pozycje portfela</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TotalAssetValues" minOccurs="0">
@@ -1606,6 +1711,7 @@
 					<xs:documentation xml:lang="hu">Az alap teljes NAV-ja (volumene)</xs:documentation>
 					<xs:documentation xml:lang="cs">Celkový NAV (objem) fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Samlet NAV (volumen) for fonden</xs:documentation>
+					<xs:documentation xml:lang="pl">Łączny NAV (wolumen) funduszu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1620,6 +1726,7 @@
 								<xs:documentation xml:lang="hu">Teljes eszközérték bejegyzés egy adott dátumra</xs:documentation>
 								<xs:documentation xml:lang="cs">Záznam celkové hodnoty aktiv pro konkrétní datum</xs:documentation>
 								<xs:documentation xml:lang="da">Post for samlet aktivværdi for en bestemt dato</xs:documentation>
+								<xs:documentation xml:lang="pl">Wpis łącznej wartości aktywów dla określonej daty</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1636,6 +1743,7 @@
 					<xs:documentation xml:lang="hu">Minden portfólióval kapcsolatos adat</xs:documentation>
 					<xs:documentation xml:lang="cs">Všechna data související s portfoliem</xs:documentation>
 					<xs:documentation xml:lang="da">Alle porteføljerelaterede data</xs:documentation>
+					<xs:documentation xml:lang="pl">Wszystkie dane dotyczące portfela</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1650,6 +1758,7 @@
 								<xs:documentation xml:lang="hu">A szegmens portfólió adatai</xs:documentation>
 								<xs:documentation xml:lang="cs">Data portfolia segmentu</xs:documentation>
 								<xs:documentation xml:lang="da">Porteføljedata for segmentet</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane portfela segmentu</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1668,6 +1777,7 @@
 			<xs:documentation xml:lang="hu">A szegmensek összes statikus adata, beleértve az indulási dátumot, a felszámolási dátumot, a kezelőt és a leírást</xs:documentation>
 			<xs:documentation xml:lang="cs">Všechna statická data pro segmenty včetně data založení, data likvidace, správce a popisu</xs:documentation>
 			<xs:documentation xml:lang="da">Alle stamdata for Segments, herunder oprettelsesdato, likvidationsdato, forvalter og beskrivelse</xs:documentation>
+			<xs:documentation xml:lang="pl">Wszystkie dane statyczne dla segmentów, w tym data utworzenia, data likwidacji, zarządzający i opis</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="InceptionDate" type="xs:date" minOccurs="0">
@@ -1681,6 +1791,7 @@
 					<xs:documentation xml:lang="hu">A szegmens indulási dátuma</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum založení segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Segmentets oprettelsesdato</xs:documentation>
+					<xs:documentation xml:lang="pl">Data utworzenia segmentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="LiquidationDate" type="xs:date" minOccurs="0">
@@ -1694,6 +1805,7 @@
 					<xs:documentation xml:lang="hu">A szegmens felszámolási dátuma</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum likvidace segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Likvidationsdato for segmentet</xs:documentation>
+					<xs:documentation xml:lang="pl">Data likwidacji segmentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Manager" type="CompanyType" minOccurs="0">
@@ -1707,6 +1819,7 @@
 					<xs:documentation xml:lang="hu">A szegmens kezelője</xs:documentation>
 					<xs:documentation xml:lang="cs">Správce segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Forvalter af segmentet</xs:documentation>
+					<xs:documentation xml:lang="pl">Zarządzający segmentem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" minOccurs="0" maxOccurs="unbounded">
@@ -1720,6 +1833,7 @@
 					<xs:documentation xml:lang="hu">A szegmens leírása a megadott nyelven</xs:documentation>
 					<xs:documentation xml:lang="cs">Popis segmentu v zadaném jazyce</xs:documentation>
 					<xs:documentation xml:lang="da">Beskrivelse af segment på det angivne sprog</xs:documentation>
+					<xs:documentation xml:lang="pl">Opis segmentu w określonym języku</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -1735,6 +1849,7 @@
 									<xs:documentation xml:lang="hu">A leírás nyelve (ISO 639-1)</xs:documentation>
 									<xs:documentation xml:lang="cs">Jazyk popisu (ISO 639-1)</xs:documentation>
 									<xs:documentation xml:lang="da">Sprog for beskrivelsen (ISO 639-1)</xs:documentation>
+									<xs:documentation xml:lang="pl">Język opisu (ISO 639-1)</xs:documentation>
 								</xs:annotation>
 							</xs:attribute>
 						</xs:extension>
@@ -1752,6 +1867,7 @@
 					<xs:documentation xml:lang="hu">Egyéni attribútumok a szegmens további adataihoz</xs:documentation>
 					<xs:documentation xml:lang="cs">Vlastní atributy pro další data segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Brugerdefinerede attributter for yderligere segmentdata</xs:documentation>
+					<xs:documentation xml:lang="pl">Atrybuty niestandardowe dla dodatkowych danych segmentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1767,6 +1883,7 @@
 			<xs:documentation xml:lang="hu">Alap szegmens (alportfólió vagy zseb), amelyet jellemzően egy adott alapkezelő kezel egy multi-manager struktúrán belül</xs:documentation>
 			<xs:documentation xml:lang="cs">Segment fondu (sub-portfolio nebo pocket), typicky spravovaný konkrétním správcem fondu v rámci multi-manažerské struktury</xs:documentation>
 			<xs:documentation xml:lang="da">Fondssegment (delportefølje eller pocket), der typisk forvaltes af en bestemt fondsforvalter inden for en multi-manager-struktur</xs:documentation>
+			<xs:documentation xml:lang="pl">Segment funduszu (subportfel lub pocket) zazwyczaj zarządzany przez określonego zarządzającego funduszem w ramach struktury multi-manager</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
@@ -1780,6 +1897,7 @@
 					<xs:documentation xml:lang="hu">Alap azonosítók</xs:documentation>
 					<xs:documentation xml:lang="cs">Identifikátory fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Fondsidentifikatorer</xs:documentation>
+					<xs:documentation xml:lang="pl">Identyfikatory funduszu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="Text500Type">
@@ -1793,6 +1911,7 @@
 					<xs:documentation xml:lang="hu">A szegmens neve</xs:documentation>
 					<xs:documentation xml:lang="cs">Název segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Navn på segment</xs:documentation>
+					<xs:documentation xml:lang="pl">Nazwa segmentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -1806,6 +1925,7 @@
 					<xs:documentation xml:lang="hu">A szegmens devizaneme</xs:documentation>
 					<xs:documentation xml:lang="cs">Měna segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Segmentets valuta</xs:documentation>
+					<xs:documentation xml:lang="pl">Waluta segmentu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SegmentStaticData" type="SegmentStaticDataType" minOccurs="0">
@@ -1819,6 +1939,7 @@
 					<xs:documentation xml:lang="hu">Indulás, kezelő, leírás, ...</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum založení, správce, popis, ...</xs:documentation>
 					<xs:documentation xml:lang="da">Oprettelse, forvalter, beskrivelse, ...</xs:documentation>
+					<xs:documentation xml:lang="pl">Utworzenie, zarządzający, opis, ...</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SegmentDynamicData" type="SegmentDynamicDataType" minOccurs="0">
@@ -1832,6 +1953,7 @@
 					<xs:documentation xml:lang="hu">Teljes eszközértékek, portfólióadatok</xs:documentation>
 					<xs:documentation xml:lang="cs">Celkové hodnoty aktiv, data portfolia</xs:documentation>
 					<xs:documentation xml:lang="da">Samlede aktivværdier, porteføljedata</xs:documentation>
+					<xs:documentation xml:lang="pl">Łączne wartości aktywów, dane portfela</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
@@ -1845,6 +1967,7 @@
 					<xs:documentation xml:lang="hu">A szegmens Share Class-ainak listája</xs:documentation>
 					<xs:documentation xml:lang="cs">Seznam tříd akcií segmentu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over share classes for segmentet</xs:documentation>
+					<xs:documentation xml:lang="pl">Lista Share Classes segmentu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1859,6 +1982,7 @@
 								<xs:documentation xml:lang="hu">Egy részvényosztály statikus és dinamikus adatai</xs:documentation>
 								<xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
 								<xs:documentation xml:lang="da">Statiske og dynamiske data for en Share Class</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane statyczne i dynamiczne Share Class</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1875,6 +1999,7 @@
 					<xs:documentation xml:lang="hu">Az alapok alszegmenseire / alpoolokra vonatkozó adatok (jellemzően különböző alapkezelők által kezeltek)</xs:documentation>
 					<xs:documentation xml:lang="cs">Data související se subsegmenty / podkapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
 					<xs:documentation xml:lang="da">Data vedrørende subsegmenter/subpockets af fonde (typisk forvaltet af forskellige fondsforvaltere)</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane dotyczące subsegmentów / subpocketów funduszy (zwykle zarządzanych przez różnych zarządzających funduszami)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1889,6 +2014,7 @@
 								<xs:documentation xml:lang="hu">Al-szegmens az aktuális szegmensen belül</xs:documentation>
 								<xs:documentation xml:lang="cs">Podsegment v rámci aktuálního segmentu</xs:documentation>
 								<xs:documentation xml:lang="da">Undersegment inden for det aktuelle segment</xs:documentation>
+								<xs:documentation xml:lang="pl">Podsegment w ramach bieżącego segmentu</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1907,6 +2033,7 @@
 			<xs:documentation xml:lang="hu">Egyedi alap (nem ernyőalapú) struktúra statikus adatokkal, befektetési jegy osztályokkal és opcionális szegmensekkel</xs:documentation>
 			<xs:documentation xml:lang="cs">Struktura jednotlivého fondu (bez zastřešení) obsahující statická data, třídy akcií a volitelné segmenty</xs:documentation>
 			<xs:documentation xml:lang="da">Enkeltfondsstruktur (ikke-paraply) med statiske data, Share Classes og valgfrie segmenter</xs:documentation>
+			<xs:documentation xml:lang="pl">Struktura pojedynczego funduszu (nieparasolowego) zawierająca dane statyczne, Share Classes oraz opcjonalne segmenty</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SingleFundStaticData" type="SingleFundStaticDataType" minOccurs="0">
@@ -1920,6 +2047,7 @@
 					<xs:documentation xml:lang="hu">Az egyedi alap statikus adatai (hasonló a részalap statikus adataihoz)</xs:documentation>
 					<xs:documentation xml:lang="cs">Statická data jednotlivého fondu (podobná statickým datům podfondu)</xs:documentation>
 					<xs:documentation xml:lang="da">Statiske data for enkeltfond (svarende til statiske data for delfond)</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane statyczne pojedynczego funduszu (podobne do danych statycznych subfunduszu)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
@@ -1933,6 +2061,7 @@
 					<xs:documentation xml:lang="hu">Az egyedi alap befektetési jegy osztályainak listája</xs:documentation>
 					<xs:documentation xml:lang="cs">Seznam tříd akcií jednotlivého fondu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over share classes for single fund</xs:documentation>
+					<xs:documentation xml:lang="pl">Lista Share Classes single fund</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1947,6 +2076,7 @@
 								<xs:documentation xml:lang="hu">Egy részvényosztály statikus és dinamikus adatai</xs:documentation>
 								<xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
 								<xs:documentation xml:lang="da">Statiske og dynamiske data for en Share Class</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane statyczne i dynamiczne Share Class</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1963,6 +2093,7 @@
 					<xs:documentation xml:lang="hu">Az alapok szegmenseire/zsebjeire vonatkozó adatok (jellemzően különböző alapkezelők kezelik)</xs:documentation>
 					<xs:documentation xml:lang="cs">Data související se segmenty/kapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
 					<xs:documentation xml:lang="da">Data vedrørende segmenter/pockets af fonde (typisk forvaltet af forskellige fondsforvaltere)</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane dotyczące segmentów/pocketów funduszy (zwykle zarządzanych przez różnych zarządzających funduszami)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -1977,6 +2108,7 @@
 								<xs:documentation xml:lang="hu">Szegmens az egyes alapon belül</xs:documentation>
 								<xs:documentation xml:lang="cs">Segment v rámci jednotlivého fondu</xs:documentation>
 								<xs:documentation xml:lang="da">Segment inden for den enkelte fond</xs:documentation>
+								<xs:documentation xml:lang="pl">Segment w ramach pojedynczego funduszu</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1995,6 +2127,7 @@
 			<xs:documentation xml:lang="hu">Részalap egy ernyőalapú struktúrán belül saját azonosítókkal, statikus/dinamikus adatokkal és befektetési jegy osztályokkal</xs:documentation>
 			<xs:documentation xml:lang="cs">Podfond v rámci zastřešující fondové struktury s vlastními identifikátory, statickými/dynamickými daty a třídami akcií</xs:documentation>
 			<xs:documentation xml:lang="da">Delfond inden for en paraplyfondsstruktur med egne identifikatorer, statiske/dynamiske data og Share Classes</xs:documentation>
+			<xs:documentation xml:lang="pl">Subfundusz w ramach struktury funduszu parasolowego z własnymi identyfikatorami, danymi statycznymi/dynamicznymi oraz Share Classes</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
@@ -2008,6 +2141,7 @@
 					<xs:documentation xml:lang="hu">A részalap azonosítói</xs:documentation>
 					<xs:documentation xml:lang="cs">Identifikátory podfondu</xs:documentation>
 					<xs:documentation xml:lang="da">Delfondens identifikatorer</xs:documentation>
+					<xs:documentation xml:lang="pl">Identyfikatory subfunduszu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Names" type="NamesType">
@@ -2021,6 +2155,7 @@
 					<xs:documentation xml:lang="hu">A részalap nevei</xs:documentation>
 					<xs:documentation xml:lang="cs">Názvy podfondu</xs:documentation>
 					<xs:documentation xml:lang="da">Navne på delfonden</xs:documentation>
+					<xs:documentation xml:lang="pl">Nazwy subfunduszu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType">
@@ -2034,6 +2169,7 @@
 					<xs:documentation xml:lang="hu">A részalap pénzneme</xs:documentation>
 					<xs:documentation xml:lang="cs">Měna podfondu</xs:documentation>
 					<xs:documentation xml:lang="da">Subfondens valuta</xs:documentation>
+					<xs:documentation xml:lang="pl">Waluta subfunduszu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubfundStaticData" type="SubfundStaticDataType" minOccurs="0">
@@ -2047,6 +2183,7 @@
 					<xs:documentation xml:lang="hu">A részalap statikus adatai (hasonló az egyedi alap statikus adataihoz)</xs:documentation>
 					<xs:documentation xml:lang="cs">Statická data podfondu (podobná statickým datům jednotlivého fondu)</xs:documentation>
 					<xs:documentation xml:lang="da">Statiske data for delfond (svarende til statiske data for enkeltfond)</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane statyczne subfunduszu (podobne do danych statycznych pojedynczego funduszu)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubfundDynamicData" type="FundDynamicDataType" minOccurs="0">
@@ -2060,6 +2197,7 @@
 					<xs:documentation xml:lang="hu">Teljes eszközértékek, portfólióadatok</xs:documentation>
 					<xs:documentation xml:lang="cs">Celkové hodnoty aktiv, data portfolia</xs:documentation>
 					<xs:documentation xml:lang="da">Samlede aktivværdier, porteføljedata</xs:documentation>
+					<xs:documentation xml:lang="pl">Łączne wartości aktywów, dane portfela</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ShareClasses" minOccurs="0">
@@ -2073,6 +2211,7 @@
 					<xs:documentation xml:lang="hu">A részalap befektetési jegy osztályainak listája</xs:documentation>
 					<xs:documentation xml:lang="cs">Seznam tříd akcií podfondu</xs:documentation>
 					<xs:documentation xml:lang="da">Liste over share classes for subfund</xs:documentation>
+					<xs:documentation xml:lang="pl">Lista Share Classes subfunduszu</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2087,6 +2226,7 @@
 								<xs:documentation xml:lang="hu">Egy részvényosztály statikus és dinamikus adatai</xs:documentation>
 								<xs:documentation xml:lang="cs">Statická a dynamická data třídy akcií</xs:documentation>
 								<xs:documentation xml:lang="da">Statiske og dynamiske data for en Share Class</xs:documentation>
+								<xs:documentation xml:lang="pl">Dane statyczne i dynamiczne Share Class</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2103,6 +2243,7 @@
 					<xs:documentation xml:lang="hu">Az alapok szegmenseire/zsebjeire vonatkozó adatok (jellemzően különböző alapkezelők kezelik)</xs:documentation>
 					<xs:documentation xml:lang="cs">Data související se segmenty/kapsy fondů (typicky spravovaná různými správci fondů)</xs:documentation>
 					<xs:documentation xml:lang="da">Data vedrørende segmenter/pockets af fonde (typisk forvaltet af forskellige fondsforvaltere)</xs:documentation>
+					<xs:documentation xml:lang="pl">Dane dotyczące segmentów/pocketów funduszy (zwykle zarządzanych przez różnych zarządzających funduszami)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2117,6 +2258,7 @@
 								<xs:documentation xml:lang="hu">Szegmens a részalapon belül</xs:documentation>
 								<xs:documentation xml:lang="cs">Segment v rámci podfondu</xs:documentation>
 								<xs:documentation xml:lang="da">Segment inden for underfonden</xs:documentation>
+								<xs:documentation xml:lang="pl">Segment w ramach subfunduszu</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>

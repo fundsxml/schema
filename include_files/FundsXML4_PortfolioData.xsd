@@ -314,7 +314,7 @@
 					<xs:documentation xml:lang="es">Posiciones descompuestas (los holdings de clases de acciones se reemplazan por las posiciones proporcionales del subfondo)</xs:documentation>
 					<xs:documentation xml:lang="it">Posizioni scomposte (le partecipazioni nelle classi di azioni vengono sostituite dalle posizioni ridotte del comparto)</xs:documentation>
 					<xs:documentation xml:lang="cs">Dekomponované pozice (držby share classes jsou nahrazeny poměrově přepočtenými pozicemi podfondu)</xs:documentation>
-					<xs:documentation xml:lang="hu">Decomposed positions (holdings of share classes are replaced by the scaled down positions of the subfund)</xs:documentation>
+					<xs:documentation xml:lang="hu">Lebontott pozíciók (a Share Class-ok állományait az alszámla (subfund) arányosan leskálázott pozíciói helyettesítik)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="BreakDowns" type="BreakDownsType" minOccurs="0">
@@ -326,7 +326,7 @@
 					<xs:documentation xml:lang="es">Todos los tipos de datos de desglose (incluyendo exposición a divisas)</xs:documentation>
 					<xs:documentation xml:lang="it">Tutti i tipi di dati di dettaglio (compresa l'esposizione valutaria)</xs:documentation>
 					<xs:documentation xml:lang="cs">Všechny druhy členění dat (včetně měnové expozice)</xs:documentation>
-					<xs:documentation xml:lang="hu">All kind of break down data (including currency exposure)</xs:documentation>
+					<xs:documentation xml:lang="hu">Mindenféle bontási adat (beleértve a devizakitettséget is)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RiskCodes" minOccurs="0">
@@ -338,7 +338,7 @@
 					<xs:documentation xml:lang="es">Lista de códigos de riesgo (indicadores de riesgo, cifras clave de riesgo)</xs:documentation>
 					<xs:documentation xml:lang="it">Elenco dei codici di rischio (indicatori di rischio, cifre chiave di rischio)</xs:documentation>
 					<xs:documentation xml:lang="cs">Seznam risk codes (risk indicators, key risk figures)</xs:documentation>
-					<xs:documentation xml:lang="hu">List of risk codes (risk indicators, key risk figures)</xs:documentation>
+					<xs:documentation xml:lang="hu">Kockázati kódok listája (kockázati indikátorok, fő kockázati mutatószámok)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -351,7 +351,7 @@
 								<xs:documentation xml:lang="es">Valor del código de riesgo</xs:documentation>
 								<xs:documentation xml:lang="it">Valore del codice di rischio</xs:documentation>
 								<xs:documentation xml:lang="cs">Hodnota rizikového kódu</xs:documentation>
-								<xs:documentation xml:lang="hu">Risk code value</xs:documentation>
+								<xs:documentation xml:lang="hu">Kockázati kód értéke</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -368,7 +368,7 @@
 			<xs:documentation xml:lang="es">Posiciones descompuestas look-through donde los holdings de fund-of-fund se reemplazan por las posiciones del subfondo subyacente</xs:documentation>
 			<xs:documentation xml:lang="it">Posizioni scomposte look-through in cui le partecipazioni nel fondo di fondi sono sostituite dalle posizioni del comparto sottostante</xs:documentation>
 			<xs:documentation xml:lang="cs">Pozice rozložené metodou Look-Through, kde jsou podíly fondu fondů nahrazeny pozicemi podkladových podfondů</xs:documentation>
-			<xs:documentation xml:lang="hu">Look-through decomposed positions where fund-of-fund holdings are replaced by the underlying subfund positions</xs:documentation>
+			<xs:documentation xml:lang="hu">Look-Through szerint felbontott pozíciók, ahol az alapok alapja (fund-of-fund) részesedéseit a mögöttes részalap pozíciói helyettesítik</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="LookThroughLevels" type="xs:positiveInteger">
@@ -397,7 +397,7 @@
 			<xs:documentation xml:lang="es">Contenedor para todas las posiciones/holdings de cartera</xs:documentation>
 			<xs:documentation xml:lang="it">Contenitore per tutte le posizioni/partecipazioni del portafoglio</xs:documentation>
 			<xs:documentation xml:lang="cs">Kontejner pro all portfolio positions/holdings</xs:documentation>
-			<xs:documentation xml:lang="hu">Container for all portfolio positions/holdings</xs:documentation>
+			<xs:documentation xml:lang="hu">Tárolóelem az összes portfóliópozícióhoz/-állományhoz</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Position" type="PositionType" maxOccurs="unbounded">
@@ -423,7 +423,7 @@
 			<xs:documentation xml:lang="es">Posición de cartera individual con referencia a datos maestros de activos, cantidad, valor de mercado y detalles contables</xs:documentation>
 			<xs:documentation xml:lang="it">Unica posizione di portafoglio con riferimento ad anagrafiche cespiti, quantità, valore di mercato e dettagli contabili</xs:documentation>
 			<xs:documentation xml:lang="cs">Jednotlivá pozice portfolia s odkazem na kmenová data aktiva, množstvím, tržní hodnotou a účetními detaily</xs:documentation>
-			<xs:documentation xml:lang="hu">Single portfolio position with reference to asset master data, quantity, market value and accounting details</xs:documentation>
+			<xs:documentation xml:lang="hu">Egyetlen portfóliópozíció az eszköz-törzsadatokra (AssetMasterData) való hivatkozással, mennyiséggel, piaci értékkel és számviteli részletekkel</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="UniqueID">
@@ -435,7 +435,7 @@
 					<xs:documentation xml:lang="es">Identificador único que referencia al elemento correspondiente en el bloque AssetMasterData</xs:documentation>
 					<xs:documentation xml:lang="it">Identificatore univoco che fa riferimento all'elemento corrispondente nel blocco AssetMasterData</xs:documentation>
 					<xs:documentation xml:lang="cs">Jedinečný identifikátor odkazující na odpovídající prvek v bloku AssetMasterData</xs:documentation>
-					<xs:documentation xml:lang="hu">Unique identifier referencing the corresponding element in the AssetMasterData block</xs:documentation>
+					<xs:documentation xml:lang="hu">Az AssetMasterData blokk megfelelő elemére hivatkozó egyedi azonosító</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:IDREF">
@@ -464,7 +464,7 @@
 					<xs:documentation xml:lang="es">Moneda de valoración (moneda original del valor/derivado/efectivo). Para FX Forward, esta es la Base CCY.</xs:documentation>
 					<xs:documentation xml:lang="it">Valuta di valutazione (valuta originale del titolo/derivato/contanti). Per FX Forward, questo è il CCY di base.</xs:documentation>
 					<xs:documentation xml:lang="cs">Měna ocenění (původní měna cenného papíru/derivátu/hotovosti). U FX Forwardu se jedná o základní měnu (Base CCY).</xs:documentation>
-					<xs:documentation xml:lang="hu">Valuation currency (original currency of security/derivative/cash). For FX Forward, this is the Base CCY.</xs:documentation>
+					<xs:documentation xml:lang="hu">Értékelési pénznem (az értékpapír/derivatíva/készpénz eredeti pénzneme). FX Forward esetén ez a Base CCY.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TotalValue" type="FundAmountType">
@@ -476,7 +476,7 @@
 					<xs:documentation xml:lang="es">Valor total de la posición (incluyendo intereses ...). La suma de todos los valores totales en moneda del fondo debe ser igual al volumen del fondo (NAV total del fondo)</xs:documentation>
 					<xs:documentation xml:lang="it">Valore totale della posizione (compresi gli interessi...). La somma di tutti i valori totali nella valuta del fondo deve essere uguale al volume del fondo (nav totale del fondo)</xs:documentation>
 					<xs:documentation xml:lang="cs">Celková hodnota pozice (včetně úroků ...). Součet všech celkových hodnot v měně fondu se musí rovnat objemu fondu (celkovému NAV fondu)</xs:documentation>
-					<xs:documentation xml:lang="hu">Total value of position (including interests ...). Sum of all total values in fund currency must be equal to fund volume (total nav of fund)</xs:documentation>
+					<xs:documentation xml:lang="hu">A pozíció teljes értéke (beleértve a kamatokat ...). Az alap pénznemében kifejezett összes érték összegének meg kell egyeznie az alap volumenével (az alap teljes NAV-jával)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OtherTotalValues" minOccurs="0">
@@ -488,7 +488,7 @@
 					<xs:documentation xml:lang="es">Valores totales adicionales (p.ej. Hold-To-Maturity)</xs:documentation>
 					<xs:documentation xml:lang="it">Ulteriori valori totali (es. Hold-To-Maturity)</xs:documentation>
 					<xs:documentation xml:lang="cs">Další celkové hodnoty (např. Hold-To-Maturity)</xs:documentation>
-					<xs:documentation xml:lang="hu">Additional total values (e.g. Hold-To-Maturity)</xs:documentation>
+					<xs:documentation xml:lang="hu">További összértékek (pl. Hold-To-Maturity)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -516,7 +516,7 @@
 					<xs:documentation xml:lang="es">Porcentaje del valor total basado en el valor total de activos (del fondo o clase de acciones)</xs:documentation>
 					<xs:documentation xml:lang="it">Percentuale del valore totale in base al valore patrimoniale totale (del fondo o della classe di azioni)</xs:documentation>
 					<xs:documentation xml:lang="cs">Procentní podíl na celkové hodnotě na základě celkové hodnoty aktiv (fondu nebo share class)</xs:documentation>
-					<xs:documentation xml:lang="hu">Percentage of total value based on total asset value (of fund or share class)</xs:documentation>
+					<xs:documentation xml:lang="hu">A teljes érték százaléka a teljes eszközérték (alap vagy Share Class) alapján</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AveragePurchasePrice" type="FundAmountType" minOccurs="0">
@@ -528,7 +528,7 @@
 					<xs:documentation xml:lang="es">Precio promedio de compra (considerando todas las transacciones relacionadas con esta posición)</xs:documentation>
 					<xs:documentation xml:lang="it">Prezzo medio di acquisto (considerando tutte le transazioni relative a questa posizione)</xs:documentation>
 					<xs:documentation xml:lang="cs">Průměrná nákupní cena (se zohledněním všech transakcí souvisejících s touto pozicí)</xs:documentation>
-					<xs:documentation xml:lang="hu">Average purchase price (considering all transactions related to this position)</xs:documentation>
+					<xs:documentation xml:lang="hu">Átlagos vételi ár (az ehhez a pozícióhoz kapcsolódó összes tranzakció figyelembevételével)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AveragePurchaseFXRate" type="FXRatesType" minOccurs="0">
@@ -540,7 +540,7 @@
 					<xs:documentation xml:lang="es">Tipos de cambio promedio de compra (considerando todas las transacciones relacionadas con esta posición)</xs:documentation>
 					<xs:documentation xml:lang="it">Tassi medi di cambio di acquisto (considerando tutte le transazioni relative a questa posizione)</xs:documentation>
 					<xs:documentation xml:lang="cs">Průměrné nákupní FX kurzy (se zohledněním všech transakcí souvisejících s touto pozicí)</xs:documentation>
-					<xs:documentation xml:lang="hu">Average purchase fx rates (considering all transactions related to this position)</xs:documentation>
+					<xs:documentation xml:lang="hu">Átlagos vételi FX árfolyamok (az ehhez a pozícióhoz kapcsolódó összes tranzakció figyelembevételével)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Exposures" type="ExposureType" minOccurs="0">
@@ -552,7 +552,7 @@
 					<xs:documentation xml:lang="es">Exposición de la posición (para diferentes enfoques)</xs:documentation>
 					<xs:documentation xml:lang="it">Esposizione della posizione (per diversi approcci)</xs:documentation>
 					<xs:documentation xml:lang="cs">Expozice pozice (pro různé přístupy)</xs:documentation>
-					<xs:documentation xml:lang="hu">Exposure of position (for different approaches)</xs:documentation>
+					<xs:documentation xml:lang="hu">A pozíció kitettsége (különböző megközelítésekhez)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FXRates" type="FXRatesType" minOccurs="0">
@@ -564,7 +564,7 @@
 					<xs:documentation xml:lang="es">Tipos de cambio utilizados para la valoración de la posición</xs:documentation>
 					<xs:documentation xml:lang="it">Tassi FX utilizzati per la valutazione della posizione</xs:documentation>
 					<xs:documentation xml:lang="cs">FX kurzy použité pro ocenění pozice</xs:documentation>
-					<xs:documentation xml:lang="hu">FX rates used for evaluation of position</xs:documentation>
+					<xs:documentation xml:lang="hu">A pozíció értékeléséhez használt FX-árfolyamok</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PriceDate" type="xs:date" minOccurs="0">
@@ -576,7 +576,7 @@
 					<xs:documentation xml:lang="es">Fecha de la información de precios utilizada para la valoración del fondo</xs:documentation>
 					<xs:documentation xml:lang="it">Data delle informazioni sui prezzi prese per la valutazione del fondo</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum cenových informací použitých pro ocenění fondu</xs:documentation>
-					<xs:documentation xml:lang="hu">Date of pricing information taken for fund valuation</xs:documentation>
+					<xs:documentation xml:lang="hu">Az alap értékeléséhez felhasznált árazási információ dátuma</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PricingSource" minOccurs="0">
@@ -588,7 +588,7 @@
 					<xs:documentation xml:lang="es">Fuente de precios (incluyendo posiciones OTC)</xs:documentation>
 					<xs:documentation xml:lang="it">Fonte del prezzo (comprese le posizioni OTC)</xs:documentation>
 					<xs:documentation xml:lang="cs">Zdroj ocenění (včetně OTC pozic)</xs:documentation>
-					<xs:documentation xml:lang="hu">Pricing source (including OTC positions)</xs:documentation>
+					<xs:documentation xml:lang="hu">Árazási forrás (beleértve az OTC pozíciókat)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
@@ -601,7 +601,7 @@
 								<xs:documentation xml:lang="es">Fuente de precios con lista de enumeración</xs:documentation>
 								<xs:documentation xml:lang="it">Origine dei prezzi con elenco di enumerazione</xs:documentation>
 								<xs:documentation xml:lang="cs">Zdroj ocenění s výčtem povolených hodnot</xs:documentation>
-								<xs:documentation xml:lang="hu">Pricing source with enumeration list</xs:documentation>
+								<xs:documentation xml:lang="hu">Árazási forrás felsorolási listával</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -627,7 +627,7 @@
 								<xs:documentation xml:lang="es">Fuente de precios en texto libre</xs:documentation>
 								<xs:documentation xml:lang="it">Fonte dei prezzi del testo libero</xs:documentation>
 								<xs:documentation xml:lang="cs">Zdroj ocenění jako volný text</xs:documentation>
-								<xs:documentation xml:lang="hu">Free text pricing source</xs:documentation>
+								<xs:documentation xml:lang="hu">Szabad szöveges árazási forrás</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -643,7 +643,7 @@
 						<xs:documentation xml:lang="es">Detalles para posiciones de acciones</xs:documentation>
 						<xs:documentation xml:lang="it">Dettagli per le posizioni azionarie</xs:documentation>
 						<xs:documentation xml:lang="cs">Podrobnosti pro akciové pozice</xs:documentation>
-						<xs:documentation xml:lang="hu">Details for equity positions</xs:documentation>
+						<xs:documentation xml:lang="hu">Részletek részvénypozíciókhoz</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -656,7 +656,7 @@
 									<xs:documentation xml:lang="es">Unidades de acciones</xs:documentation>
 									<xs:documentation xml:lang="it">Unità di capitale</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet kusů akcie</xs:documentation>
-									<xs:documentation xml:lang="hu">Units of equity</xs:documentation>
+									<xs:documentation xml:lang="hu">Részvény egységek száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -666,7 +666,7 @@
 									<xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Ár (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
@@ -681,7 +681,7 @@
 									<xs:documentation xml:lang="es">Valor de mercado de la posición (excluyendo dividendos)</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di mercato della posizione (esclusi i dividendi)</xs:documentation>
 									<xs:documentation xml:lang="cs">Tržní hodnota pozice (bez dividend)</xs:documentation>
-									<xs:documentation xml:lang="hu">Market value of position (excluding dividends)</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozíció piaci értéke (osztalékok nélkül)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
@@ -693,7 +693,7 @@
 									<xs:documentation xml:lang="es">Precio contable</xs:documentation>
 									<xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
 									<xs:documentation xml:lang="cs">Účetní kurz</xs:documentation>
-									<xs:documentation xml:lang="hu">Book rate</xs:documentation>
+									<xs:documentation xml:lang="hu">Könyv szerinti árfolyam</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
@@ -705,7 +705,7 @@
 									<xs:documentation xml:lang="es">Valor de compra de la posición</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di acquisto della posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Pořizovací hodnota pozice</xs:documentation>
-									<xs:documentation xml:lang="hu">Purchase value of position</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozíció vételi értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DividendsDue" type="FundAmountType" minOccurs="0">
@@ -717,7 +717,7 @@
 									<xs:documentation xml:lang="es">Dividendos a cobrar de la posición</xs:documentation>
 									<xs:documentation xml:lang="it">Dividendi dovuti di posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Splatné dividendy z pozice</xs:documentation>
-									<xs:documentation xml:lang="hu">Dividends due of position</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozícióra esedékes osztalékok</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
@@ -729,7 +729,7 @@
 									<xs:documentation xml:lang="es">Indicador de que parte de la posición está prestada</xs:documentation>
 									<xs:documentation xml:lang="it">Flag che indica che parte della posizione è prestata</xs:documentation>
 									<xs:documentation xml:lang="cs">Příznak označující, že část pozice je zapůjčena</xs:documentation>
-									<xs:documentation xml:lang="hu">Flag indicating that part of position is lended</xs:documentation>
+									<xs:documentation xml:lang="hu">Jelzés arról, hogy a pozíció egy része kölcsön van adva</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
@@ -741,7 +741,7 @@
 									<xs:documentation xml:lang="es">Número de acciones prestadas</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di azioni prestate</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet lended equities</xs:documentation>
-									<xs:documentation xml:lang="hu">Number of lended equities</xs:documentation>
+									<xs:documentation xml:lang="hu">A kölcsönadott részvények száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="IndicatorRaffled" type="xs:boolean" minOccurs="0">
@@ -753,7 +753,7 @@
 									<xs:documentation xml:lang="es">Indica si el valor ha sido sorteado</xs:documentation>
 									<xs:documentation xml:lang="it">Indica se la cauzione è stata sorteggiata</xs:documentation>
 									<xs:documentation xml:lang="cs">Označuje, zda security has been raffled</xs:documentation>
-									<xs:documentation xml:lang="hu">Indicates whether security has been raffled</xs:documentation>
+									<xs:documentation xml:lang="hu">Jelzi, hogy az értékpapír kisorsolásra került-e</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -768,7 +768,7 @@
 						<xs:documentation xml:lang="es">Detalles para posiciones de bonos</xs:documentation>
 						<xs:documentation xml:lang="it">Dettagli delle posizioni obbligazionarie</xs:documentation>
 						<xs:documentation xml:lang="cs">Podrobnosti pro dluhopisové pozice</xs:documentation>
-						<xs:documentation xml:lang="hu">Details for bond positions</xs:documentation>
+						<xs:documentation xml:lang="hu">Részletek kötvénypozíciókhoz</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -781,7 +781,7 @@
 									<xs:documentation xml:lang="es">Valor nominal (unidades) del bono</xs:documentation>
 									<xs:documentation xml:lang="it">Valore nominale (unità) dell'obbligazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Nominální hodnota (jednotky) dluhopisu</xs:documentation>
-									<xs:documentation xml:lang="hu">Nominal value (units) of bond</xs:documentation>
+									<xs:documentation xml:lang="hu">Kötvény névértéke (egységek)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OriginalFace" type="xs:decimal" minOccurs="0">
@@ -793,7 +793,7 @@
 									<xs:documentation xml:lang="es">Valor nominal de un bono en el momento de la compra</xs:documentation>
 									<xs:documentation xml:lang="it">Valore nominale di un'obbligazione quando viene acquistata</xs:documentation>
 									<xs:documentation xml:lang="cs">Jmenovitá hodnota dluhopisu při jeho nákupu</xs:documentation>
-									<xs:documentation xml:lang="hu">Par value of a bond when it has been bought</xs:documentation>
+									<xs:documentation xml:lang="hu">Egy kötvény névértéke a vásárláskor</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -805,7 +805,7 @@
 									<xs:documentation xml:lang="es">Precio limpio (en diferentes monedas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo pulito (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Čistá cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Clean price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Tiszta árfolyam (különböző devizákban)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
@@ -817,7 +817,7 @@
 									<xs:documentation xml:lang="es">Precios adicionales (p.ej. hold to maturity)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzi aggiuntivi (ad es. mantenuti fino alla scadenza)</xs:documentation>
 									<xs:documentation xml:lang="cs">Další ceny (např. hold to maturity)</xs:documentation>
-									<xs:documentation xml:lang="hu">Additional prices (e.g. hold to maturity)</xs:documentation>
+									<xs:documentation xml:lang="hu">További árak (pl. lejáratig tartott)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DirtyPrice" type="FundAmountType" minOccurs="0">
@@ -829,7 +829,7 @@
 									<xs:documentation xml:lang="es">Precio sucio (incluyendo intereses)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo sporco (compresi gli interessi)</xs:documentation>
 									<xs:documentation xml:lang="cs">Dirty Price (včetně úroků)</xs:documentation>
-									<xs:documentation xml:lang="hu">Dirty Price (including interests)</xs:documentation>
+									<xs:documentation xml:lang="hu">Bruttó ár (kamatokkal együtt)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
@@ -841,7 +841,7 @@
 									<xs:documentation xml:lang="es">Valor de mercado de la posición en valores excluyendo intereses</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di mercato della posizione di titolo senza interessi</xs:documentation>
 									<xs:documentation xml:lang="cs">Tržní hodnota pozice cenného papíru bez úroků</xs:documentation>
-									<xs:documentation xml:lang="hu">Market value of security position without interests</xs:documentation>
+									<xs:documentation xml:lang="hu">Az értékpapír-pozíció piaci értéke kamatok nélkül</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="InterestClaimNet" type="FundAmountType" minOccurs="0">
@@ -851,7 +851,7 @@
 									<xs:documentation xml:lang="es">Valor neto del derecho a intereses</xs:documentation>
 									<xs:documentation xml:lang="it">Valore netto degli interessi richiesti</xs:documentation>
 									<xs:documentation xml:lang="cs">Čistá hodnota úrokového nároku</xs:documentation>
-									<xs:documentation xml:lang="hu">Interest claim net value</xs:documentation>
+									<xs:documentation xml:lang="hu">Kamatkövetelés nettó értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="InterestClaimGross" type="FundAmountType" minOccurs="0">
@@ -861,7 +861,7 @@
 									<xs:documentation xml:lang="es">Valor bruto del derecho a intereses</xs:documentation>
 									<xs:documentation xml:lang="it">Valore lordo della richiesta di interessi</xs:documentation>
 									<xs:documentation xml:lang="cs">Hrubá hodnota úrokového nároku</xs:documentation>
-									<xs:documentation xml:lang="hu">Interest claim gross value</xs:documentation>
+									<xs:documentation xml:lang="hu">Kamatkövetelés bruttó értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="AccruedInterestDays" type="xs:integer" minOccurs="0">
@@ -871,7 +871,7 @@
 									<xs:documentation xml:lang="es">Número de días de intereses devengados</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di giorni di interessi maturati</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet accrued interest days</xs:documentation>
-									<xs:documentation xml:lang="hu">Number of accrued interest days</xs:documentation>
+									<xs:documentation xml:lang="hu">A felhalmozott kamatnapok száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ZeroBondInterestClaimNet" type="FundAmountType" minOccurs="0">
@@ -881,7 +881,7 @@
 									<xs:documentation xml:lang="es">Valor neto del derecho a intereses de la posición de bonos cupón cero</xs:documentation>
 									<xs:documentation xml:lang="it">Valore netto della richiesta di interessi della posizione obbligazionaria pari a zero</xs:documentation>
 									<xs:documentation xml:lang="cs">Čistá hodnota úrokového nároku pozice v dluhopisu s nulovým kupónem</xs:documentation>
-									<xs:documentation xml:lang="hu">Interest claim net value of zero bond position</xs:documentation>
+									<xs:documentation xml:lang="hu">A zérókuponos kötvénypozíció kamatkövetelésének nettó értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ZeroBondInterestClaimGross" type="FundAmountType" minOccurs="0">
@@ -891,7 +891,7 @@
 									<xs:documentation xml:lang="es">Valor bruto del derecho a intereses de la posición de bonos cupón cero</xs:documentation>
 									<xs:documentation xml:lang="it">Valore lordo della richiesta di interessi della posizione obbligazionaria zero</xs:documentation>
 									<xs:documentation xml:lang="cs">Hrubá hodnota úrokového nároku pozice v dluhopisu s nulovým kupónem</xs:documentation>
-									<xs:documentation xml:lang="hu">Interest claim gross value of zero bond position</xs:documentation>
+									<xs:documentation xml:lang="hu">A zérókuponos kötvénypozíció kamatkövetelésének bruttó értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ZeroBondCapitalYieldsTaxClaim" type="FundAmountType" minOccurs="0">
@@ -901,7 +901,7 @@
 									<xs:documentation xml:lang="es">Derecho de impuesto sobre ganancias de capital de la posición de bonos cupón cero</xs:documentation>
 									<xs:documentation xml:lang="it">Pretesa fiscale sui rendimenti di capitale della posizione obbligazionaria pari a zero</xs:documentation>
 									<xs:documentation xml:lang="cs">Nárok na daň z kapitálových výnosů u pozice dluhopisu s nulovým kupónem</xs:documentation>
-									<xs:documentation xml:lang="hu">Capital yields tax claim of zero bond position</xs:documentation>
+									<xs:documentation xml:lang="hu">A zéró kötvény pozíció tőkehozamadó-igénye</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ZeroBondYield" type="xs:decimal" minOccurs="0">
@@ -911,7 +911,7 @@
 									<xs:documentation xml:lang="es">Rendimiento del bono cupón cero (porcentaje)</xs:documentation>
 									<xs:documentation xml:lang="it">Rendimento di zero bond (percentuale)</xs:documentation>
 									<xs:documentation xml:lang="cs">Výnos bezkuponového dluhopisu (v procentech)</xs:documentation>
-									<xs:documentation xml:lang="hu">Yield of zero bond (percentage)</xs:documentation>
+									<xs:documentation xml:lang="hu">Zéró kötvény (zero bond) hozama (százalék)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Indexfactor" type="xs:decimal" minOccurs="0">
@@ -921,7 +921,7 @@
 									<xs:documentation xml:lang="es">Factor índice del bono</xs:documentation>
 									<xs:documentation xml:lang="it">Fattore indice dell'obbligazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Indexový faktor dluhopisu</xs:documentation>
-									<xs:documentation xml:lang="hu">Index factor of bond</xs:documentation>
+									<xs:documentation xml:lang="hu">A kötvény indexfaktora</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Poolfactor" type="xs:decimal" minOccurs="0">
@@ -931,7 +931,7 @@
 									<xs:documentation xml:lang="es">Factor de pool del bono</xs:documentation>
 									<xs:documentation xml:lang="it">Fattore di pool del legame</xs:documentation>
 									<xs:documentation xml:lang="cs">Pool factor dluhopisu</xs:documentation>
-									<xs:documentation xml:lang="hu">Pool factor of bond</xs:documentation>
+									<xs:documentation xml:lang="hu">A kötvény pool factor értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
@@ -941,7 +941,7 @@
 									<xs:documentation xml:lang="es">Precio contable</xs:documentation>
 									<xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
 									<xs:documentation xml:lang="cs">Účetní kurz</xs:documentation>
-									<xs:documentation xml:lang="hu">Book rate</xs:documentation>
+									<xs:documentation xml:lang="hu">Könyv szerinti árfolyam</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
@@ -951,7 +951,7 @@
 									<xs:documentation xml:lang="es">Valor de compra</xs:documentation>
 									<xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
 									<xs:documentation xml:lang="cs">Pořizovací hodnota</xs:documentation>
-									<xs:documentation xml:lang="hu">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="hu">Vételi érték</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="AcrualIndexedBond" type="xs:boolean" minOccurs="0">
@@ -961,7 +961,7 @@
 									<xs:documentation xml:lang="es">Indica si es un bono indexado devengado</xs:documentation>
 									<xs:documentation xml:lang="it">Indica se si tratta di un bond indicizzato alla competenza</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává, zda se jedná o dluhopis s indexovaným naběhlým úrokem</xs:documentation>
-									<xs:documentation xml:lang="hu">Indicates whether it is an acrual indexed bond</xs:documentation>
+									<xs:documentation xml:lang="hu">Jelzi, hogy ez egy elhatárolás-indexált kötvény-e</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DateLastCouponPayment" type="xs:date" minOccurs="0">
@@ -971,7 +971,7 @@
 									<xs:documentation xml:lang="es">Fecha en que se pagará el último cupón</xs:documentation>
 									<xs:documentation xml:lang="it">Data in cui verrà pagato l'ultimo coupon</xs:documentation>
 									<xs:documentation xml:lang="cs">Datum, kdy bude vyplacen poslední kupon</xs:documentation>
-									<xs:documentation xml:lang="hu">Date when last coupon will be payed</xs:documentation>
+									<xs:documentation xml:lang="hu">Az a dátum, amikor az utolsó kupon kifizetésre kerül</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
@@ -981,7 +981,7 @@
 									<xs:documentation xml:lang="es">Indica si (parte de) la posición está prestada</xs:documentation>
 									<xs:documentation xml:lang="it">Indica se (parte della) posizione è prestata</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává, zda je pozice (nebo její část) zapůjčena</xs:documentation>
-									<xs:documentation xml:lang="hu">Indicates whether (part of) position is lended</xs:documentation>
+									<xs:documentation xml:lang="hu">Jelzi, hogy a pozíció (egy része) kölcsön van-e adva</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
@@ -991,7 +991,7 @@
 									<xs:documentation xml:lang="es">Número de lended units</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di unità prestate</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet lended units</xs:documentation>
-									<xs:documentation xml:lang="hu">Number of lended units</xs:documentation>
+									<xs:documentation xml:lang="hu">A kölcsönadott egységek száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="IndicatorRaffled" type="xs:boolean" minOccurs="0">
@@ -1001,7 +1001,7 @@
 									<xs:documentation xml:lang="es">Indica si el bono ha sido sorteado</xs:documentation>
 									<xs:documentation xml:lang="it">Indica se il bond è stato sorteggiato</xs:documentation>
 									<xs:documentation xml:lang="cs">Označuje, zda bond has been raffled</xs:documentation>
-									<xs:documentation xml:lang="hu">Indicates whether bond has been raffled</xs:documentation>
+									<xs:documentation xml:lang="hu">Jelzi, hogy a kötvény kisorsolásra került-e</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CollateralValue" type="FundAmountType" minOccurs="0">
@@ -1025,7 +1025,7 @@
 									<xs:documentation xml:lang="es">Número de shares</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di azioni</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet shares</xs:documentation>
-									<xs:documentation xml:lang="hu">Number of shares</xs:documentation>
+									<xs:documentation xml:lang="hu">A részvények száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -1035,7 +1035,7 @@
 									<xs:documentation xml:lang="es">Clean price (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo pulito (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Čistá cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Clean price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Tiszta árfolyam (különböző devizákban)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
@@ -1050,7 +1050,7 @@
 									<xs:documentation xml:lang="es">Precio contable</xs:documentation>
 									<xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
 									<xs:documentation xml:lang="cs">Účetní kurz</xs:documentation>
-									<xs:documentation xml:lang="hu">Book rate</xs:documentation>
+									<xs:documentation xml:lang="hu">Könyv szerinti árfolyam</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
@@ -1060,7 +1060,7 @@
 									<xs:documentation xml:lang="es">Valor de compra</xs:documentation>
 									<xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
 									<xs:documentation xml:lang="cs">Pořizovací hodnota</xs:documentation>
-									<xs:documentation xml:lang="hu">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="hu">Vételi érték</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DividendsDue" type="FundAmountType" minOccurs="0">
@@ -1070,7 +1070,7 @@
 									<xs:documentation xml:lang="es">Dividends due de la posición</xs:documentation>
 									<xs:documentation xml:lang="it">Dividendi dovuti di posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Splatné dividendy z pozice</xs:documentation>
-									<xs:documentation xml:lang="hu">Dividends due of position</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozícióra esedékes osztalékok</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
@@ -1080,7 +1080,7 @@
 									<xs:documentation xml:lang="es">Indica si (parte de) la posición está prestada</xs:documentation>
 									<xs:documentation xml:lang="it">Indica se (parte della) posizione è prestata</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává, zda je pozice (nebo její část) zapůjčena</xs:documentation>
-									<xs:documentation xml:lang="hu">Indicates whether (part of) position is lended</xs:documentation>
+									<xs:documentation xml:lang="hu">Jelzi, hogy a pozíció (egy része) kölcsön van-e adva</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
@@ -1090,7 +1090,7 @@
 									<xs:documentation xml:lang="es">Número de lended units</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di unità prestate</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet lended units</xs:documentation>
-									<xs:documentation xml:lang="hu">Number of lended units</xs:documentation>
+									<xs:documentation xml:lang="hu">A kölcsönadott egységek száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="IndicatorRaffled" type="xs:boolean" minOccurs="0">
@@ -1100,7 +1100,7 @@
 									<xs:documentation xml:lang="es">Indica si el bono ha sido sorteado</xs:documentation>
 									<xs:documentation xml:lang="it">Indica se il bond è stato sorteggiato</xs:documentation>
 									<xs:documentation xml:lang="cs">Označuje, zda bond has been raffled</xs:documentation>
-									<xs:documentation xml:lang="hu">Indicates whether bond has been raffled</xs:documentation>
+									<xs:documentation xml:lang="hu">Jelzi, hogy a kötvény kisorsolásra került-e</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1119,7 +1119,7 @@
 									<xs:documentation xml:lang="es">Unidades de warrant</xs:documentation>
 									<xs:documentation xml:lang="it">Unità di mandato</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet kusů warrantu</xs:documentation>
-									<xs:documentation xml:lang="hu">Units of warrant</xs:documentation>
+									<xs:documentation xml:lang="hu">Warrant egységek száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -1129,7 +1129,7 @@
 									<xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Ár (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
@@ -1144,7 +1144,7 @@
 									<xs:documentation xml:lang="es">Precio contable</xs:documentation>
 									<xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
 									<xs:documentation xml:lang="cs">Účetní kurz</xs:documentation>
-									<xs:documentation xml:lang="hu">Book rate</xs:documentation>
+									<xs:documentation xml:lang="hu">Könyv szerinti árfolyam</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
@@ -1154,7 +1154,7 @@
 									<xs:documentation xml:lang="es">Valor de compra</xs:documentation>
 									<xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
 									<xs:documentation xml:lang="cs">Pořizovací hodnota</xs:documentation>
-									<xs:documentation xml:lang="hu">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="hu">Vételi érték</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1173,7 +1173,7 @@
 									<xs:documentation xml:lang="es">Unidades de certificado</xs:documentation>
 									<xs:documentation xml:lang="it">Unità di certificato</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet kusů certifikátu</xs:documentation>
-									<xs:documentation xml:lang="hu">Units of certificate</xs:documentation>
+									<xs:documentation xml:lang="hu">Certifikát egységek száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedFlag" type="xs:boolean" minOccurs="0">
@@ -1183,7 +1183,7 @@
 									<xs:documentation xml:lang="es">Indica si (parte de) la posición está prestada</xs:documentation>
 									<xs:documentation xml:lang="it">Indica se (parte della) posizione è prestata</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává, zda je pozice (nebo její část) zapůjčena</xs:documentation>
-									<xs:documentation xml:lang="hu">Indicates whether (part of) position is lended</xs:documentation>
+									<xs:documentation xml:lang="hu">Jelzi, hogy a pozíció (egy része) kölcsön van-e adva</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="LendedUnits" type="xs:decimal" minOccurs="0">
@@ -1193,7 +1193,7 @@
 									<xs:documentation xml:lang="es">Número de lended units</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di unità prestate</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet lended units</xs:documentation>
-									<xs:documentation xml:lang="hu">Number of lended units</xs:documentation>
+									<xs:documentation xml:lang="hu">A kölcsönadott egységek száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -1203,7 +1203,7 @@
 									<xs:documentation xml:lang="es">Precio of Certificate (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo del certificato (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena certifikátu (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price of Certificate (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">A tanúsítvány ára (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1227,7 +1227,7 @@
 									<xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Ár (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
@@ -1242,7 +1242,7 @@
 									<xs:documentation xml:lang="es">Precio contable</xs:documentation>
 									<xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
 									<xs:documentation xml:lang="cs">Účetní kurz</xs:documentation>
-									<xs:documentation xml:lang="hu">Book rate</xs:documentation>
+									<xs:documentation xml:lang="hu">Könyv szerinti árfolyam</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
@@ -1252,7 +1252,7 @@
 									<xs:documentation xml:lang="es">Valor de compra</xs:documentation>
 									<xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
 									<xs:documentation xml:lang="cs">Pořizovací hodnota</xs:documentation>
-									<xs:documentation xml:lang="hu">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="hu">Vételi érték</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="HedgeRatio" type="PercentageType" minOccurs="0">
@@ -1262,7 +1262,7 @@
 									<xs:documentation xml:lang="es">Hedging ratio (porcentaje)</xs:documentation>
 									<xs:documentation xml:lang="it">Rapporto di copertura (percentuale)</xs:documentation>
 									<xs:documentation xml:lang="cs">Zajišťovací poměr (v procentech)</xs:documentation>
-									<xs:documentation xml:lang="hu">Hedging ratio (percentage)</xs:documentation>
+									<xs:documentation xml:lang="hu">Fedezeti arány (százalék)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1281,7 +1281,7 @@
 									<xs:documentation xml:lang="es">Número de contratos (may be negative)</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di contratti (può essere negativo)</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet contracts (may be negative)</xs:documentation>
-									<xs:documentation xml:lang="hu">Number of contracts (may be negative)</xs:documentation>
+									<xs:documentation xml:lang="hu">A kontraktusok száma (negatív lehet)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -1291,7 +1291,7 @@
 									<xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Ár (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
@@ -1306,7 +1306,7 @@
 									<xs:documentation xml:lang="es">Preliminary Profit/Loss (current valuation of future posición)</xs:documentation>
 									<xs:documentation xml:lang="it">Profitto/perdita preliminare (valutazione attuale della posizione futura)</xs:documentation>
 									<xs:documentation xml:lang="cs">Předběžný zisk/ztráta (aktuální ocenění futures pozice)</xs:documentation>
-									<xs:documentation xml:lang="hu">Preliminary Profit/Loss (current valuation of future position)</xs:documentation>
+									<xs:documentation xml:lang="hu">Előzetes nyereség/veszteség (a jövőbeli pozíció aktuális értékelése)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="BookRate" type="FundAmountType" minOccurs="0">
@@ -1316,7 +1316,7 @@
 									<xs:documentation xml:lang="es">Precio contable</xs:documentation>
 									<xs:documentation xml:lang="it">Tariffa del libro</xs:documentation>
 									<xs:documentation xml:lang="cs">Účetní kurz</xs:documentation>
-									<xs:documentation xml:lang="hu">Book rate</xs:documentation>
+									<xs:documentation xml:lang="hu">Könyv szerinti árfolyam</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="VariationMarginDaily" type="FundAmountType" minOccurs="0">
@@ -1326,7 +1326,7 @@
 									<xs:documentation xml:lang="es">Margen de variación diario</xs:documentation>
 									<xs:documentation xml:lang="it">Margine di variazione giornaliero</xs:documentation>
 									<xs:documentation xml:lang="cs">Denní variační marže</xs:documentation>
-									<xs:documentation xml:lang="hu">Daily variation margin</xs:documentation>
+									<xs:documentation xml:lang="hu">Napi variációs letét (variation margin)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="VariationMarginOverall" type="FundAmountType" minOccurs="0">
@@ -1336,7 +1336,7 @@
 									<xs:documentation xml:lang="es">Overall valor de variation margin</xs:documentation>
 									<xs:documentation xml:lang="it">Valore complessivo del margine di variazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Celková hodnota variační marže</xs:documentation>
-									<xs:documentation xml:lang="hu">Overall value of variation margin</xs:documentation>
+									<xs:documentation xml:lang="hu">A variation margin teljes értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="HedgeRatio" type="PercentageType" minOccurs="0">
@@ -1346,7 +1346,7 @@
 									<xs:documentation xml:lang="es">Hedging ratio (porcentaje)</xs:documentation>
 									<xs:documentation xml:lang="it">Rapporto di copertura (percentuale)</xs:documentation>
 									<xs:documentation xml:lang="cs">Zajišťovací poměr (v procentech)</xs:documentation>
-									<xs:documentation xml:lang="hu">Hedging ratio (percentage)</xs:documentation>
+									<xs:documentation xml:lang="hu">Fedezeti arány (százalék)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1365,7 +1365,7 @@
 									<xs:documentation xml:lang="es">Hedging ratio (porcentaje)</xs:documentation>
 									<xs:documentation xml:lang="it">Rapporto di copertura (percentuale)</xs:documentation>
 									<xs:documentation xml:lang="cs">Zajišťovací poměr (v procentech)</xs:documentation>
-									<xs:documentation xml:lang="hu">Hedging ratio (percentage)</xs:documentation>
+									<xs:documentation xml:lang="hu">Fedezeti arány (százalék)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="FxRateForEvaluation" type="xs:decimal" minOccurs="0">
@@ -1389,7 +1389,7 @@
 									<xs:documentation xml:lang="es">Hedging ratio (porcentaje)</xs:documentation>
 									<xs:documentation xml:lang="it">Rapporto di copertura (percentuale)</xs:documentation>
 									<xs:documentation xml:lang="cs">Zajišťovací poměr (v procentech)</xs:documentation>
-									<xs:documentation xml:lang="hu">Hedging ratio (percentage)</xs:documentation>
+									<xs:documentation xml:lang="hu">Fedezeti arány (százalék)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CurrentSpread" type="xs:decimal" minOccurs="0">
@@ -1460,7 +1460,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="de">Preis der Aktie (in verschiedenen Währungen)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Ár (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
@@ -1498,7 +1498,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor de mercado de los valores en garantía a la fecha de transacción</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di mercato dei titoli in garanzia alla data della transazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Tržní hodnota zajišťovacích cenných papírů k datu transakce</xs:documentation>
-									<xs:documentation xml:lang="hu">Market value of collateral securities at transaction date</xs:documentation>
+									<xs:documentation xml:lang="hu">A biztosítéki értékpapírok piaci értéke a tranzakció dátumán</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CollateralAllocation" minOccurs="0">
@@ -1510,7 +1510,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Detalles de asignación para repos de garantía general (GC) donde se pueden entregar múltiples valores</xs:documentation>
 									<xs:documentation xml:lang="it">Dettagli di allocazione per repo General Collateral (GC) dove possono essere consegnati più titoli</xs:documentation>
 									<xs:documentation xml:lang="cs">Podrobnosti alokace pro repo obchody s General Collateral (GC), u nichž může být dodáno více cenných papírů</xs:documentation>
-									<xs:documentation xml:lang="hu">Allocation details for GC repos</xs:documentation>
+									<xs:documentation xml:lang="hu">Allokációs részletek General Collateral (GC) repóügyletekhez, ahol több értékpapír is leszállítható</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -1536,7 +1536,7 @@ negative - paying premiums</xs:documentation>
 															<xs:documentation xml:lang="es">Identificadores del valor en garantía</xs:documentation>
 															<xs:documentation xml:lang="it">Identificativi del titolo in garanzia</xs:documentation>
 															<xs:documentation xml:lang="cs">Identifikátory cenného papíru sloužícího jako kolaterál</xs:documentation>
-															<xs:documentation xml:lang="hu">Identifiers of collateral security</xs:documentation>
+															<xs:documentation xml:lang="hu">A fedezeti értékpapír azonosítói</xs:documentation>
 														</xs:annotation>
 													</xs:element>
 													<xs:element name="AssetUniqueID" minOccurs="0">
@@ -1565,7 +1565,7 @@ negative - paying premiums</xs:documentation>
 															<xs:documentation xml:lang="es">Valor nominal de este elemento de garantía</xs:documentation>
 															<xs:documentation xml:lang="it">Valore nominale di questo elemento di garanzia</xs:documentation>
 															<xs:documentation xml:lang="cs">Nominální hodnota této položky kolaterálu</xs:documentation>
-															<xs:documentation xml:lang="hu">Nominal value of this collateral item</xs:documentation>
+															<xs:documentation xml:lang="hu">Ennek a biztosítéki tételnek a névértéke</xs:documentation>
 														</xs:annotation>
 													</xs:element>
 													<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
@@ -1577,7 +1577,7 @@ negative - paying premiums</xs:documentation>
 															<xs:documentation xml:lang="es">Valor de mercado de este elemento de garantía</xs:documentation>
 															<xs:documentation xml:lang="it">Valore di mercato di questo elemento di garanzia</xs:documentation>
 															<xs:documentation xml:lang="cs">Tržní hodnota této položky kolaterálu</xs:documentation>
-															<xs:documentation xml:lang="hu">Market value of this collateral item</xs:documentation>
+															<xs:documentation xml:lang="hu">Ennek a biztosítéki tételnek a piaci értéke</xs:documentation>
 														</xs:annotation>
 													</xs:element>
 												</xs:sequence>
@@ -1674,7 +1674,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor de mercado de la posición</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di mercato della posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Tržní hodnota pozice</xs:documentation>
-									<xs:documentation xml:lang="hu">Market value of position</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozíció piaci értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="RentIncome" type="FundAmountType" minOccurs="0">
@@ -1684,7 +1684,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Ingresos por alquiler</xs:documentation>
 									<xs:documentation xml:lang="it">Reddito da affitto</xs:documentation>
 									<xs:documentation xml:lang="cs">Výnosy z nájemného</xs:documentation>
-									<xs:documentation xml:lang="hu">Rent income</xs:documentation>
+									<xs:documentation xml:lang="hu">Bérletidíj-bevétel</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="RentAccruals" type="FundAmountType" minOccurs="0">
@@ -1694,7 +1694,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Rent devengos</xs:documentation>
 									<xs:documentation xml:lang="it">Ratei di affitto</xs:documentation>
 									<xs:documentation xml:lang="cs">Časové rozlišení nájemného</xs:documentation>
-									<xs:documentation xml:lang="hu">Rent accruals</xs:documentation>
+									<xs:documentation xml:lang="hu">Bérletidíj-elhatárolások</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="MaintenanceReserve" type="FundAmountType" minOccurs="0">
@@ -1704,7 +1704,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Reserva de mantenimiento (20%) para el activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Riserva di mantenimento (20%) del patrimonio immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Rezerva na údržbu (20%) pro nemovitostní aktivum</xs:documentation>
-									<xs:documentation xml:lang="hu">Maintenance reserve (20%) for the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszközre képzett karbantartási tartalék (20%)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="MaintenanceProvision" type="FundAmountType" minOccurs="0">
@@ -1714,7 +1714,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Provisión de mantenimiento para el activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Fondo di mantenimento del patrimonio immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Rezerva na údržbu nemovitostního aktiva</xs:documentation>
-									<xs:documentation xml:lang="hu">Maintenance provision for the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszközre képzett karbantartási céltartalék</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="AncillaryCosts" minOccurs="0">
@@ -1724,7 +1724,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Costes accesorios del activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Costi accessori del bene immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Vedlejší náklady nemovitostního aktiva</xs:documentation>
-									<xs:documentation xml:lang="hu">Ancillary costs of the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszköz járulékos költségei</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -1735,7 +1735,7 @@ negative - paying premiums</xs:documentation>
 												<xs:documentation xml:lang="es">Costes accesorios pendientes</xs:documentation>
 												<xs:documentation xml:lang="it">Spese accessorie ancora da liquidare</xs:documentation>
 												<xs:documentation xml:lang="cs">Neuhrazené vedlejší náklady</xs:documentation>
-												<xs:documentation xml:lang="hu">Ancillary costs outstanding</xs:documentation>
+												<xs:documentation xml:lang="hu">Kintlévő járulékos költségek</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="Accrued" type="FundAmountType" minOccurs="0">
@@ -1745,7 +1745,7 @@ negative - paying premiums</xs:documentation>
 												<xs:documentation xml:lang="es">Costes accesorios ya devengados</xs:documentation>
 												<xs:documentation xml:lang="it">Costi accessori già maturati</xs:documentation>
 												<xs:documentation xml:lang="cs">Již naběhlé vedlejší náklady</xs:documentation>
-												<xs:documentation xml:lang="hu">Ancillary costs already accrued</xs:documentation>
+												<xs:documentation xml:lang="hu">Már elhatárolt járulékos költségek</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -1758,7 +1758,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Depósito de alquiler para el activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Deposito cauzionale per l'asset immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Nájemní kauce k nemovitostnímu aktivu</xs:documentation>
-									<xs:documentation xml:lang="hu">Rent deposit for the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Bérleti kaució az ingatlaneszközhöz</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="RentReceivables" type="FundAmountType" minOccurs="0">
@@ -1768,7 +1768,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Cuentas por cobrar de alquiler pendientes</xs:documentation>
 									<xs:documentation xml:lang="it">Crediti per affitti insoluti</xs:documentation>
 									<xs:documentation xml:lang="cs">Neuhrazené pohledávky z nájemného</xs:documentation>
-									<xs:documentation xml:lang="hu">Oustanding rent receivables</xs:documentation>
+									<xs:documentation xml:lang="hu">Fennálló bérletidíj-követelések</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="TaxLiabilities" type="FundAmountType" minOccurs="0">
@@ -1778,7 +1778,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Pasivos fiscales consolidados para el activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Passività fiscale consolidata per il patrimonio immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Konsolidované daňové závazky nemovitostního aktiva</xs:documentation>
-									<xs:documentation xml:lang="hu">Consolidated tax liabilities for the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszközre vonatkozó konszolidált adókötelezettségek</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="VacancyCosts" type="FundAmountType" minOccurs="0">
@@ -1788,7 +1788,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Costes de vacancia del activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Costi di sfitto del bene immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Náklady na neobsazenost nemovitostního aktiva</xs:documentation>
-									<xs:documentation xml:lang="hu">Vacancy costs of the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszköz üresedési (vacancy) költségei</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PlannedMaintenanceCosts" type="FundAmountType" minOccurs="0">
@@ -1804,7 +1804,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Otros ingresos del activo inmobiliario; p.ej. cargos de arrendamiento de edificios, etc.</xs:documentation>
 									<xs:documentation xml:lang="it">Altri proventi del patrimonio immobiliare; ad esempio canoni di locazione di edifici, ecc.</xs:documentation>
 									<xs:documentation xml:lang="cs">Ostatní výnosy nemovitostního aktiva; např. poplatky za právo stavby atd.</xs:documentation>
-									<xs:documentation xml:lang="hu">Other income of the real estate asset; e.g.building lease charges etc.</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszköz egyéb bevétele; pl. telekbérleti díjak stb.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherAssets" type="FundAmountType" minOccurs="0">
@@ -1814,7 +1814,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Otros activos correspondientes al activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Altri beni corrispondenti al patrimonio immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Ostatní aktiva související s nemovitostním aktivem</xs:documentation>
-									<xs:documentation xml:lang="hu">Other assets corresponding to the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszközhöz tartozó egyéb eszközök</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherLiabilities" type="FundAmountType" minOccurs="0">
@@ -1824,7 +1824,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Otros pasivos correspondientes al activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Altre passività corrispondenti al patrimonio immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Ostatní závazky související s nemovitostním aktivem</xs:documentation>
-									<xs:documentation xml:lang="hu">Other liabilities corresponding to the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszközhöz tartozó egyéb kötelezettségek</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherNonFinancialAssetValue" type="FundAmountType" minOccurs="0">
@@ -1834,7 +1834,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor de mercado actual de otros activos no financieros correspondientes al activo inmobiliario</xs:documentation>
 									<xs:documentation xml:lang="it">Valore corrente di mercato delle altre attività non finanziarie corrispondenti al bene immobiliare</xs:documentation>
 									<xs:documentation xml:lang="cs">Aktuální tržní hodnota ostatních nefinančních aktiv odpovídajících danému nemovitostnímu aktivu</xs:documentation>
-									<xs:documentation xml:lang="hu">Current market value of other non financial assets corresponding to the real estate asset</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ingatlaneszközhöz tartozó egyéb nem pénzügyi eszközök aktuális piaci értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1853,7 +1853,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Unidades de REIT</xs:documentation>
 									<xs:documentation xml:lang="it">Quote di REIT</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet kusů REIT</xs:documentation>
-									<xs:documentation xml:lang="hu">Units of REIT</xs:documentation>
+									<xs:documentation xml:lang="hu">REIT egységek száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -1863,7 +1863,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Ár (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
@@ -1878,7 +1878,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor de mercado de la posición (excluyendo dividendos)</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di mercato della posizione (esclusi i dividendi)</xs:documentation>
 									<xs:documentation xml:lang="cs">Tržní hodnota pozice (bez dividend)</xs:documentation>
-									<xs:documentation xml:lang="hu">Market value of position (excluding dividends)</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozíció piaci értéke (osztalékok nélkül)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
@@ -1888,7 +1888,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Purchase value de la posición</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di acquisto della posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Pořizovací hodnota pozice</xs:documentation>
-									<xs:documentation xml:lang="hu">Purchase value of position</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozíció vételi értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DividendsDue" type="FundAmountType" minOccurs="0">
@@ -1898,7 +1898,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Dividends due de la posición</xs:documentation>
 									<xs:documentation xml:lang="it">Dividendi dovuti di posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Splatné dividendy z pozice</xs:documentation>
-									<xs:documentation xml:lang="hu">Dividends due of position</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozícióra esedékes osztalékok</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1917,7 +1917,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Ár (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
@@ -1932,7 +1932,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Interest devengos</xs:documentation>
 									<xs:documentation xml:lang="it">Maturazione di interessi</xs:documentation>
 									<xs:documentation xml:lang="cs">Naběhlé úroky</xs:documentation>
-									<xs:documentation xml:lang="hu">Interest accruals</xs:documentation>
+									<xs:documentation xml:lang="hu">Kamatelhatárolások</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1951,7 +1951,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Unidades de derecho</xs:documentation>
 									<xs:documentation xml:lang="it">Unità di diritto</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet kusů práva</xs:documentation>
-									<xs:documentation xml:lang="hu">Units of right</xs:documentation>
+									<xs:documentation xml:lang="hu">Jog (right) egységek száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -1961,7 +1961,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Precio (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Ár (különböző pénznemekben)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OtherPrices" type="OtherPricesType" minOccurs="0">
@@ -1976,7 +1976,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor de mercado de la posición (excluyendo dividendos)</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di mercato della posizione (esclusi i dividendi)</xs:documentation>
 									<xs:documentation xml:lang="cs">Tržní hodnota pozice (bez dividend)</xs:documentation>
-									<xs:documentation xml:lang="hu">Market value of position (excluding dividends)</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozíció piaci értéke (osztalékok nélkül)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
@@ -1986,7 +1986,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Purchase value de la posición</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di acquisto della posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Pořizovací hodnota pozice</xs:documentation>
-									<xs:documentation xml:lang="hu">Purchase value of position</xs:documentation>
+									<xs:documentation xml:lang="hu">A pozíció vételi értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1999,7 +1999,7 @@ negative - paying premiums</xs:documentation>
 						<xs:documentation xml:lang="es">Detalles para materias primas (vacío)</xs:documentation>
 						<xs:documentation xml:lang="it">Dettagli per le materie prime (vuoto)</xs:documentation>
 						<xs:documentation xml:lang="cs">Podrobnosti pro komodity (prázdné)</xs:documentation>
-						<xs:documentation xml:lang="hu">Details for commodities (empty)</xs:documentation>
+						<xs:documentation xml:lang="hu">Részletek nyersanyagokhoz (commodities) (üres)</xs:documentation>
 					</xs:annotation>
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
@@ -2014,7 +2014,7 @@ negative - paying premiums</xs:documentation>
 						<xs:documentation xml:lang="es">Detalles para capital privado (vacío)</xs:documentation>
 						<xs:documentation xml:lang="it">Dettagli per private equity (vuoto)</xs:documentation>
 						<xs:documentation xml:lang="cs">Podrobnosti pro private equity (prázdné)</xs:documentation>
-						<xs:documentation xml:lang="hu">Details for private equity (empty)</xs:documentation>
+						<xs:documentation xml:lang="hu">Részletek private equity-hez (üres)</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -2025,7 +2025,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Qué porcentaje de la empresa (SPV) es propiedad de esta posición</xs:documentation>
 									<xs:documentation xml:lang="it">Quanta percentuale della Società (SPV) è posseduta da questa posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Kolik procent společnosti (SPV) je vlastněno touto pozicí</xs:documentation>
-									<xs:documentation xml:lang="hu">How many percent of the Company (SPV) is owned by this position</xs:documentation>
+									<xs:documentation xml:lang="hu">Hány százalékát birtokolja ez a pozíció a Társaságnak (SPV)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -2044,7 +2044,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor nominal (units) of CP or CD</xs:documentation>
 									<xs:documentation xml:lang="it">Valore nominale (unità) di CP o CD</xs:documentation>
 									<xs:documentation xml:lang="cs">Nominální hodnota (jednotky) CP nebo CD</xs:documentation>
-									<xs:documentation xml:lang="hu">Nominal value (units) of CP or CD</xs:documentation>
+									<xs:documentation xml:lang="hu">CP vagy CD névértéke (egységek)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Price" type="FundAmountType" minOccurs="0">
@@ -2054,7 +2054,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Clean price (en diferentes divisas)</xs:documentation>
 									<xs:documentation xml:lang="it">Prezzo pulito (in diverse valute)</xs:documentation>
 									<xs:documentation xml:lang="cs">Čistá cena (v různých měnách)</xs:documentation>
-									<xs:documentation xml:lang="hu">Clean price (in different currencies)</xs:documentation>
+									<xs:documentation xml:lang="hu">Tiszta árfolyam (különböző devizákban)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DirtyPrice" type="FundAmountType" minOccurs="0">
@@ -2074,7 +2074,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor neto del derecho a intereses</xs:documentation>
 									<xs:documentation xml:lang="it">Valore netto degli interessi richiesti</xs:documentation>
 									<xs:documentation xml:lang="cs">Čistá hodnota úrokového nároku</xs:documentation>
-									<xs:documentation xml:lang="hu">Interest claim net value</xs:documentation>
+									<xs:documentation xml:lang="hu">Kamatkövetelés nettó értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="InterestClaimGross" type="FundAmountType" minOccurs="0">
@@ -2084,7 +2084,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor bruto del derecho a intereses</xs:documentation>
 									<xs:documentation xml:lang="it">Valore lordo della richiesta di interessi</xs:documentation>
 									<xs:documentation xml:lang="cs">Hrubá hodnota úrokového nároku</xs:documentation>
-									<xs:documentation xml:lang="hu">Interest claim gross value</xs:documentation>
+									<xs:documentation xml:lang="hu">Kamatkövetelés bruttó értéke</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="AccruedInterestDays" type="xs:integer" minOccurs="0">
@@ -2094,7 +2094,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Número de días de intereses devengados</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di giorni di interessi maturati</xs:documentation>
 									<xs:documentation xml:lang="cs">Počet accrued interest days</xs:documentation>
-									<xs:documentation xml:lang="hu">Number of accrued interest days</xs:documentation>
+									<xs:documentation xml:lang="hu">A felhalmozott kamatnapok száma</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PurchaseValue" type="FundAmountType" minOccurs="0">
@@ -2104,7 +2104,7 @@ negative - paying premiums</xs:documentation>
 									<xs:documentation xml:lang="es">Valor de compra</xs:documentation>
 									<xs:documentation xml:lang="it">Valore d'acquisto</xs:documentation>
 									<xs:documentation xml:lang="cs">Pořizovací hodnota</xs:documentation>
-									<xs:documentation xml:lang="hu">Purchase Value</xs:documentation>
+									<xs:documentation xml:lang="hu">Vételi érték</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -2118,7 +2118,7 @@ negative - paying premiums</xs:documentation>
 					<xs:documentation xml:lang="es">Impuesto sobre ganancias de capital claim de la posición</xs:documentation>
 					<xs:documentation xml:lang="it">Rendimenti di capitale pretesa fiscale di posizione</xs:documentation>
 					<xs:documentation xml:lang="cs">Nárok na daň z kapitálových výnosů u pozice</xs:documentation>
-					<xs:documentation xml:lang="hu">Capital yields tax claim of position</xs:documentation>
+					<xs:documentation xml:lang="hu">A pozíció tőkehozamadó-igénye</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="InflationaryAdjustment" type="PercentageType" minOccurs="0">
@@ -2128,7 +2128,7 @@ negative - paying premiums</xs:documentation>
 					<xs:documentation xml:lang="es">Inflationary adjustment de la posición</xs:documentation>
 					<xs:documentation xml:lang="it">Aggiustamento inflazionistico della posizione</xs:documentation>
 					<xs:documentation xml:lang="cs">Inflační úprava pozice</xs:documentation>
-					<xs:documentation xml:lang="hu">Inflationary adjustment of position</xs:documentation>
+					<xs:documentation xml:lang="hu">A pozíció inflációs kiigazítása</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RiskCodes" minOccurs="0">
@@ -2138,7 +2138,7 @@ negative - paying premiums</xs:documentation>
 					<xs:documentation xml:lang="es">Risk figures de la posición</xs:documentation>
 					<xs:documentation xml:lang="it">Figure di rischio di posizione</xs:documentation>
 					<xs:documentation xml:lang="cs">Rizikové ukazatele pozice</xs:documentation>
-					<xs:documentation xml:lang="hu">Risk figures of position</xs:documentation>
+					<xs:documentation xml:lang="hu">A pozíció kockázati mutatószámai</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -2149,7 +2149,7 @@ negative - paying premiums</xs:documentation>
 								<xs:documentation xml:lang="es">Cifra de riesgo</xs:documentation>
 								<xs:documentation xml:lang="it">Figura di rischio</xs:documentation>
 								<xs:documentation xml:lang="cs">Rizikový ukazatel</xs:documentation>
-								<xs:documentation xml:lang="hu">Risk figure</xs:documentation>
+								<xs:documentation xml:lang="hu">Kockázati mutatószám</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -2192,7 +2192,7 @@ negative - paying premiums</xs:documentation>
 			<xs:documentation xml:lang="es">Detalles del subyacente de la posición incluyendo identificadores, moneda, emisor, precio, delta y ponderación para derivados y productos estructurados</xs:documentation>
 			<xs:documentation xml:lang="it">Dettagli della posizione sottostante, inclusi identificatori, valuta, emittente, prezzo, delta e ponderazione per derivati ​​e prodotti strutturati</xs:documentation>
 			<xs:documentation xml:lang="cs">Podrobnosti podkladového nástroje pozice včetně identifikátorů, měny, emitenta, ceny, delty a váhy pro deriváty a strukturované produkty</xs:documentation>
-			<xs:documentation xml:lang="hu">Position underlying details including identifiers, currency, issuer, price, delta and weight for derivatives and structured products</xs:documentation>
+			<xs:documentation xml:lang="hu">A pozíció mögöttes részletei, beleértve az azonosítókat, devizát, kibocsátót, árat, deltát és súlyt származtatott ügyletek és strukturált termékek esetén</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="UniqueID" type="xs:IDREF" minOccurs="0">
@@ -2314,7 +2314,7 @@ negative - paying premiums</xs:documentation>
 			<xs:documentation xml:lang="es">Indicador de riesgo o cifra clave de riesgo (VaR, Duration, Beta, Sharpe Ratio, etc.) con valor y parámetros de cálculo</xs:documentation>
 			<xs:documentation xml:lang="it">Indicatore di rischio o indicatore chiave di rischio (VaR, Duration, Beta, Sharpe Ratio, ecc.) con valore e parametri di calcolo</xs:documentation>
 			<xs:documentation xml:lang="cs">Ukazatel rizika nebo klíčová riziková hodnota (VaR, Duration, Beta, Sharpe Ratio atd.) s hodnotou a parametry výpočtu</xs:documentation>
-			<xs:documentation xml:lang="hu">Risk indicator or key risk figure (VaR, Duration, Beta, Sharpe Ratio, etc.) with value and calculation parameters</xs:documentation>
+			<xs:documentation xml:lang="hu">Kockázati indikátor vagy kulcsfontosságú kockázati mutatószám (VaR, Duration, Béta, Sharpe-mutató stb.) értékkel és számítási paraméterekkel</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice>
@@ -2423,7 +2423,7 @@ Yield</xs:documentation>
 					<xs:documentation xml:lang="es">Valor de risk code</xs:documentation>
 					<xs:documentation xml:lang="it">Valore del codice di rischio</xs:documentation>
 					<xs:documentation xml:lang="cs">Hodnota risk code</xs:documentation>
-					<xs:documentation xml:lang="hu">Value of risk code</xs:documentation>
+					<xs:documentation xml:lang="hu">Kockázati kód értéke</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Frequency" type="FrequencyType" minOccurs="0">
@@ -2433,7 +2433,7 @@ Yield</xs:documentation>
 					<xs:documentation xml:lang="es">Frequency of data utilizado para calculation</xs:documentation>
 					<xs:documentation xml:lang="it">Frequenza dei dati utilizzati per il calcolo</xs:documentation>
 					<xs:documentation xml:lang="cs">Frekvence dat použitých pro výpočet</xs:documentation>
-					<xs:documentation xml:lang="hu">Frequency of data used for calculation</xs:documentation>
+					<xs:documentation xml:lang="hu">A számításhoz használt adatok gyakorisága</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DateFrom" type="xs:date" minOccurs="0">
@@ -2443,7 +2443,7 @@ Yield</xs:documentation>
 					<xs:documentation xml:lang="es">Inicio del período para valor de riesgo</xs:documentation>
 					<xs:documentation xml:lang="it">Inizio del periodo per il valore di rischio</xs:documentation>
 					<xs:documentation xml:lang="cs">Začátek období pro rizikovou hodnotu</xs:documentation>
-					<xs:documentation xml:lang="hu">Start of period for risk value</xs:documentation>
+					<xs:documentation xml:lang="hu">A kockázati érték időszakának kezdete</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DateTo" type="xs:date" minOccurs="0">
@@ -2453,7 +2453,7 @@ Yield</xs:documentation>
 					<xs:documentation xml:lang="es">Fin del período para valor de riesgo</xs:documentation>
 					<xs:documentation xml:lang="it">Fine del periodo per il valore di rischio</xs:documentation>
 					<xs:documentation xml:lang="cs">Konec období pro rizikovou hodnotu</xs:documentation>
-					<xs:documentation xml:lang="hu">End of period for risk value</xs:documentation>
+					<xs:documentation xml:lang="hu">A kockázati érték időszakának vége</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Annualization" type="xs:boolean" default="false">
@@ -2464,7 +2464,7 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
 					<xs:documentation xml:lang="es">Indica si risk value has been annualized (false of not applicable)</xs:documentation>
 					<xs:documentation xml:lang="it">Indica se il valore del rischio è stato annualizzato (falso o non applicabile)</xs:documentation>
 					<xs:documentation xml:lang="cs">Udává, zda byla riziková hodnota anualizována (false, pokud není relevantní)</xs:documentation>
-					<xs:documentation xml:lang="hu">Indicates whether risk value has been annualized (false of not applicable)</xs:documentation>
+					<xs:documentation xml:lang="hu">Jelzi, hogy a kockázati érték évesítve lett-e (false, ha nem alkalmazható)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="Text1000Type" minOccurs="0">
@@ -2474,7 +2474,7 @@ false - nicht annualisiert bzw. nicht anwendbar</xs:documentation>
 					<xs:documentation xml:lang="es">Descripción del método de cálculo</xs:documentation>
 					<xs:documentation xml:lang="it">Descrizione del metodo di calcolo</xs:documentation>
 					<xs:documentation xml:lang="cs">Popis metody výpočtu</xs:documentation>
-					<xs:documentation xml:lang="hu">Description of calculation method</xs:documentation>
+					<xs:documentation xml:lang="hu">A számítási módszer leírása</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

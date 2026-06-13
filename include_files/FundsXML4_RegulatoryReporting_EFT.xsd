@@ -29,7 +29,7 @@
                <xs:documentation xml:lang="es">Identificadores de fondo o clase de acciones para una conexion sencilla con otros datos del fondo o clase de acciones</xs:documentation>
                <xs:documentation xml:lang="it">Identificatori di fondi o classi di azioni per una facile connessione ad altri dati di fondi o classi di azioni</xs:documentation>
                <xs:documentation xml:lang="cs">Identifikátory fondu nebo třídy akcií pro snadné propojení s dalšími údaji o fondu nebo třídě akcií</xs:documentation>
-               <xs:documentation xml:lang="hu">Alap or Sorozat identifiers for easy connection to other Alap or Sorozat Adat</xs:documentation>
+               <xs:documentation xml:lang="hu">Alap- vagy Share Class-azonosítók az egyéb alap- vagy Share Class-adatokhoz való egyszerű kapcsolódás érdekében</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataSupplier" type="DataSupplierType">
@@ -41,7 +41,7 @@
                <xs:documentation xml:lang="es">Definicion de la fuente de datos (sociedad de inversion, proveedor, ...)</xs:documentation>
                <xs:documentation xml:lang="it">Definizione della fonte dei dati (società di investimento, fornitore, ...)</xs:documentation>
                <xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel dat, ...)</xs:documentation>
-               <xs:documentation xml:lang="hu">Definition of Adat source (Befektetes Tarsasag, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az adatforrás meghatározása (befektetési társaság, vendor, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="DataSetInformation">
@@ -87,7 +87,7 @@ Versione usata dell'EFT: V1 fino a nuovo avviso</xs:documentation>
                                  <xs:documentation xml:lang="cs">00010_EFT_Version
 Použitá verze EFT : V1 až do odvolání</xs:documentation>
                                  <xs:documentation xml:lang="hu">00010_EFT_Version
-Used Verzio of the EFT : V1 until further notice</xs:documentation>
+Az EFT használt verziója: V1 további értesítésig</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -112,7 +112,7 @@ Data e ora di creazione del file EFT</xs:documentation>
                                  <xs:documentation xml:lang="cs">00020_File_Generation_Date_and_Time
 Datum a čas vytvoření souboru EFT</xs:documentation>
                                  <xs:documentation xml:lang="hu">00020_File_Generation_Date_and_Time
-Datum and Time of the creation of the EFT file</xs:documentation>
+Az EFT-fájl létrehozásának dátuma és időpontja</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="PeriodStartData" type="xs:date">
@@ -132,7 +132,7 @@ Data di inizio del periodo in cui è avvenuta la distribuzione</xs:documentation
                                  <xs:documentation xml:lang="cs">00030_Reporting_Period_Start_Data
 Datum začátku období, ve kterém probíhala distribuce</xs:documentation>
                                  <xs:documentation xml:lang="hu">00030_Reporting_Period_Start_Data
-Datum of beginning of the Idoszak under which Forgalmazas has occured</xs:documentation>
+Azon időszak kezdőnapja, amely alatt a forgalmazás történt</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="PeriodEndData" type="xs:date">
@@ -152,7 +152,7 @@ Data di fine del periodo in cui è avvenuta la distribuzione</xs:documentation>
                                  <xs:documentation xml:lang="cs">00040_Reporting_Period_End_Data
 Datum konce období, ve kterém probíhala distribuce</xs:documentation>
                                  <xs:documentation xml:lang="hu">00040_Reporting_Period_End_Data
-Datum of end of the Idoszak under which Forgalmazas has occured</xs:documentation>
+Azon időszak zárónapja, amely alatt a forgalmazás történt</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="ReferenceTargetMarket">
@@ -179,8 +179,8 @@ M (produttore) / D (distributore)/ B (entrambi)</xs:documentation>
 Definuje referenční Target Market (cílový trh), vůči kterému jsou reportovány odchylky
 M (Manufacturer) / D (Distributor)/ B (Both)</xs:documentation>
                                  <xs:documentation xml:lang="hu">00050_Reference_ Target_ Market
-Defines the reference Celcsoport to which deviations are reported
-M (Gyarto) / D (Forgalmazo)/ B (Both)</xs:documentation>
+Meghatározza azt a referencia-célpiacot (Target Market), amelyhez képest az eltéréseket jelentik
+M (Manufacturer) / D (Distributor)/ B (Both)</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -223,7 +223,7 @@ Nome del soggetto che distribuisce lo strumento finanziario. Colui che è respon
                                  <xs:documentation xml:lang="cs">01010_Submitter_Entity_Name
 Název subjektu distribuujícího finanční nástroj. Subjekt odpovědný za Distributor Target Market (cílový trh distributora)</xs:documentation>
                                  <xs:documentation xml:lang="hu">01010_Submitter_Entity_Name
-Nev of the Jogalany distributing the financial instrument. The one who is responsible for the Forgalmazo Celcsoport</xs:documentation>
+A pénzügyi eszközt forgalmazó szervezet neve. Az, aki a forgalmazói célpiacért (Distributor Target Market) felelős</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -262,9 +262,9 @@ Identifikace distribučního subjektu
 : subjekt odpovědný za Distributor Target Market, nebo Nothing (N)
 LEI, národní identifikační číslo, N</xs:documentation>
                                  <xs:documentation xml:lang="hu">01020_Submitter_Entity_identifier
-Identification of the Forgalmazas Jogalany
-: the one who is responsible for the Forgalmazo Celcsoport or Nothing (N)
-LEI, National Identity Szam, N</xs:documentation>
+A forgalmazó szervezet azonosítása
+: az, aki a forgalmazói célpiacért (Distributor Target Market) felelős, vagy Nothing (N)
+LEI, National Identity Number, N</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -296,8 +296,8 @@ L o NI o No</xs:documentation>
 LEI přijímajícího subjektu nebo národní identifikátor nebo nic
 L nebo NI nebo No</xs:documentation>
                                  <xs:documentation xml:lang="hu">02030_Recipient_Entity_identifier_Type
-LEI of the recipient Jogalany or National Azonosito or Nothing
-L or NI or No</xs:documentation>
+A fogadó szervezet LEI-kódja vagy nemzeti azonosító vagy semmi
+L vagy NI vagy No</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -352,11 +352,11 @@ Jedna z následujících položek
 - Zprostředkovatel (např. platforma)
 M nebo D nebo I (zprostředkovatel / platforma)</xs:documentation>
                                  <xs:documentation xml:lang="hu">02040_Recipient_Entity_Position_In_The_Distribution_Chain
-One of the following items
-- Gyarto
--  Forgalmazo (The one doing the sales)
-- Intermediary (e.g. platform)
-M or D or I (intermediary / platform)</xs:documentation>
+A következő elemek egyike
+- Manufacturer (előállító)
+-  Distributor (forgalmazó – az értékesítést végző)
+- Intermediary (közvetítő, pl. platform)
+M vagy D vagy I (közvetítő / platform)</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -399,7 +399,7 @@ Denominazione dell'Ente produttore dello strumento finanziario. Colui che è res
                                  <xs:documentation xml:lang="cs">03010_Manufacturer_Entity_Name
 Název subjektu vytvářejícího finanční nástroj. Ten, kdo je odpovědný za cílový trh tvůrce (Manufacturer Target Market)</xs:documentation>
                                  <xs:documentation xml:lang="hu">03010_Manufacturer_Entity_Name
-Nev of the Jogalany producing the financial instrument. The one who is responsible for the Gyarto Celcsoport</xs:documentation>
+A pénzügyi eszközt előállító szervezet neve. Az, aki a gyártói (Manufacturer) célpiacért felelős</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -431,8 +431,8 @@ LEI, numero di identità nazionale, N</xs:documentation>
 Identifikace subjektu tvůrce produktu (Manufacturer)
 LEI, národní identifikační číslo, N</xs:documentation>
                                  <xs:documentation xml:lang="hu">03020_Manufacturer_identifier
-Identification of the Gyarto Jogalany
-LEI, National Identity Szam, N</xs:documentation>
+A gyártó (Manufacturer) szervezet azonosítása
+LEI, nemzeti azonosító szám, N</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -464,8 +464,8 @@ L o NI o No</xs:documentation>
 LEI tvůrce produktu nebo národní identifikátor nebo nic
 L nebo NI nebo No</xs:documentation>
                                  <xs:documentation xml:lang="hu">03030_Manufacturer_identifier_Type
-LEI of the Gyarto or National Azonosito or Nothing
-L or NI or No</xs:documentation>
+A gyártó (Manufacturer) LEI-je vagy nemzeti azonosítója vagy semmi
+L vagy NI vagy No</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -546,12 +546,12 @@ Pro identifikaci konkrétního finančního nástroje použijte následující p
   - kód přidělený podnikem, pokud výše uvedené možnosti nejsou k dispozici. Kód musí být jedinečný a musí zůstat konzistentní v čase.
   - prázdné, pokud je pole 04020 nastaveno na 11</xs:documentation>
                         <xs:documentation xml:lang="hu">04010_Financial_Instrument_Identifying_Data
-Identification of the financial instrument
-Use the following priority for identification of a specific financial instrument:
-  - ISO 6166 Kod of ISIN when available
-  - Other recognised codes (e.g.: CUSIP, Bloomberg Ticker, Reuters RIC)
-  - Kod attributed by the Vallalkozas, when the options above are not available. Kod must be unique and kept consistent over time.
-  - blank if 04020 is set to 11</xs:documentation>
+A pénzügyi eszköz azonosítása
+Egy adott pénzügyi eszköz azonosításához a következő prioritást használja:
+  - az ISIN ISO 6166 kódja, ha elérhető
+  - egyéb elismert kódok (pl.: CUSIP, Bloomberg Ticker, Reuters RIC)
+  - a vállalkozás által hozzárendelt kód, ha a fenti lehetőségek nem állnak rendelkezésre. A kódnak egyedinek kell lennie, és időben következetesen kell tartani.
+  - üres, ha a 04020 értéke 11</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -667,20 +667,20 @@ Použije se jedna z možností z následujícího uzavřeného seznamu:
 11 - agregovaná třída produktů
 99 - kód přidělený podnikem</xs:documentation>
                         <xs:documentation xml:lang="hu">04020_Type_Of_Identification_Code_For_The_Financial_Instrument
-Codification chosen to identify the financial instrument or Aggregated Class of Products
-One of the options in the following closed list to be used:
-1 - ISO 6166 for ISIN Kod
-2 - CUSIP (The Committee on Uniform Securities Identification Procedures Szam assigned by the CUSIP Service Bureau for U.S. and Canadian companies)
-3 - SEDOL (Stock Exchange Napi Official List for the London Stock Exchange)
-4 – WKN (Wertpapier Kenn-Nummer, the alphanumeric German identification Szam)
-5 - Bloomberg Ticker (Bloomberg letters Kod that identify a Tarsasag's securities)
-6 - BBGID (The Bloomberg Global ID)
-7 - Reuters RIC (Reuters instrument Kod)
-8 – FIGI (Financial Instrument Global Azonosito)
-9 - Other Kod by members of the Association of National Numbering Agencies
+A pénzügyi eszköz vagy az Aggregált Termékosztály azonosítására választott kódolás
+A következő zárt lista egyik opciója használandó:
+1 - ISO 6166 ISIN-kódhoz
+2 - CUSIP (a CUSIP Service Bureau által amerikai és kanadai vállalatokhoz rendelt, a Committee on Uniform Securities Identification Procedures szerinti szám)
+3 - SEDOL (Stock Exchange Daily Official List a londoni tőzsdéhez)
+4 – WKN (Wertpapier Kenn-Nummer, a német alfanumerikus azonosító szám)
+5 - Bloomberg Ticker (a vállalat értékpapírjait azonosító Bloomberg betűkód)
+6 - BBGID (a Bloomberg Global ID)
+7 - Reuters RIC (Reuters instrument code)
+8 – FIGI (Financial Instrument Global Identifier)
+9 - A Nemzeti Számozó Ügynökségek Szövetségének (Association of National Numbering Agencies) tagjai által kiadott egyéb kód
 10 - LEI
-11 - Aggregated Class of products
-99 - Kod attributed by the Vallalkozas</xs:documentation>
+11 - Aggregált termékosztály
+99 - A vállalkozás által hozzárendelt kód</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:int">
@@ -716,7 +716,7 @@ Nome dello strumento finanziario, se applicabile</xs:documentation>
                         <xs:documentation xml:lang="cs">04030_Financial_Instrument_Name
 Název finančního nástroje, je-li relevantní</xs:documentation>
                         <xs:documentation xml:lang="hu">04030_Financial_Instrument_Name
-Nev of the financial instrument if applicable</xs:documentation>
+A pénzügyi eszköz neve, ha alkalmazható</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -741,7 +741,7 @@ Indica il numero totale di transazioni espresso in numero assoluto. Include i vo
                         <xs:documentation xml:lang="cs">04040_Financial_Instrument_Total_Number_Of_Transactions
 Znamená celkový počet transakcí vyjádřený v absolutním čísle. Zahrnuje objemy v kategoriích Positive, Negative i mimo Positive.</xs:documentation>
                         <xs:documentation xml:lang="hu">04040_Financial_Instrument_Total_Number_Of_Transactions
-Means Osszesen Szam of transactions expressed in absolute Szam. Includes volumes in Positive, Negative and outside of Positve.</xs:documentation>
+Az ügyletek teljes számát jelenti, abszolút számban kifejezve. Tartalmazza a Positive, a Negative és a Positive-on kívüli volumeneket.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -769,7 +769,7 @@ Means Osszesen Szam of transactions expressed in absolute Szam. Includes volumes
                         <xs:documentation xml:lang="es">Ventas fuera del mercado objetivo (OTM) y/o en el mercado objetivo negativo (NTM) - Reportado como numero de transacciones</xs:documentation>
                         <xs:documentation xml:lang="it">Vendite al di fuori del mercato target (OTM) e/o nel mercato target negativo (NTM) - Segnalate come numero di transazioni</xs:documentation>
                         <xs:documentation xml:lang="cs">Prodeje mimo cílový trh (OTM) a/nebo v negativním cílovém trhu (NTM) - vykazováno jako počet transakcí</xs:documentation>
-                        <xs:documentation xml:lang="hu">Sales Outside Celcsoport (OTM) and/or in Negative Celcsoport (NTM) - Reported as Szam of Transactions</xs:documentation>
+                        <xs:documentation xml:lang="hu">Célpiacon kívüli (Outside Target Market, OTM) és/vagy negatív célpiacon (Negative Target Market, NTM) történő értékesítések - tranzakciók számaként jelentve</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -797,8 +797,8 @@ Se 00050 è impostato su M o B</xs:documentation>
 Počet vykázaných transakcí identifikovaných jako v rozporu s typem retailového investora (Retail Investor Type), při využití služeb MiFID Execution Only nebo Self Service s testem přiměřenosti
 Pokud je pole 00050 nastaveno na M nebo B</xs:documentation>
                                  <xs:documentation xml:lang="hu">05010_Retail_Investor_Type_AND_Self_Service
-Szam of transactions reported as identified in conflict with Retail Befekteto Tipus, using MiFID services Execution Only or Self Service with Appropriateness Test
-If  00050 is set to M or B</xs:documentation>
+Az olyan ügyletek száma, amelyek a Retail Investor Type-pal ütközőként kerültek azonosításra, az Execution Only vagy a Self Service with Appropriateness Test MiFID-szolgáltatások használatával
+Ha a 00050 értéke M vagy B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -820,7 +820,7 @@ Numero di transazioni segnalate come identificate in conflitto con la tipologia 
                                  <xs:documentation xml:lang="cs">05020_Retail_Investor_Type_AND_Execution_With_Suitability_Test
 Počet vykázaných transakcí identifikovaných jako v rozporu s typem retailového investora, při využití služeb MiFID Poradenství (Advice) nebo Portfolio Management.</xs:documentation>
                                  <xs:documentation xml:lang="hu">05020_Retail_Investor_Type_AND_Execution_With_Suitability_Test
-Szam of transactions reported as identified in conflict with Retail Befekteto Tipus, using MiFID services Advice or Portfolio Management.</xs:documentation>
+Az olyan ügyletek száma, amelyek a Retail Investor Type-pal ütközőként kerültek azonosításra, az Advice vagy a Portfolio Management MiFID-szolgáltatások használatával.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -842,7 +842,7 @@ Numero di transazioni segnalate come identificate in conflitto con Conoscenza ed
                                  <xs:documentation xml:lang="cs">05030_Knowledge_and_Experience_AND_Self_Service
 Počet vykázaných transakcí identifikovaných jako v rozporu se znalostmi a zkušenostmi (Knowledge and Experience), při využití služeb MiFID Execution Only nebo Self Service s testem přiměřenosti.</xs:documentation>
                                  <xs:documentation xml:lang="hu">05030_Knowledge_and_Experience_AND_Self_Service
-Szam of transactions reported as identified in conflict with Knowledge and Experience, using MiFID services Execution Only or Self Service with Appropriateness Test.</xs:documentation>
+Az olyan ügyletek száma, amelyek a Knowledge and Experience-szel ütközőként kerültek azonosításra, az Execution Only vagy a Self Service with Appropriateness Test MiFID-szolgáltatások használatával.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -864,7 +864,7 @@ Numero di transazioni segnalate come identificate in conflitto con Conoscenza ed
                                  <xs:documentation xml:lang="cs">05040_Knowledge_and_Experience_AND_With_Suitability_Test
 Počet vykázaných transakcí identifikovaných jako v rozporu se znalostmi a zkušenostmi, při využití služeb MiFID Poradenství (Advice) nebo Portfolio Management.</xs:documentation>
                                  <xs:documentation xml:lang="hu">05040_Knowledge_and_Experience_AND_With_Suitability_Test
-Szam of transactions reported as identified in conflict with Knowledge and Experience, using MiFID services Advice or Portfolio Management.</xs:documentation>
+Az olyan ügyletek száma, amelyek a Knowledge and Experience-szel ütközőként kerültek azonosításra, az Advice vagy a Portfolio Management MiFID-szolgáltatások használatával.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -886,7 +886,7 @@ Numero di operazioni segnalate come identificate in conflitto con la capacità d
                                  <xs:documentation xml:lang="cs">05050_Ability_To_Bear_Losses_AND_With_Suitability_Test_France
 Počet vykázaných transakcí identifikovaných jako v rozporu se schopností nést ztráty (Ability To Bear Losses), při využití služeb MiFID Poradenství (Advice) nebo Portfolio Management.</xs:documentation>
                                  <xs:documentation xml:lang="hu">05050_Ability_To_Bear_Losses_AND_With_Suitability_Test_France
-Szam of transactions reported as identified in conflict with Ability To Bear Losses, using MiFID services Advice or Portfolio Management.</xs:documentation>
+Az olyan ügyletek száma, amelyek az Ability To Bear Losses-szel ütközőként kerültek azonosításra, az Advice vagy a Portfolio Management MiFID-szolgáltatások használatával.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -901,7 +901,7 @@ Szam of transactions reported as identified in conflict with Ability To Bear Los
                         <xs:documentation xml:lang="es">Ampliacion de los campos de reporte de estrategia de distribucion (ESMA parrafo 51)</xs:documentation>
                         <xs:documentation xml:lang="it">Ampliamento dei campi di segnalazione della strategia di distribuzione (ESMA par. 51)</xs:documentation>
                         <xs:documentation xml:lang="cs">Rozšíření polí pro vykazování distribuční strategie (ESMA odst. 51)</xs:documentation>
-                        <xs:documentation xml:lang="hu">Widening of Forgalmazas Strategy Jelentestetel Fields (ESMA para 51)</xs:documentation>
+                        <xs:documentation xml:lang="hu">A forgalmazási stratégiára vonatkozó jelentési mezők bővítése (ESMA 51. bekezdés)</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -923,7 +923,7 @@ In riferimento all'Articolo 51 delle Linee guida sulla governance dei prodotti d
                                  <xs:documentation xml:lang="cs">06010_Outside_Intended_Distribution_Strategy_Retail_And_Self_Service
 S odkazem na článek 51 pokynů ESMA k product governance se toto pole používá k uvedení, zda je distribuční strategie distributora rozšířena oproti distribuční strategii zamýšlené výrobcem (Manufacturer) ve vztahu k retailovým klientům.</xs:documentation>
                                  <xs:documentation xml:lang="hu">06010_Outside_Intended_Distribution_Strategy_Retail_And_Self_Service
-In reference to ESMA Product Governance Guidelines Article 51 this Mezo is used to disclose if the Forgalmazas Strategy of the Forgalmazo is widened in relation to the Forgalmazas Strategy intended by the Gyarto with regards to Retail Clients.</xs:documentation>
+Az ESMA Product Governance Guidelines 51. cikkére hivatkozva ez a mező annak közzétételére szolgál, hogy a forgalmazó Distribution Strategy-je kiszélesedik-e a gyártó által szándékolt Distribution Strategy-hez képest a lakossági ügyfelek tekintetében.</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -947,7 +947,7 @@ In reference to ESMA Product Governance Guidelines Article 51 this Mezo is used 
                <xs:documentation xml:lang="es">Informe de desviacion - Perspectiva del mercado objetivo del distribuidor (Para Italia - solo si es un distribuidor italiano con un acuerdo de distribucion especifico)</xs:documentation>
                <xs:documentation xml:lang="it">Rapporto sugli scostamenti - Prospettiva del mercato target del distributore (per l'Italia - solo se si tratta di un distributore italiano con un accordo di distribuzione specifico)</xs:documentation>
                <xs:documentation xml:lang="cs">Deviation Report - perspektiva cílového trhu distributora (pro Itálii - pouze pokud se jedná o italského distributora se specifickou distribuční smlouvou)</xs:documentation>
-               <xs:documentation xml:lang="hu">Deviation Jelentes - Forgalmazo Celcsoport Perspective ( For Italy - only if it is an Italan Forgalmazo with a specific Forgalmazas agreement)</xs:documentation>
+               <xs:documentation xml:lang="hu">Eltérési jelentés - Forgalmazói célpiaci (Target Market) nézőpont (Olaszország esetén - csak akkor, ha olasz forgalmazóról van szó, specifikus forgalmazási megállapodással)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -990,8 +990,8 @@ Se 00050 è impostato su D o B</xs:documentation>
 Počet vykázaných transakcí identifikovaných jako v rozporu s typem retailového investora (Retail Investor Type), při využití služeb MiFID Execution Only nebo Self Service s testem přiměřenosti (Appropriateness Test).
 Pokud je  00050 nastaveno na D nebo B</xs:documentation>
                                  <xs:documentation xml:lang="hu">07010_Retail_Investor_Type_AND_Self_Service_vs_DistributorTM_Italy
-Szam of transactions reported as identified in conflict with Retail Befekteto Tipus, using MiFID services Execution Only or Self Service with Appropriateness Test.
-If  00050 is set to D or B</xs:documentation>
+Az olyan ügyletek száma, amelyek a Retail Investor Type-pal ütközőként kerültek azonosításra, az Execution Only vagy a Self Service with Appropriateness Test MiFID-szolgáltatások használatával.
+Ha a 00050 értéke D vagy B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -1020,8 +1020,8 @@ Se 00050 è impostato su D o B</xs:documentation>
 Počet vykázaných transakcí identifikovaných jako v rozporu s typem retailového investora (Retail Investor Type), při využití služby MiFID Advice (poradenství).
 Pokud je  00050 nastaveno na D nebo B</xs:documentation>
                                  <xs:documentation xml:lang="hu">07020_Retail_Investor_Type_AND_Advice_vs_DistributorTM_Italy
-Szam of transactions reported as identified in conflict with Retail Befekteto Tipus, using MiFID service Advice.
-If  00050 is set to D or B</xs:documentation>
+Az olyan ügyletek száma, amelyek a Retail Investor Type-pal ütközőként kerültek azonosításra, az Advice MiFID-szolgáltatás használatával.
+Ha a 00050 értéke D vagy B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -1050,8 +1050,8 @@ Se 00050 è impostato su D o B</xs:documentation>
 Počet vykázaných transakcí identifikovaných jako v rozporu se znalostmi a zkušenostmi (Knowledge and Experience), při využití služeb MiFID Execution Only nebo Self Service s testem přiměřenosti (Appropriateness Test).
 Pokud je  00050 nastaveno na D nebo B</xs:documentation>
                                  <xs:documentation xml:lang="hu">07030_Knowledge_and_Experience_AND_Self_Service_vs_DistributorTM_Italy
-Szam of transactions reported as identified in conflict with Knowledge and Experience, using MiFID services Execution Only or Self Service with Appropriateness Test.
-If  00050 is set to D or B</xs:documentation>
+Az olyan ügyletek száma, amelyek a Knowledge and Experience-szel ütközőként kerültek azonosításra, az Execution Only vagy a Self Service with Appropriateness Test MiFID-szolgáltatások használatával.
+Ha a 00050 értéke D vagy B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0"
@@ -1080,8 +1080,8 @@ Se 00050 è impostato su D o B</xs:documentation>
 Počet vykázaných transakcí identifikovaných jako v rozporu se znalostmi a zkušenostmi (Knowledge and Experience), při využití služeb MiFID Advice (poradenství) nebo Portfolio Management (správa portfolia).
 Pokud je  00050 nastaveno na D nebo B</xs:documentation>
                                  <xs:documentation xml:lang="hu">07040_Knowledge_and_Experience_AND_With_Suitability_Test_vs_DistributorTM_Italy
-Szam of transactions reported as identified in conflict with Knowledge and Experience, using MiFID services Advice or Portfolio Management.
-If  00050 is set to D or B</xs:documentation>
+A Knowledge and Experience követelménnyel összeférhetetlennek azonosított, jelentett tranzakciók száma, MiFID szolgáltatások (tanácsadás vagy portfóliókezelés) igénybevétele mellett.
+Ha a 00050 értéke D vagy B</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>

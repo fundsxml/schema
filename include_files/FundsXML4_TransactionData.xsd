@@ -12,6 +12,7 @@
 			<xs:documentation xml:lang="it">Tipo di contenitore per guadagni multipli (cedole, dividendi, distribuzioni) da posizioni di titoli in un portafoglio di fondi</xs:documentation>
 			<xs:documentation xml:lang="cs">Typ kontejneru pro více výnosů (kupóny, dividendy, distribuce) z pozic cenných papírů v portfoliu fondu</xs:documentation>
 			<xs:documentation xml:lang="hu">Tároló típus több hozamhoz (kuponok, osztalékok, szétosztások) az értékpapír pozíciókból egy alap portfólióban</xs:documentation>
+			<xs:documentation xml:lang="da">Containertype til flere indtjeninger (kuponer, udbytter, udlodninger) fra værdipapirpositioner i en fondsportefølje</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Earning" type="EarningType" maxOccurs="unbounded">
@@ -24,6 +25,7 @@
 					<xs:documentation xml:lang="it">Dati sui guadagni (cedola unica, dividendo o distribuzione) derivanti da una posizione in titoli</xs:documentation>
 					<xs:documentation xml:lang="cs">Údaje o výnosu (jednotlivý kupón, dividenda nebo distribuce) plynoucím z pozice v cenném papíru</xs:documentation>
 					<xs:documentation xml:lang="hu">Hozam adat (egyedi kupon, osztalék vagy szétosztási) egy értékpapír pozícióból</xs:documentation>
+					<xs:documentation xml:lang="da">Earning-data (enkelt kupon, udbytte eller udlodning) hidrørende fra en værdipapirposition</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -38,6 +40,7 @@
 			<xs:documentation xml:lang="it">Record di guadagno singolo contenente dati su cedole, dividendi o distribuzione da una posizione di titolo, inclusi importi, date, informazioni fiscali e dettagli di prenotazione</xs:documentation>
 			<xs:documentation xml:lang="cs">Jednotlivý záznam výnosu obsahující údaje o kupónu, dividendě nebo distribuci z pozice cenného papíru včetně částek, dat, daňových informací a účetních detailů</xs:documentation>
 			<xs:documentation xml:lang="hu">Egyedi hozam rekord kupon, osztalék vagy szétosztási adatokkal egy értékpapír pozícióból, beleértve az összegeket, dátumokat, adó információkat és könyvelési részleteket</xs:documentation>
+			<xs:documentation xml:lang="da">Enkelt indtægtspost med kupon-, udbytte- eller udlodningsdata fra en værdipapirposition, herunder beløb, datoer, skatteoplysninger og bogføringsdetaljer</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="EarningID" type="Text256Type">
@@ -50,6 +53,7 @@
 					<xs:documentation xml:lang="it">ID guadagno univoco</xs:documentation>
 					<xs:documentation xml:lang="cs">Jedinečné ID výnosu (Earning ID)</xs:documentation>
 					<xs:documentation xml:lang="hu">Egyedi hozam azonosító</xs:documentation>
+					<xs:documentation xml:lang="da">Unikt Earning-ID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CancellationFlag" type="xs:boolean" minOccurs="0">
@@ -62,6 +66,7 @@
 					<xs:documentation xml:lang="it">Indica se l'accumulo è stato annullato</xs:documentation>
 					<xs:documentation xml:lang="cs">Označuje, zda earning has been cancelled</xs:documentation>
 					<xs:documentation xml:lang="hu">Jelzi, hogy a hozam visszavonasra kerult-e</xs:documentation>
+					<xs:documentation xml:lang="da">Angiver, om indtjeningen er annulleret</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OriginalEarningID" type="Text256Type" minOccurs="0">
@@ -74,6 +79,7 @@
 					<xs:documentation xml:lang="it">ID guadagno del guadagno annullato</xs:documentation>
 					<xs:documentation xml:lang="cs">ID výnosu stornovaného výnosu</xs:documentation>
 					<xs:documentation xml:lang="hu">A visszavont hozam azonosítója</xs:documentation>
+					<xs:documentation xml:lang="da">Earning-ID for annulleret earning</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AssetUniqueID" minOccurs="0">
@@ -86,6 +92,7 @@
 					<xs:documentation xml:lang="it">ID univoco dell'asset (link a AssetMasterData)</xs:documentation>
 					<xs:documentation xml:lang="cs">Jedinečné ID aktiva (odkaz na AssetMasterData)</xs:documentation>
 					<xs:documentation xml:lang="hu">Az eszköz egyedi azonosítója (hivatkozás az AssetMasterData-ra)</xs:documentation>
+					<xs:documentation xml:lang="da">Unikt ID for aktiv (link til AssetMasterData)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:IDREF">
@@ -103,6 +110,7 @@
 					<xs:documentation xml:lang="it">Identificatori dello strumento (come ISIN, Ticker, ...)</xs:documentation>
 					<xs:documentation xml:lang="cs">Identifikátory nástroje (např. ISIN, Ticker, ...)</xs:documentation>
 					<xs:documentation xml:lang="hu">Az instrumentum azonosítói (pl. ISIN, Ticker, ...)</xs:documentation>
+					<xs:documentation xml:lang="da">Instrumentets identifikatorer (såsom ISIN, Ticker, ...)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EarningKind">
@@ -122,6 +130,8 @@ Cedole, dividendi, distribuzione di fondi, ...</xs:documentation>
 Kupón, Dividenda, Distribuce fondu, ...</xs:documentation>
 					<xs:documentation xml:lang="hu">A hozam típusa:
 Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
+					<xs:documentation xml:lang="da">Type af indtjening:
+Kupon, udbytte, fondsudlodning, ...</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -144,6 +154,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Data di chiusura/data di negoziazione</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum uzavření / datum obchodu</xs:documentation>
 					<xs:documentation xml:lang="hu">Záró dátum / kereskedési dátum</xs:documentation>
+					<xs:documentation xml:lang="da">Lukningsdato / handelsdato</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EntryDate" type="xs:date">
@@ -156,6 +167,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Data in cui i guadagni sono stati contabilizzati nel portafoglio</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum, kdy byl výnos zaúčtován do portfolia</xs:documentation>
 					<xs:documentation xml:lang="hu">A dátum, amikor a hozam a portfólióba könyvelésre került</xs:documentation>
+					<xs:documentation xml:lang="da">Dato hvor afkastet blev bogført i porteføljen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ValutaDate" type="xs:date" minOccurs="0">
@@ -168,6 +180,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Data valuta</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum valuty</xs:documentation>
 					<xs:documentation xml:lang="hu">Értéknap</xs:documentation>
+					<xs:documentation xml:lang="da">Valørdato</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EntryCurrency" type="ISOCurrencyCodeType">
@@ -180,6 +193,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valuta della prenotazione</xs:documentation>
 					<xs:documentation xml:lang="cs">Účetní měna</xs:documentation>
 					<xs:documentation xml:lang="hu">Konyveles penzneme</xs:documentation>
+					<xs:documentation xml:lang="da">Bogføringsvaluta</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IncomeCurrency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -192,6 +206,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valuta di reddito</xs:documentation>
 					<xs:documentation xml:lang="cs">Měna výnosů</xs:documentation>
 					<xs:documentation xml:lang="hu">Bevetel penzneme</xs:documentation>
+					<xs:documentation xml:lang="da">Indkomstvaluta</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EntryValue" type="FundAmountType">
@@ -204,6 +219,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valore della prenotazione</xs:documentation>
 					<xs:documentation xml:lang="cs">Účetní hodnota</xs:documentation>
 					<xs:documentation xml:lang="hu">Könyvelési érték</xs:documentation>
+					<xs:documentation xml:lang="da">Bogføringsværdi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Interests" type="FundAmountType" minOccurs="0">
@@ -216,6 +232,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valore degli interessi</xs:documentation>
 					<xs:documentation xml:lang="cs">Hodnota úroků</xs:documentation>
 					<xs:documentation xml:lang="hu">Kamat érték</xs:documentation>
+					<xs:documentation xml:lang="da">Renteværdi</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FXRates" type="FXRatesType" minOccurs="0">
@@ -228,6 +245,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Tassi FX utilizzati per questo guadagno</xs:documentation>
 					<xs:documentation xml:lang="cs">FX kurzy použité pro tento výnos</xs:documentation>
 					<xs:documentation xml:lang="hu">Az ehhez a hozamhoz használt FX-árfolyamok</xs:documentation>
+					<xs:documentation xml:lang="da">FX Rates anvendt for denne earning</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NominalValueOrUnits" type="xs:decimal" minOccurs="0">
@@ -240,6 +258,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valore nominale/unità</xs:documentation>
 					<xs:documentation xml:lang="cs">Nominální hodnota / jednotky</xs:documentation>
 					<xs:documentation xml:lang="hu">Névérték / egységek</xs:documentation>
+					<xs:documentation xml:lang="da">Nominel værdi / andele</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ReferenceNumber" type="Text100Type" minOccurs="0">
@@ -252,6 +271,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Numero di riferimento esterno della transazione di guadagno</xs:documentation>
 					<xs:documentation xml:lang="cs">Externí referenční číslo výnosové transakce</xs:documentation>
 					<xs:documentation xml:lang="hu">A hozamtranzakció külső hivatkozási száma</xs:documentation>
+					<xs:documentation xml:lang="da">Eksternt referencenummer for earning-transaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AccountNumber" type="xs:integer" minOccurs="0">
@@ -264,6 +284,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Numero di conto della transazione di guadagno</xs:documentation>
 					<xs:documentation xml:lang="cs">Číslo účtu výnosové transakce</xs:documentation>
 					<xs:documentation xml:lang="hu">A hozamtranzakció számlaszáma</xs:documentation>
+					<xs:documentation xml:lang="da">Kontonummer for indtægtstransaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PostingText" type="Text1000Type" minOccurs="0">
@@ -276,6 +297,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Pubblicazione del testo della transazione di guadagno</xs:documentation>
 					<xs:documentation xml:lang="cs">Účetní text výnosové transakce</xs:documentation>
 					<xs:documentation xml:lang="hu">A hozamtranzakció könyvelési szövege</xs:documentation>
+					<xs:documentation xml:lang="da">Posteringstekst for indtjeningstransaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FinallySettled" type="xs:boolean" minOccurs="0">
@@ -288,6 +310,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Guadagno finalmente stabilito o no</xs:documentation>
 					<xs:documentation xml:lang="cs">Výnos s konečnou platností vypořádán, či nikoli</xs:documentation>
 					<xs:documentation xml:lang="hu">A hozam véglegesen elszámolva van-e vagy sem</xs:documentation>
+					<xs:documentation xml:lang="da">Earning endeligt afregnet eller ej</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -301,6 +324,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 						<xs:documentation xml:lang="it">Dettagli di guadagno per i pagamenti dei coupon</xs:documentation>
 						<xs:documentation xml:lang="cs">Detaily výnosu pro kupónové platby</xs:documentation>
 						<xs:documentation xml:lang="hu">Hozamadatok kuponkifizetésekhez</xs:documentation>
+						<xs:documentation xml:lang="da">Earning-detaljer for kuponbetalinger</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -314,6 +338,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Interessi unitari valore lordo</xs:documentation>
 									<xs:documentation xml:lang="cs">Hrubá hodnota úroků na podílový list</xs:documentation>
 									<xs:documentation xml:lang="hu">Befektetési jegyek bruttó értéke</xs:documentation>
+									<xs:documentation xml:lang="da">Bruttoværdi af andelsrenter</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="UnitInterestsNetValue" type="FundAmountType" minOccurs="0">
@@ -326,6 +351,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore netto degli interessi unitari</xs:documentation>
 									<xs:documentation xml:lang="cs">Čistá hodnota úroků na podílový list</xs:documentation>
 									<xs:documentation xml:lang="hu">Befektetési jegyek nettó értéke</xs:documentation>
+									<xs:documentation xml:lang="da">Nettoværdi af andelsrenter</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CapitalYieldsTaxValue" type="FundAmountType" minOccurs="0">
@@ -338,6 +364,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore fiscale dei rendimenti di capitale</xs:documentation>
 									<xs:documentation xml:lang="cs">Hodnota daně z kapitálových výnosů</xs:documentation>
 									<xs:documentation xml:lang="hu">Tőkehozamadó-érték</xs:documentation>
+									<xs:documentation xml:lang="da">Kapitalafkastskatteværdi</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EUWithholdingTaxValue" type="FundAmountType" minOccurs="0">
@@ -350,6 +377,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore della ritenuta d'acconto UE</xs:documentation>
 									<xs:documentation xml:lang="cs">Hodnota srážkové daně EU</xs:documentation>
 									<xs:documentation xml:lang="hu">EU forrásadó értéke</xs:documentation>
+									<xs:documentation xml:lang="da">EU-kildeskatteværdi</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -365,6 +393,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 						<xs:documentation xml:lang="it">Dettagli sugli utili per il pagamento dei dividendi</xs:documentation>
 						<xs:documentation xml:lang="cs">Detaily výnosu pro výplaty dividend</xs:documentation>
 						<xs:documentation xml:lang="hu">Hozamadatok osztalékkifizetésekhez</xs:documentation>
+						<xs:documentation xml:lang="da">Earning-detaljer for udbyttebetalinger</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -378,6 +407,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore del dividendo (per quota)</xs:documentation>
 									<xs:documentation xml:lang="cs">Hodnota dividendy (na podílový list)</xs:documentation>
 									<xs:documentation xml:lang="hu">Osztalék értéke (egységenként)</xs:documentation>
+									<xs:documentation xml:lang="da">Udbytteværdi (pr. andel)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DividendGrossValue" type="FundAmountType" minOccurs="0">
@@ -390,6 +420,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore lordo del dividendo</xs:documentation>
 									<xs:documentation xml:lang="cs">Hrubá hodnota dividendy</xs:documentation>
 									<xs:documentation xml:lang="hu">Osztalék bruttó értéke</xs:documentation>
+									<xs:documentation xml:lang="da">Udbytte bruttoværdi</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="DividendNetValue" type="FundAmountType" minOccurs="0">
@@ -402,6 +433,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore netto del dividendo</xs:documentation>
 									<xs:documentation xml:lang="cs">Čistá hodnota dividendy</xs:documentation>
 									<xs:documentation xml:lang="hu">Osztalék nettó értéke</xs:documentation>
+									<xs:documentation xml:lang="da">Udbytte nettoværdi</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="WithholdingTaxValue" type="FundAmountType" minOccurs="0">
@@ -414,6 +446,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore della ritenuta d'acconto</xs:documentation>
 									<xs:documentation xml:lang="cs">Hodnota srážkové daně</xs:documentation>
 									<xs:documentation xml:lang="hu">Forrásadó értéke</xs:documentation>
+									<xs:documentation xml:lang="da">Kildeskatteværdi</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ExDay" type="xs:date" minOccurs="0">
@@ -426,6 +459,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Giorno stacco del dividendo</xs:documentation>
 									<xs:documentation xml:lang="cs">Ex-den dividendy</xs:documentation>
 									<xs:documentation xml:lang="hu">Az osztalék ex-napja</xs:documentation>
+									<xs:documentation xml:lang="da">Ex-dag for udbytte</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PayDay" type="xs:date" minOccurs="0">
@@ -438,6 +472,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Giorno di pagamento del dividendo</xs:documentation>
 									<xs:documentation xml:lang="cs">Den výplaty dividendy</xs:documentation>
 									<xs:documentation xml:lang="hu">Az osztalék kifizetési napja</xs:documentation>
+									<xs:documentation xml:lang="da">Betalingsdag for udbytte</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="WithholdingTaxQuota" type="PercentageType" minOccurs="0">
@@ -450,6 +485,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Quota di ritenuta d'acconto sui dividendi</xs:documentation>
 									<xs:documentation xml:lang="cs">Kvóta srážkové daně z dividendy</xs:documentation>
 									<xs:documentation xml:lang="hu">Az osztalék forrásadó-kvótája</xs:documentation>
+									<xs:documentation xml:lang="da">Kildeskattekvote for udbytte</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -465,6 +501,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 						<xs:documentation xml:lang="it">Dettagli sui guadagni per le distribuzioni di fondi</xs:documentation>
 						<xs:documentation xml:lang="cs">Detaily výnosu pro distribuce fondu</xs:documentation>
 						<xs:documentation xml:lang="hu">Hozamadatok alap-juttatásokhoz</xs:documentation>
+						<xs:documentation xml:lang="da">Earning-detaljer for fondsudlodninger</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -478,6 +515,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore del pagamento (per unità)</xs:documentation>
 									<xs:documentation xml:lang="cs">Hodnota výplaty (na podílový list)</xs:documentation>
 									<xs:documentation xml:lang="hu">Kifizetési érték (egységenként)</xs:documentation>
+									<xs:documentation xml:lang="da">Udbetalingsværdi (pr. andel)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PayoutGrossValue" type="FundAmountType" minOccurs="0">
@@ -490,6 +528,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore lordo della distribuzione del pagamento</xs:documentation>
 									<xs:documentation xml:lang="cs">Hrubá hodnota výplaty distribuce</xs:documentation>
 									<xs:documentation xml:lang="hu">A felosztás bruttó kifizetési értéke</xs:documentation>
+									<xs:documentation xml:lang="da">Bruttoudbetalingsværdi af udlodning</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CapitalYieldsTaxUnitValue" type="FundAmountType" minOccurs="0">
@@ -502,6 +541,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore fiscale dei rendimenti di capitale (per unità)</xs:documentation>
 									<xs:documentation xml:lang="cs">Hodnota daně z kapitálových výnosů (na podíl)</xs:documentation>
 									<xs:documentation xml:lang="hu">Tőkehozamadó-érték (egységenként)</xs:documentation>
+									<xs:documentation xml:lang="da">Kapitalafkastskatteværdi (pr. andel)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CapitalYieldsTaxOverallValue" type="FundAmountType" minOccurs="0">
@@ -514,6 +554,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore fiscale totale dei rendimenti di capitale (per unità)</xs:documentation>
 									<xs:documentation xml:lang="cs">Celková hodnota daně z kapitálových výnosů (na podílový list)</xs:documentation>
 									<xs:documentation xml:lang="hu">Teljes tőkehozamadó-érték (egységenként)</xs:documentation>
+									<xs:documentation xml:lang="da">Samlet kapitalafkastskatteværdi (pr. andel)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EUWithholdingTaxUnitValue" type="FundAmountType" minOccurs="0">
@@ -526,6 +567,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore della ritenuta d'acconto UE (per unità)</xs:documentation>
 									<xs:documentation xml:lang="cs">Hodnota srážkové daně EU (na podílový list)</xs:documentation>
 									<xs:documentation xml:lang="hu">EU forrásadó értéke (egységenként)</xs:documentation>
+									<xs:documentation xml:lang="da">EU-kildeskatteværdi (pr. andel)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EUWithholdingTaxOverallValue" type="FundAmountType" minOccurs="0">
@@ -538,6 +580,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore totale della ritenuta d'acconto UE</xs:documentation>
 									<xs:documentation xml:lang="cs">Celková hodnota srážkové daně EU</xs:documentation>
 									<xs:documentation xml:lang="hu">Teljes EU forrásadó-érték</xs:documentation>
+									<xs:documentation xml:lang="da">Samlet EU-kildeskatteværdi</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PayoutIdenticEarningsValue" type="FundAmountType" minOccurs="0">
@@ -550,6 +593,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Valore di guadagno identico al pagamento</xs:documentation>
 									<xs:documentation xml:lang="cs">Hodnota výnosů postavených na roveň výplatě</xs:documentation>
 									<xs:documentation xml:lang="hu">Kifizetés azonos hozamérték</xs:documentation>
+									<xs:documentation xml:lang="da">Udbetaling af identisk indtjeningsværdi</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ExDay" type="xs:date" minOccurs="0">
@@ -562,6 +606,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									<xs:documentation xml:lang="it">Ex giorno della distribuzione</xs:documentation>
 									<xs:documentation xml:lang="cs">Ex-den distribuce</xs:documentation>
 									<xs:documentation xml:lang="hu">A juttatás ex-napja</xs:documentation>
+									<xs:documentation xml:lang="da">Ex-dag for udlodning</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -580,6 +625,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 			<xs:documentation xml:lang="it">Tipo di contenitore per più transazioni di fondi (operazioni) con filtro opzionale dell'intervallo di date tramite attributi da/a</xs:documentation>
 			<xs:documentation xml:lang="cs">Typ kontejneru pro více transakcí fondu (obchodů) s volitelným filtrováním podle rozsahu dat prostřednictvím atributů from/to</xs:documentation>
 			<xs:documentation xml:lang="hu">Tárolótípus több alapügylethez (kötés), opcionális dátumtartomány-szűréssel a from/to attribútumokon keresztül</xs:documentation>
+			<xs:documentation xml:lang="da">Containertype til flere fondstransaktioner (handler) med valgfri datointervalfiltrering via from/to-attributter</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Transaction" type="TransactionType" maxOccurs="unbounded">
@@ -592,6 +638,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 			   <xs:documentation xml:lang="it">Riferimento a un singolo record di transazione nel contenitore delle transazioni</xs:documentation>
 			   <xs:documentation xml:lang="hu">Hivatkozás egyetlen tranzakciós rekordra a tranzakciók tárolóján belül</xs:documentation>
 			   <xs:documentation xml:lang="cs">Odkaz na jeden transakční záznam v kontejneru transakcí</xs:documentation>
+			   <xs:documentation xml:lang="da">Reference til en enkelt transaktionspost i transaktionscontaineren</xs:documentation>
 			</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -605,6 +652,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 		   <xs:documentation xml:lang="it">Data di inizio del filtro dell'intervallo di date per le transazioni</xs:documentation>
 		   <xs:documentation xml:lang="hu">A tranzakciók dátumtartomány-szűrőjének kezdő dátuma</xs:documentation>
 		   <xs:documentation xml:lang="cs">Počáteční datum filtru rozsahu dat pro transakce</xs:documentation>
+		   <xs:documentation xml:lang="da">Startdato for datointervalfilteret for transaktioner</xs:documentation>
 		</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="to" type="xs:date">
@@ -617,6 +665,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 		   <xs:documentation xml:lang="it">Data di fine del filtro dell'intervallo di date per le transazioni</xs:documentation>
 		   <xs:documentation xml:lang="hu">A tranzakciók dátumtartomány-szűrőjének záró dátuma</xs:documentation>
 		   <xs:documentation xml:lang="cs">Koncové datum filtru rozsahu dat pro transakce</xs:documentation>
+		   <xs:documentation xml:lang="da">Slutdato for datointervalfilteret for transaktioner</xs:documentation>
 		</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -630,6 +679,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 			<xs:documentation xml:lang="it">Record di transazione (commercio) di un singolo fondo contenente dettagli di acquisto/vendita, informazioni di regolamento, importi, prezzi, dati della controparte e dettagli di prenotazione</xs:documentation>
 			<xs:documentation xml:lang="cs">Jednotlivý záznam transakce (obchodu) fondu obsahující detaily nákupu/prodeje, informace o vypořádání, částky, ceny, údaje o protistraně a účetní detaily</xs:documentation>
 			<xs:documentation xml:lang="hu">Egyetlen befektetési alap tranzakciós (ügylet) rekordja, amely tartalmazza a vételi/eladási részleteket, elszámolási információkat, összegeket, árakat, partner-adatokat és könyvelési részleteket</xs:documentation>
+			<xs:documentation xml:lang="da">Enkelt fondstransaktion (handel) med købs-/salgsdetaljer, afviklingsoplysninger, beløb, kurser, modpartsdata og bogføringsdetaljer</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TransactionID" type="Text256Type">
@@ -642,6 +692,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">ID transazione univoco</xs:documentation>
 					<xs:documentation xml:lang="cs">Jedinečné ID transakce (Transaction ID)</xs:documentation>
 					<xs:documentation xml:lang="hu">Egyedi tranzakció-azonosító</xs:documentation>
+					<xs:documentation xml:lang="da">Unikt Transaction-ID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CancellationFlag" type="xs:boolean" minOccurs="0">
@@ -654,6 +705,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Indica se la transazione è stata annullata</xs:documentation>
 					<xs:documentation xml:lang="cs">Označuje, zda transaction has been cancelled</xs:documentation>
 					<xs:documentation xml:lang="hu">Jelzi, hogy a tranzakció törlésre került-e</xs:documentation>
+					<xs:documentation xml:lang="da">Angiver, om transaktionen er annulleret</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OriginalTransactionID" type="Text256Type" minOccurs="0">
@@ -666,6 +718,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">ID transazione della transazione annullata</xs:documentation>
 					<xs:documentation xml:lang="cs">ID transakce stornované transakce</xs:documentation>
 					<xs:documentation xml:lang="hu">A törölt tranzakció tranzakció-azonosítója</xs:documentation>
+					<xs:documentation xml:lang="da">Transaktions-ID for annulleret transaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="UTI" type="Text64Type" minOccurs="0">
@@ -678,6 +731,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Identificativo univoco della transazione (UTI) per la segnalazione SFTR</xs:documentation>
 					<xs:documentation xml:lang="cs">Unique Transaction Identifier (UTI) pro SFTR reporting</xs:documentation>
 					<xs:documentation xml:lang="hu">Egyedi tranzakció-azonosító (Unique Transaction Identifier, UTI) az SFTR jelentéshez</xs:documentation>
+					<xs:documentation xml:lang="da">Unique Transaction Identifier (UTI) til SFTR-rapportering</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AssetUniqueID" minOccurs="0">
@@ -690,6 +744,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Collegamento a AssetMasterData</xs:documentation>
 					<xs:documentation xml:lang="cs">Odkaz na AssetMasterData</xs:documentation>
 					<xs:documentation xml:lang="hu">Hivatkozás az AssetMasterData-ra</xs:documentation>
+					<xs:documentation xml:lang="da">Link til AssetMasterData</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:IDREF">
@@ -707,6 +762,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Identificatore/i dell'asset acquistato o venduto</xs:documentation>
 					<xs:documentation xml:lang="cs">Identifikátor(y) nakoupeného nebo prodaného aktiva</xs:documentation>
 					<xs:documentation xml:lang="hu">A vásárolt vagy eladott eszköz azonosítója(i)</xs:documentation>
+					<xs:documentation xml:lang="da">Identifikator(er) for købt eller solgt aktiv</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -719,6 +775,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valuta del titolo acquistato o venduto</xs:documentation>
 					<xs:documentation xml:lang="cs">Měna nakoupeného nebo prodaného cenného papíru</xs:documentation>
 					<xs:documentation xml:lang="hu">A vásárolt vagy eladott értékpapír devizaneme</xs:documentation>
+					<xs:documentation xml:lang="da">Valuta for købt eller solgt værdipapir</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TransactionKind">
@@ -731,6 +788,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">ACQUISTA, VENDI, LENDING_BUY, LENDING_SELL, CORP_ACTION, CONTANTI, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
 					<xs:documentation xml:lang="cs">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
 					<xs:documentation xml:lang="hu">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
+					<xs:documentation xml:lang="da">BUY, SELL, LENDING_BUY, LENDING_SELL, CORP_ACTION, CASH, REPO_OPEN, REPO_CLOSE, REPO_ROLL, DERIV_OPEN, DERIV_CLOSE, DERIV_EXERCISE, DERIV_EXPIRE, DERIV_ASSIGN, DERIV_ROLL</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -762,6 +820,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valuta di regolamento</xs:documentation>
 					<xs:documentation xml:lang="cs">Měna vypořádání</xs:documentation>
 					<xs:documentation xml:lang="hu">Elszámolási pénznem</xs:documentation>
+					<xs:documentation xml:lang="da">Afregningsvaluta</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EntryDate" type="xs:date" minOccurs="0">
@@ -774,6 +833,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Data in cui la transazione è stata prenotata</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum, kdy byla transakce zaúčtována</xs:documentation>
 					<xs:documentation xml:lang="hu">Az a dátum, amikor a tranzakciót könyvelték</xs:documentation>
+					<xs:documentation xml:lang="da">Dato hvor transaktionen blev bogført</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ValutaDate" type="xs:date" minOccurs="0">
@@ -786,6 +846,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Data Valuta (data di efficacia)</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum valuty (datum účinnosti)</xs:documentation>
 					<xs:documentation xml:lang="hu">Valuta dátum (effektív dátum)</xs:documentation>
+					<xs:documentation xml:lang="da">Valørdato (effektiv dato)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ClosingDate" type="xs:date" minOccurs="0">
@@ -798,6 +859,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Data di chiusura (data di negoziazione)</xs:documentation>
 					<xs:documentation xml:lang="cs">Datum uzavření (datum obchodu)</xs:documentation>
 					<xs:documentation xml:lang="hu">Zárónap (kötési nap)</xs:documentation>
+					<xs:documentation xml:lang="da">Lukningsdato (handelsdato)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OrderTimestamp" type="xs:dateTime" minOccurs="0">
@@ -810,6 +872,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Per il calcolo dei costi di transazione PRIIP/MiFID II</xs:documentation>
 					<xs:documentation xml:lang="cs">Pro výpočet transakčních nákladů dle PRIIPs/MiFID II</xs:documentation>
 					<xs:documentation xml:lang="hu">A PRIIPs/MiFID II tranzakciós költségek számításához</xs:documentation>
+					<xs:documentation xml:lang="da">Til beregning af transaktionsomkostninger for PRIIPs/MiFID II</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ExecutionTimestamp" type="xs:dateTime" minOccurs="0">
@@ -822,6 +885,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Per il calcolo dei costi di transazione PRIIP/MiFID II</xs:documentation>
 					<xs:documentation xml:lang="cs">Pro výpočet transakčních nákladů dle PRIIPs/MiFID II</xs:documentation>
 					<xs:documentation xml:lang="hu">A PRIIPs/MiFID II tranzakciós költségek számításához</xs:documentation>
+					<xs:documentation xml:lang="da">Til beregning af transaktionsomkostninger for PRIIPs/MiFID II</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OrderPrice" type="AmountType" minOccurs="0">
@@ -834,6 +898,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Per il calcolo dei costi di transazione PRIIP/MiFID II</xs:documentation>
 					<xs:documentation xml:lang="cs">Pro výpočet transakčních nákladů dle PRIIPs/MiFID II</xs:documentation>
 					<xs:documentation xml:lang="hu">A PRIIPs/MiFID II tranzakciós költségek számításához</xs:documentation>
+					<xs:documentation xml:lang="da">Til beregning af transaktionsomkostninger for PRIIPs/MiFID II</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NominalOrUnitsOrContracts" type="xs:decimal">
@@ -846,6 +911,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Nominali o quote o contratti (senza segno)</xs:documentation>
 					<xs:documentation xml:lang="cs">Nominál nebo počet jednotek či kontraktů (bez znaménka)</xs:documentation>
 					<xs:documentation xml:lang="hu">Névérték vagy egységek vagy kontraktusok (előjel nélkül)</xs:documentation>
+					<xs:documentation xml:lang="da">Nominal eller andele eller kontrakter (uden fortegn)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CleanPrice" type="FundAmountType" minOccurs="0">
@@ -858,6 +924,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Prezzo pulito del titolo (senza interessi)</xs:documentation>
 					<xs:documentation xml:lang="cs">Čistá cena cenného papíru (bez úroků)</xs:documentation>
 					<xs:documentation xml:lang="hu">Az értékpapír tiszta árfolyama (kamatok nélkül)</xs:documentation>
+					<xs:documentation xml:lang="da">Clean price for værdipapiret (uden renter)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DirtyPrice" type="FundAmountType" minOccurs="0">
@@ -870,6 +937,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Prezzo sporco della sicurezza (compresi gli interessi)</xs:documentation>
 					<xs:documentation xml:lang="cs">Dirty price cenného papíru (včetně úroků)</xs:documentation>
 					<xs:documentation xml:lang="hu">Az értékpapír bruttó ára (kamatokkal együtt)</xs:documentation>
+					<xs:documentation xml:lang="da">Dirty price for værdipapir (inklusive renter)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AgreedPrice" type="FundAmountType" minOccurs="0">
@@ -882,6 +950,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Il prezzo originariamente concordato della transazione</xs:documentation>
 					<xs:documentation xml:lang="cs">Původně sjednaná cena transakce</xs:documentation>
 					<xs:documentation xml:lang="hu">A tranzakció eredetileg megállapodott ára</xs:documentation>
+					<xs:documentation xml:lang="da">Den oprindeligt aftalte pris for transaktionen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
@@ -894,6 +963,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valore di mercato dell'asset scambiato</xs:documentation>
 					<xs:documentation xml:lang="cs">Tržní hodnota obchodovaného aktiva</xs:documentation>
 					<xs:documentation xml:lang="hu">A kereskedett eszköz piaci értéke</xs:documentation>
+					<xs:documentation xml:lang="da">Markedsværdi af det handlede aktiv</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="InterestClaimGross" type="FundAmountType" minOccurs="0">
@@ -906,6 +976,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Richiesta di interessi al lordo dello strumento negoziato</xs:documentation>
 					<xs:documentation xml:lang="cs">Hrubý úrokový nárok obchodovaného nástroje</xs:documentation>
 					<xs:documentation xml:lang="hu">A kereskedett instrumentum bruttó kamatkövetelése</xs:documentation>
+					<xs:documentation xml:lang="da">Brutto rentekrav for det handlede instrument</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ZeroBondInterestClaimGross" type="FundAmountType" minOccurs="0">
@@ -918,6 +989,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Richiesta di interessi al lordo dello zero bond negoziato</xs:documentation>
 					<xs:documentation xml:lang="cs">Hrubý úrokový nárok obchodovaného dluhopisu s nulovým kupónem</xs:documentation>
 					<xs:documentation xml:lang="hu">A kereskedett zérókuponos kötvény bruttó kamatkövetelése</xs:documentation>
+					<xs:documentation xml:lang="da">Brutto rentekrav for den handlede nulkuponobligation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DirtyValue" type="FundAmountType" minOccurs="0">
@@ -930,6 +1002,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Valore sporco (valore totale) comprensivo di ratei/interessi</xs:documentation>
 					<xs:documentation xml:lang="cs">Dirty value (celková hodnota) včetně časového rozlišení/úroků</xs:documentation>
 					<xs:documentation xml:lang="hu">Bruttó érték (teljes érték) az elhatárolásokkal/kamatokkal együtt</xs:documentation>
+					<xs:documentation xml:lang="da">Dirty value (samlet værdi) inklusive periodiseringer/renter</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SettlementAmount" type="FundAmountType" minOccurs="0">
@@ -942,6 +1015,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Importo della liquidazione (comprese le commissioni)</xs:documentation>
 					<xs:documentation xml:lang="cs">Částka vypořádání (včetně poplatků)</xs:documentation>
 					<xs:documentation xml:lang="hu">Elszámolási összeg (díjakkal együtt)</xs:documentation>
+					<xs:documentation xml:lang="da">Afregningsbeløb (inklusive gebyrer)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="CapitalGainsTaxPerShare" type="FundAmountType" minOccurs="0">
@@ -954,6 +1028,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Imposta sulle plusvalenze per azione</xs:documentation>
 					<xs:documentation xml:lang="cs">Daň z kapitálových zisků na podíl</xs:documentation>
 					<xs:documentation xml:lang="hu">Tőkenyereség-adó részvényenként</xs:documentation>
+					<xs:documentation xml:lang="da">Kapitalgevinstskat pr. andel</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EUWithholdingTaxPerShare" type="FundAmountType" minOccurs="0">
@@ -966,6 +1041,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Ritenuta fiscale UE per azione</xs:documentation>
 					<xs:documentation xml:lang="cs">Srážková daň EU na akcii</xs:documentation>
 					<xs:documentation xml:lang="hu">EU forrásadó részvényenként</xs:documentation>
+					<xs:documentation xml:lang="da">EU-kildeskat pr. andel</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FXRates" type="FXRatesType" minOccurs="0">
@@ -978,6 +1054,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Tassi di transazione FX</xs:documentation>
 					<xs:documentation xml:lang="cs">FX kurzy transakce</xs:documentation>
 					<xs:documentation xml:lang="hu">A tranzakció FX-árfolyamai</xs:documentation>
+					<xs:documentation xml:lang="da">FX rates for transaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Expenses" minOccurs="0">
@@ -990,6 +1067,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Spese/commissioni di transazione</xs:documentation>
 					<xs:documentation xml:lang="cs">Náklady/poplatky transakce</xs:documentation>
 					<xs:documentation xml:lang="hu">A tranzakció kiadásai/díjai</xs:documentation>
+					<xs:documentation xml:lang="da">Udgifter/gebyrer for transaktion</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
@@ -1003,6 +1081,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 								<xs:documentation xml:lang="it">Importi in valuta come definito nell'attributo</xs:documentation>
 								<xs:documentation xml:lang="cs">Částky v měně definované v atributu</xs:documentation>
 								<xs:documentation xml:lang="hu">Összegek az attribútumban meghatározott pénznemben</xs:documentation>
+								<xs:documentation xml:lang="da">Beløb i valuta som defineret i attributten</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
@@ -1017,6 +1096,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									   <xs:documentation xml:lang="it">Codice valuta ISO per l'importo</xs:documentation>
 									   <xs:documentation xml:lang="hu">ISO pénznemkód az összeghez</xs:documentation>
 									   <xs:documentation xml:lang="cs">ISO kód měny pro částku</xs:documentation>
+									   <xs:documentation xml:lang="da">ISO-valutakode for beløbet</xs:documentation>
 									</xs:annotation>
 									</xs:attribute>
 										<xs:attribute name="isFundCcy" type="xs:boolean">
@@ -1029,6 +1109,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									   <xs:documentation xml:lang="it">Indica se l'importo è nella valuta del fondo</xs:documentation>
 									   <xs:documentation xml:lang="hu">Jelzi, hogy az összeg az alap pénznemében van-e</xs:documentation>
 									   <xs:documentation xml:lang="cs">Označuje, zda je částka v měně fondu</xs:documentation>
+									   <xs:documentation xml:lang="da">Angiver, om beløbet er i fondsvaluta</xs:documentation>
 									</xs:annotation>
 									</xs:attribute>
 										<xs:attribute name="isSubfundCcy" type="xs:boolean">
@@ -1041,6 +1122,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									   <xs:documentation xml:lang="it">Indica se l'importo è nella valuta del comparto</xs:documentation>
 									   <xs:documentation xml:lang="hu">Jelzi, hogy az összeg az alap alpénznemében van-e</xs:documentation>
 									   <xs:documentation xml:lang="cs">Označuje, zda je částka v měně podfondu</xs:documentation>
+									   <xs:documentation xml:lang="da">Angiver, om beløbet er i underfondsvaluta</xs:documentation>
 									</xs:annotation>
 									</xs:attribute>
 										<xs:attribute name="isShareClassCcy" type="xs:boolean">
@@ -1053,6 +1135,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 									   <xs:documentation xml:lang="it">Indica se l'importo è nella valuta della classe di azioni</xs:documentation>
 									   <xs:documentation xml:lang="hu">Jelzi, hogy az összeg a sorozat pénznemében van-e</xs:documentation>
 									   <xs:documentation xml:lang="cs">Označuje, zda je částka v měně třídy akcií</xs:documentation>
+									   <xs:documentation xml:lang="da">Angiver, om beløbet er i Share Class-valuta</xs:documentation>
 									</xs:annotation>
 									</xs:attribute>
 									</xs:extension>
@@ -1069,6 +1152,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 								<xs:documentation xml:lang="it">Costo della transazione</xs:documentation>
 								<xs:documentation xml:lang="cs">Transakční náklady</xs:documentation>
 								<xs:documentation xml:lang="hu">Tranzakciós költség</xs:documentation>
+								<xs:documentation xml:lang="da">Transaktionsomkostning</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -1082,6 +1166,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 											<xs:documentation xml:lang="it">Implicito o esplicito</xs:documentation>
 											<xs:documentation xml:lang="cs">Implicit nebo Explicit</xs:documentation>
 											<xs:documentation xml:lang="hu">Implicit vagy Explicit</xs:documentation>
+											<xs:documentation xml:lang="da">Implicit eller Explicit</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -1100,6 +1185,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 											<xs:documentation xml:lang="it">Tipo di costo di transazione dettagliato</xs:documentation>
 											<xs:documentation xml:lang="cs">Typ podrobných transakčních nákladů</xs:documentation>
 											<xs:documentation xml:lang="hu">Részletes tranzakciós költség (Transaction Cost) típusa</xs:documentation>
+											<xs:documentation xml:lang="da">Detaljeret type af transaktionsomkostning</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -1123,6 +1209,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 											<xs:documentation xml:lang="it">Descrizione del testo</xs:documentation>
 											<xs:documentation xml:lang="cs">Textový popis</xs:documentation>
 											<xs:documentation xml:lang="hu">Szöveges leírás</xs:documentation>
+											<xs:documentation xml:lang="da">Tekstbeskrivelse</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Amount" type="AmountType">
@@ -1135,6 +1222,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 											<xs:documentation xml:lang="it">Importo del costo della transazione</xs:documentation>
 											<xs:documentation xml:lang="cs">Částka transakčních nákladů</xs:documentation>
 											<xs:documentation xml:lang="hu">Tranzakciós költség összege</xs:documentation>
+											<xs:documentation xml:lang="da">Transaktionsomkostningsbeløb</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1153,6 +1241,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Tipo di prezzo utilizzato per la transazione (ad esempio tasso Spot, tasso di apertura, tasso di chiusura, Fill o Kill). Le opzioni valide sono definite nel dizionario.</xs:documentation>
 					<xs:documentation xml:lang="cs">Typ ceny použité pro transakci (např. Spot rate, Opening rate, Closing rate, Fill or Kill). Platné hodnoty jsou definovány ve slovníku.</xs:documentation>
 					<xs:documentation xml:lang="hu">A tranzakcióhoz használt árfolyam típusa (pl. Spot rate, Opening rate, Closing rate, Fill or Kill). Az érvényes opciókat a szótár (dictionary) határozza meg.</xs:documentation>
+					<xs:documentation xml:lang="da">Type af pris anvendt til transaktionen (f.eks. Spot rate, Opening rate, Closing rate, Fill or Kill). Gyldige valgmuligheder er defineret i ordbogen.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PostingText" type="Text256Type" minOccurs="0">
@@ -1165,6 +1254,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Testo della transazione registrato (tipicamente fornito dal sistema contabile del fondo)</xs:documentation>
 					<xs:documentation xml:lang="cs">Účetní text transakce (obvykle poskytovaný systémem účetnictví fondu)</xs:documentation>
 					<xs:documentation xml:lang="hu">A tranzakció könyvelési szövege (jellemzően a fondszámviteli rendszer szolgáltatja)</xs:documentation>
+					<xs:documentation xml:lang="da">Posteringstekst for transaktion (leveres typisk af fondsbogføringssystemet)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AccountNumber" type="xs:integer" minOccurs="0">
@@ -1177,6 +1267,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Numero di conto utilizzato per la transazione</xs:documentation>
 					<xs:documentation xml:lang="cs">Číslo účtu použité pro transakci</xs:documentation>
 					<xs:documentation xml:lang="hu">A tranzakcióhoz használt számlaszám</xs:documentation>
+					<xs:documentation xml:lang="da">Kontonummer anvendt til transaktion</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IndicatorSPESTDuty" type="xs:boolean" minOccurs="0">
@@ -1190,6 +1281,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Indica se la transazione deve considerare SPEST</xs:documentation>
 					<xs:documentation xml:lang="cs">Označuje, zda transaction has to consider SPEST</xs:documentation>
 					<xs:documentation xml:lang="hu">Jelzi, hogy a tranzakciónak figyelembe kell-e vennie a SPEST-et</xs:documentation>
+					<xs:documentation xml:lang="da">Angiver, om transaktionen skal tage hensyn til SPEST</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Counterparty" type="CompanyType" minOccurs="0">
@@ -1202,6 +1294,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Dettagli della controparte della transazione (OTC)</xs:documentation>
 					<xs:documentation xml:lang="cs">Údaje o protistraně transakce (OTC)</xs:documentation>
 					<xs:documentation xml:lang="hu">Az ügylet szerződő felének részletei (OTC)</xs:documentation>
+					<xs:documentation xml:lang="da">Oplysninger om transaktionens modpart (OTC)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Exchange" type="MICCodeType" minOccurs="0">
@@ -1214,6 +1307,7 @@ Kupon, Osztalék, Alapból származó kifizetés, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Borsa in cui è stato effettuato il commercio</xs:documentation>
 					<xs:documentation xml:lang="cs">Burza, na které byl obchod uzavřen</xs:documentation>
 					<xs:documentation xml:lang="hu">A tőzsde, ahol az ügyletet kötötték</xs:documentation>
+					<xs:documentation xml:lang="da">Børs, hvor handlen blev placeret</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ProfitLoss" type="FundAmountType" minOccurs="0">
@@ -1254,6 +1348,11 @@ a další podrobnosti vztahující se k příslušnému typu transakce.</xs:docu
 - Kötvények
 - Társasági események
 valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:documentation>
+					<xs:documentation xml:lang="da">Transaktionens fortjeneste/tab i fondsvaluta. Differentiering af transaktionstype mellem:
+- Derivater
+- Obligationer
+- Corporate actions
+samt yderligere detaljer relateret til den respektive transaktionstype.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FinallySettled" type="xs:boolean" minOccurs="0">
@@ -1266,6 +1365,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 					<xs:documentation xml:lang="it">Transazione definitivamente risolta o meno</xs:documentation>
 					<xs:documentation xml:lang="cs">Zda byla transakce s konečnou platností vypořádána, či nikoli</xs:documentation>
 					<xs:documentation xml:lang="hu">A tranzakció véglegesen elszámolva vagy sem</xs:documentation>
+					<xs:documentation xml:lang="da">Transaktion endeligt afviklet eller ikke</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -1279,6 +1379,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 						<xs:documentation xml:lang="it">Dettagli per le operazioni su derivati</xs:documentation>
 						<xs:documentation xml:lang="cs">Podrobnosti pro derivátové transakce</xs:documentation>
 						<xs:documentation xml:lang="hu">Részletek származékos (derivative) tranzakciókhoz</xs:documentation>
+						<xs:documentation xml:lang="da">Detaljer for derivattransaktioner</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -1292,6 +1393,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Contiene l'indicatore se l'operazione è stata effettuata a scopo di copertura o speculativo</xs:documentation>
 									<xs:documentation xml:lang="cs">Obsahuje indikátor, zda byla transakce provedena za účelem zajištění (hedging), nebo ze spekulativních důvodů</xs:documentation>
 									<xs:documentation xml:lang="hu">Azt a jelzőt tartalmazza, hogy az ügylet fedezeti vagy spekulatív célból történt</xs:documentation>
+									<xs:documentation xml:lang="da">Indeholder indikatoren for, om transaktionen blev foretaget med henblik på afdækning eller spekulation</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OpenCloseCash" minOccurs="0">
@@ -1304,6 +1406,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Contiene l'indicatore se l'operazione è un'apertura, chiusura o regolamento in contanti</xs:documentation>
 									<xs:documentation xml:lang="cs">Obsahuje indikátor, zda je transakce otevřením, uzavřením nebo peněžním vypořádáním</xs:documentation>
 									<xs:documentation xml:lang="hu">Azt a jelzőt tartalmazza, hogy az ügylet nyitó, záró vagy készpénzes elszámolás</xs:documentation>
+									<xs:documentation xml:lang="da">Indeholder indikatoren for, om transaktionen er en åbning, lukning eller kontant afvikling</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
@@ -1324,6 +1427,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Prezzo di negoziazione per contratto</xs:documentation>
 									<xs:documentation xml:lang="cs">Obchodní cena za kontrakt</xs:documentation>
 									<xs:documentation xml:lang="hu">Kereskedési ár szerződésenként</xs:documentation>
+									<xs:documentation xml:lang="da">Handelspris pr. kontrakt</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PremiumAmount" type="AmountType" minOccurs="0">
@@ -1336,6 +1440,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Premio pagato o ricevuto per questa transazione (EMIR 2.28)</xs:documentation>
 									<xs:documentation xml:lang="cs">Prémie zaplacená nebo přijatá za tuto transakci (EMIR 2.28)</xs:documentation>
 									<xs:documentation xml:lang="hu">A tranzakcióért fizetett vagy kapott prémium (EMIR 2.28)</xs:documentation>
+									<xs:documentation xml:lang="da">Præmie betalt eller modtaget for denne transaktion (EMIR 2.28)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="UTI" type="Text64Type" minOccurs="0">
@@ -1348,6 +1453,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Identificatore univoco della transazione per la segnalazione EMIR (EMIR 1.1)</xs:documentation>
 									<xs:documentation xml:lang="cs">Unique Transaction Identifier pro EMIR reporting (EMIR 1.1)</xs:documentation>
 									<xs:documentation xml:lang="hu">Egyedi tranzakció-azonosító (Unique Transaction Identifier) az EMIR jelentéshez (EMIR 1.1)</xs:documentation>
+									<xs:documentation xml:lang="da">Unique Transaction Identifier til EMIR-rapportering (EMIR 1.1)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ExecutionVenue" type="MICCodeType" minOccurs="0">
@@ -1360,6 +1466,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Codice MIC della sede di esecuzione in cui e stata eseguita questa transazione (EMIR 2.41)</xs:documentation>
 									<xs:documentation xml:lang="cs">Kód MIC místa provedení, kde byla tato transakce provedena (EMIR 2.41)</xs:documentation>
 									<xs:documentation xml:lang="hu">A végrehajtási helyszín MIC-kódja, ahol ezt a tranzakciót végrehajtották (EMIR 2.41)</xs:documentation>
+									<xs:documentation xml:lang="da">MIC-kode for handelsstedet, hvor denne transaktion blev udført (EMIR 2.41)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ClearingStatus" minOccurs="0">
@@ -1372,6 +1479,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Stato di compensazione di questa transazione (EMIR 2.35)</xs:documentation>
 									<xs:documentation xml:lang="cs">Status clearingu této transakce (EMIR 2.35)</xs:documentation>
 									<xs:documentation xml:lang="hu">Az ügylet elszámolási státusza (EMIR 2.35)</xs:documentation>
+									<xs:documentation xml:lang="da">Clearingstatus for denne transaktion (EMIR 2.35)</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
@@ -1391,6 +1499,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Controparte centrale per questa transazione (EMIR 2.37)</xs:documentation>
 									<xs:documentation xml:lang="cs">Centrální protistrana této transakce (EMIR 2.37)</xs:documentation>
 									<xs:documentation xml:lang="hu">Az ügylet központi szerződő fele (EMIR 2.37)</xs:documentation>
+									<xs:documentation xml:lang="da">Central modpart (Central Counterparty) for denne transaktion (EMIR 2.37)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="InitialMargin" type="AmountType" minOccurs="0">
@@ -1403,6 +1512,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Margine iniziale depositato per questa posizione</xs:documentation>
 									<xs:documentation xml:lang="cs">Počáteční marže (Initial Margin) složená k této pozici</xs:documentation>
 									<xs:documentation xml:lang="hu">Ehhez a pozícióhoz letett kezdeti letét (initial margin)</xs:documentation>
+									<xs:documentation xml:lang="da">Initial margin stillet for denne position</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="VariationMargin" type="AmountType" minOccurs="0">
@@ -1415,6 +1525,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Margine di variazione (aggiustamento giornaliero mark-to-market)</xs:documentation>
 									<xs:documentation xml:lang="cs">Variační marže (denní úprava mark-to-market)</xs:documentation>
 									<xs:documentation xml:lang="hu">Variation margin (napi mark-to-market kiigazítás)</xs:documentation>
+									<xs:documentation xml:lang="da">Variation margin (daglig mark-to-market-justering)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<!-- Type-specific transaction fields -->
@@ -1429,6 +1540,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 										<xs:documentation xml:lang="it">Dettagli della transazione specifici per le opzioni</xs:documentation>
 										<xs:documentation xml:lang="cs">Podrobnosti transakce specifické pro danou opci</xs:documentation>
 										<xs:documentation xml:lang="hu">Opcióspecifikus tranzakciós részletek</xs:documentation>
+										<xs:documentation xml:lang="da">Optionsspecifikke transaktionsdetaljer</xs:documentation>
 									</xs:annotation>
 									<xs:complexType>
 										<xs:sequence>
@@ -1442,6 +1554,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 													<xs:documentation xml:lang="it">Data in cui l'opzione e stata esercitata</xs:documentation>
 													<xs:documentation xml:lang="cs">Datum, kdy byla opce uplatněna</xs:documentation>
 													<xs:documentation xml:lang="hu">Az a dátum, amikor az opciót lehívták</xs:documentation>
+													<xs:documentation xml:lang="da">Dato hvor optionen blev udnyttet</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 											<xs:element name="ExerciseType" minOccurs="0">
@@ -1454,6 +1567,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 													<xs:documentation xml:lang="it">Se l'opzione e stata esercitata completamente o parzialmente</xs:documentation>
 													<xs:documentation xml:lang="cs">Zda byla opce uplatněna zcela, nebo částečně</xs:documentation>
 													<xs:documentation xml:lang="hu">Hogy az opciót teljesen vagy részben hívták-e le</xs:documentation>
+													<xs:documentation xml:lang="da">Hvorvidt optionen blev udnyttet helt eller delvist</xs:documentation>
 												</xs:annotation>
 												<xs:simpleType>
 													<xs:restriction base="xs:string">
@@ -1472,6 +1586,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 													<xs:documentation xml:lang="it">Numero di contratti esercitati (per esercizio parziale)</xs:documentation>
 													<xs:documentation xml:lang="cs">Počet uplatněných kontraktů (při částečném uplatnění)</xs:documentation>
 													<xs:documentation xml:lang="hu">A lehívott kontraktusok száma (részleges lehívás esetén)</xs:documentation>
+													<xs:documentation xml:lang="da">Antal udnyttede kontrakter (ved delvis udnyttelse)</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 										</xs:sequence>
@@ -1487,6 +1602,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 										<xs:documentation xml:lang="it">Dettagli della transazione specifici per i futures</xs:documentation>
 										<xs:documentation xml:lang="cs">Podrobnosti transakce specifické pro futures</xs:documentation>
 										<xs:documentation xml:lang="hu">Futures-specifikus tranzakciós részletek</xs:documentation>
+										<xs:documentation xml:lang="da">Future-specifikke transaktionsdetaljer</xs:documentation>
 									</xs:annotation>
 									<xs:complexType>
 										<xs:sequence>
@@ -1500,6 +1616,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 													<xs:documentation xml:lang="it">Intenzione di consegna per questa posizione (puo differire dallo standard del contratto)</xs:documentation>
 													<xs:documentation xml:lang="cs">Záměr dodání pro tuto pozici (může se lišit od standardu kontraktu)</xs:documentation>
 													<xs:documentation xml:lang="hu">Leszállítási szándék ehhez a pozícióhoz (eltérhet a szerződéses szabványtól)</xs:documentation>
+													<xs:documentation xml:lang="da">Leveringshensigt for denne position (kan afvige fra kontraktstandarden)</xs:documentation>
 												</xs:annotation>
 												<xs:simpleType>
 													<xs:restriction base="xs:string">
@@ -1521,6 +1638,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 										<xs:documentation xml:lang="it">Dettagli della transazione specifici per gli swap</xs:documentation>
 										<xs:documentation xml:lang="cs">Detaily transakce specifické pro swapy</xs:documentation>
 										<xs:documentation xml:lang="hu">Swap-specifikus tranzakciós részletek</xs:documentation>
+										<xs:documentation xml:lang="da">Swap-specifikke transaktionsdetaljer</xs:documentation>
 									</xs:annotation>
 									<xs:complexType>
 										<xs:sequence>
@@ -1534,6 +1652,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 													<xs:documentation xml:lang="it">Pagamento anticipato all'apertura dello swap</xs:documentation>
 													<xs:documentation xml:lang="cs">Počáteční platba (Upfront Payment) při sjednání swapu</xs:documentation>
 													<xs:documentation xml:lang="hu">Előre fizetett (upfront) összeg a swap kezdetekor</xs:documentation>
+													<xs:documentation xml:lang="da">Upfront payment ved swappens indgåelse</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 											<xs:element name="PartialTerminationAmount" type="AmountType" minOccurs="0">
@@ -1546,6 +1665,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 													<xs:documentation xml:lang="it">Importo per risoluzione parziale dello swap</xs:documentation>
 													<xs:documentation xml:lang="cs">Částka pro částečné ukončení swapu</xs:documentation>
 													<xs:documentation xml:lang="hu">A swap részleges megszüntetésének összege</xs:documentation>
+													<xs:documentation xml:lang="da">Beløb for delvis ophævelse af swap</xs:documentation>
 												</xs:annotation>
 											</xs:element>
 										</xs:sequence>
@@ -1565,6 +1685,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 						<xs:documentation xml:lang="it">Dettagli per le operazioni obbligazionarie</xs:documentation>
 						<xs:documentation xml:lang="cs">Podrobnosti pro dluhopisové transakce</xs:documentation>
 						<xs:documentation xml:lang="hu">Részletek kötvénytranzakciókhoz</xs:documentation>
+						<xs:documentation xml:lang="da">Detaljer for obligationstransaktioner</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -1578,6 +1699,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Mostra gli interessi lordi unitari della transazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Uvádí hrubý alikvotní úrokový výnos transakce</xs:documentation>
 									<xs:documentation xml:lang="hu">A tranzakció bruttó egységkamatát mutatja</xs:documentation>
+									<xs:documentation xml:lang="da">Viser transaktionens bruttorente pr. enhed</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="UnitInterestsDays" type="xs:integer" minOccurs="0">
@@ -1590,6 +1712,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Mostra i giorni di interessi unitari della transazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Uvádí počet dní alikvotního úrokového výnosu transakce</xs:documentation>
 									<xs:documentation xml:lang="hu">A tranzakció egységkamat-napjait mutatja</xs:documentation>
+									<xs:documentation xml:lang="da">Viser transaktionens rentedage pr. enhed</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CapitalYieldsTaxValue" type="FundAmountType" minOccurs="0">
@@ -1602,6 +1725,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica l'importo dell'imposta sui rendimenti di capitale della transazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává částku daně z kapitálových výnosů transakce</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi a tranzakció tőkehozam-adó összegét</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver kapitalafkastskattebeløbet for transaktionen</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CapitalYieldsTaxZeroValue" type="FundAmountType" minOccurs="0">
@@ -1614,6 +1738,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica l'importo dell'imposta sui rendimenti di capitale per le obbligazioni zero coupon</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává částku daně z kapitálových výnosů u dluhopisů s nulovým kupónem</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi a tőkehozam-adó összegét zero coupon kötvények esetén</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver kapitalafkastskattebeløbet for nulkuponobligationer</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EUWithholdingTaxValue" type="FundAmountType" minOccurs="0">
@@ -1626,6 +1751,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica l'importo della ritenuta fiscale UE</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává výši srážkové daně EU</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi az EU forrásadó összegét</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver beløbet for EU-kildeskat</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EUWithholdingTaxZeroValue" type="FundAmountType" minOccurs="0">
@@ -1638,6 +1764,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica l'importo della ritenuta fiscale UE per le obbligazioni zero coupon</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává výši srážkové daně EU u dluhopisů s nulovým kupónem</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi az EU forrásadó összegét zero coupon kötvények esetén</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver beløbet for EU-kildeskat for nulkuponobligationer</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EUWithholdingTaxInterests" type="FundAmountType" minOccurs="0">
@@ -1650,6 +1777,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica la quota di interessi della ritenuta fiscale UE</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává úrokovou část srážkové daně EU</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi az EU forrásadó kamatrészét</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver renteandelen af EU-kildeskatten</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Poolfactor" type="xs:decimal" minOccurs="0">
@@ -1662,6 +1790,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica il fattore pool della transazione di titoli</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává pool faktor transakce s cennými papíry</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi az értékpapír-tranzakció pool factor értékét</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver pool factor for værdipapirtransaktionen</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="IndexRatio" type="xs:decimal" minOccurs="0">
@@ -1674,6 +1803,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica l'entità del rapporto indice dell'obbligazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává úroveň indexového poměru (index ratio) dluhopisu</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi a kötvény index ratio szintjét</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver obligationens index ratio-niveau</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="IndexBondAccrual" type="FundAmountType" minOccurs="0">
@@ -1686,6 +1816,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica l'importo di rateo condizionato dalla contabilizzazione per obbligazioni indicizzate</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává účetně relevantní částku naběhlého úroku u dluhopisů vázaných na index</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi a könyveléshez kapcsolódó elhatárolási összeget az indexhez kötött kötvények esetén</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver det bogføringsrelaterede periodiseringsbeløb for indeksregulerede obligationer</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="InflationaryAdjustment" type="FundAmountType" minOccurs="0">
@@ -1698,6 +1829,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica la compensazione per l'inflazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává inflační úpravu</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi az inflációs kiigazítást</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver inflationsreguleringen</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EntryConditionalInflationaryAdjustment" type="FundAmountType" minOccurs="0">
@@ -1710,6 +1842,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Buchungbedingter Inflationsausgleich</xs:documentation>
 									<xs:documentation xml:lang="cs">Buchungbedingter Inflationsausgleich</xs:documentation>
 									<xs:documentation xml:lang="hu">Buchungbedingter Inflationsausgleich</xs:documentation>
+									<xs:documentation xml:lang="da">Buchungbedingter Inflationsausgleich</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EntryConditionalIndexBondAccrual" type="xs:decimal" minOccurs="0">
@@ -1722,6 +1855,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Indica l'importo di rateo condizionato dalla contabilizzazione per obbligazioni indicizzate</xs:documentation>
 									<xs:documentation xml:lang="cs">Udává účetně relevantní částku naběhlého úroku u dluhopisů vázaných na index</xs:documentation>
 									<xs:documentation xml:lang="hu">Jelzi a könyveléshez kapcsolódó elhatárolási összeget az indexhez kötött kötvények esetén</xs:documentation>
+									<xs:documentation xml:lang="da">Angiver det bogføringsrelaterede periodiseringsbeløb for indeksregulerede obligationer</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ExCouponFlag" type="xs:boolean" minOccurs="0">
@@ -1734,6 +1868,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Contiene l'indicatore se la transazione di titoli viene regolata senza cedola</xs:documentation>
 									<xs:documentation xml:lang="cs">Obsahuje indikátor, zda je transakce s cennými papíry vypořádána bez kupónu</xs:documentation>
 									<xs:documentation xml:lang="hu">Azt a jelzőt tartalmazza, hogy az értékpapírügylet kupon nélkül kerül-e elszámolásra</xs:documentation>
+									<xs:documentation xml:lang="da">Indeholder indikatoren for, om værdipapirtransaktionen afvikles uden kupon</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1749,6 +1884,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 						<xs:documentation xml:lang="it">Dettagli per le azioni societarie</xs:documentation>
 						<xs:documentation xml:lang="cs">Podrobnosti pro korporátní akce</xs:documentation>
 						<xs:documentation xml:lang="hu">Részletek vállalati eseményekhez (corporate action)</xs:documentation>
+						<xs:documentation xml:lang="da">Detaljer for corporate actions</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -1762,6 +1898,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 									<xs:documentation xml:lang="it">Sicurezza della fonte dell'azione aziendale</xs:documentation>
 									<xs:documentation xml:lang="cs">Zdrojový cenný papír korporátní akce</xs:documentation>
 									<xs:documentation xml:lang="hu">A társasági esemény forrásértékpapírja</xs:documentation>
+									<xs:documentation xml:lang="da">Kildeværdipapir for corporate action</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -1775,6 +1912,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 												<xs:documentation xml:lang="it">Numero identificativo dal quale viene detratta la posizione</xs:documentation>
 												<xs:documentation xml:lang="cs">Identifikátor, z něhož je pozice odepsána</xs:documentation>
 												<xs:documentation xml:lang="hu">Az azonosító, amelyről a pozíciót terhelik</xs:documentation>
+												<xs:documentation xml:lang="da">Identifikator, hvorfra positionen debiteres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="AssetUniqueID" minOccurs="0">
@@ -1787,6 +1925,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 												<xs:documentation xml:lang="it">Collegamento a AssetMasterData</xs:documentation>
 												<xs:documentation xml:lang="cs">Odkaz na AssetMasterData</xs:documentation>
 												<xs:documentation xml:lang="hu">Hivatkozás az AssetMasterData-ra</xs:documentation>
+												<xs:documentation xml:lang="da">Link til AssetMasterData</xs:documentation>
 											</xs:annotation>
 											<xs:simpleType>
 												<xs:restriction base="xs:IDREF">
@@ -1804,6 +1943,7 @@ valamint az adott tranzakciótípushoz kapcsolódó további részletek.</xs:doc
 												<xs:documentation xml:lang="it">Contiene il rapporto di sottoscrizione di</xs:documentation>
 												<xs:documentation xml:lang="cs">Obsahuje upisovací poměr – od</xs:documentation>
 												<xs:documentation xml:lang="hu">A jegyzési arányt tartalmazza (-tól)</xs:documentation>
+												<xs:documentation xml:lang="da">Indeholder tegningsforholdet fra</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="UnitsExDate" type="xs:decimal" minOccurs="0">
@@ -1823,6 +1963,8 @@ Numero di unità che vengono detratte dalla posizione</xs:documentation>
 Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 												<xs:documentation xml:lang="hu">***Sollte "UnitsExDate" sein
 Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
+												<xs:documentation xml:lang="da">***Sollte "UnitsExDate" sein
+Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="Price" type="xs:decimal" minOccurs="0">
@@ -1835,6 +1977,7 @@ Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 												<xs:documentation xml:lang="it">Indica il prezzo con cui viene contabilizzata la posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Udává cenu, kterou se účtuje odepisovaná pozice</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi az árat, amelyen a terhelendő pozíciót könyvelik</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver den kurs, til hvilken den position, der skal debiteres, bogføres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
@@ -1847,6 +1990,7 @@ Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 												<xs:documentation xml:lang="it">Indica il valore di mercato con cui viene contabilizzata la posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Udává tržní hodnotu, kterou se účtuje odepisovaná pozice</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi a piaci értéket, amelyen a terhelendő pozíciót könyvelik</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver den markedsværdi, til hvilken den position, der skal debiteres, bogføres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="NominalOrUnits" type="xs:decimal" minOccurs="0">
@@ -1859,6 +2003,7 @@ Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 												<xs:documentation xml:lang="it">Indica le unità o il nominale</xs:documentation>
 												<xs:documentation xml:lang="cs">Udává počet kusů nebo nominální hodnotu</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi az egységeket vagy a névleges összeget</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver andelene eller det nominelle beløb</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="ExchangeRateValue" type="xs:decimal" minOccurs="0">
@@ -1871,6 +2016,7 @@ Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 												<xs:documentation xml:lang="it">Indica il tasso di cambio con cui viene contabilizzata la posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Udává směnný kurz, kterým se účtuje odepisovaná pozice</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi az árfolyamot, amelyen a terhelendő pozíciót könyvelik</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver den valutakurs, til hvilken den position, der skal debiteres, bogføres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="Interests" type="FundAmountType" minOccurs="0">
@@ -1883,6 +2029,7 @@ Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 												<xs:documentation xml:lang="it">Contiene gli interessi del titolo che viene detratto</xs:documentation>
 												<xs:documentation xml:lang="cs">Obsahuje úrok cenného papíru, který je odepisován</xs:documentation>
 												<xs:documentation xml:lang="hu">A terhelendő értékpapír kamatát tartalmazza</xs:documentation>
+												<xs:documentation xml:lang="da">Indeholder renten af det værdipapir, der debiteres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="InterestsCurrency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -1895,6 +2042,7 @@ Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 												<xs:documentation xml:lang="it">Contiene la valuta in cui sono indicati gli interessi in caso di valuta estera</xs:documentation>
 												<xs:documentation xml:lang="cs">Obsahuje měnu, ve které je úrok uveden, pokud jde o cizí měnu</xs:documentation>
 												<xs:documentation xml:lang="hu">Annak a devizának a megjelölését tartalmazza, amelyben a kamat meghatározásra kerül, ha az külföldi deviza</xs:documentation>
+												<xs:documentation xml:lang="da">Indeholder den valuta, som renten er angivet i, hvis det er fremmed valuta</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="CostValue" type="FundAmountType" minOccurs="0">
@@ -1907,6 +2055,7 @@ Anzahl der Stuecke, die vom Bestand weggebucht werden</xs:documentation>
 												<xs:documentation xml:lang="it">Valore di costo della posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Pořizovací hodnota pozice, která má být odepsána</xs:documentation>
 												<xs:documentation xml:lang="hu">A terhelendő pozíció bekerülési értéke</xs:documentation>
+												<xs:documentation xml:lang="da">Omkostningsværdi af den position, der skal debiteres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="ValueDate" type="xs:date" minOccurs="0">
@@ -1926,6 +2075,8 @@ Data valuta</xs:documentation>
 Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="hu">****Sollte "ValueDate" sein
 Valutadatum</xs:documentation>
+												<xs:documentation xml:lang="da">****Sollte "ValueDate" sein
+Valutadatum</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="DividendCurrency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -1938,6 +2089,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Contiene la valuta in cui è indicato il dividendo in caso di valuta estera</xs:documentation>
 												<xs:documentation xml:lang="cs">Obsahuje měnu, ve které je dividenda uvedena, pokud jde o cizí měnu</xs:documentation>
 												<xs:documentation xml:lang="hu">Annak a devizának a megjelölését tartalmazza, amelyben az osztalék meghatározásra kerül, ha az külföldi deviza</xs:documentation>
+												<xs:documentation xml:lang="da">Indeholder den valuta, som udbyttet er angivet i, hvis det er fremmed valuta</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="DividendExchangeRate" type="xs:decimal" minOccurs="0">
@@ -1950,6 +2102,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Tasso di cambio con cui è stato contabilizzato il dividendo della posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Směnný kurz, za který byla zaúčtována dividenda z pozice určené k odepsání</xs:documentation>
 												<xs:documentation xml:lang="hu">Az az árfolyam, amelyen a megterhelendő pozícióból származó osztalék elszámolásra került</xs:documentation>
+												<xs:documentation xml:lang="da">Vekselkurs, til hvilken udbyttet fra den position, der skal debiteres, blev bogført</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="NetDividend" type="FundAmountType" minOccurs="0">
@@ -1962,6 +2115,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Dividendo netto della posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Nettodividende des auszubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="hu">Nettodividende des auszubuchenden Bestandes</xs:documentation>
+												<xs:documentation xml:lang="da">Nettodividende des auszubuchenden Bestandes</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="Quest" type="FundAmountType" minOccurs="0">
@@ -1974,6 +2128,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Ritenuta alla fonte del dividendo della posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Quellensteuer der Dividende des auszubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="hu">Quellensteuer der Dividende des auszubuchenden Bestandes</xs:documentation>
+												<xs:documentation xml:lang="da">Quellensteuer der Dividende des auszubuchenden Bestandes</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="ProfitLoss" type="FundAmountType" minOccurs="0">
@@ -1986,6 +2141,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Indicazione dell'utile/perdita della posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Angabe des Gewinn/des Verlustes des auszubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="hu">Angabe des Gewinn/des Verlustes des auszubuchenden Bestandes</xs:documentation>
+												<xs:documentation xml:lang="da">Angabe des Gewinn/des Verlustes des auszubuchenden Bestandes</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="UnitsInterestCapitalYieldsTax" type="FundAmountType" minOccurs="0">
@@ -1998,6 +2154,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Imposta sui rendimenti di capitale della posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">Kapitalertragsteuer des auszubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="hu">Kapitalertragsteuer des auszubuchenden Bestandes</xs:documentation>
+												<xs:documentation xml:lang="da">Kapitalertragsteuer des auszubuchenden Bestandes</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="EUWithholdingTax" type="FundAmountType" minOccurs="0">
@@ -2010,6 +2167,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Ritenuta fiscale UE della posizione da detrarre</xs:documentation>
 												<xs:documentation xml:lang="cs">EU-QUEST des auszubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="hu">EU-QUEST des auszubuchenden Bestandes</xs:documentation>
+												<xs:documentation xml:lang="da">EU-QUEST des auszubuchenden Bestandes</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -2025,6 +2183,7 @@ Valutadatum</xs:documentation>
 									<xs:documentation xml:lang="it">Titoli di destinazione dell'azione societaria</xs:documentation>
 									<xs:documentation xml:lang="cs">Cílové cenné papíry korporátní akce</xs:documentation>
 									<xs:documentation xml:lang="hu">A vállalati esemény (corporate action) céltól eltérő (cél-) értékpapírjai</xs:documentation>
+									<xs:documentation xml:lang="da">Destinationsværdipapirer for corporate action</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -2038,6 +2197,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Numero identificativo su cui viene contabilizzata la posizione</xs:documentation>
 												<xs:documentation xml:lang="cs">Identifikátor, na který je pozice připsána</xs:documentation>
 												<xs:documentation xml:lang="hu">Az azonosító, amelyre a pozíciót jóváírják</xs:documentation>
+												<xs:documentation xml:lang="da">Identifikator, hvortil positionen krediteres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="AssetUniqueID" minOccurs="0">
@@ -2050,6 +2210,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Collegamento a AssetMasterData</xs:documentation>
 												<xs:documentation xml:lang="cs">Odkaz na AssetMasterData</xs:documentation>
 												<xs:documentation xml:lang="hu">Hivatkozás az AssetMasterData-ra</xs:documentation>
+												<xs:documentation xml:lang="da">Link til AssetMasterData</xs:documentation>
 											</xs:annotation>
 											<xs:simpleType>
 												<xs:restriction base="xs:IDREF">
@@ -2067,6 +2228,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Contiene il rapporto di sottoscrizione a</xs:documentation>
 												<xs:documentation xml:lang="cs">Obsahuje upisovací poměr – do</xs:documentation>
 												<xs:documentation xml:lang="hu">A jegyzési arányt tartalmazza (-ig)</xs:documentation>
+												<xs:documentation xml:lang="da">Indeholder tegningsforholdet til</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="Currency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -2079,6 +2241,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Valuta della posizione che viene registrata</xs:documentation>
 												<xs:documentation xml:lang="cs">Waehrung des Bestandes der eingebucht wird</xs:documentation>
 												<xs:documentation xml:lang="hu">Waehrung des Bestandes der eingebucht wird</xs:documentation>
+												<xs:documentation xml:lang="da">Waehrung des Bestandes der eingebucht wird</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="Price" type="xs:decimal" minOccurs="0">
@@ -2091,6 +2254,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Indica il prezzo con cui viene contabilizzata la posizione da registrare</xs:documentation>
 												<xs:documentation xml:lang="cs">Udává cenu, kterou se účtuje připisovaná pozice</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi az árat, amelyen a jóváírandó pozíciót könyvelik</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver den kurs, til hvilken den position, der skal krediteres, bogføres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="MarketValue" type="FundAmountType" minOccurs="0">
@@ -2103,6 +2267,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Indica il valore di mercato con cui viene contabilizzata la posizione da registrare</xs:documentation>
 												<xs:documentation xml:lang="cs">Udává tržní hodnotu, kterou se účtuje připisovaná pozice</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi a piaci értéket, amelyen a jóváírandó pozíciót könyvelik</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver den markedsværdi, til hvilken den position, der skal krediteres, bogføres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="NominalOrUnits" type="xs:decimal" minOccurs="0">
@@ -2115,6 +2280,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Indica le unità o il nominale</xs:documentation>
 												<xs:documentation xml:lang="cs">Udává počet kusů nebo nominální hodnotu</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi az egységeket vagy a névleges összeget</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver andelene eller det nominelle beløb</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="ExchangeRate" type="xs:decimal" minOccurs="0">
@@ -2127,6 +2293,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Indica il tasso di cambio con cui viene contabilizzata la posizione da registrare</xs:documentation>
 												<xs:documentation xml:lang="cs">Udává směnný kurz, kterým se účtuje připisovaná pozice</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi az árfolyamot, amelyen a jóváírandó pozíciót könyvelik</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver den valutakurs, til hvilken den position, der skal krediteres, bogføres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="Interests" type="FundAmountType" minOccurs="0">
@@ -2139,6 +2306,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Contiene gli interessi del titolo che viene registrato</xs:documentation>
 												<xs:documentation xml:lang="cs">Obsahuje úrok cenného papíru, který je připisován</xs:documentation>
 												<xs:documentation xml:lang="hu">A jóváírandó értékpapír kamatát tartalmazza</xs:documentation>
+												<xs:documentation xml:lang="da">Indeholder renten af det værdipapir, der krediteres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="InterestsCurrency" type="ISOCurrencyCodeType" minOccurs="0">
@@ -2151,6 +2319,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Contiene la valuta per gli interessi dell'importo da registrare</xs:documentation>
 												<xs:documentation xml:lang="cs">Obsahuje měnu úroku částky, která má být připsána</xs:documentation>
 												<xs:documentation xml:lang="hu">A jóváírandó összeg kamatának devizáját tartalmazza</xs:documentation>
+												<xs:documentation xml:lang="da">Indeholder valutaen for renten af det beløb, der skal krediteres</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="CostValue" type="FundAmountType" minOccurs="0">
@@ -2163,6 +2332,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Einstandswert des einzubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="cs">Einstandswert des einzubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="hu">Einstandswert des einzubuchenden Bestandes</xs:documentation>
+												<xs:documentation xml:lang="da">Einstandswert des einzubuchenden Bestandes</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="UnitsInterestCapitalYieldsTax" type="FundAmountType" minOccurs="0">
@@ -2175,6 +2345,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">Kapitalertragsteuer des einzubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="cs">Kapitalertragsteuer des einzubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="hu">Kapitalertragsteuer des einzubuchenden Bestandes</xs:documentation>
+												<xs:documentation xml:lang="da">Kapitalertragsteuer des einzubuchenden Bestandes</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="EUWithholdingTax" type="FundAmountType" minOccurs="0">
@@ -2187,6 +2358,7 @@ Valutadatum</xs:documentation>
 												<xs:documentation xml:lang="it">EU-QUEST des einzubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="cs">EU-QUEST des einzubuchenden Bestandes</xs:documentation>
 												<xs:documentation xml:lang="hu">EU-QUEST des einzubuchenden Bestandes</xs:documentation>
+												<xs:documentation xml:lang="da">EU-QUEST des einzubuchenden Bestandes</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -2354,6 +2526,26 @@ LIQU = Felszámolás
 BONU = Bonuszkibocsátás
 WRTH = Értéktelen értékpapír
 EXOF = Csereajánlat</xs:documentation>
+									<xs:documentation xml:lang="da">S = Split
+RS = Reversesplit
+M = Merger
+SD = Stock dividend
+NSinS = New Shares in Shares
+DEM = Demerger
+RI = Rights issue
+ESC = Exchange of share certificate
+CD = Capital Decrease
+GenM = General Meetings
+CONV = Conversion (f.eks. konvertibel obligation)
+REDM = Redemption/Maturity
+MCAL = Full Call (tidlig fuld indløsning)
+PCAL = Partial Call (delvis indløsning)
+TEND = Tender Offer
+EXWA = Warrant Exercise
+LIQU = Liquidation
+BONU = Bonus Issue
+WRTH = Worthless Security
+EXOF = Exchange Offer</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
@@ -2390,6 +2582,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Giorno di stacco del dividendo dell'operazione societaria</xs:documentation>
 									<xs:documentation xml:lang="cs">Ex-dividendový den korporátní akce</xs:documentation>
 									<xs:documentation xml:lang="hu">A vállalati esemény ex-osztalék napja</xs:documentation>
+									<xs:documentation xml:lang="da">Ex-udbyttedag for corporate action</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="RecordDate" type="xs:date" minOccurs="0">
@@ -2402,6 +2595,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Data di registrazione che determina il diritto degli azionisti all'operazione societaria</xs:documentation>
 									<xs:documentation xml:lang="cs">Rozhodný den (cut-off datum) určující nárok akcionáře na korporátní akci</xs:documentation>
 									<xs:documentation xml:lang="hu">Nyilvántartási dátum (záródátum), amely meghatározza a részvényesnek a társasági eseményre való jogosultságát</xs:documentation>
+									<xs:documentation xml:lang="da">Record-dato (skæringsdato), der fastlægger aktionærens ret til den pågældende corporate action</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="EffectiveDate" type="xs:date" minOccurs="0">
@@ -2414,6 +2608,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Data di efficacia in cui l'operazione societaria ha effetto e le nuove posizioni diventano valide</xs:documentation>
 									<xs:documentation xml:lang="cs">Datum účinnosti, kdy korporátní akce nabývá účinnosti a nové pozice se stávají platnými</xs:documentation>
 									<xs:documentation xml:lang="hu">A hatálybalépés dátuma, amikor a vállalati esemény hatályba lép és az új pozíciók érvényessé válnak</xs:documentation>
+									<xs:documentation xml:lang="da">Ikrafttrædelsesdato, hvor corporate action træder i kraft, og nye positioner bliver gyldige</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CAEventID" type="Text256Type" minOccurs="0">
@@ -2426,6 +2621,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Identificativo univoco dell'operazione societaria, utilizzato per riferimento e riconciliazione</xs:documentation>
 									<xs:documentation xml:lang="cs">Jedinečný identifikátor události korporátní akce (corporate action), používaný pro referenci a odsouhlasení</xs:documentation>
 									<xs:documentation xml:lang="hu">A vállalati esemény (corporate action) egyedi azonosítója, hivatkozás és egyeztetés céljából</xs:documentation>
+									<xs:documentation xml:lang="da">Unik identifikator for corporate action-begivenheden, anvendes til reference og afstemning</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="AnnouncementDate" type="xs:date" minOccurs="0">
@@ -2438,6 +2634,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Data in cui l'operazione societaria è stata ufficialmente annunciata</xs:documentation>
 									<xs:documentation xml:lang="cs">Datum, kdy byla korporátní akce oficiálně oznámena</xs:documentation>
 									<xs:documentation xml:lang="hu">Az a dátum, amikor a vállalati eseményt (corporate action) hivatalosan bejelentették</xs:documentation>
+									<xs:documentation xml:lang="da">Dato hvor corporate action officielt blev annonceret</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="PaymentDate" type="xs:date" minOccurs="0">
@@ -2450,6 +2647,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Data in cui avviene il pagamento o il regolamento dell'operazione societaria</xs:documentation>
 									<xs:documentation xml:lang="cs">Datum, kdy dochází k platbě nebo vypořádání korporátní akce</xs:documentation>
 									<xs:documentation xml:lang="hu">Az a dátum, amikor a vállalati esemény (corporate action) kifizetése vagy elszámolása megtörténik</xs:documentation>
+									<xs:documentation xml:lang="da">Dato hvor corporate action-betalingen eller -afviklingen finder sted</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ElectionDeadline" type="xs:dateTime" minOccurs="0">
@@ -2462,6 +2660,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Scadenza per gli azionisti per scegliere l'opzione preferita nelle operazioni societarie volontarie</xs:documentation>
 									<xs:documentation xml:lang="cs">Lhůta, do které si akcionáři musí zvolit preferovanou možnost u dobrovolných korporátních akcí</xs:documentation>
 									<xs:documentation xml:lang="hu">Határidő, ameddig a részvényesek megválaszthatják preferált opciójukat az önkéntes vállalati eseményeknél (corporate action)</xs:documentation>
+									<xs:documentation xml:lang="da">Frist for andelshavere til at vælge deres foretrukne option ved frivillige corporate actions</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="OptionDetails" minOccurs="0">
@@ -2474,6 +2673,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Dettagli per operazioni societarie volontarie con più opzioni di scelta</xs:documentation>
 									<xs:documentation xml:lang="cs">Podrobnosti pro dobrovolné korporátní akce s více možnostmi volby</xs:documentation>
 									<xs:documentation xml:lang="hu">Részletek önkéntes vállalati eseményekhez (corporate action) több választási opcióval</xs:documentation>
+									<xs:documentation xml:lang="da">Detaljer for frivillige corporate actions med flere valgmuligheder</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -2487,6 +2687,7 @@ EXOF = Csereajánlat</xs:documentation>
 												<xs:documentation xml:lang="it">Numero di opzione scelto dall'azionista</xs:documentation>
 												<xs:documentation xml:lang="cs">Číslo opce zvolené akcionářem</xs:documentation>
 												<xs:documentation xml:lang="hu">A részvényes által választott opció száma</xs:documentation>
+												<xs:documentation xml:lang="da">Optionsnummer valgt af aktionæren</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="OptionDescription" type="Text1000Type" minOccurs="0">
@@ -2499,6 +2700,7 @@ EXOF = Csereajánlat</xs:documentation>
 												<xs:documentation xml:lang="it">Descrizione dell'opzione scelta</xs:documentation>
 												<xs:documentation xml:lang="cs">Popis zvolené možnosti</xs:documentation>
 												<xs:documentation xml:lang="hu">A kiválasztott opció leírása</xs:documentation>
+												<xs:documentation xml:lang="da">Beskrivelse af den valgte option</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="IsDefaultOption" type="xs:boolean" minOccurs="0">
@@ -2511,6 +2713,7 @@ EXOF = Csereajánlat</xs:documentation>
 												<xs:documentation xml:lang="it">Indica se questa è l'opzione predefinita applicata quando non viene effettuata alcuna scelta</xs:documentation>
 												<xs:documentation xml:lang="cs">Označuje, zda se jedná o výchozí možnost uplatněnou v případě, že není provedena žádná volba</xs:documentation>
 												<xs:documentation xml:lang="hu">Jelzi, hogy ez az alapértelmezett opció, amely akkor érvényesül, ha nem történik választás</xs:documentation>
+												<xs:documentation xml:lang="da">Angiver, om dette er standardvalget, der anvendes, når der ikke foretages noget valg</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -2526,6 +2729,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Valuta giorno di spesa</xs:documentation>
 									<xs:documentation xml:lang="cs">Den valuty nákladů</xs:documentation>
 									<xs:documentation xml:lang="hu">A költségek valutanapja</xs:documentation>
+									<xs:documentation xml:lang="da">Valørdag for udgifter</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="ExpensesExchangeRate" type="xs:decimal" minOccurs="0">
@@ -2538,6 +2742,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Tasso di cambio applicato per le spese</xs:documentation>
 									<xs:documentation xml:lang="cs">Směnný kurz použitý pro náklady</xs:documentation>
 									<xs:documentation xml:lang="hu">A kiadásokra alkalmazott árfolyam</xs:documentation>
+									<xs:documentation xml:lang="da">Vekselkurs anvendt for udgifter</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="Expenses" type="FundAmountType" minOccurs="0">
@@ -2550,6 +2755,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Spese in fondi e/o valuta estera</xs:documentation>
 									<xs:documentation xml:lang="cs">Náklady v měně fondu a/nebo v cizí měně</xs:documentation>
 									<xs:documentation xml:lang="hu">Kiadások alap- és/vagy devizában</xs:documentation>
+									<xs:documentation xml:lang="da">Udgifter i fonds- og/eller fremmed valuta</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="AccountNumberExpenses" type="xs:integer" minOccurs="0">
@@ -2562,6 +2768,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Numero di conto utilizzato per la contabilizzazione delle spese</xs:documentation>
 									<xs:documentation xml:lang="cs">Číslo účtu použité pro zaúčtování nákladů</xs:documentation>
 									<xs:documentation xml:lang="hu">A költségek könyveléséhez használt számlaszám</xs:documentation>
+									<xs:documentation xml:lang="da">Kontonummer anvendt til bogføring af udgifter</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="UnitInterestEUWithholdingTax" type="FundAmountType" minOccurs="0">
@@ -2574,6 +2781,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Interessi unitari da utilizzare per il calcolo della ritenuta d'acconto UE</xs:documentation>
 									<xs:documentation xml:lang="cs">Úroky na podílový list použité pro výpočet srážkové daně EU</xs:documentation>
 									<xs:documentation xml:lang="hu">Az EU forrásadó kiszámításához használandó befektetési jegyek</xs:documentation>
+									<xs:documentation xml:lang="da">Andelsrenter, der skal anvendes til beregning af EU-kildeskat</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="CorporateActionDocument" minOccurs="0">
@@ -2586,6 +2794,7 @@ EXOF = Csereajánlat</xs:documentation>
 									<xs:documentation xml:lang="it">Documento di testo che descrive i dettagli dell'azione societaria</xs:documentation>
 									<xs:documentation xml:lang="cs">Textový dokument popisující podrobnosti korporátní akce</xs:documentation>
 									<xs:documentation xml:lang="hu">A vállalati esemény (corporate action) részleteit leíró szöveges dokumentum</xs:documentation>
+									<xs:documentation xml:lang="da">Tekstdokument, der beskriver detaljer om corporate action</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -2607,6 +2816,8 @@ PDF, XML, Excel, Word, Immagine, ...</xs:documentation>
 PDF, XML, Excel, Word, Image, ...</xs:documentation>
 												<xs:documentation xml:lang="hu">A dokumentum technikai formátuma:
 PDF, XML, Excel, Word, Image, ...</xs:documentation>
+												<xs:documentation xml:lang="da">Dokumentets tekniske format:
+PDF, XML, Excel, Word, Image, ...</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="DocumentURL" type="Text1000Type" minOccurs="0">
@@ -2619,6 +2830,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 												<xs:documentation xml:lang="it">Link del documento per il download</xs:documentation>
 												<xs:documentation xml:lang="cs">Odkaz na dokument ke stažení</xs:documentation>
 												<xs:documentation xml:lang="hu">A dokumentum letöltési linkje</xs:documentation>
+												<xs:documentation xml:lang="da">Link til dokument for download</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="BinaryData" type="xs:base64Binary" minOccurs="0">
@@ -2631,6 +2843,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 												<xs:documentation xml:lang="it">Documento in formato xml base64Binary</xs:documentation>
 												<xs:documentation xml:lang="cs">Document in xml base64Binary format</xs:documentation>
 												<xs:documentation xml:lang="hu">Document in xml base64Binary format</xs:documentation>
+												<xs:documentation xml:lang="da">Dokument i xml base64Binary-format</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -2649,6 +2862,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 						<xs:documentation xml:lang="it">Dettagli per le operazioni FX-Spot (importo acquistato e importo venduto)</xs:documentation>
 						<xs:documentation xml:lang="cs">Podrobnosti pro FX-Spot obchody (nakoupená a prodaná částka)</xs:documentation>
 						<xs:documentation xml:lang="hu">Részletek FX-Spot ügyletekhez (vásárolt összeg és eladott összeg)</xs:documentation>
+						<xs:documentation xml:lang="da">Detaljer for FX-spot-handler (købt beløb og solgt beløb)</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
@@ -2662,6 +2876,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 							   <xs:documentation xml:lang="it">Importo acquistato nella transazione FX spot</xs:documentation>
 							   <xs:documentation xml:lang="hu">Vásárolt összeg az FX azonnali ügyletben</xs:documentation>
 							   <xs:documentation xml:lang="cs">Nakoupená částka v FX spot transakci</xs:documentation>
+							   <xs:documentation xml:lang="da">Beløb købt i FX spot-transaktionen</xs:documentation>
 							</xs:annotation>
 								<xs:complexType>
 									<xs:complexContent>
@@ -2676,6 +2891,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 										   <xs:documentation xml:lang="it">Indica se questo è il lato della valuta base dell'operazione FX</xs:documentation>
 										   <xs:documentation xml:lang="hu">Jelzi, hogy ez az FX ügylet alapvaluta-oldala-e</xs:documentation>
 										   <xs:documentation xml:lang="cs">Označuje, zda se jedná o stranu základní měny FX obchodu</xs:documentation>
+										   <xs:documentation xml:lang="da">Angiver, om dette er basisvalutasiden af FX-handlen</xs:documentation>
 										</xs:annotation>
 										</xs:attribute>
 										</xs:extension>
@@ -2692,6 +2908,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 							   <xs:documentation xml:lang="it">Importo venduto nella transazione FX spot</xs:documentation>
 							   <xs:documentation xml:lang="hu">Eladott összeg az FX azonnali ügyletben</xs:documentation>
 							   <xs:documentation xml:lang="cs">Prodaná částka v FX spot transakci</xs:documentation>
+							   <xs:documentation xml:lang="da">Beløb solgt i FX spot-transaktionen</xs:documentation>
 							</xs:annotation>
 								<xs:complexType>
 									<xs:complexContent>
@@ -2706,6 +2923,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 										   <xs:documentation xml:lang="it">Indica se questo è il lato della valuta base dell'operazione FX</xs:documentation>
 										   <xs:documentation xml:lang="hu">Jelzi, hogy ez az FX ügylet alapvaluta-oldala-e</xs:documentation>
 										   <xs:documentation xml:lang="cs">Označuje, zda se jedná o stranu základní měny FX obchodu</xs:documentation>
+										   <xs:documentation xml:lang="da">Angiver, om dette er basisvalutasiden af FX-handlen</xs:documentation>
 										</xs:annotation>
 										</xs:attribute>
 										</xs:extension>
@@ -2726,6 +2944,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Tipo di esecuzione dell'ordine</xs:documentation>
 					<xs:documentation xml:lang="cs">Typ Order Execution</xs:documentation>
 					<xs:documentation xml:lang="hu">A megbízás végrehajtásának típusa</xs:documentation>
+					<xs:documentation xml:lang="da">Type af ordreudførelse</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -2755,6 +2974,7 @@ PDF, XML, Excel, Word, Image, ...</xs:documentation>
 					<xs:documentation xml:lang="it">Informazioni aggiuntive che non rientrano nei nodi esistenti sopra</xs:documentation>
 					<xs:documentation xml:lang="cs">Dodatečné informace, které se nevejdou do výše uvedených existujících uzlů</xs:documentation>
 					<xs:documentation xml:lang="hu">További információ, amely nem illik a fenti meglévő csomópontokba</xs:documentation>
+					<xs:documentation xml:lang="da">Yderligere oplysninger, der ikke passer ind i de eksisterende noder ovenfor</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

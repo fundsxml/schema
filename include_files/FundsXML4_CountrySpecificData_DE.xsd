@@ -16,6 +16,7 @@
          <xs:documentation xml:lang="it">Dati sugli indirizzi delle proprietà immobiliari specifici della Germania contenenti via, città, codice postale e coordinate geografiche</xs:documentation>
          <xs:documentation xml:lang="cs">Údaje o adrese nemovitosti specifické pro Německo obsahující ulici, město, poštovní směrovací číslo a zeměpisné souřadnice</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus ingatlan cím adatok utcával, várossal, irányítószámmal és földrajzi koordinátákkal</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke adressedata for fast ejendom, der indeholder gade, by, postnummer og geografiske koordinater</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="StreetName" type="Text256Type">
@@ -28,6 +29,7 @@
                <xs:documentation xml:lang="it">Via dell'immobile (in caso di più indirizzi va indicato l'indirizzo principale)</xs:documentation>
                <xs:documentation xml:lang="cs">Ulice nemovitosti (v případě více adres by měla být uvedena hlavní adresa)</xs:documentation>
                <xs:documentation xml:lang="hu">Az ingatlan utcája (több cím esetén a fő címet kell megadni)</xs:documentation>
+               <xs:documentation xml:lang="da">Ejendommens gade (ved mere end én adresse skal hovedadressen angives)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="StreetNumber" type="Text32Type">
@@ -40,6 +42,7 @@
                <xs:documentation xml:lang="it">Numero civico dell'immobile (in caso di più indirizzi va indicato l'indirizzo principale)</xs:documentation>
                <xs:documentation xml:lang="cs">Číslo domu nemovitosti (v případě více adres by měla být uvedena hlavní adresa)</xs:documentation>
                <xs:documentation xml:lang="hu">Az ingatlan házszáma (több cím esetén a fő címet kell megadni)</xs:documentation>
+               <xs:documentation xml:lang="da">Ejendommens husnummer (i tilfælde af mere end én adresse bør hovedadressen angives)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="CityName" type="Text256Type">
@@ -52,6 +55,7 @@
                <xs:documentation xml:lang="it">Città in cui è situato l'immobile</xs:documentation>
                <xs:documentation xml:lang="cs">Město, kde se nemovitost nachází</xs:documentation>
                <xs:documentation xml:lang="hu">A város, ahol az ingatlan található</xs:documentation>
+               <xs:documentation xml:lang="da">By, hvor ejendommen er beliggende</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="CityCode" type="Text32Type">
@@ -64,6 +68,7 @@
                <xs:documentation xml:lang="it">Codice postale dell'immobile</xs:documentation>
                <xs:documentation xml:lang="cs">Poštovní směrovací číslo nemovitosti</xs:documentation>
                <xs:documentation xml:lang="hu">Az ingatlan irányítószáma</xs:documentation>
+               <xs:documentation xml:lang="da">Postnummer for ejendommen</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Country" type="ISOCountryCodeType">
@@ -76,6 +81,7 @@
                <xs:documentation xml:lang="it">Paese in cui è situato l'immobile</xs:documentation>
                <xs:documentation xml:lang="cs">Země, kde se nemovitost nachází</xs:documentation>
                <xs:documentation xml:lang="hu">Az ország, ahol az ingatlan található</xs:documentation>
+               <xs:documentation xml:lang="da">Land, hvor ejendommen er beliggende</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Latitude" type="LatitudeDataDEType">
@@ -88,6 +94,7 @@
                <xs:documentation xml:lang="it">Latitudine in cui è situato l'immobile (i valori negativi si riferiscono all'emisfero sud).</xs:documentation>
                <xs:documentation xml:lang="cs">Zeměpisná šířka, na které se nemovitost nachází (záporné hodnoty označují jižní polokouli).</xs:documentation>
                <xs:documentation xml:lang="hu">A szélességi fok, ahol az ingatlan található (negatív értékek a déli félgömbre vonatkoznak).</xs:documentation>
+               <xs:documentation xml:lang="da">Breddegrad, hvor ejendommen er beliggende (negative værdier henviser til den sydlige halvkugle).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="Longitude" type="LongitudeDataDEType">
@@ -100,6 +107,7 @@
                <xs:documentation xml:lang="it">Longitudine in cui si trova l'immobile (i valori negativi si riferiscono ad ovest del primo meridiano).</xs:documentation>
                <xs:documentation xml:lang="cs">Zeměpisná délka, na které se nemovitost nachází (záporné hodnoty označují polohu západně od nultého poledníku).</xs:documentation>
                <xs:documentation xml:lang="hu">A hosszúsági fok, ahol az ingatlan található (negatív értékek a kezdő meridiántól nyugatra vonatkoznak).</xs:documentation>
+               <xs:documentation xml:lang="da">Længdegrad, hvor ejendommen er beliggende (negative værdier henviser til vest for nulmeridianen).</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -114,6 +122,7 @@
          <xs:documentation xml:lang="it">Dati sui rendimenti annuali immobiliari specifici della Germania contenenti rendimento lordo, rendimento del reddito e crescita del capitale per i fondi immobiliari aperti tedeschi</xs:documentation>
          <xs:documentation xml:lang="cs">Údaje o ročních výnosech nemovitostí specifické pro Německo obsahující hrubý výnos, příjmový výnos a kapitálový růst pro německé otevřené nemovitostní fondy</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus ingatlan éves hozamadatok, amelyek bruttó hozamot, jövedelemhozamot és tőkenövekedést tartalmaznak a német nyíltvégű ingatlanalapok számára</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke data om årlige afkast på fast ejendom, der indeholder bruttoafkast, indkomstafkast og kapitalvækst for tyske åbne ejendomsfonde</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="GrossYield" type="PercentageType">
@@ -126,6 +135,7 @@
                <xs:documentation xml:lang="it">Il rapporto si basa sul patrimonio immobiliare medio del fondo posseduto direttamente e indirettamente nel rispettivo paese. Nel caso di investimenti diretti sono incluse le voci “Proventi da immobili” e “Interessi su fondi propri” del conto economico. La voce "Altri redditi" è inclusa nella misura in cui gli altri redditi sono legati al settore immobiliare (in percentuale).</xs:documentation>
                <xs:documentation xml:lang="cs">Ukazatel vychází z průměrných přímo a nepřímo držených nemovitostních aktiv fondu v příslušné zemi. V případě přímých investic se zahrnují položky "Výnosy z nemovitostí" a "Úroky z vlastních prostředků" ve výkazu zisku a ztráty. Položka "Ostatní výnosy" se zahrnuje, pokud se ostatní výnosy vztahují k nemovitostem (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">A mutató az alap adott országban közvetlenül és közvetve birtokolt átlagos ingatlanvagyonán alapul. Közvetlen befektetések esetén az eredménykimutatás „Ingatlanból származó jövedelem” és „Saját tőke kamata” tételei szerepelnek. Az „Egyéb jövedelem” tétel annyiban szerepel, amennyiben az egyéb jövedelem ingatlanhoz kapcsolódik (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">Forholdstallet er baseret på fondens gennemsnitlige direkte og indirekte ejede ejendomsaktiver i det respektive land. Ved direkte investeringer medtages posterne "Indtægter fra fast ejendom" og "Renter på egne midler" i resultatopgørelsen. Posten "Øvrige indtægter" medtages, for så vidt de øvrige indtægter er ejendomsrelaterede (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="OperatingCosts" type="PercentageType">
@@ -138,6 +148,7 @@
                <xs:documentation xml:lang="it">Nel caso di dati contenenti immobili posseduti direttamente, occorre tenere conto delle voci “Spese di gestione” e “Canoni fondiari, rendite vitalizie e rendite temporanee” del conto economico. Per le informazioni sugli immobili posseduti indirettamente devono essere prese in considerazione le voci (in percentuale) che non figurano nel conto economico del fondo.</xs:documentation>
                <xs:documentation xml:lang="cs">V případě údajů obsahujících přímo držené nemovitosti musí být zohledněny položky "Náklady na správu" a "Pozemkové renty, doživotní renty a dočasné renty" ve výkazu zisku a ztráty. V případě informací o nepřímo držených nemovitostech musí být zohledněny položky, které se nepromítají do výkazu zisku a ztráty fondu (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">Közvetlenül tartott ingatlant tartalmazó adatok esetén az eredménykimutatás „Kezelési költségek" és „Telekbérleti díjak, életjáradékok és időleges járadékok" tételeit kell figyelembe venni. Közvetetten tartott ingatlanra vonatkozó információ esetén olyan tételeket kell figyelembe venni, amelyek nem jelennek meg az alap eredménykimutatásában (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">I tilfælde af data, der omfatter direkte ejet fast ejendom, skal posterne "Forvaltningsomkostninger" og "Grundrenter, livrenter og tidsbegrænsede renter" i resultatopgørelsen tages i betragtning. I tilfælde af oplysninger om indirekte ejet fast ejendom skal poster, der ikke afspejles i fondens resultatopgørelse, tages i betragtning (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="NetYield" type="PercentageType">
@@ -150,6 +161,7 @@
                <xs:documentation xml:lang="it">Il rapporto è calcolato dal rapporto "reddito lordo" meno il rapporto "spese operative" (in percentuale).</xs:documentation>
                <xs:documentation xml:lang="cs">Ukazatel se vypočítá z ukazatele "hrubý výnos" minus ukazatel "provozní náklady" (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">A mutató a „bruttó jövedelem” mutató mínusz a „működési költségek” mutató alapján kerül kiszámításra (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">Forholdstallet beregnes som forholdstallet "bruttoindkomst" minus forholdstallet "driftsomkostninger" (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ChangeInValue" type="PercentageType">
@@ -162,6 +174,7 @@
                <xs:documentation xml:lang="it">Le "Variazioni di valore totali secondo le perizie degli esperti" e le "Variazioni di valore totali" devono essere prese in considerazione secondo le "Informazioni sulle variazioni di valore" (in percentuale). (vedi note elaborative BVI sull'informativa nei rapporti annuali e semestrali dei fondi immobiliari)</xs:documentation>
                <xs:documentation xml:lang="cs">Hodnoty "Celkové změny hodnoty podle znaleckých posudků" a "Celkové ostatní změny hodnoty" musí být zohledněny v souladu s "Informacemi o změnách hodnoty" (v procentech). (viz pokyny BVI ke zpracování údajů ve výročních a pololetních zprávách nemovitostních fondů)</xs:documentation>
                <xs:documentation xml:lang="hu">Az „Összes értékváltozás szakértői jelentések szerint” és az „Összes egyéb értékváltozás” tételeket az „Információk az értékváltozásokról” (százalékban) szerint kell figyelembe venni. (lásd a BVI feldolgozási megjegyzéseit az ingatlanalapok éves és féléves jelentéseiben szereplő közzétételekről)</xs:documentation>
+               <xs:documentation xml:lang="da">"Samlede værdiændringer i henhold til ekspertrapporter" og "Samlede øvrige værdiændringer" skal tages i betragtning i overensstemmelse med "Oplysninger om værdiændringer" (i procent). (se BVI's behandlingsnoter om oplysningerne i års- og halvårsrapporter for ejendomsfonde)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ForeignIncomeTax" type="PercentageType">
@@ -174,6 +187,7 @@
                <xs:documentation xml:lang="it">Devono essere prese in considerazione le imposte estere effettivamente sostenute e gli accantonamenti per le imposte sul reddito (in percentuale).</xs:documentation>
                <xs:documentation xml:lang="cs">Je třeba zohlednit skutečně vzniklé zahraniční daně a rezervy na daně z příjmů (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">A ténylegesen felmerült külföldi adókat és a jövedelemadó-céltartalékokat figyelembe kell venni (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">Faktiske udenlandske skatter, der er pådraget, og hensættelser til indkomstskat skal tages i betragtning (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ForeignDeferredIncomeTax" type="PercentageType">
@@ -186,6 +200,7 @@
                <xs:documentation xml:lang="it">Questo indicatore descrive l'impatto degli accantonamenti per le imposte sulle plusvalenze sui rendimenti immobiliari (in percentuale).</xs:documentation>
                <xs:documentation xml:lang="cs">Tento indikátor popisuje dopad rezerv na daně z kapitálových zisků na výnosy z nemovitostí (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">Ez a mutató a tőkenyereség-adókra képzett céltartalékok ingatlanhozamokra gyakorolt hatását írja le (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">Denne indikator beskriver virkningen af hensættelser til kapitalgevinstskatter på ejendomsafkast (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ReturnBeforeCreditExpense" type="PercentageType">
@@ -198,6 +213,7 @@
                <xs:documentation xml:lang="it">La cifra è calcolata dal "reddito netto" più/meno "variazioni di valore", meno "imposte sul reddito estero", meno "imposte differite estere" (in percentuale).</xs:documentation>
                <xs:documentation xml:lang="cs">Ukazatel se vypočítá z "čistého výnosu" plus/minus "změny hodnoty", minus "zahraniční daně z příjmů", minus "zahraniční odložené daně" (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">Az érték a „nettó jövedelem” plusz/mínusz „értékváltozások”, mínusz „külföldi jövedelemadók”, mínusz „külföldi halasztott adók” alapján kerül kiszámításra (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">Tallet beregnes som "nettoindkomst" plus/minus "værdiændringer" minus "udenlandske indkomstskatter" minus "udenlandske udskudte skatter" (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ReturnAfterCreditExpense" type="PercentageType">
@@ -210,6 +226,7 @@
                <xs:documentation xml:lang="it">Nel caso degli immobili posseduti direttamente, l'importo viene ricavato dal valore del "reddito prima delle spese di credito" tenendo conto degli "interessi sui prestiti" nel conto economico. Se i dati contengono dati relativi a immobili detenuti indirettamente, non sono inclusi i prestiti dei soci alle partecipate. Devono essere inclusi gli interessi passivi su altri prestiti a società partecipate (in percentuale).</xs:documentation>
                <xs:documentation xml:lang="cs">V případě přímo držených nemovitostí se údaj odvozuje od ukazatele "výnos před úvěrovými náklady" zohledněním "úroků z výpůjček" ve výkazu zisku a ztráty. Pokud údaje obsahují data z nepřímo držených nemovitostí, akcionářské půjčky společnostem, do nichž je investováno, se nezahrnují. Úrokové náklady na ostatní úvěry ve společnostech, do nichž je investováno, musí být zahrnuty (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">Közvetlenül tartott ingatlan esetén az érték a „hitelköltségek előtti jövedelem" értékből származtatható az eredménykimutatás „felvett hitelek kamatai" tételének figyelembevételével. Ha az adatok közvetetten tartott ingatlanból származó adatokat tartalmaznak, akkor a befektetést befogadó vállalkozásoknak nyújtott tulajdonosi hitelek nem szerepelnek benne. A befektetést befogadó vállalkozások egyéb hiteleinek kamatköltségét bele kell foglalni (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">I tilfælde af direkte ejet fast ejendom udledes tallet af tallet "indkomst før kreditomkostninger" ved at tage "renter af lån" i resultatopgørelsen i betragtning. Hvis dataene indeholder data fra indirekte ejet fast ejendom, medregnes aktionærlån til porteføljeselskaber ikke. Renteudgifter på andre lån i porteføljeselskaber skal medregnes (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="CurrencyChange" type="PercentageType">
@@ -222,6 +239,7 @@
                <xs:documentation xml:lang="it">Tutte le variazioni dei tassi di cambio incluse nella voce "risultato non realizzato dell'esercizio" del conto economico devono essere prese in considerazione, indipendentemente dal fatto che le variazioni si riferiscano agli immobili o alla liquidità (in percentuale).</xs:documentation>
                <xs:documentation xml:lang="cs">Je třeba zohlednit všechny změny směnných kurzů, které jsou zahrnuty v položce "nerealizovaný výsledek za účetní období" ve výkazu zisku a ztráty, bez ohledu na to, zda se změny týkají nemovitostí nebo likvidity (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">Az eredménykimutatás "a pénzügyi év nem realizált eredménye" tételében szereplő összes árfolyamváltozást figyelembe kell venni, függetlenül attól, hogy a változások ingatlanra vagy likviditásra vonatkoznak (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">Alle ændringer i valutakurser, der indgår i posten "urealiseret resultat for regnskabsåret" i resultatopgørelsen, skal tages i betragtning, uanset om ændringerne vedrører fast ejendom eller likviditet (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="TotalReturn" type="PercentageType">
@@ -234,6 +252,7 @@
                <xs:documentation xml:lang="it">Questa cifra è calcolata dal rapporto "profitto dopo gli oneri finanziari in valuta" più il rapporto "cambio di valuta" (in percentuale).</xs:documentation>
                <xs:documentation xml:lang="cs">Tento ukazatel se vypočítá z ukazatele "zisk po nákladech na cizí kapitál v měně" plus ukazatel "změna měny" (v procentech).</xs:documentation>
                <xs:documentation xml:lang="hu">Ez az érték a „hitelfelvételi költségek utáni nyereség pénznemben” mutató plusz az „árfolyamváltozás” mutató alapján kerül kiszámításra (százalékban).</xs:documentation>
+               <xs:documentation xml:lang="da">Dette tal beregnes som forholdstallet "resultat efter låneomkostninger i valuta" plus forholdstallet "valutaændring" (i procent).</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -248,6 +267,7 @@
          <xs:documentation xml:lang="it">Estensioni dei dati anagrafici degli asset specifici per la Germania per i requisiti di reporting normativo tedeschi</xs:documentation>
          <xs:documentation xml:lang="cs">Rozšíření kmenových dat aktiv specifická pro Německo pro německé regulatorní reportingové požadavky</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus eszköztörzsadat-bővítmények a német szabályozói jelentéstételi követelményekhez</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke udvidelser af asset master data til tysk regulatorisk rapportering</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:extension base="xs:anyType"/>
@@ -263,6 +283,7 @@
          <xs:documentation xml:lang="it">Estensioni dei dati di controllo specifiche per la Germania per il reporting BVI e l'integrazione del portale dati</xs:documentation>
          <xs:documentation xml:lang="cs">Rozšíření kontrolních dat specifická pro Německo pro reporting BVI a integraci datového portálu</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus kontrolladat-bővítmények a BVI-jelentéstételhez és az adatportál-integrációhoz</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke udvidelser af kontroldata til BVI-rapportering og dataportalsintegration</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:extension base="xs:anyType"/>
@@ -278,6 +299,7 @@
          <xs:documentation xml:lang="it">Tipo di contenitore per estensioni dati specifiche per la Germania nello schema FundsXML che estende i dati PRIIP DE EPT PIA</xs:documentation>
          <xs:documentation xml:lang="cs">Typ kontejneru pro datová rozšíření specifická pro Německo ve schématu FundsXML rozšiřující data PRIIPs DE EPT PIA</xs:documentation>
          <xs:documentation xml:lang="hu">Tárolótípus a Németország-specifikus adatbővítményekhez a FundsXML sémában, amely a PRIIPs DE EPT PIA adatokat bővíti</xs:documentation>
+         <xs:documentation xml:lang="da">Containertype til Tyskland-specifikke dataudvidelser i FundsXML-skemaet, der udvider PRIIPs DE EPT PIA-data</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:extension base="PRIIPS_DE_EPT_PiaType"/>
@@ -293,6 +315,7 @@
          <xs:documentation xml:lang="it">Estensioni dati EMT (modello MiFID europeo) specifiche per la Germania contenenti campi aggiuntivi per i requisiti del mercato tedesco</xs:documentation>
          <xs:documentation xml:lang="cs">Datová rozšíření EMT (European MiFID Template) specifická pro Německo obsahující dodatečná pole pro požadavky německého trhu</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus EMT (European MiFID Template) adatbővítmények, amelyek további mezőket tartalmaznak a német piaci követelményekhez</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke EMT-dataudvidelser (European MiFID Template), der indeholder yderligere felter til det tyske markeds krav</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="EMT_Additional">
@@ -305,6 +328,7 @@
          	   <xs:documentation xml:lang="it">Campi EMT aggiuntivi specifici per la Germania</xs:documentation>
          	   <xs:documentation xml:lang="hu">Németország-specifikus további EMT-mezők</xs:documentation>
          	   <xs:documentation xml:lang="cs">Další pole EMT specifická pro Německo</xs:documentation>
+         	   <xs:documentation xml:lang="da">Yderligere Tyskland-specifikke EMT-felter</xs:documentation>
          	</xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -318,6 +342,7 @@
                   	   <xs:documentation xml:lang="it">Informazioni sul mercato target inclusi modalità di approvazione e categoria del prodotto</xs:documentation>
                   	   <xs:documentation xml:lang="hu">Célpiaci információk a termékjóváhagyás módjával és kategóriájával</xs:documentation>
                   	   <xs:documentation xml:lang="cs">Informace o cílovém trhu včetně režimu schvalování produktu a kategorie</xs:documentation>
+                  	   <xs:documentation xml:lang="da">Oplysninger om målmarked, herunder produktgodkendelsestilstand og kategori</xs:documentation>
                   	</xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -331,6 +356,7 @@
                                  <xs:documentation xml:lang="it">A = Mercato target senza approvazione del prodotto B = Mercato target con approvazione del prodotto C = Nessun mercato target, solo approvazione del prodotto</xs:documentation>
                                  <xs:documentation xml:lang="cs">A = Cílový trh bez schválení produktu B = Cílový trh se schválením produktu C = Žádný cílový trh, pouze schválení produktu</xs:documentation>
                                  <xs:documentation xml:lang="hu">A = Célpiac termékjóváhagyás nélkül B = Célpiac termékjóváhagyással C = Nincs célpiac, csak termékjóváhagyás</xs:documentation>
+                                 <xs:documentation xml:lang="da">A = Målgruppe (target market) uden produktgodkendelse B = Målgruppe (target market) med produktgodkendelse C = Ingen målgruppe (target market), kun produktgodkendelse</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -348,6 +374,7 @@
                                  <xs:documentation xml:lang="it">Testo libero alfanumerico fino a 140 caratteri. Non è consentito "#"!</xs:documentation>
                                  <xs:documentation xml:lang="cs">Alphanumerischer Freitext bis zu 140 Zeichen. Es ist kein „#" erlaubt"!</xs:documentation>
                                  <xs:documentation xml:lang="hu">Alphanumerischer Freitext bis zu 140 Zeichen. Es ist kein „#" erlaubt"!</xs:documentation>
+                                 <xs:documentation xml:lang="da">Alphanumerischer Freitext bis zu 140 Zeichen. Es ist kein „#" erlaubt"!</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -376,6 +403,9 @@ Intestazione colonna file csv Contenuto Valori ammessi Multi Value J/N zioni-, o
                                  <xs:documentation xml:lang="cs">A = Akcie B = Alternativní investiční fondy - fondy obdobné UCITS s fyzickou komoditní složkou C = Alternativní investiční fondy - Closed end funds D = Alternativní investiční fondy - otevřené nemovitostní fondy E = Alternativní investiční fondy - single hedgeové fondy F = Alternativní investiční fondy - ostatní (vč. fondů hedgeových fondů) G = Dluhopisy (nestrukturované) H = Dluhopisy s dodatečnými právy resp. zvláštním zajištěním I = Dluhopisy s opčním listem J = Contingent convertibles K = Požitkové listy (Genussrechte) L = Pákové produkty (faktorové certifikáty a ETF s pákou &gt; 2 dle reportingu ztrát, opční listy, knock-outy) M = Investiční fondy (nestrukturované, vč. ETF: akci-N
 © WM Datenservice Erstellt von: V.Dinges Stand:17.08.2017 Zielmarkt_Fonds.Docx Seite 9 von 15
 Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisové, fondy peněžního trhu, smíšené fondy) N = Kuksy O = Nelineární CLN P = Reverzní produkty (certifikáty a ETF) Q = Strukturované investiční produkty (certifikáty, strukturované dluhopisy, ETC) R = Strukturované UCITS resp. investiční fondy S = Fondy založené na swapech T = Worst-of certifikáty U = Certifikáty s delta-1 replikací známých finančních indexů</xs:documentation>
+                                 <xs:documentation xml:lang="da">A = Aktier B = Alternative investeringsfonde - fonde analoge med UCITS med fysisk råvarekomponent C = Alternative investeringsfonde - closed end funds D = Alternative investeringsfonde - åbne ejendomsfonde E = Alternative investeringsfonde - single hedgefonde F = Alternative investeringsfonde - øvrige (inkl. fund-of-hedgefonde) G = Obligationer (ustrukturerede) H = Obligationer med tillægsrettigheder eller særlig sikkerhedsstillelse I = Obligationer med warrant J = Contingent convertibles K = Genusrettigheder L = Gearede produkter (faktorcertifikater og ETF'er med gearing &gt; 2 iht. tabsrapportering, warrants, knock-outs) M = Investeringsfonde (ustrukturerede, inkl. ETF: Ak-N
+© WM Datenservice Udarbejdet af: V.Dinges Pr.:17.08.2017 Zielmarkt_Fonds.Docx Side 9 af 15
+Kolonneoverskrift csv-fil Indhold Tilladte værdier Multi Value J/N tien-, rente-, pengemarkeds-, blandede fonde) N = Kuxe O = Ikke-lineære CLN'er P = Reverse-produkter (certifikater og ETF'er) Q = Strukturerede investeringsprodukter (certifikater, strukturerede obligationer, ETC'er) R = Strukturerede UCITS eller investeringsfonde S = Swap-baserede fonde T = Worst-of-certifikater U = Certifikater med Delta1-afbildning af kendte finansindeks</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -394,6 +424,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                  <xs:documentation xml:lang="it">A = Processo di approvazione del prodotto secondo MiFID II B = Processo di approvazione comparabile a MiFID II C = Processo di approvazione non conforme a MiFID II D = Nessuna indicazione dell'emittente desiderata</xs:documentation>
                                  <xs:documentation xml:lang="cs">A = Proces schvalování produktu podle MiFID II B = Proces schvalování produktu srovnatelný s MiFID II C = Proces schvalování produktu nikoli podle MiFID II D = Emitent si nepřeje uvádět údaj</xs:documentation>
                                  <xs:documentation xml:lang="hu">A = MiFID II szerinti termékjóváhagyási folyamat B = MiFID II-vel összehasonlítható termékjóváhagyási folyamat C = Nem MiFID II szerinti termékjóváhagyási folyamat D = A kibocsátó nem kíván nyilatkozni</xs:documentation>
+                                 <xs:documentation xml:lang="da">A = Produktgodkendelsesproces iht. MiFID II B = Produktgodkendelsesproces sammenlignelig med MiFID II C = Produktgodkendelsesproces ikke iht. MiFID II D = Ingen erklæring fra udsteder ønsket</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -415,6 +446,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                   	   <xs:documentation xml:lang="it">Dati sulla trasparenza dei costi per i requisiti del mercato tedesco</xs:documentation>
                   	   <xs:documentation xml:lang="hu">Költség-átláthatósági adatok a német piaci követelményekhez</xs:documentation>
                   	   <xs:documentation xml:lang="cs">Údaje o transparentnosti nákladů pro požadavky německého trhu</xs:documentation>
+                  	   <xs:documentation xml:lang="da">Data om omkostningsgennemsigtighed til opfyldelse af krav på det tyske marked</xs:documentation>
                   	</xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -428,6 +460,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                  <xs:documentation xml:lang="it">J= Sì N= Nein</xs:documentation>
                                  <xs:documentation xml:lang="cs">J= Ja N= Nein</xs:documentation>
                                  <xs:documentation xml:lang="hu">J= Ja N= Nein</xs:documentation>
+                                 <xs:documentation xml:lang="da">J= Ja N= Nein</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:string">
@@ -454,6 +487,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">Dati sui fondi specifici per la Germania contenenti campi di reporting immobiliare per i fondi immobiliari aperti tedeschi (Offene Immobilienfonds)</xs:documentation>
          <xs:documentation xml:lang="cs">Údaje o fondu specifické pro Německo obsahující pole pro reporting nemovitostí pro německé otevřené nemovitostní fondy (Offene Immobilienfonds)</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus alapadatok, amelyek ingatlanjelentési mezőket tartalmaznak a német nyíltvégű ingatlanalapok (Offene Immobilienfonds) számára</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke fondsdata, der indeholder rapporteringsfelter for fast ejendom for tyske åbne ejendomsfonde (Offene Immobilienfonds)</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="RealEstateReporting">
@@ -466,6 +500,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          	   <xs:documentation xml:lang="it">Dati di reportistica immobiliare per fondi immobiliari aperti tedeschi</xs:documentation>
          	   <xs:documentation xml:lang="hu">Ingatlanjelentési adatok német nyílt végű ingatlanalapokhoz</xs:documentation>
          	   <xs:documentation xml:lang="cs">Data reportingu nemovitostí pro německé otevřené nemovitostní fondy</xs:documentation>
+         	   <xs:documentation xml:lang="da">Data til ejendomsrapportering for tyske åbne ejendomsfonde</xs:documentation>
          	</xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -479,6 +514,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">Informazioni a livello di fondo</xs:documentation>
                         <xs:documentation xml:lang="cs">Informace na úrovni fondu</xs:documentation>
                         <xs:documentation xml:lang="hu">Információ alap szinten</xs:documentation>
+                        <xs:documentation xml:lang="da">Information på fondsniveau</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -492,6 +528,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                            	   <xs:documentation xml:lang="it">Dati sui contratti di locazione inclusi contratti in scadenza e reddito da locazione</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Bérleti szerződés adatok, beleértve a lejáró bérleti szerződéseket és bérleti bevételeket</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Údaje o nájemních smlouvách včetně končících nájmů a příjmů z nájmu</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Data om lejekontrakter inklusive udløbende lejemål og lejeindtægter</xs:documentation>
                            	</xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -505,6 +542,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Canone contrattuale netto totale. La prima pausa è rilevante; nessuna opzione deve essere presa in considerazione. È necessario fornire un valore annuale.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné. Relevantní je první možnost ukončení (first break); opce se nezohledňují. Musí být uvedena roční hodnota.</xs:documentation>
                                           <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj. Az első felmondási lehetőség a releváns; opciókat nem kell figyelembe venni. Éves értéket kell megadni.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Samlet netto kontraktlig leje. Første opsigelsesmulighed er relevant; der skal ikke tages hensyn til optioner. Der skal angives en årlig værdi.</xs:documentation>
                                        </xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -518,6 +556,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) di tutti i contratti di locazione in scadenza nell'anno di riferimento in corso (t).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) všech nájemních smluv končících v běžném vykazovaném roce (t).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a tárgyévben (t) jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i det aktuelle rapporteringsår (t).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus1" type="xs:decimal">
@@ -530,6 +569,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) di tutti i contratti di locazione in scadenza nell'anno (t+1).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) všech nájemních smluv končících v roce (t+1).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+1) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+1).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus2" type="xs:decimal">
@@ -542,6 +582,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) di tutti i contratti di locazione in scadenza nell'anno (t+2).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) všech nájemních smluv končících v roce (t+2).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+2) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+2).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus3" type="xs:decimal">
@@ -554,6 +595,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutti i contratti di locazione con scadenza nell'anno (t+3).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy končící v roce (t+3).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+3) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+3).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus4" type="xs:decimal">
@@ -566,6 +608,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutti i contratti di locazione con scadenza nell'anno (t+4).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy končící v roce (t+4).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+4) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+4).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus5" type="xs:decimal">
@@ -578,6 +621,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutti i contratti di locazione con scadenza nell'anno (t+5).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy končící v roce (t+5).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+5) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+5).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus6" type="xs:decimal">
@@ -590,6 +634,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutti i contratti di locazione con scadenza nell'anno (t+6).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy končící v roce (t+6).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+6) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+6).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus7" type="xs:decimal">
@@ -602,6 +647,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutti i contratti di locazione con scadenza nell'anno (t+7).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy končící v roce (t+7).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+7) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+7).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus8" type="xs:decimal">
@@ -614,6 +660,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutti i contratti di locazione con scadenza nell'anno (t+8).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy končící v roce (t+8).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+8) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+8).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus9" type="xs:decimal">
@@ -626,6 +673,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutti i contratti di locazione con scadenza nell'anno (t+9).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy končící v roce (t+9).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+9) évben jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+9).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Year_TPlus10AndLater" type="xs:decimal">
@@ -638,6 +686,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutti i contratti di locazione con scadenza entro l'anno (t+10) o successivamente.</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy končící v roce (t+10) nebo později.</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden olyan bérleti szerződésre, amely a (t+10) évben vagy később jár le.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle lejemål, der udløber i år (t+10) eller senere.</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="IndefiniteLeases" type="xs:decimal">
@@ -650,6 +699,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Canone contrattuale netto totale (in migliaia di euro) per tutte le locazioni illimitate.</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové čisté smluvní nájemné (v tisících eur) za všechny nájemní smlouvy na dobu neurčitou.</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Teljes nettó szerződéses bérleti díj (ezer euróban) minden határozatlan idejű bérleti szerződésre.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Samlet netto kontraktlig leje (i tusinde euro) for alle tidsubegrænsede lejemål.</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                           </xs:sequence>
@@ -668,6 +718,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                            	   <xs:documentation xml:lang="it">Dati di acquisti e vendite immobiliari (nazionali e esteri)</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Ingatlanvásárlási és -értékesítési adatok (belföldi és külföldi)</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Údaje o nákupech a prodejích nemovitostí (domácí a zahraniční)</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Data om køb og salg af fast ejendom (indenlandsk og udenlandsk)</xs:documentation>
                            	</xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -681,6 +732,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Informazioni sugli acquisti e sulle vendite nazionali nel trimestre precedente</xs:documentation>
                                           <xs:documentation xml:lang="cs">Informace o tuzemských nákupech a prodejích v předchozím čtvrtletí</xs:documentation>
                                           <xs:documentation xml:lang="hu">Információ az előző negyedévi belföldi vásárlásokról és eladásokról</xs:documentation>
+                                          <xs:documentation xml:lang="da">Information om indenlandske køb og salg i det foregående kvartal</xs:documentation>
                                        </xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -694,6 +746,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Informazioni sugli acquisti interni nel trimestre precedente</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Informace o tuzemských nákupech v předchozím čtvrtletí</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Információ az előző negyedévi belföldi vásárlásokról</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Information om indenlandske køb i det foregående kvartal</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Sales" type="SalesDataDEType">
@@ -706,6 +759,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Informazioni sulle vendite nazionali nel trimestre precedente</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Informace o tuzemských prodejích v předchozím čtvrtletí</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Információ az előző negyedévi belföldi eladásokról</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Information om indenlandske salg i det foregående kvartal</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                           </xs:sequence>
@@ -721,6 +775,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Informazioni sugli acquisti e vendite all'estero nel trimestre precedente</xs:documentation>
                                           <xs:documentation xml:lang="cs">Informace o zahraničních nákupech a prodejích v předchozím čtvrtletí</xs:documentation>
                                           <xs:documentation xml:lang="hu">Információ az előző negyedévi külföldi vásárlásokról és eladásokról</xs:documentation>
+                                          <xs:documentation xml:lang="da">Information om udenlandske køb og salg i det foregående kvartal</xs:documentation>
                                        </xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -734,6 +789,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Informazioni sugli acquisti esteri nel trimestre precedente</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Informace o zahraničních nákupech v předchozím čtvrtletí</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Információ az előző negyedévi külföldi vásárlásokról</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Information om udenlandske køb i det foregående kvartal</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Sales" type="SalesDataDEType">
@@ -746,6 +802,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Informazioni sulle vendite estere nel trimestre precedente</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Informace o zahraničních prodejích v předchozím čtvrtletí</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Információ az előző negyedévi külföldi eladásokról</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Information om udenlandske salg i det foregående kvartal</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                           </xs:sequence>
@@ -761,6 +818,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Informazioni sugli acquisti e cessioni di partecipate avvenuti nel trimestre precedente</xs:documentation>
                                           <xs:documentation xml:lang="cs">Informace o nákupech a prodejích majetkových účastí v předchozím čtvrtletí</xs:documentation>
                                           <xs:documentation xml:lang="hu">Információ a részesedések előző negyedévi vásárlásairól és eladásairól</xs:documentation>
+                                          <xs:documentation xml:lang="da">Information om køb og salg af deltagelsesselskaber i det foregående kvartal</xs:documentation>
                                        </xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -774,6 +832,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Informazioni sugli acquisti di partecipate avvenuti nel trimestre precedente</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Informace o nákupech majetkových účastí v předchozím čtvrtletí</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Információ a részesedések előző negyedévi vásárlásairól</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Information om køb af deltagelsesselskaber i det foregående kvartal</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="Sales" type="SalesDataDEType">
@@ -786,6 +845,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Informazioni sulle cessioni delle partecipate nel trimestre precedente</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Informace o prodejích majetkových účastí v předchozím čtvrtletí</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Információ a részesedések előző negyedévi eladásairól</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Information om salg af deltagelsesselskaber i det foregående kvartal</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                           </xs:sequence>
@@ -804,6 +864,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                  <xs:documentation xml:lang="it">Una volta all'anno; esclusivamente per i fondi aperti retail</xs:documentation>
                                  <xs:documentation xml:lang="cs">Jednou ročně; výhradně pro otevřené retailové fondy</xs:documentation>
                                  <xs:documentation xml:lang="hu">Évente egyszer; kizárólag nyíltvégű lakossági alapok esetében</xs:documentation>
+                                 <xs:documentation xml:lang="da">En gang om året; udelukkende for åbne detailfonde</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -817,6 +878,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Inizio dell'anno fiscale a cui si riferiscono le componenti della dichiarazione</xs:documentation>
                                           <xs:documentation xml:lang="cs">Začátek fiskálního roku, k němuž se vztahují složky výnosu</xs:documentation>
                                           <xs:documentation xml:lang="hu">Annak az üzleti évnek a kezdete, amelyre a hozamkomponensek vonatkoznak</xs:documentation>
+                                          <xs:documentation xml:lang="da">Begyndelsen af regnskabsåret, som afkastkomponenterne refererer til</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="EndFiscalYear" type="xs:date">
@@ -829,6 +891,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Fine dell'anno fiscale a cui si riferiscono le componenti del rendimento</xs:documentation>
                                           <xs:documentation xml:lang="cs">Konec fiskálního roku, ke kterému se vztahují složky výnosu</xs:documentation>
                                           <xs:documentation xml:lang="hu">Annak a pénzügyi évnek a vége, amelyre a hozamkomponensek vonatkoznak</xs:documentation>
+                                          <xs:documentation xml:lang="da">Afslutning af det regnskabsår, som afkastkomponenterne refererer til</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element maxOccurs="unbounded" name="CountryDistribution">
@@ -841,6 +904,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                     	   <xs:documentation xml:lang="it">Cifre di rendimento suddivise per paese</xs:documentation>
                                     	   <xs:documentation xml:lang="hu">Hozamadatok országonkénti bontásban</xs:documentation>
                                     	   <xs:documentation xml:lang="cs">Údaje o výnosnosti v členění podle země</xs:documentation>
+                                    	   <xs:documentation xml:lang="da">Afkasttal opdelt efter land</xs:documentation>
                                     	</xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -854,6 +918,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Paese a cui si applicano gli indicatori di rendimento</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Země, pro kterou platí ukazatele výnosnosti</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Az az ország, amelyre a hozammutatók vonatkoznak</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Land, som afkastindikatorerne gælder for</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="CountryFigures" type="AnnualReturnsDataDEType">
@@ -866,6 +931,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                              	   <xs:documentation xml:lang="it">Cifre di rendimento per un paese specifico</xs:documentation>
                                              	   <xs:documentation xml:lang="hu">Hozamadatok egy adott országra</xs:documentation>
                                              	   <xs:documentation xml:lang="cs">Údaje o výnosnosti pro konkrétní zemi</xs:documentation>
+                                             	   <xs:documentation xml:lang="da">Afkasttal for et bestemt land</xs:documentation>
                                              	</xs:annotation>
                                              </xs:element>
                                           </xs:sequence>
@@ -881,6 +947,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                     	   <xs:documentation xml:lang="it">Cifre di rendimento aggregate totali per tutti i paesi</xs:documentation>
                                     	   <xs:documentation xml:lang="hu">Összesített hozamadatok az összes országra vonatkozóan</xs:documentation>
                                     	   <xs:documentation xml:lang="cs">Celkové souhrnné údaje o výnosnosti za všechny země</xs:documentation>
+                                    	   <xs:documentation xml:lang="da">Samlede aggregerede afkasttal på tværs af alle lande</xs:documentation>
                                     	</xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -894,6 +961,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                              	   <xs:documentation xml:lang="it">Dati di rendimento annuale totale per tutte le proprietà</xs:documentation>
                                              	   <xs:documentation xml:lang="hu">Összesített éves hozamadatok az összes ingatlanra</xs:documentation>
                                              	   <xs:documentation xml:lang="cs">Celkové roční údaje o výnosnosti za všechny nemovitosti</xs:documentation>
+                                             	   <xs:documentation xml:lang="da">Samlede årlige afkastdata på tværs af alle ejendomme</xs:documentation>
                                              	</xs:annotation>
                                              </xs:element>
                                              <xs:element name="Liquidity" type="PercentageType">
@@ -906,6 +974,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Il rendimento della liquidità si calcola in base a "Reddito e variazioni di valore della liquidità"/"Liquidità media" (in percentuale).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Výnos likvidity se vypočítá z "Výnosy a změny hodnoty z likvidity"/"Průměrná likvidita" (v procentech).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">A likviditási hozam a „Likviditásból származó jövedelem és értékváltozások” / „Átlagos likviditás” alapján kerül kiszámításra (százalékban).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Likviditetsafkastet beregnes som "Indtægter og værdiændringer fra likviditet"/"Gennemsnitlig likviditet" (i procent).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="ReturnBeforeFundCosts" type="PercentageType">
@@ -918,6 +987,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Rendimento totale del fondo prima dei costi del fondo (in Prozent).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celková výnosnost fondu před náklady fondu (v procentech).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Az alap total return hozama az alapköltségek előtt (százalékban).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Fondens samlede afkast før fondsomkostninger (i procent).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                              <xs:element name="ReturnAfterFundCosts" type="PercentageType">
@@ -930,6 +1000,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Rendimento totale del fondo al netto dei costi del fondo (in Prozent).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celková výnosnost fondu po nákladech fondu (v procentech).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Az alap total return hozama az alapköltségek után (százalékban).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Fondens samlede afkast efter fondsomkostninger (i procent).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                           </xs:sequence>
@@ -948,6 +1019,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                  <xs:documentation xml:lang="it">Per Spezialfond aperti e chiusi al dettaglio e Spezialfond.</xs:documentation>
                                  <xs:documentation xml:lang="cs">Pro otevřené Spezialfonds a uzavřené retailové fondy a Spezialfonds.</xs:documentation>
                                  <xs:documentation xml:lang="hu">Nyílt végű Spezialfonds, valamint zárt végű lakossági és Spezialfonds alapok esetében.</xs:documentation>
+                                 <xs:documentation xml:lang="da">For åbne Spezialfonds og lukkede retail- og Spezialfonds.</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -961,6 +1033,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Impegni patrimoniali, importo complessivo (in migliaia di euro).</xs:documentation>
                                           <xs:documentation xml:lang="cs">Přísliby vlastního kapitálu, celková částka (v tisících eur).</xs:documentation>
                                           <xs:documentation xml:lang="hu">Tőkekötelezettségvállalások, teljes összeg (ezer euróban).</xs:documentation>
+                                          <xs:documentation xml:lang="da">Aktieforpligtelser, samlet beløb (i tusinde euro).</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="CalledOff" type="xs:decimal">
@@ -973,6 +1046,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Somma cumulativa degli impegni patrimoniali già annullati (in migliaia di euro).</xs:documentation>
                                           <xs:documentation xml:lang="cs">Kumulativní součet kapitálových závazků (equity commitments), které již byly povolány (v tisících eur).</xs:documentation>
                                           <xs:documentation xml:lang="hu">A már lehívott tőkekötelezettségvállalások halmozott összege (ezer euróban).</xs:documentation>
+                                          <xs:documentation xml:lang="da">Akkumuleret sum af egenkapitaltilsagn, der allerede er trukket (i tusinde euro).</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="NotRequested" type="xs:decimal">
@@ -985,6 +1059,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">La parte restante degli impegni patrimoniali complessivamente non ancora richiesti (in migliaia di euro).</xs:documentation>
                                           <xs:documentation xml:lang="cs">Nesplacená část celkových příslibů vlastního kapitálu, která dosud nebyla vyžádána (v tisících eur).</xs:documentation>
                                           <xs:documentation xml:lang="hu">A tőke-kötelezettségvállalások fennálló része összesen, amelyet eddig még nem hívtak le (ezer euróban).</xs:documentation>
+                                          <xs:documentation xml:lang="da">Den udestående del af de samlede egenkapitaltilsagn, der endnu ikke er blevet anmodet om (i tusinde euro).</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -1003,6 +1078,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">Informazioni a livello di proprietà</xs:documentation>
                         <xs:documentation xml:lang="cs">Informace na úrovni nemovitosti</xs:documentation>
                         <xs:documentation xml:lang="hu">Információ ingatlan szinten</xs:documentation>
+                        <xs:documentation xml:lang="da">Information på ejendomsniveau</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1016,6 +1092,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                            	   <xs:documentation xml:lang="it">Dati geografici dell'immobile (ID, indirizzo)</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Az ingatlan földrajzi adatai (ID, cím)</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Geografická data nemovitosti (ID, adresa)</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Geografiske data for ejendommen (ID, adresse)</xs:documentation>
                            	</xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -1029,6 +1106,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Numero di riferimento interno dell'immobile</xs:documentation>
                                           <xs:documentation xml:lang="cs">Interní referenční číslo nemovitosti</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az ingatlan belső referenciaszáma</xs:documentation>
+                                          <xs:documentation xml:lang="da">Internt referencenummer for ejendommen</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Address" type="AddressTypeDataDEType">
@@ -1041,6 +1119,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Indirizzo dell'edificio</xs:documentation>
                                           <xs:documentation xml:lang="cs">Adresa budovy</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az épület címe</xs:documentation>
+                                          <xs:documentation xml:lang="da">Bygningens adresse</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -1056,6 +1135,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                            	   <xs:documentation xml:lang="it">Dati base dell'immobile (anno di costruzione, fair value, superficie locativa)</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Az ingatlan alapadatai (építés éve, forgalmi érték, bérelhető terület)</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Základní údaje o nemovitosti (rok výstavby, tržní hodnota, pronajímatelná plocha)</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Stamdata for ejendommen (byggeår, fair value, udlejningsareal)</xs:documentation>
                            	</xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -1069,6 +1149,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Anno economico di costruzione dell'immobile determinato dalle perizie sulla vita utile totale e residua o data dell'ultima ristrutturazione totale (investimenti &gt;30% del fair value)</xs:documentation>
                                           <xs:documentation xml:lang="cs">Ekonomický rok výstavby nemovitosti stanovený na základě znaleckých posudků o celkové a zbývající době použitelnosti nebo datum poslední celkové renovace (investice &gt;30% reálné hodnoty)</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az ingatlan gazdasági építési éve, amely a teljes és hátralévő hasznos élettartamra vonatkozó szakértői jelentésekből vagy az utolsó teljes felújítás (a valós érték &gt;30%-át kitevő beruházások) dátumából kerül meghatározásra</xs:documentation>
+                                          <xs:documentation xml:lang="da">Økonomisk opførelsesår for ejendommen fastsat ud fra ekspertrapporterne om den samlede og resterende brugstid eller datoen for den seneste totalrenovering (investeringer &gt;30% af dagsværdien)</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="FairValue" type="xs:decimal">
@@ -1081,6 +1162,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Valore equo secondo §194 BauGB (in migliaia di euro).</xs:documentation>
                                           <xs:documentation xml:lang="cs">Reálná hodnota podle §194 BauGB (v tisících eur).</xs:documentation>
                                           <xs:documentation xml:lang="hu">Valós érték a §194 BauGB szerint (ezer euróban).</xs:documentation>
+                                          <xs:documentation xml:lang="da">Dagsværdi i henhold til §194 BauGB (i tusinde euro).</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Participation">
@@ -1093,6 +1175,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Indica se la proprietà è posseduta direttamente o indirettamente.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Udává, zda je nemovitost držena přímo, nebo nepřímo.</xs:documentation>
                                           <xs:documentation xml:lang="hu">Jelzi, hogy az ingatlant közvetlenül vagy közvetetten tartják-e.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Angiver, om ejendommen ejes direkte eller indirekte.</xs:documentation>
                                        </xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -1106,6 +1189,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                              	   <xs:documentation xml:lang="it">Classificazione del tipo di immobile (residenziale, commerciale, misto, ecc.)</xs:documentation>
                                              	   <xs:documentation xml:lang="hu">Ingatlantípus-besorolás (lakó, kereskedelmi, vegyes stb.)</xs:documentation>
                                              	   <xs:documentation xml:lang="cs">Klasifikace typu nemovitosti (rezidenční, komerční, smíšený atd.)</xs:documentation>
+                                             	   <xs:documentation xml:lang="da">Klassificering af ejendomstype (bolig, erhverv, blandet osv.)</xs:documentation>
                                              	</xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:string">
@@ -1124,6 +1208,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Tasso di partecipazione/quota di proprietà del fondo nell'immobile (in caso di strutture di partecipazione multilivello, il tasso viene adeguato di conseguenza in modo da indicare il tasso effettivo detenuto dal fondo nell'immobile). Se vengono forniti i dati per una classe di azioni di un fondo, è necessario considerare anche la quota della classe di azioni (in percentuale).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Míra účasti / vlastnický podíl fondu na nemovitosti (v případě víceúrovňových účastnických struktur se míra odpovídajícím způsobem upraví tak, aby byla uvedena efektivní míra, kterou fond na nemovitosti drží). Pokud jsou data dodávána za share class fondu, musí být zohledněn také podíl dané share class (v procentech).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Az alap részesedési rátája / tulajdoni hányada az ingatlanban (többszintű részesedési struktúrák esetén a rátát ennek megfelelően kell kiigazítani, hogy az alap által az ingatlanban ténylegesen tartott ráta legyen feltüntetve). Ha egy alap valamely Share Class-ára vonatkozóan szolgáltatnak adatot, a Share Class részesedését is figyelembe kell venni (százalékban).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Deltagelsesrate / ejerandel af fonden i ejendommen (ved deltagelsesstrukturer i flere niveauer justeres raten tilsvarende, så den effektive rate, som fonden besidder i ejendommen, angives). Hvis data leveres for en share class i en fond, skal share class'ens andel også tages i betragtning (i procent).</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="PercentageType">
@@ -1145,6 +1230,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Momento del trasferimento della proprietà effettiva secondo il contratto di acquisto</xs:documentation>
                                           <xs:documentation xml:lang="cs">Okamžik přechodu ekonomického vlastnictví podle kupní smlouvy</xs:documentation>
                                           <xs:documentation xml:lang="hu">A tényleges tulajdonjog átruházásának időpontja az adásvételi szerződés szerint</xs:documentation>
+                                          <xs:documentation xml:lang="da">Tidspunktet for overdragelsen af den reelle ejendomsret i henhold til købskontrakten</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="StatusOfProperty">
@@ -1157,6 +1243,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Stato della proprietà (proprietà esistente [HELD_PROPERTY]; sviluppo del progetto [SVILUPPO]; terreno non edificato [TERRENO]); un immobile è considerato un progetto di sviluppo se è gestito con costi di costruzione e non con fair value</xs:documentation>
                                           <xs:documentation xml:lang="cs">Stav nemovitosti (existující nemovitost [HELD_PROPERTY]; projektový development [DEVELOPMENT]; nezastavěný pozemek [LAND]); nemovitost se považuje za projektový development, pokud je vedena ve stavebních nákladech, a nikoli v reálné hodnotě</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az ingatlan állapota (meglévő ingatlan [HELD_PROPERTY]; projektfejlesztés [DEVELOPMENT]; beépítetlen telek [LAND]); egy ingatlan akkor minősül projektfejlesztésnek, ha építési költségekkel és nem valós értéken kezelik</xs:documentation>
+                                          <xs:documentation xml:lang="da">Ejendommens status (eksisterende ejendom [HELD_PROPERTY]; projektudvikling [DEVELOPMENT]; ubebygget grund [LAND]); en ejendom betragtes som en projektudvikling, hvis den forvaltes med byggeomkostninger og ikke med dagsværdi</xs:documentation>
                                        </xs:annotation>
                                        <xs:simpleType>
                                           <xs:restriction base="xs:string">
@@ -1179,6 +1266,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                            	   <xs:documentation xml:lang="it">Ripartizione dati per tipo di utilizzo (ufficio, commercio, residenziale, ecc.)</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Használati típus szerinti adatbontás (iroda, kiskereskedelem, lakó stb.)</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Rozdělení dat podle typu využití (kancelář, obchod, rezidenční atd.)</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Opdeling af data efter anvendelsestype (kontor, detail, bolig osv.)</xs:documentation>
                            	</xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -1192,6 +1280,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Dati attribuibili alla tipologia di utilizzo ufficio.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaje, které lze přiřadit k typu využití kanceláře.</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az irodai használati típushoz rendelhető adatok.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Data, der kan henføres til anvendelsestypen kontor.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Retail" type="UsageDataDEType">
@@ -1204,6 +1293,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Dati attribuibili alla tipologia di utilizzo retail.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaje, které lze přiřadit k typu využití maloobchod.</xs:documentation>
                                           <xs:documentation xml:lang="hu">A kiskereskedelmi használati típushoz rendelhető adatok.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Data, der kan henføres til anvendelsestypen detailhandel.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Industry" type="UsageDataDEType">
@@ -1216,6 +1306,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Dati attribuibili al settore di tipologia di utilizzo.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaje, které lze přiřadit k typu využití průmysl.</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az ipari használati típushoz rendelhető adatok.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Data, der kan henføres til anvendelsestypen industri.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Residential" type="UsageDataDEType">
@@ -1228,6 +1319,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Dati riconducibili alla tipologia d'uso residenziale.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaje, které lze přiřadit k typu využití bydlení.</xs:documentation>
                                           <xs:documentation xml:lang="hu">A lakossági (lakóingatlan) használati típushoz rendelhető adatok.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Data, der kan henføres til anvendelsestypen bolig.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Hotel" type="UsageDataDEType">
@@ -1240,6 +1332,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Dati attribuibili al tipo di utilizzo hotel.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaje, které lze přiřadit k typu využití hotel.</xs:documentation>
                                           <xs:documentation xml:lang="hu">A szálloda használati típushoz rendelhető adatok.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Data, der kan henføres til anvendelsestypen hotel.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Leisure" type="UsageDataDEType">
@@ -1252,6 +1345,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Dati riconducibili alla tipologia di utilizzo leisure.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaje, které lze přiřadit k typu využití volný čas.</xs:documentation>
                                           <xs:documentation xml:lang="hu">A szabadidős használati típushoz rendelhető adatok.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Data, der kan henføres til anvendelsestypen fritid.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Parking">
@@ -1264,6 +1358,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Dati attribuibili alla tipologia di utilizzo parcheggio.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaje, které lze přiřadit k typu využití parkování.</xs:documentation>
                                           <xs:documentation xml:lang="hu">A parkoló használati típushoz rendelhető adatok.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Data, der kan henføres til anvendelsestypen parkering.</xs:documentation>
                                        </xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -1277,6 +1372,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                              	   <xs:documentation xml:lang="it">Dati di tipo di utilizzo specifici per parcheggio con conteggio unità</xs:documentation>
                                              	   <xs:documentation xml:lang="hu">Parkoló-specifikus használati típus adatok egységszámmal</xs:documentation>
                                              	   <xs:documentation xml:lang="cs">Údaje o typu využití specifické pro parkování s počtem jednotek</xs:documentation>
+                                             	   <xs:documentation xml:lang="da">Parkeringsspecifikke anvendelsestypedata med antal enheder</xs:documentation>
                                              	</xs:annotation>
                                                 <xs:complexType>
                                                    <xs:sequence>
@@ -1290,6 +1386,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                             <xs:documentation xml:lang="it">Reddito potenziale lordo delle unità locative dell'immobile locato alla data di riferimento del bilancio (corrisponde al canone contrattuale). Dovrebbe essere indicato un valore annuo (in migliaia di euro).</xs:documentation>
                                                             <xs:documentation xml:lang="cs">Hrubý potenciální příjem z nájemních jednotek nemovitosti pronajatých k rozhodnému datu (odpovídá smluvnímu nájemnému). Měla by být uvedena roční hodnota (v tisících eur).</xs:documentation>
                                                             <xs:documentation xml:lang="hu">Az ingatlan azon bérlőegységeinek bruttó potenciális jövedelme, amelyek a jelentés fordulónapján bérbe vannak adva (a szerződéses bérleti díjnak felel meg). Éves értéket kell megadni (ezer euróban).</xs:documentation>
+                                                            <xs:documentation xml:lang="da">Potentiel bruttoindkomst for de udlejede enheder i ejendommen, der er udlejet pr. rapporteringsdatoen (svarer til den kontraktlige leje). Der bør angives en årlig værdi (i tusinder euro).</xs:documentation>
                                                          </xs:annotation>
                                                       </xs:element>
                                                       <xs:element name="Vacant" type="xs:decimal">
@@ -1302,6 +1399,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                             <xs:documentation xml:lang="it">Reddito potenziale lordo delle unità locative dell'immobile sfitte alla data di riferimento del bilancio (corrisponde al canone contrattuale). Dovrebbe essere indicato un valore annuo (in migliaia di euro).</xs:documentation>
                                                             <xs:documentation xml:lang="cs">Hrubý potenciální příjem z nájemních jednotek nemovitosti, které jsou k rozhodnému datu neobsazené (odpovídá smluvnímu nájemnému). Měla by být uvedena roční hodnota (v tisících eur).</xs:documentation>
                                                             <xs:documentation xml:lang="hu">Az ingatlan azon bérlőegységeinek bruttó potenciális jövedelme, amelyek a jelentés fordulónapján üresen állnak (a szerződéses bérleti díjnak felel meg). Éves értéket kell megadni (ezer euróban).</xs:documentation>
+                                                            <xs:documentation xml:lang="da">Potentiel bruttoindkomst for de udlejningsenheder i ejendommen, der står tomme pr. rapporteringsdatoen (svarer til den kontraktlige leje). Der bør angives en årlig værdi (i tusinder euro).</xs:documentation>
                                                          </xs:annotation>
                                                       </xs:element>
                                                       <xs:element name="ParkingSpaces" type="xs:int">
@@ -1314,6 +1412,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                             <xs:documentation xml:lang="it">Numero totale di posti auto che appartengono alla proprietà</xs:documentation>
                                                             <xs:documentation xml:lang="cs">Celkový počet parkovacích míst náležejících k nemovitosti</xs:documentation>
                                                             <xs:documentation xml:lang="hu">Az ingatlanhoz tartozó parkolóhelyek teljes száma</xs:documentation>
+                                                            <xs:documentation xml:lang="da">Samlet antal parkeringspladser, der hører til ejendommen</xs:documentation>
                                                          </xs:annotation>
                                                       </xs:element>
                                                    </xs:sequence>
@@ -1332,6 +1431,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Dati attribuibili alla tipologia di utilizzo altro.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaje, které lze přiřadit k typu využití ostatní.</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az egyéb használati típushoz rendelhető adatok.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Data, der kan henføres til anvendelsestypen andet.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -1347,6 +1447,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                            	   <xs:documentation xml:lang="it">Dati relativi alla sostenibilità dell'immobile (etichette, prestazione energetica)</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Az ingatlan fenntarthatósághoz kapcsolódó adatai (címkék, energiahatékonyság)</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Údaje o udržitelnosti nemovitosti (štítky, energetická náročnost)</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Bæredygtighedsrelaterede data for ejendommen (mærkninger, energiydeevne)</xs:documentation>
                            	</xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -1360,6 +1461,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Etichette di sostenibilità della struttura</xs:documentation>
                                           <xs:documentation xml:lang="cs">Označení udržitelnosti nemovitosti</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az ingatlan fenntarthatósági minősítései</xs:documentation>
+                                          <xs:documentation xml:lang="da">Ejendommens bæredygtighedsmærkninger</xs:documentation>
                                        </xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -1373,6 +1475,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Marchio di sostenibilità BREEAM; Caratteristiche: 1 stella, 2 stelle, 3 stelle, 4 stelle, 5 stelle, 6 stelle, non specificato, no).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Označení udržitelnosti BREEAM; charakteristiky: 1 hvězdička, 2 hvězdičky, 3 hvězdičky, 4 hvězdičky, 5 hvězdiček, 6 hvězdiček, neuvedeno, ne).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">BREEAM fenntarthatósági címke; jellemzők: 1 csillag, 2 csillag, 3 csillag, 4 csillag, 5 csillag, 6 csillag, nincs megadva, nem).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Bæredygtighedsmærkning BREEAM; Karakteristika: 1 stjerne, 2 stjerner, 3 stjerner, 4 stjerner, 5 stjerner, 6 stjerner, ikke angivet, nej).</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:string">
@@ -1397,6 +1500,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Marchio di sostenibilità LEED; Caratteristiche: Platino, oro, argento, certificato, non specificato, no).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Označení udržitelnosti LEED; charakteristiky: platina, zlato, stříbro, certifikováno, neuvedeno, ne).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">LEED fenntarthatósági minősítés; Jellemzők: Platinum, gold, silver, certified, not specified, no).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Bæredygtighedsmærkning LEED; Karakteristika: Platin, guld, sølv, certificeret, ikke angivet, nej).</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:string">
@@ -1419,6 +1523,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Etichetta di sostenibilità DGNB; Caratteristiche: Platino, oro, argento, bronzo, non specificato, no).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Označení udržitelnosti DGNB; charakteristiky: platina, zlato, stříbro, bronz, neuvedeno, ne).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">DGNB fenntarthatósági minősítés; Jellemzők: Platinum, gold, silver, bronze, not specified, no).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Bæredygtighedsmærkning DGNB; Karakteristika: Platin, guld, sølv, bronze, ikke angivet, nej).</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:string">
@@ -1441,6 +1546,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Marchio di sostenibilità HQE; Caratteristiche: Très Performant, Performant, Base, non specificato, no).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Označení udržitelnosti HQE; charakteristiky: Très Performant, Performant, Base, neuvedeno, ne).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">HQE fenntarthatósági minősítés; Jellemzők: Très Performant, Performant, Base, not specified, no).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Bæredygtighedsmærkning HQE; Karakteristika: Très Performant, Performant, Base, ikke angivet, nej).</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:string">
@@ -1462,6 +1568,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Etichetta di sostenibilità WELL; Caratteristiche: Platino, oro, argento, bronzo, non specificato, no).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Označení udržitelnosti WELL; charakteristiky: platina, zlato, stříbro, bronz,  neuvedeno, ne).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">WELL fenntarthatósági minősítés; Jellemzők: Platinum, gold, silver, bronze,  not specified, no).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Bæredygtighedsmærkning WELL; Karakteristika: Platin, guld, sølv, bronze,  ikke angivet, nej).</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:string">
@@ -1487,6 +1594,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Informazioni sulle emissioni di anidride carbonica</xs:documentation>
                                           <xs:documentation xml:lang="cs">Informace o emisích oxidu uhličitého</xs:documentation>
                                           <xs:documentation xml:lang="hu">Információ a szén-dioxid-kibocsátásról</xs:documentation>
+                                          <xs:documentation xml:lang="da">Information om kuldioxidemissioner</xs:documentation>
                                        </xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -1500,6 +1608,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Anno solare a cui si riferiscono le emissioni di CO2 dichiarate (e l'intensità del consumo energetico associato).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Kalendářní rok, k němuž se vztahují uvedené emise CO2 (a související intenzita spotřeby energie).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Az a naptári év, amelyre a megadott CO2-kibocsátás (és a kapcsolódó energiafogyasztási intenzitás) vonatkozik.</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Kalenderår, som den angivne CO2-emission (og den tilknyttede energiforbrugsintensitet) vedrører.</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:int">
@@ -1517,6 +1626,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                                    <xs:documentation xml:lang="it">Emissioni totali di CO2 dell'immobile dovute al consumo energetico (escluse le emissioni dovute alla costruzione dell'edificio) incl. emissioni dovute al consumo degli inquilini. Dovrebbe essere specificato un valore annuale basato sull'ultimo anno solare (in chilogrammi per area).</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Celkové emise CO2 nemovitosti v důsledku spotřeby energie (bez emisí z výstavby budovy) vč. emisí ze spotřeby nájemců. Uvádí se roční hodnota za poslední kalendářní rok (v kilogramech na jednotku plochy).</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Az ingatlan teljes CO2-kibocsátása az energiafogyasztás miatt (az épület építéséből származó kibocsátások nélkül), beleértve a bérlői fogyasztásból származó kibocsátásokat. Az utolsó naptári év alapján éves értéket kell megadni (kilogrammban területenként).</xs:documentation>
+                                                   <xs:documentation xml:lang="da">De samlede CO2-emissioner fra ejendommen som følge af energiforbrug (eksklusive emissioner fra bygningsopførelse) inklusive emissioner fra lejernes forbrug. Der skal angives en årlig værdi baseret på det seneste kalenderår (i kilogram pr. areal).</xs:documentation>
                                                 </xs:annotation>
                                              </xs:element>
                                           </xs:sequence>
@@ -1532,6 +1642,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Consumo energetico totale dell'immobile compreso il consumo dell'inquilino. Dovrebbe essere specificato un valore annuale basato sull'ultimo anno solare (in kilowattora per area).</xs:documentation>
                                           <xs:documentation xml:lang="cs">Celková spotřeba energie nemovitosti včetně spotřeby nájemců. Uvádí se roční hodnota za poslední kalendářní rok (v kilowatthodinách na jednotku plochy).</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az ingatlan teljes energiafogyasztása, beleértve a bérlői fogyasztást. Az utolsó naptári év alapján éves értéket kell megadni (kilowattórában területenként).</xs:documentation>
+                                          <xs:documentation xml:lang="da">Ejendommens samlede energiforbrug inklusive lejernes forbrug. Der skal angives en årlig værdi baseret på det seneste kalenderår (i kilowatttime pr. areal).</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="EnergyCertificateRating">
@@ -1544,6 +1655,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                                           <xs:documentation xml:lang="it">Indicazione della classificazione o etichetta del certificato energetico secondo le normative locali. Se per un immobile sono disponibili più attestati di prestazione energetica, deve essere utilizzato quello con la quota di superficie maggiore. Se non è disponibile alcun certificato energetico, è necessario indicare "non disponibile" di conseguenza.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Údaj o ratingu nebo označení energetického certifikátu podle místních předpisů. Pokud je pro nemovitost k dispozici více průkazů energetické náročnosti, použije se průkaz energetické náročnosti s největším podílem plochy. Pokud není energetický certifikát k dispozici, musí být odpovídajícím způsobem uvedeno "not available".</xs:documentation>
                                           <xs:documentation xml:lang="hu">A helyi szabályozás szerinti energiatanúsítvány besorolásának vagy minősítésének megadása. Ha egy ingatlanhoz több energiateljesítmény-tanúsítvány áll rendelkezésre, a legnagyobb területi részaránnyal rendelkező energiateljesítmény-tanúsítványt kell használni. Ha nem áll rendelkezésre energiatanúsítvány, akkor ennek megfelelően „nem elérhető" jelzést kell megadni.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Angivelse af energicertifikatets rating eller mærkning i henhold til lokale regler. Hvis der findes flere energimærker for en ejendom, skal energimærket med den største arealandel anvendes. Hvis der ikke findes noget energicertifikat, skal "not available" angives tilsvarende.</xs:documentation>
                                        </xs:annotation>
                                        <xs:simpleType>
                                           <xs:restriction base="xs:string">
@@ -1581,6 +1693,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">Estensioni dei dati delle classi di azioni specifiche per la Germania per i requisiti di reporting normativo tedeschi</xs:documentation>
          <xs:documentation xml:lang="cs">Rozšíření dat tříd akcií specifická pro Německo pro německé regulatorní reportingové požadavky</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus Share Class adatbővítések a német szabályozói jelentési követelményekhez</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke udvidelser af Share Class-data til tysk regulatorisk rapportering</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:extension base="xs:anyType"/>
@@ -1596,6 +1709,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">La latitudine dell'oggetto. Gradi decimali.</xs:documentation>
          <xs:documentation xml:lang="cs">Zeměpisná šířka objektu. V desetinných stupních.</xs:documentation>
          <xs:documentation xml:lang="hu">Az objektum szélességi foka. Tizedes fokokban.</xs:documentation>
+         <xs:documentation xml:lang="da">Objektets breddegrad. Decimalgrader.</xs:documentation>
       </xs:annotation>
       <xs:restriction base="xs:decimal">
          <xs:minInclusive value="-90.0"/>
@@ -1614,6 +1728,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">La longitudine dell'oggetto. Gradi decimali.</xs:documentation>
          <xs:documentation xml:lang="cs">Zeměpisná délka objektu. V desetinných stupních.</xs:documentation>
          <xs:documentation xml:lang="hu">Az objektum hosszúsági foka. Tizedes fokokban.</xs:documentation>
+         <xs:documentation xml:lang="da">Objektets længdegrad. Decimalgrader.</xs:documentation>
       </xs:annotation>
       <xs:restriction base="xs:decimal">
          <xs:minInclusive value="-180.0"/>
@@ -1632,6 +1747,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">PRIIP specifici per la Germania Estensione PIA del modello di prodotto europeo (EPT) contenente le caratteristiche del prodotto e i dati del mercato di riferimento per i requisiti del mercato tedesco</xs:documentation>
          <xs:documentation xml:lang="cs">Rozšíření PRIIPs European Product Template (EPT) PIA specifické pro Německo obsahující charakteristiky produktu a údaje o cílovém trhu pro požadavky německého trhu</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus PRIIPs European Product Template (EPT) PIA-bővítmény, amely termékjellemzőket és célpiaci adatokat tartalmaz a német piaci követelményekhez</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifik PRIIPs European Product Template (EPT) PIA-udvidelse, der indeholder produktkarakteristika og target market-data til det tyske markeds krav</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Characteristics">
@@ -1644,6 +1760,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Caratteristiche del fondo/portafoglio</xs:documentation>
                <xs:documentation xml:lang="cs">Charakteristiky fondu / portfolia</xs:documentation>
                <xs:documentation xml:lang="hu">Az alap / portfólió jellemzői</xs:documentation>
+               <xs:documentation xml:lang="da">Karakteristika for fonden / porteføljen</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1657,6 +1774,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06010-Proporzione (peso) delle obbligazioni all'interno del fondo/portafoglio misurata in percentuale del valore di mercato.</xs:documentation>
                         <xs:documentation xml:lang="cs">06010-Podíl (váha) dluhopisů ve fondu/portfoliu měřený v procentech tržní hodnoty.</xs:documentation>
                         <xs:documentation xml:lang="hu">06010 - A kötvények aránya (súlya) az alapon/portfólión belül, a piaci érték százalékában mérve.</xs:documentation>
+                        <xs:documentation xml:lang="da">06010-Andel (vægt) af obligationer i fonden/porteføljen målt i procent af markedsværdien.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="AnnualizedReturnVolatility" type="xs:decimal">
@@ -1669,6 +1787,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06020-Volatilità giornaliera annualizzata del fondo/portafoglio sulla base degli ultimi 250 giorni di negoziazione oppure, se la frequenza di valutazione è inferiore a quella giornaliera, la volatilità è basata sulla frequenza di valutazione e annualizzata.</xs:documentation>
                         <xs:documentation xml:lang="cs">06020-Anualizovaná denní volatilita fondu / portfolia na základě posledních 250 obchodních dnů; pokud je frekvence oceňování nižší než denní, volatilita vychází z frekvence oceňování a je anualizována.</xs:documentation>
                         <xs:documentation xml:lang="hu">06020 - Az alap / portfólió annualizált napi volatilitása az utolsó 250 kereskedési nap alapján, vagy ha az értékelési gyakoriság a naposnál alacsonyabb, a volatilitás az értékelési gyakoriságon alapul és annualizált.</xs:documentation>
+                        <xs:documentation xml:lang="da">06020-Annualiseret daglig volatilitet for fonden / porteføljen baseret på de seneste 250 handelsdage, eller, hvis værdiansættelsesfrekvensen er lavere end daglig, baseres volatiliteten på værdiansættelsesfrekvensen og annualiseres.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DurationBonds" type="xs:decimal">
@@ -1681,6 +1800,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06030-Prezzi degli asset ponderati Macaulay-Durata in anni del fondo/portafoglio</xs:documentation>
                         <xs:documentation xml:lang="cs">06030-Macaulay-Duration fondu / portfolia v letech, vážená cenami aktiv</xs:documentation>
                         <xs:documentation xml:lang="hu">06030 - Az alap / portfólió eszközárakkal súlyozott Macaulay-Duration-je években</xs:documentation>
+                        <xs:documentation xml:lang="da">06030-Aktivprisvægtet Macaulay-Duration i år for fonden / porteføljen</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1696,6 +1816,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Informazioni aggiuntive per i fondi/portafogli di conservazione del capitale</xs:documentation>
                <xs:documentation xml:lang="cs">Dodatečné informace pro fondy/portfolia se zajištěním kapitálu</xs:documentation>
                <xs:documentation xml:lang="hu">További információk tőkemegőrző alapokhoz/portfóliókhoz</xs:documentation>
+               <xs:documentation xml:lang="da">Yderligere oplysninger til kapitalbevarende fonde/portefølje</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1709,6 +1830,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06040-Identifica se viene utilizzato un metodo di conservazione del capitale (Y) o meno (N).</xs:documentation>
                         <xs:documentation xml:lang="cs">06040-Určuje, zda je použita metoda ochrany kapitálu (Y), nebo ne (N).</xs:documentation>
                         <xs:documentation xml:lang="hu">06040 - Azonosítja, hogy alkalmaznak-e tőkemegőrzési módszert (Y) vagy sem (N).</xs:documentation>
+                        <xs:documentation xml:lang="da">06040-Identificerer, om en kapitalbevaringsmetode anvendes (Y) eller ej (N).</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="CapitalPreservationLevel" type="xs:decimal">
@@ -1721,6 +1843,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06050-100% meno la massima perdita possibile in percentuale del suo valore di mercato.</xs:documentation>
                         <xs:documentation xml:lang="cs">06050-100 % minus maximální možná ztráta v procentech jeho tržní hodnoty.</xs:documentation>
                         <xs:documentation xml:lang="hu">06050 - 100% mínusz a piaci értékének százalékában kifejezett maximális lehetséges veszteség.</xs:documentation>
+                        <xs:documentation xml:lang="da">06050-100 % minus det maksimalt mulige tab i procent af dets markedsværdi.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="TimeIntervalMaximumLoss">
@@ -1788,6 +1911,15 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
 "52"=týdně
 "104"=dvakrát týdně
 "252"=denně</xs:documentation>
+                        <xs:documentation xml:lang="da">06060-Den tidsperiode, hvori et muligt tab for en kapitalbevaringsfond måles. 
+"1"= årlig"
+"2"= halvårlig
+"4"=kvartalsvis
+"12"= månedlig
+"24"=hver anden måned
+"52"=ugentlig
+"104"=hver anden uge
+"252"=daglig</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:integer">
@@ -1812,6 +1944,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06070-Identifica se la PI (Assicurazione di portafoglio inclusa l'assicurazione di portafoglio a proporzione costante CPPI) viene utilizzata (Y) o meno (N) per la conservazione del capitale.</xs:documentation>
                         <xs:documentation xml:lang="cs">06070-Určuje, zda je pro ochranu kapitálu použito PI (Portfolio Insurance včetně CPPI Constant Proportion Portfolio Insurance)  (Y), nebo ne (N).</xs:documentation>
                         <xs:documentation xml:lang="hu">06070 - Azonosítja, hogy alkalmaznak-e PI-t (Portfolio Insurance, beleértve a CPPI Constant Proportion Portfolio Insurance-t) (Y) vagy sem (N) a tőkemegőrzéshez.</xs:documentation>
+                        <xs:documentation xml:lang="da">06070-Identificerer, om PI (Portfolio Insurance inklusive CPPI Constant Proportion Portfolio Insurance) anvendes (Y) eller ej (N) til kapitalbevaring.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="MultiplierPI" type="xs:decimal">
@@ -1824,6 +1957,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06080-Fornisce il valore moltiplicatore massimo se l'algoritmo PI è utilizzato</xs:documentation>
                         <xs:documentation xml:lang="cs">06080-Udává maximální hodnotu multiplikátoru, pokud je použit algoritmus PI</xs:documentation>
                         <xs:documentation xml:lang="hu">06080 - Megadja a maximális szorzóértéket, ha PI-algoritmust alkalmaznak</xs:documentation>
+                        <xs:documentation xml:lang="da">06080-Angiver den maksimale multiplikatorværdi, hvis PI-algoritme anvendes</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1841,6 +1975,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">Estensione dati PRIIP V2 specifica per la Germania contenente caratteristiche migliorate del prodotto e dati del mercato target per i requisiti normativi tedeschi</xs:documentation>
          <xs:documentation xml:lang="cs">Datové rozšíření PRIIPs V2 specifické pro Německo obsahující rozšířené charakteristiky produktu a údaje o cílovém trhu pro německé regulatorní požadavky</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus PRIIPs V2 adatbővítmény, amely bővített termékjellemzőket és célpiaci adatokat tartalmaz a német szabályozói követelményekhez</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifik PRIIPs V2-dataudvidelse, der indeholder udvidede produktkarakteristika og target market-data til de tyske regulatoriske krav</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Characteristics">
@@ -1853,6 +1988,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Caratteristiche del fondo/portafoglio</xs:documentation>
                <xs:documentation xml:lang="cs">Charakteristiky fondu / portfolia</xs:documentation>
                <xs:documentation xml:lang="hu">Az alap / portfólió jellemzői</xs:documentation>
+               <xs:documentation xml:lang="da">Karakteristika for fonden / porteføljen</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1866,6 +2002,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06005 - Data a cui si riferiscono i dati specifici delle opzioni sottostanti all'interno dei MOP tedeschi di categoria 4</xs:documentation>
                         <xs:documentation xml:lang="cs">06005 - Datum, ke kterému se vztahují specifické údaje o podkladových opcích v rámci německých MOP kategorie 4</xs:documentation>
                         <xs:documentation xml:lang="hu">06005 - Az a dátum, amelyre a 4. kategóriájú német MOP-okon belüli mögöttes opciókra (underlying options) vonatkozó specifikus adatok vonatkoznak</xs:documentation>
+                        <xs:documentation xml:lang="da">06005 - Dato, som de specifikke data for underliggende optioner i tyske MOP'er af kategori 4 refererer til</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="BondsWeight" type="xs:decimal">
@@ -1878,6 +2015,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06010-Proporzione (peso) delle obbligazioni all'interno del fondo/portafoglio misurata in percentuale del valore di mercato.</xs:documentation>
                         <xs:documentation xml:lang="cs">06010-Podíl (váha) dluhopisů ve fondu/portfoliu měřený v procentech tržní hodnoty.</xs:documentation>
                         <xs:documentation xml:lang="hu">06010 - A kötvények aránya (súlya) az alapon/portfólión belül, a piaci érték százalékában mérve.</xs:documentation>
+                        <xs:documentation xml:lang="da">06010-Andel (vægt) af obligationer i fonden/porteføljen målt i procent af markedsværdien.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="AnnualizedReturnVolatility" type="xs:decimal">
@@ -1890,6 +2028,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06020-Volatilità giornaliera annualizzata del fondo/portafoglio sulla base degli ultimi 1250 giorni di negoziazione oppure, se la frequenza di valutazione è inferiore a quella giornaliera, la volatilità è basata sulla frequenza di valutazione e annualizzata.</xs:documentation>
                         <xs:documentation xml:lang="cs">06020-Anualizovaná denní volatilita fondu / portfolia na základě posledních 1250 obchodních dnů; pokud je frekvence oceňování nižší než denní, volatilita vychází z frekvence oceňování a je anualizována.</xs:documentation>
                         <xs:documentation xml:lang="hu">06020 - Az alap / portfólió annualizált napi volatilitása az utolsó 1250 kereskedési nap alapján, vagy ha az értékelési gyakoriság a naposnál alacsonyabb, a volatilitás az értékelési gyakoriságon alapul és annualizált.</xs:documentation>
+                        <xs:documentation xml:lang="da">06020-Annualiseret daglig volatilitet for fonden / porteføljen baseret på de seneste 1250 handelsdage, eller, hvis værdiansættelsesfrekvensen er lavere end daglig, baseres volatiliteten på værdiansættelsesfrekvensen og annualiseres.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DurationBonds" type="xs:decimal">
@@ -1902,6 +2041,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06030-Prezzi degli asset ponderati Macaulay-Durata in anni del fondo/portafoglio</xs:documentation>
                         <xs:documentation xml:lang="cs">06030-Macaulay-Duration fondu / portfolia v letech, vážená cenami aktiv</xs:documentation>
                         <xs:documentation xml:lang="hu">06030 - Az alap / portfólió eszközárakkal súlyozott Macaulay-Duration-je években</xs:documentation>
+                        <xs:documentation xml:lang="da">06030-Aktivprisvægtet Macaulay-Duration i år for fonden / porteføljen</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1917,6 +2057,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Informazioni aggiuntive per i fondi/portafogli di conservazione del capitale</xs:documentation>
                <xs:documentation xml:lang="cs">Dodatečné informace pro fondy/portfolia se zajištěním kapitálu</xs:documentation>
                <xs:documentation xml:lang="hu">További információk tőkemegőrző alapokhoz/portfóliókhoz</xs:documentation>
+               <xs:documentation xml:lang="da">Yderligere oplysninger til kapitalbevarende fonde/portefølje</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1930,6 +2071,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06040-Identifica se viene utilizzato un metodo di conservazione del capitale (Y) o meno (N).</xs:documentation>
                         <xs:documentation xml:lang="cs">06040-Určuje, zda je použita metoda ochrany kapitálu (Y), nebo ne (N).</xs:documentation>
                         <xs:documentation xml:lang="hu">06040 - Azonosítja, hogy alkalmaznak-e tőkemegőrzési módszert (Y) vagy sem (N).</xs:documentation>
+                        <xs:documentation xml:lang="da">06040-Identificerer, om en kapitalbevaringsmetode anvendes (Y) eller ej (N).</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="CapitalPreservationLevel" type="xs:decimal">
@@ -1942,6 +2084,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06050-100% meno la massima perdita possibile in percentuale del suo valore di mercato.</xs:documentation>
                         <xs:documentation xml:lang="cs">06050-100 % minus maximální možná ztráta v procentech jeho tržní hodnoty.</xs:documentation>
                         <xs:documentation xml:lang="hu">06050 - 100% mínusz a piaci értékének százalékában kifejezett maximális lehetséges veszteség.</xs:documentation>
+                        <xs:documentation xml:lang="da">06050-100 % minus det maksimalt mulige tab i procent af dets markedsværdi.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="TimeIntervalMaximumLoss">
@@ -2009,6 +2152,15 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
 "52"=týdně
 "104"=dvakrát týdně
 "252"=denně</xs:documentation>
+                        <xs:documentation xml:lang="da">06060-Den tidsperiode, hvori et muligt tab for en kapitalbevaringsfond måles.
+"1"= årlig"
+"2"= halvårlig
+"4"=kvartalsvis
+"12"= månedlig
+"24"=hver anden måned
+"52"=ugentlig
+"104"=hver anden uge
+"252"=daglig</xs:documentation>
                      </xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:integer">
@@ -2033,6 +2185,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06070-Identifica se la PI (Assicurazione di portafoglio inclusa l'assicurazione di portafoglio a proporzione costante CPPI) viene utilizzata (Y) o meno (N) per la conservazione del capitale.</xs:documentation>
                         <xs:documentation xml:lang="cs">06070-Určuje, zda je pro ochranu kapitálu použito PI (Portfolio Insurance včetně CPPI Constant Proportion Portfolio Insurance)  (Y), nebo ne (N).</xs:documentation>
                         <xs:documentation xml:lang="hu">06070 - Azonosítja, hogy alkalmaznak-e PI-t (Portfolio Insurance, beleértve a CPPI Constant Proportion Portfolio Insurance-t) (Y) vagy sem (N) a tőkemegőrzéshez.</xs:documentation>
+                        <xs:documentation xml:lang="da">06070-Identificerer, om PI (Portfolio Insurance inklusive CPPI Constant Proportion Portfolio Insurance) anvendes (Y) eller ej (N) til kapitalbevaring.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MultiplierPI" type="xs:decimal">
@@ -2045,6 +2198,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">06080-Fornisce il valore moltiplicatore massimo se l'algoritmo PI è utilizzato</xs:documentation>
                         <xs:documentation xml:lang="cs">06080-Udává maximální hodnotu multiplikátoru, pokud je použit algoritmus PI</xs:documentation>
                         <xs:documentation xml:lang="hu">06080 - Megadja a maximális szorzóértéket, ha PI-algoritmust alkalmaznak</xs:documentation>
+                        <xs:documentation xml:lang="da">06080-Angiver den maksimale multiplikatorværdi, hvis PI-algoritme anvendes</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -2062,6 +2216,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">Dati sugli acquisti immobiliari specifici per la Germania contenenti numero e valore delle acquisizioni immobiliari per i fondi immobiliari aperti tedeschi</xs:documentation>
          <xs:documentation xml:lang="cs">Údaje o nákupech nemovitostí specifické pro Německo obsahující počet a hodnotu akvizic nemovitostí pro německé otevřené nemovitostní fondy</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus ingatlanvásárlási adatok, amelyek az ingatlanszerzések számát és értékét tartalmazzák a német nyíltvégű ingatlanalapok számára</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke data om køb af fast ejendom, der indeholder antal og værdi af ejendomserhvervelser for tyske åbne ejendomsfonde</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Number" type="xs:int">
@@ -2074,6 +2229,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Numero di acquisti certificati nel trimestre precedente (indipendentemente dal momento o dall'effettivo trasferimento al fondo).</xs:documentation>
                <xs:documentation xml:lang="cs">Počet certifikovaných nákupů v předchozím čtvrtletí (bez ohledu na okamžik nebo skutečný převod do fondu).</xs:documentation>
                <xs:documentation xml:lang="hu">Az előző negyedévben tanúsított vásárlások száma (függetlenül az alapba történő tényleges átvitel időpontjától).</xs:documentation>
+               <xs:documentation xml:lang="da">Antal attesterede køb i det foregående kvartal (uanset tidspunktet for eller den faktiske overførsel til fonden).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="NumberObjectsUpdated" type="xs:int">
@@ -2086,6 +2242,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Totale degli immobili trasferiti al fondo d'investimento nel trimestre precedente.</xs:documentation>
                <xs:documentation xml:lang="cs">Nemovitosti celkem převedené do investičního fondu v předchozím čtvrtletí.</xs:documentation>
                <xs:documentation xml:lang="hu">Az előző negyedévben a befektetési alapba átadott összes ingatlan.</xs:documentation>
+               <xs:documentation xml:lang="da">Samlet fast ejendom overført til investeringsfonden i det foregående kvartal.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="FairValue" type="xs:decimal">
@@ -2098,6 +2255,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Totale fair value degli immobili acquistati nel trimestre precedente (in migliaia di euro).</xs:documentation>
                <xs:documentation xml:lang="cs">Celkové reálné hodnoty (fair value) nemovitostí nakoupených v předchozím čtvrtletí (v tisících eur).</xs:documentation>
                <xs:documentation xml:lang="hu">Az előző negyedévben vásárolt ingatlanok teljes valós értéke (ezer euróban).</xs:documentation>
+               <xs:documentation xml:lang="da">Samlede dagsværdier af fast ejendom købt i det foregående kvartal (i tusinde euro).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="EffectiveArea" type="xs:decimal">
@@ -2110,6 +2268,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Superficie effettiva totale degli immobili acquistati nel trimestre precedente (in metri quadrati).</xs:documentation>
                <xs:documentation xml:lang="cs">Celková užitná plocha nemovitostí nakoupených v předchozím čtvrtletí (v metrech čtverečních).</xs:documentation>
                <xs:documentation xml:lang="hu">Az előző negyedévben vásárolt ingatlanok teljes tényleges területe (négyzetméterben).</xs:documentation>
+               <xs:documentation xml:lang="da">Samlet effektivt areal af fast ejendom købt i det foregående kvartal (i kvadratmeter).</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -2124,6 +2283,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">Dati sulle vendite immobiliari specifici per la Germania contenenti numero e valore delle vendite immobiliari per i fondi immobiliari aperti tedeschi</xs:documentation>
          <xs:documentation xml:lang="cs">Údaje o prodejích nemovitostí specifické pro Německo obsahující počet a hodnotu prodejů nemovitostí pro německé otevřené nemovitostní fondy</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus ingatlaneladási adatok, amelyek az ingatlaneladások számát és értékét tartalmazzák a német nyíltvégű ingatlanalapok számára</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke data om salg af fast ejendom, der indeholder antal og værdi af ejendomssalg for tyske åbne ejendomsfonde</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="Number" type="xs:int">
@@ -2136,6 +2296,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Numero di vendite certificate nel trimestre precedente (indipendentemente dal momento o dall'effettivo trasferimento dal fondo).</xs:documentation>
                <xs:documentation xml:lang="cs">Počet certifikovaných prodejů v předchozím čtvrtletí (bez ohledu na okamžik nebo skutečný převod z fondu).</xs:documentation>
                <xs:documentation xml:lang="hu">Az előző negyedévben tanúsított eladások száma (függetlenül az alapból történő tényleges átvitel időpontjától).</xs:documentation>
+               <xs:documentation xml:lang="da">Antal attesterede salg i det foregående kvartal (uanset tidspunktet for eller den faktiske overførsel fra fonden).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="NumberObjectsUpdated" type="xs:int">
@@ -2148,6 +2309,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Totale degli immobili rimossi dal fondo nel trimestre precedente.</xs:documentation>
                <xs:documentation xml:lang="cs">Nemovitosti celkem vyřazené z fondu v předchozím čtvrtletí.</xs:documentation>
                <xs:documentation xml:lang="hu">Az előző negyedévben az alapból kivont összes ingatlan.</xs:documentation>
+               <xs:documentation xml:lang="da">Samlet fast ejendom fjernet fra fonden i det foregående kvartal.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="SellingPrice" type="xs:decimal">
@@ -2160,6 +2322,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Somma dei prezzi di vendita degli immobili venduti nel trimestre precedente (in migliaia di euro).</xs:documentation>
                <xs:documentation xml:lang="cs">Součet prodejních cen nemovitostí prodaných v předchozím čtvrtletí (v tisících eur).</xs:documentation>
                <xs:documentation xml:lang="hu">Az előző negyedévben eladásra került ingatlanok eladási árainak összege (ezer euróban).</xs:documentation>
+               <xs:documentation xml:lang="da">Summen af salgspriser for fast ejendom solgt i det foregående kvartal (i tusinde euro).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="EffectiveArea" type="xs:decimal">
@@ -2172,6 +2335,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Superficie effettiva totale degli immobili venduti nel trimestre precedente (in metri quadrati).</xs:documentation>
                <xs:documentation xml:lang="cs">Celková užitná plocha nemovitostí prodaných v předchozím čtvrtletí (v metrech čtverečních).</xs:documentation>
                <xs:documentation xml:lang="hu">Az előző negyedévben értékesített ingatlanok teljes tényleges területe (négyzetméterben).</xs:documentation>
+               <xs:documentation xml:lang="da">Samlet effektivt areal af fast ejendom solgt i det foregående kvartal (i kvadratmeter).</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -2186,6 +2350,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
          <xs:documentation xml:lang="it">Dati sull'utilizzo degli immobili specifici per la Germania contenenti redditi da locazione, tassi di sfitto e informazioni sul tipo di utilizzo per i fondi immobiliari aperti tedeschi</xs:documentation>
          <xs:documentation xml:lang="cs">Údaje o využití nemovitostí specifické pro Německo obsahující příjmy z pronájmu, míry neobsazenosti a informace o typu využití pro německé otevřené nemovitostní fondy</xs:documentation>
          <xs:documentation xml:lang="hu">Németország-specifikus ingatlanhasznosítási adatok, amelyek bérleti díj bevételt, üresedési rátákat és hasznosítási típus információkat tartalmaznak a német nyíltvégű ingatlanalapok számára</xs:documentation>
+         <xs:documentation xml:lang="da">Tysklandsspecifikke data om anvendelse af fast ejendom, der indeholder lejeindtægter, tomgangsprocenter og oplysninger om anvendelsestype for tyske åbne ejendomsfonde</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="GrossPotentialIncome">
@@ -2198,6 +2363,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Reddito potenziale lordo dell'immobile</xs:documentation>
                <xs:documentation xml:lang="cs">Hrubý potenciální příjem z nemovitosti</xs:documentation>
                <xs:documentation xml:lang="hu">Az ingatlan bruttó potenciális jövedelme</xs:documentation>
+               <xs:documentation xml:lang="da">Ejendommens potentielle bruttoindkomst</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -2211,6 +2377,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">Reddito potenziale lordo delle unità locative dell'immobile locato alla data di riferimento del bilancio (corrisponde al canone contrattuale). Dovrebbe essere indicato un valore annuo (in migliaia di euro).</xs:documentation>
                         <xs:documentation xml:lang="cs">Hrubý potenciální příjem z nájemních jednotek nemovitosti pronajatých k rozhodnému datu (odpovídá smluvnímu nájemnému). Měla by být uvedena roční hodnota (v tisících eur).</xs:documentation>
                         <xs:documentation xml:lang="hu">Az ingatlan azon bérlőegységeinek bruttó potenciális jövedelme, amelyek a jelentés fordulónapján bérbe vannak adva (a szerződéses bérleti díjnak felel meg). Éves értéket kell megadni (ezer euróban).</xs:documentation>
+                        <xs:documentation xml:lang="da">Potentiel bruttoindkomst for de udlejede enheder i ejendommen, der er udlejet pr. rapporteringsdatoen (svarer til den kontraktlige leje). Der bør angives en årlig værdi (i tusinder euro).</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="Vacant" type="xs:decimal">
@@ -2223,6 +2390,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                         <xs:documentation xml:lang="it">Reddito potenziale lordo delle unità locative dell'immobile sfitte alla data di riferimento del bilancio (corrisponde al canone contrattuale). Dovrebbe essere indicato un valore annuo (in migliaia di euro).</xs:documentation>
                         <xs:documentation xml:lang="cs">Hrubý potenciální příjem z nájemních jednotek nemovitosti, které jsou k rozhodnému datu neobsazené (odpovídá smluvnímu nájemnému). Měla by být uvedena roční hodnota (v tisících eur).</xs:documentation>
                         <xs:documentation xml:lang="hu">Az ingatlan azon bérlőegységeinek bruttó potenciális jövedelme, amelyek a jelentés fordulónapján üresen állnak (a szerződéses bérleti díjnak felel meg). Éves értéket kell megadni (ezer euróban).</xs:documentation>
+                        <xs:documentation xml:lang="da">Potentiel bruttoindkomst for de udlejningsenheder i ejendommen, der står tomme pr. rapporteringsdatoen (svarer til den kontraktlige leje). Der bør angives en årlig værdi (i tusinder euro).</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -2238,6 +2406,7 @@ Spaltenheader csv-Datei Inhalt Zulässige Werte Multi Value J/N ové, dluhopisov
                <xs:documentation xml:lang="it">Superficie locabile dell'immobile (in metri quadrati).</xs:documentation>
                <xs:documentation xml:lang="cs">Pronajímatelná plocha nemovitosti (v metrech čtverečních).</xs:documentation>
                <xs:documentation xml:lang="hu">Az ingatlan bérbe adható területe (négyzetméterben).</xs:documentation>
+               <xs:documentation xml:lang="da">Udlejningsareal for ejendommen (i kvadratmeter).</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>

@@ -16,6 +16,7 @@
          <xs:documentation xml:lang="it">Tipologia di contenitore per più documenti contenenti informazioni chiave per gli investitori (KIID) OICVM ai sensi del Regolamento della Commissione Europea 583/2010</xs:documentation>
          <xs:documentation xml:lang="cs">Typ kontejneru pro více dokumentů s klíčovými informacemi pro investory (KIID) fondů UCITS podle nařízení Komise (EU) 583/2010</xs:documentation>
          <xs:documentation xml:lang="hu">Tárolótípus több UCITS kiemelt befektetői információs dokumentumhoz (KIID) a 583/2010 EU bizottsági rendelet szerint</xs:documentation>
+         <xs:documentation xml:lang="da">Containertype til flere UCITS Key Investor Information Documents (KIID'er) i henhold til EU-Kommissionens forordning 583/2010</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="KIID" type="KIIDType">
@@ -28,6 +29,7 @@
          	   <xs:documentation xml:lang="it">Singolo report KIID per un fondo/classe di azioni</xs:documentation>
          	   <xs:documentation xml:lang="hu">Egyetlen KIID-jelentés egy alap/sorozat számára</xs:documentation>
          	   <xs:documentation xml:lang="cs">Jednotlivý KIID report pro fond/třídu akcií</xs:documentation>
+         	   <xs:documentation xml:lang="da">Enkelt KIID-rapport for en fond/Share Class</xs:documentation>
          	</xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -58,6 +60,9 @@ U pevných nadpisů a prohlášení o vyloučení odpovědnosti je příklad mo�
          <xs:documentation xml:lang="hu">Egyetlen kiemelt befektetői információs dokumentum, amely a rögzített szövegek (a megfelelő nyelven) és egy adott alap adatainak összevonásából áll.
 A megjegyzések hivatkozást tartalmaznak a 583/2010 sz. EU bizottsági rendelet cikkszámaira
 A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt szöveg egy példája idézőjelek között jelenik meg, mint például 'Disclaimer'</xs:documentation>
+         <xs:documentation xml:lang="da">Ét Key Investor Information Document, der opstår ved en sammenlægning af faste tekster (på det relevante sprog) og data for en specifik fond.
+Annotationer omfatter reference til artikelnumre i EU-Kommissionens forordning nr. 583/2010
+For faste overskrifter og disclaimere vises et eksempel på mulig eller pålagt tekst mellem anførselstegn såsom 'Disclaimer'</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0"
@@ -72,6 +77,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                <xs:documentation xml:lang="it">Identificatori di fondi o classi di azioni per una facile connessione ad altri dati di fondi o classi di azioni</xs:documentation>
                <xs:documentation xml:lang="cs">Identifikátory fondu nebo třídy akcií pro snadné propojení s dalšími údaji o fondu nebo třídě akcií</xs:documentation>
                <xs:documentation xml:lang="hu">Alap- vagy Share Class-azonosítók az egyéb alap- vagy Share Class-adatokhoz való egyszerű kapcsolódás érdekében</xs:documentation>
+               <xs:documentation xml:lang="da">Identifikatorer for fond eller Share Class til nem forbindelse til andre fonds- eller Share Class-data</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="DataSupplier" type="DataSupplierType">
@@ -84,6 +90,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                <xs:documentation xml:lang="it">Definizione della fonte dei dati (società di investimento, fornitore, ...)</xs:documentation>
                <xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel dat, ...)</xs:documentation>
                <xs:documentation xml:lang="hu">Az adatforrás meghatározása (befektetési társaság, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="da">Definition af datakilde (investeringsselskab, vendor, ...)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="CoverPage">
@@ -96,6 +103,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                <xs:documentation xml:lang="it">Testi fissi della copertina. Articoli 4.2 e 4.3</xs:documentation>
                <xs:documentation xml:lang="cs">Pevné texty titulní strany. Čl. 4.2 a 4.3</xs:documentation>
                <xs:documentation xml:lang="hu">A fedőlap rögzített szövegei. 4.2. és 4.3. cikk</xs:documentation>
+               <xs:documentation xml:lang="da">Faste tekster på forsiden. Art. 4.2 og 4.3</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -109,6 +117,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                         <xs:documentation xml:lang="it">Rubrica "Informazioni chiave per gli investitori"</xs:documentation>
                         <xs:documentation xml:lang="cs">Nadpis 'Klíčové informace pro investory'</xs:documentation>
                         <xs:documentation xml:lang="hu">Fejléc 'Kiemelt Befektetői Információk'</xs:documentation>
+                        <xs:documentation xml:lang="da">Overskrift 'Central investorinformation'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="GlobalDisclaimer" type="xs:string">
@@ -121,6 +130,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                         <xs:documentation xml:lang="it">"Il presente documento fornisce..."</xs:documentation>
                         <xs:documentation xml:lang="cs">'Tento dokument vám poskytuje...'</xs:documentation>
                         <xs:documentation xml:lang="hu">'This Dokumentum provides you with...'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Dette dokument giver dig...'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -136,6 +146,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                <xs:documentation xml:lang="it">Art.4-4 Identificazione del fondo o della/e classe/i di azioni</xs:documentation>
                <xs:documentation xml:lang="cs">Čl. 4-4 Identifikace fondu nebo Share Class (tříd akcií)</xs:documentation>
                <xs:documentation xml:lang="hu">Art.4-4 Alap or Sorozat(es) identification</xs:documentation>
+               <xs:documentation xml:lang="da">Art.4-4 Identifikation af fond eller Share class(es)</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -149,6 +160,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                   	   <xs:documentation xml:lang="it">Dati della classe di azioni nella sezione di identificazione KIID</xs:documentation>
                   	   <xs:documentation xml:lang="hu">Sorozat adatok a KIID azonosítási részben</xs:documentation>
                   	   <xs:documentation xml:lang="cs">Údaje o třídě akcií v identifikační sekci KIID</xs:documentation>
+                  	   <xs:documentation xml:lang="da">Share Class-data i KIID-identifikationssektionen</xs:documentation>
                   	</xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -162,6 +174,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                            	   <xs:documentation xml:lang="it">Nome della classe di azioni</xs:documentation>
                            	   <xs:documentation xml:lang="hu">A sorozat neve</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Název třídy akcií</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Navn på share class'en</xs:documentation>
                            	</xs:annotation>
                            </xs:element>
                            <xs:element name="ShareClassIsinHeading" type="xs:string">
@@ -174,6 +187,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                                  <xs:documentation xml:lang="it">"ISIN:"</xs:documentation>
                                  <xs:documentation xml:lang="cs">'ISIN:'</xs:documentation>
                                  <xs:documentation xml:lang="hu">'ISIN:'</xs:documentation>
+                                 <xs:documentation xml:lang="da">'ISIN:'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="ShareClassISIN" type="xs:string">
@@ -186,6 +200,7 @@ A rögzített címsorok és nyilatkozatok esetében a lehetséges vagy előírt 
                                  <xs:documentation xml:lang="it">Codice ISIN della classe di azioni</xs:documentation>
                                  <xs:documentation xml:lang="cs">Kód ISIN třídy akcií</xs:documentation>
                                  <xs:documentation xml:lang="hu">A Share Class ISIN kódja</xs:documentation>
+                                 <xs:documentation xml:lang="da">Share Class'ens ISIN-kode</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="MainShareClassIndicator" type="xs:boolean">
@@ -206,6 +221,8 @@ Le performance e l'indicatore di rischio sono calcolati utilizzando i dati delle
 Výkonnost a rizikový ukazatel se počítají z údajů hlavní třídy akcií.</xs:documentation>
                                  <xs:documentation xml:lang="hu">Indikátor, amely true-ra van állítva, ha az aktuális Share Class a fő Share Class.
 A teljesítményeket és a kockázati indikátort a fő Share Class adataival számítják.</xs:documentation>
+                                 <xs:documentation xml:lang="da">Indikator sat til true, hvis den aktuelle Share Class er hoved-Share Class'en.
+Performance og risikoindikator beregnes med hoved-Share Class'ens data.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -221,6 +238,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">Nome del fondo ombrello, se presente</xs:documentation>
                         <xs:documentation xml:lang="cs">Název zastřešujícího fondu (umbrella fund), pokud existuje</xs:documentation>
                         <xs:documentation xml:lang="hu">Umbrella Alap Nev, if any</xs:documentation>
+                        <xs:documentation xml:lang="da">Umbrella fund-navn, hvis relevant</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="SubfundName" type="xs:string">
@@ -233,6 +251,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">Nome del comparto o del compartimento</xs:documentation>
                         <xs:documentation xml:lang="cs">Název podfondu nebo kompartmentu</xs:documentation>
                         <xs:documentation xml:lang="hu">Subfund or compartment Nev</xs:documentation>
+                        <xs:documentation xml:lang="da">Navn på delfond eller afdeling</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -248,6 +267,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                <xs:documentation xml:lang="it">"Le informazioni chiave per gli investitori sono accurate al momento..."</xs:documentation>
                <xs:documentation xml:lang="cs">'Tyto klíčové informace pro investory jsou platné k..'</xs:documentation>
                <xs:documentation xml:lang="hu">'Ez a kiemelt befektetői információ az alábbi időpont szerint pontos:..'</xs:documentation>
+               <xs:documentation xml:lang="da">'Denne centrale investorinformation er korrekt pr...'</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="PublicationDate" type="xs:date">
@@ -260,6 +280,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                <xs:documentation xml:lang="it">Art.4-13</xs:documentation>
                <xs:documentation xml:lang="cs">Čl. 4-13</xs:documentation>
                <xs:documentation xml:lang="hu">4-13. cikk</xs:documentation>
+               <xs:documentation xml:lang="da">Art.4-13</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="AssetManagementCompany">
@@ -272,6 +293,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                <xs:documentation xml:lang="it">Art.4-5 e 6</xs:documentation>
                <xs:documentation xml:lang="cs">Čl. 4-5 a 6</xs:documentation>
                <xs:documentation xml:lang="hu">4-5. és 6. cikk</xs:documentation>
+               <xs:documentation xml:lang="da">Art.4-5 og 6</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -285,6 +307,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">"Questo fondo è gestito da..."</xs:documentation>
                         <xs:documentation xml:lang="cs">'Tento fond je spravován...'</xs:documentation>
                         <xs:documentation xml:lang="hu">'Ezt az alapot a következő társaság kezeli...'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Denne fond forvaltes af...'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="AssetManagementCompanyName" type="xs:string">
@@ -297,6 +320,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">4-5</xs:documentation>
                         <xs:documentation xml:lang="cs">4-5</xs:documentation>
                         <xs:documentation xml:lang="hu">4-5</xs:documentation>
+                        <xs:documentation xml:lang="da">4-5</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0"
@@ -311,6 +335,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">4-6</xs:documentation>
                         <xs:documentation xml:lang="cs">4-6</xs:documentation>
                         <xs:documentation xml:lang="hu">4-6</xs:documentation>
+                        <xs:documentation xml:lang="da">4-6</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -326,6 +351,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                <xs:documentation xml:lang="it">Lingua utilizzata per l'attuale KIID</xs:documentation>
                <xs:documentation xml:lang="cs">Jazyk použitý pro aktuální KIID</xs:documentation>
                <xs:documentation xml:lang="hu">Az aktuális KIID nyelve</xs:documentation>
+               <xs:documentation xml:lang="da">Sprog anvendt til den aktuelle KIID</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ObjectivesAndInvestmentPolicy">
@@ -338,6 +364,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                <xs:documentation xml:lang="it">Art.7</xs:documentation>
                <xs:documentation xml:lang="cs">Čl. 7</xs:documentation>
                <xs:documentation xml:lang="hu">7. cikk</xs:documentation>
+               <xs:documentation xml:lang="da">Art.7</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -351,6 +378,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">"Obiettivi e politica di investimento"</xs:documentation>
                         <xs:documentation xml:lang="cs">'Cíle a investiční politika'</xs:documentation>
                         <xs:documentation xml:lang="hu">'Célok és befektetési politika'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Målsætninger og investeringspolitik'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="GeneralStrategyDescription" type="xs:string">
@@ -363,6 +391,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">Complemento 7-1 e/o 7-4</xs:documentation>
                         <xs:documentation xml:lang="cs">7-1 doplňuje a/nebo 7-4</xs:documentation>
                         <xs:documentation xml:lang="hu">7-1 kiegészítés és/vagy 7-4</xs:documentation>
+                        <xs:documentation xml:lang="da">7-1 supplement til og/eller 7-4</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="MainAssetsHeading" type="xs:string">
@@ -375,6 +404,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">7-1a 'Principali categorie di beni'</xs:documentation>
                         <xs:documentation xml:lang="cs">7-1a 'Hlavní kategorie aktiv'</xs:documentation>
                         <xs:documentation xml:lang="hu">7-1a 'Fő eszközkategóriák'</xs:documentation>
+                        <xs:documentation xml:lang="da">7-1a 'Vigtigste aktivkategorier'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element maxOccurs="unbounded" name="FinancialInstruments">
@@ -387,6 +417,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">7-1a Categorie di strumenti in cui il fondo può investire</xs:documentation>
                         <xs:documentation xml:lang="cs">7-1a Kategorie nástrojů, do kterých může fond investovat</xs:documentation>
                         <xs:documentation xml:lang="hu">7-1a Instrumentumkategóriák, amelyekbe az alap befektethet</xs:documentation>
+                        <xs:documentation xml:lang="da">7-1a Instrumentkategorier, som fonden må investere i</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -400,6 +431,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">Categoria di strumenti ammissibili</xs:documentation>
                                  <xs:documentation xml:lang="cs">Kategorie způsobilých nástrojů</xs:documentation>
                                  <xs:documentation xml:lang="hu">Az elfogadható instrumentumok kategóriája</xs:documentation>
+                                 <xs:documentation xml:lang="da">Kategori af kvalificerede instrumenter</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="InstrumentCategoryDescription" type="xs:string">
@@ -412,6 +444,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">1-7-1c - Descrizione dei criteri di selezione delle categorie di strumenti (geografici, economici, di mercato, ...)</xs:documentation>
                                  <xs:documentation xml:lang="cs">1-7-1c - Popis kritérií výběru kategorie nástrojů (geografická, ekonomická, tržní, ...)</xs:documentation>
                                  <xs:documentation xml:lang="hu">1-7-1c – Az instrumentumkategória kiválasztási kritériumainak leírása (földrajzi, gazdasági, piaci, ...)</xs:documentation>
+                                 <xs:documentation xml:lang="da">1-7-1c - Beskrivelse af udvælgelseskriterier for instrumentkategori (geografisk, økonomisk, marked, ...)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -427,6 +460,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">7-1b 'Frequenza di sottoscrizione/rimborso: '</xs:documentation>
                         <xs:documentation xml:lang="cs">7-1b 'Frekvence upisování/odkupu: '</xs:documentation>
                         <xs:documentation xml:lang="hu">7-1b 'Jegyzés/visszaváltás gyakorisága: '</xs:documentation>
+                        <xs:documentation xml:lang="da">7-1b 'Hyppighed af tegning/indløsning: '</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DealingFrequency" type="xs:string">
@@ -439,6 +473,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">7-1b Frequenza di negoziazione per la sottoscrizione/riscatto (giornaliera, settimanale, mensile, ...)</xs:documentation>
                         <xs:documentation xml:lang="cs">7-1b Frekvence obchodování pro upisování/odkup (denně, týdně, měsíčně, ...)</xs:documentation>
                         <xs:documentation xml:lang="hu">7-1b Kereskedési gyakoriság jegyzés/visszaváltás esetén (napi, heti, havi, ...)</xs:documentation>
+                        <xs:documentation xml:lang="da">7-1b Handelshyppighed for tegning/indløsning (dagligt, ugentligt, månedligt, ...)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DistributionPolicyHeading" type="xs:string">
@@ -451,6 +486,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">7-1e 'Politica di distribuzione: '</xs:documentation>
                         <xs:documentation xml:lang="cs">7-1e 'Politika rozdělování výnosů: '</xs:documentation>
                         <xs:documentation xml:lang="hu">7-1e 'Forgalmazas policy: '</xs:documentation>
+                        <xs:documentation xml:lang="da">7-1e 'Udlodningspolitik: '</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DistributionPolicy" type="xs:string">
@@ -463,6 +499,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">7-1e Descrizione della distribuzione o della capitalizzazione</xs:documentation>
                         <xs:documentation xml:lang="cs">7-1e Popis distribuce nebo kapitalizace výnosů</xs:documentation>
                         <xs:documentation xml:lang="hu">7-1e Forgalmazas or Capitalization Leiras</xs:documentation>
+                        <xs:documentation xml:lang="da">7-1e Beskrivelse af udlodning eller akkumulering</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="Benchmark">
@@ -475,6 +512,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">7-1d Riferimento a un benchmark</xs:documentation>
                         <xs:documentation xml:lang="cs">7-1d Odkaz na benchmark</xs:documentation>
                         <xs:documentation xml:lang="hu">7-1d Hivatkozás egy benchmarkra</xs:documentation>
+                        <xs:documentation xml:lang="da">7-1d Henvisning til et benchmark</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -488,6 +526,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">'Il fondo fa riferimento al seguente benchmark: '</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Fond odkazuje na následující benchmark: '</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Az alap a következő Benchmarkra hivatkozik: '</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Fonden henviser til følgende Benchmark: '</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="BenchmarkName" type="xs:string">
@@ -500,6 +539,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                            	   <xs:documentation xml:lang="it">Nome dell'indice di riferimento</xs:documentation>
                            	   <xs:documentation xml:lang="hu">A referencia-index neve</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Název benchmarkového indexu</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Navn på Benchmark-indekset</xs:documentation>
                            	</xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="BenchmarkPolicy" type="xs:string">
@@ -512,6 +552,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">Descrizione del grado di libertà rispetto al benchmark</xs:documentation>
                                  <xs:documentation xml:lang="cs">Popis míry volnosti ve vztahu k benchmarku</xs:documentation>
                                  <xs:documentation xml:lang="hu">A Benchmarkhoz viszonyított szabadságfok leírása</xs:documentation>
+                                 <xs:documentation xml:lang="da">Beskrivelse af graden af frihed i forhold til benchmark</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -527,6 +568,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">7-2</xs:documentation>
                         <xs:documentation xml:lang="cs">7-2</xs:documentation>
                         <xs:documentation xml:lang="hu">7-2</xs:documentation>
+                        <xs:documentation xml:lang="da">7-2</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -540,6 +582,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">'Ulteriori informazioni sulla strategia: '</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Doplňující informace o strategii: '</xs:documentation>
                                  <xs:documentation xml:lang="hu">'További információ a stratégiáról: '</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Yderligere oplysninger om strategi: '</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="DebtSecuritiesDetails">
@@ -552,6 +595,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">7-2a</xs:documentation>
                                  <xs:documentation xml:lang="cs">7-2a</xs:documentation>
                                  <xs:documentation xml:lang="hu">7-2a</xs:documentation>
+                                 <xs:documentation xml:lang="da">7-2a</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -565,6 +609,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">7-2a Indicazione degli emittenti consentiti: governi, imprese,...</xs:documentation>
                                           <xs:documentation xml:lang="cs">7-2a Označení povolených emitentů: vlády, podniky,...</xs:documentation>
                                           <xs:documentation xml:lang="hu">7-2a Az engedélyezett kibocsátók megjelölése: államok, vállalatok, ...</xs:documentation>
+                                          <xs:documentation xml:lang="da">7-2a Angivelse af tilladte udstedere: stater, virksomheder,...</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="MinimumRating" type="xs:string">
@@ -577,6 +622,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">7-2a</xs:documentation>
                                           <xs:documentation xml:lang="cs">7-2a</xs:documentation>
                                           <xs:documentation xml:lang="hu">7-2a</xs:documentation>
+                                          <xs:documentation xml:lang="da">7-2a</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -592,6 +638,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">7-2c Crescita, valore o dividendi elevati</xs:documentation>
                                  <xs:documentation xml:lang="cs">7-2c Growth, Value nebo High dividends</xs:documentation>
                                  <xs:documentation xml:lang="hu">7-2c Növekedés, Érték vagy Magas osztalék</xs:documentation>
+                                 <xs:documentation xml:lang="da">7-2c Growth, Value eller High dividends</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="SpecificTechniquesHeading" type="xs:string">
@@ -604,6 +651,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">7-2d 'Tecniche specifiche di gestione patrimoniale utilizzate:'</xs:documentation>
                                  <xs:documentation xml:lang="cs">7-2d 'Použité specifické techniky správy aktiv: '</xs:documentation>
                                  <xs:documentation xml:lang="hu">7-2d 'Alkalmazott specifikus eszközkezelési technikák: '</xs:documentation>
+                                 <xs:documentation xml:lang="da">7-2d 'Anvendte specifikke porteføljeforvaltningsteknikker: '</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="SpecificTechniquesDescription" type="xs:string">
@@ -616,6 +664,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">7-2d Es. Copertura, arbitraggio, leva finanziaria, ecc.</xs:documentation>
                                  <xs:documentation xml:lang="cs">7-2d Např. zajištění (hedging), arbitráž, pákový efekt atd.</xs:documentation>
                                  <xs:documentation xml:lang="hu">7-2d Pl. fedezeti ügyletek (hedging), arbitrázs, tőkeáttétel stb.</xs:documentation>
+                                 <xs:documentation xml:lang="da">7-2d F.eks. afdækning, arbitrage, gearing osv.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="TransactionsCostsStatement" type="xs:string">
@@ -628,6 +677,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">1-7-2e Impatto dei costi di transazione del portafoglio dovuti alla strategia del fondo</xs:documentation>
                                  <xs:documentation xml:lang="cs">1-7-2e Dopad transakčních nákladů portfolia v důsledku strategie fondu</xs:documentation>
                                  <xs:documentation xml:lang="hu">1-7-2e A portfólió tranzakciós költségeinek hatása az alap stratégiája miatt</xs:documentation>
+                                 <xs:documentation xml:lang="da">1-7-2e Indvirkning af porteføljens transaktionsomkostninger som følge af fondens strategi</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="MinimumRecommendedTermHeading" type="xs:string">
@@ -640,6 +690,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">7-1f "Raccomandazione: questo fondo potrebbe non essere adatto agli investitori..."</xs:documentation>
                                  <xs:documentation xml:lang="cs">7-1f 'Doporučení: tento fond nemusí být vhodný pro investory...'</xs:documentation>
                                  <xs:documentation xml:lang="hu">7-1f 'Ajánlás: ez az alap nem feltétlenül megfelelő olyan befektetők számára...'</xs:documentation>
+                                 <xs:documentation xml:lang="da">7-1f 'Anbefaling: denne fond er muligvis ikke egnet for investorer...'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="MinimumRecommendedTerm" type="xs:string">
@@ -652,6 +703,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">1-7-2f Dichiarazione sul periodo minimo di detenzione come elemento essenziale</xs:documentation>
                                  <xs:documentation xml:lang="cs">1-7-2f Prohlášení o minimální době držení jako zásadním prvku</xs:documentation>
                                  <xs:documentation xml:lang="hu">1-7-2f Statement on minimum Tartasi idoszak as an essential element</xs:documentation>
+                                 <xs:documentation xml:lang="da">1-7-2f Erklæring om minimumsbeholdningsperiode som et væsentligt element</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -667,6 +719,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">Art.7-2b e 36 Informazioni aggiuntive per un fondo strutturato</xs:documentation>
                         <xs:documentation xml:lang="cs">Čl. 7-2b a 36 Dodatečné informace pro strukturovaný fond</xs:documentation>
                         <xs:documentation xml:lang="hu">7-2b. és 36. cikk További információ strukturált alaphoz</xs:documentation>
+                        <xs:documentation xml:lang="da">Art.7-2b og 36 Yderligere oplysninger for en struktureret fond</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -680,6 +733,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">Descrizione degli elementi necessari per una corretta comprensione del pay-off</xs:documentation>
                                  <xs:documentation xml:lang="cs">Popis prvků nezbytných pro správné pochopení výplatního profilu (pay-off)</xs:documentation>
                                  <xs:documentation xml:lang="hu">A kifizetés (pay-off) helyes megértéséhez szükséges elemek leírása</xs:documentation>
+                                 <xs:documentation xml:lang="da">Beskrivelse af elementer, der er nødvendige for en korrekt forståelse af pay-off</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="PerformanceFactors" type="xs:string">
@@ -692,6 +746,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                            	   <xs:documentation xml:lang="it">Descrizione dei fattori che possono influenzare la performance</xs:documentation>
                            	   <xs:documentation xml:lang="hu">A teljesítményt befolyásoló tényezők leírása</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Popis faktorů, které mohou ovlivnit výkonnost</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Beskrivelse af faktorer, der kan påvirke performance</xs:documentation>
                            	</xs:annotation>
                            </xs:element>
                            <xs:element name="AlgorithmDescription" type="xs:string">
@@ -704,6 +759,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">Riferimenti ai dettagli dell'algoritmo (riferimento al prospetto)</xs:documentation>
                                  <xs:documentation xml:lang="cs">Odkazy na podrobnosti algoritmu (odkaz na prospekt)</xs:documentation>
                                  <xs:documentation xml:lang="hu">Hivatkozások az algoritmus részleteire (hivatkozás a tájékoztatóra)</xs:documentation>
+                                 <xs:documentation xml:lang="da">Referencer til detaljerne om algoritmen (reference til prospektet)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element maxOccurs="unbounded" name="PerformanceScenario">
@@ -716,6 +772,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">Art.36</xs:documentation>
                                  <xs:documentation xml:lang="cs">Čl. 36</xs:documentation>
                                  <xs:documentation xml:lang="hu">36. cikk</xs:documentation>
+                                 <xs:documentation xml:lang="da">Art.36</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -729,6 +786,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                     	   <xs:documentation xml:lang="it">Numero sequenziale dello scenario di performance</xs:documentation>
                                     	   <xs:documentation xml:lang="hu">A teljesítmény-forgatókönyv sorszáma</xs:documentation>
                                     	   <xs:documentation xml:lang="cs">Pořadové číslo výkonnostního scénáře</xs:documentation>
+                                    	   <xs:documentation xml:lang="da">Løbenummer for performancescenariet</xs:documentation>
                                     	</xs:annotation>
                                     </xs:element>
                                     <xs:element name="ScenarioName" type="xs:string">
@@ -741,6 +799,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                     	   <xs:documentation xml:lang="it">Nome/etichetta dello scenario di performance</xs:documentation>
                                     	   <xs:documentation xml:lang="hu">A teljesítmény-forgatókönyv neve/megjelölése</xs:documentation>
                                     	   <xs:documentation xml:lang="cs">Název/označení výkonnostního scénáře</xs:documentation>
+                                    	   <xs:documentation xml:lang="da">Navn/etiket for Performance-scenariet</xs:documentation>
                                     	</xs:annotation>
                                     </xs:element>
                                     <xs:element name="ScenarioDescription" type="xs:string">
@@ -753,6 +812,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">Descrizione dello scenario prestazionale</xs:documentation>
                                           <xs:documentation xml:lang="cs">Popis scénáře výkonnosti</xs:documentation>
                                           <xs:documentation xml:lang="hu">A teljesítményforgatókönyv (performance scenario) leírása</xs:documentation>
+                                          <xs:documentation xml:lang="da">Beskrivelse af performance-scenariet</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="ScenarioResultingPay-off" type="xs:decimal">
@@ -765,6 +825,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">Percentuale</xs:documentation>
                                           <xs:documentation xml:lang="cs">Procento</xs:documentation>
                                           <xs:documentation xml:lang="hu">Százalék</xs:documentation>
+                                          <xs:documentation xml:lang="da">Procentdel</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -780,6 +841,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">36-6 Gli scenari sono solo esempi di possibili situazioni</xs:documentation>
                                  <xs:documentation xml:lang="cs">36-6 Scénáře jsou pouze příklady možných situací</xs:documentation>
                                  <xs:documentation xml:lang="hu">36-6 A forgatókönyvek csupán példák lehetséges helyzetekre</xs:documentation>
+                                 <xs:documentation xml:lang="da">36-6 Scenarier er blot eksempler på mulige situationer</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -798,6 +860,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                <xs:documentation xml:lang="it">Art.8</xs:documentation>
                <xs:documentation xml:lang="cs">Čl. 8</xs:documentation>
                <xs:documentation xml:lang="hu">8. cikk</xs:documentation>
+               <xs:documentation xml:lang="da">Art.8</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -811,6 +874,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">8-1 'Profilo di rischio e rendimento'</xs:documentation>
                         <xs:documentation xml:lang="cs">8-1 'Profil rizik a výnosů'</xs:documentation>
                         <xs:documentation xml:lang="hu">8-1 'Kockázat/nyereség profil'</xs:documentation>
+                        <xs:documentation xml:lang="da">8-1 'Risiko- og afkastprofil'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="SyntheticRiskIndicator">
@@ -823,6 +887,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                   	   <xs:documentation xml:lang="it">Sezione dell'indicatore sintetico di rischio e rendimento (SRRI) con scala di rischio e legenda</xs:documentation>
                   	   <xs:documentation xml:lang="hu">Szintetikus kockázati és hozamindikátor (SRRI) szekció kockázati skálával és jelmagyarázattal</xs:documentation>
                   	   <xs:documentation xml:lang="cs">Sekce syntetického ukazatele rizika a výnosu (SRRI) s rizikovou stupnicí a legendou</xs:documentation>
+                  	   <xs:documentation xml:lang="da">Sektion for syntetisk risiko- og afkastindikator (SRRI) med risikoskala og forklaring</xs:documentation>
                   	</xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -836,6 +901,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                            	   <xs:documentation xml:lang="it">Etichette della legenda per la scala dell'indicatore di rischio (rischio minore/maggiore, rendimento minore/maggiore)</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Jelmagyarázat-feliratok a kockázati indikátor skálájához (alacsonyabb/magasabb kockázat, alacsonyabb/magasabb hozam)</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Popisky legendy pro stupnici ukazatele rizika (nižší/vyšší riziko, nižší/vyšší výnos)</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Forklarende mærkater for risikoindikatorskalaen (lavere/højere risiko, lavere/højere afkast)</xs:documentation>
                            	</xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -849,6 +915,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">"Rischio inferiore"</xs:documentation>
                                           <xs:documentation xml:lang="cs">'Nižší riziko'</xs:documentation>
                                           <xs:documentation xml:lang="hu">'Lower Kockazat'</xs:documentation>
+                                          <xs:documentation xml:lang="da">'Lavere risiko'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="UpperRight" type="xs:string">
@@ -861,6 +928,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">"Rischio più alto"</xs:documentation>
                                           <xs:documentation xml:lang="cs">'Vyšší riziko'</xs:documentation>
                                           <xs:documentation xml:lang="hu">'Higher Kockazat'</xs:documentation>
+                                          <xs:documentation xml:lang="da">'Højere risiko'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="LowerLeft" type="xs:string">
@@ -873,6 +941,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">"Rendimenti generalmente più bassi"</xs:documentation>
                                           <xs:documentation xml:lang="cs">'Obvykle nižší výnosy'</xs:documentation>
                                           <xs:documentation xml:lang="hu">'Jellemzően alacsonyabb hozam'</xs:documentation>
+                                          <xs:documentation xml:lang="da">'Typisk lavere afkast'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="LowerRight" type="xs:string">
@@ -885,6 +954,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">"Premi generalmente più alti"</xs:documentation>
                                           <xs:documentation xml:lang="cs">'Obvykle vyšší výnosy'</xs:documentation>
                                           <xs:documentation xml:lang="hu">'Jellemzően magasabb hozam'</xs:documentation>
+                                          <xs:documentation xml:lang="da">'Typisk højere afkast'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -900,6 +970,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">da 8-4a a 8-4d</xs:documentation>
                                  <xs:documentation xml:lang="cs">8-4a až 8-4d</xs:documentation>
                                  <xs:documentation xml:lang="hu">8-4a-tól 8-4d-ig</xs:documentation>
+                                 <xs:documentation xml:lang="da">8-4a til 8-4d</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -913,6 +984,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">"Commenti sugli indicatori di rischio:"</xs:documentation>
                                           <xs:documentation xml:lang="cs">'Komentáře k ukazateli rizik:'</xs:documentation>
                                           <xs:documentation xml:lang="hu">'Kockazati mutato comments:'</xs:documentation>
+                                          <xs:documentation xml:lang="da">'Kommentarer til risikoindikator:'</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Explanation4a" type="xs:string">
@@ -925,6 +997,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">8-4a I dati storici non sono indicativi del profilo di rischio futuro</xs:documentation>
                                           <xs:documentation xml:lang="cs">8-4a Historické údaje nejsou ukazatelem budoucího rizikového profilu</xs:documentation>
                                           <xs:documentation xml:lang="hu">8-4a A múltbeli adatok nem jelentenek iránymutatást a jövőbeli kockázati profilra nézve</xs:documentation>
+                                          <xs:documentation xml:lang="da">8-4a Historiske data er ingen indikation af den fremtidige risikoprofil</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Explanation4b" type="xs:string">
@@ -937,6 +1010,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">8-4b Valore dell'indicatore passibile di variazione nel tempo</xs:documentation>
                                           <xs:documentation xml:lang="cs">8-4b Hodnota ukazatele se může v čase měnit</xs:documentation>
                                           <xs:documentation xml:lang="hu">8-4b Az időben változhat a mutató Értéke</xs:documentation>
+                                          <xs:documentation xml:lang="da">8-4b Indikatorværdi, der kan ændre sig over tid</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Explanation4c" type="xs:string">
@@ -949,6 +1023,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">8-4c Il valore più basso dell'indicatore non significa assenza di rischi</xs:documentation>
                                           <xs:documentation xml:lang="cs">8-4c Nejnižší hodnota ukazatele neznamená investici bez rizika</xs:documentation>
                                           <xs:documentation xml:lang="hu">8-4c A legalacsonyabb mutató Érték nem jelent kockázatmentességet</xs:documentation>
+                                          <xs:documentation xml:lang="da">8-4c Laveste indikatorværdi betyder ikke risikofri</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Explanation4d" type="xs:string">
@@ -961,6 +1036,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">8-4d Spiegazione del motivo per cui il fondo si trova nella sua categoria di rischio</xs:documentation>
                                           <xs:documentation xml:lang="cs">8-4d  Vysvětlení, proč je fond zařazen do své rizikové kategorie</xs:documentation>
                                           <xs:documentation xml:lang="hu">8-4d  Annak magyarázata, hogy az alap miért tartozik az adott kockázati kategóriába</xs:documentation>
+                                          <xs:documentation xml:lang="da">8-4d  Forklaring på, hvorfor fonden er i sin risikokategori</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="Explanation4e" type="xs:string">
@@ -973,6 +1049,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                           <xs:documentation xml:lang="it">Dettagli della garanzia o protezione del capitale</xs:documentation>
                                           <xs:documentation xml:lang="cs">Podrobnosti kapitálové garance nebo ochrany</xs:documentation>
                                           <xs:documentation xml:lang="hu">Tőkegarancia vagy tőkevédelem részletei</xs:documentation>
+                                          <xs:documentation xml:lang="da">Detaljer om kapitalgaranti eller -beskyttelse</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -988,6 +1065,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">Valore numerico dell'indicatore di rischio (da 1 a 7)</xs:documentation>
                                  <xs:documentation xml:lang="cs">Číselná hodnota ukazatele rizika (od 1 do 7)</xs:documentation>
                                  <xs:documentation xml:lang="hu">A kockázati mutató numerikus értéke (1-től 7-ig)</xs:documentation>
+                                 <xs:documentation xml:lang="da">Numerisk værdi af risikoindikatoren (fra 1 til 7)</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                  <xs:restriction base="xs:int">
@@ -1006,6 +1084,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">8-3</xs:documentation>
                                  <xs:documentation xml:lang="cs">8-3</xs:documentation>
                                  <xs:documentation xml:lang="hu">8-3</xs:documentation>
+                                 <xs:documentation xml:lang="da">8-3</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1021,6 +1100,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">8-1b e 8-5 Fattori di rischio non inclusi nell'indicatore sintetico di rischio (rischi di credito, liquidità, controparte, operativi, derivati,...).</xs:documentation>
                         <xs:documentation xml:lang="cs">8-1b a 8-5 Rizikové faktory nezahrnuté v syntetickém ukazateli rizika (úvěrové riziko, riziko likvidity, riziko protistrany, operační riziko, rizika derivátů,...).</xs:documentation>
                         <xs:documentation xml:lang="hu">8-1b és 8-5 A szintetikus kockázati mutatóban nem szereplő kockázati tényezők (hitel-, likviditási, partner-, működési, származtatott ügyletekhez kapcsolódó kockázatok, ...).</xs:documentation>
+                        <xs:documentation xml:lang="da">8-1b og 8-5 Risikofaktorer, der ikke er inkluderet i den syntetiske risikoindikator (kredit-, likviditets-, modparts-, operationelle, derivat-risici,...).</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1034,6 +1114,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">"Altre informazioni sui rischi di questo fondo:"</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Další informace o rizicích tohoto fondu:'</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Egyéb információ az Alap kockázatairól:'</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Andre oplysninger om denne fonds risici:'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="CreditRisk" type="xs:string">
@@ -1046,6 +1127,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">8-5a Rischio di credito dei titoli di debito</xs:documentation>
                                  <xs:documentation xml:lang="cs">8-5a Úvěrové riziko u dluhových cenných papírů</xs:documentation>
                                  <xs:documentation xml:lang="hu">8-5a Hitelkockázat hitelviszonyt megtestesítő értékpapírok esetén</xs:documentation>
+                                 <xs:documentation xml:lang="da">8-5a Kreditrisiko for gældsværdipapirer</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="LiquidityRisk" type="xs:string">
@@ -1058,6 +1140,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">8-5b Descrizione del rischio di liquidità</xs:documentation>
                                  <xs:documentation xml:lang="cs">8-5b Popis rizika likvidity</xs:documentation>
                                  <xs:documentation xml:lang="hu">8-5b Liquidity Kockazat Leiras</xs:documentation>
+                                 <xs:documentation xml:lang="da">8-5b Beskrivelse af likviditetsrisiko</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="CounterpartyRisk" type="xs:string">
@@ -1070,6 +1153,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">8-5c Descrizione del rischio di controparte</xs:documentation>
                                  <xs:documentation xml:lang="cs">8-5c Popis rizika protistrany</xs:documentation>
                                  <xs:documentation xml:lang="hu">8-5c Partner Kockazat Leiras</xs:documentation>
+                                 <xs:documentation xml:lang="da">8-5c Beskrivelse af modpartsrisiko</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="OperationalRisks" type="xs:string">
@@ -1082,6 +1166,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">8-5d</xs:documentation>
                                  <xs:documentation xml:lang="cs">8-5d</xs:documentation>
                                  <xs:documentation xml:lang="hu">8-5d</xs:documentation>
+                                 <xs:documentation xml:lang="da">8-5d</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="DerivativesRisk" type="xs:string">
@@ -1094,6 +1179,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">8-5e Descrizione del rischio dei derivati</xs:documentation>
                                  <xs:documentation xml:lang="cs">8-5e Popis rizika derivátů</xs:documentation>
                                  <xs:documentation xml:lang="hu">8-5e Derivativak Kockazat Leiras</xs:documentation>
+                                 <xs:documentation xml:lang="da">8-5e Beskrivelse af derivatrisiko</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1112,6 +1198,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                <xs:documentation xml:lang="it">Art. da 10 a 14 Descrizione degli oneri applicabili al fondo</xs:documentation>
                <xs:documentation xml:lang="cs">Čl. 10 až 14 Popis poplatků vztahujících se na fond</xs:documentation>
                <xs:documentation xml:lang="hu">10-14. cikk Az alapra alkalmazandó díjak leírása</xs:documentation>
+               <xs:documentation xml:lang="da">Art.10 til 14 Beskrivelse af omkostninger gældende for fonden</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1125,6 +1212,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">"Spese per questo fondo"</xs:documentation>
                         <xs:documentation xml:lang="cs">'Poplatky tohoto fondu'</xs:documentation>
                         <xs:documentation xml:lang="hu">'Az alapot terhelő díjak'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Omkostninger for denne fond'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="EntryAndExitChargesHeading" type="xs:string">
@@ -1137,6 +1225,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">"Spese una tantum addebitate prima o dopo l'investimento"</xs:documentation>
                         <xs:documentation xml:lang="cs">'Jednorázové poplatky účtované před investicí nebo po ní'</xs:documentation>
                         <xs:documentation xml:lang="hu">'A befektetés előtt vagy után felszámított egyszeri díjak'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Engangsomkostninger, der tages før eller efter du investerer'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="EntryCharges">
@@ -1149,6 +1238,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">10-2a Percentuale massima della quota di abbonamento</xs:documentation>
                         <xs:documentation xml:lang="cs">10-2a Maximální procento poplatku za úpis</xs:documentation>
                         <xs:documentation xml:lang="hu">10-2a Maximális jegyzési díj százalék</xs:documentation>
+                        <xs:documentation xml:lang="da">10-2a Maksimal subscription fee-procent</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1162,6 +1252,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">"Spese di ingresso"</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Vstupní poplatek'</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Belépési költség'</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Indtrædelsesgebyr'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="MaximumPercentage" type="xs:decimal">
@@ -1174,6 +1265,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                            	   <xs:documentation xml:lang="it">Percentuale massima per le spese di ingresso</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Maximális százalék a belépési díjhoz</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Maximální procento pro vstupní poplatek</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Maksimal procentsats for tegningsgebyr</xs:documentation>
                            	</xs:annotation>
                            </xs:element>
                            <xs:element maxOccurs="unbounded"
@@ -1189,6 +1281,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">"Questa percentuale è il massimo."</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Toto procento je maximální hodnota.'</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Ez a százalékos érték maximális érték.'</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Denne procentsats er et maksimum.'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1204,6 +1297,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">10-2a Percentuale massima della commissione di rimborso</xs:documentation>
                         <xs:documentation xml:lang="cs">10-2a Maximální procento poplatku za odkup</xs:documentation>
                         <xs:documentation xml:lang="hu">10-2a Maximális visszaváltási díj százalék</xs:documentation>
+                        <xs:documentation xml:lang="da">10-2a Maksimal redemption fee-procent</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1217,6 +1311,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">"Commissioni di uscita"</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Výstupní poplatek'</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Kilépési költség'</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Udtrædelsesgebyr'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="MaximumPercentage" type="xs:decimal">
@@ -1229,6 +1324,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                            	   <xs:documentation xml:lang="it">Percentuale massima per le commissioni di uscita</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Maximális százalék a kilépési díjhoz</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Maximální procento pro výstupní poplatek</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Maksimal procentsats for indløsningsgebyr</xs:documentation>
                            	</xs:annotation>
                            </xs:element>
                            <xs:element maxOccurs="unbounded"
@@ -1244,6 +1340,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">"Questa percentuale è il massimo."</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Toto procento je maximální hodnota.'</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Ez a százalékos érték maximális érték.'</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Denne procentsats er et maksimum.'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1259,6 +1356,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">«Le spese di sottoscrizione e di rimborso indicate rappresentano gli importi massimi. In alcuni casi potresti pagare di meno: puoi informarti presso il tuo consulente finanziario.'</xs:documentation>
                         <xs:documentation xml:lang="cs">'Uvedené vstupní a výstupní poplatky představují maximální hodnoty. V některých případech můžete zaplatit méně – tuto informaci získáte od svého finančního poradce.'</xs:documentation>
                         <xs:documentation xml:lang="hu">'A feltüntetett belépési és kilépési díjak maximális értékek. Egyes esetekben előfordulhat, hogy Ön kevesebbet fizet – erről pénzügyi tanácsadójától tájékozódhat.'</xs:documentation>
+                        <xs:documentation xml:lang="da">'De viste indtrædelses- og udtrædelsesgebyrer er maksimumtal. I nogle tilfælde betaler du muligvis mindre – det kan du få oplyst hos din finansielle rådgiver.'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0"
@@ -1273,6 +1371,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">"Queste percentuali sono cifre massime."</xs:documentation>
                         <xs:documentation xml:lang="cs">'Tato procenta představují maximální hodnoty.'</xs:documentation>
                         <xs:documentation xml:lang="hu">'Ezek a százalékos értékek maximális értékek.'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Disse procentsatser er maksimumtal.'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="AnnualChargesGeneralHeading" type="xs:string">
@@ -1285,6 +1384,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">"Spese prelevate dal fondo in un anno"</xs:documentation>
                         <xs:documentation xml:lang="cs">'Poplatky hrazené z fondu v průběhu roku'</xs:documentation>
                         <xs:documentation xml:lang="hu">'Az alapból egy év során levont díjak'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Omkostninger, der tages fra fonden over et år'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="OngoingCharges">
@@ -1297,6 +1397,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                         <xs:documentation xml:lang="it">10-2b Percentuale effettiva delle spese prelevate dal Fondo (anno precedente)</xs:documentation>
                         <xs:documentation xml:lang="cs">10-2b Skutečné procento poplatků strhávaných z fondu (předchozí rok)</xs:documentation>
                         <xs:documentation xml:lang="hu">10-2b Az alapból ténylegesen levont díjak százaléka (előző év)</xs:documentation>
+                        <xs:documentation xml:lang="da">10-2b Faktisk procentdel af gebyrer taget fra fonden (foregående år)</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1310,6 +1411,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">"Spese correnti"</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Průběžné poplatky'</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Folyó költségek'</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Løbende omkostninger'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="ActualPercentage" type="xs:decimal">
@@ -1322,6 +1424,7 @@ A teljesítményeket és a kockázati indikátort a fő Share Class adataival sz
                                  <xs:documentation xml:lang="it">Ultima percentuale nota delle spese correnti</xs:documentation>
                                  <xs:documentation xml:lang="cs">Poslední známé procento průběžných nákladů</xs:documentation>
                                  <xs:documentation xml:lang="hu">Utolsó ismert Folyó költségek Százalék</xs:documentation>
+                                 <xs:documentation xml:lang="da">Senest kendte ongoing charges-procent</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="ClosingMonth">
@@ -1341,6 +1444,8 @@ MM/AAAA</xs:documentation>
                                  <xs:documentation xml:lang="cs">Poslední uzávěrkový měsíc pro průběžné náklady
 MM/YYYY</xs:documentation>
                                  <xs:documentation xml:lang="hu">A folyamatos terhelések utolsó zárási hónapja
+MM/YYYY</xs:documentation>
+                                 <xs:documentation xml:lang="da">Seneste afslutningsmåned for ongoing charges
 MM/YYYY</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
@@ -1368,6 +1473,8 @@ MM/YYYY</xs:documentation>
 24-2 Použije se také v případě, že jsou průběžné poplatky odhadovány</xs:documentation>
                                  <xs:documentation xml:lang="hu">11-1b Nyilatkozat, amely kifejti, hogy a folyó költségek mutatója az előző év költségein alapul.
 24-2 Akkor is használatos, ha a folyó költségek becsültek</xs:documentation>
+                                 <xs:documentation xml:lang="da">11-1b Erklæring, der forklarer, at ongoing charges-tallet er baseret på sidste års udgifter.
+24-2 Anvendes også, hvis ongoing charges er estimeret</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="OngoingChargesDisclaimer" type="xs:string">
@@ -1380,6 +1487,7 @@ MM/YYYY</xs:documentation>
                            	   <xs:documentation xml:lang="it">Testo aggiuntivo di avvertenza per le spese correnti</xs:documentation>
                            	   <xs:documentation xml:lang="hu">Kiegészítő felelősségkizáró szöveg a folyamatos költségekhez</xs:documentation>
                            	   <xs:documentation xml:lang="cs">Dodatečný text prohlášení pro průběžné poplatky</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Yderligere ansvarsfraskrivelsestekst for løbende omkostninger</xs:documentation>
                            	</xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="OngoingChargesYearHeading" type="xs:string">
@@ -1392,6 +1500,7 @@ MM/YYYY</xs:documentation>
                                  <xs:documentation xml:lang="it">"L'importo relativo alle spese correnti si basa sulle spese per l'anno terminato" [ClosingMonth]</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Údaj o průběžných poplatcích vychází z nákladů za rok končící ' [ClosingMonth]</xs:documentation>
                                  <xs:documentation xml:lang="hu">'A folyó költségek mutatója a következő időpontban végződő év kiadásain alapul: ' [ClosingMonth]</xs:documentation>
+                                 <xs:documentation xml:lang="da">'De løbende omkostninger er baseret på udgifter for året, der slutter ' [ClosingMonth]</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1407,6 +1516,7 @@ MM/YYYY</xs:documentation>
                         <xs:documentation xml:lang="it">11-2a(i) Dichiarazione che spiega che le spese vengono utilizzate per pagare i costi di gestione del fondo.</xs:documentation>
                         <xs:documentation xml:lang="cs">11-2a(i) Prohlášení vysvětlující, že poplatky se používají k úhradě běžných nákladů na provoz fondu.</xs:documentation>
                         <xs:documentation xml:lang="hu">11-2a(i) Nyilatkozat, amely kifejti, hogy a díjak az alap folyó működési költségeinek fedezésére szolgálnak.</xs:documentation>
+                        <xs:documentation xml:lang="da">11-2a(i) Erklæring, der forklarer, at gebyrerne anvendes til at betale fondens løbende omkostninger.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="ChargesDisclaimer2" type="xs:string">
@@ -1419,6 +1529,7 @@ MM/YYYY</xs:documentation>
                         <xs:documentation xml:lang="it">14 Per maggiori dettagli fare riferimento al prospetto del fondo</xs:documentation>
                         <xs:documentation xml:lang="cs">14 Odkaz na prospekt fondu pro další podrobnosti</xs:documentation>
                         <xs:documentation xml:lang="hu">14 Hivatkozás az alap tájékoztatójára további részletekért</xs:documentation>
+                        <xs:documentation xml:lang="da">14 Henvisning til fondens prospekt for flere detaljer</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="ChargesNotIncludedDisclaimer" type="xs:string">
@@ -1447,6 +1558,9 @@ MM/YYYY</xs:documentation>
                         <xs:documentation xml:lang="hu">'Ez az érték évről évre változhat. Nem tartalmazza a következőket:
 •	Performance Fee-k (sikerdíjak).
 •	A portfólióügyletek tranzakciós költségei, kivéve azt a belépési/kilépési díjat, amelyet a UCITS egy másik kollektív befektetési vállalkozás (CIV) befektetési jegyeinek vételekor vagy eladásakor fizet.'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Dette tal kan variere fra år til år. Det omfatter ikke:
+•	Performance Fees.
+•	Portefølje-transaktionsomkostninger, undtagen i tilfælde af et indtrædelses-/udtrædelsesgebyr betalt af UCITS ved køb eller salg af andele i et andet CIV.'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="OtherFees">
@@ -1459,6 +1573,7 @@ MM/YYYY</xs:documentation>
                         <xs:documentation xml:lang="it">Art.12 Altri dettagli sulle tariffe</xs:documentation>
                         <xs:documentation xml:lang="cs">Čl. 12 Podrobnosti o ostatních poplatcích</xs:documentation>
                         <xs:documentation xml:lang="hu">12. cikk Egyéb díjak részletei</xs:documentation>
+                        <xs:documentation xml:lang="da">Art.12 Detaljer om øvrige gebyrer</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1472,6 +1587,7 @@ MM/YYYY</xs:documentation>
                                  <xs:documentation xml:lang="it">"Spese prelevate dal fondo a determinate condizioni specifiche"</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Poplatky hrazené z fondu za určitých zvláštních podmínek'</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Az alapból bizonyos meghatározott feltételek mellett levont díjak'</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Omkostninger, der tages fra fonden under visse specifikke betingelser'</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherFee">
@@ -1484,6 +1600,7 @@ MM/YYYY</xs:documentation>
                                  <xs:documentation xml:lang="it">Altri dettagli sulle tariffe</xs:documentation>
                                  <xs:documentation xml:lang="cs">Podrobnosti ostatních poplatků</xs:documentation>
                                  <xs:documentation xml:lang="hu">Egyéb díjak részletei</xs:documentation>
+                                 <xs:documentation xml:lang="da">Detaljer om andre gebyrer</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -1497,6 +1614,7 @@ MM/YYYY</xs:documentation>
                                           <xs:documentation xml:lang="it">Per esempio. Commissione di performance, commissione di conversione, commissione del fondo master, commissione tutto compreso,...</xs:documentation>
                                           <xs:documentation xml:lang="cs">Např. Performance fee, Switch fee, poplatky master fondu, All-inclusive fee,...</xs:documentation>
                                           <xs:documentation xml:lang="hu">Eg. Performance fee, Switch fee, Master Alap fees, All-inclusive fee,...</xs:documentation>
+                                          <xs:documentation xml:lang="da">F.eks. Performance Fee, ombytningsgebyr, master-fondsgebyrer, all-inclusive-gebyr,...</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Description" type="xs:string">
@@ -1509,6 +1627,7 @@ MM/YYYY</xs:documentation>
                                           <xs:documentation xml:lang="it">Descrizione della tariffa attuale (condizioni,...)</xs:documentation>
                                           <xs:documentation xml:lang="cs">Popis aktuálního poplatku (podmínky, ...)</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az aktuális díj leírása (feltételek, ...)</xs:documentation>
+                                          <xs:documentation xml:lang="da">Beskrivelse af aktuelt gebyr (betingelser, ...)</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="CalculationDescription" type="xs:string">
@@ -1521,6 +1640,7 @@ MM/YYYY</xs:documentation>
                                           <xs:documentation xml:lang="it">Regole di calcolo per la tariffa attuale</xs:documentation>
                                           <xs:documentation xml:lang="cs">Pravidla výpočtu aktuálního poplatku</xs:documentation>
                                           <xs:documentation xml:lang="hu">Az aktuális díj számítási szabályai</xs:documentation>
+                                          <xs:documentation xml:lang="da">Beregningsregler for det aktuelle gebyr</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="MaximumPercentage" type="xs:decimal">
@@ -1533,6 +1653,7 @@ MM/YYYY</xs:documentation>
                                     	   <xs:documentation xml:lang="it">Percentuale massima per la commissione di performance</xs:documentation>
                                     	   <xs:documentation xml:lang="hu">Maximális százalék a teljesítménydíjhoz</xs:documentation>
                                     	   <xs:documentation xml:lang="cs">Maximální procento pro výkonnostní poplatek</xs:documentation>
+                                    	   <xs:documentation xml:lang="da">Maksimal procentsats for Performance Fee</xs:documentation>
                                     	</xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="LastActualValue">
@@ -1545,6 +1666,7 @@ MM/YYYY</xs:documentation>
                                     	   <xs:documentation xml:lang="it">Ultimo valore effettivo della commissione di performance con mese di chiusura</xs:documentation>
                                     	   <xs:documentation xml:lang="hu">A teljesítménydíj utolsó tényleges értéke a záró hónappal</xs:documentation>
                                     	   <xs:documentation xml:lang="cs">Poslední skutečná hodnota výkonnostního poplatku s uzavíracím měsícem</xs:documentation>
+                                    	   <xs:documentation xml:lang="da">Seneste faktiske værdi af performance fee med afslutningsmåned</xs:documentation>
                                     	</xs:annotation>
                                        <xs:complexType>
                                           <xs:sequence>
@@ -1558,6 +1680,7 @@ MM/YYYY</xs:documentation>
                                              	   <xs:documentation xml:lang="it">Valore percentuale dell'ultima commissione di performance effettiva</xs:documentation>
                                              	   <xs:documentation xml:lang="hu">Az utolsó tényleges teljesítménydíj százalékos értéke</xs:documentation>
                                              	   <xs:documentation xml:lang="cs">Procentuální hodnota posledního skutečného výkonnostního poplatku</xs:documentation>
+                                             	   <xs:documentation xml:lang="da">Procentværdi af den seneste faktiske Performance Fee</xs:documentation>
                                              	</xs:annotation>
                                              </xs:element>
                                              <xs:element name="ClosingMonth">
@@ -1570,6 +1693,7 @@ MM/YYYY</xs:documentation>
                                                    <xs:documentation xml:lang="it">Ultimo mese di chiusura per la tariffa corrente MM/AAAA</xs:documentation>
                                                    <xs:documentation xml:lang="cs">Poslední uzávěrkový měsíc pro aktuální poplatek MM/YYYY</xs:documentation>
                                                    <xs:documentation xml:lang="hu">Az aktuális díj utolsó zárási hónapja MM/YYYY</xs:documentation>
+                                                   <xs:documentation xml:lang="da">Seneste afslutningsmåned for aktuelt gebyr MM/YYYY</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:simpleType>
                                                    <xs:restriction base="xs:string"/>
@@ -1605,6 +1729,8 @@ Da non erogare per i fondi strutturati</xs:documentation>
 Neuvádí se u strukturovaných fondů</xs:documentation>
                <xs:documentation xml:lang="hu">15-19. cikk
 Strukturált alapok esetén nem kell megadni</xs:documentation>
+               <xs:documentation xml:lang="da">Art.15 til 19
+Må ikke angives for strukturerede fonde</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1618,6 +1744,7 @@ Strukturált alapok esetén nem kell megadni</xs:documentation>
                         <xs:documentation xml:lang="it">"Prestazioni passate"</xs:documentation>
                         <xs:documentation xml:lang="cs">'Dosavadní výkonnost'</xs:documentation>
                         <xs:documentation xml:lang="hu">'Múltbeli teljesítmény'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Historisk afkast'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element maxOccurs="10" minOccurs="0" name="Performance">
@@ -1638,6 +1765,8 @@ Vengono utilizzati solo gli anni interi di esistenza del fondo.</xs:documentatio
 Používají se pouze celé roky existence fondu.</xs:documentation>
                         <xs:documentation xml:lang="hu">Nulla és tíz év közötti múltbeli teljesítmények, az alap fennállásának időtartama szerint.
 Csak az alap fennállásának teljes évei kerülnek felhasználásra.</xs:documentation>
+                        <xs:documentation xml:lang="da">Performance for nul til ti forløbne år, afhængigt af fondens eksistensvarighed.
+Kun fulde eksistensår for fonden anvendes.</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1651,6 +1780,7 @@ Csak az alap fennállásának teljes évei kerülnek felhasználásra.</xs:docum
                                  <xs:documentation xml:lang="it">Formato a quattro cifre AAAA</xs:documentation>
                                  <xs:documentation xml:lang="cs">Čtyřmístný formát YYYY</xs:documentation>
                                  <xs:documentation xml:lang="hu">Négyjegyű formátum YYYY</xs:documentation>
+                                 <xs:documentation xml:lang="da">Firecifret format YYYY</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="FundPerformanceValue" type="xs:decimal">
@@ -1663,6 +1793,7 @@ Csak az alap fennállásának teljes évei kerülnek felhasználásra.</xs:docum
                                  <xs:documentation xml:lang="it">Percentuale</xs:documentation>
                                  <xs:documentation xml:lang="cs">Procento</xs:documentation>
                                  <xs:documentation xml:lang="hu">Százalék</xs:documentation>
+                                 <xs:documentation xml:lang="da">Procentdel</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="BenchmarkPerformanceValue" type="xs:decimal">
@@ -1675,6 +1806,7 @@ Csak az alap fennállásának teljes évei kerülnek felhasználásra.</xs:docum
                                  <xs:documentation xml:lang="it">Performance del benchmark, se disponibile (percentuale)</xs:documentation>
                                  <xs:documentation xml:lang="cs">Výkonnost Benchmarku, je-li k dispozici (v procentech)</xs:documentation>
                                  <xs:documentation xml:lang="hu">Benchmark teljesítmény, ha elérhető (Százalék)</xs:documentation>
+                                 <xs:documentation xml:lang="da">Benchmark-performance, hvis tilgængelig (procent)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="MaterialChangeIndicator" type="xs:boolean">
@@ -1687,6 +1819,7 @@ Csak az alap fennállásának teljes évei kerülnek felhasználásra.</xs:docum
                                  <xs:documentation xml:lang="it">17-1 e 17-2 Indica che nel corso dell'anno si è verificato un cambiamento materiale che ha avuto un impatto sulla performance (sì/no)</xs:documentation>
                                  <xs:documentation xml:lang="cs">17-1 a 17-2  Uvádí, že během roku došlo k podstatné změně s dopadem na výkonnost (y/n)</xs:documentation>
                                  <xs:documentation xml:lang="hu">17-1 és 17-2  Jelzi, hogy az év során a teljesítményre hatást gyakorló lényeges változás történt (y/n)</xs:documentation>
+                                 <xs:documentation xml:lang="da">17-1 og 17-2  Angiver, at en væsentlig ændring med indvirkning på performance fandt sted i løbet af året (y/n)</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="SimulatedPerformanceIndicator" type="xs:boolean">
@@ -1699,6 +1832,7 @@ Csak az alap fennállásának teljes évei kerülnek felhasználásra.</xs:docum
                                  <xs:documentation xml:lang="it">19-2 Indica che la performance è stata simulata</xs:documentation>
                                  <xs:documentation xml:lang="cs">19-2 Uvádí, že výkonnost byla simulována</xs:documentation>
                                  <xs:documentation xml:lang="hu">19-2 Jelzi, hogy a teljesítmény szimulált</xs:documentation>
+                                 <xs:documentation xml:lang="da">19-2 Angiver, at performance er blevet simuleret</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1746,6 +1880,11 @@ a - A jövőbeli teljesítmény korlátozott értéke
 b - A számításhoz figyelembe vett díjak és költségek listája
 c - Az alap létrehozásának éve
 d - A számításhoz használt pénznem</xs:documentation>
+                        <xs:documentation xml:lang="da">15-5a til 5d
+a - Begrænset værdi for fremtidig performance
+b - Liste over charges og fees inkluderet i beregningen
+c - År for fondens oprettelse
+d - Valuta anvendt til beregning</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="CurrencyUsedHeading" type="xs:string">
@@ -1758,6 +1897,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">'Valuta utilizzata per il calcolo: ' [CurrencyUsed]</xs:documentation>
                         <xs:documentation xml:lang="cs">'Měna použitá pro výpočet: ' [CurrencyUsed]</xs:documentation>
                         <xs:documentation xml:lang="hu">'A számításhoz használt devizanem: ' [CurrencyUsed]</xs:documentation>
+                        <xs:documentation xml:lang="da">'Valuta anvendt til beregning: ' [CurrencyUsed]</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="CurrencyUsed" type="ISOCurrencyCodeType">
@@ -1770,6 +1910,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">Valuta utilizzata per il calcolo della performance</xs:documentation>
                         <xs:documentation xml:lang="cs">Měna použitá pro výpočet výkonnosti</xs:documentation>
                         <xs:documentation xml:lang="hu">A teljesítményszámításhoz használt deviza</xs:documentation>
+                        <xs:documentation xml:lang="da">Valuta anvendt til performanceberegning</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="PerformanceYearImpactHeading" type="xs:string">
@@ -1782,6 +1923,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">"Evento che incide sulle prestazioni in" [Anno con MaterialChandeIndicator="y"]</xs:documentation>
                         <xs:documentation xml:lang="cs">'Událost ovlivňující výkonnost v roce ' [Year with MaterialChandeIndicator="y"]</xs:documentation>
                         <xs:documentation xml:lang="hu">'A teljesítményt befolyásoló esemény ebben az évben: ' [Year with MaterialChandeIndicator="y"]</xs:documentation>
+                        <xs:documentation xml:lang="da">'Begivenhed med indvirkning på performance i ' [Year with MaterialChandeIndicator="y"]</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1797,6 +1939,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                <xs:documentation xml:lang="it">Art.20 e 21</xs:documentation>
                <xs:documentation xml:lang="cs">Čl. 20 a 21</xs:documentation>
                <xs:documentation xml:lang="hu">20. és 21. cikk</xs:documentation>
+               <xs:documentation xml:lang="da">Art.20 og 21</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1810,6 +1953,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">"Informazioni pratiche"</xs:documentation>
                         <xs:documentation xml:lang="cs">'Praktické informace'</xs:documentation>
                         <xs:documentation xml:lang="hu">'Gyakorlati információ'</xs:documentation>
+                        <xs:documentation xml:lang="da">'Praktiske oplysninger'</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DepositaryNameHeading" type="xs:string">
@@ -1822,6 +1966,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">'Depositario: '</xs:documentation>
                         <xs:documentation xml:lang="cs">'Depozitář: '</xs:documentation>
                         <xs:documentation xml:lang="hu">'Letétkezelő: '</xs:documentation>
+                        <xs:documentation xml:lang="da">'Depositar: '</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="DepositaryName" type="xs:string">
@@ -1834,6 +1979,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">20-1a</xs:documentation>
                         <xs:documentation xml:lang="cs">20-1a</xs:documentation>
                         <xs:documentation xml:lang="hu">20-1a</xs:documentation>
+                        <xs:documentation xml:lang="da">20-1a</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="FurtherInformation">
@@ -1846,6 +1992,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">20-1b e 1c Dove trovare...</xs:documentation>
                         <xs:documentation xml:lang="cs">20-1b a 1c Kde najít...</xs:documentation>
                         <xs:documentation xml:lang="hu">20-1b és 1c Hol található...</xs:documentation>
+                        <xs:documentation xml:lang="da">20-1b og 1c Hvor man finder...</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -1859,6 +2006,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                  <xs:documentation xml:lang="it">Dove e come ottenere gratuitamente ulteriori informazioni: prosecuzione, relazione annuale, NAV...</xs:documentation>
                                  <xs:documentation xml:lang="cs">Kde a jak lze bezplatně získat další informace: prospekt, výroční zpráva, NAV...</xs:documentation>
                                  <xs:documentation xml:lang="hu">Hol és hogyan szerezhető be díjmentesen további információ: tájékoztató (prospektus), éves jelentés, NAV-ok...</xs:documentation>
+                                 <xs:documentation xml:lang="da">Hvor og hvordan man gratis kan indhente yderligere information: prospekt, årsrapport, NAV'er...</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="AdditionalInformationLanguagesHeading" type="xs:string">
@@ -1871,6 +2019,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                  <xs:documentation xml:lang="it">'Queste informazioni sono disponibili nelle seguenti lingue: '</xs:documentation>
                                  <xs:documentation xml:lang="cs">'Tyto informace jsou k dispozici v následujících jazycích: '</xs:documentation>
                                  <xs:documentation xml:lang="hu">'Ez az információ a következő nyelveken érhető el: '</xs:documentation>
+                                 <xs:documentation xml:lang="da">'Disse oplysninger er tilgængelige på følgende sprog: '</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element maxOccurs="unbounded"
@@ -1885,6 +2034,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                  <xs:documentation xml:lang="it">Elenco delle lingue disponibili</xs:documentation>
                                  <xs:documentation xml:lang="cs">Seznam languages available</xs:documentation>
                                  <xs:documentation xml:lang="hu">Az elérhető nyelvek listája</xs:documentation>
+                                 <xs:documentation xml:lang="da">Liste over tilgængelige sprog</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -1900,6 +2050,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">20-1d Impatto del paese di residenza sulle tasse</xs:documentation>
                         <xs:documentation xml:lang="cs">20-1d Dopad země rezidence na daně</xs:documentation>
                         <xs:documentation xml:lang="hu">20-1d A lakóhely szerinti ország hatása az adókra</xs:documentation>
+                        <xs:documentation xml:lang="da">20-1d Indvirkning af bopælsland på skatter</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="AMCompanyLiabilityDisclaimer" type="xs:string">
@@ -1912,6 +2063,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">20-1e</xs:documentation>
                         <xs:documentation xml:lang="cs">20-1e</xs:documentation>
                         <xs:documentation xml:lang="hu">20-1e</xs:documentation>
+                        <xs:documentation xml:lang="da">20-1e</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="CompartmentSwitchInformation" type="xs:string">
@@ -1924,6 +2076,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">20-3 Dichiarazione sulla possibilità di passaggio da un compartimento all'altro</xs:documentation>
                         <xs:documentation xml:lang="cs">20-3 Prohlášení o možnosti přestupu mezi podfondy (compartments)</xs:documentation>
                         <xs:documentation xml:lang="hu">20-3 Nyilatkozat a részalapok közötti átváltás lehetőségéről</xs:documentation>
+                        <xs:documentation xml:lang="da">20-3 Erklæring om mulighed for skift mellem afdelinger</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MainsShareClassInformation" type="xs:string">
@@ -1936,6 +2089,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">20-3 Nome della classe di azioni utilizzata per il KIID attuale</xs:documentation>
                         <xs:documentation xml:lang="cs">20-3 Název share class použité pro aktuální KIID</xs:documentation>
                         <xs:documentation xml:lang="hu">20-3 A jelenlegi KIID-hez használt Share Class neve</xs:documentation>
+                        <xs:documentation xml:lang="da">20-3 Navn på den share class, der anvendes til den aktuelle KIID</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element maxOccurs="unbounded"
@@ -1951,6 +2105,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">21-1 Possibili ulteriori fonti di informazione: prospetto, relazioni annuali, sito(i) web), ecc.</xs:documentation>
                         <xs:documentation xml:lang="cs">21-1 Možné další zdroje informací: prospekt, výroční zprávy, webové stránky atd.</xs:documentation>
                         <xs:documentation xml:lang="hu">21-1 Lehetséges további információforrások: tájékoztató, éves jelentések, weboldal(ak) stb.</xs:documentation>
+                        <xs:documentation xml:lang="da">21-1 Mulige yderligere informationskilder: prospekt, årsrapporter, website(s) osv.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element maxOccurs="3"
@@ -1990,6 +2145,10 @@ d - A számításhoz használt pénznem</xs:documentation>
 2a A KIID egy részalapot ír le
 2b Információ az egyes részalapok eszközeinek és kötelezettségeinek elkülönítéséről
 2c Információ a részalapok közötti átváltásról (hogyan...)</xs:documentation>
+                        <xs:documentation xml:lang="da">25-2 Specifik information for afdelingsfonde
+2a KIID beskriver en afdeling
+2b Information om adskillelse af aktiver og passiver for hver afdeling
+2c Information om skift mellem afdelinger (hvordan...)</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="MasterFundInformation">
@@ -2002,6 +2161,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                         <xs:documentation xml:lang="it">34 Informazioni aggiuntive se il fondo è feeder di un fondo master</xs:documentation>
                         <xs:documentation xml:lang="cs">34 Dodatečné informace, pokud je fond podřízeným fondem (feeder) řídícího fondu (master)</xs:documentation>
                         <xs:documentation xml:lang="hu">34 Kiegészítő információk, ha az alap egy master alap feeder alapja</xs:documentation>
+                        <xs:documentation xml:lang="da">34 Yderligere information, hvis fonden er en feeder for en master-fond</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -2015,6 +2175,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                  <xs:documentation xml:lang="it">34-2a</xs:documentation>
                                  <xs:documentation xml:lang="cs">34-2a</xs:documentation>
                                  <xs:documentation xml:lang="hu">34-2a</xs:documentation>
+                                 <xs:documentation xml:lang="da">34-2a</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
@@ -2028,6 +2189,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                           <xs:documentation xml:lang="it">Dichiarazione che spiega dove trovare informazioni sul fondo master (prospetto, KIID, relazioni annuali, ecc.)</xs:documentation>
                                           <xs:documentation xml:lang="cs">Prohlášení vysvětlující, kde lze nalézt informace o řídicím (master) fondu (prospekt, KIID, výroční zprávy atd.)</xs:documentation>
                                           <xs:documentation xml:lang="hu">Nyilatkozat, amely elmagyarázza, hol találhatók a mesteralapra (master fund) vonatkozó információk (tájékoztató, KIID, éves jelentések stb.)</xs:documentation>
+                                          <xs:documentation xml:lang="da">Erklæring, der forklarer, hvor man kan finde oplysninger om masterfonden (prospekt, KIID, årsrapporter osv.)</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element maxOccurs="unbounded" name="Language" type="ISOCountryCodeType">
@@ -2040,6 +2202,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                           <xs:documentation xml:lang="it">Elenco delle lingue in cui sono disponibili le informazioni</xs:documentation>
                                           <xs:documentation xml:lang="cs">Seznam jazyka (jazyků), ve kterých jsou informace k dispozici</xs:documentation>
                                           <xs:documentation xml:lang="hu">Azon nyelv(ek) listája, amely(ek)en az információ elérhető</xs:documentation>
+                                          <xs:documentation xml:lang="da">Liste over sprog, hvori information er tilgængelig</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="Media" type="xs:string">
@@ -2052,6 +2215,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                           <xs:documentation xml:lang="it">Supporti disponibili: cartaceo, CD, Web, ecc.</xs:documentation>
                                           <xs:documentation xml:lang="cs">Dostupná média: papír, CD, web atd.</xs:documentation>
                                           <xs:documentation xml:lang="hu">Rendelkezésre álló média(k): papír, CD, Web stb.</xs:documentation>
+                                          <xs:documentation xml:lang="da">Tilgængelige medier: papir, CD, Web osv.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="Cost" type="xs:string">
@@ -2064,6 +2228,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                           <xs:documentation xml:lang="it">"Consegna gratuita" o descrizione delle tariffe da pagare per i media</xs:documentation>
                                           <xs:documentation xml:lang="cs">'Bezplatné poskytnutí' nebo popis poplatků hrazených za média</xs:documentation>
                                           <xs:documentation xml:lang="hu">'Ingyenes rendelkezésre bocsátás' vagy az adathordozókért fizetendő díjak leírása</xs:documentation>
+                                          <xs:documentation xml:lang="da">'Gratis levering' eller beskrivelse af gebyrer, der skal betales for medier</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
@@ -2079,6 +2244,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                  <xs:documentation xml:lang="it">Paese di domicilio del fondo master</xs:documentation>
                                  <xs:documentation xml:lang="cs">Země domicilu master fondu</xs:documentation>
                                  <xs:documentation xml:lang="hu">A mesteralap székhely szerinti országa</xs:documentation>
+                                 <xs:documentation xml:lang="da">Hjemstedsland for master-fonden</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element minOccurs="0" name="Disclaimer" type="xs:string">
@@ -2091,6 +2257,7 @@ d - A számításhoz használt pénznem</xs:documentation>
                                  <xs:documentation xml:lang="it">Quando il fondo master è costituito in un altro paese, la dichiarazione che spiega ciò può influenzare il trattamento fiscale del feeder.</xs:documentation>
                                  <xs:documentation xml:lang="cs">Pokud je řídicí fond (master fund) zřízen v jiné zemi, prohlášení vysvětlující, že tato skutečnost může ovlivnit daňové zacházení s podřízeným fondem (feeder).</xs:documentation>
                                  <xs:documentation xml:lang="hu">Ha a mesteralap (master fund) másik országban van bejegyezve, nyilatkozat arról, hogy ez érintheti a táplálóalap (feeder) adózási kezelését.</xs:documentation>
+                                 <xs:documentation xml:lang="da">Når master-fonden er etableret i et andet land, en erklæring der forklarer, at dette kan påvirke feeder-fondens skattemæssige behandling.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>

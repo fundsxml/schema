@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-4.2.10-598EFF?style=flat-square" alt="Version 4.2.10"/>
+  <img src="https://img.shields.io/badge/version-4.2.11-598EFF?style=flat-square" alt="Version 4.2.11"/>
   <img src="https://img.shields.io/badge/XSD-1.1-49BCE3?style=flat-square" alt="XSD 1.1"/>
   <img src="https://img.shields.io/badge/license-MIT-14B8A6?style=flat-square" alt="MIT License"/>
 </p>
@@ -221,7 +221,7 @@ Complete example with fund, share classes, portfolio, and asset master data:
    <ControlData>
       <UniqueDocumentID>DOC_2025_001</UniqueDocumentID>
       <DocumentGenerated>2025-07-04T10:00:00Z</DocumentGenerated>
-      <Version>4.2.10</Version>
+      <Version>4.2.11</Version>
       <ContentDate>2025-06-30</ContentDate>
        <DataSupplier>
            <SystemCountry>AT</SystemCountry>

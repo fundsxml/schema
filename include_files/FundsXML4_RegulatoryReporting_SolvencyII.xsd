@@ -1182,6 +1182,7 @@ av nominellt belopp (A19) 100%=1,0</xs:documentation>
          </xs:element>
          <xs:element minOccurs="0" name="PIK">
             <xs:annotation>
+               <xs:appinfo source="@since 4.2.10"/>
                <xs:documentation xml:lang="en">A146 - 0 - No PIK
 1 - No cash coupon. Existing PIK is included in the redemption rate (41) and described in the coupon data points (32-38). The period indicated for "38_Coupon_payment_frequency" is the period for PIK accrual.
 2 - Existing PIK is included in the redemption rate (41) but not described in the coupon fields (32-38).
@@ -7584,6 +7585,7 @@ När Look-Through avser en fond-i-fond ska kategori ”4 - Collective Investment
                   </xs:element>
                   <xs:element minOccurs="0" name="Type1PrivateEquityPortfolioEligibility">
                      <xs:annotation>
+                        <xs:appinfo source="@since 4.2.0"/>
                         <xs:documentation xml:lang="en">A134 - Use closed list:
 Int (1)
 0 = Not assessed
@@ -7650,6 +7652,7 @@ Int (1)
                   </xs:element>
                   <xs:element minOccurs="0" name="Type1PrivateEquityIssuerBeta" type="xs:decimal">
                      <xs:annotation>
+                        <xs:appinfo source="@since 4.2.0"/>
                         <xs:documentation xml:lang="en">A 135- Beta of the issuer of the private equity calculated according to art 168a of the regulation UE DR 2019/981</xs:documentation>
                         <xs:documentation xml:lang="de">A 135- Beta von Emittent von private Aktie berechnet gemäß art 168a von regulation UE DR 2019/981</xs:documentation>
                         <xs:documentation xml:lang="fr">A 135- Beta de émetteur de private action calculé selon art 168a de regulation UE DR 2019/981</xs:documentation>
@@ -7697,6 +7700,7 @@ Alfanumerisk (2)</xs:documentation>
                   </xs:element>
                   <xs:element minOccurs="0" name="CollateralEligibility">
                      <xs:annotation>
+                        <xs:appinfo source="@since 4.2.0"/>
                         <xs:documentation xml:lang="en">A138 - Eligibility of the collateral according to solvency regulation (RD UE 2015/35 art 176.5 and related art197, art214)
 
 "0 - Not assessed or no collateral
@@ -10091,6 +10095,7 @@ Denna datapunkt behövs av försäkringsbolag i de fall det juridiska/avtalsenli
                   </xs:element>
                   <xs:element minOccurs="0" name="CreditSensitivityExpected" type="xs:decimal">
                      <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
                         <xs:documentation xml:lang="en">A145 - Modified duration (Credit sensitivity) to the expected maturity date based on the field 143 eventually used for the spread risk calculation (e.g. based on 176 (1) or (2) DR 2015/35 for bonds and loans). 
 This datapoint is needed by insurance companies in case the legal/contractual maturity date is different from the expected maturity date used sor SCR calculation.</xs:documentation>
                         <xs:documentation xml:lang="de">A145 - Modifizierte Duration (Kreditsensitivität) zum erwarteten Fälligkeitsdatum basierend auf Feld 143, ggf. verwendet für Spread-Risikoberechnung (z.B. basierend auf 176 (1) oder (2) DR 2015/35 für Anleihen und Darlehen). 
@@ -10808,6 +10813,7 @@ När Look-Through avser en fond-i-fond ska kategori ”4 - Collective Investment
                   </xs:element>
                   <xs:element minOccurs="0" name="InfrastructureInvestmentAdditionalQRT">
                      <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
                         <xs:documentation xml:lang="en">A147 - 1 – Not an infrastructure investment; 
 2 – Infrastructure non-qualifying: Government Guarantee (Government, Central bank, Regional government or local authority); 
 3 – Infrastructure non-qualifying: Government Supported including Public Finance initiative (Government, Central bank, Regional government or local authority); 
@@ -11166,6 +11172,7 @@ tal med flytande decimal</xs:documentation>
                   </xs:element>
                   <xs:element minOccurs="0" name="BailInRule">
                      <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
                         <xs:documentation xml:lang="en">A142 - Indicate if there is a "Bail-in" Rule applicable for debt instrument</xs:documentation>
                         <xs:documentation xml:lang="de">A142 - Indicate wenn there ist ein "Bail-in" Rule applicable für debt instrument</xs:documentation>
                         <xs:documentation xml:lang="fr">A142 - Indicate si there est un "Bail-dans" Rule applicable pour debt instrument</xs:documentation>
@@ -14196,6 +14203,7 @@ NACE-kodifieringen som krävs av EIOPA skiljer sig från den som krävs enligt E
                   </xs:element>
                   <xs:element minOccurs="0" name="CustodianIdentificationCode" type="LEICodeType">
                      <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
                         <xs:documentation xml:lang="en">A140 - Identification of the custodian code using the LEI if available. 
 If none is available this item shall not be reported</xs:documentation>
                         <xs:documentation xml:lang="de">A140 - Identification von Verwahrstelle Code using LEI wenn verfügbar. 
@@ -14222,6 +14230,7 @@ Om ingen är tillgänglig ska denna post inte rapporteras</xs:documentation>
                   </xs:element>
                   <xs:element minOccurs="0" name="TypeOfCustodianIdentificationCode">
                      <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
                         <xs:documentation xml:lang="en">A141 - C0220   1-LEI,  9-None or internal
  Mandatory if dp 140_custodian_identification_code is filled</xs:documentation>
                         <xs:documentation xml:lang="de">A141 - C0220 1-LEI, 9-None oder intern

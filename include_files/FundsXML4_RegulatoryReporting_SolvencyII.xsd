@@ -343,6 +343,97 @@ Endast MktEqGlobal eller MktEqOther kommer att vara skilt från noll.</xs:docume
          </xs:element>
       </xs:sequence>
    </xs:complexType>
+   <xs:complexType name="ContributionToSCRType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">List of possible contributions to global SCR. Applicable to a Position.Could also be used for a group of Positions</xs:documentation>
+         <xs:documentation xml:lang="de">Liste möglicher Beiträge zum globalen SCR. Anwendbar auf eine Position. Kann auch für eine Gruppe von Positionen verwendet werden</xs:documentation>
+         <xs:documentation xml:lang="fr">Liste des contributions possibles au SCR global. Applicable à une Position. Peut également être utilisé pour un groupe de Positions</xs:documentation>
+         <xs:documentation xml:lang="nl">Lijst van mogelijke bijdragen aan de globale SCR. Van toepassing op een positie. Kan ook worden gebruikt voor een groep van posities</xs:documentation>
+         <xs:documentation xml:lang="es">Lista de posibles contribuciones al SCR global. Aplicable a una posición. También puede usarse para un grupo de posiciones</xs:documentation>
+         <xs:documentation xml:lang="it">Elenco dei possibili contributi all'SCR globale. Applicabile a una posizione. Potrebbe essere utilizzato anche per un gruppo di posizioni</xs:documentation>
+         <xs:documentation xml:lang="cs">Seznam možných příspěvků ke globálnímu SCR. Použitelné pro pozici. Lze použít také pro skupinu pozic</xs:documentation>
+         <xs:documentation xml:lang="hu">A globális SCR-hez való lehetséges hozzájárulások listája. Egy pozícióra alkalmazható. Pozíciók egy csoportjára is használható.</xs:documentation>
+         <xs:documentation xml:lang="da">Liste over mulige bidrag til global SCR. Gælder for en Position. Kan også anvendes for en gruppe af Positions</xs:documentation>
+         <xs:documentation xml:lang="pl">Lista możliwych udziałów w globalnym SCR. Dotyczy pozycji (Position). Może być również użyta dla grupy pozycji</xs:documentation>
+         <xs:documentation xml:lang="sv">Lista över möjliga bidrag till global SCR. Tillämplig på en Position. Kan även användas för en grupp positioner</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="SCRMrktIRUpWeightOverNAV" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">97_SCR_mrkt_IR_up_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SCRMrktIRDownWeightOverNAV" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">98_SCR_mrkt_IR_down_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SCRMrktEqType1WeightOverNAV" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">99_SCR_mrkt_eq_type1_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SCRMrktEqType2WeightOverNAV" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">100_SCR_mrkt_eq_type2_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SCRMrktPropWeightOverNAV" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">101_SCR_mrkt_prop_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="MktSpread">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Capital requirement for interest rate spread risk.</xs:documentation>
+               <xs:documentation xml:lang="de">Kapitalanforderung für Zins-Spread-Risiko.</xs:documentation>
+               <xs:documentation xml:lang="fr">Capital requirement pour intérêt taux spread risque.</xs:documentation>
+               <xs:documentation xml:lang="nl">Capital requirement voor rente tarief spread risico.</xs:documentation>
+               <xs:documentation xml:lang="es">Capital requirement para interes tasa spread riesgo.</xs:documentation>
+               <xs:documentation xml:lang="it">Requisito patrimoniale per il rischio di spread sui tassi di interesse.</xs:documentation>
+               <xs:documentation xml:lang="cs">Kapitálový požadavek pro riziko úrokového rozpětí.</xs:documentation>
+               <xs:documentation xml:lang="hu">Kamatláb-felár kockázat tőkekövetelménye.</xs:documentation>
+               <xs:documentation xml:lang="da">Kapitalkrav for renteforskelsrisiko (interest rate spread risk).</xs:documentation>
+               <xs:documentation xml:lang="pl">Wymóg kapitałowy dla ryzyka spreadu stóp procentowych.</xs:documentation>
+               <xs:documentation xml:lang="sv">Kapitalkrav för ränte-spreadrisk.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="SCRMrktSpreadBondsWeightOverNAV" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">102_SCR_mrkt_spread_bonds_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="SCRMrktSpreadStructuredWeightOverNAV" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">103_SCR_mrkt_spread_structured_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="SCRMrktSpreadDerivativesUpWeightOverNAV" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">104_SCR_mrkt_spread_derivatives_up_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="SCRMrktSpreadDerivativesDownWeightOverNAV" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">105_SCR_mrkt_spread_derivatives_down_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element minOccurs="0" name="SCRMrktFXUpWeightOverNAV" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">105a_SCR_mrkt_FX_up_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SCRMrktFXDownWeightOverNAV" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">105b_SCR_mrkt_FX_down_weight_over_NAV
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:simpleType name="CQSType">
       <xs:annotation>
          <xs:documentation xml:lang="en">Credit Quality Step (Synthetic rating) 0 to 6 or 9 if no rating known.</xs:documentation>
@@ -831,6 +922,168 @@ Heltal från 0=AAA till 6=CCC samt 9=unrated</xs:documentation>
          </xs:element>
       </xs:sequence>
    </xs:complexType>
+   <xs:complexType name="UnderlyingCreditRiskDataType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Corresponds to "Issuer data" block of Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="de">Corresponds zu "Emittent Daten" block von Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="fr">Corresponds à "Émetteur données" block de Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="nl">Corresponds naar "Emittent gegevens" block van Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="es">Corresponds a "Emisor datos" block de Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="it">Corrisponde al blocco "Dati emittente" del modello Tripartito</xs:documentation>
+         <xs:documentation xml:lang="cs">Odpovídá bloku "Issuer data" šablony Tripartite</xs:documentation>
+         <xs:documentation xml:lang="hu">A Tripartite sablon "Issuer data" blokkjának felel meg</xs:documentation>
+         <xs:documentation xml:lang="da">Svarer til blokken "Issuer data" i Tripartite-skabelonen</xs:documentation>
+         <xs:documentation xml:lang="pl">Odpowiada blokowi "Issuer data" szablonu Tripartite</xs:documentation>
+         <xs:documentation xml:lang="sv">Motsvarar blocket "Issuer data" i Tripartite-mallen</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="InstrumentIssuer" type="UnderlyingInstrumentIssuerType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Identification of instrument issuer (or counterpart for OTC instruments).</xs:documentation>
+               <xs:documentation xml:lang="de">Identifikation des Instrumentenemittenten (oder Gegenpartei für OTC-Instrumente).</xs:documentation>
+               <xs:documentation xml:lang="fr">Identification de instrument émetteur (ou counterpart pour OTC instruments).</xs:documentation>
+               <xs:documentation xml:lang="nl">Identification van instrument emittent (van counterpart voor OTC instruments).</xs:documentation>
+               <xs:documentation xml:lang="es">Identification de instrumento emisor (de counterpart para OTC instrumentos).</xs:documentation>
+               <xs:documentation xml:lang="it">Identificazione dell'emittente dello strumento (o controparte per gli strumenti OTC).</xs:documentation>
+               <xs:documentation xml:lang="cs">Identifikace emitenta nástroje (nebo protistrany u OTC nástrojů).</xs:documentation>
+               <xs:documentation xml:lang="hu">Az instrumentum kibocsátójának (vagy OTC instrumentumok esetén a partnernek) azonosítása.</xs:documentation>
+               <xs:documentation xml:lang="da">Identifikation af instrumentudsteder (eller modpart for OTC-instrumenter).</xs:documentation>
+               <xs:documentation xml:lang="pl">Identyfikacja emitenta instrumentu (lub kontrpartnera dla instrumentów OTC).</xs:documentation>
+               <xs:documentation xml:lang="sv">Identifiering av instrumentets emittent (eller motpart för OTC-instrument).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="IssuerGroup" type="UnderlyingIssuerGroupType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Characteristics of final financial group the InstrumentIssuer belongs to (highest parent company).
+Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="de">Eigenschaften der endgültigen Finanzgruppe, der der Instrumentenemittent angehört (oberste Muttergesellschaft).
+Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="fr">Characteristics de final financial groupe InstrumentIssuer belongs à (highest parent company).
+Duplicate InstrumentIssuer données si identical à InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="nl">Characteristics van final financial groep InstrumentIssuer belongs naar (highest parent company).
+Duplicate InstrumentIssuer gegevens als identical naar InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="es">Characteristics de final financial grupo InstrumentIssuer belongs a (highest parent company).
+Duplicate InstrumentIssuer datos como identical a InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="it">Caratteristiche del gruppo finanziario finale a cui appartiene l'Emittente dello Strumento (società capogruppo).
+Dati InstrumentIssuer duplicati se identici a InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="cs">Charakteristiky konečné finanční skupiny, do níž InstrumentIssuer patří (nejvyšší mateřská společnost).
+Pokud jsou údaje shodné s InstrumentIssuer, duplikujte data InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="hu">Annak a végső pénzügyi csoportnak a jellemzői, amelyhez az InstrumentIssuer tartozik (legfelső szintű anyavállalat).
+Az InstrumentIssuer adatainak megkettőzése, ha azonos az InstrumentIssuer adataival</xs:documentation>
+               <xs:documentation xml:lang="da">Karakteristika for den endelige finansielle koncern, som InstrumentIssuer tilhører (øverste moderselskab).
+Gentag InstrumentIssuer-data, hvis identiske med InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="pl">Charakterystyka ostatecznej grupy finansowej, do której należy InstrumentIssuer (najwyższa spółka dominująca).
+Powiel dane InstrumentIssuer, jeśli są identyczne z InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="sv">Egenskaper för den slutliga finansiella koncern som InstrumentIssuer tillhör (högsta moderbolaget).
+Duplicera InstrumentIssuer-data om identiska med InstrumentIssuer</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="IssuerCountryOfTheUnderlyingAsset" type="ISOCountryCodeType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">86_Issuer_country_of_the_underlying_asset
+Code ISO 3166-1 alpha 2</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="IssuerEconomicAreaOfTheUnderlyingAsset" type="EconomicArea2Type">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">87_Issuer_economic_area_of_the_underlying_asset
+Integer return corresponding to the following closed list:
+1 = EEA
+2 = OECD exclude EEA
+3 = Rest of the World</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ExplicitGuaranteeByTheCountryOfIssueOfTheUnderlyingAsset" type="YesNoL1Type">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">88_Explicit_guarantee_by_the_country_of_issue_of_the_underlying_asset
+Alpha (1) ("Y" = yes "N"= no)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CreditQualityStepOfTheUnderlyingAsset" type="CQSType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">89_Credit_quality_step_of_the_underlying_asset
+num (1)</xs:documentation></xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="CreditRiskDataType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Corresponds to "Issuer data" block of Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="de">Corresponds zu "Emittent Daten" block von Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="fr">Corresponds à "Émetteur données" block de Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="nl">Corresponds naar "Emittent gegevens" block van Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="es">Corresponds a "Emisor datos" block de Tripartite template</xs:documentation>
+         <xs:documentation xml:lang="it">Corrisponde al blocco "Dati emittente" del modello Tripartito</xs:documentation>
+         <xs:documentation xml:lang="cs">Odpovídá bloku "Issuer data" šablony Tripartite</xs:documentation>
+         <xs:documentation xml:lang="hu">A Tripartite sablon "Issuer data" blokkjának felel meg</xs:documentation>
+         <xs:documentation xml:lang="da">Svarer til blokken "Issuer data" i Tripartite-skabelonen</xs:documentation>
+         <xs:documentation xml:lang="pl">Odpowiada blokowi "Issuer data" szablonu Tripartite</xs:documentation>
+         <xs:documentation xml:lang="sv">Motsvarar blocket "Issuer data" i Tripartite-mallen</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="InstrumentIssuer" type="InstrumentIssuerType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Identification of instrument issuer (or counterpart for OTC instruments).</xs:documentation>
+               <xs:documentation xml:lang="de">Identifikation des Instrumentenemittenten (oder Gegenpartei für OTC-Instrumente).</xs:documentation>
+               <xs:documentation xml:lang="fr">Identification de instrument émetteur (ou counterpart pour OTC instruments).</xs:documentation>
+               <xs:documentation xml:lang="nl">Identification van instrument emittent (van counterpart voor OTC instruments).</xs:documentation>
+               <xs:documentation xml:lang="es">Identification de instrumento emisor (de counterpart para OTC instrumentos).</xs:documentation>
+               <xs:documentation xml:lang="it">Identificazione dell'emittente dello strumento (o controparte per gli strumenti OTC).</xs:documentation>
+               <xs:documentation xml:lang="cs">Identifikace emitenta nástroje (nebo protistrany u OTC nástrojů).</xs:documentation>
+               <xs:documentation xml:lang="hu">Az instrumentum kibocsátójának (vagy OTC instrumentumok esetén a partnernek) azonosítása.</xs:documentation>
+               <xs:documentation xml:lang="da">Identifikation af instrumentudsteder (eller modpart for OTC-instrumenter).</xs:documentation>
+               <xs:documentation xml:lang="pl">Identyfikacja emitenta instrumentu (lub kontrpartnera dla instrumentów OTC).</xs:documentation>
+               <xs:documentation xml:lang="sv">Identifiering av instrumentets emittent (eller motpart för OTC-instrument).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="IssuerGroup" type="IssuerGroupType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Characteristics of final financial group the InstrumentIssuer belongs to (highest parent company).
+Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="de">Eigenschaften der endgültigen Finanzgruppe, der der Instrumentenemittent angehört (oberste Muttergesellschaft).
+Duplicate InstrumentIssuer data if identical to InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="fr">Characteristics de final financial groupe InstrumentIssuer belongs à (highest parent company).
+Duplicate InstrumentIssuer données si identical à InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="nl">Characteristics van final financial groep InstrumentIssuer belongs naar (highest parent company).
+Duplicate InstrumentIssuer gegevens als identical naar InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="es">Characteristics de final financial grupo InstrumentIssuer belongs a (highest parent company).
+Duplicate InstrumentIssuer datos como identical a InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="it">Caratteristiche del gruppo finanziario finale a cui appartiene l'Emittente dello Strumento (società capogruppo).
+Dati InstrumentIssuer duplicati se identici a InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="cs">Charakteristiky konečné finanční skupiny, do níž InstrumentIssuer patří (nejvyšší mateřská společnost).
+Pokud jsou údaje shodné s InstrumentIssuer, duplikujte data InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="hu">Annak a végső pénzügyi csoportnak a jellemzői, amelyhez az InstrumentIssuer tartozik (legfelső szintű anyavállalat).
+Az InstrumentIssuer adatainak megkettőzése, ha azonos az InstrumentIssuer adataival</xs:documentation>
+               <xs:documentation xml:lang="da">Karakteristika for den endelige finansielle koncern, som InstrumentIssuer tilhører (øverste moderselskab).
+Gentag InstrumentIssuer-data, hvis identiske med InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="pl">Charakterystyka ostatecznej grupy finansowej, do której należy InstrumentIssuer (najwyższa spółka dominująca).
+Powiel dane InstrumentIssuer, jeśli są identyczne z InstrumentIssuer</xs:documentation>
+               <xs:documentation xml:lang="sv">Egenskaper för den slutliga finansiella koncern som InstrumentIssuer tillhör (högsta moderbolaget).
+Duplicera InstrumentIssuer-data om identiska med InstrumentIssuer</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="IssuerCountry" type="ISOCountryCodeType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">52_Issuer_country
+Code ISO 3166-1 alpha 2</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="IssuerEconomicArea" type="EconomicArea2Type">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">53_Issuer_economic_area
+Integer return corresponding to the following closed list:
+1 = EEA
+2 = OECD exclude EEA
+3 = Rest of the World</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ExplicitGuaranteeByTheCountryOfIssue" type="YesNoL1Type">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">57_Explicit_guarantee_by_the_country_of_issue
+Alpha (1) ("Y" = yes "N"= no)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CreditQualityStep" type="CQSType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">59_Credit_quality_step
+num (1)</xs:documentation></xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:simpleType name="EconomicArea2Type">
       <xs:annotation>
          <xs:documentation xml:lang="en">SII Economic area of a country</xs:documentation>
@@ -1253,6 +1506,121 @@ av nominellt belopp (A19) 100%=1,0</xs:documentation>
          </xs:element>
       </xs:sequence>
    </xs:complexType>
+   <xs:complexType name="UnderlyingRedemptionType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Redemption information of a bond or other interest rate instrument</xs:documentation>
+         <xs:documentation xml:lang="de">Rücknahme Information von ein Anleihe oder Sonstig Zins Satz instrument</xs:documentation>
+         <xs:documentation xml:lang="fr">Rachat information de un obligation ou autre intérêt taux instrument</xs:documentation>
+         <xs:documentation xml:lang="nl">Inkoop informatie van een obligatie van overig rente tarief instrument</xs:documentation>
+         <xs:documentation xml:lang="es">Reembolso informacion de un bono de otro interes tasa instrumento</xs:documentation>
+         <xs:documentation xml:lang="it">Informazioni sul rimborso di un'obbligazione o di un altro strumento di tasso di interesse</xs:documentation>
+         <xs:documentation xml:lang="cs">Informace o splacení dluhopisu nebo jiného úrokového nástroje</xs:documentation>
+         <xs:documentation xml:lang="hu">Egy kötvény vagy egyéb kamatozó instrumentum visszaváltási információi</xs:documentation>
+         <xs:documentation xml:lang="da">Indløsningsoplysninger for en obligation eller andet renteinstrument</xs:documentation>
+         <xs:documentation xml:lang="pl">Informacje o wykupie obligacji lub innego instrumentu o oprocentowaniu</xs:documentation>
+         <xs:documentation xml:lang="sv">Inlöseninformation för en obligation eller annat ränteinstrument</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MaturityDateOfTheUnderlyingAsset" type="xs:date">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">77_Maturity_date_of_the_underlying_asset
+YYYY-MM-DD ISO 8601</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="RedemptionProfileOfTheUnderlyingAsset">
+            <xs:annotation>
+               <xs:appinfo>
+                  <altova:exampleValues>
+                     <altova:example value="Bullet"/>
+                     <altova:example value="Sinkable"/>
+                  </altova:exampleValues>
+               </xs:appinfo>
+            <xs:documentation xml:lang="en">78_Redemption_profile_of_the_underlying_asset
+"Bullet", "Sinkable", empty if non applicable</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Bullet"/>
+                  <xs:enumeration value="Sinkable"/>
+                  </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="RedemptionRateOfTheUnderlyingAsset" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">79_Redemption_rate_of_the_underlying_asset
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="RedemptionType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Redemption information of a bond or other interest rate instrument</xs:documentation>
+         <xs:documentation xml:lang="de">Rücknahme Information von ein Anleihe oder Sonstig Zins Satz instrument</xs:documentation>
+         <xs:documentation xml:lang="fr">Rachat information de un obligation ou autre intérêt taux instrument</xs:documentation>
+         <xs:documentation xml:lang="nl">Inkoop informatie van een obligatie van overig rente tarief instrument</xs:documentation>
+         <xs:documentation xml:lang="es">Reembolso informacion de un bono de otro interes tasa instrumento</xs:documentation>
+         <xs:documentation xml:lang="it">Informazioni sul rimborso di un'obbligazione o di un altro strumento di tasso di interesse</xs:documentation>
+         <xs:documentation xml:lang="cs">Informace o splacení dluhopisu nebo jiného úrokového nástroje</xs:documentation>
+         <xs:documentation xml:lang="hu">Egy kötvény vagy egyéb kamatozó instrumentum visszaváltási információi</xs:documentation>
+         <xs:documentation xml:lang="da">Indløsningsoplysninger for en obligation eller andet renteinstrument</xs:documentation>
+         <xs:documentation xml:lang="pl">Informacje o wykupie obligacji lub innego instrumentu o oprocentowaniu</xs:documentation>
+         <xs:documentation xml:lang="sv">Inlöseninformation för en obligation eller annat ränteinstrument</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MaturityDate" type="xs:date">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">39_Maturity_date
+YYYY-MM-DD ISO 8601</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="MaturityDateExpected" type="xs:date">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">143_Maturity_date_expected
+YYYY-MM-DD ISO 8601</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="RedemptionType">
+            <xs:annotation>
+               <xs:appinfo>
+                  <altova:exampleValues>
+                     <altova:example value="Bullet"/>
+                     <altova:example value="Sinkable"/>
+                  </altova:exampleValues>
+               </xs:appinfo>
+            <xs:documentation xml:lang="en">40_Redemption_type
+"Bullet", "Sinkable", "defaulted" empty if non applicable</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Bullet"/>
+                  <xs:enumeration value="Sinkable"/>
+                  <xs:enumeration value="defaulted"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="RedemptionRate" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">41_Redemption_rate
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PIK">
+            <xs:annotation>
+               <xs:appinfo source="@since 4.2.10"/>
+               <xs:documentation xml:lang="en">146_PIK
+0 - No PIK
+1 - No cash coupon. Existing PIK is included in the redemption rate (41) and described in the coupon data points (32-38). The period indicated for "38_Coupon_payment_frequency" is the period for PIK accrual.
+2 - Existing PIK is included in the redemption rate (41) but not described in the coupon fields (32-38).
+3 - Existing PIK is a regular payment and is included in coupon fields (32-38). No impact on the redemption rate (41).
+4 - Existing PIK is not described in the TPT</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:int">
+                  <xs:minInclusive value="1"/>
+                  <xs:maxInclusive value="2"/>
+                  <xs:enumeration value="0"/>
+                  <xs:enumeration value="1"/>
+                  <xs:enumeration value="2"/>
+                  <xs:enumeration value="3"/>
+                  <xs:enumeration value="4"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:complexType name="RedemptionTypeDerivatives">
       <xs:annotation>
          <xs:documentation xml:lang="en">Redemption information of a bond or other interest rate instrument</xs:documentation>
@@ -1417,6 +1785,375 @@ av nominellt belopp (A19) 100%=1,0</xs:documentation>
          <xs:enumeration value="52"/>
       </xs:restriction>
    </xs:simpleType>
+   <xs:simpleType name="SIIEntityCodeType_V8">
+      <xs:annotation>
+         <xs:appinfo source="@since 4.2.12"/>
+         <xs:documentation xml:lang="en">Entity identification code as used by TPT V8: alphanumeric, up to 20 characters. Depending on the accompanying code type this is an LEI, another external identifier or an internal code.</xs:documentation>
+         <xs:documentation xml:lang="de">Identifikationscode einer Einheit nach TPT V8: alphanumerisch, maximal 20 Zeichen. Je nach zugehoeriger Codeart ein LEI, ein anderer externer Identifikator oder ein interner Code.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="20"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="PortfolioIdentificationType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">CodificationSystem (restricted list for Securities) and Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="de">CodificationSystem (restricted Liste für Wertpapiere) und Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="fr">CodificationSystem (restricted liste pour Titres) et Code expressed dans CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="nl">CodificationSystem (restricted lijst voor Effecten) en Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="es">CodificationSystem (restricted lista para Valores) y Codigo expressed en CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="it">CodificationSystem (elenco ristretto per Titoli) e Codice espresso in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="cs">CodificationSystem (omezený seznam pro cenné papíry) a kód vyjádřený v CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="hu">CodificationSystem (értékpapírokra vonatkozó korlátozott lista) és a CodificationSystem szerint kifejezett kód</xs:documentation>
+         <xs:documentation xml:lang="da">CodificationSystem (begrænset liste for værdipapirer) og kode udtrykt i CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="pl">CodificationSystem (lista ograniczona dla papierów wartościowych) oraz Code wyrażony w CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="sv">CodificationSystem (begränsad lista för värdepapper) och Code uttryckt i CodificationSystem</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="TypeOfIdentificationCodeForTheFundShareOrPortfolio">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">2_Type_of_identification_code_for_the_fund_share_or_portfolio
+One of the options in the following closed list to be used:
+1 - ISO 6166 for ISIN code
+2 - CUSIP (The Committee on Uniform Securities Identification Procedures number assigned by the CUSIP Service Bureau for U.S. and Canadian companies)
+3 - SEDOL (Stock Exchange Daily Official List for the London Stock Exchange)
+4 – WKN (Wertpapier Kenn-Nummer, the alphanumeric German identification number)
+5 - Bloomberg Ticker (Bloomberg letters code that identify a company's securities)
+6 - BBGID (The Bloomberg Global ID)
+7 - Reuters RIC (Reuters instrument code)
+8 – FIGI (Financial Instrument Global Identifier)
+9 - Other code by members of the Association of National Numbering Agencies
+99 - Code attributed by the undertaking</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:short">
+                  <xs:minInclusive value="1"/>
+                  <xs:maxInclusive value="99"/>
+                  <xs:enumeration value="1"/>
+                  <xs:enumeration value="2"/>
+                  <xs:enumeration value="3"/>
+                  <xs:enumeration value="4"/>
+                  <xs:enumeration value="5"/>
+                  <xs:enumeration value="6"/>
+                  <xs:enumeration value="7"/>
+                  <xs:enumeration value="8"/>
+                  <xs:enumeration value="9"/>
+                  <xs:enumeration value="99"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="PortfolioIdentifyingData" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">1_Portfolio_identifying_data
+Use the following priority:
+ - ISO 6166 code of ISIN when available
+ - Other recognised codes (e.g.: CUSIP, Bloomberg Ticker, Reuters RIC)
+ - Code attributed by the undertaking, when the options above are not available. Code must be unique and kept consistent over time.</xs:documentation></xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="InstrumentIdentificationType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">CodificationSystem (restricted list for Securities) and Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="de">CodificationSystem (restricted Liste für Wertpapiere) und Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="fr">CodificationSystem (restricted liste pour Titres) et Code expressed dans CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="nl">CodificationSystem (restricted lijst voor Effecten) en Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="es">CodificationSystem (restricted lista para Valores) y Codigo expressed en CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="it">CodificationSystem (elenco ristretto per Titoli) e Codice espresso in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="cs">CodificationSystem (omezený seznam pro cenné papíry) a kód vyjádřený v CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="hu">CodificationSystem (értékpapírokra vonatkozó korlátozott lista) és a CodificationSystem szerint kifejezett kód</xs:documentation>
+         <xs:documentation xml:lang="da">CodificationSystem (begrænset liste for værdipapirer) og kode udtrykt i CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="pl">CodificationSystem (lista ograniczona dla papierów wartościowych) oraz Code wyrażony w CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="sv">CodificationSystem (begränsad lista för värdepapper) och Code uttryckt i CodificationSystem</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="TypeOfIdentificationCodeForTheInstrument">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">15_Type_of_identification_code_for_the_instrument
+One of the options in the following closed list to be used:
+1 - ISO 6166 for ISIN code
+2 - CUSIP (The Committee on Uniform Securities Identification Procedures number assigned by the CUSIP Service Bureau for U.S. and Canadian companies)
+3 - SEDOL (Stock Exchange Daily Official List for the London Stock Exchange)
+4 – WKN (Wertpapier Kenn-Nummer, the alphanumeric German identification number)
+5 - Bloomberg Ticker (Bloomberg letters code that identify a company's securities)
+6 - BBGID (The Bloomberg Global ID)
+7 - Reuters RIC (Reuters instrument code)
+8 – FIGI (Financial Instrument Global Identifier)
+9 - Other code by members of the Association of National Numbering Agencies
+99 - Code attributed by the undertaking</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:short">
+                  <xs:minInclusive value="1"/>
+                  <xs:maxInclusive value="99"/>
+                  <xs:enumeration value="1"/>
+                  <xs:enumeration value="2"/>
+                  <xs:enumeration value="3"/>
+                  <xs:enumeration value="4"/>
+                  <xs:enumeration value="5"/>
+                  <xs:enumeration value="6"/>
+                  <xs:enumeration value="7"/>
+                  <xs:enumeration value="8"/>
+                  <xs:enumeration value="9"/>
+                  <xs:enumeration value="99"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="IdentificationCodeOfTheInstrument" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">14_Identification_code_of_the_instrument
+Code must be unique and kept consistent over time.
+Example of unique code /idenifier for each leg:
+123456a and 123456b</xs:documentation></xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="UnderlyingInstrumentIdentificationType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">CodificationSystem (restricted list for Securities) and Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="de">CodificationSystem (restricted Liste für Wertpapiere) und Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="fr">CodificationSystem (restricted liste pour Titres) et Code expressed dans CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="nl">CodificationSystem (restricted lijst voor Effecten) en Code expressed in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="es">CodificationSystem (restricted lista para Valores) y Codigo expressed en CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="it">CodificationSystem (elenco ristretto per Titoli) e Codice espresso in CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="cs">CodificationSystem (omezený seznam pro cenné papíry) a kód vyjádřený v CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="hu">CodificationSystem (értékpapírokra vonatkozó korlátozott lista) és a CodificationSystem szerint kifejezett kód</xs:documentation>
+         <xs:documentation xml:lang="da">CodificationSystem (begrænset liste for værdipapirer) og kode udtrykt i CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="pl">CodificationSystem (lista ograniczona dla papierów wartościowych) oraz Code wyrażony w CodificationSystem</xs:documentation>
+         <xs:documentation xml:lang="sv">CodificationSystem (begränsad lista för värdepapper) och Code uttryckt i CodificationSystem</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="TypeOfIdentificationCodeForTheUnderlyingAsset">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">69_Type_of_identification_code_for_the_underlying_asset
+One of the options in the following closed list to be used:
+1 - ISO 6166 for ISIN code
+2 - CUSIP (The Committee on Uniform Securities Identification Procedures number assigned by the CUSIP Service Bureau for U.S. and Canadian companies)
+3 - SEDOL (Stock Exchange Daily Official List for the London Stock Exchange)
+4 – WKN (Wertpapier Kenn-Nummer, the alphanumeric German identification number)
+5 - Bloomberg Ticker (Bloomberg letters code that identify a company's securities)
+6 - BBGID (The Bloomberg Global ID)
+7 - Reuters RIC (Reuters instrument code)
+8 – FIGI (Financial Instrument Global Identifier)
+9 - Other code by members of the Association of National Numbering Agencies
+99 - Code attributed by the undertaking</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:short">
+                  <xs:minInclusive value="1"/>
+                  <xs:maxInclusive value="99"/>
+                  <xs:enumeration value="1"/>
+                  <xs:enumeration value="2"/>
+                  <xs:enumeration value="3"/>
+                  <xs:enumeration value="4"/>
+                  <xs:enumeration value="5"/>
+                  <xs:enumeration value="6"/>
+                  <xs:enumeration value="7"/>
+                  <xs:enumeration value="8"/>
+                  <xs:enumeration value="9"/>
+                  <xs:enumeration value="99"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="IdentificationCodeOfTheUnderlyingAsset" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">68_Identification_code_of_the_underlying_asset
+Depends on identification type</xs:documentation></xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FundIssuerType_V8">
+      <xs:annotation>
+         <xs:appinfo source="@since 4.2.12"/>
+         <xs:documentation xml:lang="en">Name and code of the issuer of the fund or share class (TPT V8). The separate code type datapoints A116 and A120 were removed in TPT V8.</xs:documentation>
+         <xs:documentation xml:lang="de">Name und Code des Emittenten des Fonds oder der Anteilklasse (TPT V8). Die separaten Datenpunkte zur Codeart (A116, A120) entfallen in TPT V8.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="FundIssuerName" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">117_Fund_issuer_name
+Alphanum</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="FundIssuerCode" type="SIIEntityCodeType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">115_Fund_issuer_code
+Alphanum</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FundIssuerGroupType_V8">
+      <xs:annotation>
+         <xs:appinfo source="@since 4.2.12"/>
+         <xs:documentation xml:lang="en">Name and code of the issuer of the fund or share class (TPT V8). The separate code type datapoints A116 and A120 were removed in TPT V8.</xs:documentation>
+         <xs:documentation xml:lang="de">Name und Code des Emittenten des Fonds oder der Anteilklasse (TPT V8). Die separaten Datenpunkte zur Codeart (A116, A120) entfallen in TPT V8.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="FundIssuerGroupName" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">121_Fund_issuer_group_name
+Name of Ultimate parent of issuer of Fund or Share Class</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="FundIssuerGroupCode" type="SIIEntityCodeType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">119_Fund_issuer_group_code
+Alphanum</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="InstrumentIssuerType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Name and codification of an Issuer</xs:documentation>
+         <xs:documentation xml:lang="de">Name und codification von ein Emittent</xs:documentation>
+         <xs:documentation xml:lang="fr">Nom et codification de un Émetteur</xs:documentation>
+         <xs:documentation xml:lang="nl">Naam en codification van een Emittent</xs:documentation>
+         <xs:documentation xml:lang="es">Nombre y codification de un Emisor</xs:documentation>
+         <xs:documentation xml:lang="it">Nome e codifica di un Emittente</xs:documentation>
+         <xs:documentation xml:lang="cs">Název a kodifikace emitenta</xs:documentation>
+         <xs:documentation xml:lang="hu">Egy kibocsátó neve és kódolása</xs:documentation>
+         <xs:documentation xml:lang="da">Navn og kodificering af en udsteder</xs:documentation>
+         <xs:documentation xml:lang="pl">Nazwa i kodyfikacja emitenta</xs:documentation>
+         <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="IssuerName" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">46_Issuer_name
+Alpha (max 255)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="IssuerIdentificationCode" type="SIIEntityCodeType_V8">
+            <xs:annotation>
+               <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">47_Issuer_identification_code
+Alphanumeric (20)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="TypeOfIdentificationCodeForIssuer">
+         	<xs:annotation>
+         	   <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">48_Type_of_identification_code_for_issuer
+1 - Legal Entity Identifier (LEI)
+2 - other external Identifier (for example European VAT number or countrycode +National regitration number" )
+9 - internal</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:int">
+                  <xs:enumeration value="1"/><xs:enumeration value="2"/><xs:enumeration value="9"/></xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="IssuerGroupType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Name and codification of an Issuer</xs:documentation>
+         <xs:documentation xml:lang="de">Name und codification von ein Emittent</xs:documentation>
+         <xs:documentation xml:lang="fr">Nom et codification de un Émetteur</xs:documentation>
+         <xs:documentation xml:lang="nl">Naam en codification van een Emittent</xs:documentation>
+         <xs:documentation xml:lang="es">Nombre y codification de un Emisor</xs:documentation>
+         <xs:documentation xml:lang="it">Nome e codifica di un Emittente</xs:documentation>
+         <xs:documentation xml:lang="cs">Název a kodifikace emitenta</xs:documentation>
+         <xs:documentation xml:lang="hu">Egy kibocsátó neve és kódolása</xs:documentation>
+         <xs:documentation xml:lang="da">Navn og kodificering af en udsteder</xs:documentation>
+         <xs:documentation xml:lang="pl">Nazwa i kodyfikacja emitenta</xs:documentation>
+         <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="NameOfTheGroupOfTheIssuer" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">49_Name_of_the_group_of_the_issuer
+Alpha (max 255)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="IdentificationOfTheGroup" type="SIIEntityCodeType_V8">
+            <xs:annotation>
+               <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">50_Identification_of_the_group
+Alphanumeric (20)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="TypeOfIdentificationCodeForIssuerGroup">
+         	<xs:annotation>
+         	   <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">51_Type_of_identification_code_for_issuer_group
+1 - Legal Entity Identifier (LEI)
+2 - other external Identifier (for example European VAT number or countrycode +National regitration number" )
+9 - internal</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:int">
+                  <xs:enumeration value="1"/><xs:enumeration value="2"/><xs:enumeration value="9"/></xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="UnderlyingInstrumentIssuerType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Name and codification of an Issuer</xs:documentation>
+         <xs:documentation xml:lang="de">Name und codification von ein Emittent</xs:documentation>
+         <xs:documentation xml:lang="fr">Nom et codification de un Émetteur</xs:documentation>
+         <xs:documentation xml:lang="nl">Naam en codification van een Emittent</xs:documentation>
+         <xs:documentation xml:lang="es">Nombre y codification de un Emisor</xs:documentation>
+         <xs:documentation xml:lang="it">Nome e codifica di un Emittente</xs:documentation>
+         <xs:documentation xml:lang="cs">Název a kodifikace emitenta</xs:documentation>
+         <xs:documentation xml:lang="hu">Egy kibocsátó neve és kódolása</xs:documentation>
+         <xs:documentation xml:lang="da">Navn og kodificering af en udsteder</xs:documentation>
+         <xs:documentation xml:lang="pl">Nazwa i kodyfikacja emitenta</xs:documentation>
+         <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="IssuerNameOfTheUnderlyingAsset" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">80_Issuer_name_of_the_underlying_asset
+Alpha (max 255)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="IssuerIdentificationCodeOfTheUnderlyingAsset" type="SIIEntityCodeType_V8">
+            <xs:annotation>
+               <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">81_Issuer_identification_code_of_the_underlying_asset
+Alphanumeric (20)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="TypeOfIssuerIdentificationCodeOfTheUnderlyingAsset">
+         	<xs:annotation>
+         	   <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">82_Type_of_issuer_identification_code_of_the_underlying_asset
+1 - Legal Entity Identifier (LEI)
+2 - other external Identifier (for example European VAT number or countrycode +National regitration number" )
+9 - internal</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:int">
+                  <xs:enumeration value="1"/><xs:enumeration value="2"/><xs:enumeration value="9"/></xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="UnderlyingIssuerGroupType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Name and codification of an Issuer</xs:documentation>
+         <xs:documentation xml:lang="de">Name und codification von ein Emittent</xs:documentation>
+         <xs:documentation xml:lang="fr">Nom et codification de un Émetteur</xs:documentation>
+         <xs:documentation xml:lang="nl">Naam en codification van een Emittent</xs:documentation>
+         <xs:documentation xml:lang="es">Nombre y codification de un Emisor</xs:documentation>
+         <xs:documentation xml:lang="it">Nome e codifica di un Emittente</xs:documentation>
+         <xs:documentation xml:lang="cs">Název a kodifikace emitenta</xs:documentation>
+         <xs:documentation xml:lang="hu">Egy kibocsátó neve és kódolása</xs:documentation>
+         <xs:documentation xml:lang="da">Navn og kodificering af en udsteder</xs:documentation>
+         <xs:documentation xml:lang="pl">Nazwa i kodyfikacja emitenta</xs:documentation>
+         <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="NameOfTheGroupOfTheIssuerOfTheUnderlyingAsset" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">83_Name_of_the_group_of_the_issuer_of_the_underlying_asset
+Alpha (max 255)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="IdentificationOfTheGroupOfTheUnderlyingAsset" type="SIIEntityCodeType_V8">
+            <xs:annotation>
+               <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">84_Identification_of_the_group_of_the_underlying_asset
+Depend on the nomenclature used</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="TypeOfTheGroupIdentificationCodeOfTheUnderlyingAsset">
+         	<xs:annotation>
+         	   <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">85_Type_of_the_group_identification_code_of_the_underlying_asset
+1 - Legal Entity Identifier (LEI)
+2 - other external Identifier (for example European VAT number or countrycode +National regitration number" )
+9 - internal</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:int">
+                  <xs:enumeration value="1"/><xs:enumeration value="2"/><xs:enumeration value="9"/></xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:complexType name="SIIIssuerType">
       <xs:annotation>
          <xs:documentation xml:lang="en">Name and codification of an Issuer</xs:documentation>
@@ -11199,6 +11936,1137 @@ tal med flytande decimal</xs:documentation>
          </xs:element>
       </xs:sequence>
    </xs:complexType>
+   <xs:complexType name="SIIPositionType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Solvency II position type V8 containing the asset-level data of the Tripartite Template (TPT) V8. Against V7 this type drops A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 and A128, opens the issuer identification to non-LEI codes, splits the securitisation category e into e1, e2 and e3, reduces NACE reporting to a single datapoint and adds A150 and A151.</xs:documentation>
+         <xs:documentation xml:lang="de">Solvency-II-Positionstyp V8 mit den Bestandsdaten des Tripartite Template (TPT) V8. Gegenueber V7 entfallen A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 und A128; die Emittentenidentifikation ist nicht mehr auf den LEI beschraenkt, die Verbriefungskategorie e wird in e1, e2 und e3 geteilt, die NACE-Meldung auf einen Datenpunkt reduziert, neu sind A150 und A151.</xs:documentation>
+         </xs:annotation>
+      <xs:sequence>
+         <xs:element name="CICCodeOfTheInstrument">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">12_CIC_code_of_the_instrument
+CIC code - Alphanumeric (4)</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="CICCodeType">
+                  <xs:pattern value="([A-Z]{2}([A-F]|[0-9]){1}[1-9]{1})"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="EconomicZoneOfTheQuotationPlace" type="EconomicAreaType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">13_Economic_zone_of_the_quotation_place
+Integer return corresponding to the following closed list:
+0 = non-listed
+1 = EEA
+2 = OECD exclude EEA
+3 = Rest of the World</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="InstrumentCode" type="InstrumentIdentificationType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">A15 14 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
+ISIN Preferred when available.</xs:documentation>
+               <xs:documentation xml:lang="de">A15 14 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.</xs:documentation>
+               <xs:documentation xml:lang="fr">A15 14 - Utilisez ISIN, CUSIP, BLOOMBERG etc. ou interne code. Voir CodificationSystem.
+ISIN Préféré si disponible.</xs:documentation>
+               <xs:documentation xml:lang="nl">A15 14 - Gebruik ISIN, CUSIP, BLOOMBERG etc. van intern code. Zie CodificationSystem.
+ISIN Voorkeur indien beschikbaar.</xs:documentation>
+               <xs:documentation xml:lang="es">A15 14 - Utilice ISIN, CUSIP, BLOOMBERG etc. de interno codigo. Ver CodificationSystem.
+ISIN Preferido si disponible.</xs:documentation>
+               <xs:documentation xml:lang="it">A15 14 - Utilizzare ISIN, CUSIP, BLOOMBERG ecc. o codice interno. Vedi Sistema di codifica.
+ISIN preferibile quando disponibile.</xs:documentation>
+               <xs:documentation xml:lang="cs">A15 14 - Použijte ISIN, CUSIP, BLOOMBERG atd.  nebo interní kód. Viz CodificationSystem.
+ISIN je preferován, je-li k dispozici.</xs:documentation>
+               <xs:documentation xml:lang="hu">A15 14 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal Kod. See CodificationSystem.
+ISIN Preferred when available.</xs:documentation>
+               <xs:documentation xml:lang="da">A15 14 - Anvend ISIN, CUSIP, BLOOMBERG osv. eller intern kode. Se CodificationSystem.
+ISIN foretrækkes, når tilgængelig.</xs:documentation>
+               <xs:documentation xml:lang="pl">A15 14 - Użyj ISIN, CUSIP, BLOOMBERG itp. lub kodu wewnętrznego. Zobacz CodificationSystem.
+ISIN preferowany, jeśli jest dostępny.</xs:documentation>
+               <xs:documentation xml:lang="sv">A15 14 - Använd ISIN, CUSIP, BLOOMBERG etc. eller intern kod. Se CodificationSystem.
+ISIN föredras när det är tillgängligt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="GroupingCodeForMultipleLegInstruments">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">16_Grouping_code_for_multiple_leg_instruments
+Use EIOPA definition (QRT 0801)
+For Futures &amp; Options: number of underlying assets in the+D27 co+E31ontract size defined as a function of the number of shares underlying the contract. For futures on bonds, it is the bond nominal amount underlying the contract.</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="255"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="InstrumentName">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">17_Instrument_name
+Alphanum (max 255)</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="255"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="Valuation">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Valuation characteristics and 
+Position market value(s).</xs:documentation>
+               <xs:documentation xml:lang="de">Bewertungsmerkmale und 
+Marktwert(e) der Position.</xs:documentation>
+               <xs:documentation xml:lang="fr">Évaluation characteristics et 
+Position valeur de marché(s).</xs:documentation>
+               <xs:documentation xml:lang="nl">Waardering characteristics en 
+Positie marktwaarde(s).</xs:documentation>
+               <xs:documentation xml:lang="es">Valoracion caracteristicas y 
+Posicion valor de mercado(s).</xs:documentation>
+               <xs:documentation xml:lang="it">Caratteristiche di valutazione e 
+Posizionare il/i valore/i di mercato.</xs:documentation>
+               <xs:documentation xml:lang="cs">Charakteristiky ocenění a 
+tržní hodnota (hodnoty) pozice.</xs:documentation>
+               <xs:documentation xml:lang="hu">Értékelési jellemzők és 
+pozíció piaci érték(ek).</xs:documentation>
+               <xs:documentation xml:lang="da">Værdiansættelseskarakteristika og 
+positionens markedsværdi(er).</xs:documentation>
+               <xs:documentation xml:lang="pl">Charakterystyka wyceny oraz 
+wartość(-ci) rynkowa pozycji.</xs:documentation>
+               <xs:documentation xml:lang="sv">Värderingsegenskaper och 
+marknadsvärde(n) för position.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="Quantity" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">18_Quantity
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="NominalAmount" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">19_Nominal_amount
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="ContractSizeForDerivatives" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">20_Contract_size_for_derivatives
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="QuotationCurrency" type="ISOCurrencyCodeType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">21_Quotation_currency_(A)
+Code ISO 4217
+CNH : 2 Chinese yuan (when traded offshore) - Hong Kong
+CNT: Chinese yuan (when traded offshore) -Taiwan
+GGP – Guernsey pound - Guernsey
+IMP: Isle of Man pound also Manx pound -Isle of Man
+JEP: Jersey pound - Jersey
+KID: Kiribati dollar -Kiribati
+NIS – New Israeli Shekel - Israel
+PRB – Transnistrian ruble - Transnistria (The code conflicts with ISO-4217 because PR stands for Puerto Rico. X should have been used for the first letter.)
+TVD – Tuvalu dollar- Tuvalu</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="MarketValuationInQuotationCurrency" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">22_Market_valuation_in_quotation_currency_(A)
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="CleanMarketValuationInQuotationCurrency" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">23_Clean_market_valuation_in_quotation_currency_(A)
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="MarketValuationInPortfolioCurrency" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">24_Market_valuation_in_portfolio_currency_(B)
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="CleanMarketValuationInPortfolioCurrency" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">25_Clean_market_valuation_in_portfolio_currency_(B)
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="ValuationWeight" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">26_Valuation_weight
+number with floating decimal: 1 = 100%</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="MarketExposureAmountInQuotationCurrency" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">27_Market_exposure_amount_in_quotation_currency_(A)
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="MarketExposureAmountInPortfolioCurrency" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">28_Market_exposure_amount_in_portfolio_currency_(B)
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="MarketExposureInWeight" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">30_Market_exposure_in_weight
+number with floating decimal: 1 = 100%</xs:documentation></xs:annotation>
+                  </xs:element>
+                  </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element minOccurs="0" name="InterestRateInstrumentCharacteristics">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Detailed characteristics for interest rate instruments.</xs:documentation>
+               <xs:documentation xml:lang="de">Detaillierte Merkmale für Zinsinstrumente.</xs:documentation>
+               <xs:documentation xml:lang="fr">Detailed characteristics pour intérêt taux instruments.</xs:documentation>
+               <xs:documentation xml:lang="nl">Detailed characteristics voor rente tarief instruments.</xs:documentation>
+               <xs:documentation xml:lang="es">Detailed caracteristicas para interes tasa instrumentos.</xs:documentation>
+               <xs:documentation xml:lang="it">Caratteristiche dettagliate degli strumenti di tasso di interesse.</xs:documentation>
+               <xs:documentation xml:lang="cs">Podrobné charakteristiky úrokových nástrojů.</xs:documentation>
+               <xs:documentation xml:lang="hu">Kamatozó instrumentumok részletes jellemzői.</xs:documentation>
+               <xs:documentation xml:lang="da">Detaljerede karakteristika for renteinstrumenter.</xs:documentation>
+               <xs:documentation xml:lang="pl">Szczegółowa charakterystyka instrumentów o stałym dochodzie (instrumentów stóp procentowych).</xs:documentation>
+               <xs:documentation xml:lang="sv">Detaljerade egenskaper för ränteinstrument.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:sequence minOccurs="0">
+                     <xs:element name="InterestRateType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">32_Interest_rate_type
+"Fixed" or "Floating" or "Variable" or "Inflation_linked"</xs:documentation></xs:annotation>
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:enumeration value="Fixed"/>
+                              <xs:enumeration value="Variable"/>
+                              <xs:enumeration value="Floating"/>
+                              <xs:enumeration value="Inflation_linked"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:element>
+                     <xs:element name="CouponRate" type="PercentageType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">33_Coupon_rate
+number with floating decimal</xs:documentation></xs:annotation>
+                     </xs:element>
+                     <xs:element minOccurs="0" name="VariableRate">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">For Floating/Variable rate bond.</xs:documentation>
+                           <xs:documentation xml:lang="de">Für variabel verzinsliche Anleihen.</xs:documentation>
+                           <xs:documentation xml:lang="fr">For Floating/Variable taux obligation.</xs:documentation>
+                           <xs:documentation xml:lang="nl">For Floating/Variable tarief obligatie.</xs:documentation>
+                           <xs:documentation xml:lang="es">For Floating/Variable tasa bono.</xs:documentation>
+                           <xs:documentation xml:lang="it">Per obbligazioni a tasso variabile/variabile.</xs:documentation>
+                           <xs:documentation xml:lang="cs">Pro dluhopis s pohyblivou/variabilní sazbou (Floating/Variable).</xs:documentation>
+                           <xs:documentation xml:lang="hu">Floating/Variable árfolyam Kötvényhez.</xs:documentation>
+                           <xs:documentation xml:lang="da">For Floating/Variable rate-obligation.</xs:documentation>
+                           <xs:documentation xml:lang="pl">Dla obligacji o stopie Floating/Variable.</xs:documentation>
+                           <xs:documentation xml:lang="sv">För Floating/Variable-ränteobligation.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="InterestRateReferenceIdentification" type="xs:string">
+                                 <xs:annotation>
+                                    <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">34_Interest_rate_reference_identification
+Example : EUR006M</xs:documentation></xs:annotation>
+                              </xs:element>
+                              <xs:element name="InterestRateMargin" type="PercentageType">
+                                 <xs:annotation>
+                                    <xs:documentation xml:lang="en">37_Interest_rate_margin
+number with floating decimal</xs:documentation></xs:annotation>
+                              </xs:element>
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="CouponPaymentFrequency" type="SIICouponFrequencyType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">38_Coupon_payment_frequency
+Frequency ("0" = other than /"1"= Annual / "2"= biannual / "4"=quarterly / "12"= monthly / "52" = weekly)</xs:documentation></xs:annotation>
+                     </xs:element>
+                  </xs:sequence>
+                  <xs:element minOccurs="0" name="EffectiveDateOfInstrument" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">63_Effective_date_of_instrument
+YYYY-MM-DD ISO 8601</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="Redemption" type="RedemptionType_V8">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">A39 40 41 - Redemption details</xs:documentation>
+                        <xs:documentation xml:lang="de">A39 40 41 - Rücknahmedetails</xs:documentation>
+                        <xs:documentation xml:lang="fr">A39 40 41 - Rachat details</xs:documentation>
+                        <xs:documentation xml:lang="nl">A39 40 41 - Inkoop details</xs:documentation>
+                        <xs:documentation xml:lang="es">A39 40 41 - Reembolso detalles</xs:documentation>
+                        <xs:documentation xml:lang="it">A39 40 41 - Dettagli del riscatto</xs:documentation>
+                        <xs:documentation xml:lang="cs">A39 40 41 - Údaje o splacení</xs:documentation>
+                        <xs:documentation xml:lang="hu">A39 40 41 - Visszaváltási részletek</xs:documentation>
+                        <xs:documentation xml:lang="da">A39 40 41 - Redemption-detaljer</xs:documentation>
+                        <xs:documentation xml:lang="pl">A39 40 41 - Szczegóły wykupu</xs:documentation>
+                        <xs:documentation xml:lang="sv">A39 40 41 - Inlösendetaljer</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="EmbeddedOption">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">To be used only for a 
+callable / putable bond.
+The embedded option is described only for the first option date to come.</xs:documentation>
+                        <xs:documentation xml:lang="de">Nur zu verwenden für ein 
+callable / putable Anleihe.
+The embedded option ist described only für first option Datum zu come.</xs:documentation>
+                        <xs:documentation xml:lang="fr">À utiliser uniquement pour un 
+callable / putable obligation.
+The embedded option est described only pour first option date à come.</xs:documentation>
+                        <xs:documentation xml:lang="nl">Alleen te gebruiken voor een 
+callable / putable obligatie.
+De ingebedde optie wordt uitsluitend beschreven voor de eerstvolgende optiedatum.</xs:documentation>
+                        <xs:documentation xml:lang="es">Solo para usar para un 
+callable / putable bono.
+The embedded option es described only para first option fecha a come.</xs:documentation>
+                        <xs:documentation xml:lang="it">Da utilizzare solo per a 
+obbligazione callable/putable.
+L'opzione incorporata è descritta solo per la prima data di opzione a venire.</xs:documentation>
+                        <xs:documentation xml:lang="cs">Použije se pouze pro 
+callable / putable dluhopis.
+Vložená opce (embedded option) je popsána pouze pro nejbližší nadcházející opční datum.</xs:documentation>
+                        <xs:documentation xml:lang="hu">Csak 
+visszahívható / visszaadható (callable / putable) kötvényhez használandó.
+A beágyazott opció csak az első, soron következő opciós dátumra van leírva.</xs:documentation>
+                        <xs:documentation xml:lang="da">Anvendes kun til en 
+callable / putable obligation.
+Den indlejrede option beskrives kun for den første kommende optionsdato.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Do stosowania wyłącznie dla obligacji z opcją wcześniejszego wykupu (callable) / opcją odsprzedaży (putable).
+Wbudowana opcja jest opisana tylko dla pierwszej nadchodzącej daty opcji.</xs:documentation>
+                        <xs:documentation xml:lang="sv">Ska endast användas för en 
+callable / putable obligation.
+Den inbäddade optionen beskrivs endast för det första kommande optionsdatumet.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="CallablePutable">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">42_Callable_putable
+Alpha(3)( "Cal" = Call / "Put" = Put / "Cap" = Cap / "Flr" = Floor)</xs:documentation></xs:annotation>
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Cal"/>
+                                    <xs:enumeration value="Put"/>
+                                    <xs:enumeration value="Cap"/>
+                                    <xs:enumeration value="Flr"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
+                           </xs:element>
+                           <xs:element name="CallPutDate" type="xs:date">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">43_Call_put_date
+YYYY-MM-DD ISO 8601</xs:documentation></xs:annotation>
+                           </xs:element>
+                           <xs:element name="StrikePriceForEmbeddedCallPutOptions" type="xs:decimal">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">45_Strike_price_for_embedded_(call_put)_options
+number with floating decimal</xs:documentation></xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="ValuationYieldCurve">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Specific data in case no yield curve of reference is available (e.g. for developing countries or BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="de">Spezifisch Daten in case kein yield curve von Referenz ist verfügbar (e.g. für developing countries oder BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="fr">Spécifique données dans case aucun yield curve de référence est disponible (e.g. pour developing countries ou BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="nl">Specifieke gegevens voor het geval er geen referentierentecurve beschikbaar is (bijv. voor ontwikkelingslanden of BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="es">Datos específicos en caso de que no haya curva de rendimiento de referencia disponible (ej. para países en desarrollo como BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="it">Dati specifici nel caso in cui non sia disponibile una curva dei rendimenti di riferimento (ad esempio per i paesi in via di sviluppo o BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="cs">Specifická data pro případ, kdy není k dispozici žádná referenční výnosová křivka (např. pro rozvojové země nebo BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="hu">Specifikus adatok arra az esetre, ha nem áll rendelkezésre referencia-hozamgörbe (pl. fejlődő országok vagy BRICS esetén)</xs:documentation>
+                        <xs:documentation xml:lang="da">Specifikke data i tilfælde af, at ingen referencerentekurve er tilgængelig (f.eks. for udviklingslande eller BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="pl">Specyficzne dane w przypadku braku referencyjnej krzywej dochodowości (np. dla krajów rozwijających się lub BRICS)</xs:documentation>
+                        <xs:documentation xml:lang="sv">Specifika data om ingen referensavkastningskurva finns tillgänglig (t.ex. för utvecklingsländer eller BRICS)</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="ValuationYield" type="xs:decimal">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">129_Valuation_yield
+number with floating decimal</xs:documentation></xs:annotation>
+                           </xs:element>
+                           <xs:element name="ValuationZSpread" type="xs:decimal">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">130_Valuation_z_spread
+number with floating decimal</xs:documentation></xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element minOccurs="0" name="CreditRiskData">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">A46 to A53 + A55 + A57 + A59 + A148 - Useless for cash positions, mandatory otherwise. Refers to the counterparty for OTC derivatives. Corresponds to the TPT block "Issuer data". TPT V8 removed A54; the economic sector is reported once under A148 in the NACE version in force.</xs:documentation>
+               <xs:documentation xml:lang="de">A46 bis A53 + A55 + A57 + A59 + A148 - Fuer Cash-Positionen nicht relevant, sonst verpflichtend. Bei OTC-Derivaten bezieht sich der Block auf die Gegenpartei. Entspricht dem TPT-Block "Issuer data". TPT V8 streicht A54; der Wirtschaftssektor wird einmalig unter A148 in der geltenden NACE-Fassung gemeldet.</xs:documentation>
+               </xs:annotation>
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="CreditRiskDataType_V8">
+                     <xs:sequence>
+                        <xs:element minOccurs="0" name="EconomicSectorNACE" type="NACECodeType">
+                           <xs:annotation>
+                              <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">148_Economic_sector_NACE
+Latest version of NACE codification in force</xs:documentation></xs:annotation>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="CoveredNotCovered">
+                           <xs:annotation>
+                              <xs:documentation xml:lang="en">55_Covered_not_covered
+Alpha(2) ("C" = Covered / "NC" = Non Covered)</xs:documentation></xs:annotation>
+                           <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                 <xs:enumeration value="C"/>
+                                 <xs:enumeration value="NC"/>
+                              </xs:restriction>
+                           </xs:simpleType>
+                        </xs:element>
+                     </xs:sequence>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="Securitisation" minOccurs="0">
+                  	<xs:annotation>
+                  	   <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">56_Securitisation
+alpha (1)
+"a" refers to the fact that the asset managers have not assessed the eligibility of a treatment of the securitisation positions under Solvency II
+"b" refers to security positions eligible for art 178 (3) and art 178 (5) (Senior STS)
+"c" refers to security positions eligible for art 178 (4) and art 178 (6) (Junior STS)
+"d" refers to resecuritisation positions as per art 178(7) (re-securitisation)
+"e1" refers to securitisation positions as per Art 178 (8). (senior non STS)
+"e2" refers to securitisation positions as per Art 178 (8a). (junior non STS)
+"e3" refers to securitisation positions as per Art 178 (9 ). (others)
+"f" refers to security positions eligible for art 178a (1) &amp; (2) (transitional regime for type 1 securitisations without new underlying exposure since the 01/01/2019)
+"g" refers to security positions eligible for art 178a (3) (transitional regime for some type 1 securitisations on residential mortgages)
+"h"refers to security positions eligible for art 178a (4). (transitional regime for some type 1 securitisations on residential mortgages)
+"i" refers to security positions eligible for art 180 (10) and art 180 (10a). (Securitisation secured by the EIB or the EIF)
+"j" refers to security positions that have been analysed and shall not be considered as "securitisation " under Solvency 2 (No securitisation).</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                           <xs:enumeration value="a"/><xs:enumeration value="b"/><xs:enumeration value="c"/><xs:enumeration value="d"/><xs:enumeration value="e1"/><xs:enumeration value="e2"/><xs:enumeration value="e3"/><xs:enumeration value="f"/><xs:enumeration value="g"/><xs:enumeration value="h"/><xs:enumeration value="i"/><xs:enumeration value="j"/></xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+         <xs:element minOccurs="0" name="SubordinatedDebt" type="YesNoL1Type">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">58_Subordinated_debt
+Alpha (1) ("Y" = yes "N"= no)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="HedgingRolling">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">65_Hedging_rolling
+Alpha (3) ("Y"; "N"; "EPM" )</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Y"/>
+                  <xs:enumeration value="N"/>
+                  <xs:enumeration value="EPM"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="DerivativeOrConvertible">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">For Futures or Convertible bonds:
+- Characteristics of the option (implicit or explicit).
+- Description of underlying instrument.</xs:documentation>
+               <xs:documentation xml:lang="de">Für Futures oder Wandelanleihen:
+- Merkmale der Option (implizit oder explizit).
+- Beschreibung des Underlying-Instruments.</xs:documentation>
+               <xs:documentation xml:lang="fr">For Futures ou Convertible bonds:
+- Characteristics de option (implicit ou explicit).
+- Description de sous-jacent instrument.</xs:documentation>
+               <xs:documentation xml:lang="nl">For Futures van Convertible bonds:
+- Characteristics van option (implicit van explicit).
+- Beschrijving van onderliggende waarde instrument.</xs:documentation>
+               <xs:documentation xml:lang="es">For Futures de Convertible bonos:
+- Characteristics de option (implicit de explicit).
+- Descripcion de subyacente instrumento.</xs:documentation>
+               <xs:documentation xml:lang="it">Per i futures o le obbligazioni convertibili:
+- Caratteristiche dell'opzione (implicita o esplicita).
+- Descrizione dello strumento sottostante.</xs:documentation>
+               <xs:documentation xml:lang="cs">Pro futures nebo konvertibilní dluhopisy:
+- Charakteristiky opce (implicitní nebo explicitní).
+- Popis podkladového nástroje.</xs:documentation>
+               <xs:documentation xml:lang="hu">Futures vagy átváltoztatható kötvények esetében:
+- Az opció jellemzői (implicit vagy explicit).
+- A mögöttes instrumentum leírása.</xs:documentation>
+               <xs:documentation xml:lang="da">For Futures eller konvertible obligationer:
+- Karakteristika ved optionen (implicit eller eksplicit).
+- Beskrivelse af underliggende instrument.</xs:documentation>
+               <xs:documentation xml:lang="pl">Dla Futures lub obligacji zamiennych:
+- Charakterystyka opcji (implicytna lub eksplicytna).
+- Opis instrumentu bazowego.</xs:documentation>
+               <xs:documentation xml:lang="sv">För terminer eller konvertibla obligationer:
+- Optionens egenskaper (implicit eller explicit).
+- Beskrivning av det underliggande instrumentet.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="OptionCharacteristics">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">For an Option, description of its characteristics.
+For a convertible bond, description of optional conversion.
+Useless for single futures contract.</xs:documentation>
+                        <xs:documentation xml:lang="de">Für eine Option, Beschreibung ihrer Eigenschaften.
+For ein convertible Anleihe, Beschreibung von optional conversion.
+Useless für einzeln futures contract.</xs:documentation>
+                        <xs:documentation xml:lang="fr">For un Option, description de its characteristincs.
+For un convertible obligation, description de optionnel conversion.
+Useless pour unique futures contract.</xs:documentation>
+                        <xs:documentation xml:lang="nl">For een Option, beschrijving van its characteristincs.
+For een convertible obligatie, beschrijving van optioneel conversion.
+Useless voor enkel futures contract.</xs:documentation>
+                        <xs:documentation xml:lang="es">For un Option, descripcion de its characteristincs.
+For un convertible bono, descripcion de opcional conversion.
+Useless para enkel futures contract.</xs:documentation>
+                        <xs:documentation xml:lang="it">Per un'Opzione, descrizione delle sue caratteristiche.
+Per le obbligazioni convertibili, descrizione della conversione facoltativa.
+Inutile per un singolo contratto futures.</xs:documentation>
+                        <xs:documentation xml:lang="cs">Pro opci popis jejích charakteristik.
+Pro konvertibilní dluhopis popis opční konverze.
+Nepoužívá se pro samostatný futures kontrakt.</xs:documentation>
+                        <xs:documentation xml:lang="hu">Opció esetén annak jellemzőinek leírása.
+Átváltoztatható kötvény esetén az opcionális átváltás leírása.
+Egyetlen futures-szerződés esetén nem releváns.</xs:documentation>
+                        <xs:documentation xml:lang="da">For en option, beskrivelse af dens karakteristika.
+For en konvertibel obligation, beskrivelse af valgfri konvertering.
+Uden betydning for enkelt futures-kontrakt.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Dla opcji - opis jej charakterystyki.
+Dla obligacji zamiennej - opis opcjonalnej zamiany.
+Bezużyteczne dla pojedynczego kontraktu futures.</xs:documentation>
+                        <xs:documentation xml:lang="sv">För en option, beskrivning av dess egenskaper.
+För en konvertibel obligation, beskrivning av valfri konvertering.
+Överflödigt för enstaka terminskontrakt.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="CallPutCapFloor">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">60_Call_Put_Cap_Floor
+Alpha(3)( "Cal" = Call / "Put" = Put / "Cap" = Cap / "Flr" = Floor)</xs:documentation></xs:annotation>
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:string">
+                                    <xs:length value="3"/>
+                                    <xs:enumeration value="Cal"/>
+                                    <xs:enumeration value="Put"/>
+                                    <xs:enumeration value="Cap"/>
+                                    <xs:enumeration value="Flr"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
+                           </xs:element>
+                           <xs:element name="StrikePrice" type="xs:decimal">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">61_Strike_price
+number with floating decimal</xs:documentation></xs:annotation>
+                           </xs:element>
+                           <xs:element name="ConversionFactor" type="xs:decimal">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">62_Conversion_factor
+number with floating decimal</xs:documentation></xs:annotation>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="ExerciseType">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">64_Exercise_type
+Alpha (2)("AM", "EU", "AS", "BE")</xs:documentation></xs:annotation>
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:string">
+                                    <xs:minLength value="2"/>
+                                    <xs:maxLength value="2"/>
+                                    <xs:enumeration value="AM"/>
+                                    <xs:enumeration value="EU"/>
+                                    <xs:enumeration value="AS"/>
+                                    <xs:enumeration value="BE"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
+                           </xs:element>
+                           </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="UnderlyingInstrument">
+                  	<xs:annotation>
+                  	   <xs:documentation xml:lang="en">Underlying instrument data for derivatives (CIC, code, name)</xs:documentation>
+                  	   <xs:documentation xml:lang="de">Daten des Basiswertinstruments für Derivate (CIC, Code, Name)</xs:documentation>
+                  	   <xs:documentation xml:lang="fr">Données de l'instrument sous-jacent pour les dérivés (CIC, code, nom)</xs:documentation>
+                  	   <xs:documentation xml:lang="nl">Gegevens van het onderliggende instrument voor derivaten (CIC, code, naam)</xs:documentation>
+                  	   <xs:documentation xml:lang="es">Datos del instrumento subyacente para derivados (CIC, código, nombre)</xs:documentation>
+                  	   <xs:documentation xml:lang="it">Dati dello strumento sottostante per i derivati (CIC, codice, nome)</xs:documentation>
+                  	   <xs:documentation xml:lang="hu">Alapul szolgáló instrumentum adatai derivatívákhoz (CIC, kód, név)</xs:documentation>
+                  	   <xs:documentation xml:lang="cs">Údaje o podkladovém nástroji pro deriváty (CIC, kód, název)</xs:documentation>
+                  	   <xs:documentation xml:lang="da">Data om underliggende instrument for derivater (CIC, kode, navn)</xs:documentation>
+                  	   <xs:documentation xml:lang="pl">Dane instrumentu bazowego dla instrumentów pochodnych (CIC, kod, nazwa)</xs:documentation>
+                  	   <xs:documentation xml:lang="sv">Data om underliggande instrument för derivat (CIC, kod, namn)</xs:documentation>
+                  	</xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="CICOfTheUnderlyingAsset" type="CICCodeType">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">67_CIC_of_the_underlying_asset
+Alphanumeric (4)</xs:documentation></xs:annotation>
+                           </xs:element>
+                           <xs:element name="InstrumentCode" type="UnderlyingInstrumentIdentificationType_V8">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">A69 68 - Use ISIN, CUSIP,  or OtherSecurityCodes/Name(of codification system) for BLOOMBERG, TELEKURS or Internal code</xs:documentation>
+                                 <xs:documentation xml:lang="de">A69 68 - Verwenden Sie ISIN, CUSIP, oder OtherSecurityCodes/Name(von codification system) für BLOOMBERG, TELEKURS oder Intern Code</xs:documentation>
+                                 <xs:documentation xml:lang="fr">A69 68 - Utilisez ISIN, CUSIP, ou OtherSecurityCodes/Nom(de codification system) pour BLOOMBERG, TELEKURS ou Interne code</xs:documentation>
+                                 <xs:documentation xml:lang="nl">A69 68 - Gebruik ISIN, CUSIP, van OtherSecurityCodes/Naam(van codification system) voor BLOOMBERG, TELEKURS van Intern code</xs:documentation>
+                                 <xs:documentation xml:lang="es">A69 68 - Utilice ISIN, CUSIP, de OtherSecurityCodes/Nombre(de codification system) para BLOOMBERG, TELEKURS de Interno codigo</xs:documentation>
+                                 <xs:documentation xml:lang="it">A69 68 - Utilizza ISIN, CUSIP o Altri Codici/Nome (del sistema di codifica) per BLOOMBERG, TELEKURS o Codice Interno</xs:documentation>
+                                 <xs:documentation xml:lang="cs">A69 68 - Použijte ISIN, CUSIP,  nebo OtherSecurityCodes/Name(kodifikačního systému) pro BLOOMBERG, TELEKURS nebo interní kód</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A69 68 - Használja az ISIN-t, CUSIP-ot vagy az OtherSecurityCodes/Name-et (a kódolási rendszerét) a BLOOMBERG, TELEKURS vagy belső kód esetében</xs:documentation>
+                                 <xs:documentation xml:lang="da">A69 68 - Anvend ISIN, CUSIP, eller OtherSecurityCodes/Name (på kodificeringssystem) for BLOOMBERG, TELEKURS eller intern kode</xs:documentation>
+                                 <xs:documentation xml:lang="pl">A69 68 - Użyj ISIN, CUSIP lub OtherSecurityCodes/Name(systemu kodyfikacji) dla BLOOMBERG, TELEKURS lub kodu wewnętrznego</xs:documentation>
+                                 <xs:documentation xml:lang="sv">A69 68 - Använd ISIN, CUSIP, eller OtherSecurityCodes/Name (för kodifieringssystem) för BLOOMBERG, TELEKURS eller intern kod</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="NameOfTheUnderlyingAsset" type="xs:string">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">70_Name_of_the_underlying_asset
+Alpha (max 255)</xs:documentation></xs:annotation>
+                           </xs:element>
+                           <xs:element name="Valuation">
+                           	<xs:annotation>
+                           	   <xs:documentation xml:lang="en">Valuation data for the underlying instrument (currency, unit price, market value)</xs:documentation>
+                           	   <xs:documentation xml:lang="de">Bewertungsdaten für das Basiswertinstrument (Währung, Stückpreis, Marktwert)</xs:documentation>
+                           	   <xs:documentation xml:lang="fr">Données de valorisation de l'instrument sous-jacent (devise, prix unitaire, valeur de marché)</xs:documentation>
+                           	   <xs:documentation xml:lang="nl">Waarderingsgegevens van het onderliggende instrument (valuta, stukprijs, marktwaarde)</xs:documentation>
+                           	   <xs:documentation xml:lang="es">Datos de valoración del instrumento subyacente (divisa, precio unitario, valor de mercado)</xs:documentation>
+                           	   <xs:documentation xml:lang="it">Dati di valutazione dello strumento sottostante (valuta, prezzo unitario, valore di mercato)</xs:documentation>
+                           	   <xs:documentation xml:lang="hu">Az alapul szolgáló instrumentum értékelési adatai (pénznem, egységár, piaci érték)</xs:documentation>
+                           	   <xs:documentation xml:lang="cs">Oceňovací údaje podkladového nástroje (měna, jednotková cena, tržní hodnota)</xs:documentation>
+                           	   <xs:documentation xml:lang="da">Værdiansættelsesdata for det underliggende instrument (valuta, enhedspris, markedsværdi)</xs:documentation>
+                           	   <xs:documentation xml:lang="pl">Dane wyceny instrumentu bazowego (waluta, cena jednostkowa, wartość rynkowa)</xs:documentation>
+                           	   <xs:documentation xml:lang="sv">Värderingsdata för det underliggande instrumentet (valuta, andelspris, marknadsvärde)</xs:documentation>
+                           	</xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="QuotationCurrencyOfTheUnderlyingAsset" type="ISOCurrencyCodeType">
+                                       <xs:annotation>
+                                          <xs:documentation xml:lang="en">71_Quotation_currency_of_the_underlying_asset_(C)
+Code ISO 4217</xs:documentation></xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="LastValuationPriceOfTheUnderlyingAsset" type="xs:decimal">
+                                       <xs:annotation>
+                                          <xs:documentation xml:lang="en">72_Last_valuation_price_of_the_underlying_asset
+number with floating decimal</xs:documentation></xs:annotation>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="CountryOfQuotationOfTheUnderlyingAsset" type="ISOCountryCodeType">
+                                       <xs:annotation>
+                                          <xs:documentation xml:lang="en">73_Country_of_quotation_of_the_underlying_asset
+Code ISO 3166-1 alpha 2</xs:documentation></xs:annotation>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="EconomicAreaOfQuotationOfTheUnderlyingAsset" type="EconomicAreaType">
+                                       <xs:annotation>
+                                          <xs:documentation xml:lang="en">74_Economic_area_of_quotation_of_the_underlying_asset
+Integer return corresponding to the following closed list:
+0 = non-listed
+1 = EEA
+2 = OECD exclude EEA
+3 = Rest of the World</xs:documentation></xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="Coupon">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">If underlying instrument is an interest rate instrument.</xs:documentation>
+                                 <xs:documentation xml:lang="de">Wenn das Basiswertinstrument ein Zinsinstrument ist.</xs:documentation>
+                                 <xs:documentation xml:lang="fr">If sous-jacent instrument est un intérêt taux instrument.</xs:documentation>
+                                 <xs:documentation xml:lang="nl">Indien het onderliggende instrument een rente-instrument is.</xs:documentation>
+                                 <xs:documentation xml:lang="es">If subyacente instrumento es un interes tasa instrumento.</xs:documentation>
+                                 <xs:documentation xml:lang="it">Se lo strumento sottostante è uno strumento su tassi di interesse.</xs:documentation>
+                                 <xs:documentation xml:lang="cs">Pokud je podkladovým nástrojem úrokový nástroj.</xs:documentation>
+                                 <xs:documentation xml:lang="hu">Ha a mögöttes instrumentum egy kamatláb-instrumentum.</xs:documentation>
+                                 <xs:documentation xml:lang="da">Hvis det underliggende instrument er et renteinstrument.</xs:documentation>
+                                 <xs:documentation xml:lang="pl">Jeśli instrument bazowy jest instrumentem stopy procentowej.</xs:documentation>
+                                 <xs:documentation xml:lang="sv">Om det underliggande instrumentet är ett ränteinstrument.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="CouponRateOfTheUnderlyingAsset" type="PercentageType">
+                                       <xs:annotation>
+                                          <xs:documentation xml:lang="en">75_Coupon_rate_of_the_underlying_asset
+number with floating decimal</xs:documentation></xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="CouponPaymentFrequencyOfTheUnderlyingAsset" type="SIICouponFrequencyType">
+                                       <xs:annotation>
+                                          <xs:documentation xml:lang="en">76_Coupon_payment_frequency_of_the_underlying_asset
+Frequency ("0" = other than /"1"= Annual / "2"= biannual / "4"=quarterly / "12"= monthly / "52" = weekly)</xs:documentation></xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="Redemption" type="UnderlyingRedemptionType_V8">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">A77 78 79 - Redemption details.
+If underlying instrument is an interest rate instrument.</xs:documentation>
+                                 <xs:documentation xml:lang="de">A77 78 79 - Rücknahmedetails.
+If underlying Instrument is an interest rate Instrument.</xs:documentation>
+                                 <xs:documentation xml:lang="fr">A77 78 79 - Rachat details.
+If sous-jacent instrument est un intérêt taux instrument.</xs:documentation>
+                                 <xs:documentation xml:lang="nl">A77 78 79 - Aflossingsdetails.
+Indien het onderliggende instrument een rente-instrument is.</xs:documentation>
+                                 <xs:documentation xml:lang="es">A77 78 79 - Reembolso detalles.
+If subyacente instrumento es un interes tasa instrumento.</xs:documentation>
+                                 <xs:documentation xml:lang="it">A77 78 79 - Dettagli del riscatto.
+Se lo strumento sottostante è uno strumento su tassi di interesse.</xs:documentation>
+                                 <xs:documentation xml:lang="cs">A77 78 79 - Podrobnosti o splacení.
+Pokud je podkladovým nástrojem úrokový nástroj.</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A77 78 79 - Visszaváltási részletek.
+Ha a mögöttes instrumentum kamatláb-instrumentum.</xs:documentation>
+                                 <xs:documentation xml:lang="da">A77 78 79 - Redemption-detaljer.
+Hvis det underliggende instrument er et renteinstrument.</xs:documentation>
+                                 <xs:documentation xml:lang="pl">A77 78 79 - Szczegóły wykupu.
+Jeśli instrument bazowy jest instrumentem stopy procentowej.</xs:documentation>
+                                 <xs:documentation xml:lang="sv">A77 78 79 - Inlösendetaljer.
+Om det underliggande instrumentet är ett ränteinstrument.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="CreditRiskData" type="UnderlyingCreditRiskDataType_V8">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">A80 to A89 - Issuer of underlying instrument
+(or counterparty for OTC instruments).</xs:documentation>
+                                 <xs:documentation xml:lang="de">A80 bis A89 - Emittent des Underlying-Instruments
+(bzw. Kontrahent bei OTC-Instrumenten).</xs:documentation>
+                                 <xs:documentation xml:lang="fr">A80 à A89 - Émetteur de sous-jacent instrument
+(ou contrepartie pour OTC instruments).</xs:documentation>
+                                 <xs:documentation xml:lang="nl">A80 naar A89 - Emittent van onderliggende waarde instrument
+(van tegenpartij voor OTC instruments).</xs:documentation>
+                                 <xs:documentation xml:lang="es">A80 a A89 - Emisor de subyacente instrumento
+(de contraparte para OTC instrumentos).</xs:documentation>
+                                 <xs:documentation xml:lang="it">Da A80 a A89 - Emittente dello strumento sottostante
+(o controparte per gli strumenti OTC).</xs:documentation>
+                                 <xs:documentation xml:lang="cs">A80 až A89 - Emitent podkladového nástroje
+(nebo protistrana u OTC nástrojů).</xs:documentation>
+                                 <xs:documentation xml:lang="hu">A80 - A89 - A mögöttes instrumentum kibocsátója
+(vagy OTC instrumentumok esetén a partner).</xs:documentation>
+                                 <xs:documentation xml:lang="da">A80 til A89 - Udsteder af underliggende instrument
+(eller modpart for OTC-instrumenter).</xs:documentation>
+                                 <xs:documentation xml:lang="pl">A80 do A89 - Emitent instrumentu bazowego
+(lub kontrahent dla instrumentów OTC).</xs:documentation>
+                                 <xs:documentation xml:lang="sv">A80 till A89 - Emittent av det underliggande instrumentet
+(eller motpart för OTC-instrument).</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element minOccurs="0" name="Analytics">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Financial ratios: Modified duration, Delta, ...
+Useless for cash positions</xs:documentation>
+               <xs:documentation xml:lang="de">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+               <xs:documentation xml:lang="fr">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+               <xs:documentation xml:lang="nl">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+               <xs:documentation xml:lang="es">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+               <xs:documentation xml:lang="it">Rapporti finanziari: Duration modificata, Delta, ...
+Inutile per posizioni in contanti</xs:documentation>
+               <xs:documentation xml:lang="cs">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+               <xs:documentation xml:lang="hu">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+               <xs:documentation xml:lang="da">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+               <xs:documentation xml:lang="pl">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+               <xs:documentation xml:lang="sv">Financial ratios: Modified duration, Delta, ...
+Useless fo cash positions</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="ModifiedDurationToMaturityDate" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">90_Modified_duration_to_maturity_date
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="ModifiedDurationToNextOptionExerciseDate" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">91_Modified_duration_to_next_option_exercise_date
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="CreditSensitivity" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">92_Credit_sensitivity
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="SensitivityToUnderlyingAssetPriceDelta" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">93_Sensitivity_to_underlying_asset_price_(delta)
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="ConvexityGammaForDerivatives" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">94_Convexity_gamma_for_derivatives
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Vega" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">94b_Vega
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="ModifiedDurationToMaturityDateExpected" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">144_Modified_duration_to_maturity_date_expected
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="CreditSensitivityExpected" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
+                        <xs:documentation xml:lang="en">145_Credit_sensitivity_expected
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element minOccurs="0" name="OriginalPortfolioIdentification" type="ISINType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">95_Identification_of_the_original_portfolio_for_positions_embedded_in_a_fund
+ISIN or CUSIP or any other identification</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ContributionToSCR" type="ContributionToSCRType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Instrument level.
+The block is optional. However, if the block is present, all the SCRs inside can be present, with the non relevant ones set to 0.</xs:documentation>
+               <xs:documentation xml:lang="de">Instrument level.
+The block ist optional. However, wenn block ist present, alle SCRs inside can be present, mit non relevant ones set zu 0.</xs:documentation>
+               <xs:documentation xml:lang="fr">Instrument level.
+The block est optionnel. However, si block est present, tous SCRs inside can be present, avec non relevant ones set à 0.</xs:documentation>
+               <xs:documentation xml:lang="nl">Instrumentniveau.
+Het blok is optioneel. Indien het blok echter aanwezig is, mogen alle SCR's daarin aanwezig zijn, waarbij de niet-relevante op 0 worden gezet.</xs:documentation>
+               <xs:documentation xml:lang="es">Instrumento level.
+The block es opcional. However, como block es present, todos SCRs inside can be present, con non relevant ones set a 0.</xs:documentation>
+               <xs:documentation xml:lang="it">Livello dello strumento.
+Il blocco è facoltativo. Tuttavia, se il blocco è presente, possono essere presenti tutti gli SCR al suo interno, con quelli non rilevanti impostati a 0.</xs:documentation>
+               <xs:documentation xml:lang="cs">Úroveň nástroje.
+Blok je volitelný. Pokud je však blok přítomen, mohou v něm být přítomny všechny SCR, přičemž ty nerelevantní se nastaví na 0.</xs:documentation>
+               <xs:documentation xml:lang="hu">Instrumentum szint.
+A blokk opcionális. Ha azonban a blokk jelen van, az összes benne lévő SCR jelen lehet, a nem releváns értékeket 0-ra állítva.</xs:documentation>
+               <xs:documentation xml:lang="da">Instrumentniveau.
+Blokken er valgfri. Hvis blokken dog er til stede, kan alle SCR'er heri være til stede, hvor de ikke-relevante sættes til 0.</xs:documentation>
+               <xs:documentation xml:lang="pl">Poziom instrumentu.
+Blok jest opcjonalny. Jeśli jednak blok występuje, mogą w nim być obecne wszystkie SCR, przy czym nieistotne ustawia się na 0.</xs:documentation>
+               <xs:documentation xml:lang="sv">Instrumentnivå.
+Blocket är valfritt. Om blocket dock förekommer kan alla SCR inuti förekomma, där de icke relevanta sätts till 0.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="QRTPositionInformation">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Needed for segregated account.
+To be specified***********</xs:documentation>
+               <xs:documentation xml:lang="de">Needed für segregated account.
+To be angegeben***********</xs:documentation>
+               <xs:documentation xml:lang="fr">Needed pour segregated account.
+To be spécifié***********</xs:documentation>
+               <xs:documentation xml:lang="nl">Needed voor segregated account.
+To be gespecificeerd***********</xs:documentation>
+               <xs:documentation xml:lang="es">Needed para segregated account.
+To be gespecificeerd***********</xs:documentation>
+               <xs:documentation xml:lang="it">Necessario per un conto separato.
+Da specificare************</xs:documentation>
+               <xs:documentation xml:lang="cs">Potřebné pro segregovaný účet.
+Bude upřesněno***********</xs:documentation>
+               <xs:documentation xml:lang="hu">Elkülönített számlához szükséges.
+Meghatározandó***********</xs:documentation>
+               <xs:documentation xml:lang="da">Nødvendig for adskilt konto (segregated account).
+Skal specificeres***********</xs:documentation>
+               <xs:documentation xml:lang="pl">Wymagane dla rachunku wydzielonego (segregated account).
+Do określenia***********</xs:documentation>
+               <xs:documentation xml:lang="sv">Behövs för segregerat konto.
+Ska specificeras***********</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="PlaceOfDeposit" type="xs:string">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">107_Place_of_deposit
+ISO code</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="ValorisationMethod">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">110_Valorisation_method
+Identify the valuation method used when valuing assets. One of the
+options in the following closed list shall be used:
+1 – quoted market price in active markets for the same assets
+2 – quoted market price in active markets for similar assets
+3 – alternative valuation methods
+4 – adjusted equity methods (applicable for the valuation of
+participations)
+5 – IFRS equity methods (applicable for the valuation of
+participations)
+6 – Market valuation according to Article 9(4) of Delegated
+Regulation 2015/35</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                           <xs:minInclusive value="1"/>
+                           <xs:maxInclusive value="6"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="ValueOfAcquisition" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">111_Value_of_acquisition
+Total acquisition value for assets held, clean value without accrued interest. Not applicable to CIC categories 7 and 8.</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="CounterpartyRating">
+                  	<xs:annotation>
+                  	   <xs:documentation xml:lang="en">Counterparty/issuer credit rating information (value, agency, grade)</xs:documentation>
+                  	   <xs:documentation xml:lang="de">Bonitätsbewertung des Kontrahenten/Emittenten (Wert, Agentur, Grad)</xs:documentation>
+                  	   <xs:documentation xml:lang="fr">Informations sur la notation de crédit de la contrepartie/émetteur (valeur, agence, grade)</xs:documentation>
+                  	   <xs:documentation xml:lang="nl">Kredietbeoordeling van de tegenpartij/emittent (waarde, agentschap, graad)</xs:documentation>
+                  	   <xs:documentation xml:lang="es">Información de calificación crediticia de la contraparte/emisor (valor, agencia, grado)</xs:documentation>
+                  	   <xs:documentation xml:lang="it">Informazioni sul rating creditizio della controparte/emittente (valore, agenzia, grado)</xs:documentation>
+                  	   <xs:documentation xml:lang="hu">Szerződő fél/kibocsátó hitelminősítési információ (érték, ügynökség, fokozat)</xs:documentation>
+                  	   <xs:documentation xml:lang="cs">Informace o úvěrovém ratingu protistrany/emitenta (hodnota, agentura, stupeň)</xs:documentation>
+                  	   <xs:documentation xml:lang="da">Oplysninger om kreditvurdering af modpart/udsteder (værdi, bureau, grad)</xs:documentation>
+                  	   <xs:documentation xml:lang="pl">Informacje o ratingu kredytowym kontrahenta/emitenta (wartość, agencja, klasa)</xs:documentation>
+                  	   <xs:documentation xml:lang="sv">Information om kreditbetyg för motpart/emittent (värde, byrå, betygsklass)</xs:documentation>
+                  	</xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="CreditRating" type="xs:string">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">112_Credit_rating
+Rating of the counterparty / issuer (cf specifications QRT) (S.06.02 - old: Assets D1)</xs:documentation></xs:annotation>
+                           </xs:element>
+                           <xs:element name="RatingAgency" type="xs:string">
+                              <xs:annotation>
+                                 <xs:documentation xml:lang="en">113_Rating_agency
+Name of the rating agency (cf specification QRT) (S.06.02 - old: Assets D1)</xs:documentation></xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="UnderlyingAssetCategory">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">131_Underlying_asset_category
+One of the options in the following closed list shall be used:
+1 - Government bonds
+2 - Corporate bonds
+3L - Listed equity
+3X - Unlisted equity
+4 - Collective Investment Undertakings
+5 - Structured notes
+6 - Collateralised securities
+7 - Cash and deposits
+8 - Mortgages and loans
+9 - Properties
+0 - Other investments (including receivables)
+A – Futures
+B – Call Options
+C – Put Options
+D – Swaps
+E – Forwards
+F – Credit derivatives
+L - Liabilities</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                           <xs:minLength value="1"/>
+                           <xs:maxLength value="2"/>
+                           <xs:enumeration value="1"/>
+                           <xs:enumeration value="2"/>
+                           <xs:enumeration value="3L"/>
+                           <xs:enumeration value="3X"/>
+                           <xs:enumeration value="4"/>
+                           <xs:enumeration value="5"/>
+                           <xs:enumeration value="6"/>
+                           <xs:enumeration value="7"/>
+                           <xs:enumeration value="8"/>
+                           <xs:enumeration value="9"/>
+                           <xs:enumeration value="0"/>
+                           <xs:enumeration value="A"/>
+                           <xs:enumeration value="B"/>
+                           <xs:enumeration value="C"/>
+                           <xs:enumeration value="D"/>
+                           <xs:enumeration value="E"/>
+                           <xs:enumeration value="F"/>
+                           <xs:enumeration value="L"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="AdditionalInformation">
+         	<xs:annotation>
+         	   <xs:documentation xml:lang="en">Additional information including custodian, KVG and share class details</xs:documentation>
+         	   <xs:documentation xml:lang="de">Zusätzliche Informationen einschließlich Verwahrstelle, KVG und Anteilsklassendetails</xs:documentation>
+         	   <xs:documentation xml:lang="fr">Informations complémentaires incluant dépositaire, société de gestion et détails de classe de parts</xs:documentation>
+         	   <xs:documentation xml:lang="nl">Aanvullende informatie inclusief bewaarder, beheermaatschappij en aandelenklassedetails</xs:documentation>
+         	   <xs:documentation xml:lang="es">Información adicional incluyendo depositario, sociedad gestora y detalles de clase de participación</xs:documentation>
+         	   <xs:documentation xml:lang="it">Informazioni aggiuntive inclusi depositario, società di gestione e dettagli della classe di azioni</xs:documentation>
+         	   <xs:documentation xml:lang="hu">Kiegészítő információk, beleértve a letétkezelőt, KVG-t és sorozat részleteit</xs:documentation>
+         	   <xs:documentation xml:lang="cs">Doplňující informace včetně depozitáře, správcovské společnosti a podrobností o třídě akcií</xs:documentation>
+         	   <xs:documentation xml:lang="da">Yderligere oplysninger, herunder depositar, KVG og Share Class-detaljer</xs:documentation>
+         	   <xs:documentation xml:lang="pl">Dodatkowe informacje obejmujące depozytariusza, KVG oraz szczegóły Share Class</xs:documentation>
+         	   <xs:documentation xml:lang="sv">Ytterligare information inklusive förvaringsinstitut, KVG och Share Class-uppgifter</xs:documentation>
+         	</xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="InfrastructureInvestment">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">132_Infrastructure_investment
+0 - Not assessed
+1 - Debt on eligible Infrastructure project
+2 - Equity on eligible infrastructure project
+3 - Debt on eligible Infrastructure corporate
+4 - Equity on eligible infrastructure corporate
+5 - Non eligible</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                           <xs:minInclusive value="0"/>
+                           <xs:maxInclusive value="5"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="InfrastructureInvestmentAdditionalQRT">
+                     <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
+                        <xs:documentation xml:lang="en">147_Infrastructure_investment_additional_QRT
+1 – Not an infrastructure investment;
+2 – Infrastructure non-qualifying: Government Guarantee (Government, Central bank, Regional government or local authority);
+3 – Infrastructure non-qualifying: Government Supported including Public Finance initiative (Government, Central bank, Regional government or local authority);
+4 – Infrastructure non-qualifying: Supranational Guarantee/Supported (ECB, Multilateral development bank, International organisation);
+9 – Infrastructure non-qualifying: Other non-qualifying infrastructure loans or investments, not classified under the above categories;
+12 – Infrastructure qualifying: Government Guarantee (Government, Central bank, Regional government or local authority);
+13 – Infrastructure qualifying: Government Supported including Public Finance initiative (Government, Central bank, Regional government or local authority);
+14 – Infrastructure qualifying: Supranational Guarantee/Supported (ECB, Multilateral development bank, International organisation);
+19 – Infrastructure qualifying: Other qualifying infrastructure investments, not classified in the above categories;
+20 – European Long-Term Investment Fund (ELTIF investing in infrastructure assets and ELTIF investing in other – non infrastructure – assets)</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                           <xs:minLength value="1"/>
+                           <xs:maxLength value="2"/>
+                           <xs:enumeration value="1"/>
+                           <xs:enumeration value="2"/>
+                           <xs:enumeration value="3"/>
+                           <xs:enumeration value="4"/>
+                           <xs:enumeration value="9"/>
+                           <xs:enumeration value="12"/>
+                           <xs:enumeration value="13"/>
+                           <xs:enumeration value="14"/>
+                           <xs:enumeration value="19"/>
+                           <xs:enumeration value="20"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Type1PrivateEquityPortfolioEligibility">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">134_type1_private_equity_portfolio_eligibility
+Int (1)
+"0" = Not assessed
+"1" = eligible for re-classification as equity type 1
+"2" = not eligible for re-classification as equity type 1</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                           <xs:enumeration value="0"/>
+                           <xs:enumeration value="1"/>
+                           <xs:enumeration value="2"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Type1PrivateEquityIssuerBeta" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">135_type1_private_equity_issuer_beta
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="CounterpartySector">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">137_Counterparty_sector
+Alphanumeric (2)
+1 – central bank (ESA 2010 sector S.121)
+2 – deposit-taking corporations except the central bank (ESA 2010 sector S.122)
+3 – money market funds (ESA 2010 sector S.123)
+4 – investment funds other than money market funds (ESA 2010 sector S.124)
+5 – other financial intermediaries, except insurance corporations and pension funds (excluding financial vehicle corporations engaged in securitisation transactions) + financial auxiliaries + captive financial institutions and money lenders (ESA 2010 sector S.125 excluding FVCs + ESA 2010 sector S.126 + ESA 2010 sector S.127)
+6 – financial vehicle corporations engaged in securitisation transactions (a subdivision of ESA 2010 sector S.125)
+7 – insurance corporations (ESA 2010 sector S.128)
+8 – pension funds (ESA 2010 sector S.129)
+9 – non-financial corporations (ESA 2010 sector S.11)
+10 – general government (ESA 2010 sector S.13)
+11 – households and non-profit institutions serving households (ESA 2010 sector S.14 + ESA 2010 sector S.15)
+12 – for cash &amp; deposit only (CIC xx7x) : central bank (ESA 2010 sector S.121), deposit-taking corporations except the central bank (ESA 2010 sector S.122) and money market funds (ESA 2010 sector S.123)
+13 – for cash &amp; deposit only (CIC xx7x) : non-MFIs, not included under 12</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                           <xs:minInclusive value="1"/>
+                           <xs:maxInclusive value="13"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="CollateralEligibility">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">138_Collateral_eligibility
+0 - Not assessed or no collateral
+1 - Compliant with art 214 and art 197.1a and art 197 1b
+2 - Compliant with art 214 and art 197.1a
+3 - Compliant with art 214.
+4 - Not eligible</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                           <xs:minInclusive value="0"/>
+                           <xs:maxInclusive value="4"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="CollateralMarketValuationInPortfolioCurrency" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">139_Collateral_Market_valuation_in_portfolio_currency
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="BailInRule">
+                     <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
+                        <xs:documentation xml:lang="en">142_Bail-in_Rule
+0 - Not assessed
+1 - Yes
+2 - No
+9 - Not Applicable</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                           <xs:enumeration value="0"/>
+                           <xs:enumeration value="1"/>
+                           <xs:enumeration value="2"/>
+                           <xs:enumeration value="9"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+               <xs:element minOccurs="0" name="LTEIFundEligibility">
+                     <xs:annotation>
+                        <xs:appinfo source="@since 4.2.12"/>
+                        <xs:documentation xml:lang="en">150_LTEI_Fund_Eligibility
+0 – Not assessed
+1- Eligible
+2- Not eligible</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                           <xs:enumeration value="0"/>
+                           <xs:enumeration value="1"/>
+                           <xs:enumeration value="2"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="LegislativeProgramInvestment">
+                     <xs:annotation>
+                        <xs:appinfo source="@since 4.2.12"/>
+                        <xs:documentation xml:lang="en">151_Legislative_program_investment
+0 – Not assessed
+1- Eligible
+2- Not eligible</xs:documentation></xs:annotation>
+                     <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                           <xs:enumeration value="0"/>
+                           <xs:enumeration value="1"/>
+                           <xs:enumeration value="2"/>
+                        </xs:restriction>
+                     </xs:simpleType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:complexType name="SIISecurityCodificationType">
       <xs:annotation>
          <xs:documentation xml:lang="en">CodificationSystem (restricted list for Securities) and Code expressed in CodificationSystem</xs:documentation>
@@ -14326,6 +16194,280 @@ samma som datapunkt 10 för portföljer som huvudsakligen är investerade i skul
          </xs:element>
       </xs:sequence>
    </xs:complexType>
+   <xs:complexType name="SolvencyIIPortfolioType_V8">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">XML adaptation of "Tripartite Template" V.8.</xs:documentation>
+         <xs:documentation xml:lang="de">XML adaptation von "Tripartite Template" V.8.</xs:documentation>
+         <xs:documentation xml:lang="fr">XML adaptation de "Tripartite Template" V.8.</xs:documentation>
+         <xs:documentation xml:lang="nl">XML adaptation van "Tripartite Template" V.8.</xs:documentation>
+         <xs:documentation xml:lang="es">XML adaptacion de "Tripartite Template" V.8.</xs:documentation>
+         <xs:documentation xml:lang="it">Adattamento XML del "Modello tripartito" V.8.</xs:documentation>
+         <xs:documentation xml:lang="cs">XML adaptace šablony "Tripartite Template" V.8.</xs:documentation>
+         <xs:documentation xml:lang="hu">A "Tripartite Template" V.8. XML-adaptációja</xs:documentation>
+         <xs:documentation xml:lang="da">XML-tilpasning af "Tripartite Template" V.8.</xs:documentation>
+         <xs:documentation xml:lang="pl">Adaptacja XML "Tripartite Template" V.8.</xs:documentation>
+         <xs:documentation xml:lang="sv">XML-anpassning av "Tripartite Template" V.8.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="FundOrShareClassIdentifiers" type="FundOrShareClassIdentifiersType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Fund or share class identifiers for easy connection to other fund or share class data</xs:documentation>
+               <xs:documentation xml:lang="de">Fonds oder Anteilsklasse identifiers für easy connection zu Sonstig Fonds oder Anteilsklasse Daten</xs:documentation>
+               <xs:documentation xml:lang="fr">Fonds ou classe d'actions identifiers pour easy connection à autre fonds ou classe d'actions données</xs:documentation>
+               <xs:documentation xml:lang="nl">Fonds van aandelenklasse identifiers voor easy connection naar overig fonds van aandelenklasse gegevens</xs:documentation>
+               <xs:documentation xml:lang="es">Fondo de clase de acciones identifiers para easy connection a otro fondo de clase de acciones datos</xs:documentation>
+               <xs:documentation xml:lang="it">Identificatori di fondi o classi di azioni per una facile connessione ad altri dati di fondi o classi di azioni</xs:documentation>
+               <xs:documentation xml:lang="cs">Identifikátory fondu nebo třídy akcií pro snadné propojení s dalšími údaji o fondu nebo třídě akcií</xs:documentation>
+               <xs:documentation xml:lang="hu">Alap- vagy Share Class-azonosítók az egyéb alap- vagy Share Class-adatokhoz való egyszerű kapcsolódás érdekében</xs:documentation>
+               <xs:documentation xml:lang="da">Identifikatorer for fond eller Share Class til nem forbindelse til andre fonds- eller Share Class-data</xs:documentation>
+               <xs:documentation xml:lang="pl">Identyfikatory funduszu lub Share Class umożliwiające łatwe powiązanie z innymi danymi funduszu lub Share Class</xs:documentation>
+               <xs:documentation xml:lang="sv">Fond- eller Share Class-identifierare för enkel koppling till andra fond- eller Share Class-data</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DataSupplier" type="DataSupplierType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Definition of data source (investment company, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="de">Definition von Daten source (Anlage company, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="fr">Definition de données source (investissement company, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="nl">Definition van gegevens source (belegging company, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="es">Definition de datos source (inversion company, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="it">Definizione della fonte dei dati (società di investimento, fornitore, ...)</xs:documentation>
+               <xs:documentation xml:lang="cs">Definice zdroje dat (investiční společnost, dodavatel dat, ...)</xs:documentation>
+               <xs:documentation xml:lang="hu">Az adatforrás meghatározása (befektetési társaság, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="da">Definition af datakilde (investeringsselskab, vendor, ...)</xs:documentation>
+               <xs:documentation xml:lang="pl">Definicja źródła danych (towarzystwo inwestycyjne, dostawca, ...)</xs:documentation>
+               <xs:documentation xml:lang="sv">Definition av datakälla (investeringsbolag, leverantör, ...)</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="TPTVersion">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">1000_TPT_Version
+V2.0 (official); dated 9 January 2015
+V3.0 (official) dated 12 October 2015
+V4.0 (official) dated 13 February 2018
+V5.0 (official) dated 16 January 2020
+V6.0 (official) dated 10 January 2022
+V7.0 (official) dated 25 November 2024
+V8.0 (official) dated XXXXXXXXXX</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="V8.0"/></xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="PortfolioID" type="PortfolioIdentificationType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal code. See CodificationSystem.
+ISIN Preferred when available.</xs:documentation>
+               <xs:documentation xml:lang="de">A02 01 - Verwenden Sie ISIN, CUSIP, BLOOMBERG etc. oder internen Code. Siehe CodificationSystem.
+ISIN bevorzugt, wenn verfügbar.</xs:documentation>
+               <xs:documentation xml:lang="fr">A02 01 - Utilisez ISIN, CUSIP, BLOOMBERG etc. ou interne code. Voir CodificationSystem.
+ISIN Préféré si disponible.</xs:documentation>
+               <xs:documentation xml:lang="nl">A02 01 - Gebruik ISIN, CUSIP, BLOOMBERG etc. van intern code. Zie CodificationSystem.
+ISIN Voorkeur indien beschikbaar.</xs:documentation>
+               <xs:documentation xml:lang="es">A02 01 - Utilice ISIN, CUSIP, BLOOMBERG etc. de interno codigo. Ver CodificationSystem.
+ISIN Preferido si disponible.</xs:documentation>
+               <xs:documentation xml:lang="it">A02 01 - Utilizzare ISIN, CUSIP, BLOOMBERG ecc. o codice interno. Vedi Sistema di codifica.
+ISIN preferibile quando disponibile.</xs:documentation>
+               <xs:documentation xml:lang="cs">A02 01 - Použijte ISIN, CUSIP, BLOOMBERG atd.  nebo interní kód. Viz CodificationSystem.
+ISIN je preferován, je-li k dispozici.</xs:documentation>
+               <xs:documentation xml:lang="hu">A02 01 - Use ISIN, CUSIP, BLOOMBERG etc.  or internal Kod. See CodificationSystem.
+ISIN Preferred when available.</xs:documentation>
+               <xs:documentation xml:lang="da">A02 01 - Anvend ISIN, CUSIP, BLOOMBERG osv. eller intern kode. Se CodificationSystem.
+ISIN foretrækkes, når tilgængelig.</xs:documentation>
+               <xs:documentation xml:lang="pl">A02 01 - Użyj ISIN, CUSIP, BLOOMBERG itp. lub kodu wewnętrznego. Zobacz CodificationSystem.
+ISIN preferowany, jeśli jest dostępny.</xs:documentation>
+               <xs:documentation xml:lang="sv">A02 01 - Använd ISIN, CUSIP, BLOOMBERG etc. eller intern kod. Se CodificationSystem.
+ISIN föredras när det är tillgängligt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="PortfolioName" type="xs:string">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">3_Portfolio_name
+Alphanum (max 255)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">4_Portfolio_currency_(B)
+Code ISO 4217
+CNH : 2 Chinese yuan (when traded offshore) - Hong Kong
+CNT: Chinese yuan (when traded offshore) -Taiwan
+GGP – Guernsey pound - Guernsey
+IMP: Isle of Man pound also Manx pound -Isle of Man
+JEP: Jersey pound - Jersey
+KID: Kiribati dollar -Kiribati
+NIS – New Israeli Shekel - Israel
+PRB – Transnistrian ruble - Transnistria (The code conflicts with ISO-4217 because PR stands for Puerto Rico. X should have been used for the first letter.)
+TVD – Tuvalu dollar- Tuvalu</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="NetAssetValuationInPortfolioCurrency" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">5_Net_asset_valuation_of_the_portfolio_or_the_share_class_in_portfolio_currency
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="ValuationDate" type="xs:date">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">6_Valuation_date
+YYYY-MM-DD ISO 8601</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="ReportingDate" type="xs:date">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">7_Reporting_date
+YYYY-MM-DD ISO 8601</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ShareClass">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="de">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="fr">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="nl">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="es">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="it">A08, A08b</xs:documentation>
+               <xs:documentation xml:lang="cs">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="hu">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="da">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="pl">A 08, A 08b</xs:documentation>
+               <xs:documentation xml:lang="sv">A 08, A 08b</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="SharePrice" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">8_Share_price
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="TotalNumberOfShares" type="xs:decimal">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">8b_Total_number_of_shares
+number with floating decimal</xs:documentation></xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element minOccurs="0" name="CashRatio" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">9_Cash_ratio
+number with floating decimal: 1 = 100%</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PortfolioModifiedDuration" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">10_Portfolio_modified_duration
+number with floating decimal</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element name="CompleteSCRDelivery" type="YesNoL1Type">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">11_Complete_SCR_delivery
+alpha(1)</xs:documentation></xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="QRTPortfolioInformation">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Additional Portfolio information for QRTs</xs:documentation>
+               <xs:documentation xml:lang="de">Zusätzlich Portfolio Information für QRTs</xs:documentation>
+               <xs:documentation xml:lang="fr">Supplémentaire Portefeuille information pour QRTs</xs:documentation>
+               <xs:documentation xml:lang="nl">Aanvullend Portefeuille informatie voor QRTs</xs:documentation>
+               <xs:documentation xml:lang="es">Adicional Cartera informacion para QRTs</xs:documentation>
+               <xs:documentation xml:lang="it">Ulteriori informazioni sul portafoglio per i QRT</xs:documentation>
+               <xs:documentation xml:lang="cs">Dodatečné informace o portfoliu pro QRT</xs:documentation>
+               <xs:documentation xml:lang="hu">További Portfólió-információk a QRT-khez</xs:documentation>
+               <xs:documentation xml:lang="da">Yderligere porteføljeoplysninger til QRT'er</xs:documentation>
+               <xs:documentation xml:lang="pl">Dodatkowe informacje o portfelu dla QRT</xs:documentation>
+               <xs:documentation xml:lang="sv">Ytterligare portföljinformation för QRT:er</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="FundIssuer">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">A117-115 - Name and Code of Fund Issuer</xs:documentation>
+                        <xs:documentation xml:lang="de">A117-115 - Name und Code von Fonds Emittent</xs:documentation>
+                        <xs:documentation xml:lang="fr">A117-115 - Nom et Code de Fonds Émetteur</xs:documentation>
+                        <xs:documentation xml:lang="nl">A117-115 - Naam en Code van Fonds Emittent</xs:documentation>
+                        <xs:documentation xml:lang="es">A117-115 - Nombre y Codigo de Fondo Emisor</xs:documentation>
+                        <xs:documentation xml:lang="it">A117-115 - Nome e codice dell'emittente del fondo</xs:documentation>
+                        <xs:documentation xml:lang="cs">A117-115 - Název a kód emitenta fondu</xs:documentation>
+                        <xs:documentation xml:lang="hu">A117-115 - Az alap kibocsátójának neve és kódja</xs:documentation>
+                        <xs:documentation xml:lang="da">A117-115 - Navn og kode på fondsudsteder</xs:documentation>
+                        <xs:documentation xml:lang="pl">A117-115 - Nazwa i kod emitenta funduszu</xs:documentation>
+                        <xs:documentation xml:lang="sv">A117-115 - Namn och kod för fondens emittent</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:complexContent>
+                           <xs:extension base="FundIssuerType_V8">
+                              <xs:sequence>
+                                 <xs:element name="FundIssuerCountry" type="ISOCountryCodeType">
+                                    <xs:annotation>
+                                       <xs:documentation xml:lang="en">122_Fund_issuer_country
+ISO 3166-1 alpha-2 code</xs:documentation></xs:annotation>
+                                 </xs:element>
+                              </xs:sequence>
+                           </xs:extension>
+                        </xs:complexContent>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="FundIssuerGroup" type="FundIssuerGroupType_V8">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">A121-119 - Name and code of the group the fund issuer belongs to. TPT V8 removed the separate code type (former A120); the code is no longer restricted to an LEI or pre-LEI.</xs:documentation>
+                        <xs:documentation xml:lang="de">A121-119 - Name und Code der Gruppe, zu der der Fondsemittent gehoert. TPT V8 streicht die separate Codeart (vormals A120); der Code ist nicht mehr auf einen LEI oder Pre-LEI beschraenkt.</xs:documentation>
+                        </xs:annotation>
+                  </xs:element>
+                  <xs:element name="FundCIC" type="CICCodeType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">123_Fund_CIC
+CIC code - Fund or Share Class (4 characters)</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element name="FundCustodianCountry" type="ISOCountryCodeType">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">123a_Fund_custodian_country
+ISO 3166-1 alpha-2 code</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="CustodianName" type="xs:string">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">133_custodian_name
+text</xs:documentation></xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="CustodianIdentificationCode" type="LEICodeType">
+                     <xs:annotation>
+                        <xs:appinfo source="@since 4.2.9"/>
+                        <xs:documentation xml:lang="en">140_Custodian_identification_code
+LEI of the custodian</xs:documentation></xs:annotation>
+                  </xs:element>
+                  </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="Positions">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Inventory of the Portfolio</xs:documentation>
+               <xs:documentation xml:lang="de">Inventar des Portfolios</xs:documentation>
+               <xs:documentation xml:lang="fr">Inventory de Portefeuille</xs:documentation>
+               <xs:documentation xml:lang="nl">Inventory van Portefeuille</xs:documentation>
+               <xs:documentation xml:lang="es">Inventory de Cartera</xs:documentation>
+               <xs:documentation xml:lang="it">Inventario del portafoglio</xs:documentation>
+               <xs:documentation xml:lang="cs">Inventář portfolia</xs:documentation>
+               <xs:documentation xml:lang="hu">A portfólió leltára</xs:documentation>
+               <xs:documentation xml:lang="da">Beholdningsoversigt for porteføljen</xs:documentation>
+               <xs:documentation xml:lang="pl">Inwentarz portfela</xs:documentation>
+               <xs:documentation xml:lang="sv">Inventering av portföljen</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="Position" type="SIIPositionType_V8">
+                     <xs:annotation>
+                        <xs:documentation xml:lang="en">Detail of each Position.</xs:documentation>
+                        <xs:documentation xml:lang="de">Details zu jeder Position.</xs:documentation>
+                        <xs:documentation xml:lang="fr">Detail de chaque Position.</xs:documentation>
+                        <xs:documentation xml:lang="nl">Detail van elke Positie.</xs:documentation>
+                        <xs:documentation xml:lang="es">Detail de cada Posicion.</xs:documentation>
+                        <xs:documentation xml:lang="it">Dettaglio di ciascuna posizione.</xs:documentation>
+                        <xs:documentation xml:lang="cs">Detail každé pozice.</xs:documentation>
+                        <xs:documentation xml:lang="hu">Az egyes pozíciók részletei.</xs:documentation>
+                        <xs:documentation xml:lang="da">Detalje for hver position.</xs:documentation>
+                        <xs:documentation xml:lang="pl">Szczegóły każdej pozycji (Position).</xs:documentation>
+                        <xs:documentation xml:lang="sv">Detaljer för varje position.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:complexType name="TripartiteTemplateSolvencyIIType">
       <xs:annotation>
          <xs:documentation xml:lang="en">Tripartite Template (TPT) for Solvency II look-through reporting containing portfolio-level data for insurance company regulatory reporting</xs:documentation>
@@ -14514,6 +16656,27 @@ Ytterligare datapunkter för att redovisa säkerheter (collateral) i SCR-beräkn
                      type="SolvencyIIPortfolioType_V7">
             <xs:annotation>
                <xs:documentation xml:lang="en">The Portfolio is analysed from investor's point of view. If Portfolio is a Fund with share classes, there is one Portfolio for each share class. For hedged shares, hedging instruments are included in the prortfolio.</xs:documentation>
+               <xs:documentation xml:lang="de">Das Portfolio wird aus Sicht des Anlegers analysiert. Wenn das Portfolio ein Fonds mit Anteilsklassen ist, gibt es ein Portfolio für jede Anteilsklasse. Für abgesicherte Anteile sind Absicherungsinstrumente im Portfolio enthalten.</xs:documentation>
+               <xs:documentation xml:lang="fr">Le portefeuille est analysé du point de vue de l'investisseur. Si le portefeuille est un fonds avec des classes d'actions, il y a un portefeuille pour chaque classe d'actions. Pour les actions couvertes, les instruments de couverture sont inclus dans le portefeuille.</xs:documentation>
+               <xs:documentation xml:lang="nl">De portefeuille wordt geanalyseerd vanuit het oogpunt van de belegger. Indien de portefeuille een fonds met share classes is, is er één portefeuille voor elke share class. Voor hedged shares zijn de hedginginstrumenten opgenomen in de portefeuille.</xs:documentation>
+               <xs:documentation xml:lang="es">La cartera se analiza desde el punto de vista del inversor. Si la cartera es un fondo con clases de acciones, hay una cartera para cada clase de acciones. Para acciones cubiertas, los instrumentos de cobertura se incluyen en la cartera.</xs:documentation>
+               <xs:documentation xml:lang="it">Il Portafoglio viene analizzato dal punto di vista dell'investitore. Se il Portafoglio è un Fondo con classi di azioni, esiste un Portafoglio per ciascuna classe di azioni. Per le azioni coperte, gli strumenti di copertura sono inclusi nel portafoglio.</xs:documentation>
+               <xs:documentation xml:lang="cs">Portfolio je analyzováno z pohledu investora. Pokud je portfolio fondem s třídami akcií, existuje jedno portfolio pro každou třídu akcií. U zajištěných (hedged) tříd jsou zajišťovací nástroje zahrnuty do portfolia.</xs:documentation>
+               <xs:documentation xml:lang="hu">A portfólió a befektető szemszögéből kerül elemzésre. Ha a portfólió egy share class-okkal rendelkező alap, akkor minden share class-hoz egy portfólió tartozik. Fedezett share class-ok esetén a fedezeti instrumentumok szerepelnek a portfólióban.</xs:documentation>
+               <xs:documentation xml:lang="da">Porteføljen analyseres ud fra investorens synspunkt. Hvis porteføljen er en investeringsfond med Share Classes, er der én portefølje for hver Share Class. For afdækkede andele er afdækningsinstrumenterne medtaget i porteføljen.</xs:documentation>
+               <xs:documentation xml:lang="pl">Portfel jest analizowany z punktu widzenia inwestora. Jeżeli Portfel jest funduszem z Share Classes, to dla każdej Share Class istnieje jeden Portfel. W przypadku udziałów hedgowanych instrumenty zabezpieczające są uwzględnione w portfelu.</xs:documentation>
+               <xs:documentation xml:lang="sv">Portföljen analyseras ur investerarens perspektiv. Om portföljen är en fond med share classes finns det en portfölj för varje share class. För hedgade andelar ingår hedginginstrumenten i portföljen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="TripartiteTemplateSolvencyIIType_V8">
+      <xs:annotation>
+         <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">Used for the Tripartite Template (TPT) version 8.0, FinDatEx consultation draft dated 2026-07-07. Key changes against TPT V7: 20 datapoints removed (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); issuer identification opened up to non-LEI codes (A48, A51, A82, A85); securitisation category e split into e1, e2 and e3 (A56); NACE reporting reduced to a single datapoint in the version in force (A148); two new datapoints A150 (LTEI fund eligibility) and A151 (legislative programme investment).</xs:documentation><xs:documentation xml:lang="de">Verwendet fuer das Tripartite Template (TPT) Version 8.0, FinDatEx-Konsultationsentwurf vom 07.07.2026. Wesentliche Aenderungen gegenueber TPT V7: 20 Datenpunkte entfallen (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); die Emittentenidentifikation ist nicht mehr auf den LEI beschraenkt (A48, A51, A82, A85); die Verbriefungskategorie e wird in e1, e2 und e3 geteilt (A56); die NACE-Meldung wird auf einen Datenpunkt in der jeweils geltenden Fassung reduziert (A148); neu sind A150 (LTEI-Faehigkeit des Fonds) und A151 (Investition im Rahmen von Gesetzgebungsprogrammen).</xs:documentation></xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" name="Portfolio" type="SolvencyIIPortfolioType_V8">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">The Portfolio is analysed from investor's point of view. If Portfolio is a Fund with share classes, there is one Portfolio for each share class. For hedged shares, hedging instruments are included in the portfolio.</xs:documentation>
                <xs:documentation xml:lang="de">Das Portfolio wird aus Sicht des Anlegers analysiert. Wenn das Portfolio ein Fonds mit Anteilsklassen ist, gibt es ein Portfolio für jede Anteilsklasse. Für abgesicherte Anteile sind Absicherungsinstrumente im Portfolio enthalten.</xs:documentation>
                <xs:documentation xml:lang="fr">Le portefeuille est analysé du point de vue de l'investisseur. Si le portefeuille est un fonds avec des classes d'actions, il y a un portefeuille pour chaque classe d'actions. Pour les actions couvertes, les instruments de couverture sont inclus dans le portefeuille.</xs:documentation>
                <xs:documentation xml:lang="nl">De portefeuille wordt geanalyseerd vanuit het oogpunt van de belegger. Indien de portefeuille een fonds met share classes is, is er één portefeuille voor elke share class. Voor hedged shares zijn de hedginginstrumenten opgenomen in de portefeuille.</xs:documentation>

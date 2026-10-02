@@ -1435,6 +1435,23 @@
                </xs:restriction>
             </xs:simpleType>
          </xs:element>
+            <xs:element minOccurs="0" name="LiquidityManagement">
+               <xs:annotation>
+                  <xs:documentation xml:lang="en">Liquidity management tools selected for this fund or subfund. At least two tools other than suspension and side pockets have to be selected. Calibration and activation are not part of this block; activations are reported under LiquidityManagementEvents in the dynamic data.</xs:documentation>
+                  <xs:documentation xml:lang="de">Fuer diesen Fonds oder Teilfonds ausgewaehlte Liquiditaetsmanagement-Instrumente. Es sind mindestens zwei Instrumente ausser Aussetzung und Side Pockets zu waehlen. Kalibrierung und Aktivierung gehoeren nicht in diesen Block; Aktivierungen werden unter LiquidityManagementEvents in den dynamischen Daten gemeldet.</xs:documentation>
+               </xs:annotation>
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element maxOccurs="unbounded" name="Tool"
+                                 type="LiquidityManagementToolType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">One selected liquidity management tool.</xs:documentation>
+                           <xs:documentation xml:lang="de">Ein ausgewaehltes Liquiditaetsmanagement-Instrument.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="SingleFundStaticDataType">
@@ -2442,6 +2459,85 @@
                <xs:documentation xml:lang="sv">Anpassade attribut för ytterligare delfondsdata</xs:documentation>
             </xs:annotation>
          </xs:element>
+            <xs:element minOccurs="0" name="LiquidityManagement">
+               <xs:annotation>
+                  <xs:documentation xml:lang="en">Liquidity management tools selected for this fund or subfund. At least two tools other than suspension and side pockets have to be selected. Calibration and activation are not part of this block; activations are reported under LiquidityManagementEvents in the dynamic data.</xs:documentation>
+                  <xs:documentation xml:lang="de">Fuer diesen Fonds oder Teilfonds ausgewaehlte Liquiditaetsmanagement-Instrumente. Es sind mindestens zwei Instrumente ausser Aussetzung und Side Pockets zu waehlen. Kalibrierung und Aktivierung gehoeren nicht in diesen Block; Aktivierungen werden unter LiquidityManagementEvents in den dynamischen Daten gemeldet.</xs:documentation>
+               </xs:annotation>
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element maxOccurs="unbounded" name="Tool"
+                                 type="LiquidityManagementToolType">
+                        <xs:annotation>
+                           <xs:documentation xml:lang="en">One selected liquidity management tool.</xs:documentation>
+                           <xs:documentation xml:lang="de">Ein ausgewaehltes Liquiditaetsmanagement-Instrument.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
       </xs:sequence>
    </xs:complexType>
+   <xs:simpleType name="LiquidityManagementToolType">
+      <xs:annotation>
+         <xs:documentation xml:lang="en">Liquidity management tool as listed in Annex V AIFMD and Annex IIA UCITS Directive.</xs:documentation>
+         <xs:documentation xml:lang="de">Liquiditaetsmanagement-Instrument nach Anhang V AIFMD und Anhang IIA OGAW-RL.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="SUSPENSION">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Suspension of subscriptions, repurchases and redemptions (Annex V no. 1). Does not count towards the minimum of two tools.</xs:documentation>
+               <xs:documentation xml:lang="de">Aussetzung von Zeichnung, Rueckkauf und Ruecknahme (Anhang V Nr. 1). Zaehlt nicht auf die Mindestanzahl von zwei Instrumenten.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="REDEMPTION_GATE">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Redemption gate (Annex V no. 2).</xs:documentation>
+               <xs:documentation xml:lang="de">Ruecknahmebeschraenkung (Anhang V Nr. 2).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NOTICE_PERIOD_EXTENSION">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Extension of notice periods (Annex V no. 3).</xs:documentation>
+               <xs:documentation xml:lang="de">Verlaengerung der Rueckgabefrist (Anhang V Nr. 3).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="REDEMPTION_FEE">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Redemption fee (Annex V no. 4).</xs:documentation>
+               <xs:documentation xml:lang="de">Rueckgabegebuehr (Anhang V Nr. 4).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SWING_PRICING">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Swing pricing (Annex V no. 5).</xs:documentation>
+               <xs:documentation xml:lang="de">Swing Pricing (Anhang V Nr. 5).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="DUAL_PRICING">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Dual pricing (Annex V no. 6).</xs:documentation>
+               <xs:documentation xml:lang="de">Dual Pricing (Anhang V Nr. 6).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ANTI_DILUTION_LEVY">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Anti-dilution levy (Annex V no. 7).</xs:documentation>
+               <xs:documentation xml:lang="de">Anti-Dilution-Levy (Anhang V Nr. 7).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="REDEMPTION_IN_KIND">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Redemption in kind (Annex V no. 8).</xs:documentation>
+               <xs:documentation xml:lang="de">Ruecknahme in Sachwerten (Anhang V Nr. 8).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SIDE_POCKETS">
+            <xs:annotation>
+               <xs:documentation xml:lang="en">Side pockets (Annex V no. 9). Does not count towards the minimum of two tools.</xs:documentation>
+               <xs:documentation xml:lang="de">Side Pockets (Anhang V Nr. 9). Zaehlt nicht auf die Mindestanzahl von zwei Instrumenten.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
 </xs:schema>

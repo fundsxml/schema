@@ -25,7 +25,7 @@ FundsXML provides native support for European regulatory reporting requirements:
 | **EMT** | MiFID II | V4 – V4.3 | Target market & costs |
 | **EET** | SFDR | V1 – V1.1.3 | ESG & sustainability |
 | **PRIIPS** | PRIIPs | V2 – V2.0 | Key Information Document |
-| **TPT** | Solvency II | V5 – V7 | Insurance look-through |
+| **TPT** | Solvency II | V4 – V8 (V8 draft) | Insurance look-through |
 | **KIID** | UCITS | V1 | Key Investor Information |
 | **EMIR** | EMIR | V1 | Derivatives reporting |
 | **EFT** | MiFID II/IDD | V1 | Distribution feedback |
@@ -255,20 +255,25 @@ Each scenario includes:
 
 | Version | Type |
 |---------|------|
-| V6 | `TripartiteTemplateSolvencyIIType_V6` |
+| V4 (deprecated) | `TripartiteTemplateSolvencyIIType` |
+| V5 | `TripartiteTemplateSolvencyIIType_V5` |
+| V6 (deprecated) | `TripartiteTemplateSolvencyIIType_V6` |
 | V7 | `TripartiteTemplateSolvencyIIType_V7` |
+| V8 (FinDatEx consultation draft of 2026-07-07) | `TripartiteTemplateSolvencyIIType_V8` |
+
+Each version is a separate element below `RegulatoryReportings/IndirectReporting`, e.g. `TripartiteTemplateSolvencyII_V7`. The element names below are those of V7; V8 uses names derived from the official FinDatEx labels (e.g. `NetAssetValuationInPortfolioCurrency` instead of `TotalNetAssets`).
 
 ### Portfolio Information
 
 | Field | Description |
 |-------|-------------|
-| TPTVersion | Template version |
-| PortfolioID | ISIN or internal ID |
+| TPTVersion | Template version, fixed value per type (`V7.0`, `V8.0`) |
+| PortfolioID | `CodificationSystem` and `Code` (ISIN or internal ID) |
 | PortfolioCurrency | ISO 4217 |
 | TotalNetAssets | NAV |
 | ValuationDate | NAV date |
 | CashPercentage | Liquid assets % |
-| ModifiedDuration | Duration metric |
+| PortfolioModifiedDuration | Duration metric |
 
 ### Position Details
 
@@ -296,23 +301,50 @@ Each scenario includes:
 ### Example
 
 ```xml
-<SolvencyII>
-   <TripartiteTemplate>
-      <FundOrShareClassIdentifiers>
-         <ISIN>AT0000A1Z882</ISIN>
-      </FundOrShareClassIdentifiers>
-      <SolvencyIIData>
-         <V7>
-            <PortfolioInformation>
-               <TPTVersion>V7</TPTVersion>
-               <PortfolioID>AT0000A1Z882</PortfolioID>
-               <TotalNetAssets>250000000</TotalNetAssets>
-               <ValuationDate>2025-06-30</ValuationDate>
-            </PortfolioInformation>
-         </V7>
-      </SolvencyIIData>
-   </TripartiteTemplate>
-</SolvencyII>
+<RegulatoryReportings>
+   <IndirectReporting>
+      <TripartiteTemplateSolvencyII_V7>
+         <Portfolio>
+            <TPTVersion>V7.0</TPTVersion>
+            <PortfolioID>
+               <CodificationSystem>1</CodificationSystem>
+               <Code>AT0000A1Z882</Code>
+            </PortfolioID>
+            <PortfolioName>Example Bond Fund</PortfolioName>
+            <PortfolioCurrency>EUR</PortfolioCurrency>
+            <TotalNetAssets>250000000</TotalNetAssets>
+            <ValuationDate>2025-06-30</ValuationDate>
+            <ReportingDate>2025-06-30</ReportingDate>
+            <CompleteSCRDelivery>N</CompleteSCRDelivery>
+            <Positions>
+               <Position>
+                  <InstrumentCIC>XL64</InstrumentCIC>
+                  <InstrumentCode>
+                     <CodificationSystem>1</CodificationSystem>
+                     <Code>XS2444622110</Code>
+                  </InstrumentCode>
+                  <InstrumentName>Example ABS Class A</InstrumentName>
+                  <Valuation>
+                     <QuotationCurrency>EUR</QuotationCurrency>
+                     <MarketValueQC>6250000</MarketValueQC>
+                     <CleanValueQC>6200000</CleanValueQC>
+                     <MarketValuePC>6250000</MarketValuePC>
+                     <CleanValuePC>6200000</CleanValuePC>
+                     <PositionWeight>0.025</PositionWeight>
+                     <MarketExposureQC>6250000</MarketExposureQC>
+                     <MarketExposurePC>6250000</MarketExposurePC>
+                     <MarketExposureWeight>0.025</MarketExposureWeight>
+                  </Valuation>
+                  <Securitisation>
+                     <Securitised>b</Securitised>
+                  </Securitisation>
+                  <AdditionalInformation/>
+               </Position>
+            </Positions>
+         </Portfolio>
+      </TripartiteTemplateSolvencyII_V7>
+   </IndirectReporting>
+</RegulatoryReportings>
 ```
 
 ---

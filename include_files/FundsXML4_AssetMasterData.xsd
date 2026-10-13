@@ -389,7 +389,7 @@
 			</xs:element>
 			<xs:element name="Loan" type="LoanType">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Prestamo</xs:documentation>
+					<xs:documentation xml:lang="en">Loan</xs:documentation>
 					<xs:documentation xml:lang="de">Kredit</xs:documentation>
 					<xs:documentation xml:lang="fr">Prestamo</xs:documentation>
 					<xs:documentation xml:lang="nl">Prestamo</xs:documentation>
@@ -405,7 +405,7 @@
 			<xs:element name="Right">
 				<xs:annotation>
 					<xs:documentation xml:lang="de">Bezugsrecht</xs:documentation>
-					<xs:documentation xml:lang="en">Derecho</xs:documentation>
+					<xs:documentation xml:lang="en">Subscription right</xs:documentation>
 					<xs:documentation xml:lang="fr">Derecho</xs:documentation>
 					<xs:documentation xml:lang="nl">Derecho</xs:documentation>
 					<xs:documentation xml:lang="es">Derecho</xs:documentation>
@@ -1646,7 +1646,7 @@ CR = Crypto</xs:documentation>
 					<xs:documentation xml:lang="en">Securitized (true) or non-securitized (false)</xs:documentation>
 					<xs:documentation xml:lang="de">Securitized (true) oder non-securitized (false)</xs:documentation>
 					<xs:documentation xml:lang="fr">Securitized (true) ou non-securitized (false)</xs:documentation>
-					<xs:documentation xml:lang="nl">Titulizado (true) o no titulizado (false)</xs:documentation>
+					<xs:documentation xml:lang="nl">Gesecuritiseerd (true) of niet gesecuritiseerd (false)</xs:documentation>
 					<xs:documentation xml:lang="es">Securitized (verdadero) el non-securitized (falso)</xs:documentation>
 					<xs:documentation xml:lang="it">Cartolarizzati (vero) o non cartolarizzati (falso)</xs:documentation>
 					<xs:documentation xml:lang="cs">Sekuritizováno (true), nebo nesekuritizováno (false)</xs:documentation>
@@ -1830,8 +1830,8 @@ CR = Crypto</xs:documentation>
 					<xs:sequence>
 						<xs:element name="Rating" type="RatingsType" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Informacion de calificacion</xs:documentation>
-								<xs:documentation xml:lang="de">Informacion de calificacion</xs:documentation>
+								<xs:documentation xml:lang="en">Rating information</xs:documentation>
+								<xs:documentation xml:lang="de">Ratinginformation</xs:documentation>
 								<xs:documentation xml:lang="fr">Informacion de calificacion</xs:documentation>
 								<xs:documentation xml:lang="nl">Informacion de calificacion</xs:documentation>
 								<xs:documentation xml:lang="es">Informacion de calificacion</xs:documentation>
@@ -1848,7 +1848,7 @@ CR = Crypto</xs:documentation>
 			</xs:element>
 			<xs:element name="RealEstateCompany" type="CompanyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Sociedad inmobiliaria correspondiente</xs:documentation>
+					<xs:documentation xml:lang="en">Related real estate company</xs:documentation>
 					<xs:documentation xml:lang="de">zugehörige Grundstücksgesellschaft 
 
 CompanyType + Transparenzkennzeichnung</xs:documentation>
@@ -1954,17 +1954,17 @@ j = geprüft und keine Verbriefung im Sinne von Solvency II</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="AssetTypeType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">Asset type classification codes: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
-			<xs:documentation xml:lang="de">Asset-Typ-Klassifikationscodes: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
-			<xs:documentation xml:lang="fr">Codes de classification asset type: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
-			<xs:documentation xml:lang="nl">Asset type classificatie codes: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
-			<xs:documentation xml:lang="es">Activo tipo classificatie codigos: EQ (Equity), BO (Bond), SC (Structured Acreedor), WA (Warrant), CE (Certificate), OP (Opcion), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
-			<xs:documentation xml:lang="it">Codici di classificazione del tipo di asset: EQ (Equity), BO (Bond), SC (Credito strutturato), WA (Warrant), CE (Certificato), OP (Opzione), FU (Future), FX (Forex), SW (Swap), ecc.</xs:documentation>
-			<xs:documentation xml:lang="cs">Klasifikační kódy typů aktiv: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap) atd.</xs:documentation>
-			<xs:documentation xml:lang="hu">Eszköztípus-besorolási kódok: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), stb.</xs:documentation>
-			<xs:documentation xml:lang="da">Klassifikationskoder for aktivtype: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap) osv.</xs:documentation>
-			<xs:documentation xml:lang="pl">Kody klasyfikacji typu aktywa: EQ (akcje), BO (obligacje), SC (kredyt strukturyzowany), WA (warrant), CE (certyfikat), OP (opcja), FU (kontrakt futures), FX (waluta), SW (swap) itd.</xs:documentation>
-			<xs:documentation xml:lang="sv">Klassificeringskoder för tillgångstyp: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap) osv.</xs:documentation>
+			<xs:documentation xml:lang="en">Asset type classification codes: EQ (Equity), BO (Bond), SC (Share Class, formerly fund), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+			<xs:documentation xml:lang="de">Asset-Typ-Klassifikationscodes: EQ (Equity), BO (Bond), SC (Fonds/Anteilscheinklasse), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+			<xs:documentation xml:lang="fr">Codes de classification asset type: EQ (Equity), BO (Bond), SC (Share Class), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+			<xs:documentation xml:lang="nl">Asset type classificatie codes: EQ (Equity), BO (Bond), SC (Share Class), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+			<xs:documentation xml:lang="es">Activo tipo classificatie codigos: EQ (Equity), BO (Bond), SC (Share Class), WA (Warrant), CE (Certificate), OP (Opcion), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
+			<xs:documentation xml:lang="it">Codici di classificazione del tipo di asset: EQ (Equity), BO (Bond), SC (Share Class), WA (Warrant), CE (Certificato), OP (Opzione), FU (Future), FX (Forex), SW (Swap), ecc.</xs:documentation>
+			<xs:documentation xml:lang="cs">Klasifikační kódy typů aktiv: EQ (Equity), BO (Bond), SC (Share Class), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap) atd.</xs:documentation>
+			<xs:documentation xml:lang="hu">Eszköztípus-besorolási kódok: EQ (Equity), BO (Bond), SC (Share Class), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), stb.</xs:documentation>
+			<xs:documentation xml:lang="da">Klassifikationskoder for aktivtype: EQ (Equity), BO (Bond), SC (Share Class), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap) osv.</xs:documentation>
+			<xs:documentation xml:lang="pl">Kody klasyfikacji typu aktywa: EQ (akcje), BO (obligacje), SC (Share Class), WA (warrant), CE (certyfikat), OP (opcja), FU (kontrakt futures), FX (waluta), SW (swap) itd.</xs:documentation>
+			<xs:documentation xml:lang="sv">Klassificeringskoder för tillgångstyp: EQ (Equity), BO (Bond), SC (Share Class), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap) osv.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="EQ"/>
@@ -2352,8 +2352,8 @@ N ... nominellt belopp</xs:documentation>
 					<xs:sequence>
 						<xs:element name="Type" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">fijo/variable/cero/otros</xs:documentation>
-								<xs:documentation xml:lang="de">fijo/variable/cero/otros</xs:documentation>
+								<xs:documentation xml:lang="en">Coupon type: fix (fixed), float (variable), zero (zero coupon) or others</xs:documentation>
+								<xs:documentation xml:lang="de">Kupontyp: fix (fest), float (variabel), zero (Nullkupon) oder others (sonstige)</xs:documentation>
 								<xs:documentation xml:lang="fr">fijo/variable/cero/otros</xs:documentation>
 								<xs:documentation xml:lang="nl">fijo/variable/cero/otros</xs:documentation>
 								<xs:documentation xml:lang="es">fijo/variable/cero/otros</xs:documentation>
@@ -2375,8 +2375,8 @@ N ... nominellt belopp</xs:documentation>
 						</xs:element>
 						<xs:element name="PaymentFrequency" type="FrequencyType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Frecuencia de pago (p.ej. anual)</xs:documentation>
-								<xs:documentation xml:lang="de">Frecuencia de pago (p.ej. anual)</xs:documentation>
+								<xs:documentation xml:lang="en">Payment frequency (e.g. annual)</xs:documentation>
+								<xs:documentation xml:lang="de">Zahlungsfrequenz (z. B. jährlich)</xs:documentation>
 								<xs:documentation xml:lang="fr">Frecuencia de pago (p.ej. anual)</xs:documentation>
 								<xs:documentation xml:lang="nl">Frecuencia de pago (p.ej. anual)</xs:documentation>
 								<xs:documentation xml:lang="es">Frecuencia de pago (p.ej. anual)</xs:documentation>
@@ -2405,8 +2405,8 @@ N ... nominellt belopp</xs:documentation>
 						</xs:element>
 						<xs:element name="BaseIndex" type="IdentifiersType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">p.ej. EURIBOR 6 meses</xs:documentation>
-								<xs:documentation xml:lang="de">p.ej. EURIBOR 6 meses</xs:documentation>
+								<xs:documentation xml:lang="en">Reference index of a floating coupon, e.g. 6-month EURIBOR</xs:documentation>
+								<xs:documentation xml:lang="de">Referenzindex eines variablen Kupons, z. B. 6-Monats-EURIBOR</xs:documentation>
 								<xs:documentation xml:lang="fr">p.ej. EURIBOR 6 meses</xs:documentation>
 								<xs:documentation xml:lang="nl">p.ej. EURIBOR 6 meses</xs:documentation>
 								<xs:documentation xml:lang="es">p.ej. EURIBOR 6 meses</xs:documentation>
@@ -2490,8 +2490,8 @@ N ... nominellt belopp</xs:documentation>
 						</xs:element>
 						<xs:element name="Frequency" type="FrequencyType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Frecuencia de amortizacion</xs:documentation>
-								<xs:documentation xml:lang="de">Rücknahme frequency</xs:documentation>
+								<xs:documentation xml:lang="en">Redemption frequency</xs:documentation>
+								<xs:documentation xml:lang="de">Tilgungsfrequenz</xs:documentation>
 								<xs:documentation xml:lang="fr">Rachat frequency</xs:documentation>
 								<xs:documentation xml:lang="nl">Inkoop frequency</xs:documentation>
 								<xs:documentation xml:lang="es">Reembolso frecuencia</xs:documentation>
@@ -2645,8 +2645,8 @@ N ... nominellt belopp</xs:documentation>
 			</xs:element>
 			<xs:element name="Yields" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Valores de rendimiento</xs:documentation>
-					<xs:documentation xml:lang="de">Valores de rendimiento</xs:documentation>
+					<xs:documentation xml:lang="en">Yield values</xs:documentation>
+					<xs:documentation xml:lang="de">Renditewerte</xs:documentation>
 					<xs:documentation xml:lang="fr">Valores de rendimiento</xs:documentation>
 					<xs:documentation xml:lang="nl">Valores de rendimiento</xs:documentation>
 					<xs:documentation xml:lang="es">Valores de rendimiento</xs:documentation>
@@ -3115,10 +3115,10 @@ Boolesk: true/false</xs:documentation>
 			</xs:element>
 			<xs:element name="Tranche" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Number of tranche</xs:documentation>
-					<xs:documentation xml:lang="de">Nummer von tranche</xs:documentation>
+					<xs:documentation xml:lang="en">Number of the tranche (sequence number of the issue tranche; no statement on seniority)</xs:documentation>
+					<xs:documentation xml:lang="de">Nummer der Tranche (laufende Nummer der Emissionstranche; keine Aussage zur Seniorität)</xs:documentation>
 					<xs:documentation xml:lang="fr">Numéro de tranche</xs:documentation>
-					<xs:documentation xml:lang="nl">Numero de tramo</xs:documentation>
+					<xs:documentation xml:lang="nl">Nummer van de tranche</xs:documentation>
 					<xs:documentation xml:lang="es">Numero el tramo</xs:documentation>
 					<xs:documentation xml:lang="it">Numero di tranche</xs:documentation>
 					<xs:documentation xml:lang="cs">Počet tranche</xs:documentation>
@@ -3910,8 +3910,8 @@ N ... nominellt belopp</xs:documentation>
 					<xs:sequence>
 						<xs:element name="Type" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">fijo/variable/cero/otros</xs:documentation>
-								<xs:documentation xml:lang="de">fijo/variable/cero/otros</xs:documentation>
+								<xs:documentation xml:lang="en">Coupon type: fix (fixed), float (variable), zero (zero coupon) or others</xs:documentation>
+								<xs:documentation xml:lang="de">Kupontyp: fix (fest), float (variabel), zero (Nullkupon) oder others (sonstige)</xs:documentation>
 								<xs:documentation xml:lang="fr">fijo/variable/cero/otros</xs:documentation>
 								<xs:documentation xml:lang="nl">fijo/variable/cero/otros</xs:documentation>
 								<xs:documentation xml:lang="es">fijo/variable/cero/otros</xs:documentation>
@@ -3933,8 +3933,8 @@ N ... nominellt belopp</xs:documentation>
 						</xs:element>
 						<xs:element name="PaymentFrequency" type="FrequencyType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Frecuencia de pago (p.ej. anual)</xs:documentation>
-								<xs:documentation xml:lang="de">Frecuencia de pago (p.ej. anual)</xs:documentation>
+								<xs:documentation xml:lang="en">Payment frequency (e.g. annual)</xs:documentation>
+								<xs:documentation xml:lang="de">Zahlungsfrequenz (z. B. jährlich)</xs:documentation>
 								<xs:documentation xml:lang="fr">Frecuencia de pago (p.ej. anual)</xs:documentation>
 								<xs:documentation xml:lang="nl">Frecuencia de pago (p.ej. anual)</xs:documentation>
 								<xs:documentation xml:lang="es">Frecuencia de pago (p.ej. anual)</xs:documentation>
@@ -3963,8 +3963,8 @@ N ... nominellt belopp</xs:documentation>
 						</xs:element>
 						<xs:element name="BaseIndex" type="IdentifiersType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">p.ej. EURIBOR 6 meses</xs:documentation>
-								<xs:documentation xml:lang="de">p.ej. EURIBOR 6 meses</xs:documentation>
+								<xs:documentation xml:lang="en">Reference index of a floating coupon, e.g. 6-month EURIBOR</xs:documentation>
+								<xs:documentation xml:lang="de">Referenzindex eines variablen Kupons, z. B. 6-Monats-EURIBOR</xs:documentation>
 								<xs:documentation xml:lang="fr">p.ej. EURIBOR 6 meses</xs:documentation>
 								<xs:documentation xml:lang="nl">p.ej. EURIBOR 6 meses</xs:documentation>
 								<xs:documentation xml:lang="es">p.ej. EURIBOR 6 meses</xs:documentation>

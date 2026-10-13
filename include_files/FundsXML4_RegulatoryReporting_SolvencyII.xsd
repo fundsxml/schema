@@ -1494,8 +1494,6 @@ av nominellt belopp (A19) 100%=1,0</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:int">
-                  <xs:minInclusive value="1"/>
-                  <xs:maxInclusive value="2"/>
                   <xs:enumeration value="0"/>
                   <xs:enumeration value="1"/>
                   <xs:enumeration value="2"/>
@@ -1609,8 +1607,6 @@ number with floating decimal</xs:documentation></xs:annotation>
 4 - Existing PIK is not described in the TPT</xs:documentation></xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:int">
-                  <xs:minInclusive value="1"/>
-                  <xs:maxInclusive value="2"/>
                   <xs:enumeration value="0"/>
                   <xs:enumeration value="1"/>
                   <xs:enumeration value="2"/>
@@ -7617,7 +7613,7 @@ gamma för derivat med valbara komponenter</xs:documentation>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
-         <xs:element minOccurs="0" name="LookThroughIdentifier" type="ISINType">
+         <xs:element minOccurs="0" name="LookThroughIdentifier" type="xs:string">
             <xs:annotation>
                <xs:documentation xml:lang="en">A95 - identification code of the investee funds
 ISIN or CUSIP or any other identification</xs:documentation>
@@ -9907,17 +9903,37 @@ om V2.1 inte är tillgänglig, ange V2.0-kodifiering i datapunkt 54.</xs:documen
                <xs:sequence>
                   <xs:element name="Securitised">
                   	<xs:annotation>
-                  	   <xs:documentation xml:lang="en">Securitisation classification (a-g) indicating asset type category</xs:documentation>
-                  	   <xs:documentation xml:lang="de">Verbriefungsklassifikation (a-g) zur Angabe der Anlagekategorie</xs:documentation>
-                  	   <xs:documentation xml:lang="fr">Classification de titrisation (a-g) indiquant la catégorie de type d'actif</xs:documentation>
-                  	   <xs:documentation xml:lang="nl">Securitisatieclassificatie (a-g) die de categorie van het activatype aangeeft</xs:documentation>
-                  	   <xs:documentation xml:lang="es">Clasificación de titulización (a-g) que indica la categoría de tipo de activo</xs:documentation>
-                  	   <xs:documentation xml:lang="it">Classificazione della cartolarizzazione (a-g) che indica la categoria di tipo di attività</xs:documentation>
-                  	   <xs:documentation xml:lang="hu">Értékpapírosítási besorolás (a-g) az eszköztípus kategóriájának jelzésére</xs:documentation>
-                  	   <xs:documentation xml:lang="cs">Klasifikace sekuritizace (a-g) označující kategorii typu aktiv</xs:documentation>
-                  	   <xs:documentation xml:lang="da">Securitisation-klassificering (a-g), der angiver kategori for aktivtype</xs:documentation>
-                  	   <xs:documentation xml:lang="pl">Klasyfikacja sekurytyzacji (a-g) wskazująca kategorię typu aktywa</xs:documentation>
-                  	   <xs:documentation xml:lang="sv">Klassificering av värdepapperisering (a-g) som anger tillgångstypskategori</xs:documentation>
+                  	   <xs:documentation xml:lang="en">A56 - Securitisation typology (a-j)
+"a" eligibility for a securitisation treatment under Solvency II not assessed by the asset manager
+"b" Art. 178 (3) and (5): senior STS
+"c" Art. 178 (4) and (6): junior STS
+"d" Art. 178 (7): re-securitisation
+"e" Art. 178 (8) and (9): not covered by other cases (non STS)
+"f" Art. 178a (1) &amp; (2): transitional regime for type 1 securitisations without new underlying exposure since 01/01/2019
+"g" Art. 178a (3): transitional regime for some type 1 securitisations on residential mortgages
+"h" Art. 178a (4): transitional regime for some type 1 securitisations on residential mortgages
+"i" Art. 180 (10) and (10a): securitisation secured by the EIB or the EIF
+"j" analysed and not to be considered a securitisation under Solvency II</xs:documentation>
+                  	   <xs:documentation xml:lang="de">A56 - Verbriefungstypologie (a-j)
+"a" Eignung für eine Verbriefungsbehandlung unter Solvency II vom Asset Manager nicht geprüft
+"b" Art. 178 (3) und (5): Senior STS
+"c" Art. 178 (4) und (6): Junior STS
+"d" Art. 178 (7): Wiederverbriefung
+"e" Art. 178 (8) und (9): von keinem anderen Fall erfasst (Nicht-STS)
+"f" Art. 178a (1) und (2): Übergangsregelung für Typ-1-Verbriefungen ohne neue zugrunde liegende Risikopositionen seit 01.01.2019
+"g" Art. 178a (3): Übergangsregelung für bestimmte Typ-1-Verbriefungen von Wohnimmobilienkrediten
+"h" Art. 178a (4): Übergangsregelung für bestimmte Typ-1-Verbriefungen von Wohnimmobilienkrediten
+"i" Art. 180 (10) und (10a): von der EIB oder dem EIF besicherte Verbriefung
+"j" geprüft und nicht als Verbriefung im Sinne von Solvency II einzustufen</xs:documentation>
+                  	   <xs:documentation xml:lang="fr">Classification de titrisation (a-j) indiquant la catégorie de type d'actif</xs:documentation>
+                  	   <xs:documentation xml:lang="nl">Securitisatieclassificatie (a-j) die de categorie van het activatype aangeeft</xs:documentation>
+                  	   <xs:documentation xml:lang="es">Clasificación de titulización (a-j) que indica la categoría de tipo de activo</xs:documentation>
+                  	   <xs:documentation xml:lang="it">Classificazione della cartolarizzazione (a-j) che indica la categoria di tipo di attività</xs:documentation>
+                  	   <xs:documentation xml:lang="hu">Értékpapírosítási besorolás (a-j) az eszköztípus kategóriájának jelzésére</xs:documentation>
+                  	   <xs:documentation xml:lang="cs">Klasifikace sekuritizace (a-j) označující kategorii typu aktiv</xs:documentation>
+                  	   <xs:documentation xml:lang="da">Securitisation-klassificering (a-j), der angiver kategori for aktivtype</xs:documentation>
+                  	   <xs:documentation xml:lang="pl">Klasyfikacja sekurytyzacji (a-j) wskazująca kategorię typu aktywa</xs:documentation>
+                  	   <xs:documentation xml:lang="sv">Klassificering av värdepapperisering (a-j) som anger tillgångstypskategori</xs:documentation>
                   	</xs:annotation>
                      <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -10860,7 +10876,7 @@ Denna datapunkt behövs av försäkringsbolag i de fall det juridiska/avtalsenli
                </xs:sequence>
             </xs:complexType>
          </xs:element>
-         <xs:element minOccurs="0" name="LookThroughIdentifier" type="ISINType">
+         <xs:element minOccurs="0" name="LookThroughIdentifier" type="xs:string">
             <xs:annotation>
                <xs:documentation xml:lang="en">A95 - identification code of the investee funds
 ISIN or CUSIP or any other identification</xs:documentation>
@@ -12325,7 +12341,7 @@ Alpha(2) ("C" = Covered / "NC" = Non Covered)</xs:documentation></xs:annotation>
          <xs:element name="Securitisation" minOccurs="0">
                   	<xs:annotation>
                   	   <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">56_Securitisation
-alpha (1)
+alpha (max 2)
 "a" refers to the fact that the asset managers have not assessed the eligibility of a treatment of the securitisation positions under Solvency II
 "b" refers to security positions eligible for art 178 (3) and art 178 (5) (Senior STS)
 "c" refers to security positions eligible for art 178 (4) and art 178 (6) (Junior STS)
@@ -12720,7 +12736,7 @@ number with floating decimal</xs:documentation></xs:annotation>
                </xs:sequence>
             </xs:complexType>
          </xs:element>
-         <xs:element minOccurs="0" name="OriginalPortfolioIdentification" type="ISINType">
+         <xs:element minOccurs="0" name="OriginalPortfolioIdentification" type="xs:string">
             <xs:annotation>
                <xs:documentation xml:lang="en">95_Identification_of_the_original_portfolio_for_positions_embedded_in_a_fund
 ISIN or CUSIP or any other identification</xs:documentation></xs:annotation>
@@ -16248,7 +16264,7 @@ V4.0 (official) dated 13 February 2018
 V5.0 (official) dated 16 January 2020
 V6.0 (official) dated 10 January 2022
 V7.0 (official) dated 25 November 2024
-V8.0 (official) dated XXXXXXXXXX</xs:documentation></xs:annotation>
+V8.0 (consultation draft) dated 7 July 2026</xs:documentation></xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
                   <xs:enumeration value="V8.0"/></xs:restriction>

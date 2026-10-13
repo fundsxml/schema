@@ -41,6 +41,8 @@ To be delivered if `ListingUnit` is `P` (pieces). `Position/Bond/Nominal` resp. 
 
 - German documentation of `ListingUnit` in `BondType` and `CommercialPaperType` corrected: the value for pieces is `P` (text said `S`). No structural change
 
+- German documentation of `Commodity/ListingUnit` corrected: the values are `P` (pieces) and `U` (units); the text described `S` and `N`. No structural change
+
 - `CompanyType/OtherClassification`:
   - Documentation corrected: the element holds classifications, not identifiers (text had been copied from `OtherID`)
   - `ListedType="SIC"` is now documented as the US Standard Industrial Classification 1987; UK SIC 2007 is to be delivered via `FreeType`

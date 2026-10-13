@@ -72,10 +72,14 @@ Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
 - TPT V6, V7 `LookThroughIdentifier` and V8 `OriginalPortfolioIdentification` (TPT 95): type changed from `ISINType` to `xs:string`, as the datapoint allows "ISIN or CUSIP or any other identification"
 - `TripartiteTemplateSolvencyII_V8`: `@since` corrected to 4.2.12, and the non-English documentation named version 7.0 and its date
 - TPT `DerivativeOrConvertible/OptionCharacteristics/ConversionRatio` (V4, V6, V7) and `ConversionFactor` (V8), TPT 62: now optional. The datapoint applies to convertible bonds (CIC 22) only, but the element was mandatory, so an option with `CallPutType`, `StrikePrice` or `ExerciseType` could not be delivered without a dummy value
+- `ControlData/Version`: enumeration value `4.2.12` added, so that documents using the elements introduced in this version can declare it
 
 ### Changed
 
 - Documentation only, no structural change:
+  - EET fields 80020 to 80050 (four template versions) and 20170: the English documentation contained Spanish text; English wording restored, and the Spanish text of 20170 moved to its own slot
+  - `AssetMasterData`: the French, Dutch, Czech, Hungarian, Danish, Polish and Swedish documentation of `AssetDetails/Loan`, `AssetDetails/Right`, `Ratings/Rating`, `RealEstateCompany`, `Yields`, `Coupon/Type`, `Coupon/PaymentFrequency`, `Coupon/BaseIndex`, `Redemption/Frequency`, `ConvertibleBond/ConversionRatio` and `ConvertibleBond/ContractSize` repeated the Spanish or a placeholder text and is now translated; a few Spanish and Italian texts of these elements were corrected as well
+  - Missing documentation languages completed: every annotation with an English text now carries all eleven languages (1,973 texts added in `RegulatoryReporting_SolvencyII`, `PortfolioData`, `FundStaticData`, `RegulatoryReporting_EET`, `ShareClassData`, `AssetMasterData`, `RegulatoryReporting_EMT`, `AssetMgmtCompDynData` and `CountrySpecificData_DE`). 164 of them were taken over from identical English texts elsewhere in the schema, the others are new machine translations that have not been reviewed by native speakers
   - TPT V7 `Securitisation/Securitised` (TPT 56): range corrected to a–j and the meaning of the codes added (English and German)
   - TPT V8 `Securitisation`: codification is up to two characters (`e1`, `e2`, `e3`); `TPTVersion` names V8.0 as consultation draft instead of a date placeholder
   - `AssetTypeType`: `SC` is the share class (formerly fund), not "Structured Credit"

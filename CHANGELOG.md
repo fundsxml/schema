@@ -62,7 +62,24 @@ Source data for the Solvency II TPT rows of convertible bonds (CIC 22). All new 
 - `Asset/AssetDetails/Bond/ConvertibleBond/UnderlyingUniqueID` (`FundsXML4_AssetMasterData.xsd`, `xs:IDREF`) – reference to the asset into which the bond can be converted, giving access to the master data of the underlying (CIC, name, currency, issuer; TPT 67 to 86). Follows `Underlying`, which keeps holding the identifiers only
 - `Position/Bond/BondFloor` and `Position/Bond/OptionPremium` (`FundsXML4_PortfolioData.xsd`, `FundAmountType`) – bond floor and premium of the embedded conversion option (TPT 127 and 128; TPT up to V7, removed in the V8 draft). Both follow `CollateralValue`
 
+Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
+
+- `RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V8` (type `TripartiteTemplateSolvencyIIType_V8`) – Tripartite Template version 8.0 according to the FinDatEx consultation draft of 2026-07-07. The final version is not published yet, so the structure may still change. Against V7, 20 datapoints are removed, issuer identification accepts non-LEI codes, the securitisation category `e` is split into `e1`, `e2` and `e3`, and the datapoints 150 and 151 are new
+
+### Fixed
+
+- TPT V7 and V8, `Redemption/PIK` (TPT 146): contradicting facets `minInclusive=1` / `maxInclusive=2` removed. The values `0` (no PIK), `3` and `4` of the enumeration were rejected before
+- TPT V6, V7 `LookThroughIdentifier` and V8 `OriginalPortfolioIdentification` (TPT 95): type changed from `ISINType` to `xs:string`, as the datapoint allows "ISIN or CUSIP or any other identification"
+- `TripartiteTemplateSolvencyII_V8`: `@since` corrected to 4.2.12, and the non-English documentation named version 7.0 and its date
+
 ### Changed
+
+- Documentation only, no structural change:
+  - TPT V7 `Securitisation/Securitised` (TPT 56): range corrected to a–j and the meaning of the codes added (English and German)
+  - TPT V8 `Securitisation`: codification is up to two characters (`e1`, `e2`, `e3`); `TPTVersion` names V8.0 as consultation draft instead of a date placeholder
+  - `AssetTypeType`: `SC` is the share class (formerly fund), not "Structured Credit"
+  - Spanish text in the English and German documentation replaced for `AssetDetails/Loan`, `AssetDetails/Right`, `Ratings/Rating`, `RealEstateCompany`, `Yields`, and in `Bond` and `CommercialPaper` for `Coupon/Type`, `Coupon/PaymentFrequency`, `Coupon/BaseIndex` and (Bond) `Redemption/Frequency`
+  - `Bond/Tranche` described as the number of the issue tranche; Dutch text of `Tranche` and `Securitized` was Spanish
 
 - Documentation of `ConvertibleBond/ConversionPrice` and `ConversionRatio` made precise in English and German (price per share resp. number of shares per bond, with the TPT fields 61 and 62 they feed); the English text of `ConvertibleBond/ContractSize` was German. No structural change
 

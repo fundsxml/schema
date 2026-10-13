@@ -30,7 +30,18 @@ Additional predefined classification systems for companies (`FundsXML4_Core.xsd`
 - `ESA 2010` – institutional sector code according to ESA 2010, e.g. `S.11`, `S.122`
 - `ISO 20275 ELF` – Entity Legal Form code as maintained by GLEIF
 
+Nominal value per piece for bonds and commercial papers listed in pieces (`FundsXML4_AssetMasterData.xsd`), type `AmountType`, optional:
+
+- `Asset/AssetDetails/Bond/NominalValuePerPiece` – nominal (face) value of one piece of the bond
+- `Asset/AssetDetails/CommercialPaper/NominalValuePerPiece` – nominal (face) value of one piece of the CP/CD
+
+To be delivered if `ListingUnit` is `P` (pieces). `Position/Bond/Nominal` resp. `Position/CommercialPaper/Nominal` then holds the number of pieces, and the total nominal of the position is the number of pieces multiplied by the nominal value per piece. In both types the new element follows `ListingUnit`.
+
 ### Changed
+
+- German documentation of `ListingUnit` in `BondType` and `CommercialPaperType` corrected: the value for pieces is `P` (text said `S`). No structural change
+
+- German documentation of `Commodity/ListingUnit` corrected: the values are `P` (pieces) and `U` (units); the text described `S` and `N`. No structural change
 
 - `CompanyType/OtherClassification`:
   - Documentation corrected: the element holds classifications, not identifiers (text had been copied from `OtherID`)
@@ -78,4 +89,21 @@ Additional predefined classification systems for companies (`FundsXML4_Core.xsd`
   <OtherClassification ListedType="ISO 20275 ELF">AXSB</OtherClassification>
   <OtherClassification FreeType="UK SIC 2007">62012</OtherClassification>
 </Issuer>
+```
+
+```xml
+<Asset>
+  <UniqueID>ID_BOND_1</UniqueID>
+  ...
+  <AssetDetails>
+    <Bond>
+      <ConvertibleFlag>false</ConvertibleFlag>
+      <ListingUnit>P</ListingUnit>
+      <NominalValuePerPiece>
+        <Amount ccy="EUR">1000.00</Amount>
+      </NominalValuePerPiece>
+      <MaturityDate>2031-06-30</MaturityDate>
+    </Bond>
+  </AssetDetails>
+</Asset>
 ```

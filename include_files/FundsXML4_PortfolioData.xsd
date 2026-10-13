@@ -1231,6 +1231,38 @@
 									<xs:documentation>Current value of collateral usage (positive value if received, negative value if delivered from/to counterparty)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
+							<xs:element name="BondFloor" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:appinfo source="@since 4.2.12"/>
+									<xs:documentation xml:lang="en">Bond floor of a convertible bond: lowest value of the convertible, i.e. its value without the conversion right, at the current issuer spread (TPT field 127_Bond_floor; TPT up to V7, removed in V8)</xs:documentation>
+									<xs:documentation xml:lang="de">Bond Floor einer Wandelanleihe: Wertuntergrenze der Wandelanleihe, d. h. ihr Wert ohne Wandlungsrecht, beim aktuellen Emittenten-Spread (TPT-Feld 127_Bond_floor; TPT bis V7, in V8 gestrichen)</xs:documentation>
+									<xs:documentation xml:lang="fr">Plancher obligataire d'une obligation convertible : valeur la plus basse de la convertible, c.-à-d. sa valeur sans le droit de conversion, au spread émetteur actuel (champ TPT 127_Bond_floor ; TPT jusqu'à V7, supprimé en V8)</xs:documentation>
+									<xs:documentation xml:lang="nl">Bond floor van een converteerbare obligatie: laagste waarde van de converteerbare obligatie, d.w.z. de waarde zonder conversierecht, bij de huidige spread van de emittent (TPT-veld 127_Bond_floor; TPT tot en met V7, geschrapt in V8)</xs:documentation>
+									<xs:documentation xml:lang="es">Suelo del bono de un bono convertible: valor mínimo del convertible, es decir, su valor sin el derecho de conversión, al diferencial actual del emisor (campo TPT 127_Bond_floor; TPT hasta V7, eliminado en V8)</xs:documentation>
+									<xs:documentation xml:lang="it">Bond floor di un'obbligazione convertibile: valore minimo della convertibile, ossia il suo valore senza il diritto di conversione, allo spread corrente dell'emittente (campo TPT 127_Bond_floor; TPT fino a V7, eliminato in V8)</xs:documentation>
+									<xs:documentation xml:lang="cs">Bond floor konvertibilního dluhopisu: nejnižší hodnota konvertibilního dluhopisu, tj. jeho hodnota bez práva na konverzi, při aktuálním spreadu emitenta (pole TPT 127_Bond_floor; TPT do V7, ve V8 zrušeno)</xs:documentation>
+									<xs:documentation xml:lang="hu">Az átváltoztatható kötvény bond floor értéke: az átváltoztatható kötvény legalacsonyabb értéke, azaz az átváltási jog nélküli értéke a kibocsátó aktuális felára mellett (TPT 127_Bond_floor mező; TPT V7-ig, V8-ban törölve)</xs:documentation>
+									<xs:documentation xml:lang="da">Bond floor for en konvertibel obligation: den konvertible obligations laveste værdi, dvs. værdien uden konverteringsret, ved udstederens aktuelle spread (TPT-felt 127_Bond_floor; TPT til og med V7, udgået i V8)</xs:documentation>
+									<xs:documentation xml:lang="pl">Bond floor obligacji zamiennej: najniższa wartość obligacji zamiennej, tj. jej wartość bez prawa zamiany, przy bieżącym spreadzie emitenta (pole TPT 127_Bond_floor; TPT do V7, usunięte w V8)</xs:documentation>
+									<xs:documentation xml:lang="sv">Bond floor för en konvertibel: konvertibelns lägsta värde, dvs. värdet utan konverteringsrätt, vid emittentens aktuella spread (TPT-fält 127_Bond_floor; TPT till och med V7, borttaget i V8)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="OptionPremium" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:appinfo source="@since 4.2.12"/>
+									<xs:documentation xml:lang="en">Premium of the embedded conversion option of a convertible bond (TPT field 128_Option_premium; TPT up to V7, removed in V8)</xs:documentation>
+									<xs:documentation xml:lang="de">Prämie der eingebetteten Wandlungsoption einer Wandelanleihe (TPT-Feld 128_Option_premium; TPT bis V7, in V8 gestrichen)</xs:documentation>
+									<xs:documentation xml:lang="fr">Prime de l'option de conversion incorporée d'une obligation convertible (champ TPT 128_Option_premium ; TPT jusqu'à V7, supprimé en V8)</xs:documentation>
+									<xs:documentation xml:lang="nl">Premie van de ingebedde conversieoptie van een converteerbare obligatie (TPT-veld 128_Option_premium; TPT tot en met V7, geschrapt in V8)</xs:documentation>
+									<xs:documentation xml:lang="es">Prima de la opción de conversión implícita de un bono convertible (campo TPT 128_Option_premium; TPT hasta V7, eliminado en V8)</xs:documentation>
+									<xs:documentation xml:lang="it">Premio dell'opzione di conversione incorporata di un'obbligazione convertibile (campo TPT 128_Option_premium; TPT fino a V7, eliminato in V8)</xs:documentation>
+									<xs:documentation xml:lang="cs">Prémie vložené konverzní opce konvertibilního dluhopisu (pole TPT 128_Option_premium; TPT do V7, ve V8 zrušeno)</xs:documentation>
+									<xs:documentation xml:lang="hu">Az átváltoztatható kötvény beágyazott átváltási opciójának prémiuma (TPT 128_Option_premium mező; TPT V7-ig, V8-ban törölve)</xs:documentation>
+									<xs:documentation xml:lang="da">Præmie for den indbyggede konverteringsoption i en konvertibel obligation (TPT-felt 128_Option_premium; TPT til og med V7, udgået i V8)</xs:documentation>
+									<xs:documentation xml:lang="pl">Premia wbudowanej opcji zamiany obligacji zamiennej (pole TPT 128_Option_premium; TPT do V7, usunięte w V8)</xs:documentation>
+									<xs:documentation xml:lang="sv">Premie för den inbäddade konverteringsoptionen i en konvertibel (TPT-fält 128_Option_premium; TPT till och med V7, borttaget i V8)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -2863,8 +2895,11 @@ negative - paying premiums</xs:documentation>
 						<xs:documentation>Specific Code as defined in enumeration:
 Active Share
 Beta factor
+Convexity
 Correlation
 Covariance
+Credit Sensitivity (spread duration)
+Credit Sensitivity to expected Maturity
 CRR 2 Value (absolute value)
 CRR 2 relative (percentage value)
 Delta
@@ -2882,6 +2917,7 @@ Liquidated within 1 day
 Modified Duration
 Modified Duration to next Call
 Modified Duration to Maturity
+Modified Duration to expected Maturity
 Net Commodity Delta
 Net CS01 (for credit default swaps)
 Net DV01 (BVBP)
@@ -2899,14 +2935,18 @@ Vega
 Vega Exposure
 Volatility of prices
 Volatility of returns
-Yield</xs:documentation>
+Yield
+Z-Spread</xs:documentation>
 					</xs:annotation>
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="ACTIVE SHARE"/>
 							<xs:enumeration value="BETA FACTOR"/>
+							<xs:enumeration value="CONVEXITY"/>
 							<xs:enumeration value="CORRELATION"/>
 							<xs:enumeration value="COVARIANCE"/>
+							<xs:enumeration value="CREDIT SENSITIVITY"/>
+							<xs:enumeration value="CREDIT SENSITIVITY TO EXPECTED MATURITY"/>
 							<xs:enumeration value="CRR II ABSOLUTE"/>
 							<xs:enumeration value="CRR II PERCENTAGE"/>
 							<xs:enumeration value="DELTA"/>
@@ -2924,6 +2964,7 @@ Yield</xs:documentation>
 							<xs:enumeration value="MODIFIED DURATION"/>
 							<xs:enumeration value="MODIFIED DURATION TO CALL"/>
 							<xs:enumeration value="MODIFIED DURATION TO MATURITY"/>
+							<xs:enumeration value="MODIFIED DURATION TO EXPECTED MATURITY"/>
 							<xs:enumeration value="NET COMMODITY DELTA"/>
 							<xs:enumeration value="NET CS01"/>
 							<xs:enumeration value="NET DV01"/>
@@ -2942,6 +2983,7 @@ Yield</xs:documentation>
 							<xs:enumeration value="VOLATILITY OF PRICES"/>
 							<xs:enumeration value="VOLATILITY OF RETURNS"/>
 							<xs:enumeration value="YIELD"/>
+							<xs:enumeration value="Z-SPREAD"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>

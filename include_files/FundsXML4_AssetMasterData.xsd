@@ -1895,6 +1895,63 @@ CompanyType + Transparenzkennzeichnung</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="SolvencyIISecuritisationCategoryType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Securitisation category under Solvency II, Delegated Regulation (EU) 2015/35 (source for TPT field 56_Securitisation). Deliver e1, e2 or e3 where the split of category e is known (required from TPT V8, mapped to e for TPT V7); e only if the split is not available.
+a = eligibility for a securitisation treatment under Solvency II not assessed
+b = Art. 178 (3) and (5): senior STS
+c = Art. 178 (4) and (6): non-senior STS
+d = Art. 178 (7): re-securitisation
+e = Art. 178 (8) and (9): non-STS, not covered by other cases (TPT up to V7)
+e1 = Art. 178 (8): senior non-STS (TPT V8)
+e2 = Art. 178 (8a): non-senior non-STS (TPT V8)
+e3 = Art. 178 (9): other non-STS (TPT V8)
+f = Art. 178a (1) and (2): transitional regime, type 1 securitisations without new underlying exposures since 2019-01-01
+g = Art. 178a (3): transitional regime, certain type 1 securitisations of residential mortgages
+h = Art. 178a (4): transitional regime, certain type 1 securitisations of residential mortgages
+i = Art. 180 (10) and (10a): securitisation guaranteed by the EIB or the EIF
+j = analysed and not a securitisation under Solvency II</xs:documentation>
+			<xs:documentation xml:lang="de">Verbriefungskategorie nach Solvency II, Delegierte Verordnung (EU) 2015/35 (Quelle für TPT-Feld 56_Securitisation). e1, e2 oder e3 liefern, wenn die Aufteilung der Kategorie e bekannt ist (ab TPT V8 erforderlich, für TPT V7 auf e abzubilden); e nur, wenn die Aufteilung nicht vorliegt.
+a = Eignung für eine Verbriefungsbehandlung unter Solvency II nicht geprüft
+b = Art. 178 (3) und (5): Senior STS
+c = Art. 178 (4) und (6): Nicht-Senior STS
+d = Art. 178 (7): Wiederverbriefung
+e = Art. 178 (8) und (9): Nicht-STS, von keinem anderen Fall erfasst (TPT bis V7)
+e1 = Art. 178 (8): Senior Nicht-STS (TPT V8)
+e2 = Art. 178 (8a): Nicht-Senior Nicht-STS (TPT V8)
+e3 = Art. 178 (9): sonstige Nicht-STS (TPT V8)
+f = Art. 178a (1) und (2): Übergangsregelung, Typ-1-Verbriefungen ohne neue zugrunde liegende Risikopositionen seit 01.01.2019
+g = Art. 178a (3): Übergangsregelung, bestimmte Typ-1-Verbriefungen von Wohnimmobilienkrediten
+h = Art. 178a (4): Übergangsregelung, bestimmte Typ-1-Verbriefungen von Wohnimmobilienkrediten
+i = Art. 180 (10) und (10a): von der EIB oder dem EIF garantierte Verbriefung
+j = geprüft und keine Verbriefung im Sinne von Solvency II</xs:documentation>
+			<xs:documentation xml:lang="fr">Catégorie de titrisation selon Solvabilité II, règlement délégué (UE) 2015/35 (source du champ TPT 56_Securitisation)</xs:documentation>
+			<xs:documentation xml:lang="nl">Securitisatiecategorie volgens Solvency II, Gedelegeerde Verordening (EU) 2015/35 (bron voor TPT-veld 56_Securitisation)</xs:documentation>
+			<xs:documentation xml:lang="es">Categoría de titulización según Solvencia II, Reglamento Delegado (UE) 2015/35 (origen del campo TPT 56_Securitisation)</xs:documentation>
+			<xs:documentation xml:lang="it">Categoria di cartolarizzazione secondo Solvency II, regolamento delegato (UE) 2015/35 (fonte del campo TPT 56_Securitisation)</xs:documentation>
+			<xs:documentation xml:lang="cs">Kategorie sekuritizace podle Solvency II, nařízení v přenesené pravomoci (EU) 2015/35 (zdroj pro pole TPT 56_Securitisation)</xs:documentation>
+			<xs:documentation xml:lang="hu">Értékpapírosítási kategória a Szolvencia II, az (EU) 2015/35 felhatalmazáson alapuló rendelet szerint (a TPT 56_Securitisation mező forrása)</xs:documentation>
+			<xs:documentation xml:lang="da">Securitiseringskategori i henhold til Solvens II, delegeret forordning (EU) 2015/35 (kilde til TPT-felt 56_Securitisation)</xs:documentation>
+			<xs:documentation xml:lang="pl">Kategoria sekurytyzacji zgodnie z Wypłacalność II, rozporządzenie delegowane (UE) 2015/35 (źródło pola TPT 56_Securitisation)</xs:documentation>
+			<xs:documentation xml:lang="sv">Värdepapperiseringskategori enligt Solvens II, delegerad förordning (EU) 2015/35 (källa för TPT-fält 56_Securitisation)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="a"/>
+			<xs:enumeration value="b"/>
+			<xs:enumeration value="c"/>
+			<xs:enumeration value="d"/>
+			<xs:enumeration value="e"/>
+			<xs:enumeration value="e1"/>
+			<xs:enumeration value="e2"/>
+			<xs:enumeration value="e3"/>
+			<xs:enumeration value="f"/>
+			<xs:enumeration value="g"/>
+			<xs:enumeration value="h"/>
+			<xs:enumeration value="i"/>
+			<xs:enumeration value="j"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="AssetTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Asset type classification codes: EQ (Equity), BO (Bond), SC (Structured Credit), WA (Warrant), CE (Certificate), OP (Option), FU (Future), FX (Forex), SW (Swap), etc.</xs:documentation>
@@ -2214,6 +2271,22 @@ N ... nominellt belopp</xs:documentation>
 					<xs:documentation xml:lang="da">Udløbsdato</xs:documentation>
 					<xs:documentation xml:lang="pl">Data zapadalności</xs:documentation>
 					<xs:documentation xml:lang="sv">Förfallodatum</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpectedMaturityDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Expected maturity date taking into account expected prepayments or the expected exercise of call or extension options, e.g. for asset-backed securities; MaturityDate holds the final contractual (legal) maturity (TPT field 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="de">Erwartetes Fälligkeitsdatum unter Berücksichtigung erwarteter vorzeitiger Tilgungen bzw. der erwarteten Ausübung von Kündigungs- oder Verlängerungsoptionen, z. B. bei forderungsbesicherten Wertpapieren; MaturityDate enthält die vertragliche (rechtliche) Endfälligkeit (TPT-Feld 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="fr">Date d'échéance attendue tenant compte des remboursements anticipés attendus ou de l'exercice attendu d'options de remboursement ou de prolongation, p. ex. pour les titres adossés à des actifs ; MaturityDate contient l'échéance contractuelle (légale) finale (champ TPT 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="nl">Verwachte vervaldatum, rekening houdend met verwachte vervroegde aflossingen of de verwachte uitoefening van call- of verlengingsopties, bv. bij asset-backed securities; MaturityDate bevat de contractuele (juridische) eindvervaldatum (TPT-veld 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="es">Fecha de vencimiento esperada teniendo en cuenta las amortizaciones anticipadas esperadas o el ejercicio esperado de opciones de amortización o prórroga, p. ej. en bonos de titulización de activos; MaturityDate contiene el vencimiento contractual (legal) final (campo TPT 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="it">Data di scadenza attesa tenendo conto dei rimborsi anticipati attesi o dell'esercizio atteso di opzioni di rimborso o di proroga, ad es. per i titoli garantiti da attività; MaturityDate contiene la scadenza contrattuale (legale) finale (campo TPT 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="cs">Očekávané datum splatnosti se zohledněním očekávaných předčasných splátek nebo očekávaného uplatnění opcí na předčasné splacení či prodloužení, např. u cenných papírů krytých aktivy; MaturityDate obsahuje konečnou smluvní (právní) splatnost (pole TPT 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="hu">Várható lejárati dátum a várható előtörlesztések, illetve a visszahívási vagy hosszabbítási opciók várható lehívásának figyelembevételével, pl. eszközfedezetű értékpapíroknál; a MaturityDate a végső szerződéses (jogi) lejáratot tartalmazza (TPT 143_Maturity_date_expected mező)</xs:documentation>
+					<xs:documentation xml:lang="da">Forventet udløbsdato under hensyntagen til forventede førtidige indfrielser eller forventet udnyttelse af call- eller forlængelsesoptioner, f.eks. for asset-backed securities; MaturityDate indeholder det endelige kontraktlige (juridiske) udløb (TPT-felt 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="pl">Oczekiwana data zapadalności z uwzględnieniem oczekiwanych przedterminowych spłat lub oczekiwanego wykonania opcji wykupu albo przedłużenia, np. dla papierów wartościowych zabezpieczonych aktywami; MaturityDate zawiera ostateczną umowną (prawną) zapadalność (pole TPT 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="sv">Förväntat förfallodatum med hänsyn till förväntade förtida återbetalningar eller förväntat utnyttjande av inlösen- eller förlängningsoptioner, t.ex. för tillgångssäkrade värdepapper; MaturityDate innehåller det slutliga avtalsenliga (legala) förfallodatumet (TPT-fält 143_Maturity_date_expected)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DateFirstCoupon" type="xs:date" minOccurs="0">
@@ -3055,6 +3128,141 @@ Boolesk: true/false</xs:documentation>
 					<xs:documentation xml:lang="sv">Antal tranche</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="SolvencyIISecuritisationCategory" type="SolvencyIISecuritisationCategoryType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Securitisation category of the bond under Solvency II (TPT field 56_Securitisation). To be delivered for structured notes and collateralised securities (CIC categories 5 and 6)</xs:documentation>
+					<xs:documentation xml:lang="de">Verbriefungskategorie der Anleihe nach Solvency II (TPT-Feld 56_Securitisation). Zu liefern für strukturierte Schuldtitel und besicherte Wertpapiere (CIC-Kategorien 5 und 6)</xs:documentation>
+					<xs:documentation xml:lang="fr">Catégorie de titrisation de l'obligation selon Solvabilité II (champ TPT 56_Securitisation). À fournir pour les titres structurés et les titres garantis (catégories CIC 5 et 6)</xs:documentation>
+					<xs:documentation xml:lang="nl">Securitisatiecategorie van de obligatie volgens Solvency II (TPT-veld 56_Securitisation). Aan te leveren voor gestructureerde notes en effecten met onderpand (CIC-categorieën 5 en 6)</xs:documentation>
+					<xs:documentation xml:lang="es">Categoría de titulización del bono según Solvencia II (campo TPT 56_Securitisation). Debe indicarse para bonos estructurados y valores con garantía real (categorías CIC 5 y 6)</xs:documentation>
+					<xs:documentation xml:lang="it">Categoria di cartolarizzazione dell'obbligazione secondo Solvency II (campo TPT 56_Securitisation). Da fornire per titoli strutturati e titoli garantiti (categorie CIC 5 e 6)</xs:documentation>
+					<xs:documentation xml:lang="cs">Kategorie sekuritizace dluhopisu podle Solvency II (pole TPT 56_Securitisation). Uvádí se u strukturovaných dluhopisů a zajištěných cenných papírů (kategorie CIC 5 a 6)</xs:documentation>
+					<xs:documentation xml:lang="hu">A kötvény értékpapírosítási kategóriája a Szolvencia II szerint (TPT 56_Securitisation mező). Strukturált értékpapírok és fedezett értékpapírok esetén kell megadni (5. és 6. CIC-kategória)</xs:documentation>
+					<xs:documentation xml:lang="da">Securitiseringskategori for obligationen i henhold til Solvens II (TPT-felt 56_Securitisation). Skal leveres for strukturerede værdipapirer og sikrede værdipapirer (CIC-kategori 5 og 6)</xs:documentation>
+					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji obligacji zgodnie z Wypłacalność II (pole TPT 56_Securitisation). Należy podać dla strukturyzowanych papierów wartościowych i zabezpieczonych papierów wartościowych (kategorie CIC 5 i 6)</xs:documentation>
+					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för obligationen enligt Solvens II (TPT-fält 56_Securitisation). Ska anges för strukturerade värdepapper och värdepapper med säkerhet (CIC-kategori 5 och 6)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubordinatedDebt" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Indicates whether the bond is subordinated debt (TPT field 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an, ob die Anleihe nachrangig ist (TPT-Feld 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="fr">Indique si l'obligation est une dette subordonnée (champ TPT 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="nl">Geeft aan of de obligatie achtergestelde schuld is (TPT-veld 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="es">Indica si el bono es deuda subordinada (campo TPT 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="it">Indica se l'obbligazione è debito subordinato (campo TPT 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="cs">Označuje, zda je dluhopis podřízeným dluhem (pole TPT 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="hu">Jelzi, hogy a kötvény alárendelt adósság-e (TPT 58_Subordinated_debt mező)</xs:documentation>
+					<xs:documentation xml:lang="da">Angiver, om obligationen er efterstillet gæld (TPT-felt 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="pl">Wskazuje, czy obligacja jest długiem podporządkowanym (pole TPT 58_Subordinated_debt)</xs:documentation>
+					<xs:documentation xml:lang="sv">Anger om obligationen är efterställd skuld (TPT-fält 58_Subordinated_debt)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BailInRule" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Indicates whether the bond is subject to a bail-in regime (TPT field 142_Bail-in_Rule)
+0 = not assessed
+1 = yes
+2 = no
+9 = not applicable</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an, ob die Anleihe einer Bail-in-Regelung unterliegt (TPT-Feld 142_Bail-in_Rule)
+0 = nicht geprüft
+1 = ja
+2 = nein
+9 = nicht anwendbar</xs:documentation>
+					<xs:documentation xml:lang="fr">Indique si l'obligation est soumise à un régime de renflouement interne (champ TPT 142_Bail-in_Rule)
+0 = non évalué
+1 = oui
+2 = non
+9 = non applicable</xs:documentation>
+					<xs:documentation xml:lang="nl">Geeft aan of de obligatie onder een bail-inregeling valt (TPT-veld 142_Bail-in_Rule)
+0 = niet beoordeeld
+1 = ja
+2 = nee
+9 = niet van toepassing</xs:documentation>
+					<xs:documentation xml:lang="es">Indica si el bono está sujeto a un régimen de recapitalización interna (campo TPT 142_Bail-in_Rule)
+0 = no evaluado
+1 = sí
+2 = no
+9 = no aplicable</xs:documentation>
+					<xs:documentation xml:lang="it">Indica se l'obbligazione è soggetta a un regime di bail-in (campo TPT 142_Bail-in_Rule)
+0 = non valutato
+1 = sì
+2 = no
+9 = non applicabile</xs:documentation>
+					<xs:documentation xml:lang="cs">Označuje, zda dluhopis podléhá režimu bail-in (pole TPT 142_Bail-in_Rule)
+0 = neposouzeno
+1 = ano
+2 = ne
+9 = nepoužije se</xs:documentation>
+					<xs:documentation xml:lang="hu">Jelzi, hogy a kötvényre vonatkozik-e bail-in szabályozás (TPT 142_Bail-in_Rule mező)
+0 = nem értékelt
+1 = igen
+2 = nem
+9 = nem alkalmazható</xs:documentation>
+					<xs:documentation xml:lang="da">Angiver, om obligationen er omfattet af en bail-in-ordning (TPT-felt 142_Bail-in_Rule)
+0 = ikke vurderet
+1 = ja
+2 = nej
+9 = ikke relevant</xs:documentation>
+					<xs:documentation xml:lang="pl">Wskazuje, czy obligacja podlega zasadom bail-in (pole TPT 142_Bail-in_Rule)
+0 = nie oceniono
+1 = tak
+2 = nie
+9 = nie dotyczy</xs:documentation>
+					<xs:documentation xml:lang="sv">Anger om obligationen omfattas av bail-in-regler (TPT-fält 142_Bail-in_Rule)
+0 = inte bedömt
+1 = ja
+2 = nej
+9 = inte tillämpligt</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="9"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PIK" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Payment in kind (PIK): interest is capitalised instead of being paid in cash. Codes as in TPT field 146_PIK; the TPT fields referred to are 32-38 (coupon data) and 41 (redemption rate)
+0 = no PIK
+1 = no cash coupon; PIK is included in the redemption rate and described in the coupon data
+2 = PIK is included in the redemption rate but not described in the coupon data
+3 = PIK is a regular payment included in the coupon data; no impact on the redemption rate
+4 = PIK exists but is not described in the TPT</xs:documentation>
+					<xs:documentation xml:lang="de">Payment in Kind (PIK): Zinsen werden kapitalisiert statt bar gezahlt. Codes wie in TPT-Feld 146_PIK; die genannten TPT-Felder sind 32-38 (Kupondaten) und 41 (Rückzahlungskurs)
+0 = kein PIK
+1 = kein Barkupon; PIK ist im Rückzahlungskurs enthalten und in den Kupondaten beschrieben
+2 = PIK ist im Rückzahlungskurs enthalten, aber nicht in den Kupondaten beschrieben
+3 = PIK ist eine regelmäßige Zahlung und in den Kupondaten enthalten; keine Auswirkung auf den Rückzahlungskurs
+4 = PIK vorhanden, aber im TPT nicht beschrieben</xs:documentation>
+					<xs:documentation xml:lang="fr">Paiement en nature (PIK) : les intérêts sont capitalisés au lieu d'être payés en numéraire. Codes 0 à 4 comme dans le champ TPT 146_PIK</xs:documentation>
+					<xs:documentation xml:lang="nl">Payment in kind (PIK): rente wordt gekapitaliseerd in plaats van in contanten betaald. Codes 0 tot 4 zoals in TPT-veld 146_PIK</xs:documentation>
+					<xs:documentation xml:lang="es">Pago en especie (PIK): los intereses se capitalizan en lugar de pagarse en efectivo. Códigos 0 a 4 como en el campo TPT 146_PIK</xs:documentation>
+					<xs:documentation xml:lang="it">Pagamento in natura (PIK): gli interessi sono capitalizzati anziché pagati in contanti. Codici da 0 a 4 come nel campo TPT 146_PIK</xs:documentation>
+					<xs:documentation xml:lang="cs">Payment in kind (PIK): úroky se kapitalizují místo výplaty v hotovosti. Kódy 0 až 4 jako v poli TPT 146_PIK</xs:documentation>
+					<xs:documentation xml:lang="hu">Payment in kind (PIK): a kamat készpénzes kifizetés helyett tőkésítésre kerül. 0-4 kódok a TPT 146_PIK mező szerint</xs:documentation>
+					<xs:documentation xml:lang="da">Payment in kind (PIK): renter kapitaliseres i stedet for at blive betalt kontant. Koder 0 til 4 som i TPT-felt 146_PIK</xs:documentation>
+					<xs:documentation xml:lang="pl">Payment in kind (PIK): odsetki są kapitalizowane zamiast wypłacane w gotówce. Kody 0 do 4 jak w polu TPT 146_PIK</xs:documentation>
+					<xs:documentation xml:lang="sv">Payment in kind (PIK): räntan kapitaliseras i stället för att betalas kontant. Koder 0 till 4 som i TPT-fält 146_PIK</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="ConvertibleBond" type="ConvertibleBondType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Details for Convertibles</xs:documentation>
@@ -3816,6 +4024,22 @@ N ... nominellt belopp</xs:documentation>
 					<xs:documentation xml:lang="sv">Anger om obligationen är asset-backed</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="SolvencyIISecuritisationCategory" type="SolvencyIISecuritisationCategoryType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Securitisation category of the commercial paper under Solvency II (TPT field 56_Securitisation). To be delivered for structured notes and collateralised securities (CIC categories 5 and 6)</xs:documentation>
+					<xs:documentation xml:lang="de">Verbriefungskategorie des Commercial Papers nach Solvency II (TPT-Feld 56_Securitisation). Zu liefern für strukturierte Schuldtitel und besicherte Wertpapiere (CIC-Kategorien 5 und 6)</xs:documentation>
+					<xs:documentation xml:lang="fr">Catégorie de titrisation du commercial paper selon Solvabilité II (champ TPT 56_Securitisation). À fournir pour les titres structurés et les titres garantis (catégories CIC 5 et 6)</xs:documentation>
+					<xs:documentation xml:lang="nl">Securitisatiecategorie van het commercial paper volgens Solvency II (TPT-veld 56_Securitisation). Aan te leveren voor gestructureerde notes en effecten met onderpand (CIC-categorieën 5 en 6)</xs:documentation>
+					<xs:documentation xml:lang="es">Categoría de titulización del commercial paper según Solvencia II (campo TPT 56_Securitisation). Debe indicarse para bonos estructurados y valores con garantía real (categorías CIC 5 y 6)</xs:documentation>
+					<xs:documentation xml:lang="it">Categoria di cartolarizzazione del commercial paper secondo Solvency II (campo TPT 56_Securitisation). Da fornire per titoli strutturati e titoli garantiti (categorie CIC 5 e 6)</xs:documentation>
+					<xs:documentation xml:lang="cs">Kategorie sekuritizace komerčního papíru podle Solvency II (pole TPT 56_Securitisation). Uvádí se u strukturovaných dluhopisů a zajištěných cenných papírů (kategorie CIC 5 a 6)</xs:documentation>
+					<xs:documentation xml:lang="hu">A commercial paper értékpapírosítási kategóriája a Szolvencia II szerint (TPT 56_Securitisation mező). Strukturált értékpapírok és fedezett értékpapírok esetén kell megadni (5. és 6. CIC-kategória)</xs:documentation>
+					<xs:documentation xml:lang="da">Securitiseringskategori for commercial paper i henhold til Solvens II (TPT-felt 56_Securitisation). Skal leveres for strukturerede værdipapirer og sikrede værdipapirer (CIC-kategori 5 og 6)</xs:documentation>
+					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji commercial paper zgodnie z Wypłacalność II (pole TPT 56_Securitisation). Należy podać dla strukturyzowanych papierów wartościowych i zabezpieczonych papierów wartościowych (kategorie CIC 5 i 6)</xs:documentation>
+					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för commercial paper enligt Solvens II (TPT-fält 56_Securitisation). Ska anges för strukturerade värdepapper och värdepapper med säkerhet (CIC-kategori 5 och 6)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="DayCountConvention" type="DayCountConventionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Day count convention for interest calculation</xs:documentation>
@@ -3933,10 +4157,26 @@ EXCH ... Exchangables</xs:documentation>
 					<xs:documentation xml:lang="sv">Identifierare för det underliggande värdepappret</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="UnderlyingUniqueID" type="xs:IDREF" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Reference to the UniqueID of the asset (AssetMasterData/Asset) into which the bond can be converted. Via this asset the master data of the underlying (CIC, name, currency, issuer) are available, e.g. for TPT fields 67 to 86</xs:documentation>
+					<xs:documentation xml:lang="de">Verweis auf die UniqueID des Assets (AssetMasterData/Asset), in das die Anleihe gewandelt werden kann. Über dieses Asset stehen die Stammdaten des Basiswerts (CIC, Name, Währung, Emittent) zur Verfügung, z. B. für die TPT-Felder 67 bis 86</xs:documentation>
+					<xs:documentation xml:lang="fr">Référence à l'UniqueID de l'actif (AssetMasterData/Asset) en lequel l'obligation peut être convertie. Cet actif fournit les données de base du sous-jacent (CIC, nom, devise, émetteur), p. ex. pour les champs TPT 67 à 86</xs:documentation>
+					<xs:documentation xml:lang="nl">Verwijzing naar de UniqueID van het asset (AssetMasterData/Asset) waarin de obligatie kan worden omgezet. Via dit asset zijn de stamgegevens van de onderliggende waarde (CIC, naam, valuta, emittent) beschikbaar, bv. voor de TPT-velden 67 tot en met 86</xs:documentation>
+					<xs:documentation xml:lang="es">Referencia al UniqueID del activo (AssetMasterData/Asset) en el que puede convertirse el bono. A través de este activo se dispone de los datos maestros del subyacente (CIC, nombre, divisa, emisor), p. ej. para los campos TPT 67 a 86</xs:documentation>
+					<xs:documentation xml:lang="it">Riferimento all'UniqueID dell'attività (AssetMasterData/Asset) in cui l'obbligazione può essere convertita. Tramite questa attività sono disponibili i dati anagrafici del sottostante (CIC, nome, valuta, emittente), ad es. per i campi TPT da 67 a 86</xs:documentation>
+					<xs:documentation xml:lang="cs">Odkaz na UniqueID aktiva (AssetMasterData/Asset), na které lze dluhopis konvertovat. Prostřednictvím tohoto aktiva jsou k dispozici kmenová data podkladového aktiva (CIC, název, měna, emitent), např. pro pole TPT 67 až 86</xs:documentation>
+					<xs:documentation xml:lang="hu">Hivatkozás annak az eszköznek (AssetMasterData/Asset) az UniqueID-jára, amelyre a kötvény átváltható. Ezen az eszközön keresztül érhetők el a mögöttes termék törzsadatai (CIC, név, deviza, kibocsátó), pl. a TPT 67-86 mezőkhöz</xs:documentation>
+					<xs:documentation xml:lang="da">Henvisning til UniqueID for det aktiv (AssetMasterData/Asset), som obligationen kan konverteres til. Via dette aktiv er stamdata for det underliggende aktiv (CIC, navn, valuta, udsteder) tilgængelige, f.eks. til TPT-felterne 67 til 86</xs:documentation>
+					<xs:documentation xml:lang="pl">Odwołanie do UniqueID aktywa (AssetMasterData/Asset), na które obligacja może zostać zamieniona. Poprzez to aktywo dostępne są dane podstawowe instrumentu bazowego (CIC, nazwa, waluta, emitent), np. dla pól TPT 67 do 86</xs:documentation>
+					<xs:documentation xml:lang="sv">Hänvisning till UniqueID för den tillgång (AssetMasterData/Asset) som obligationen kan konverteras till. Via denna tillgång finns stamdata för den underliggande tillgången (CIC, namn, valuta, emittent), t.ex. för TPT-fälten 67 till 86</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="ConversionPrice" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Conversion price</xs:documentation>
-					<xs:documentation xml:lang="de">Preis der Wandlung</xs:documentation>
+					<xs:documentation xml:lang="en">Conversion price: price per share of the underlying at which the bond can be converted (TPT field 61_Strike_price)</xs:documentation>
+					<xs:documentation xml:lang="de">Wandlungspreis: Preis je Aktie des Basiswerts, zu dem die Anleihe gewandelt werden kann (TPT-Feld 61_Strike_price)</xs:documentation>
 					<xs:documentation xml:lang="fr">Prix de conversion</xs:documentation>
 					<xs:documentation xml:lang="nl">Conversieprijs</xs:documentation>
 					<xs:documentation xml:lang="es">Precio de conversión</xs:documentation>
@@ -3950,8 +4190,8 @@ EXCH ... Exchangables</xs:documentation>
 			</xs:element>
 			<xs:element name="ConversionRatio" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Conversion ratio (Wandlungsfaktor)</xs:documentation>
-					<xs:documentation xml:lang="de">Conversion ratio (Wandlungsfaktor)</xs:documentation>
+					<xs:documentation xml:lang="en">Conversion ratio: number of shares received per bond held on conversion (TPT field 62_Conversion_factor)</xs:documentation>
+					<xs:documentation xml:lang="de">Wandlungsverhältnis: Anzahl der Aktien, die bei Wandlung je gehaltener Anleihe bezogen werden (TPT-Feld 62_Conversion_factor)</xs:documentation>
 					<xs:documentation xml:lang="fr">Conversion ratio (Wandlungsfaktor)</xs:documentation>
 					<xs:documentation xml:lang="nl">Conversion ratio (Wandlungsfaktor)</xs:documentation>
 					<xs:documentation xml:lang="es">Conversion ratio (Wandlungsfaktor)</xs:documentation>
@@ -3965,8 +4205,8 @@ EXCH ... Exchangables</xs:documentation>
 			</xs:element>
 			<xs:element name="ContractSize" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Kontraktgroesse</xs:documentation>
-					<xs:documentation xml:lang="de">Kontraktgroesse</xs:documentation>
+					<xs:documentation xml:lang="en">Contract size</xs:documentation>
+					<xs:documentation xml:lang="de">Kontraktgröße</xs:documentation>
 					<xs:documentation xml:lang="fr">Kontraktgroesse</xs:documentation>
 					<xs:documentation xml:lang="nl">Kontraktgroesse</xs:documentation>
 					<xs:documentation xml:lang="es">Kontraktgroesse</xs:documentation>

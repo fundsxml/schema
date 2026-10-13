@@ -1613,30 +1613,66 @@
 									<xs:documentation xml:lang="sv">Bokföringskurs</xs:documentation>
 								</xs:annotation>
 							</xs:element>
+							<xs:element name="InitialMargin" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:appinfo source="@since 4.2.12"/>
+									<xs:documentation xml:lang="en">Initial margin deposited for this futures position as of the valuation date</xs:documentation>
+									<xs:documentation xml:lang="de">Für diese Future-Position hinterlegte Initial Margin (Einschuss) zum Bewertungsstichtag</xs:documentation>
+									<xs:documentation xml:lang="fr">Marge initiale déposée pour cette position sur futures à la date d'évaluation</xs:documentation>
+									<xs:documentation xml:lang="nl">Initial margin gestort voor deze futurespositie per waarderingsdatum</xs:documentation>
+									<xs:documentation xml:lang="es">Margen inicial depositado para esta posición de futuros en la fecha de valoración</xs:documentation>
+									<xs:documentation xml:lang="it">Margine iniziale depositato per questa posizione in future alla data di valutazione</xs:documentation>
+									<xs:documentation xml:lang="cs">Počáteční marže (initial margin) složená k této futures pozici k datu ocenění</xs:documentation>
+									<xs:documentation xml:lang="hu">Az ehhez a határidős pozícióhoz letett kezdeti letét (initial margin) az értékelés napján</xs:documentation>
+									<xs:documentation xml:lang="da">Initial margin stillet for denne future-position pr. værdiansættelsesdatoen</xs:documentation>
+									<xs:documentation xml:lang="pl">Initial margin wniesiony dla tej pozycji futures na dzień wyceny</xs:documentation>
+									<xs:documentation xml:lang="sv">Initial margin som ställts för denna future-position per värderingsdagen</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MaintenanceMargin" type="FundAmountType" minOccurs="0">
+								<xs:annotation>
+									<xs:appinfo source="@since 4.2.12"/>
+									<xs:documentation xml:lang="en">Maintenance margin: minimum margin level for this position; falling below it triggers a margin call</xs:documentation>
+									<xs:documentation xml:lang="de">Maintenance Margin: Mindestmargin für diese Position; bei Unterschreitung erfolgt ein Margin Call (Nachschuss)</xs:documentation>
+									<xs:documentation xml:lang="fr">Marge de maintenance : niveau de marge minimal pour cette position ; son franchissement à la baisse déclenche un appel de marge</xs:documentation>
+									<xs:documentation xml:lang="nl">Maintenance margin: minimaal marginniveau voor deze positie; bij onderschrijding volgt een margin call</xs:documentation>
+									<xs:documentation xml:lang="es">Margen de mantenimiento: nivel mínimo de margen para esta posición; si se cae por debajo se produce una llamada de margen</xs:documentation>
+									<xs:documentation xml:lang="it">Margine di mantenimento: livello minimo di margine per questa posizione; se si scende al di sotto scatta una richiesta di integrazione (margin call)</xs:documentation>
+									<xs:documentation xml:lang="cs">Udržovací marže (maintenance margin): minimální úroveň marže pro tuto pozici; při poklesu pod ni následuje margin call</xs:documentation>
+									<xs:documentation xml:lang="hu">Fenntartási letét (maintenance margin): a pozíció minimális letéti szintje; ha a letét ez alá csökken, pótlólagos letéti felhívás (margin call) következik</xs:documentation>
+									<xs:documentation xml:lang="da">Maintenance margin: minimumsniveau for margin for denne position; falder marginen under dette niveau, udløses et margin call</xs:documentation>
+									<xs:documentation xml:lang="pl">Maintenance margin: minimalny poziom depozytu dla tej pozycji; spadek poniżej tego poziomu powoduje wezwanie do uzupełnienia depozytu (margin call)</xs:documentation>
+									<xs:documentation xml:lang="sv">Maintenance margin: lägsta marginalnivå för denna position; om nivån underskrids utlöses ett margin call</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 							<xs:element name="VariationMarginDaily" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation xml:lang="en">Daily variation margin</xs:documentation>
-									<xs:documentation xml:lang="de">Zeigt taeglich den Wert der Variation Margin an</xs:documentation>
-									<xs:documentation xml:lang="es">Margen de variación diario</xs:documentation>
-									<xs:documentation xml:lang="it">Margine di variazione giornaliero</xs:documentation>
-									<xs:documentation xml:lang="cs">Denní variační marže</xs:documentation>
-									<xs:documentation xml:lang="hu">Napi variációs letét (variation margin)</xs:documentation>
-									<xs:documentation xml:lang="da">Daglig variation margin</xs:documentation>
-									<xs:documentation xml:lang="pl">Dzienny variation margin</xs:documentation>
-									<xs:documentation xml:lang="sv">Daglig variation margin</xs:documentation>
+									<xs:documentation xml:lang="en">Variation margin of the valuation date (daily mark-to-market settlement since the previous valuation date); positive = received by the fund, negative = paid</xs:documentation>
+									<xs:documentation xml:lang="de">Variation Margin des Bewertungsstichtags (tägliche Mark-to-Market-Abrechnung seit dem vorherigen Bewertungsstichtag); positiv = vom Fonds erhalten, negativ = gezahlt</xs:documentation>
+									<xs:documentation xml:lang="fr">Marge de variation à la date d'évaluation (règlement quotidien mark-to-market depuis la date d'évaluation précédente) ; positif = reçu par le fonds, négatif = versé</xs:documentation>
+									<xs:documentation xml:lang="nl">Variation margin van de waarderingsdatum (dagelijkse mark-to-market-afrekening sinds de vorige waarderingsdatum); positief = ontvangen door het fonds, negatief = betaald</xs:documentation>
+									<xs:documentation xml:lang="es">Margen de variación de la fecha de valoración (liquidación diaria mark-to-market desde la fecha de valoración anterior); positivo = recibido por el fondo, negativo = pagado</xs:documentation>
+									<xs:documentation xml:lang="it">Margine di variazione della data di valutazione (regolamento giornaliero mark-to-market dalla data di valutazione precedente); positivo = ricevuto dal fondo, negativo = pagato</xs:documentation>
+									<xs:documentation xml:lang="cs">Variační marže k datu ocenění (denní vypořádání mark-to-market od předchozího data ocenění); kladná hodnota = přijato fondem, záporná = zaplaceno</xs:documentation>
+									<xs:documentation xml:lang="hu">Az értékelés napjának variációs letéte (napi mark-to-market elszámolás az előző értékelési nap óta); pozitív = az alap által kapott, negatív = fizetett</xs:documentation>
+									<xs:documentation xml:lang="da">Variation margin for værdiansættelsesdatoen (daglig mark-to-market-afregning siden forrige værdiansættelsesdato); positiv = modtaget af fonden, negativ = betalt</xs:documentation>
+									<xs:documentation xml:lang="pl">Variation margin na dzień wyceny (dzienne rozliczenie mark-to-market od poprzedniego dnia wyceny); wartość dodatnia = otrzymana przez fundusz, ujemna = zapłacona</xs:documentation>
+									<xs:documentation xml:lang="sv">Variation margin för värderingsdagen (daglig mark-to-market-avräkning sedan föregående värderingsdag); positivt = mottaget av fonden, negativt = betalt</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="VariationMarginOverall" type="FundAmountType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation xml:lang="en">Overall value of variation margin</xs:documentation>
-									<xs:documentation xml:lang="de">Zeigt den Wert der Variation Margin an</xs:documentation>
-									<xs:documentation xml:lang="es">Overall valor de variation margin</xs:documentation>
-									<xs:documentation xml:lang="it">Valore complessivo del margine di variazione</xs:documentation>
-									<xs:documentation xml:lang="cs">Celková hodnota variační marže</xs:documentation>
-									<xs:documentation xml:lang="hu">A variation margin teljes értéke</xs:documentation>
-									<xs:documentation xml:lang="da">Samlet værdi af variation margin</xs:documentation>
-									<xs:documentation xml:lang="pl">Łączna wartość zmiennego depozytu zabezpieczającego (variation margin)</xs:documentation>
-									<xs:documentation xml:lang="sv">Totalt värde av variation margin</xs:documentation>
+									<xs:documentation xml:lang="en">Cumulative variation margin since the position was opened; positive = received by the fund, negative = paid</xs:documentation>
+									<xs:documentation xml:lang="de">Kumulierte Variation Margin seit Eröffnung der Position; positiv = vom Fonds erhalten, negativ = gezahlt</xs:documentation>
+									<xs:documentation xml:lang="fr">Marge de variation cumulée depuis l'ouverture de la position ; positif = reçu par le fonds, négatif = versé</xs:documentation>
+									<xs:documentation xml:lang="nl">Cumulatieve variation margin sinds het openen van de positie; positief = ontvangen door het fonds, negatief = betaald</xs:documentation>
+									<xs:documentation xml:lang="es">Margen de variación acumulado desde la apertura de la posición; positivo = recibido por el fondo, negativo = pagado</xs:documentation>
+									<xs:documentation xml:lang="it">Margine di variazione cumulato dall'apertura della posizione; positivo = ricevuto dal fondo, negativo = pagato</xs:documentation>
+									<xs:documentation xml:lang="cs">Kumulovaná variační marže od otevření pozice; kladná hodnota = přijato fondem, záporná = zaplaceno</xs:documentation>
+									<xs:documentation xml:lang="hu">Halmozott variációs letét a pozíció megnyitása óta; pozitív = az alap által kapott, negatív = fizetett</xs:documentation>
+									<xs:documentation xml:lang="da">Akkumuleret variation margin siden positionens åbning; positiv = modtaget af fonden, negativ = betalt</xs:documentation>
+									<xs:documentation xml:lang="pl">Skumulowany variation margin od otwarcia pozycji; wartość dodatnia = otrzymana przez fundusz, ujemna = zapłacona</xs:documentation>
+									<xs:documentation xml:lang="sv">Ackumulerad variation margin sedan positionen öppnades; positivt = mottaget av fonden, negativt = betalt</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="HedgeRatio" type="PercentageType" minOccurs="0">

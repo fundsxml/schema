@@ -71,6 +71,7 @@ Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
 - TPT V7 and V8, `Redemption/PIK` (TPT 146): contradicting facets `minInclusive=1` / `maxInclusive=2` removed. The values `0` (no PIK), `3` and `4` of the enumeration were rejected before
 - TPT V6, V7 `LookThroughIdentifier` and V8 `OriginalPortfolioIdentification` (TPT 95): type changed from `ISINType` to `xs:string`, as the datapoint allows "ISIN or CUSIP or any other identification"
 - `TripartiteTemplateSolvencyII_V8`: `@since` corrected to 4.2.12, and the non-English documentation named version 7.0 and its date
+- TPT `DerivativeOrConvertible/OptionCharacteristics/ConversionRatio` (V4, V6, V7) and `ConversionFactor` (V8), TPT 62: now optional. The datapoint applies to convertible bonds (CIC 22) only, but the element was mandatory, so an option with `CallPutType`, `StrikePrice` or `ExerciseType` could not be delivered without a dummy value
 
 ### Changed
 

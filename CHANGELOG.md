@@ -37,7 +37,34 @@ Nominal value per piece for bonds and commercial papers listed in pieces (`Funds
 
 To be delivered if `ListingUnit` is `P` (pieces). `Position/Bond/Nominal` resp. `Position/CommercialPaper/Nominal` then holds the number of pieces, and the total nominal of the position is the number of pieces multiplied by the nominal value per piece. In both types the new element follows `ListingUnit`.
 
+Source data for the Solvency II TPT rows of securitisations and structured notes (CIC categories 5 and 6), so that TPT V7 and V8 can be generated from the master data. All new elements are optional.
+
+Asset master data (`FundsXML4_AssetMasterData.xsd`):
+
+- `Asset/AssetDetails/Bond/SolvencyIISecuritisationCategory` and `Asset/AssetDetails/CommercialPaper/SolvencyIISecuritisationCategory` – securitisation category under Delegated Regulation (EU) 2015/35, new type `SolvencyIISecuritisationCategoryType` with the values `a`, `b`, `c`, `d`, `e`, `e1`, `e2`, `e3`, `f`, `g`, `h`, `i`, `j` (TPT 56). `e1`/`e2`/`e3` are the split of category `e` introduced with the TPT V8 draft; for TPT V7 they map to `e`
+- `Asset/AssetDetails/Bond/ExpectedMaturityDate` – expected maturity taking prepayments and option exercise into account (TPT 143); follows `MaturityDate`
+- `Asset/AssetDetails/Bond/SubordinatedDebt` – boolean (TPT 58)
+- `Asset/AssetDetails/Bond/BailInRule` – `0` not assessed, `1` yes, `2` no, `9` not applicable (TPT 142)
+- `Asset/AssetDetails/Bond/PIK` – payment in kind, codes `0` to `4` as in TPT 146
+
+In `BondType` the category, `SubordinatedDebt`, `BailInRule` and `PIK` follow `Tranche`; in `CommercialPaperType` the category follows `IsAssetBacked`.
+
+Company type (`FundsXML4_Core.xsd`), new value of `CompanyType/Type`:
+
+- `Financial vehicle corporations engaged in securitisation transactions` – needed to derive TPT 137 (counterparty sector) value 6
+
+Risk codes (`FundsXML4_PortfolioData.xsd`), new values of `RiskCode/ListedCode`:
+
+- `CONVEXITY` (TPT 94), `CREDIT SENSITIVITY` (TPT 92), `CREDIT SENSITIVITY TO EXPECTED MATURITY` (TPT 145), `MODIFIED DURATION TO EXPECTED MATURITY` (TPT 144), `Z-SPREAD` (TPT 130)
+
+Source data for the Solvency II TPT rows of convertible bonds (CIC 22). All new elements are optional.
+
+- `Asset/AssetDetails/Bond/ConvertibleBond/UnderlyingUniqueID` (`FundsXML4_AssetMasterData.xsd`, `xs:IDREF`) – reference to the asset into which the bond can be converted, giving access to the master data of the underlying (CIC, name, currency, issuer; TPT 67 to 86). Follows `Underlying`, which keeps holding the identifiers only
+- `Position/Bond/BondFloor` and `Position/Bond/OptionPremium` (`FundsXML4_PortfolioData.xsd`, `FundAmountType`) – bond floor and premium of the embedded conversion option (TPT 127 and 128; TPT up to V7, removed in the V8 draft). Both follow `CollateralValue`
+
 ### Changed
+
+- Documentation of `ConvertibleBond/ConversionPrice` and `ConversionRatio` made precise in English and German (price per share resp. number of shares per bond, with the TPT fields 61 and 62 they feed); the English text of `ConvertibleBond/ContractSize` was German. No structural change
 
 - German documentation of `ListingUnit` in `BondType` and `CommercialPaperType` corrected: the value for pieces is `P` (text said `S`). No structural change
 

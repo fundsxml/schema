@@ -2134,8 +2134,7 @@ Z   Nyemission</xs:documentation>
 					<xs:documentation xml:lang="en">Listing unit:
 P ... pieces
 N ... nominal amount</xs:documentation>
-					<xs:documentation xml:lang="de">S = Stueck
-oder
+					<xs:documentation xml:lang="de">P = Stück
 N = Nominale</xs:documentation>
 					<xs:documentation xml:lang="fr">Listing part:
 P ... pieces
@@ -2171,6 +2170,22 @@ N ... nominellt belopp</xs:documentation>
 						<xs:enumeration value="N"/>
 					</xs:restriction>
 				</xs:simpleType>
+			</xs:element>
+			<xs:element name="NominalValuePerPiece" type="AmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Nominal (face) value of one piece of the bond. To be delivered if the instrument is listed in pieces (ListingUnit = P); the total nominal of a position is the number of pieces multiplied by this value</xs:documentation>
+					<xs:documentation xml:lang="de">Nennwert je Stück der Anleihe. Zu liefern bei Stücknotierung (ListingUnit = P); die Gesamtnominale einer Position ergibt sich aus Stückzahl mal Nennwert je Stück</xs:documentation>
+					<xs:documentation xml:lang="fr">Valeur nominale d'une pièce de l'obligation. À fournir si l'instrument est coté à la pièce (ListingUnit = P) ; le nominal total d'une position correspond au nombre de pièces multiplié par cette valeur</xs:documentation>
+					<xs:documentation xml:lang="nl">Nominale waarde per stuk van de obligatie. Aan te leveren als het instrument per stuk genoteerd is (ListingUnit = P); de totale nominale waarde van een positie is het aantal stukken vermenigvuldigd met deze waarde</xs:documentation>
+					<xs:documentation xml:lang="es">Valor nominal por título del bono. Debe indicarse si el instrumento cotiza por títulos (ListingUnit = P); el nominal total de una posición es el número de títulos multiplicado por este valor</xs:documentation>
+					<xs:documentation xml:lang="it">Valore nominale per pezzo dell'obbligazione. Da fornire se lo strumento è quotato a pezzi (ListingUnit = P); il nominale totale di una posizione è il numero di pezzi moltiplicato per questo valore</xs:documentation>
+					<xs:documentation xml:lang="cs">Jmenovitá hodnota jednoho kusu dluhopisu. Uvádí se, pokud je nástroj kótován v kusech (ListingUnit = P); celková jmenovitá hodnota pozice je počet kusů vynásobený touto hodnotou</xs:documentation>
+					<xs:documentation xml:lang="hu">A kötvény egy darabjának névértéke. Akkor kell megadni, ha az eszköz jegyzése darabban történik (ListingUnit = P); a pozíció teljes névértéke a darabszám és ezen érték szorzata</xs:documentation>
+					<xs:documentation xml:lang="da">Pålydende værdi pr. stk. af obligationen. Skal leveres, hvis instrumentet er noteret i styk (ListingUnit = P); positionens samlede nominelle værdi er antal styk ganget med denne værdi</xs:documentation>
+					<xs:documentation xml:lang="pl">Wartość nominalna jednej sztuki obligacji. Należy podać, jeśli instrument jest notowany w sztukach (ListingUnit = P); łączna wartość nominalna pozycji to liczba sztuk pomnożona przez tę wartość</xs:documentation>
+					<xs:documentation xml:lang="sv">Nominellt värde per styck för obligationen. Ska anges om instrumentet noteras i stycken (ListingUnit = P); positionens totala nominella värde är antalet stycken multiplicerat med detta värde</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="IssueDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
@@ -3572,8 +3587,7 @@ Z   Nyemission</xs:documentation>
 					<xs:documentation xml:lang="en">Listing unit:
 P ... pieces
 N ... nominal amount</xs:documentation>
-					<xs:documentation xml:lang="de">S = Stueck
-oder
+					<xs:documentation xml:lang="de">P = Stück
 N = Nominale</xs:documentation>
 					<xs:documentation xml:lang="fr">Listing part:
 P ... pieces
@@ -3609,6 +3623,22 @@ N ... nominellt belopp</xs:documentation>
 						<xs:enumeration value="N"/>
 					</xs:restriction>
 				</xs:simpleType>
+			</xs:element>
+			<xs:element name="NominalValuePerPiece" type="AmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Nominal (face) value of one piece of the CP/CD. To be delivered if the instrument is listed in pieces (ListingUnit = P); the total nominal of a position is the number of pieces multiplied by this value</xs:documentation>
+					<xs:documentation xml:lang="de">Nennwert je Stück des CP/CD. Zu liefern bei Stücknotierung (ListingUnit = P); die Gesamtnominale einer Position ergibt sich aus Stückzahl mal Nennwert je Stück</xs:documentation>
+					<xs:documentation xml:lang="fr">Valeur nominale d'une pièce du CP/CD. À fournir si l'instrument est coté à la pièce (ListingUnit = P) ; le nominal total d'une position correspond au nombre de pièces multiplié par cette valeur</xs:documentation>
+					<xs:documentation xml:lang="nl">Nominale waarde per stuk van het CP/CD. Aan te leveren als het instrument per stuk genoteerd is (ListingUnit = P); de totale nominale waarde van een positie is het aantal stukken vermenigvuldigd met deze waarde</xs:documentation>
+					<xs:documentation xml:lang="es">Valor nominal por título del CP/CD. Debe indicarse si el instrumento cotiza por títulos (ListingUnit = P); el nominal total de una posición es el número de títulos multiplicado por este valor</xs:documentation>
+					<xs:documentation xml:lang="it">Valore nominale per pezzo del CP/CD. Da fornire se lo strumento è quotato a pezzi (ListingUnit = P); il nominale totale di una posizione è il numero di pezzi moltiplicato per questo valore</xs:documentation>
+					<xs:documentation xml:lang="cs">Jmenovitá hodnota jednoho kusu CP/CD. Uvádí se, pokud je nástroj kótován v kusech (ListingUnit = P); celková jmenovitá hodnota pozice je počet kusů vynásobený touto hodnotou</xs:documentation>
+					<xs:documentation xml:lang="hu">A CP/CD egy darabjának névértéke. Akkor kell megadni, ha az eszköz jegyzése darabban történik (ListingUnit = P); a pozíció teljes névértéke a darabszám és ezen érték szorzata</xs:documentation>
+					<xs:documentation xml:lang="da">Pålydende værdi pr. stk. af CP/CD'et. Skal leveres, hvis instrumentet er noteret i styk (ListingUnit = P); positionens samlede nominelle værdi er antal styk ganget med denne værdi</xs:documentation>
+					<xs:documentation xml:lang="pl">Wartość nominalna jednej sztuki CP/CD. Należy podać, jeśli instrument jest notowany w sztukach (ListingUnit = P); łączna wartość nominalna pozycji to liczba sztuk pomnożona przez tę wartość</xs:documentation>
+					<xs:documentation xml:lang="sv">Nominellt värde per styck för CP/CD. Ska anges om instrumentet noteras i stycken (ListingUnit = P); positionens totala nominella värde är antalet stycken multiplicerat med detta värde</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="IssueDate" type="xs:date" minOccurs="0">
 				<xs:annotation>

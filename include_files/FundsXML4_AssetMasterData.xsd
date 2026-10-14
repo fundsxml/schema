@@ -1898,58 +1898,163 @@ CompanyType + Transparenzkennzeichnung</xs:documentation>
 	<xs:simpleType name="SolvencyIISecuritisationCategoryType">
 		<xs:annotation>
 			<xs:appinfo source="@since 4.2.12"/>
-			<xs:documentation xml:lang="en">Securitisation category under Solvency II, Delegated Regulation (EU) 2015/35 (source for TPT field 56_Securitisation). Deliver e1, e2 or e3 where the split of category e is known (required from TPT V8, mapped to e for TPT V7); e only if the split is not available.
-a = eligibility for a securitisation treatment under Solvency II not assessed
-b = Art. 178 (3) and (5): senior STS
-c = Art. 178 (4) and (6): non-senior STS
-d = Art. 178 (7): re-securitisation
-e = Art. 178 (8) and (9): non-STS, not covered by other cases (TPT up to V7)
-e1 = Art. 178 (8): senior non-STS (TPT V8)
-e2 = Art. 178 (8a): non-senior non-STS (TPT V8)
-e3 = Art. 178 (9): other non-STS (TPT V8)
-f = Art. 178a (1) and (2): transitional regime, type 1 securitisations without new underlying exposures since 2019-01-01
-g = Art. 178a (3): transitional regime, certain type 1 securitisations of residential mortgages
-h = Art. 178a (4): transitional regime, certain type 1 securitisations of residential mortgages
-i = Art. 180 (10) and (10a): securitisation guaranteed by the EIB or the EIF
-j = analysed and not a securitisation under Solvency II</xs:documentation>
-			<xs:documentation xml:lang="de">Verbriefungskategorie nach Solvency II, Delegierte Verordnung (EU) 2015/35 (Quelle für TPT-Feld 56_Securitisation). e1, e2 oder e3 liefern, wenn die Aufteilung der Kategorie e bekannt ist (ab TPT V8 erforderlich, für TPT V7 auf e abzubilden); e nur, wenn die Aufteilung nicht vorliegt.
-a = Eignung für eine Verbriefungsbehandlung unter Solvency II nicht geprüft
-b = Art. 178 (3) und (5): Senior STS
-c = Art. 178 (4) und (6): Nicht-Senior STS
-d = Art. 178 (7): Wiederverbriefung
-e = Art. 178 (8) und (9): Nicht-STS, von keinem anderen Fall erfasst (TPT bis V7)
-e1 = Art. 178 (8): Senior Nicht-STS (TPT V8)
-e2 = Art. 178 (8a): Nicht-Senior Nicht-STS (TPT V8)
-e3 = Art. 178 (9): sonstige Nicht-STS (TPT V8)
-f = Art. 178a (1) und (2): Übergangsregelung, Typ-1-Verbriefungen ohne neue zugrunde liegende Risikopositionen seit 01.01.2019
-g = Art. 178a (3): Übergangsregelung, bestimmte Typ-1-Verbriefungen von Wohnimmobilienkrediten
-h = Art. 178a (4): Übergangsregelung, bestimmte Typ-1-Verbriefungen von Wohnimmobilienkrediten
-i = Art. 180 (10) und (10a): von der EIB oder dem EIF garantierte Verbriefung
-j = geprüft und keine Verbriefung im Sinne von Solvency II</xs:documentation>
-			<xs:documentation xml:lang="fr">Catégorie de titrisation selon Solvabilité II, règlement délégué (UE) 2015/35 (source du champ TPT 56_Securitisation)</xs:documentation>
-			<xs:documentation xml:lang="nl">Securitisatiecategorie volgens Solvency II, Gedelegeerde Verordening (EU) 2015/35 (bron voor TPT-veld 56_Securitisation)</xs:documentation>
-			<xs:documentation xml:lang="es">Categoría de titulización según Solvencia II, Reglamento Delegado (UE) 2015/35 (origen del campo TPT 56_Securitisation)</xs:documentation>
-			<xs:documentation xml:lang="it">Categoria di cartolarizzazione secondo Solvency II, regolamento delegato (UE) 2015/35 (fonte del campo TPT 56_Securitisation)</xs:documentation>
-			<xs:documentation xml:lang="cs">Kategorie sekuritizace podle Solvency II, nařízení v přenesené pravomoci (EU) 2015/35 (zdroj pro pole TPT 56_Securitisation)</xs:documentation>
-			<xs:documentation xml:lang="hu">Értékpapírosítási kategória a Szolvencia II, az (EU) 2015/35 felhatalmazáson alapuló rendelet szerint (a TPT 56_Securitisation mező forrása)</xs:documentation>
-			<xs:documentation xml:lang="da">Securitiseringskategori i henhold til Solvens II, delegeret forordning (EU) 2015/35 (kilde til TPT-felt 56_Securitisation)</xs:documentation>
-			<xs:documentation xml:lang="pl">Kategoria sekurytyzacji zgodnie z Wypłacalność II, rozporządzenie delegowane (UE) 2015/35 (źródło pola TPT 56_Securitisation)</xs:documentation>
-			<xs:documentation xml:lang="sv">Värdepapperiseringskategori enligt Solvens II, delegerad förordning (EU) 2015/35 (källa för TPT-fält 56_Securitisation)</xs:documentation>
+			<xs:documentation xml:lang="en">Securitisation category according to the Solvency II Delegated Regulation (EU) 2015/35, which determines the risk factor for the spread risk of securitisation positions
+NotAssessed = eligibility for a securitisation treatment not assessed
+STSSenior = Art. 178 (3) and (5): senior position in an STS securitisation
+STSNonSenior = Art. 178 (4) and (6): non-senior position in an STS securitisation
+Resecuritisation = Art. 178 (7): re-securitisation position
+NonSTSSenior = Art. 178 (8): senior position in a non-STS securitisation
+NonSTSNonSenior = Art. 178 (8a): non-senior position in a non-STS securitisation
+NonSTSOther = Art. 178 (9): other non-STS securitisation position
+TransitionalArt178a1 = Art. 178a (1) and (2): type 1 securitisation issued before 2019-01-01 (former Art. 177 (2)) to which no new underlying exposures were added or substituted after 2018-12-31
+TransitionalArt178a3 = Art. 178a (3): type 1 securitisation issued before 2015-01-18 (former Art. 177 (4))
+TransitionalArt178a4 = Art. 178a (4): type 1 securitisation issued before 2019-01-01 (former Art. 177 (5)), transitional treatment until 2025-12-31
+GuaranteedEIBEIF = Art. 180 (10) and (10a): securitisation position fully, unconditionally and irrevocably guaranteed by the European Investment Fund or the European Investment Bank
+NotASecuritisation = assessed, not a securitisation within the meaning of Solvency II</xs:documentation>
+			<xs:documentation xml:lang="de">Verbriefungskategorie nach der Solvency-II-Durchführungsverordnung, Delegierte Verordnung (EU) 2015/35, die den Risikofaktor für das Spread-Risiko von Verbriefungspositionen bestimmt
+NotAssessed = Eignung für eine Behandlung als Verbriefung nicht geprüft
+STSSenior = Art. 178 (3) und (5): vorrangige Position einer STS-Verbriefung
+STSNonSenior = Art. 178 (4) und (6): nicht vorrangige Position einer STS-Verbriefung
+Resecuritisation = Art. 178 (7): Wiederverbriefungsposition
+NonSTSSenior = Art. 178 (8): vorrangige Position einer Nicht-STS-Verbriefung
+NonSTSNonSenior = Art. 178 (8a): nicht vorrangige Position einer Nicht-STS-Verbriefung
+NonSTSOther = Art. 178 (9): sonstige Position einer Nicht-STS-Verbriefung
+TransitionalArt178a1 = Art. 178a (1) und (2): vor dem 01.01.2019 emittierte Typ-1-Verbriefung (bisheriger Art. 177 (2)), der nach dem 31.12.2018 keine neuen zugrunde liegenden Risikopositionen hinzugefügt oder ersetzt wurden
+TransitionalArt178a3 = Art. 178a (3): vor dem 18.01.2015 emittierte Typ-1-Verbriefung (bisheriger Art. 177 (4))
+TransitionalArt178a4 = Art. 178a (4): vor dem 01.01.2019 emittierte Typ-1-Verbriefung (bisheriger Art. 177 (5)), Übergangsbehandlung bis 31.12.2025
+GuaranteedEIBEIF = Art. 180 (10) und (10a): vom Europäischen Investitionsfonds oder der Europäischen Investitionsbank vollständig, vorbehaltlos und unwiderruflich garantierte Verbriefungsposition
+NotASecuritisation = geprüft, keine Verbriefung im Sinne von Solvency II</xs:documentation>
+			<xs:documentation xml:lang="fr">Catégorie de titrisation selon le règlement délégué Solvabilité II (UE) 2015/35, qui détermine le facteur de risque pour le risque de spread des positions de titrisation
+NotAssessed = éligibilité à un traitement en tant que titrisation non évaluée
+STSSenior = art. 178 (3) et (5) : position senior d'une titrisation STS
+STSNonSenior = art. 178 (4) et (6) : position non senior d'une titrisation STS
+Resecuritisation = art. 178 (7) : position de retitrisation
+NonSTSSenior = art. 178 (8) : position senior d'une titrisation non STS
+NonSTSNonSenior = art. 178 (8a) : position non senior d'une titrisation non STS
+NonSTSOther = art. 178 (9) : autre position de titrisation non STS
+TransitionalArt178a1 = art. 178a (1) et (2) : titrisation de type 1 émise avant le 01/01/2019 (ancien art. 177 (2)) à laquelle aucune nouvelle exposition sous-jacente n'a été ajoutée ou substituée après le 31/12/2018
+TransitionalArt178a3 = art. 178a (3) : titrisation de type 1 émise avant le 18/01/2015 (ancien art. 177 (4))
+TransitionalArt178a4 = art. 178a (4) : titrisation de type 1 émise avant le 01/01/2019 (ancien art. 177 (5)), traitement transitoire jusqu'au 31/12/2025
+GuaranteedEIBEIF = art. 180 (10) et (10a) : position de titrisation garantie intégralement, sans condition et irrévocablement par le Fonds européen d'investissement ou la Banque européenne d'investissement
+NotASecuritisation = évalué, pas une titrisation au sens de Solvabilité II</xs:documentation>
+			<xs:documentation xml:lang="nl">Securitisatiecategorie volgens de Solvency II-gedelegeerde verordening (EU) 2015/35, die de risicofactor voor het spreadrisico van securitisatieposities bepaalt
+NotAssessed = geschiktheid voor een behandeling als securitisatie niet beoordeeld
+STSSenior = art. 178 (3) en (5): senior positie in een STS-securitisatie
+STSNonSenior = art. 178 (4) en (6): niet-senior positie in een STS-securitisatie
+Resecuritisation = art. 178 (7): hersecuritisatiepositie
+NonSTSSenior = art. 178 (8): senior positie in een niet-STS-securitisatie
+NonSTSNonSenior = art. 178 (8a): niet-senior positie in een niet-STS-securitisatie
+NonSTSOther = art. 178 (9): overige niet-STS-securitisatiepositie
+TransitionalArt178a1 = art. 178a (1) en (2): vóór 01-01-2019 uitgegeven type 1-securitisatie (voormalig art. 177 (2)) waaraan na 31-12-2018 geen nieuwe onderliggende blootstellingen zijn toegevoegd of vervangen
+TransitionalArt178a3 = art. 178a (3): vóór 18-01-2015 uitgegeven type 1-securitisatie (voormalig art. 177 (4))
+TransitionalArt178a4 = art. 178a (4): vóór 01-01-2019 uitgegeven type 1-securitisatie (voormalig art. 177 (5)), overgangsbehandeling tot 31-12-2025
+GuaranteedEIBEIF = art. 180 (10) en (10a): securitisatiepositie die volledig, onvoorwaardelijk en onherroepelijk gegarandeerd is door het Europees Investeringsfonds of de Europese Investeringsbank
+NotASecuritisation = beoordeeld, geen securitisatie in de zin van Solvency II</xs:documentation>
+			<xs:documentation xml:lang="es">Categoría de titulización según el Reglamento Delegado (UE) 2015/35 de Solvencia II, que determina el factor de riesgo para el riesgo de diferencial de las posiciones de titulización
+NotAssessed = no se ha evaluado la idoneidad para un tratamiento como titulización
+STSSenior = art. 178 (3) y (5): posición preferente de una titulización STS
+STSNonSenior = art. 178 (4) y (6): posición no preferente de una titulización STS
+Resecuritisation = art. 178 (7): posición de retitulización
+NonSTSSenior = art. 178 (8): posición preferente de una titulización no STS
+NonSTSNonSenior = art. 178 (8a): posición no preferente de una titulización no STS
+NonSTSOther = art. 178 (9): otra posición de titulización no STS
+TransitionalArt178a1 = art. 178a (1) y (2): titulización de tipo 1 emitida antes del 01/01/2019 (antiguo art. 177 (2)) a la que no se han añadido ni sustituido nuevas exposiciones subyacentes después del 31/12/2018
+TransitionalArt178a3 = art. 178a (3): titulización de tipo 1 emitida antes del 18/01/2015 (antiguo art. 177 (4))
+TransitionalArt178a4 = art. 178a (4): titulización de tipo 1 emitida antes del 01/01/2019 (antiguo art. 177 (5)), tratamiento transitorio hasta el 31/12/2025
+GuaranteedEIBEIF = art. 180 (10) y (10a): posición de titulización garantizada plena, incondicional e irrevocablemente por el Fondo Europeo de Inversiones o el Banco Europeo de Inversiones
+NotASecuritisation = evaluado, no es una titulización en el sentido de Solvencia II</xs:documentation>
+			<xs:documentation xml:lang="it">Categoria di cartolarizzazione secondo il regolamento delegato (UE) 2015/35 di Solvency II, che determina il fattore di rischio per il rischio di spread delle posizioni verso la cartolarizzazione
+NotAssessed = idoneità a un trattamento come cartolarizzazione non valutata
+STSSenior = art. 178 (3) e (5): posizione senior di una cartolarizzazione STS
+STSNonSenior = art. 178 (4) e (6): posizione non senior di una cartolarizzazione STS
+Resecuritisation = art. 178 (7): posizione verso la ricartolarizzazione
+NonSTSSenior = art. 178 (8): posizione senior di una cartolarizzazione non STS
+NonSTSNonSenior = art. 178 (8a): posizione non senior di una cartolarizzazione non STS
+NonSTSOther = art. 178 (9): altra posizione verso una cartolarizzazione non STS
+TransitionalArt178a1 = art. 178a (1) e (2): cartolarizzazione di tipo 1 emessa prima del 01/01/2019 (ex art. 177 (2)) alla quale dopo il 31/12/2018 non sono state aggiunte o sostituite nuove esposizioni sottostanti
+TransitionalArt178a3 = art. 178a (3): cartolarizzazione di tipo 1 emessa prima del 18/01/2015 (ex art. 177 (4))
+TransitionalArt178a4 = art. 178a (4): cartolarizzazione di tipo 1 emessa prima del 01/01/2019 (ex art. 177 (5)), trattamento transitorio fino al 31/12/2025
+GuaranteedEIBEIF = art. 180 (10) e (10a): posizione verso la cartolarizzazione garantita pienamente, incondizionatamente e irrevocabilmente dal Fondo europeo per gli investimenti o dalla Banca europea per gli investimenti
+NotASecuritisation = valutato, non è una cartolarizzazione ai sensi di Solvency II</xs:documentation>
+			<xs:documentation xml:lang="cs">Kategorie sekuritizace podle nařízení v přenesené pravomoci (EU) 2015/35 k Solvency II, která určuje rizikový faktor pro riziko úvěrového rozpětí sekuritizačních pozic
+NotAssessed = způsobilost pro zacházení jako se sekuritizací nebyla posouzena
+STSSenior = čl. 178 odst. 3 a 5: seniorní pozice v sekuritizaci STS
+STSNonSenior = čl. 178 odst. 4 a 6: neseniorní pozice v sekuritizaci STS
+Resecuritisation = čl. 178 odst. 7: resekuritizační pozice
+NonSTSSenior = čl. 178 odst. 8: seniorní pozice v sekuritizaci, která není STS
+NonSTSNonSenior = čl. 178 odst. 8a: neseniorní pozice v sekuritizaci, která není STS
+NonSTSOther = čl. 178 odst. 9: jiná sekuritizační pozice, která není STS
+TransitionalArt178a1 = čl. 178a odst. 1 a 2: sekuritizace typu 1 vydaná před 1. 1. 2019 (dřívější čl. 177 odst. 2), k níž po 31. 12. 2018 nebyly přidány ani nahrazeny žádné nové podkladové expozice
+TransitionalArt178a3 = čl. 178a odst. 3: sekuritizace typu 1 vydaná před 18. 1. 2015 (dřívější čl. 177 odst. 4)
+TransitionalArt178a4 = čl. 178a odst. 4: sekuritizace typu 1 vydaná před 1. 1. 2019 (dřívější čl. 177 odst. 5), přechodné zacházení do 31. 12. 2025
+GuaranteedEIBEIF = čl. 180 odst. 10 a 10a: sekuritizační pozice plně, bezpodmínečně a neodvolatelně zaručená Evropským investičním fondem nebo Evropskou investiční bankou
+NotASecuritisation = posouzeno, nejde o sekuritizaci ve smyslu Solvency II</xs:documentation>
+			<xs:documentation xml:lang="hu">Értékpapírosítási kategória a Szolvencia II-re vonatkozó (EU) 2015/35 felhatalmazáson alapuló rendelet szerint, amely meghatározza az értékpapírosítási pozíciók hozamfelár-kockázatának kockázati tényezőjét
+NotAssessed = az értékpapírosításként való kezelésre való alkalmasság nem került értékelésre
+STSSenior = 178. cikk (3) és (5) bekezdés: STS-értékpapírosítás elsőbbségi pozíciója
+STSNonSenior = 178. cikk (4) és (6) bekezdés: STS-értékpapírosítás nem elsőbbségi pozíciója
+Resecuritisation = 178. cikk (7) bekezdés: újra-értékpapírosítási pozíció
+NonSTSSenior = 178. cikk (8) bekezdés: nem STS-értékpapírosítás elsőbbségi pozíciója
+NonSTSNonSenior = 178. cikk (8a) bekezdés: nem STS-értékpapírosítás nem elsőbbségi pozíciója
+NonSTSOther = 178. cikk (9) bekezdés: egyéb nem STS-értékpapírosítási pozíció
+TransitionalArt178a1 = 178a. cikk (1) és (2) bekezdés: 2019. 01. 01. előtt kibocsátott 1. típusú értékpapírosítás (korábbi 177. cikk (2) bekezdés), amelyhez 2018. 12. 31. után nem adtak hozzá és nem cseréltek új mögöttes kitettséget
+TransitionalArt178a3 = 178a. cikk (3) bekezdés: 2015. 01. 18. előtt kibocsátott 1. típusú értékpapírosítás (korábbi 177. cikk (4) bekezdés)
+TransitionalArt178a4 = 178a. cikk (4) bekezdés: 2019. 01. 01. előtt kibocsátott 1. típusú értékpapírosítás (korábbi 177. cikk (5) bekezdés), átmeneti kezelés 2025. 12. 31-ig
+GuaranteedEIBEIF = 180. cikk (10) és (10a) bekezdés: az Európai Beruházási Alap vagy az Európai Beruházási Bank által teljes mértékben, feltétel nélkül és visszavonhatatlanul garantált értékpapírosítási pozíció
+NotASecuritisation = értékelve, nem minősül értékpapírosításnak a Szolvencia II értelmében</xs:documentation>
+			<xs:documentation xml:lang="da">Securitiseringskategori i henhold til Solvens II-forordningen, delegeret forordning (EU) 2015/35, som bestemmer risikofaktoren for spændrisikoen på securitiseringspositioner
+NotAssessed = egnethed til behandling som securitisering ikke vurderet
+STSSenior = art. 178, stk. 3 og 5: senior position i en STS-securitisering
+STSNonSenior = art. 178, stk. 4 og 6: ikke-senior position i en STS-securitisering
+Resecuritisation = art. 178, stk. 7: gensecuritiseringsposition
+NonSTSSenior = art. 178, stk. 8: senior position i en ikke-STS-securitisering
+NonSTSNonSenior = art. 178, stk. 8a: ikke-senior position i en ikke-STS-securitisering
+NonSTSOther = art. 178, stk. 9: anden ikke-STS-securitiseringsposition
+TransitionalArt178a1 = art. 178a, stk. 1 og 2: type 1-securitisering udstedt før 01.01.2019 (tidligere art. 177, stk. 2), hvortil der efter 31.12.2018 ikke er tilføjet eller substitueret nye underliggende eksponeringer
+TransitionalArt178a3 = art. 178a, stk. 3: type 1-securitisering udstedt før 18.01.2015 (tidligere art. 177, stk. 4)
+TransitionalArt178a4 = art. 178a, stk. 4: type 1-securitisering udstedt før 01.01.2019 (tidligere art. 177, stk. 5), overgangsbehandling indtil 31.12.2025
+GuaranteedEIBEIF = art. 180, stk. 10 og 10a: securitiseringsposition, der er fuldt, ubetinget og uigenkaldeligt garanteret af Den Europæiske Investeringsfond eller Den Europæiske Investeringsbank
+NotASecuritisation = vurderet, ikke en securitisering i Solvens II's forstand</xs:documentation>
+			<xs:documentation xml:lang="pl">Kategoria sekurytyzacji zgodnie z rozporządzeniem delegowanym (UE) 2015/35 do Wypłacalność II, która określa współczynnik ryzyka dla ryzyka spreadu pozycji sekurytyzacyjnych
+NotAssessed = nie oceniono kwalifikowalności do traktowania jako sekurytyzacja
+STSSenior = art. 178 ust. 3 i 5: pozycja uprzywilejowana w sekurytyzacji STS
+STSNonSenior = art. 178 ust. 4 i 6: pozycja nieuprzywilejowana w sekurytyzacji STS
+Resecuritisation = art. 178 ust. 7: pozycja resekurytyzacyjna
+NonSTSSenior = art. 178 ust. 8: pozycja uprzywilejowana w sekurytyzacji innej niż STS
+NonSTSNonSenior = art. 178 ust. 8a: pozycja nieuprzywilejowana w sekurytyzacji innej niż STS
+NonSTSOther = art. 178 ust. 9: inna pozycja sekurytyzacyjna inna niż STS
+TransitionalArt178a1 = art. 178a ust. 1 i 2: sekurytyzacja typu 1 wyemitowana przed 01.01.2019 (dawny art. 177 ust. 2), do której po 31.12.2018 nie dodano ani nie zastąpiono nowych ekspozycji bazowych
+TransitionalArt178a3 = art. 178a ust. 3: sekurytyzacja typu 1 wyemitowana przed 18.01.2015 (dawny art. 177 ust. 4)
+TransitionalArt178a4 = art. 178a ust. 4: sekurytyzacja typu 1 wyemitowana przed 01.01.2019 (dawny art. 177 ust. 5), traktowanie przejściowe do 31.12.2025
+GuaranteedEIBEIF = art. 180 ust. 10 i 10a: pozycja sekurytyzacyjna w pełni, bezwarunkowo i nieodwołalnie gwarantowana przez Europejski Fundusz Inwestycyjny lub Europejski Bank Inwestycyjny
+NotASecuritisation = oceniono, nie jest sekurytyzacją w rozumieniu Wypłacalność II</xs:documentation>
+			<xs:documentation xml:lang="sv">Värdepapperiseringskategori enligt Solvens II-förordningen, delegerad förordning (EU) 2015/35, som bestämmer riskfaktorn för spreadrisken för värdepapperiseringspositioner
+NotAssessed = lämplighet för behandling som värdepapperisering inte bedömd
+STSSenior = art. 178.3 och 178.5: senior position i en STS-värdepapperisering
+STSNonSenior = art. 178.4 och 178.6: icke-senior position i en STS-värdepapperisering
+Resecuritisation = art. 178.7: återvärdepapperiseringsposition
+NonSTSSenior = art. 178.8: senior position i en icke-STS-värdepapperisering
+NonSTSNonSenior = art. 178.8a: icke-senior position i en icke-STS-värdepapperisering
+NonSTSOther = art. 178.9: annan icke-STS-värdepapperiseringsposition
+TransitionalArt178a1 = art. 178a.1 och 178a.2: typ 1-värdepapperisering emitterad före 2019-01-01 (tidigare art. 177.2) till vilken inga nya underliggande exponeringar har lagts till eller ersatts efter 2018-12-31
+TransitionalArt178a3 = art. 178a.3: typ 1-värdepapperisering emitterad före 2015-01-18 (tidigare art. 177.4)
+TransitionalArt178a4 = art. 178a.4: typ 1-värdepapperisering emitterad före 2019-01-01 (tidigare art. 177.5), övergångsbehandling till 2025-12-31
+GuaranteedEIBEIF = art. 180.10 och 180.10a: värdepapperiseringsposition som är fullt, ovillkorligt och oåterkalleligt garanterad av Europeiska investeringsfonden eller Europeiska investeringsbanken
+NotASecuritisation = bedömd, inte en värdepapperisering i den mening som avses i Solvens II</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="a"/>
-			<xs:enumeration value="b"/>
-			<xs:enumeration value="c"/>
-			<xs:enumeration value="d"/>
-			<xs:enumeration value="e"/>
-			<xs:enumeration value="e1"/>
-			<xs:enumeration value="e2"/>
-			<xs:enumeration value="e3"/>
-			<xs:enumeration value="f"/>
-			<xs:enumeration value="g"/>
-			<xs:enumeration value="h"/>
-			<xs:enumeration value="i"/>
-			<xs:enumeration value="j"/>
+			<xs:enumeration value="NotAssessed"/>
+			<xs:enumeration value="STSSenior"/>
+			<xs:enumeration value="STSNonSenior"/>
+			<xs:enumeration value="Resecuritisation"/>
+			<xs:enumeration value="NonSTSSenior"/>
+			<xs:enumeration value="NonSTSNonSenior"/>
+			<xs:enumeration value="NonSTSOther"/>
+			<xs:enumeration value="TransitionalArt178a1"/>
+			<xs:enumeration value="TransitionalArt178a3"/>
+			<xs:enumeration value="TransitionalArt178a4"/>
+			<xs:enumeration value="GuaranteedEIBEIF"/>
+			<xs:enumeration value="NotASecuritisation"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="AssetTypeType">
@@ -2276,17 +2381,17 @@ N ... nominellt belopp</xs:documentation>
 			<xs:element name="ExpectedMaturityDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Expected maturity date taking into account expected prepayments or the expected exercise of call or extension options, e.g. for asset-backed securities; MaturityDate holds the final contractual (legal) maturity (TPT field 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="de">Erwartetes Fälligkeitsdatum unter Berücksichtigung erwarteter vorzeitiger Tilgungen bzw. der erwarteten Ausübung von Kündigungs- oder Verlängerungsoptionen, z. B. bei forderungsbesicherten Wertpapieren; MaturityDate enthält die vertragliche (rechtliche) Endfälligkeit (TPT-Feld 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="fr">Date d'échéance attendue tenant compte des remboursements anticipés attendus ou de l'exercice attendu d'options de remboursement ou de prolongation, p. ex. pour les titres adossés à des actifs ; MaturityDate contient l'échéance contractuelle (légale) finale (champ TPT 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="nl">Verwachte vervaldatum, rekening houdend met verwachte vervroegde aflossingen of de verwachte uitoefening van call- of verlengingsopties, bv. bij asset-backed securities; MaturityDate bevat de contractuele (juridische) eindvervaldatum (TPT-veld 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="es">Fecha de vencimiento esperada teniendo en cuenta las amortizaciones anticipadas esperadas o el ejercicio esperado de opciones de amortización o prórroga, p. ej. en bonos de titulización de activos; MaturityDate contiene el vencimiento contractual (legal) final (campo TPT 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="it">Data di scadenza attesa tenendo conto dei rimborsi anticipati attesi o dell'esercizio atteso di opzioni di rimborso o di proroga, ad es. per i titoli garantiti da attività; MaturityDate contiene la scadenza contrattuale (legale) finale (campo TPT 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="cs">Očekávané datum splatnosti se zohledněním očekávaných předčasných splátek nebo očekávaného uplatnění opcí na předčasné splacení či prodloužení, např. u cenných papírů krytých aktivy; MaturityDate obsahuje konečnou smluvní (právní) splatnost (pole TPT 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="hu">Várható lejárati dátum a várható előtörlesztések, illetve a visszahívási vagy hosszabbítási opciók várható lehívásának figyelembevételével, pl. eszközfedezetű értékpapíroknál; a MaturityDate a végső szerződéses (jogi) lejáratot tartalmazza (TPT 143_Maturity_date_expected mező)</xs:documentation>
-					<xs:documentation xml:lang="da">Forventet udløbsdato under hensyntagen til forventede førtidige indfrielser eller forventet udnyttelse af call- eller forlængelsesoptioner, f.eks. for asset-backed securities; MaturityDate indeholder det endelige kontraktlige (juridiske) udløb (TPT-felt 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="pl">Oczekiwana data zapadalności z uwzględnieniem oczekiwanych przedterminowych spłat lub oczekiwanego wykonania opcji wykupu albo przedłużenia, np. dla papierów wartościowych zabezpieczonych aktywami; MaturityDate zawiera ostateczną umowną (prawną) zapadalność (pole TPT 143_Maturity_date_expected)</xs:documentation>
-					<xs:documentation xml:lang="sv">Förväntat förfallodatum med hänsyn till förväntade förtida återbetalningar eller förväntat utnyttjande av inlösen- eller förlängningsoptioner, t.ex. för tillgångssäkrade värdepapper; MaturityDate innehåller det slutliga avtalsenliga (legala) förfallodatumet (TPT-fält 143_Maturity_date_expected)</xs:documentation>
+					<xs:documentation xml:lang="en">Expected maturity date taking into account expected prepayments or the expected exercise of call or extension options, e.g. for asset-backed securities; MaturityDate holds the final contractual (legal) maturity</xs:documentation>
+					<xs:documentation xml:lang="de">Erwartetes Fälligkeitsdatum unter Berücksichtigung erwarteter vorzeitiger Tilgungen bzw. der erwarteten Ausübung von Kündigungs- oder Verlängerungsoptionen, z. B. bei forderungsbesicherten Wertpapieren; MaturityDate enthält die vertragliche (rechtliche) Endfälligkeit</xs:documentation>
+					<xs:documentation xml:lang="fr">Date d'échéance attendue tenant compte des remboursements anticipés attendus ou de l'exercice attendu d'options de remboursement ou de prolongation, p. ex. pour les titres adossés à des actifs ; MaturityDate contient l'échéance contractuelle (légale) finale</xs:documentation>
+					<xs:documentation xml:lang="nl">Verwachte vervaldatum, rekening houdend met verwachte vervroegde aflossingen of de verwachte uitoefening van call- of verlengingsopties, bv. bij asset-backed securities; MaturityDate bevat de contractuele (juridische) eindvervaldatum</xs:documentation>
+					<xs:documentation xml:lang="es">Fecha de vencimiento esperada teniendo en cuenta las amortizaciones anticipadas esperadas o el ejercicio esperado de opciones de amortización o prórroga, p. ej. en bonos de titulización de activos; MaturityDate contiene el vencimiento contractual (legal) final</xs:documentation>
+					<xs:documentation xml:lang="it">Data di scadenza attesa tenendo conto dei rimborsi anticipati attesi o dell'esercizio atteso di opzioni di rimborso o di proroga, ad es. per i titoli garantiti da attività; MaturityDate contiene la scadenza contrattuale (legale) finale</xs:documentation>
+					<xs:documentation xml:lang="cs">Očekávané datum splatnosti se zohledněním očekávaných předčasných splátek nebo očekávaného uplatnění opcí na předčasné splacení či prodloužení, např. u cenných papírů krytých aktivy; MaturityDate obsahuje konečnou smluvní (právní) splatnost</xs:documentation>
+					<xs:documentation xml:lang="hu">Várható lejárati dátum a várható előtörlesztések, illetve a visszahívási vagy hosszabbítási opciók várható lehívásának figyelembevételével, pl. eszközfedezetű értékpapíroknál; a MaturityDate a végső szerződéses (jogi) lejáratot tartalmazza</xs:documentation>
+					<xs:documentation xml:lang="da">Forventet udløbsdato under hensyntagen til forventede førtidige indfrielser eller forventet udnyttelse af call- eller forlængelsesoptioner, f.eks. for asset-backed securities; MaturityDate indeholder det endelige kontraktlige (juridiske) udløb</xs:documentation>
+					<xs:documentation xml:lang="pl">Oczekiwana data zapadalności z uwzględnieniem oczekiwanych przedterminowych spłat lub oczekiwanego wykonania opcji wykupu albo przedłużenia, np. dla papierów wartościowych zabezpieczonych aktywami; MaturityDate zawiera ostateczną umowną (prawną) zapadalność</xs:documentation>
+					<xs:documentation xml:lang="sv">Förväntat förfallodatum med hänsyn till förväntade förtida återbetalningar eller förväntat utnyttjande av inlösen- eller förlängningsoptioner, t.ex. för tillgångssäkrade värdepapper; MaturityDate innehåller det slutliga avtalsenliga (legala) förfallodatumet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DateFirstCoupon" type="xs:date" minOccurs="0">
@@ -3131,137 +3236,338 @@ Boolesk: true/false</xs:documentation>
 			<xs:element name="SolvencyIISecuritisationCategory" type="SolvencyIISecuritisationCategoryType" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Securitisation category of the bond under Solvency II (TPT field 56_Securitisation). To be delivered for structured notes and collateralised securities (CIC categories 5 and 6)</xs:documentation>
-					<xs:documentation xml:lang="de">Verbriefungskategorie der Anleihe nach Solvency II (TPT-Feld 56_Securitisation). Zu liefern für strukturierte Schuldtitel und besicherte Wertpapiere (CIC-Kategorien 5 und 6)</xs:documentation>
-					<xs:documentation xml:lang="fr">Catégorie de titrisation de l'obligation selon Solvabilité II (champ TPT 56_Securitisation). À fournir pour les titres structurés et les titres garantis (catégories CIC 5 et 6)</xs:documentation>
-					<xs:documentation xml:lang="nl">Securitisatiecategorie van de obligatie volgens Solvency II (TPT-veld 56_Securitisation). Aan te leveren voor gestructureerde notes en effecten met onderpand (CIC-categorieën 5 en 6)</xs:documentation>
-					<xs:documentation xml:lang="es">Categoría de titulización del bono según Solvencia II (campo TPT 56_Securitisation). Debe indicarse para bonos estructurados y valores con garantía real (categorías CIC 5 y 6)</xs:documentation>
-					<xs:documentation xml:lang="it">Categoria di cartolarizzazione dell'obbligazione secondo Solvency II (campo TPT 56_Securitisation). Da fornire per titoli strutturati e titoli garantiti (categorie CIC 5 e 6)</xs:documentation>
-					<xs:documentation xml:lang="cs">Kategorie sekuritizace dluhopisu podle Solvency II (pole TPT 56_Securitisation). Uvádí se u strukturovaných dluhopisů a zajištěných cenných papírů (kategorie CIC 5 a 6)</xs:documentation>
-					<xs:documentation xml:lang="hu">A kötvény értékpapírosítási kategóriája a Szolvencia II szerint (TPT 56_Securitisation mező). Strukturált értékpapírok és fedezett értékpapírok esetén kell megadni (5. és 6. CIC-kategória)</xs:documentation>
-					<xs:documentation xml:lang="da">Securitiseringskategori for obligationen i henhold til Solvens II (TPT-felt 56_Securitisation). Skal leveres for strukturerede værdipapirer og sikrede værdipapirer (CIC-kategori 5 og 6)</xs:documentation>
-					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji obligacji zgodnie z Wypłacalność II (pole TPT 56_Securitisation). Należy podać dla strukturyzowanych papierów wartościowych i zabezpieczonych papierów wartościowych (kategorie CIC 5 i 6)</xs:documentation>
-					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för obligationen enligt Solvens II (TPT-fält 56_Securitisation). Ska anges för strukturerade värdepapper och värdepapper med säkerhet (CIC-kategori 5 och 6)</xs:documentation>
+					<xs:documentation xml:lang="en">Securitisation category of the bond under Solvency II. To be delivered for securitisation positions and for structured or collateralised debt securities</xs:documentation>
+					<xs:documentation xml:lang="de">Verbriefungskategorie der Anleihe nach Solvency II. Zu liefern für Verbriefungspositionen sowie für strukturierte oder besicherte Schuldtitel</xs:documentation>
+					<xs:documentation xml:lang="fr">Catégorie de titrisation de l'obligation selon Solvabilité II. À fournir pour les positions de titrisation ainsi que pour les titres de créance structurés ou garantis</xs:documentation>
+					<xs:documentation xml:lang="nl">Securitisatiecategorie van de obligatie volgens Solvency II. Aan te leveren voor securitisatieposities en voor gestructureerde schuldbewijzen of schuldbewijzen met onderpand</xs:documentation>
+					<xs:documentation xml:lang="es">Categoría de titulización del bono según Solvencia II. Debe indicarse para posiciones de titulización y para títulos de deuda estructurados o con garantía real</xs:documentation>
+					<xs:documentation xml:lang="it">Categoria di cartolarizzazione dell'obbligazione secondo Solvency II. Da fornire per le posizioni verso la cartolarizzazione e per i titoli di debito strutturati o garantiti</xs:documentation>
+					<xs:documentation xml:lang="cs">Kategorie sekuritizace dluhopisu podle Solvency II. Uvádí se u sekuritizačních pozic a u strukturovaných nebo zajištěných dluhových cenných papírů</xs:documentation>
+					<xs:documentation xml:lang="hu">A kötvény értékpapírosítási kategóriája a Szolvencia II szerint. Értékpapírosítási pozíciók, valamint strukturált vagy fedezett hitelviszonyt megtestesítő értékpapírok esetén kell megadni</xs:documentation>
+					<xs:documentation xml:lang="da">Securitiseringskategori for obligationen i henhold til Solvens II. Skal leveres for securitiseringspositioner samt for strukturerede eller sikrede gældsinstrumenter</xs:documentation>
+					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji obligacji zgodnie z Wypłacalność II. Należy podać dla pozycji sekurytyzacyjnych oraz dla strukturyzowanych lub zabezpieczonych dłużnych papierów wartościowych</xs:documentation>
+					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för obligationen enligt Solvens II. Ska anges för värdepapperiseringspositioner samt för strukturerade skuldebrev eller skuldebrev med säkerhet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SubordinatedDebt" type="xs:boolean" minOccurs="0">
+			<xs:element name="Seniority" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Indicates whether the bond is subordinated debt (TPT field 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="de">Gibt an, ob die Anleihe nachrangig ist (TPT-Feld 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="fr">Indique si l'obligation est une dette subordonnée (champ TPT 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="nl">Geeft aan of de obligatie achtergestelde schuld is (TPT-veld 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="es">Indica si el bono es deuda subordinada (campo TPT 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="it">Indica se l'obbligazione è debito subordinato (campo TPT 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="cs">Označuje, zda je dluhopis podřízeným dluhem (pole TPT 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="hu">Jelzi, hogy a kötvény alárendelt adósság-e (TPT 58_Subordinated_debt mező)</xs:documentation>
-					<xs:documentation xml:lang="da">Angiver, om obligationen er efterstillet gæld (TPT-felt 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="pl">Wskazuje, czy obligacja jest długiem podporządkowanym (pole TPT 58_Subordinated_debt)</xs:documentation>
-					<xs:documentation xml:lang="sv">Anger om obligationen är efterställd skuld (TPT-fält 58_Subordinated_debt)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BailInRule" minOccurs="0">
-				<xs:annotation>
-					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Indicates whether the bond is subject to a bail-in regime (TPT field 142_Bail-in_Rule)
-0 = not assessed
-1 = yes
-2 = no
-9 = not applicable</xs:documentation>
-					<xs:documentation xml:lang="de">Gibt an, ob die Anleihe einer Bail-in-Regelung unterliegt (TPT-Feld 142_Bail-in_Rule)
-0 = nicht geprüft
-1 = ja
-2 = nein
-9 = nicht anwendbar</xs:documentation>
-					<xs:documentation xml:lang="fr">Indique si l'obligation est soumise à un régime de renflouement interne (champ TPT 142_Bail-in_Rule)
-0 = non évalué
-1 = oui
-2 = non
-9 = non applicable</xs:documentation>
-					<xs:documentation xml:lang="nl">Geeft aan of de obligatie onder een bail-inregeling valt (TPT-veld 142_Bail-in_Rule)
-0 = niet beoordeeld
-1 = ja
-2 = nee
-9 = niet van toepassing</xs:documentation>
-					<xs:documentation xml:lang="es">Indica si el bono está sujeto a un régimen de recapitalización interna (campo TPT 142_Bail-in_Rule)
-0 = no evaluado
-1 = sí
-2 = no
-9 = no aplicable</xs:documentation>
-					<xs:documentation xml:lang="it">Indica se l'obbligazione è soggetta a un regime di bail-in (campo TPT 142_Bail-in_Rule)
-0 = non valutato
-1 = sì
-2 = no
-9 = non applicabile</xs:documentation>
-					<xs:documentation xml:lang="cs">Označuje, zda dluhopis podléhá režimu bail-in (pole TPT 142_Bail-in_Rule)
-0 = neposouzeno
-1 = ano
-2 = ne
-9 = nepoužije se</xs:documentation>
-					<xs:documentation xml:lang="hu">Jelzi, hogy a kötvényre vonatkozik-e bail-in szabályozás (TPT 142_Bail-in_Rule mező)
-0 = nem értékelt
-1 = igen
-2 = nem
-9 = nem alkalmazható</xs:documentation>
-					<xs:documentation xml:lang="da">Angiver, om obligationen er omfattet af en bail-in-ordning (TPT-felt 142_Bail-in_Rule)
-0 = ikke vurderet
-1 = ja
-2 = nej
-9 = ikke relevant</xs:documentation>
-					<xs:documentation xml:lang="pl">Wskazuje, czy obligacja podlega zasadom bail-in (pole TPT 142_Bail-in_Rule)
-0 = nie oceniono
-1 = tak
-2 = nie
-9 = nie dotyczy</xs:documentation>
-					<xs:documentation xml:lang="sv">Anger om obligationen omfattas av bail-in-regler (TPT-fält 142_Bail-in_Rule)
-0 = inte bedömt
-1 = ja
-2 = nej
-9 = inte tillämpligt</xs:documentation>
+					<xs:documentation xml:lang="en">Ranking of the bond in the insolvency or resolution of the issuer
+SeniorSecured = senior, secured by collateral or a statutory preferential claim (e.g. covered bonds)
+SeniorUnsecured = senior unsecured (for credit institutions: senior preferred)
+SeniorNonPreferred = senior non-preferred according to Art. 108 (2) Directive 2014/59/EU (BRRD)
+Subordinated = subordinated, not covered by Tier2 or AdditionalTier1 (e.g. subordinated debt of non-financial issuers or insurers)
+Tier2 = Tier 2 instrument according to Art. 63 Regulation (EU) No 575/2013 (CRR)
+AdditionalTier1 = Additional Tier 1 instrument according to Art. 52 Regulation (EU) No 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="de">Rang der Anleihe in der Insolvenz oder Abwicklung des Emittenten
+SeniorSecured = vorrangig, besichert durch Sicherheiten oder ein gesetzliches Vorrecht (z. B. gedeckte Schuldverschreibungen)
+SeniorUnsecured = vorrangig unbesichert (bei Kreditinstituten: senior preferred)
+SeniorNonPreferred = nicht bevorrechtigt vorrangig gemäß Art. 108 (2) Richtlinie 2014/59/EU (BRRD)
+Subordinated = nachrangig, nicht von Tier2 oder AdditionalTier1 erfasst (z. B. Nachranganleihen von Nicht-Finanzunternehmen oder Versicherern)
+Tier2 = Instrument des Ergänzungskapitals gemäß Art. 63 Verordnung (EU) Nr. 575/2013 (CRR)
+AdditionalTier1 = Instrument des zusätzlichen Kernkapitals gemäß Art. 52 Verordnung (EU) Nr. 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="fr">Rang de l'obligation en cas d'insolvabilité ou de résolution de l'émetteur
+SeniorSecured = senior, garantie par des sûretés ou un privilège légal (p. ex. obligations garanties)
+SeniorUnsecured = senior non garantie (pour les établissements de crédit : senior preferred)
+SeniorNonPreferred = senior non préférée selon l'art. 108 (2) de la directive 2014/59/UE (BRRD)
+Subordinated = subordonnée, non couverte par Tier2 ou AdditionalTier1 (p. ex. dette subordonnée d'émetteurs non financiers ou d'assureurs)
+Tier2 = instrument de fonds propres de catégorie 2 selon l'art. 63 du règlement (UE) n° 575/2013 (CRR)
+AdditionalTier1 = instrument de fonds propres additionnels de catégorie 1 selon l'art. 52 du règlement (UE) n° 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="nl">Rangorde van de obligatie bij insolventie of afwikkeling van de emittent
+SeniorSecured = senior, gedekt door zekerheden of een wettelijk voorrecht (bv. covered bonds)
+SeniorUnsecured = senior ongedekt (bij kredietinstellingen: senior preferred)
+SeniorNonPreferred = senior non-preferred volgens art. 108 (2) Richtlijn 2014/59/EU (BRRD)
+Subordinated = achtergesteld, niet vallend onder Tier2 of AdditionalTier1 (bv. achtergestelde schuld van niet-financiële emittenten of verzekeraars)
+Tier2 = tier 2-instrument volgens art. 63 Verordening (EU) nr. 575/2013 (CRR)
+AdditionalTier1 = aanvullend tier 1-instrument volgens art. 52 Verordening (EU) nr. 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="es">Prelación del bono en caso de insolvencia o resolución del emisor
+SeniorSecured = preferente, garantizado por garantías reales o un privilegio legal (p. ej. bonos garantizados)
+SeniorUnsecured = preferente no garantizado (en entidades de crédito: senior preferred)
+SeniorNonPreferred = preferente no privilegiado según el art. 108 (2) de la Directiva 2014/59/UE (BRRD)
+Subordinated = subordinado, no cubierto por Tier2 ni AdditionalTier1 (p. ej. deuda subordinada de emisores no financieros o aseguradoras)
+Tier2 = instrumento de capital de nivel 2 según el art. 63 del Reglamento (UE) n.º 575/2013 (CRR)
+AdditionalTier1 = instrumento de capital de nivel 1 adicional según el art. 52 del Reglamento (UE) n.º 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="it">Grado di subordinazione dell'obbligazione in caso di insolvenza o risoluzione dell'emittente
+SeniorSecured = senior, garantita da garanzie reali o da un privilegio legale (ad es. obbligazioni garantite)
+SeniorUnsecured = senior non garantita (per gli enti creditizi: senior preferred)
+SeniorNonPreferred = senior non privilegiata ai sensi dell'art. 108 (2) della direttiva 2014/59/UE (BRRD)
+Subordinated = subordinata, non rientrante in Tier2 o AdditionalTier1 (ad es. debito subordinato di emittenti non finanziari o assicuratori)
+Tier2 = strumento di classe 2 ai sensi dell'art. 63 del regolamento (UE) n. 575/2013 (CRR)
+AdditionalTier1 = strumento aggiuntivo di classe 1 ai sensi dell'art. 52 del regolamento (UE) n. 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="cs">Pořadí dluhopisu v insolvenci nebo při řešení krize emitenta
+SeniorSecured = seniorní, zajištěný kolaterálem nebo zákonnou přednostní pohledávkou (např. kryté dluhopisy)
+SeniorUnsecured = seniorní nezajištěný (u úvěrových institucí: senior preferred)
+SeniorNonPreferred = seniorní nepreferovaný podle čl. 108 odst. 2 směrnice 2014/59/EU (BRRD)
+Subordinated = podřízený, nespadá pod Tier2 ani AdditionalTier1 (např. podřízený dluh nefinančních emitentů nebo pojistitelů)
+Tier2 = nástroj kapitálu tier 2 podle čl. 63 nařízení (EU) č. 575/2013 (CRR)
+AdditionalTier1 = nástroj vedlejšího kapitálu tier 1 podle čl. 52 nařízení (EU) č. 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="hu">A kötvény rangsora a kibocsátó fizetésképtelensége vagy szanálása esetén
+SeniorSecured = elsőbbségi, biztosítékkal vagy törvényes elsőbbségi joggal fedezett (pl. fedezett kötvények)
+SeniorUnsecured = elsőbbségi, fedezetlen (hitelintézeteknél: senior preferred)
+SeniorNonPreferred = nem elsőbbségi szenior a 2014/59/EU irányelv (BRRD) 108. cikk (2) bekezdése szerint
+Subordinated = alárendelt, nem tartozik a Tier2 vagy AdditionalTier1 alá (pl. nem pénzügyi kibocsátók vagy biztosítók alárendelt adóssága)
+Tier2 = járulékos tőkeinstrumentum az 575/2013/EU rendelet (CRR) 63. cikke szerint
+AdditionalTier1 = kiegészítő alapvető tőkeinstrumentum az 575/2013/EU rendelet (CRR) 52. cikke szerint</xs:documentation>
+					<xs:documentation xml:lang="da">Obligationens prioritet ved udstederens insolvens eller afvikling
+SeniorSecured = senior, sikret ved sikkerhedsstillelse eller en lovbestemt fortrinsret (f.eks. særligt dækkede obligationer)
+SeniorUnsecured = senior usikret (for kreditinstitutter: senior preferred)
+SeniorNonPreferred = senior non-preferred i henhold til art. 108, stk. 2, i direktiv 2014/59/EU (BRRD)
+Subordinated = efterstillet, ikke omfattet af Tier2 eller AdditionalTier1 (f.eks. efterstillet gæld fra ikke-finansielle udstedere eller forsikringsselskaber)
+Tier2 = supplerende kapitalinstrument i henhold til art. 63 i forordning (EU) nr. 575/2013 (CRR)
+AdditionalTier1 = hybrid kernekapitalinstrument i henhold til art. 52 i forordning (EU) nr. 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="pl">Kolejność zaspokojenia obligacji w przypadku niewypłacalności lub restrukturyzacji i uporządkowanej likwidacji emitenta
+SeniorSecured = uprzywilejowana, zabezpieczona zabezpieczeniem lub ustawowym pierwszeństwem (np. obligacje zabezpieczone)
+SeniorUnsecured = uprzywilejowana niezabezpieczona (w instytucjach kredytowych: senior preferred)
+SeniorNonPreferred = uprzywilejowana nieprzedkładana zgodnie z art. 108 ust. 2 dyrektywy 2014/59/UE (BRRD)
+Subordinated = podporządkowana, nieobjęta Tier2 ani AdditionalTier1 (np. dług podporządkowany emitentów niefinansowych lub ubezpieczycieli)
+Tier2 = instrument w kapitale Tier II zgodnie z art. 63 rozporządzenia (UE) nr 575/2013 (CRR)
+AdditionalTier1 = instrument dodatkowy w kapitale Tier I zgodnie z art. 52 rozporządzenia (UE) nr 575/2013 (CRR)</xs:documentation>
+					<xs:documentation xml:lang="sv">Obligationens förmånsrätt vid emittentens insolvens eller resolution
+SeniorSecured = senior, med säkerhet eller lagstadgad förmånsrätt (t.ex. säkerställda obligationer)
+SeniorUnsecured = senior utan säkerhet (för kreditinstitut: senior preferred)
+SeniorNonPreferred = senior non-preferred enligt art. 108.2 i direktiv 2014/59/EU (BRRD)
+Subordinated = efterställd, inte omfattad av Tier2 eller AdditionalTier1 (t.ex. efterställd skuld från icke-finansiella emittenter eller försäkringsföretag)
+Tier2 = supplementärkapitalinstrument enligt art. 63 i förordning (EU) nr 575/2013 (CRR)
+AdditionalTier1 = primärkapitaltillskottsinstrument enligt art. 52 i förordning (EU) nr 575/2013 (CRR)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
-					<xs:restriction base="xs:int">
-						<xs:enumeration value="0"/>
-						<xs:enumeration value="1"/>
-						<xs:enumeration value="2"/>
-						<xs:enumeration value="9"/>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="SeniorSecured"/>
+						<xs:enumeration value="SeniorUnsecured"/>
+						<xs:enumeration value="SeniorNonPreferred"/>
+						<xs:enumeration value="Subordinated"/>
+						<xs:enumeration value="Tier2"/>
+						<xs:enumeration value="AdditionalTier1"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PIK" minOccurs="0">
+			<xs:element name="BailIn" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Payment in kind (PIK): interest is capitalised instead of being paid in cash. Codes as in TPT field 146_PIK; the TPT fields referred to are 32-38 (coupon data) and 41 (redemption rate)
-0 = no PIK
-1 = no cash coupon; PIK is included in the redemption rate and described in the coupon data
-2 = PIK is included in the redemption rate but not described in the coupon data
-3 = PIK is a regular payment included in the coupon data; no impact on the redemption rate
-4 = PIK exists but is not described in the TPT</xs:documentation>
-					<xs:documentation xml:lang="de">Payment in Kind (PIK): Zinsen werden kapitalisiert statt bar gezahlt. Codes wie in TPT-Feld 146_PIK; die genannten TPT-Felder sind 32-38 (Kupondaten) und 41 (Rückzahlungskurs)
-0 = kein PIK
-1 = kein Barkupon; PIK ist im Rückzahlungskurs enthalten und in den Kupondaten beschrieben
-2 = PIK ist im Rückzahlungskurs enthalten, aber nicht in den Kupondaten beschrieben
-3 = PIK ist eine regelmäßige Zahlung und in den Kupondaten enthalten; keine Auswirkung auf den Rückzahlungskurs
-4 = PIK vorhanden, aber im TPT nicht beschrieben</xs:documentation>
-					<xs:documentation xml:lang="fr">Paiement en nature (PIK) : les intérêts sont capitalisés au lieu d'être payés en numéraire. Codes 0 à 4 comme dans le champ TPT 146_PIK</xs:documentation>
-					<xs:documentation xml:lang="nl">Payment in kind (PIK): rente wordt gekapitaliseerd in plaats van in contanten betaald. Codes 0 tot 4 zoals in TPT-veld 146_PIK</xs:documentation>
-					<xs:documentation xml:lang="es">Pago en especie (PIK): los intereses se capitalizan en lugar de pagarse en efectivo. Códigos 0 a 4 como en el campo TPT 146_PIK</xs:documentation>
-					<xs:documentation xml:lang="it">Pagamento in natura (PIK): gli interessi sono capitalizzati anziché pagati in contanti. Codici da 0 a 4 come nel campo TPT 146_PIK</xs:documentation>
-					<xs:documentation xml:lang="cs">Payment in kind (PIK): úroky se kapitalizují místo výplaty v hotovosti. Kódy 0 až 4 jako v poli TPT 146_PIK</xs:documentation>
-					<xs:documentation xml:lang="hu">Payment in kind (PIK): a kamat készpénzes kifizetés helyett tőkésítésre kerül. 0-4 kódok a TPT 146_PIK mező szerint</xs:documentation>
-					<xs:documentation xml:lang="da">Payment in kind (PIK): renter kapitaliseres i stedet for at blive betalt kontant. Koder 0 til 4 som i TPT-felt 146_PIK</xs:documentation>
-					<xs:documentation xml:lang="pl">Payment in kind (PIK): odsetki są kapitalizowane zamiast wypłacane w gotówce. Kody 0 do 4 jak w polu TPT 146_PIK</xs:documentation>
-					<xs:documentation xml:lang="sv">Payment in kind (PIK): räntan kapitaliseras i stället för att betalas kontant. Koder 0 till 4 som i TPT-fält 146_PIK</xs:documentation>
+					<xs:documentation xml:lang="en">Treatment of the bond under a resolution (bail-in) regime
+NotAssessed = not assessed
+Statutory = the issuer is subject to a resolution regime and the bond is bail-inable by law (e.g. Directive 2014/59/EU, BRRD)
+Contractual = the bond is bail-inable by a contractual recognition clause (e.g. Art. 55 BRRD for liabilities governed by third-country law)
+Excluded = the issuer is subject to a resolution regime, but the bond is excluded from bail-in (e.g. covered bonds or secured liabilities according to Art. 44 (2) BRRD)
+NotApplicable = the issuer is not subject to a resolution regime</xs:documentation>
+					<xs:documentation xml:lang="de">Behandlung der Anleihe in einem Abwicklungsregime (Bail-in)
+NotAssessed = nicht geprüft
+Statutory = der Emittent unterliegt einem Abwicklungsregime und die Anleihe ist kraft Gesetzes bail-in-fähig (z. B. Richtlinie 2014/59/EU, BRRD)
+Contractual = die Anleihe ist durch eine vertragliche Anerkennungsklausel bail-in-fähig (z. B. Art. 55 BRRD bei Verbindlichkeiten nach Drittstaatsrecht)
+Excluded = der Emittent unterliegt einem Abwicklungsregime, die Anleihe ist aber vom Bail-in ausgenommen (z. B. gedeckte Schuldverschreibungen oder besicherte Verbindlichkeiten gemäß Art. 44 (2) BRRD)
+NotApplicable = der Emittent unterliegt keinem Abwicklungsregime</xs:documentation>
+					<xs:documentation xml:lang="fr">Traitement de l'obligation dans un régime de résolution (renflouement interne)
+NotAssessed = non évalué
+Statutory = l'émetteur est soumis à un régime de résolution et l'obligation est éligible au renflouement interne en vertu de la loi (p. ex. directive 2014/59/UE, BRRD)
+Contractual = l'obligation est éligible au renflouement interne en vertu d'une clause contractuelle de reconnaissance (p. ex. art. 55 BRRD pour les engagements régis par le droit d'un pays tiers)
+Excluded = l'émetteur est soumis à un régime de résolution, mais l'obligation est exclue du renflouement interne (p. ex. obligations garanties ou engagements garantis selon l'art. 44 (2) BRRD)
+NotApplicable = l'émetteur n'est pas soumis à un régime de résolution</xs:documentation>
+					<xs:documentation xml:lang="nl">Behandeling van de obligatie in een afwikkelingsregeling (bail-in)
+NotAssessed = niet beoordeeld
+Statutory = de emittent valt onder een afwikkelingsregeling en de obligatie is wettelijk bail-in-baar (bv. Richtlijn 2014/59/EU, BRRD)
+Contractual = de obligatie is bail-in-baar op grond van een contractuele erkenningsclausule (bv. art. 55 BRRD voor verplichtingen naar het recht van een derde land)
+Excluded = de emittent valt onder een afwikkelingsregeling, maar de obligatie is uitgesloten van bail-in (bv. covered bonds of gedekte verplichtingen volgens art. 44 (2) BRRD)
+NotApplicable = de emittent valt niet onder een afwikkelingsregeling</xs:documentation>
+					<xs:documentation xml:lang="es">Tratamiento del bono en un régimen de resolución (recapitalización interna)
+NotAssessed = no evaluado
+Statutory = el emisor está sujeto a un régimen de resolución y el bono es apto para la recapitalización interna por ley (p. ej. Directiva 2014/59/UE, BRRD)
+Contractual = el bono es apto para la recapitalización interna en virtud de una cláusula contractual de reconocimiento (p. ej. art. 55 BRRD para pasivos regidos por el derecho de un tercer país)
+Excluded = el emisor está sujeto a un régimen de resolución, pero el bono está excluido de la recapitalización interna (p. ej. bonos garantizados o pasivos garantizados según el art. 44 (2) BRRD)
+NotApplicable = el emisor no está sujeto a un régimen de resolución</xs:documentation>
+					<xs:documentation xml:lang="it">Trattamento dell'obbligazione in un regime di risoluzione (bail-in)
+NotAssessed = non valutato
+Statutory = l'emittente è soggetto a un regime di risoluzione e l'obbligazione è soggetta a bail-in per legge (ad es. direttiva 2014/59/UE, BRRD)
+Contractual = l'obbligazione è soggetta a bail-in in virtù di una clausola contrattuale di riconoscimento (ad es. art. 55 BRRD per le passività disciplinate dal diritto di un paese terzo)
+Excluded = l'emittente è soggetto a un regime di risoluzione, ma l'obbligazione è esclusa dal bail-in (ad es. obbligazioni garantite o passività garantite ai sensi dell'art. 44 (2) BRRD)
+NotApplicable = l'emittente non è soggetto a un regime di risoluzione</xs:documentation>
+					<xs:documentation xml:lang="cs">Zacházení s dluhopisem v režimu řešení krize (bail-in)
+NotAssessed = neposouzeno
+Statutory = emitent podléhá režimu řešení krize a dluhopis podléhá ze zákona nástroji bail-in (např. směrnice 2014/59/EU, BRRD)
+Contractual = dluhopis podléhá nástroji bail-in na základě smluvní doložky o uznání (např. čl. 55 BRRD u závazků podle práva třetí země)
+Excluded = emitent podléhá režimu řešení krize, dluhopis je však z nástroje bail-in vyloučen (např. kryté dluhopisy nebo zajištěné závazky podle čl. 44 odst. 2 BRRD)
+NotApplicable = emitent nepodléhá režimu řešení krize</xs:documentation>
+					<xs:documentation xml:lang="hu">A kötvény kezelése szanálási (bail-in) rendszerben
+NotAssessed = nem értékelt
+Statutory = a kibocsátó szanálási rendszer hatálya alá tartozik, és a kötvény törvény alapján bevonható a hitelezői feltőkésítésbe (pl. 2014/59/EU irányelv, BRRD)
+Contractual = a kötvény szerződéses elismerési kikötés alapján vonható be a hitelezői feltőkésítésbe (pl. a BRRD 55. cikke harmadik ország joga szerinti kötelezettségek esetén)
+Excluded = a kibocsátó szanálási rendszer hatálya alá tartozik, de a kötvény ki van zárva a hitelezői feltőkésítésből (pl. fedezett kötvények vagy biztosított kötelezettségek a BRRD 44. cikk (2) bekezdése szerint)
+NotApplicable = a kibocsátó nem tartozik szanálási rendszer hatálya alá</xs:documentation>
+					<xs:documentation xml:lang="da">Obligationens behandling i en afviklingsordning (bail-in)
+NotAssessed = ikke vurderet
+Statutory = udstederen er omfattet af en afviklingsordning, og obligationen er omfattet af bail-in ved lov (f.eks. direktiv 2014/59/EU, BRRD)
+Contractual = obligationen er omfattet af bail-in i kraft af en kontraktlig anerkendelsesklausul (f.eks. art. 55 BRRD for forpligtelser underlagt tredjelandes ret)
+Excluded = udstederen er omfattet af en afviklingsordning, men obligationen er undtaget fra bail-in (f.eks. særligt dækkede obligationer eller sikrede forpligtelser i henhold til art. 44, stk. 2, BRRD)
+NotApplicable = udstederen er ikke omfattet af en afviklingsordning</xs:documentation>
+					<xs:documentation xml:lang="pl">Traktowanie obligacji w reżimie restrukturyzacji i uporządkowanej likwidacji (bail-in)
+NotAssessed = nie oceniono
+Statutory = emitent podlega reżimowi restrukturyzacji i uporządkowanej likwidacji, a obligacja podlega umorzeniu lub konwersji z mocy prawa (np. dyrektywa 2014/59/UE, BRRD)
+Contractual = obligacja podlega umorzeniu lub konwersji na podstawie umownej klauzuli uznania (np. art. 55 BRRD dla zobowiązań podlegających prawu państwa trzeciego)
+Excluded = emitent podlega reżimowi restrukturyzacji i uporządkowanej likwidacji, ale obligacja jest wyłączona z umorzenia lub konwersji (np. obligacje zabezpieczone lub zobowiązania zabezpieczone zgodnie z art. 44 ust. 2 BRRD)
+NotApplicable = emitent nie podlega reżimowi restrukturyzacji i uporządkowanej likwidacji</xs:documentation>
+					<xs:documentation xml:lang="sv">Obligationens behandling i en resolutionsordning (skuldnedskrivning)
+NotAssessed = inte bedömt
+Statutory = emittenten omfattas av en resolutionsordning och obligationen kan enligt lag bli föremål för skuldnedskrivning (t.ex. direktiv 2014/59/EU, BRRD)
+Contractual = obligationen kan bli föremål för skuldnedskrivning genom en avtalsenlig erkännandeklausul (t.ex. art. 55 BRRD för skulder som omfattas av tredjelands rätt)
+Excluded = emittenten omfattas av en resolutionsordning, men obligationen är undantagen från skuldnedskrivning (t.ex. säkerställda obligationer eller skulder med säkerhet enligt art. 44.2 BRRD)
+NotApplicable = emittenten omfattas inte av någon resolutionsordning</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
-					<xs:restriction base="xs:int">
-						<xs:enumeration value="0"/>
-						<xs:enumeration value="1"/>
-						<xs:enumeration value="2"/>
-						<xs:enumeration value="3"/>
-						<xs:enumeration value="4"/>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NotAssessed"/>
+						<xs:enumeration value="Statutory"/>
+						<xs:enumeration value="Contractual"/>
+						<xs:enumeration value="Excluded"/>
+						<xs:enumeration value="NotApplicable"/>
 					</xs:restriction>
 				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PaymentInKind" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Payment-in-kind (PIK) feature of the bond: interest is not or not exclusively paid in cash</xs:documentation>
+					<xs:documentation xml:lang="de">Payment-in-Kind-Ausstattung (PIK) der Anleihe: Zinsen werden nicht oder nicht ausschließlich bar gezahlt</xs:documentation>
+					<xs:documentation xml:lang="fr">Caractéristique de paiement en nature (PIK) de l'obligation : les intérêts ne sont pas ou pas exclusivement payés en numéraire</xs:documentation>
+					<xs:documentation xml:lang="nl">Payment-in-kind-kenmerk (PIK) van de obligatie: rente wordt niet of niet uitsluitend in contanten betaald</xs:documentation>
+					<xs:documentation xml:lang="es">Característica de pago en especie (PIK) del bono: los intereses no se pagan, o no exclusivamente, en efectivo</xs:documentation>
+					<xs:documentation xml:lang="it">Caratteristica di pagamento in natura (PIK) dell'obbligazione: gli interessi non sono pagati, o non esclusivamente, in contanti</xs:documentation>
+					<xs:documentation xml:lang="cs">Vlastnost payment in kind (PIK) dluhopisu: úroky nejsou vypláceny v hotovosti, nebo ne výhradně v hotovosti</xs:documentation>
+					<xs:documentation xml:lang="hu">A kötvény payment in kind (PIK) jellemzője: a kamatot nem vagy nem kizárólag készpénzben fizetik</xs:documentation>
+					<xs:documentation xml:lang="da">Obligationens payment in kind-egenskab (PIK): renter betales ikke eller ikke udelukkende kontant</xs:documentation>
+					<xs:documentation xml:lang="pl">Cecha payment in kind (PIK) obligacji: odsetki nie są wypłacane w gotówce lub nie wyłącznie w gotówce</xs:documentation>
+					<xs:documentation xml:lang="sv">Obligationens payment in kind-egenskap (PIK): räntan betalas inte eller inte enbart kontant</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Type">
+							<xs:annotation>
+								<xs:appinfo source="@since 4.2.12"/>
+								<xs:documentation xml:lang="en">Type of the PIK feature
+None = no PIK feature
+Full = all interest is paid in kind, there is no cash coupon
+Partial = interest is paid partly in cash and partly in kind
+Toggle = the issuer may choose for each interest period whether interest is paid in cash or in kind</xs:documentation>
+								<xs:documentation xml:lang="de">Art der PIK-Ausstattung
+None = keine PIK-Ausstattung
+Full = sämtliche Zinsen werden in Form von PIK gezahlt, es gibt keinen Barkupon
+Partial = Zinsen werden teils bar und teils in Form von PIK gezahlt
+Toggle = der Emittent kann für jede Zinsperiode wählen, ob die Zinsen bar oder in Form von PIK gezahlt werden</xs:documentation>
+								<xs:documentation xml:lang="fr">Type de la caractéristique PIK
+None = pas de caractéristique PIK
+Full = tous les intérêts sont payés en nature, il n'y a pas de coupon en numéraire
+Partial = les intérêts sont payés en partie en numéraire et en partie en nature
+Toggle = l'émetteur peut choisir pour chaque période d'intérêts si les intérêts sont payés en numéraire ou en nature</xs:documentation>
+								<xs:documentation xml:lang="nl">Soort PIK-kenmerk
+None = geen PIK-kenmerk
+Full = alle rente wordt in natura betaald, er is geen contante coupon
+Partial = rente wordt deels in contanten en deels in natura betaald
+Toggle = de emittent kan per renteperiode kiezen of de rente in contanten of in natura wordt betaald</xs:documentation>
+								<xs:documentation xml:lang="es">Tipo de la característica PIK
+None = sin característica PIK
+Full = todos los intereses se pagan en especie, no hay cupón en efectivo
+Partial = los intereses se pagan en parte en efectivo y en parte en especie
+Toggle = el emisor puede elegir para cada período de intereses si los intereses se pagan en efectivo o en especie</xs:documentation>
+								<xs:documentation xml:lang="it">Tipo della caratteristica PIK
+None = nessuna caratteristica PIK
+Full = tutti gli interessi sono pagati in natura, non vi è cedola in contanti
+Partial = gli interessi sono pagati in parte in contanti e in parte in natura
+Toggle = l'emittente può scegliere per ogni periodo di interessi se pagare gli interessi in contanti o in natura</xs:documentation>
+								<xs:documentation xml:lang="cs">Druh vlastnosti PIK
+None = bez vlastnosti PIK
+Full = veškeré úroky jsou placeny formou PIK, neexistuje hotovostní kupon
+Partial = úroky jsou placeny částečně v hotovosti a částečně formou PIK
+Toggle = emitent může pro každé úrokové období zvolit, zda budou úroky placeny v hotovosti, nebo formou PIK</xs:documentation>
+								<xs:documentation xml:lang="hu">A PIK jellemző típusa
+None = nincs PIK jellemző
+Full = a teljes kamatot természetben fizetik, nincs készpénzes kupon
+Partial = a kamatot részben készpénzben, részben természetben fizetik
+Toggle = a kibocsátó minden kamatperiódusra választhat, hogy a kamatot készpénzben vagy természetben fizeti</xs:documentation>
+								<xs:documentation xml:lang="da">Type af PIK-egenskab
+None = ingen PIK-egenskab
+Full = alle renter betales in natura, der er ingen kontant kupon
+Partial = renter betales delvist kontant og delvist in natura
+Toggle = udstederen kan for hver renteperiode vælge, om renterne betales kontant eller in natura</xs:documentation>
+								<xs:documentation xml:lang="pl">Rodzaj cechy PIK
+None = brak cechy PIK
+Full = wszystkie odsetki są płacone w naturze, brak kuponu gotówkowego
+Partial = odsetki są płacone częściowo w gotówce, a częściowo w naturze
+Toggle = emitent może dla każdego okresu odsetkowego wybrać, czy odsetki są płacone w gotówce, czy w naturze</xs:documentation>
+								<xs:documentation xml:lang="sv">Typ av PIK-egenskap
+None = ingen PIK-egenskap
+Full = all ränta betalas in natura, det finns ingen kontantkupong
+Partial = räntan betalas delvis kontant och delvis in natura
+Toggle = emittenten kan för varje ränteperiod välja om räntan betalas kontant eller in natura</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="None"/>
+									<xs:enumeration value="Full"/>
+									<xs:enumeration value="Partial"/>
+									<xs:enumeration value="Toggle"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Settlement" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo source="@since 4.2.12"/>
+								<xs:documentation xml:lang="en">Settlement of the interest paid in kind
+Capitalised = the interest is added to the outstanding nominal and paid with the redemption amount
+AdditionalSecurities = the interest is paid by delivering additional securities of the same issue</xs:documentation>
+								<xs:documentation xml:lang="de">Abwicklung der in Form von PIK gezahlten Zinsen
+Capitalised = die Zinsen werden dem ausstehenden Nominale zugeschlagen und mit dem Rückzahlungsbetrag gezahlt
+AdditionalSecurities = die Zinsen werden durch Lieferung zusätzlicher Stücke derselben Emission gezahlt</xs:documentation>
+								<xs:documentation xml:lang="fr">Règlement des intérêts payés en nature
+Capitalised = les intérêts sont ajoutés au nominal en circulation et payés avec le montant de remboursement
+AdditionalSecurities = les intérêts sont payés par la livraison de titres supplémentaires de la même émission</xs:documentation>
+								<xs:documentation xml:lang="nl">Afwikkeling van de in natura betaalde rente
+Capitalised = de rente wordt bij de uitstaande nominale waarde opgeteld en met het aflossingsbedrag betaald
+AdditionalSecurities = de rente wordt betaald door levering van extra effecten van dezelfde uitgifte</xs:documentation>
+								<xs:documentation xml:lang="es">Liquidación de los intereses pagados en especie
+Capitalised = los intereses se añaden al nominal pendiente y se pagan con el importe de amortización
+AdditionalSecurities = los intereses se pagan mediante la entrega de valores adicionales de la misma emisión</xs:documentation>
+								<xs:documentation xml:lang="it">Regolamento degli interessi pagati in natura
+Capitalised = gli interessi sono aggiunti al nominale in essere e pagati con l'importo di rimborso
+AdditionalSecurities = gli interessi sono pagati mediante la consegna di titoli aggiuntivi della stessa emissione</xs:documentation>
+								<xs:documentation xml:lang="cs">Vypořádání úroků placených formou PIK
+Capitalised = úroky jsou připsány k nesplacené jmenovité hodnotě a vyplaceny s částkou splacení
+AdditionalSecurities = úroky jsou placeny dodáním dalších cenných papírů téže emise</xs:documentation>
+								<xs:documentation xml:lang="hu">A természetben fizetett kamat teljesítése
+Capitalised = a kamatot hozzáadják a fennálló névértékhez, és a visszaváltási összeggel fizetik ki
+AdditionalSecurities = a kamatot ugyanazon kibocsátás további értékpapírjainak átadásával fizetik</xs:documentation>
+								<xs:documentation xml:lang="da">Afvikling af renter betalt in natura
+Capitalised = renterne lægges til den udestående nominelle værdi og betales med indfrielsesbeløbet
+AdditionalSecurities = renterne betales ved levering af yderligere værdipapirer fra samme udstedelse</xs:documentation>
+								<xs:documentation xml:lang="pl">Rozliczenie odsetek płaconych w naturze
+Capitalised = odsetki są doliczane do niespłaconej wartości nominalnej i wypłacane wraz z kwotą wykupu
+AdditionalSecurities = odsetki są płacone poprzez dostarczenie dodatkowych papierów wartościowych tej samej emisji</xs:documentation>
+								<xs:documentation xml:lang="sv">Reglering av ränta som betalas in natura
+Capitalised = räntan läggs till det utestående nominella beloppet och betalas med inlösenbeloppet
+AdditionalSecurities = räntan betalas genom leverans av ytterligare värdepapper från samma emission</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Capitalised"/>
+									<xs:enumeration value="AdditionalSecurities"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Rate" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo source="@since 4.2.12"/>
+								<xs:documentation xml:lang="en">Interest rate paid in kind, in percent per annum; the cash interest rate is delivered in Coupon/InterestRate</xs:documentation>
+								<xs:documentation xml:lang="de">In Form von PIK gezahlter Zinssatz in Prozent p. a.; der bar gezahlte Zinssatz wird in Coupon/InterestRate geliefert</xs:documentation>
+								<xs:documentation xml:lang="fr">Taux d'intérêt payé en nature, en pourcentage par an ; le taux d'intérêt payé en numéraire est fourni dans Coupon/InterestRate</xs:documentation>
+								<xs:documentation xml:lang="nl">In natura betaalde rentevoet, in procent per jaar; de in contanten betaalde rentevoet wordt in Coupon/InterestRate aangeleverd</xs:documentation>
+								<xs:documentation xml:lang="es">Tipo de interés pagado en especie, en porcentaje anual; el tipo de interés pagado en efectivo se indica en Coupon/InterestRate</xs:documentation>
+								<xs:documentation xml:lang="it">Tasso di interesse pagato in natura, in percentuale annua; il tasso di interesse pagato in contanti è fornito in Coupon/InterestRate</xs:documentation>
+								<xs:documentation xml:lang="cs">Úroková sazba placená formou PIK v procentech p. a.; hotovostní úroková sazba se uvádí v Coupon/InterestRate</xs:documentation>
+								<xs:documentation xml:lang="hu">Természetben fizetett kamatláb, évi százalékban; a készpénzben fizetett kamatlábat a Coupon/InterestRate tartalmazza</xs:documentation>
+								<xs:documentation xml:lang="da">Rentesats betalt in natura i procent p.a.; den kontante rentesats leveres i Coupon/InterestRate</xs:documentation>
+								<xs:documentation xml:lang="pl">Stopa procentowa płacona w naturze, w procentach rocznie; stopa procentowa płacona w gotówce jest podawana w Coupon/InterestRate</xs:documentation>
+								<xs:documentation xml:lang="sv">Räntesats som betalas in natura, i procent per år; den kontanta räntesatsen anges i Coupon/InterestRate</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="ConvertibleBond" type="ConvertibleBondType" minOccurs="0">
 				<xs:annotation>
@@ -4033,17 +4339,17 @@ N ... nominellt belopp</xs:documentation>
 			<xs:element name="SolvencyIISecuritisationCategory" type="SolvencyIISecuritisationCategoryType" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Securitisation category of the commercial paper under Solvency II (TPT field 56_Securitisation). To be delivered for structured notes and collateralised securities (CIC categories 5 and 6)</xs:documentation>
-					<xs:documentation xml:lang="de">Verbriefungskategorie des Commercial Papers nach Solvency II (TPT-Feld 56_Securitisation). Zu liefern für strukturierte Schuldtitel und besicherte Wertpapiere (CIC-Kategorien 5 und 6)</xs:documentation>
-					<xs:documentation xml:lang="fr">Catégorie de titrisation du commercial paper selon Solvabilité II (champ TPT 56_Securitisation). À fournir pour les titres structurés et les titres garantis (catégories CIC 5 et 6)</xs:documentation>
-					<xs:documentation xml:lang="nl">Securitisatiecategorie van het commercial paper volgens Solvency II (TPT-veld 56_Securitisation). Aan te leveren voor gestructureerde notes en effecten met onderpand (CIC-categorieën 5 en 6)</xs:documentation>
-					<xs:documentation xml:lang="es">Categoría de titulización del commercial paper según Solvencia II (campo TPT 56_Securitisation). Debe indicarse para bonos estructurados y valores con garantía real (categorías CIC 5 y 6)</xs:documentation>
-					<xs:documentation xml:lang="it">Categoria di cartolarizzazione del commercial paper secondo Solvency II (campo TPT 56_Securitisation). Da fornire per titoli strutturati e titoli garantiti (categorie CIC 5 e 6)</xs:documentation>
-					<xs:documentation xml:lang="cs">Kategorie sekuritizace komerčního papíru podle Solvency II (pole TPT 56_Securitisation). Uvádí se u strukturovaných dluhopisů a zajištěných cenných papírů (kategorie CIC 5 a 6)</xs:documentation>
-					<xs:documentation xml:lang="hu">A commercial paper értékpapírosítási kategóriája a Szolvencia II szerint (TPT 56_Securitisation mező). Strukturált értékpapírok és fedezett értékpapírok esetén kell megadni (5. és 6. CIC-kategória)</xs:documentation>
-					<xs:documentation xml:lang="da">Securitiseringskategori for commercial paper i henhold til Solvens II (TPT-felt 56_Securitisation). Skal leveres for strukturerede værdipapirer og sikrede værdipapirer (CIC-kategori 5 og 6)</xs:documentation>
-					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji commercial paper zgodnie z Wypłacalność II (pole TPT 56_Securitisation). Należy podać dla strukturyzowanych papierów wartościowych i zabezpieczonych papierów wartościowych (kategorie CIC 5 i 6)</xs:documentation>
-					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för commercial paper enligt Solvens II (TPT-fält 56_Securitisation). Ska anges för strukturerade värdepapper och värdepapper med säkerhet (CIC-kategori 5 och 6)</xs:documentation>
+					<xs:documentation xml:lang="en">Securitisation category of the commercial paper under Solvency II. To be delivered for securitisation positions and for structured or collateralised debt securities</xs:documentation>
+					<xs:documentation xml:lang="de">Verbriefungskategorie des Commercial Papers nach Solvency II. Zu liefern für Verbriefungspositionen sowie für strukturierte oder besicherte Schuldtitel</xs:documentation>
+					<xs:documentation xml:lang="fr">Catégorie de titrisation du commercial paper selon Solvabilité II. À fournir pour les positions de titrisation ainsi que pour les titres de créance structurés ou garantis</xs:documentation>
+					<xs:documentation xml:lang="nl">Securitisatiecategorie van het commercial paper volgens Solvency II. Aan te leveren voor securitisatieposities en voor gestructureerde schuldbewijzen of schuldbewijzen met onderpand</xs:documentation>
+					<xs:documentation xml:lang="es">Categoría de titulización del commercial paper según Solvencia II. Debe indicarse para posiciones de titulización y para títulos de deuda estructurados o con garantía real</xs:documentation>
+					<xs:documentation xml:lang="it">Categoria di cartolarizzazione del commercial paper secondo Solvency II. Da fornire per le posizioni verso la cartolarizzazione e per i titoli di debito strutturati o garantiti</xs:documentation>
+					<xs:documentation xml:lang="cs">Kategorie sekuritizace komerčního papíru podle Solvency II. Uvádí se u sekuritizačních pozic a u strukturovaných nebo zajištěných dluhových cenných papírů</xs:documentation>
+					<xs:documentation xml:lang="hu">A commercial paper értékpapírosítási kategóriája a Szolvencia II szerint. Értékpapírosítási pozíciók, valamint strukturált vagy fedezett hitelviszonyt megtestesítő értékpapírok esetén kell megadni</xs:documentation>
+					<xs:documentation xml:lang="da">Securitiseringskategori for commercial paper i henhold til Solvens II. Skal leveres for securitiseringspositioner samt for strukturerede eller sikrede gældsinstrumenter</xs:documentation>
+					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji commercial paper zgodnie z Wypłacalność II. Należy podać dla pozycji sekurytyzacyjnych oraz dla strukturyzowanych lub zabezpieczonych dłużnych papierów wartościowych</xs:documentation>
+					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för commercial paper enligt Solvens II. Ska anges för värdepapperiseringspositioner samt för strukturerade skuldebrev eller skuldebrev med säkerhet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DayCountConvention" type="DayCountConventionType" minOccurs="0">
@@ -4172,23 +4478,23 @@ EXCH ... Utbytbara obligationer</xs:documentation>
 			<xs:element name="UnderlyingUniqueID" type="xs:IDREF" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Reference to the UniqueID of the asset (AssetMasterData/Asset) into which the bond can be converted. Via this asset the master data of the underlying (CIC, name, currency, issuer) are available, e.g. for TPT fields 67 to 86</xs:documentation>
-					<xs:documentation xml:lang="de">Verweis auf die UniqueID des Assets (AssetMasterData/Asset), in das die Anleihe gewandelt werden kann. Über dieses Asset stehen die Stammdaten des Basiswerts (CIC, Name, Währung, Emittent) zur Verfügung, z. B. für die TPT-Felder 67 bis 86</xs:documentation>
-					<xs:documentation xml:lang="fr">Référence à l'UniqueID de l'actif (AssetMasterData/Asset) en lequel l'obligation peut être convertie. Cet actif fournit les données de base du sous-jacent (CIC, nom, devise, émetteur), p. ex. pour les champs TPT 67 à 86</xs:documentation>
-					<xs:documentation xml:lang="nl">Verwijzing naar de UniqueID van het asset (AssetMasterData/Asset) waarin de obligatie kan worden omgezet. Via dit asset zijn de stamgegevens van de onderliggende waarde (CIC, naam, valuta, emittent) beschikbaar, bv. voor de TPT-velden 67 tot en met 86</xs:documentation>
-					<xs:documentation xml:lang="es">Referencia al UniqueID del activo (AssetMasterData/Asset) en el que puede convertirse el bono. A través de este activo se dispone de los datos maestros del subyacente (CIC, nombre, divisa, emisor), p. ej. para los campos TPT 67 a 86</xs:documentation>
-					<xs:documentation xml:lang="it">Riferimento all'UniqueID dell'attività (AssetMasterData/Asset) in cui l'obbligazione può essere convertita. Tramite questa attività sono disponibili i dati anagrafici del sottostante (CIC, nome, valuta, emittente), ad es. per i campi TPT da 67 a 86</xs:documentation>
-					<xs:documentation xml:lang="cs">Odkaz na UniqueID aktiva (AssetMasterData/Asset), na které lze dluhopis konvertovat. Prostřednictvím tohoto aktiva jsou k dispozici kmenová data podkladového aktiva (CIC, název, měna, emitent), např. pro pole TPT 67 až 86</xs:documentation>
-					<xs:documentation xml:lang="hu">Hivatkozás annak az eszköznek (AssetMasterData/Asset) az UniqueID-jára, amelyre a kötvény átváltható. Ezen az eszközön keresztül érhetők el a mögöttes termék törzsadatai (CIC, név, deviza, kibocsátó), pl. a TPT 67-86 mezőkhöz</xs:documentation>
-					<xs:documentation xml:lang="da">Henvisning til UniqueID for det aktiv (AssetMasterData/Asset), som obligationen kan konverteres til. Via dette aktiv er stamdata for det underliggende aktiv (CIC, navn, valuta, udsteder) tilgængelige, f.eks. til TPT-felterne 67 til 86</xs:documentation>
-					<xs:documentation xml:lang="pl">Odwołanie do UniqueID aktywa (AssetMasterData/Asset), na które obligacja może zostać zamieniona. Poprzez to aktywo dostępne są dane podstawowe instrumentu bazowego (CIC, nazwa, waluta, emitent), np. dla pól TPT 67 do 86</xs:documentation>
-					<xs:documentation xml:lang="sv">Hänvisning till UniqueID för den tillgång (AssetMasterData/Asset) som obligationen kan konverteras till. Via denna tillgång finns stamdata för den underliggande tillgången (CIC, namn, valuta, emittent), t.ex. för TPT-fälten 67 till 86</xs:documentation>
+					<xs:documentation xml:lang="en">Reference to the UniqueID of the asset (AssetMasterData/Asset) into which the bond can be converted. Via this asset the master data of the underlying (name, currency, issuer) are available</xs:documentation>
+					<xs:documentation xml:lang="de">Verweis auf die UniqueID des Assets (AssetMasterData/Asset), in das die Anleihe gewandelt werden kann. Über dieses Asset stehen die Stammdaten des Basiswerts (Name, Währung, Emittent) zur Verfügung</xs:documentation>
+					<xs:documentation xml:lang="fr">Référence à l'UniqueID de l'actif (AssetMasterData/Asset) en lequel l'obligation peut être convertie. Cet actif fournit les données de base du sous-jacent (nom, devise, émetteur)</xs:documentation>
+					<xs:documentation xml:lang="nl">Verwijzing naar de UniqueID van het asset (AssetMasterData/Asset) waarin de obligatie kan worden omgezet. Via dit asset zijn de stamgegevens van de onderliggende waarde (naam, valuta, emittent) beschikbaar</xs:documentation>
+					<xs:documentation xml:lang="es">Referencia al UniqueID del activo (AssetMasterData/Asset) en el que puede convertirse el bono. A través de este activo se dispone de los datos maestros del subyacente (nombre, divisa, emisor)</xs:documentation>
+					<xs:documentation xml:lang="it">Riferimento all'UniqueID dell'attività (AssetMasterData/Asset) in cui l'obbligazione può essere convertita. Tramite questa attività sono disponibili i dati anagrafici del sottostante (nome, valuta, emittente)</xs:documentation>
+					<xs:documentation xml:lang="cs">Odkaz na UniqueID aktiva (AssetMasterData/Asset), na které lze dluhopis konvertovat. Prostřednictvím tohoto aktiva jsou k dispozici kmenová data podkladového aktiva (název, měna, emitent)</xs:documentation>
+					<xs:documentation xml:lang="hu">Hivatkozás annak az eszköznek (AssetMasterData/Asset) az UniqueID-jára, amelyre a kötvény átváltható. Ezen az eszközön keresztül érhetők el a mögöttes termék törzsadatai (név, deviza, kibocsátó)</xs:documentation>
+					<xs:documentation xml:lang="da">Henvisning til UniqueID for det aktiv (AssetMasterData/Asset), som obligationen kan konverteres til. Via dette aktiv er stamdata for det underliggende aktiv (navn, valuta, udsteder) tilgængelige</xs:documentation>
+					<xs:documentation xml:lang="pl">Odwołanie do UniqueID aktywa (AssetMasterData/Asset), na które obligacja może zostać zamieniona. Poprzez to aktywo dostępne są dane podstawowe instrumentu bazowego (nazwa, waluta, emitent)</xs:documentation>
+					<xs:documentation xml:lang="sv">Hänvisning till UniqueID för den tillgång (AssetMasterData/Asset) som obligationen kan konverteras till. Via denna tillgång finns stamdata för den underliggande tillgången (namn, valuta, emittent)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ConversionPrice" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Conversion price: price per share of the underlying at which the bond can be converted (TPT field 61_Strike_price)</xs:documentation>
-					<xs:documentation xml:lang="de">Wandlungspreis: Preis je Aktie des Basiswerts, zu dem die Anleihe gewandelt werden kann (TPT-Feld 61_Strike_price)</xs:documentation>
+					<xs:documentation xml:lang="en">Conversion price: price per share of the underlying at which the bond can be converted</xs:documentation>
+					<xs:documentation xml:lang="de">Wandlungspreis: Preis je Aktie des Basiswerts, zu dem die Anleihe gewandelt werden kann</xs:documentation>
 					<xs:documentation xml:lang="fr">Prix de conversion</xs:documentation>
 					<xs:documentation xml:lang="nl">Conversieprijs</xs:documentation>
 					<xs:documentation xml:lang="es">Precio de conversión</xs:documentation>
@@ -4202,17 +4508,17 @@ EXCH ... Utbytbara obligationer</xs:documentation>
 			</xs:element>
 			<xs:element name="ConversionRatio" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Conversion ratio: number of shares received per bond held on conversion (TPT field 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="de">Wandlungsverhältnis: Anzahl der Aktien, die bei Wandlung je gehaltener Anleihe bezogen werden (TPT-Feld 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="fr">Ratio de conversion : nombre d'actions reçues par obligation détenue lors de la conversion (champ TPT 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="nl">Conversieverhouding: aantal aandelen dat bij conversie per aangehouden obligatie wordt ontvangen (TPT-veld 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="es">Ratio de conversión: número de acciones recibidas por bono mantenido en la conversión (campo TPT 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="it">Rapporto di conversione: numero di azioni ricevute per obbligazione detenuta alla conversione (campo TPT 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="cs">Konverzní poměr: počet akcií získaných při konverzi za jeden držený dluhopis (pole TPT 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="hu">Átváltási arány: az átváltáskor egy tartott kötvényért kapott részvények száma (TPT 62_Conversion_factor mező)</xs:documentation>
-					<xs:documentation xml:lang="da">Konverteringsforhold: antal aktier, der modtages pr. obligation ved konvertering (TPT-felt 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="pl">Współczynnik zamiany: liczba akcji otrzymywanych przy zamianie za jedną posiadaną obligację (pole TPT 62_Conversion_factor)</xs:documentation>
-					<xs:documentation xml:lang="sv">Konverteringskvot: antal aktier som erhålls per innehavd obligation vid konvertering (TPT-fält 62_Conversion_factor)</xs:documentation>
+					<xs:documentation xml:lang="en">Conversion ratio: number of shares received per bond held on conversion</xs:documentation>
+					<xs:documentation xml:lang="de">Wandlungsverhältnis: Anzahl der Aktien, die bei Wandlung je gehaltener Anleihe bezogen werden</xs:documentation>
+					<xs:documentation xml:lang="fr">Ratio de conversion : nombre d'actions reçues par obligation détenue lors de la conversion</xs:documentation>
+					<xs:documentation xml:lang="nl">Conversieverhouding: aantal aandelen dat bij conversie per aangehouden obligatie wordt ontvangen</xs:documentation>
+					<xs:documentation xml:lang="es">Ratio de conversión: número de acciones recibidas por bono mantenido en la conversión</xs:documentation>
+					<xs:documentation xml:lang="it">Rapporto di conversione: numero di azioni ricevute per obbligazione detenuta alla conversione</xs:documentation>
+					<xs:documentation xml:lang="cs">Konverzní poměr: počet akcií získaných při konverzi za jeden držený dluhopis</xs:documentation>
+					<xs:documentation xml:lang="hu">Átváltási arány: az átváltáskor egy tartott kötvényért kapott részvények száma</xs:documentation>
+					<xs:documentation xml:lang="da">Konverteringsforhold: antal aktier, der modtages pr. obligation ved konvertering</xs:documentation>
+					<xs:documentation xml:lang="pl">Współczynnik zamiany: liczba akcji otrzymywanych przy zamianie za jedną posiadaną obligację</xs:documentation>
+					<xs:documentation xml:lang="sv">Konverteringskvot: antal aktier som erhålls per innehavd obligation vid konvertering</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ContractSize" type="xs:decimal" minOccurs="0">

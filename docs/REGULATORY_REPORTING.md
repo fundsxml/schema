@@ -298,6 +298,60 @@ Each version is a separate element below `RegulatoryReportings/IndirectReporting
 | 10 | LEI |
 | 99 | Internal |
 
+### Deriving TPT fields from core data
+
+Several TPT datapoints can be generated from the regular asset master and portfolio data. The core elements carry no TPT codes. Their values are at least as granular as the TPT, so each value maps to exactly one TPT code.
+
+| TPT | Core source |
+|-----|-------------|
+| 56 Securitisation | `Asset/AssetDetails/Bond/SolvencyIISecuritisationCategory`, `Asset/AssetDetails/CommercialPaper/SolvencyIISecuritisationCategory` |
+| 58 Subordinated debt | `Asset/AssetDetails/Bond/Seniority` |
+| 61 Strike price | `Asset/AssetDetails/Bond/ConvertibleBond/ConversionPrice` |
+| 62 Conversion factor | `Asset/AssetDetails/Bond/ConvertibleBond/ConversionRatio` |
+| 67–86 Underlying | asset referenced by `Asset/AssetDetails/Bond/ConvertibleBond/UnderlyingUniqueID` |
+| 92 Credit sensitivity | `RiskCode/ListedCode` = `CREDIT SENSITIVITY` |
+| 94 Convexity | `RiskCode/ListedCode` = `CONVEXITY` |
+| 127 Bond floor (up to V7) | `Position/Bond/BondFloor` |
+| 128 Option premium (up to V7) | `Position/Bond/OptionPremium` |
+| 130 Z-spread | `RiskCode/ListedCode` = `Z-SPREAD` |
+| 137 Counterparty sector, value 6 | issuer `CompanyType/Type` = `Financial vehicle corporations engaged in securitisation transactions` |
+| 142 Bail-in rule | `Asset/AssetDetails/Bond/BailIn` |
+| 143 Expected maturity date | `Asset/AssetDetails/Bond/ExpectedMaturityDate` |
+| 144 Modified duration to expected maturity | `RiskCode/ListedCode` = `MODIFIED DURATION TO EXPECTED MATURITY` |
+| 145 Credit sensitivity to expected maturity | `RiskCode/ListedCode` = `CREDIT SENSITIVITY TO EXPECTED MATURITY` |
+| 146 PIK | `Asset/AssetDetails/Bond/PaymentInKind` |
+
+**56 Securitisation** (`SolvencyIISecuritisationCategory`)
+
+| Core value | V8 | V7 |
+|------------|----|----|
+| `NotAssessed` | a | a |
+| `STSSenior` | b | b |
+| `STSNonSenior` | c | c |
+| `Resecuritisation` | d | d |
+| `NonSTSSenior` | e1 | e |
+| `NonSTSNonSenior` | e2 | e |
+| `NonSTSOther` | e3 | e |
+| `TransitionalArt178a1` | f | f |
+| `TransitionalArt178a3` | g | g |
+| `TransitionalArt178a4` | h | h |
+| `GuaranteedEIBEIF` | i | i |
+| `NotASecuritisation` | j | j |
+
+**58 Subordinated debt** (`Seniority`): `Subordinated`, `Tier2`, `AdditionalTier1` → Y; `SeniorSecured`, `SeniorUnsecured`, `SeniorNonPreferred` → N.
+
+**142 Bail-in rule** (`BailIn`): `NotAssessed` → 0; `Statutory`, `Contractual` → 1; `Excluded` → 2; `NotApplicable` → 9.
+
+**146 PIK** (`PaymentInKind`)
+
+| Core | TPT |
+|------|-----|
+| `Type` = `None` | 0 |
+| `Type` = `Full`, `Settlement` = `Capitalised` | 1 |
+| `Type` = `Partial` or `Toggle`, `Settlement` = `Capitalised` | 2 |
+| `Settlement` = `AdditionalSecurities` | 3 |
+| `Type` other than `None`, `Settlement` missing | 4 |
+
 ### Example
 
 ```xml

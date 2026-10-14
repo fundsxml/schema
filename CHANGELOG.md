@@ -37,30 +37,30 @@ Nominal value per piece for bonds and commercial papers listed in pieces (`Funds
 
 To be delivered if `ListingUnit` is `P` (pieces). `Position/Bond/Nominal` resp. `Position/CommercialPaper/Nominal` then holds the number of pieces, and the total nominal of the position is the number of pieces multiplied by the nominal value per piece. In both types the new element follows `ListingUnit`.
 
-Source data for the Solvency II TPT rows of securitisations and structured notes (CIC categories 5 and 6), so that TPT V7 and V8 can be generated from the master data. All new elements are optional.
+Credit, securitisation and convertible bond characteristics in the asset master and portfolio data. They are regular core elements without TPT codes. Their values are at least as granular as the Solvency II Tripartite Template, so TPT V7 and V8 can be generated from them; the mapping is documented in `docs/REGULATORY_REPORTING.md`. All new elements are optional.
 
 Asset master data (`FundsXML4_AssetMasterData.xsd`):
 
-- `Asset/AssetDetails/Bond/SolvencyIISecuritisationCategory` and `Asset/AssetDetails/CommercialPaper/SolvencyIISecuritisationCategory` – securitisation category under Delegated Regulation (EU) 2015/35, new type `SolvencyIISecuritisationCategoryType` with the values `a`, `b`, `c`, `d`, `e`, `e1`, `e2`, `e3`, `f`, `g`, `h`, `i`, `j` (TPT 56). `e1`/`e2`/`e3` are the split of category `e` introduced with the TPT V8 draft; for TPT V7 they map to `e`
-- `Asset/AssetDetails/Bond/ExpectedMaturityDate` – expected maturity taking prepayments and option exercise into account (TPT 143); follows `MaturityDate`
-- `Asset/AssetDetails/Bond/SubordinatedDebt` – boolean (TPT 58)
-- `Asset/AssetDetails/Bond/BailInRule` – `0` not assessed, `1` yes, `2` no, `9` not applicable (TPT 142)
-- `Asset/AssetDetails/Bond/PIK` – payment in kind, codes `0` to `4` as in TPT 146
+- `Asset/AssetDetails/Bond/SolvencyIISecuritisationCategory` and `Asset/AssetDetails/CommercialPaper/SolvencyIISecuritisationCategory` – securitisation category under Delegated Regulation (EU) 2015/35, new type `SolvencyIISecuritisationCategoryType` with the values `NotAssessed`, `STSSenior`, `STSNonSenior`, `Resecuritisation`, `NonSTSSenior`, `NonSTSNonSenior`, `NonSTSOther`, `TransitionalArt178a1`, `TransitionalArt178a3`, `TransitionalArt178a4`, `GuaranteedEIBEIF`, `NotASecuritisation`
+- `Asset/AssetDetails/Bond/ExpectedMaturityDate` – expected maturity taking prepayments and option exercise into account; follows `MaturityDate`
+- `Asset/AssetDetails/Bond/Seniority` – ranking in insolvency or resolution: `SeniorSecured`, `SeniorUnsecured`, `SeniorNonPreferred`, `Subordinated`, `Tier2`, `AdditionalTier1`
+- `Asset/AssetDetails/Bond/BailIn` – treatment under a resolution regime: `NotAssessed`, `Statutory`, `Contractual`, `Excluded`, `NotApplicable`
+- `Asset/AssetDetails/Bond/PaymentInKind` – payment-in-kind feature with `Type` (`None`, `Full`, `Partial`, `Toggle`), `Settlement` (`Capitalised`, `AdditionalSecurities`) and `Rate`
 
-In `BondType` the category, `SubordinatedDebt`, `BailInRule` and `PIK` follow `Tranche`; in `CommercialPaperType` the category follows `IsAssetBacked`.
+In `BondType` the category, `Seniority`, `BailIn` and `PaymentInKind` follow `Tranche`; in `CommercialPaperType` the category follows `IsAssetBacked`.
 
 Company type (`FundsXML4_Core.xsd`), new value of `CompanyType/Type`:
 
-- `Financial vehicle corporations engaged in securitisation transactions` – needed to derive TPT 137 (counterparty sector) value 6
+- `Financial vehicle corporations engaged in securitisation transactions` – ESA 2010 sector S.125
 
 Risk codes (`FundsXML4_PortfolioData.xsd`), new values of `RiskCode/ListedCode`:
 
-- `CONVEXITY` (TPT 94), `CREDIT SENSITIVITY` (TPT 92), `CREDIT SENSITIVITY TO EXPECTED MATURITY` (TPT 145), `MODIFIED DURATION TO EXPECTED MATURITY` (TPT 144), `Z-SPREAD` (TPT 130)
+- `CONVEXITY`, `CREDIT SENSITIVITY`, `CREDIT SENSITIVITY TO EXPECTED MATURITY`, `MODIFIED DURATION TO EXPECTED MATURITY`, `Z-SPREAD`
 
-Source data for the Solvency II TPT rows of convertible bonds (CIC 22). All new elements are optional.
+Convertible bonds:
 
-- `Asset/AssetDetails/Bond/ConvertibleBond/UnderlyingUniqueID` (`FundsXML4_AssetMasterData.xsd`, `xs:IDREF`) – reference to the asset into which the bond can be converted, giving access to the master data of the underlying (CIC, name, currency, issuer; TPT 67 to 86). Follows `Underlying`, which keeps holding the identifiers only
-- `Position/Bond/BondFloor` and `Position/Bond/OptionPremium` (`FundsXML4_PortfolioData.xsd`, `FundAmountType`) – bond floor and premium of the embedded conversion option (TPT 127 and 128; TPT up to V7, removed in the V8 draft). Both follow `CollateralValue`
+- `Asset/AssetDetails/Bond/ConvertibleBond/UnderlyingUniqueID` (`FundsXML4_AssetMasterData.xsd`, `xs:IDREF`) – reference to the asset into which the bond can be converted, giving access to the master data of the underlying (name, currency, issuer). Follows `Underlying`, which keeps holding the identifiers only
+- `Position/Bond/BondFloor` and `Position/Bond/OptionPremium` (`FundsXML4_PortfolioData.xsd`, `FundAmountType`) – bond floor and premium of the embedded conversion option. Both follow `CollateralValue`
 
 Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
 
@@ -88,7 +88,7 @@ Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
   - Spanish text in the English and German documentation replaced for `AssetDetails/Loan`, `AssetDetails/Right`, `Ratings/Rating`, `RealEstateCompany`, `Yields`, and in `Bond` and `CommercialPaper` for `Coupon/Type`, `Coupon/PaymentFrequency`, `Coupon/BaseIndex` and (Bond) `Redemption/Frequency`
   - `Bond/Tranche` described as the number of the issue tranche; Dutch text of `Tranche` and `Securitized` was Spanish
 
-- Documentation of `ConvertibleBond/ConversionPrice` and `ConversionRatio` made precise in English and German (price per share resp. number of shares per bond, with the TPT fields 61 and 62 they feed); the English text of `ConvertibleBond/ContractSize` was German. No structural change
+- Documentation of `ConvertibleBond/ConversionPrice` and `ConversionRatio` made precise in English and German (price per share resp. number of shares per bond); the English text of `ConvertibleBond/ContractSize` was German. No structural change
 
 - German documentation of `ListingUnit` in `BondType` and `CommercialPaperType` corrected: the value for pieces is `P` (text said `S`). No structural change
 

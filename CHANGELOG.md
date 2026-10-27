@@ -64,7 +64,7 @@ Convertible bonds:
 
 Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
 
-- `RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V8` (type `TripartiteTemplateSolvencyIIType_V8`) – Tripartite Template version 8.0 according to the FinDatEx consultation draft of 2026-07-07. The final version is not published yet, so the structure may still change. Against V7, 20 datapoints are removed, issuer identification accepts non-LEI codes, the securitisation category `e` is split into `e1`, `e2` and `e3`, and the datapoints 150 and 151 are new
+- `RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V8` (type `TripartiteTemplateSolvencyIIType_V8`) – Tripartite Template version 8.0 according to the official FinDatEx version of 2026-10-08 (post consultation; draft of 2026-07-07). Against V7, 20 datapoints are removed, issuer identification accepts non-LEI codes, the securitisation category `e` is split into `e1`, `e2` and `e3`, and the datapoints 150 and 151 are new
 - `SIIPositionType_V8`: `DerivativeOrConvertible/OptionCharacteristics/Convertible` with `BondFloorConvertibleInstrumentOnly` (TPT 127) and `OptionPremiumConvertibleInstrumentOnly` (TPT 128), both `xs:decimal` and optional – bond floor and option premium of convertible instruments, as `Convertible/BondFloor` and `Convertible/OptionPremium` in the earlier versions (`SIIPositionType`, `_V6`, `_V7`). Follows `ExerciseType`
 
 ### Fixed

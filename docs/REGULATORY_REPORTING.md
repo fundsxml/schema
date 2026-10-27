@@ -25,7 +25,7 @@ FundsXML provides native support for European regulatory reporting requirements:
 | **EMT** | MiFID II | V4 – V4.3 | Target market & costs |
 | **EET** | SFDR | V1 – V1.1.3 | ESG & sustainability |
 | **PRIIPS** | PRIIPs | V2 – V2.0 | Key Information Document |
-| **TPT** | Solvency II | V4 – V8 (V8 draft) | Insurance look-through |
+| **TPT** | Solvency II | V4 – V8 | Insurance look-through |
 | **KIID** | UCITS | V1 | Key Investor Information |
 | **EMIR** | EMIR | V1 | Derivatives reporting |
 | **EFT** | MiFID II/IDD | V1 | Distribution feedback |
@@ -259,7 +259,7 @@ Each scenario includes:
 | V5 | `TripartiteTemplateSolvencyIIType_V5` |
 | V6 (deprecated) | `TripartiteTemplateSolvencyIIType_V6` |
 | V7 | `TripartiteTemplateSolvencyIIType_V7` |
-| V8 (FinDatEx consultation draft of 2026-07-07) | `TripartiteTemplateSolvencyIIType_V8` |
+| V8 (FinDatEx version of 2026-10-08) | `TripartiteTemplateSolvencyIIType_V8` |
 
 Each version is a separate element below `RegulatoryReportings/IndirectReporting`, e.g. `TripartiteTemplateSolvencyII_V7`. The element names below are those of V7; V8 uses names derived from the official FinDatEx labels (e.g. `NetAssetValuationInPortfolioCurrency` instead of `TotalNetAssets`).
 

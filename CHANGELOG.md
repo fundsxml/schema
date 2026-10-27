@@ -65,6 +65,7 @@ Convertible bonds:
 Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
 
 - `RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V8` (type `TripartiteTemplateSolvencyIIType_V8`) – Tripartite Template version 8.0 according to the FinDatEx consultation draft of 2026-07-07. The final version is not published yet, so the structure may still change. Against V7, 20 datapoints are removed, issuer identification accepts non-LEI codes, the securitisation category `e` is split into `e1`, `e2` and `e3`, and the datapoints 150 and 151 are new
+- `SIIPositionType_V8`: `DerivativeOrConvertible/OptionCharacteristics/Convertible` with `BondFloorConvertibleInstrumentOnly` (TPT 127) and `OptionPremiumConvertibleInstrumentOnly` (TPT 128), both `xs:decimal` and optional – bond floor and option premium of convertible instruments, as `Convertible/BondFloor` and `Convertible/OptionPremium` in the earlier versions (`SIIPositionType`, `_V6`, `_V7`). Follows `ExerciseType`
 
 ### Fixed
 
@@ -83,6 +84,7 @@ Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
   - Mixed-language documentation corrected: 1,425 texts that contained English, Spanish, Dutch or German fragments in another language slot, or the untranslated English text, were rewritten in the slot's language (all modules, mainly `RegulatoryReporting_EET`, `_EMT`, `_SolvencyII`, `_PRIIPS`, `AssetMasterData` and `TransactionData`); 18 of them are English slots that contained German, French or Spanish text. Machine-corrected, not reviewed by native speakers
   - Datapoint identifiers restored in 547 translated texts of EET, EFT and PRIIPS (e.g. `10000_Hersteller_Name` back to `10000_Manufacturer_Name`); the identifier had been translated along with the description
   - TPT V7 `Securitisation/Securitised` (TPT 56): range corrected to a–j and the meaning of the codes added (English and German)
+  - TPT V8, wording of the post-consultation template: `IssuerIdentificationCode` (47), `IdentificationOfTheGroup` (50), `IssuerIdentificationCodeOfTheUnderlyingAsset` (81) and `IdentificationOfTheGroupOfTheUnderlyingAsset` (84) are alphanumeric with up to 20 characters; `GroupingCodeForMultipleLegInstruments` (16) is alphanumeric with up to 255 characters, its text had been copied from the contract size datapoint
   - TPT V8 `Securitisation`: codification is up to two characters (`e1`, `e2`, `e3`); `TPTVersion` names V8.0 as consultation draft instead of a date placeholder
   - `AssetTypeType`: `SC` is the share class (formerly fund), not "Structured Credit"
   - Spanish text in the English and German documentation replaced for `AssetDetails/Loan`, `AssetDetails/Right`, `Ratings/Rating`, `RealEstateCompany`, `Yields`, and in `Bond` and `CommercialPaper` for `Coupon/Type`, `Coupon/PaymentFrequency`, `Coupon/BaseIndex` and (Bond) `Redemption/Frequency`

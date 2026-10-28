@@ -12,6 +12,7 @@
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_EMT.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_KIID.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_PRIIPS.xsd"/>
+	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_PRIIPsKID.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_SolvencyII.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_EFT.xsd"/>
 	<xs:include schemaLocation="FundsXML4_RegulatoryReporting_EET.xsd"/>
@@ -434,6 +435,7 @@
 												<xs:enumeration value="TransactionData"/>
 												<xs:enumeration value="RegulatoryReporting_EFT"/>
 												<xs:enumeration value="RegulatoryReporting_EET"/>
+											<xs:enumeration value="RegulatoryReporting_PRIIPsKID"/>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
@@ -607,6 +609,22 @@
 			<xs:element name="KIIDs" type="KIIDsType" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@deprecated will no longer be supported in a future FundsXML schema version"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PRIIPsKIDs" type="PRIIPsKIDsType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Machine-readable PRIIPs key information documents (KID) according to Regulation (EU) No 1286/2014 and Delegated Regulation (EU) 2017/653 as amended. Includes the metadata for the European single access point (ESAP), to which KIDs must be submitted from 10 January 2028</xs:documentation>
+					<xs:documentation xml:lang="de">Maschinenlesbare Basisinformationsblätter (PRIIPs-KID) nach Verordnung (EU) Nr. 1286/2014 und Delegierter Verordnung (EU) 2017/653 in geltender Fassung. Enthält die Metadaten für das zentrale europäische Zugangsportal (ESAP), an das BIB ab 10. Januar 2028 zu übermitteln sind</xs:documentation>
+					<xs:documentation xml:lang="fr">Documents d'informations clés PRIIPs (KID) lisibles par machine selon le règlement (UE) n° 1286/2014 et le règlement délégué (UE) 2017/653 tel que modifié. Comprend les métadonnées pour le point d'accès unique européen (ESAP), auquel les KID doivent être transmis à partir du 10 janvier 2028</xs:documentation>
+					<xs:documentation xml:lang="nl">Machineleesbare essentiële-informatiedocumenten (PRIIPs-KID) volgens Verordening (EU) nr. 1286/2014 en Gedelegeerde Verordening (EU) 2017/653 zoals gewijzigd. Bevat de metadata voor het Europees centraal toegangspunt (ESAP), waarbij KID's vanaf 10 januari 2028 moeten worden ingediend</xs:documentation>
+					<xs:documentation xml:lang="es">Documentos de datos fundamentales PRIIPs (KID) legibles por máquina conforme al Reglamento (UE) n.º 1286/2014 y al Reglamento Delegado (UE) 2017/653 modificado. Incluye los metadatos para el punto de acceso único europeo (ESAP), al que deben remitirse los KID a partir del 10 de enero de 2028</xs:documentation>
+					<xs:documentation xml:lang="it">Documenti contenenti le informazioni chiave PRIIPs (KID) leggibili meccanicamente ai sensi del Regolamento (UE) n. 1286/2014 e del Regolamento delegato (UE) 2017/653 e successive modifiche. Comprende i metadati per il punto di accesso unico europeo (ESAP), al quale i KID devono essere trasmessi dal 10 gennaio 2028</xs:documentation>
+					<xs:documentation xml:lang="hu">Gépileg olvasható PRIIP kiemelt információkat tartalmazó dokumentumok (KID) az 1286/2014/EU rendelet és a módosított (EU) 2017/653 felhatalmazáson alapuló rendelet szerint. Tartalmazza az európai egységes hozzáférési pont (ESAP) metaadatait, amelyhez a KID-eket 2028. január 10-től be kell nyújtani</xs:documentation>
+					<xs:documentation xml:lang="cs">Strojově čitelná sdělení klíčových informací PRIIPs (KID) podle nařízení (EU) č. 1286/2014 a nařízení v přenesené pravomoci (EU) 2017/653 v platném znění. Obsahuje metadata pro jednotné evropské přístupové místo (ESAP), do něhož se KID předávají od 10. ledna 2028</xs:documentation>
+					<xs:documentation xml:lang="da">Maskinlæsbare dokumenter med central information for PRIIP'er (KID) i henhold til forordning (EU) nr. 1286/2014 og delegeret forordning (EU) 2017/653 med senere ændringer. Indeholder metadata til det fælles europæiske adgangspunkt (ESAP), som KID'er skal indsendes til fra 10. januar 2028</xs:documentation>
+					<xs:documentation xml:lang="pl">Dokumenty zawierające kluczowe informacje PRIIP (KID) w formacie nadającym się do odczytu maszynowego zgodnie z rozporządzeniem (UE) nr 1286/2014 i rozporządzeniem delegowanym (UE) 2017/653 ze zmianami. Zawiera metadane dla europejskiego pojedynczego punktu dostępu (ESAP), do którego KID należy przekazywać od 10 stycznia 2028 r.</xs:documentation>
+					<xs:documentation xml:lang="sv">Maskinläsbara faktablad för Priip-produkter (KID) enligt förordning (EU) nr 1286/2014 och delegerad förordning (EU) 2017/653 i dess ändrade lydelse. Innehåller metadata för den gemensamma europeiska åtkomstpunkten (ESAP), till vilken faktablad ska lämnas in från den 10 januari 2028</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EMT" type="EMTType" minOccurs="0">

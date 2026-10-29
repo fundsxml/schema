@@ -54,6 +54,7 @@ Native support for European regulatory templates:
 | **EMT** | MiFID II | Target market & cost disclosure |
 | **EET** | SFDR | ESG & sustainability data |
 | **PRIIPS** | PRIIPs | Key Information Document data |
+| **PRIIPs KID** | PRIIPs / ESAP | Machine-readable Key Information Document with ESAP metadata |
 | **TPT** | Solvency II | Look-through reporting |
 | **KIID** | UCITS | Key Investor Information |
 
@@ -146,7 +147,8 @@ include_files/
 ```
 ├── FundsXML4_RegulatoryReporting_EMT.xsd       # MiFID II
 ├── FundsXML4_RegulatoryReporting_EET.xsd       # SFDR/ESG
-├── FundsXML4_RegulatoryReporting_PRIIPS.xsd    # PRIIPs KID
+├── FundsXML4_RegulatoryReporting_PRIIPS.xsd    # PRIIPs data (V2)
+├── FundsXML4_RegulatoryReporting_PRIIPsKID.xsd # PRIIPs KID (ESAP)
 ├── FundsXML4_RegulatoryReporting_SolvencyII.xsd # Insurance
 ├── FundsXML4_RegulatoryReporting_KIID.xsd      # UCITS
 ├── FundsXML4_RegulatoryReporting_EMIR.xsd      # Derivatives

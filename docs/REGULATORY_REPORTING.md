@@ -8,6 +8,7 @@
   <a href="#emt">EMT</a> ·
   <a href="#eet">EET</a> ·
   <a href="#priips">PRIIPS</a> ·
+  <a href="#priips-kid">PRIIPs KID</a> ·
   <a href="#solvency-ii">Solvency II</a> ·
   <a href="#kiid">KIID</a> ·
   <a href="#emir">EMIR</a> ·
@@ -25,6 +26,7 @@ FundsXML provides native support for European regulatory reporting requirements:
 | **EMT** | MiFID II | V4 – V4.3 | Target market & costs |
 | **EET** | SFDR | V1 – V1.1.3 | ESG & sustainability |
 | **PRIIPS** | PRIIPs | V2 – V2.0 | Key Information Document |
+| **PRIIPs KID** | PRIIPs / ESAP | since 4.2.12 | Machine-readable KID incl. ESAP metadata |
 | **TPT** | Solvency II | V4 – V8 | Insurance look-through |
 | **KIID** | UCITS | V1 | Key Investor Information |
 | **EMIR** | EMIR | V1 | Derivatives reporting |
@@ -37,6 +39,7 @@ All templates are contained within:
    <EMT>...</EMT>
    <EET>...</EET>
    <PRIIPS>...</PRIIPS>
+   <PRIIPsKIDs>...</PRIIPsKIDs>
    <SolvencyII>...</SolvencyII>
    <KIID>...</KIID>
    <EMIR>...</EMIR>
@@ -243,6 +246,191 @@ Each scenario includes:
       </PRIIPSData>
    </PRIIPSReport>
 </PRIIPS>
+```
+
+---
+
+## PRIIPs KID
+
+**Machine-readable PRIIPs Key Information Document** — The complete content of a KID according to Regulation (EU) No 1286/2014 and Delegated Regulation (EU) 2017/653, prepared for the submission to the European single access point (ESAP, Implementing Regulation (EU) 2025/1338). Available since 4.2.12 under `RegulatoryReportings/IndirectReporting/PRIIPsKIDs`.
+
+### Structure
+
+One `PRIIPsKID` per document (fund, compartment or group of share classes and language). `DocumentID` must be unique within `PRIIPsKIDs`.
+
+| Element | Type | KID section |
+|---------|------|-------------|
+| `GeneralInformation` | `PRIIPsKID_GeneralInformationType` | Product name, fund, share classes, manufacturer, competent authority |
+| `ProductDescription` | `PRIIPsKID_ProductDescriptionType` | What is this product? |
+| `RisksAndReturn` | `PRIIPsKID_RisksAndReturnType` | Summary risk indicator (1–7) and performance scenarios |
+| `UnableToPayOut` | `PRIIPsKID_UnableToPayOutType` | What happens if the manufacturer is unable to pay out? |
+| `Costs` | `PRIIPsKID_CostsType` | Costs over time and composition of costs |
+| `HoldingAndRedemption` | `PRIIPsKID_HoldingAndRedemptionType` | How long should I hold it and can I take money out early? |
+| `Complaints` | `PRIIPsKID_ComplaintsType` | How can I complain? |
+| `OtherRelevantInformation` | `PRIIPsKID_OtherRelevantInformationType` | Past performance, previous scenarios, cross references |
+| `ESAPMetadata` | `PRIIPsKID_ESAPMetadataType` | Submitting entity, size category, industry sector, submission type (NEWT/MODI/EROR/CORR) |
+
+### Value Constraints
+
+| Type | Rule |
+|------|------|
+| `PRIIPsKID_PeriodType` | ISO 8601 duration with exactly one unit and a positive number: `P5Y`, `P18M`, `P30D` (not `P0Y`, `P1Y6M`) |
+| `PRIIPsKID_ReturnPercentageType` | Return in percent, not below `-100` |
+| `PRIIPsKID_CostPercentageType` | Cost rate or cost impact in percent, not negative |
+| `PRIIPsKID_SRIType` | Integer 1 (lowest risk) to 7 (highest risk) |
+| `PRIIPsKID_ShareClassType` | At least one identifier (preferably the ISIN) is required (`xs:assert`) |
+
+`EarningUse` and `SFDRProductType` reuse the core types `EarningUseType` (`D`/`P`/`R`) and `SFDRProductTypeType` (`0`/`6`/`8`/`9`), so the codes are identical to `ShareClassTypeType/EarningUse` and `FundStaticData/SFDRProductType`.
+
+### Example
+
+```xml
+<PRIIPsKIDs>
+   <PRIIPsKID>
+      <DocumentID>KID-AT0000A1Z882-DE-2026-10</DocumentID>
+      <Language>de</Language>
+      <DocumentDate>2026-10-15</DocumentDate>
+      <GeneralInformation>
+         <ProductName>Example Fund - Class A</ProductName>
+         <ShareClasses>
+            <ShareClass>
+               <Identifiers>
+                  <ISIN>AT0000A1Z882</ISIN>
+               </Identifiers>
+               <Currency>EUR</Currency>
+               <EarningUse>R</EarningUse>
+            </ShareClass>
+         </ShareClasses>
+         <Manufacturer>
+            <Name>Example Asset Management GmbH</Name>
+            <LEI>529900T8BM49AURSDO55</LEI>
+            <Country>AT</Country>
+            <Website>https://www.example.at</Website>
+            <Phone>+43 1 000 000</Phone>
+         </Manufacturer>
+         <CompetentAuthority>
+            <Name>Finanzmarktaufsicht (FMA)</Name>
+            <Country>AT</Country>
+         </CompetentAuthority>
+      </GeneralInformation>
+      <ProductDescription>
+         <Type>UCITS</Type>
+         <Term>
+            <FixedMaturityFlag>false</FixedMaturityFlag>
+            <UnilateralTerminationFlag>true</UnilateralTerminationFlag>
+         </Term>
+         <Objectives>
+            <Narrative>The fund aims at long-term capital growth ...</Narrative>
+            <SFDRProductType>8</SFDRProductType>
+         </Objectives>
+         <IntendedRetailInvestor>Retail investors with a long-term horizon ...</IntendedRetailInvestor>
+      </ProductDescription>
+      <RisksAndReturn>
+         <RiskIndicator>
+            <SRI>4</SRI>
+         </RiskIndicator>
+         <PerformanceScenarios>
+            <InvestmentAmount>
+               <Amount ccy="EUR">10000</Amount>
+            </InvestmentAmount>
+            <MinimumReturn>
+               <GuaranteedFlag>false</GuaranteedFlag>
+            </MinimumReturn>
+            <ScenarioSet>
+               <HoldingPeriod>P5Y</HoldingPeriod>
+               <RecommendedHoldingPeriodFlag>true</RecommendedHoldingPeriodFlag>
+               <StressScenario>
+                  <AmountAfterCosts>
+                     <Amount ccy="EUR">5230</Amount>
+                  </AmountAfterCosts>
+                  <Return>-12.1</Return>
+               </StressScenario>
+               <UnfavourableScenario>
+                  <AmountAfterCosts>
+                     <Amount ccy="EUR">8410</Amount>
+                  </AmountAfterCosts>
+                  <Return>-3.4</Return>
+               </UnfavourableScenario>
+               <ModerateScenario>
+                  <AmountAfterCosts>
+                     <Amount ccy="EUR">12760</Amount>
+                  </AmountAfterCosts>
+                  <Return>5.0</Return>
+               </ModerateScenario>
+               <FavourableScenario>
+                  <AmountAfterCosts>
+                     <Amount ccy="EUR">16110</Amount>
+                  </AmountAfterCosts>
+                  <Return>10.0</Return>
+               </FavourableScenario>
+            </ScenarioSet>
+         </PerformanceScenarios>
+      </RisksAndReturn>
+      <UnableToPayOut>
+         <Narrative>The fund assets are segregated ...</Narrative>
+         <CompensationSchemeFlag>false</CompensationSchemeFlag>
+      </UnableToPayOut>
+      <Costs>
+         <CostsOverTime>
+            <Period>
+               <HoldingPeriod>P1Y</HoldingPeriod>
+               <TotalCosts>
+                  <Amount ccy="EUR">215</Amount>
+               </TotalCosts>
+               <AnnualCostImpact>2.15</AnnualCostImpact>
+            </Period>
+            <Period>
+               <HoldingPeriod>P5Y</HoldingPeriod>
+               <RecommendedHoldingPeriodFlag>true</RecommendedHoldingPeriodFlag>
+               <TotalCosts>
+                  <Amount ccy="EUR">1050</Amount>
+               </TotalCosts>
+               <AnnualCostImpact>1.85</AnnualCostImpact>
+            </Period>
+         </CostsOverTime>
+         <CompositionOfCosts>
+            <EntryCosts>
+               <Description>Up to 3.00 % of the amount invested</Description>
+               <Rate>3.00</Rate>
+               <MaximumFlag>true</MaximumFlag>
+            </EntryCosts>
+            <ExitCosts>
+               <Description>None</Description>
+               <Rate>0</Rate>
+            </ExitCosts>
+            <ManagementFeesAndOtherCosts>
+               <Description>1.50 % of the value of the investment per year</Description>
+               <Rate>1.50</Rate>
+            </ManagementFeesAndOtherCosts>
+            <TransactionCosts>
+               <Description>0.25 % of the value of the investment per year</Description>
+               <Rate>0.25</Rate>
+            </TransactionCosts>
+         </CompositionOfCosts>
+      </Costs>
+      <HoldingAndRedemption>
+         <RecommendedHoldingPeriod>P5Y</RecommendedHoldingPeriod>
+         <Narrative>Units can be redeemed on any Austrian banking day ...</Narrative>
+      </HoldingAndRedemption>
+      <Complaints>
+         <Narrative>Complaints can be addressed to ...</Narrative>
+         <Email>complaints@example.at</Email>
+      </Complaints>
+      <OtherRelevantInformation>
+         <PastPerformance>
+            <URL>https://www.example.at/kid/AT0000A1Z882/past-performance</URL>
+            <NumberOfYears>10</NumberOfYears>
+         </PastPerformance>
+      </OtherRelevantInformation>
+      <ESAPMetadata>
+         <ManufacturerSizeCategory>Other size</ManufacturerSizeCategory>
+         <IndustrySector>Management company</IndustrySector>
+         <PersonalDataFlag>false</PersonalDataFlag>
+         <SubmissionType>NEWT</SubmissionType>
+         <HomeMemberState>AT</HomeMemberState>
+      </ESAPMetadata>
+   </PRIIPsKID>
+</PRIIPsKIDs>
 ```
 
 ---

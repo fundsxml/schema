@@ -3,6 +3,7 @@
 	<xs:include schemaLocation="FundsXML4_Core.xsd"/>
 	<xs:complexType name="PRIIPsKIDsType">
 		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
 			<xs:documentation xml:lang="en">Container for machine-readable PRIIPs key information documents (KID) according to Regulation (EU) No 1286/2014 and Delegated Regulation (EU) 2017/653 as amended by Delegated Regulation (EU) 2021/2268. Prepared for the submission to the European single access point (ESAP).</xs:documentation>
 			<xs:documentation xml:lang="de">Container für maschinenlesbare Basisinformationsblätter (PRIIPs-KID) nach Verordnung (EU) Nr. 1286/2014 und Delegierter Verordnung (EU) 2017/653 in der Fassung der Delegierten Verordnung (EU) 2021/2268. Vorbereitet für die Übermittlung an das zentrale europäische Zugangsportal (ESAP).</xs:documentation>
 			<xs:documentation xml:lang="fr">Conteneur pour des documents d'informations clés PRIIPs (KID) lisibles par machine selon le règlement (UE) n° 1286/2014 et le règlement délégué (UE) 2017/653 modifié par le règlement délégué (UE) 2021/2268. Préparé pour la transmission au point d'accès unique européen (ESAP).</xs:documentation>
@@ -34,6 +35,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKIDType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">One machine-readable PRIIPs key information document (KID) for a fund or its share classes: identification and metadata of the document, the content sections in the order prescribed by Delegated Regulation (EU) 2017/653 (general information, product, risks and return, unable to pay out, costs, holding period, complaints, other relevant information) and the ESAP metadata</xs:documentation>
+			<xs:documentation xml:lang="de">Ein maschinenlesbares Basisinformationsblatt (PRIIPs-KID) für einen Fonds oder seine Anteilklassen: Identifikation und Metadaten des Dokuments, die Inhaltsabschnitte in der von der Delegierten Verordnung (EU) 2017/653 vorgegebenen Reihenfolge (allgemeine Angaben, Produkt, Risiken und Rendite, Zahlungsunfähigkeit, Kosten, Haltedauer, Beschwerden, sonstige Informationen) sowie die ESAP-Metadaten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="DocumentID" type="Text128Type">
 				<xs:annotation>
@@ -327,6 +333,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_GeneralInformationType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Section "General information" of the KID: product name, fund and share class identification, manufacturer, competent authority and authorisation details</xs:documentation>
+			<xs:documentation xml:lang="de">Abschnitt "Allgemeine Angaben" des KID: Produktname, Identifikation von Fonds und Anteilklassen, Hersteller, zuständige Behörde und Zulassungsangaben</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="ProductName" type="Text256Type">
 				<xs:annotation>
@@ -455,6 +466,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_FundType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Identification of the fund the KID relates to: legal type (UCITS or AIF), name, compartment, LEI, domicile and currency</xs:documentation>
+			<xs:documentation xml:lang="de">Identifikation des Fonds, auf den sich das KID bezieht: rechtliche Art (OGAW oder AIF), Name, Teilfonds, LEI, Domizil und Währung</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type" type="PRIIPsKID_FundTypeType">
 				<xs:annotation>
@@ -549,6 +565,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ShareClassType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Share class covered by the KID: identifiers (at least one, preferably the ISIN), name, currency, use of earnings and flag for the representative share class</xs:documentation>
+			<xs:documentation xml:lang="de">Vom KID abgedeckte Anteilklasse: Kennungen (mindestens eine, vorzugsweise die ISIN), Name, Währung, Ertragsverwendung und Kennzeichen für die repräsentative Anteilklasse</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Identifiers" type="IdentifiersType">
 				<xs:annotation>
@@ -595,7 +616,7 @@
 					<xs:documentation xml:lang="sv">Andelsklassens valuta (ISO 4217)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EarningUse" type="PRIIPsKID_EarningUseType" minOccurs="0">
+			<xs:element name="EarningUse" type="EarningUseType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Use of income: D = distributing, P = partly distributing, R = reinvesting. Same codes as ShareClassTypeType/EarningUse</xs:documentation>
 					<xs:documentation xml:lang="de">Ertragsverwendung: D = ausschüttend, P = teilausschüttend, R = thesaurierend. Gleiche Codes wie ShareClassTypeType/EarningUse</xs:documentation>
@@ -626,8 +647,19 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+		<xs:assert test="Identifiers/*">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">At least one identifier (preferably the ISIN) must be given for the share class</xs:documentation>
+				<xs:documentation xml:lang="de">Für die Anteilklasse muss mindestens eine Kennung (vorzugsweise die ISIN) angegeben werden</xs:documentation>
+			</xs:annotation>
+		</xs:assert>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ManufacturerType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">PRIIP manufacturer (management company or AIFM): name, other names, LEI, country, group, website and contact details</xs:documentation>
+			<xs:documentation xml:lang="de">PRIIP-Hersteller (Verwaltungsgesellschaft oder AIFM): Name, weitere Namen, LEI, Land, Gruppe, Website und Kontaktdaten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="Text256Type">
 				<xs:annotation>
@@ -767,6 +799,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_CompetentAuthorityType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Competent authority supervising the PRIIP manufacturer in relation to the KID: name and country</xs:documentation>
+			<xs:documentation xml:lang="de">Für die Aufsicht über den PRIIP-Hersteller in Bezug auf das KID zuständige Behörde: Name und Land</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="Text256Type">
 				<xs:annotation>
@@ -801,6 +838,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ProductDescriptionType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Section "What is this product?": type, term, objectives, intended retail investor, insurance benefits, depositary, practical information, compartment and feeder fund information</xs:documentation>
+			<xs:documentation xml:lang="de">Abschnitt "Um welche Art von Produkt handelt es sich?": Art, Laufzeit, Ziele, Kleinanleger-Zielgruppe, Versicherungsleistungen, Verwahrstelle, praktische Informationen, Teilfonds- und Feederfonds-Angaben</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type" type="Text1000Type">
 				<xs:annotation>
@@ -847,7 +889,7 @@
 					<xs:documentation xml:lang="sv">Mål och medlen för att uppnå dem</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IntendedRetailInvestor" type="PRIIPsKID_LongTextType">
+			<xs:element name="IntendedRetailInvestor" type="Text5000Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Intended retail investor</xs:documentation>
 					<xs:documentation xml:lang="de">Kleinanleger-Zielgruppe</xs:documentation>
@@ -955,6 +997,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_TermType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Term of the product: fixed maturity, maturity date, right of unilateral termination by the manufacturer, automatic termination and explanatory narrative</xs:documentation>
+			<xs:documentation xml:lang="de">Laufzeit des Produkts: feste Laufzeit, Fälligkeitsdatum, einseitiges Kündigungsrecht des Herstellers, automatische Beendigung und erläuternder Text</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="FixedMaturityFlag" type="xs:boolean">
 				<xs:annotation>
@@ -1034,8 +1081,13 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ObjectivesType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Investment objectives and policy: narrative, main instrument categories, redemption on demand, dealing frequency, targeted sectors, discretionary or index-tracking management, benchmark, management techniques, environmental or social objectives and SFDR product type</xs:documentation>
+			<xs:documentation xml:lang="de">Anlageziele und Anlagepolitik: Text, wesentliche Instrumentenkategorien, Rückgabe auf Verlangen, Handelshäufigkeit, Zielsektoren, diskretionäre oder indexnachbildende Verwaltung, Benchmark, Verwaltungstechniken, ökologische oder soziale Ziele und SFDR-Produkttyp</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Narrative" type="PRIIPsKID_LongTextType">
+			<xs:element name="Narrative" type="Text5000Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Text of this part as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Text dieses Teils wie im BIB dargestellt</xs:documentation>
@@ -1245,7 +1297,7 @@
 					<xs:documentation xml:lang="sv">Produktens särskilda miljömässiga eller sociala mål, i förekommande fall</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SFDRProductType" type="PRIIPsKID_SFDRProductTypeType" minOccurs="0">
+			<xs:element name="SFDRProductType" type="SFDRProductTypeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">SFDR product type: 0 = no classification, 6 = Article 6, 8 = Article 8, 9 = Article 9 of Regulation (EU) 2019/2088. Same codes as FundStaticData/SFDRProductType</xs:documentation>
 					<xs:documentation xml:lang="de">SFDR-Produkttyp: 0 = keine Einstufung, 6 = Artikel 6, 8 = Artikel 8, 9 = Artikel 9 der Verordnung (EU) 2019/2088. Gleiche Codes wie FundStaticData/SFDRProductType</xs:documentation>
@@ -1263,6 +1315,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_BenchmarkType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Benchmark used for the management of the product and the degree of freedom of the manager in relation to it</xs:documentation>
+			<xs:documentation xml:lang="de">Für die Verwaltung des Produkts verwendete Benchmark und der Freiheitsgrad des Verwalters gegenüber dieser Benchmark</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="Text256Type">
 				<xs:annotation>
@@ -1297,6 +1354,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_PracticalInformationType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Practical information, optionally per country of distribution: where further information, the latest prices and documents in which languages are available free of charge</xs:documentation>
+			<xs:documentation xml:lang="de">Praktische Informationen, optional je Vertriebsland: wo weitere Informationen, die aktuellen Preise und Dokumente in welchen Sprachen kostenlos erhältlich sind</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Country" type="ISOCountryCodeType" minOccurs="0">
 				<xs:annotation>
@@ -1391,6 +1453,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_CompartmentType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Information on a compartment (sub-fund) of an umbrella structure: statement, segregation of assets and switching possibilities between compartments</xs:documentation>
+			<xs:documentation xml:lang="de">Angaben zu einem Teilfonds einer Umbrella-Struktur: Erklärung, Vermögenstrennung und Umtauschmöglichkeiten zwischen Teilfonds</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Statement" type="Text1000Type">
 				<xs:annotation>
@@ -1470,6 +1537,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_FeederFundType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Information on the master fund of a feeder fund: name, ISIN, share of assets invested in the master and explanatory narrative</xs:documentation>
+			<xs:documentation xml:lang="de">Angaben zum Masterfonds eines Feederfonds: Name, ISIN, im Master investierter Anteil des Vermögens und erläuternder Text</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="MasterFundName" type="Text256Type">
 				<xs:annotation>
@@ -1516,7 +1588,7 @@
 					<xs:documentation xml:lang="sv">Andel av matarfondens tillgångar som är investerad i mottagarfonden, i procent</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Narrative" type="PRIIPsKID_LongTextType">
+			<xs:element name="Narrative" type="Text5000Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Text of this part as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Text dieses Teils wie im BIB dargestellt</xs:documentation>
@@ -1534,6 +1606,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_RisksAndReturnType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Section "What are the risks and what could I get in return?": summary risk indicator and performance scenarios</xs:documentation>
+			<xs:documentation xml:lang="de">Abschnitt "Welche Risiken bestehen und was könnte ich im Gegenzug dafür bekommen?": Gesamtrisikoindikator und Performance-Szenarien</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="RiskIndicator" type="PRIIPsKID_RiskIndicatorType">
 				<xs:annotation>
@@ -1568,6 +1645,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_RiskIndicatorType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Summary risk indicator (SRI) on the scale of 1 to 7 with explanatory narrative, currency risk, other materially relevant risks, maximum loss and capital protection</xs:documentation>
+			<xs:documentation xml:lang="de">Gesamtrisikoindikator (SRI) auf der Skala von 1 bis 7 mit erläuterndem Text, Währungsrisiko, sonstigen wesentlichen Risiken, maximalem Verlust und Kapitalschutz</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SRI" type="PRIIPsKID_SRIType">
 				<xs:annotation>
@@ -1584,7 +1666,7 @@
 					<xs:documentation xml:lang="sv">Sammanfattande riskindikator, klass 1 (lägst risk) till 7 (högst risk)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Narrative" type="PRIIPsKID_LongTextType" minOccurs="0">
+			<xs:element name="Narrative" type="Text5000Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Text of this part as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Text dieses Teils wie im BIB dargestellt</xs:documentation>
@@ -1677,6 +1759,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_PerformanceScenariosType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Performance scenarios according to Annex IV of Delegated Regulation (EU) 2017/653: calculation date, introduction, investment amount, observation period, benchmark or proxy, minimum return and one scenario set per holding period</xs:documentation>
+			<xs:documentation xml:lang="de">Performance-Szenarien nach Anhang IV der Delegierten Verordnung (EU) 2017/653: Berechnungsdatum, Einleitung, Anlagebetrag, Beobachtungszeitraum, Benchmark oder Proxy, Mindestrendite und je Haltedauer ein Szenario-Set</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="CalculationDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
@@ -1693,7 +1780,7 @@
 					<xs:documentation xml:lang="sv">Referensdatum för beräkningen av scenarierna</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Introduction" type="PRIIPsKID_LongTextType" minOccurs="0">
+			<xs:element name="Introduction" type="Text5000Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Introductory text of this section as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Einleitender Text dieses Abschnitts wie im BIB dargestellt</xs:documentation>
@@ -1801,6 +1888,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_MinimumReturnType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Minimum return statement: whether a minimum return is guaranteed and the explanatory narrative</xs:documentation>
+			<xs:documentation xml:lang="de">Angabe zur Mindestrendite: ob eine Mindestrendite garantiert ist und der erläuternde Text</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="GuaranteedFlag" type="xs:boolean">
 				<xs:annotation>
@@ -1835,6 +1927,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ScenarioSetType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">The four performance scenarios (stress, unfavourable, moderate, favourable) for one holding period</xs:documentation>
+			<xs:documentation xml:lang="de">Die vier Performance-Szenarien (Stress, pessimistisch, mittel, optimistisch) für eine Haltedauer</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="HoldingPeriod" type="PRIIPsKID_PeriodType">
 				<xs:annotation>
@@ -1929,6 +2026,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ScenarioValuesType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Values of one performance scenario: amount after costs, average annual return in percent and, where applicable, the underlying historical period</xs:documentation>
+			<xs:documentation xml:lang="de">Werte eines Performance-Szenarios: Betrag nach Kosten, durchschnittliche jährliche Rendite in Prozent und, falls zutreffend, der zugrunde liegende historische Zeitraum</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="AmountAfterCosts" type="AmountType">
 				<xs:annotation>
@@ -1945,7 +2047,7 @@
 					<xs:documentation xml:lang="sv">Vad du kan få tillbaka efter avdrag för kostnader</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Return" type="PercentageType">
+			<xs:element name="Return" type="PRIIPsKID_ReturnPercentageType">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Average return each year in percent (3.5 = 3.5 %). For holding periods below one year the non-annualised return</xs:documentation>
 					<xs:documentation xml:lang="de">Durchschnittliche Rendite pro Jahr in Prozent (3.5 = 3,5 %). Bei Haltedauern unter einem Jahr die nicht annualisierte Rendite</xs:documentation>
@@ -1993,8 +2095,13 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_UnableToPayOutType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Section "What happens if the manufacturer is unable to pay out?": narrative, segregation of assets and investor compensation scheme</xs:documentation>
+			<xs:documentation xml:lang="de">Abschnitt "Was geschieht, wenn der Hersteller nicht in der Lage ist, die Auszahlung vorzunehmen?": Text, Vermögenstrennung und Anlegerentschädigungssystem</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Narrative" type="PRIIPsKID_LongTextType">
+			<xs:element name="Narrative" type="Text5000Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Text of this part as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Text dieses Teils wie im BIB dargestellt</xs:documentation>
@@ -2057,8 +2164,13 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_CostsType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Section "What are the costs?": introduction, costs over time and composition of costs</xs:documentation>
+			<xs:documentation xml:lang="de">Abschnitt "Welche Kosten entstehen?": Einleitung, Kosten im Zeitverlauf und Zusammensetzung der Kosten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Introduction" type="PRIIPsKID_LongTextType" minOccurs="0">
+			<xs:element name="Introduction" type="Text5000Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Introductory text of this section as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Einleitender Text dieses Abschnitts wie im BIB dargestellt</xs:documentation>
@@ -2106,6 +2218,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_CostsOverTimeType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Table "Costs over time": assumptions, one entry per holding period and the return before and after costs</xs:documentation>
+			<xs:documentation xml:lang="de">Tabelle "Kosten im Zeitverlauf": Annahmen, ein Eintrag je Haltedauer sowie Rendite vor und nach Kosten</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Assumptions" type="Text1000Type" minOccurs="0">
 				<xs:annotation>
@@ -2137,7 +2254,7 @@
 					<xs:documentation xml:lang="sv">Kostnader för en innehavstid (en kolumn i tabellen)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReturnBeforeCosts" type="PercentageType" minOccurs="0">
+			<xs:element name="ReturnBeforeCosts" type="PRIIPsKID_ReturnPercentageType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Projected average return per year before costs at the recommended holding period, in percent</xs:documentation>
 					<xs:documentation xml:lang="de">Erwartete durchschnittliche Rendite pro Jahr vor Kosten bei empfohlener Haltedauer, in Prozent</xs:documentation>
@@ -2152,7 +2269,7 @@
 					<xs:documentation xml:lang="sv">Förväntad genomsnittlig årlig avkastning före kostnader vid den rekommenderade innehavstiden, i procent</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReturnAfterCosts" type="PercentageType" minOccurs="0">
+			<xs:element name="ReturnAfterCosts" type="PRIIPsKID_ReturnPercentageType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Projected average return per year after costs at the recommended holding period, in percent</xs:documentation>
 					<xs:documentation xml:lang="de">Erwartete durchschnittliche Rendite pro Jahr nach Kosten bei empfohlener Haltedauer, in Prozent</xs:documentation>
@@ -2170,6 +2287,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_CostPeriodType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Costs for one holding period: total costs and annual cost impact in percent</xs:documentation>
+			<xs:documentation xml:lang="de">Kosten für eine Haltedauer: Gesamtkosten und jährliche Auswirkung der Kosten in Prozent</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="HoldingPeriod" type="PRIIPsKID_PeriodType">
 				<xs:annotation>
@@ -2216,7 +2338,7 @@
 					<xs:documentation xml:lang="sv">Totala kostnader</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AnnualCostImpact" type="PercentageType">
+			<xs:element name="AnnualCostImpact" type="PRIIPsKID_CostPercentageType">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Annual cost impact in percent</xs:documentation>
 					<xs:documentation xml:lang="de">Jährliche Auswirkungen der Kosten in Prozent</xs:documentation>
@@ -2234,6 +2356,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_CompositionOfCostsType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Table "Composition of costs": one-off costs (entry, exit), ongoing costs (management fees and other costs, transaction costs), incidental costs (performance fees, carried interests) and switching costs for the reference holding period</xs:documentation>
+			<xs:documentation xml:lang="de">Tabelle "Zusammensetzung der Kosten": einmalige Kosten (Einstieg, Ausstieg), laufende Kosten (Verwaltungsgebühren und sonstige Kosten, Transaktionskosten), zusätzliche Kosten (Performancegebühren, Carried Interests) und Umtauschkosten für die Referenz-Haltedauer</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="ReferenceHoldingPeriod" type="PRIIPsKID_PeriodType" minOccurs="0">
 				<xs:annotation>
@@ -2358,6 +2485,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_CostItemType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">One cost item: description, rate in percent, amount for the reference holding period, annual cost impact and whether the rate is a maximum</xs:documentation>
+			<xs:documentation xml:lang="de">Eine Kostenposition: Beschreibung, Satz in Prozent, Betrag für die Referenz-Haltedauer, jährliche Auswirkung der Kosten und ob der Satz ein Höchstwert ist</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Description" type="Text1000Type">
 				<xs:annotation>
@@ -2374,7 +2506,7 @@
 					<xs:documentation xml:lang="sv">Beskrivning så som den visas i faktabladet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Rate" type="PercentageType" minOccurs="0">
+			<xs:element name="Rate" type="PRIIPsKID_CostPercentageType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Rate stated in the description, in percent (3.5 = 3.5 %)</xs:documentation>
 					<xs:documentation xml:lang="de">In der Beschreibung genannter Satz in Prozent (3.5 = 3,5 %)</xs:documentation>
@@ -2404,7 +2536,7 @@
 					<xs:documentation xml:lang="sv">Belopp för tabellens referensinnehavstid</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AnnualCostImpact" type="PercentageType" minOccurs="0">
+			<xs:element name="AnnualCostImpact" type="PRIIPsKID_CostPercentageType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Annual cost impact in percent, where shown per cost item</xs:documentation>
 					<xs:documentation xml:lang="de">Jährliche Auswirkungen der Kosten in Prozent, wenn je Kostenposition ausgewiesen</xs:documentation>
@@ -2437,6 +2569,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_HoldingAndRedemptionType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Section "How long should I hold it and can I take money out early?": recommended and minimum holding period, narrative, early redemption and possible suspension of redemptions</xs:documentation>
+			<xs:documentation xml:lang="de">Abschnitt "Wie lange sollte ich die Anlage halten, und kann ich vorzeitig Geld entnehmen?": empfohlene und Mindest-Haltedauer, Text, vorzeitige Rückgabe und mögliche Aussetzung der Rücknahme</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="RecommendedHoldingPeriod" type="PRIIPsKID_PeriodType">
 				<xs:annotation>
@@ -2468,7 +2605,7 @@
 					<xs:documentation xml:lang="sv">Krav på minsta innehavstid, i förekommande fall</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Narrative" type="PRIIPsKID_LongTextType">
+			<xs:element name="Narrative" type="Text5000Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Text of this part as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Text dieses Teils wie im BIB dargestellt</xs:documentation>
@@ -2516,8 +2653,13 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ComplaintsType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Section "How can I complain?": narrative and contact details (website, e-mail, phone, postal address) for complaints</xs:documentation>
+			<xs:documentation xml:lang="de">Abschnitt "Wie kann ich mich beschweren?": Text und Kontaktdaten (Website, E-Mail, Telefon, Postanschrift) für Beschwerden</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Narrative" type="PRIIPsKID_LongTextType">
+			<xs:element name="Narrative" type="Text5000Type">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Text of this part as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Text dieses Teils wie im BIB dargestellt</xs:documentation>
@@ -2595,8 +2737,13 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_OtherRelevantInformationType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Section "Other relevant information": narrative, past performance, previous performance scenarios, cross references and disclaimer</xs:documentation>
+			<xs:documentation xml:lang="de">Abschnitt "Sonstige zweckdienliche Angaben": Text, frühere Wertentwicklung, frühere Performance-Szenarien, Querverweise und Haftungsausschluss</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Narrative" type="PRIIPsKID_LongTextType" minOccurs="0">
+			<xs:element name="Narrative" type="Text5000Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Text of this part as shown in the KID</xs:documentation>
 					<xs:documentation xml:lang="de">Text dieses Teils wie im BIB dargestellt</xs:documentation>
@@ -2674,6 +2821,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ReferenceType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Reference to a further document or website: title, URL and document reference</xs:documentation>
+			<xs:documentation xml:lang="de">Verweis auf ein weiteres Dokument oder eine Website: Titel, URL und Dokumentreferenz</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Title" type="Text256Type" minOccurs="0">
 				<xs:annotation>
@@ -2723,6 +2875,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_PastPerformanceType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Reference to the past performance information published separately, with the number of years for which it is presented</xs:documentation>
+			<xs:documentation xml:lang="de">Verweis auf die separat veröffentlichte frühere Wertentwicklung mit der Anzahl der dargestellten Jahre</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="PRIIPsKID_ReferenceType">
 				<xs:sequence>
@@ -2746,6 +2903,11 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ESAPMetadataType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Metadata for the submission of the KID to the European single access point (ESAP) according to Implementing Regulation (EU) 2025/1338: submitting entity, size category and industry sector of the manufacturer, personal data and voluntary flags, submission type, dataset version, home and host member states, collection body, submission date and unique data record identifier</xs:documentation>
+			<xs:documentation xml:lang="de">Metadaten für die Übermittlung des KID an das zentrale europäische Zugangsportal (ESAP) nach Durchführungsverordnung (EU) 2025/1338: übermittelnde Stelle, Größenklasse und Branche des Herstellers, Kennzeichen für personenbezogene Daten und freiwillige Übermittlung, Art der Übermittlung, Datensatzversion, Herkunfts- und Aufnahmemitgliedstaaten, Sammelstelle, Übermittlungszeitpunkt und eindeutige Datensatzkennung</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SubmittingEntity" type="PRIIPsKID_ESAPEntityType" minOccurs="0">
 				<xs:annotation>
@@ -2927,7 +3089,7 @@
 					<xs:documentation xml:lang="sv">Datum och tid för inlämning till insamlingsorganet i UTC (YYYY-MM-DDThh:mm:ssZ) [ESAP No. 12]</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="UniqueDataRecordIdentifier" type="PRIIPsKID_Text140Type" minOccurs="0">
+			<xs:element name="UniqueDataRecordIdentifier" type="Text140Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Unique data record identifier, up to 140 characters [ESAP No. 19]</xs:documentation>
 					<xs:documentation xml:lang="de">Eindeutige Kennung des Datensatzes, bis zu 140 Zeichen [ESAP No. 19]</xs:documentation>
@@ -2945,6 +3107,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PRIIPsKID_ESAPEntityType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Entity submitting the KID to the collection body, if different from the manufacturer: name(s), LEI and size category</xs:documentation>
+			<xs:documentation xml:lang="de">Stelle, die das KID an die Sammelstelle übermittelt, falls abweichend vom Hersteller: Name(n), LEI und Größenklasse</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="Text500Type" maxOccurs="unbounded">
 				<xs:annotation>
@@ -2993,46 +3160,11 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="PRIIPsKID_LongTextType">
-		<xs:annotation>
-			<xs:documentation xml:lang="en">Text of up to 5000 characters</xs:documentation>
-			<xs:documentation xml:lang="de">Text mit bis zu 5000 Zeichen</xs:documentation>
-			<xs:documentation xml:lang="fr">Texte de 5000 caractères au maximum</xs:documentation>
-			<xs:documentation xml:lang="nl">Tekst van maximaal 5000 tekens</xs:documentation>
-			<xs:documentation xml:lang="es">Texto de hasta 5000 caracteres</xs:documentation>
-			<xs:documentation xml:lang="it">Testo fino a 5000 caratteri</xs:documentation>
-			<xs:documentation xml:lang="hu">Legfeljebb 5000 karakteres szöveg</xs:documentation>
-			<xs:documentation xml:lang="cs">Text o délce nejvýše 5000 znaků</xs:documentation>
-			<xs:documentation xml:lang="da">Tekst på op til 5000 tegn</xs:documentation>
-			<xs:documentation xml:lang="pl">Tekst o długości do 5000 znaków</xs:documentation>
-			<xs:documentation xml:lang="sv">Text med högst 5000 tecken</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="5000"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="PRIIPsKID_Text140Type">
-		<xs:annotation>
-			<xs:documentation xml:lang="en">Text of up to 140 characters</xs:documentation>
-			<xs:documentation xml:lang="de">Text mit bis zu 140 Zeichen</xs:documentation>
-			<xs:documentation xml:lang="fr">Texte de 140 caractères au maximum</xs:documentation>
-			<xs:documentation xml:lang="nl">Tekst van maximaal 140 tekens</xs:documentation>
-			<xs:documentation xml:lang="es">Texto de hasta 140 caracteres</xs:documentation>
-			<xs:documentation xml:lang="it">Testo fino a 140 caratteri</xs:documentation>
-			<xs:documentation xml:lang="hu">Legfeljebb 140 karakteres szöveg</xs:documentation>
-			<xs:documentation xml:lang="cs">Text o délce nejvýše 140 znaků</xs:documentation>
-			<xs:documentation xml:lang="da">Tekst på op til 140 tegn</xs:documentation>
-			<xs:documentation xml:lang="pl">Tekst o długości do 140 znaków</xs:documentation>
-			<xs:documentation xml:lang="sv">Text med högst 140 tecken</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="140"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="PRIIPsKID_PeriodType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en">Period in ISO 8601 notation with one unit: P5Y = 5 years, P6M = 6 months, P30D = 30 days</xs:documentation>
-			<xs:documentation xml:lang="de">Zeitraum in ISO-8601-Notation mit einer Einheit: P5Y = 5 Jahre, P6M = 6 Monate, P30D = 30 Tage</xs:documentation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Period in ISO 8601 notation with exactly one unit and a positive number without leading zeros: P5Y = 5 years, P6M = 6 months, P30D = 30 days. Periods of zero (P0Y) and mixed units (P1Y6M) are not allowed; 18 months are expressed as P18M</xs:documentation>
+			<xs:documentation xml:lang="de">Zeitraum in ISO-8601-Notation mit genau einer Einheit und positiver Zahl ohne führende Nullen: P5Y = 5 Jahre, P6M = 6 Monate, P30D = 30 Tage. Nullperioden (P0Y) und gemischte Einheiten (P1Y6M) sind nicht erlaubt; 18 Monate werden als P18M angegeben</xs:documentation>
 			<xs:documentation xml:lang="fr">Période en notation ISO 8601 avec une seule unité : P5Y = 5 ans, P6M = 6 mois, P30D = 30 jours</xs:documentation>
 			<xs:documentation xml:lang="nl">Periode in ISO 8601-notatie met één eenheid: P5Y = 5 jaar, P6M = 6 maanden, P30D = 30 dagen</xs:documentation>
 			<xs:documentation xml:lang="es">Período en notación ISO 8601 con una sola unidad: P5Y = 5 años, P6M = 6 meses, P30D = 30 días</xs:documentation>
@@ -3044,39 +3176,54 @@
 			<xs:documentation xml:lang="sv">Period i ISO 8601-notation med en enhet: P5Y = 5 år, P6M = 6 månader, P30D = 30 dagar</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:duration">
-			<xs:pattern value="P[0-9]+[YMD]"/>
+			<xs:pattern value="P[1-9][0-9]*[YMD]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PRIIPsKID_ReturnPercentageType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Return in percent (e.g. 3.5 for 3.5 %). Derived from PercentageType; a return cannot be below -100 %</xs:documentation>
+			<xs:documentation xml:lang="de">Rendite in Prozent (z. B. 3.5 für 3,5 %). Abgeleitet von PercentageType; eine Rendite kann nicht unter -100 % liegen</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="PercentageType">
+			<xs:minInclusive value="-100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PRIIPsKID_CostPercentageType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Cost rate or cost impact in percent (e.g. 1.25 for 1.25 %). Derived from PercentageType; costs cannot be negative</xs:documentation>
+			<xs:documentation xml:lang="de">Kostensatz oder Kostenauswirkung in Prozent (z. B. 1.25 für 1,25 %). Abgeleitet von PercentageType; Kosten können nicht negativ sein</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="PercentageType">
+			<xs:minInclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PRIIPsKID_SRIType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Summary risk indicator (SRI) according to Annex II of Delegated Regulation (EU) 2017/653: integer from 1 (lowest risk) to 7 (highest risk)</xs:documentation>
+			<xs:documentation xml:lang="de">Gesamtrisikoindikator (SRI) nach Anhang II der Delegierten Verordnung (EU) 2017/653: ganze Zahl von 1 (geringstes Risiko) bis 7 (höchstes Risiko)</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:int">
 			<xs:minInclusive value="1"/>
 			<xs:maxInclusive value="7"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PRIIPsKID_FundTypeType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Legal type of the fund: UCITS or AIF (alternative investment fund)</xs:documentation>
+			<xs:documentation xml:lang="de">Rechtliche Art des Fonds: UCITS (OGAW) oder AIF (alternativer Investmentfonds)</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="UCITS"/>
 			<xs:enumeration value="AIF"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="PRIIPsKID_EarningUseType">
-		<xs:restriction base="xs:string">
-			<xs:length value="1"/>
-			<xs:enumeration value="D"/>
-			<xs:enumeration value="P"/>
-			<xs:enumeration value="R"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="PRIIPsKID_SFDRProductTypeType">
-		<xs:restriction base="xs:int">
-			<xs:enumeration value="0"/>
-			<xs:enumeration value="6"/>
-			<xs:enumeration value="8"/>
-			<xs:enumeration value="9"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="PRIIPsKID_ESAPSizeCategoryType">
 		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
 			<xs:documentation xml:lang="en">Size category according to Table 2 of the Annex to Implementing Regulation (EU) 2025/1338, or "Other size"</xs:documentation>
 			<xs:documentation xml:lang="de">Größenklasse nach Tabelle 2 des Anhangs der Durchführungsverordnung (EU) 2025/1338 oder "Other size"</xs:documentation>
 			<xs:documentation xml:lang="fr">Catégorie de taille selon le tableau 2 de l'annexe du règlement d'exécution (UE) 2025/1338, ou « Other size »</xs:documentation>
@@ -3109,6 +3256,11 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PRIIPsKID_ESAPFinancialSectorType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Financial sector category according to Table 3 of the Annex to Implementing Regulation (EU) 2025/1338, e.g. "Management company" or "AIFM"</xs:documentation>
+			<xs:documentation xml:lang="de">Finanzsektor-Kategorie nach Tabelle 3 des Anhangs der Durchführungsverordnung (EU) 2025/1338, z. B. "Management company" oder "AIFM"</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Administrator of benchmarks"/>
 			<xs:enumeration value="CCP"/>
@@ -3128,11 +3280,21 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PRIIPsKID_NACESectionType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">NACE section letter A to U (statistical classification of economic activities in the European Community)</xs:documentation>
+			<xs:documentation xml:lang="de">Buchstabe eines NACE-Abschnitts A bis U (statistische Systematik der Wirtschaftszweige in der Europäischen Gemeinschaft)</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[A-U]"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PRIIPsKID_ESAPSubmissionTypeType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Type of ESAP submission: NEWT = new information, MODI = modification of previously submitted information, EROR = error (removal of a record submitted in error), CORR = correction of previously submitted information</xs:documentation>
+			<xs:documentation xml:lang="de">Art der ESAP-Übermittlung: NEWT = neue Information, MODI = Änderung bereits übermittelter Information, EROR = Fehler (Entfernung eines irrtümlich übermittelten Datensatzes), CORR = Korrektur bereits übermittelter Information</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NEWT"/>
 			<xs:enumeration value="MODI"/>
@@ -3142,6 +3304,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="PRIIPsKID_ESAPIndustrySectorType">
 		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
 			<xs:documentation xml:lang="en">Category of Table 3 of the Annex to Implementing Regulation (EU) 2025/1338 or NACE section letter (A to U)</xs:documentation>
 			<xs:documentation xml:lang="de">Kategorie aus Tabelle 3 des Anhangs der Durchführungsverordnung (EU) 2025/1338 oder Buchstabe eines NACE-Abschnitts (A bis U)</xs:documentation>
 			<xs:documentation xml:lang="fr">Catégorie du tableau 3 de l'annexe du règlement d'exécution (UE) 2025/1338 ou lettre d'une section NACE (A à U)</xs:documentation>

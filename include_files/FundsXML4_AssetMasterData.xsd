@@ -1812,6 +1812,40 @@ CR = Crypto</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="InfrastructureInvestmentKind" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Kind of infrastructure investment: Project (infrastructure project entity) or Corporate (infrastructure corporate) as defined in Art. 1 (55a) and (55b) of Delegated Regulation (EU) 2015/35</xs:documentation>
+					<xs:documentation xml:lang="de">Art der Infrastrukturinvestition: Project (Infrastrukturprojektgesellschaft) oder Corporate (Infrastrukturunternehmen) gemäß Art. 1 Nr. 55a und 55b der Delegierten Verordnung (EU) 2015/35</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Project"/>
+						<xs:enumeration value="Corporate"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Type1EquityEligibility" type="EligibilityAssessmentType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Assessment whether the holding (unlisted equity, participation or fund) qualifies for the treatment as type 1 equity within a qualifying unlisted equity portfolio under Art. 168a of Delegated Regulation (EU) 2015/35</xs:documentation>
+					<xs:documentation xml:lang="de">Beurteilung, ob die Beteiligung (nicht börsennotierte Aktie, Beteiligung oder Fonds) für die Behandlung als Typ-1-Aktie in einem qualifizierten Portfolio nicht börsennotierter Aktien nach Art. 168a der Delegierten Verordnung (EU) 2015/35 in Frage kommt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LongTermEquityEligibility" type="EligibilityAssessmentType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Assessment whether the holding (fund or equity held through a dedicated fund) qualifies for the long-term equity investment treatment under Art. 171a and 171d of Delegated Regulation (EU) 2015/35</xs:documentation>
+					<xs:documentation xml:lang="de">Beurteilung, ob die Beteiligung (Fonds oder über einen dedizierten Fonds gehaltene Aktie) für die Behandlung als langfristige Aktieninvestition nach Art. 171a und 171d der Delegierten Verordnung (EU) 2015/35 in Frage kommt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LegislativeProgrammeEligibility" type="EligibilityAssessmentType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Assessment whether the equity qualifies for an investment under a legislative programme with reduced capital charge under Art. 173 of Delegated Regulation (EU) 2015/35</xs:documentation>
+					<xs:documentation xml:lang="de">Beurteilung, ob die Aktie als Investition im Rahmen eines Legislativprogramms mit reduzierter Kapitalanforderung nach Art. 173 der Delegierten Verordnung (EU) 2015/35 in Frage kommt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Ratings" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Rating details of instrument</xs:documentation>
@@ -1845,6 +1879,13 @@ CR = Crypto</xs:documentation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreditQualityStep" type="CreditQualityStepType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Credit quality step of the asset derived from the external ratings according to the ECAI mapping (0 to 6, 9 = no rating available)</xs:documentation>
+					<xs:documentation xml:lang="de">Bonitätsstufe des Assets, abgeleitet aus den externen Ratings gemäß ECAI-Zuordnung (0 bis 6, 9 = kein Rating verfügbar)</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="RealEstateCompany" type="CompanyType" minOccurs="0">
 				<xs:annotation>
@@ -2457,8 +2498,8 @@ N ... nominellt belopp</xs:documentation>
 					<xs:sequence>
 						<xs:element name="Type" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Coupon type: fix (fixed), float (variable), zero (zero coupon) or others</xs:documentation>
-								<xs:documentation xml:lang="de">Kupontyp: fix (fest), float (variabel), zero (Nullkupon) oder others (sonstige)</xs:documentation>
+								<xs:documentation xml:lang="en">Coupon type: fix (fixed), float (variable), zero (zero coupon), inflation (inflation-linked: nominal and/or coupon follow an inflation index) or others</xs:documentation>
+								<xs:documentation xml:lang="de">Kupontyp: fix (fest), float (variabel), zero (Nullkupon), inflation (inflationsindexiert: Nominale und/oder Kupon folgen einem Inflationsindex) oder others (sonstige)</xs:documentation>
 								<xs:documentation xml:lang="fr">Type de coupon : fix (fixe), float (variable), zero (zéro coupon) ou others (autres)</xs:documentation>
 								<xs:documentation xml:lang="nl">Coupontype: fix (vast), float (variabel), zero (nulcoupon) of others (overige)</xs:documentation>
 								<xs:documentation xml:lang="es">Tipo de cupón: fix (fijo), float (variable), zero (cupón cero) u others (otros)</xs:documentation>
@@ -2474,6 +2515,7 @@ N ... nominellt belopp</xs:documentation>
 									<xs:enumeration value="fix"/>
 									<xs:enumeration value="float"/>
 									<xs:enumeration value="zero"/>
+									<xs:enumeration value="inflation"/>
 									<xs:enumeration value="others"/>
 								</xs:restriction>
 							</xs:simpleType>
@@ -2536,6 +2578,20 @@ N ... nominellt belopp</xs:documentation>
 								<xs:documentation xml:lang="da">Offset i basispoint ud over BaseIndex</xs:documentation>
 								<xs:documentation xml:lang="pl">Przesunięcie w punktach bazowych w uzupełnieniu do BaseIndex</xs:documentation>
 								<xs:documentation xml:lang="sv">Offset i baspunkter utöver BaseIndex</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CapRate" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo source="@since 4.2.12"/>
+								<xs:documentation xml:lang="en">Upper limit of a variable coupon in percent per annum (cap)</xs:documentation>
+								<xs:documentation xml:lang="de">Obergrenze eines variablen Kupons in Prozent pro Jahr (Cap)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FloorRate" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo source="@since 4.2.12"/>
+								<xs:documentation xml:lang="en">Lower limit of a variable coupon in percent per annum (floor)</xs:documentation>
+								<xs:documentation xml:lang="de">Untergrenze eines variablen Kupons in Prozent pro Jahr (Floor)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -3033,6 +3089,13 @@ STATE ... Statsgaranti</xs:documentation>
 						<xs:enumeration value="OTHER"/>
 					</xs:restriction>
 				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CoveredBondFlag" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Indicates whether the bond is a covered bond, i.e. secured by a cover pool of mortgage or public sector assets under a special legal framework (Directive (EU) 2019/2162, Art. 52(4) Directive 2009/65/EC)</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an, ob die Anleihe ein gedeckter Schuldtitel (Covered Bond, z. B. Pfandbrief) ist, also durch eine Deckungsmasse aus Hypotheken- oder öffentlichen Forderungen nach einem besonderen gesetzlichen Rahmen besichert ist (Richtlinie (EU) 2019/2162, Art. 52 Abs. 4 Richtlinie 2009/65/EG)</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="Guarantor" type="CompanyType" minOccurs="0">
 				<xs:annotation>

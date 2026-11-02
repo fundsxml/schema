@@ -811,6 +811,23 @@ B ... Boolean</xs:documentation>
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="CreditQualityStepType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Credit quality step of an issue or issuer according to the mapping of external credit assessments (ECAI) to credit quality steps used in Regulation (EU) 575/2013 (CRR) and Delegated Regulation (EU) 2015/35: 0 to 6, 9 = no rating available</xs:documentation>
+			<xs:documentation xml:lang="de">Bonitätsstufe einer Emission oder eines Emittenten gemäß der Zuordnung externer Bonitätsbeurteilungen (ECAI) zu Bonitätsstufen nach Verordnung (EU) 575/2013 (CRR) und Delegierter Verordnung (EU) 2015/35: 0 bis 6, 9 = kein Rating verfügbar</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="DayCountConventionType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Day count convention for interest calculation</xs:documentation>
@@ -1308,6 +1325,18 @@ B ... Boolean</xs:documentation>
 			<xs:enumeration value="D"/>
 			<xs:enumeration value="P"/>
 			<xs:enumeration value="R"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EligibilityAssessmentType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Result of an eligibility assessment: NotAssessed, Eligible or NotEligible</xs:documentation>
+			<xs:documentation xml:lang="de">Ergebnis einer Eignungsprüfung: NotAssessed (nicht geprüft), Eligible (geeignet) oder NotEligible (nicht geeignet)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotAssessed"/>
+			<xs:enumeration value="Eligible"/>
+			<xs:enumeration value="NotEligible"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="EmailAddressType">

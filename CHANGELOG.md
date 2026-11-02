@@ -81,6 +81,33 @@ New core types (`FundsXML4_Core.xsd`) introduced for reuse by the KID module. Th
 
 Value constraints in the KID module: holding periods (`PRIIPsKID_PeriodType`) are positive with exactly one unit (`P[1-9][0-9]*[YMD]`, e.g. `P5Y`, `P18M`), returns (`PRIIPsKID_ReturnPercentageType`) cannot be below `-100`, cost rates and cost impacts (`PRIIPsKID_CostPercentageType`) cannot be negative, and a share class must carry at least one identifier (`xs:assert` on `PRIIPsKID_ShareClassType`).
 
+Further source elements for datapoints of the Solvency II Tripartite Template (TPT V8), named without reference to the template; the TPT mapping is documented in `docs/REGULATORY_REPORTING.md`. All new elements are optional.
+
+Core types (`FundsXML4_Core.xsd`):
+
+- `CreditQualityStepType` – credit quality step `0` to `6`, `9` = no rating available
+- `EligibilityAssessmentType` – `NotAssessed`, `Eligible`, `NotEligible`
+
+Asset master data (`FundsXML4_AssetMasterData.xsd`):
+
+- `Asset/AssetDetails/Bond/Coupon/Type` – new value `inflation` for inflation-linked bonds (TPT 32)
+- `Asset/AssetDetails/Bond/Coupon/CapRate` and `FloorRate` – cap and floor of a variable coupon in percent per annum; follow `OffsetBPS` (TPT 42)
+- `Asset/AssetDetails/Bond/CoveredBondFlag` – covered bond (Pfandbrief, Directive (EU) 2019/2162); follows `GuaranteeType` (TPT 55)
+- `Asset/InfrastructureInvestmentKind` (`Project`, `Corporate`), `Asset/Type1EquityEligibility`, `Asset/LongTermEquityEligibility`, `Asset/LegislativeProgrammeEligibility` – assessments under Art. 1 (55a/55b), 168a, 171a/171d and 173 of Delegated Regulation (EU) 2015/35; follow `InfrastructureInvestmentType` (TPT 132, 134, 150, 151)
+- `Asset/CreditQualityStep` (`CreditQualityStepType`) – follows `Ratings` (TPT 59, 89)
+
+Share class (`FundsXML4_ShareClassData.xsd`):
+
+- `ShareClass/LongTermEquityEligibility` – self-assessment of the fund for the long-term equity investment treatment; follows `PEA_EligibleFlag` (TPT 150 for holders of the fund)
+
+Portfolio data (`FundsXML4_PortfolioData.xsd`), `Position` before `CustomAttributes`:
+
+- `DerivativePurpose` (`Hedging`, `EfficientPortfolioManagement`, `Investment`) and `SystematicRollFlag` (TPT 65)
+- `PlaceOfDeposit` – country of the place of deposit (TPT 107)
+- `ValuationMethod` (`QuotedPriceSameAsset`, `QuotedPriceSimilarAsset`, `AlternativeValuation`, `AdjustedEquityMethod`, `IFRSEquityMethod`, `Other`) (TPT 110)
+
+TPT 95 (original portfolio of look-through positions) needs no element: FundsXML keeps the fund hierarchy (investee fund as position of type `ShareClass` with its own `Funds/Fund` block, or `Portfolio/PositionsDecomposed`).
+
 ### Fixed
 
 - TPT V7 and V8, `Redemption/PIK` (TPT 146): contradicting facets `minInclusive=1` / `maxInclusive=2` removed. The values `0` (no PIK), `3` and `4` of the enumeration were rejected before

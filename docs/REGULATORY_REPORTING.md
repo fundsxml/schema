@@ -492,22 +492,35 @@ Several TPT datapoints can be generated from the regular asset master and portfo
 
 | TPT | Core source |
 |-----|-------------|
+| 32 Interest rate type | `Asset/AssetDetails/Bond/Coupon/Type` (`fix` → Fixed, `float` → Floating, `inflation` → Inflation_linked, `others` → Variable) |
+| 42 Callable / putable | `Asset/AssetDetails/Bond/Redemption/OptionDirection` (`Issuer` → Cal, `Bearer` → Put), `Bond/Coupon/CapRate` → Cap, `Bond/Coupon/FloorRate` → Flr |
+| 55 Covered / not covered | `Asset/AssetDetails/Bond/CoveredBondFlag` (`true` → C, `false` → NC) |
 | 56 Securitisation | `Asset/AssetDetails/Bond/SecuritisationCategory`, `Asset/AssetDetails/CommercialPaper/SecuritisationCategory` |
 | 58 Subordinated debt | `Asset/AssetDetails/Bond/Seniority` |
+| 59 / 89 Credit quality step | `Asset/CreditQualityStep` of the instrument resp. of the underlying asset |
 | 61 Strike price | `Asset/AssetDetails/Bond/ConvertibleBond/ConversionPrice` |
 | 62 Conversion factor | `Asset/AssetDetails/Bond/ConvertibleBond/ConversionRatio` |
+| 65 Hedging / rolling | `Position/DerivativePurpose` and `Position/SystematicRollFlag` |
 | 67–86 Underlying | asset referenced by `Asset/AssetDetails/Bond/ConvertibleBond/UnderlyingUniqueID` |
+| 95 Original portfolio of look-through positions | no element of its own: FundsXML keeps the fund hierarchy. The investee fund is a position of type `ShareClass`, its holdings are the positions of its own `Funds/Fund` block (or of `Portfolio/PositionsDecomposed`); when they are reported line by line, 95 is an identifier of the investee fund |
 | 92 Credit sensitivity | `RiskCode/ListedCode` = `CREDIT SENSITIVITY` |
 | 94 Convexity | `RiskCode/ListedCode` = `CONVEXITY` |
+| 107 Place of deposit | `Position/PlaceOfDeposit` |
+| 110 Valorisation method | `Position/ValuationMethod` |
 | 127 Bond floor (up to V7) | `Position/Bond/BondFloor` |
 | 128 Option premium (up to V7) | `Position/Bond/OptionPremium` |
 | 130 Z-spread | `RiskCode/ListedCode` = `Z-SPREAD` |
+| 132 Infrastructure investment | `Asset/IsInfrastructureInvestment`, `Asset/InfrastructureInvestmentKind`, `Asset/InfrastructureInvestmentType` and the asset type |
+| 134 Type 1 private equity eligibility | `Asset/Type1EquityEligibility` |
 | 137 Counterparty sector, value 6 | issuer `CompanyType/Type` = `Financial vehicle corporations engaged in securitisation transactions` |
 | 142 Bail-in rule | `Asset/AssetDetails/Bond/BailIn` |
 | 143 Expected maturity date | `Asset/AssetDetails/Bond/ExpectedMaturityDate` |
 | 144 Modified duration to expected maturity | `RiskCode/ListedCode` = `MODIFIED DURATION TO EXPECTED MATURITY` |
 | 145 Credit sensitivity to expected maturity | `RiskCode/ListedCode` = `CREDIT SENSITIVITY TO EXPECTED MATURITY` |
 | 146 PIK | `Asset/AssetDetails/Bond/PaymentInKind` |
+| 147 Infrastructure investment (QRT) | `Asset/InfrastructureInvestmentType` (same codes) |
+| 150 LTEI fund eligibility | `Asset/LongTermEquityEligibility` of the investee fund; a fund declares its own eligibility in `ShareClass/LongTermEquityEligibility` |
+| 151 Legislative programme investment | `Asset/LegislativeProgrammeEligibility` |
 
 **56 Securitisation** (`SecuritisationCategory`)
 
@@ -539,6 +552,24 @@ Several TPT datapoints can be generated from the regular asset master and portfo
 | `Type` = `Partial` or `Toggle`, `Settlement` = `Capitalised` | 2 |
 | `Settlement` = `AdditionalSecurities` | 3 |
 | `Type` other than `None`, `Settlement` missing | 4 |
+
+**65 Hedging / rolling** (`DerivativePurpose`, `SystematicRollFlag`): `Hedging` with `SystematicRollFlag` = `true` → Y; `Hedging` with `SystematicRollFlag` = `false` or missing → N; `EfficientPortfolioManagement` → EPM; `Investment` → empty.
+
+**110 Valorisation method** (`ValuationMethod`): `QuotedPriceSameAsset` → 1, `QuotedPriceSimilarAsset` → 2, `AlternativeValuation` → 3, `AdjustedEquityMethod` → 4, `IFRSEquityMethod` → 5, `Other` → 6.
+
+**132 Infrastructure investment** (`IsInfrastructureInvestment`, `InfrastructureInvestmentKind`, `InfrastructureInvestmentType`)
+
+| Core | TPT |
+|------|-----|
+| `IsInfrastructureInvestment` missing | 0 |
+| `IsInfrastructureInvestment` = `false` | 5 |
+| `true`, `InfrastructureInvestmentType` in 12, 13, 14, 19, `Kind` = `Project`, debt instrument (CIC x1, x2, x5, x6, x8) | 1 |
+| `true`, `InfrastructureInvestmentType` in 12, 13, 14, 19, `Kind` = `Project`, equity (CIC x3) or fund (CIC x4) | 2 |
+| `true`, `InfrastructureInvestmentType` in 12, 13, 14, 19, `Kind` = `Corporate`, debt instrument | 3 |
+| `true`, `InfrastructureInvestmentType` in 12, 13, 14, 19, `Kind` = `Corporate`, equity or fund | 4 |
+| `true`, `InfrastructureInvestmentType` in 1, 2, 3, 4, 9, 20 | 5 |
+
+**134, 150, 151 eligibility assessments** (`EligibilityAssessmentType`): `NotAssessed` → 0, `Eligible` → 1, `NotEligible` → 2.
 
 ### Example
 

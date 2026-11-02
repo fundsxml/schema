@@ -304,7 +304,7 @@ Several TPT datapoints can be generated from the regular asset master and portfo
 
 | TPT | Core source |
 |-----|-------------|
-| 56 Securitisation | `Asset/AssetDetails/Bond/SolvencyIISecuritisationCategory`, `Asset/AssetDetails/CommercialPaper/SolvencyIISecuritisationCategory` |
+| 56 Securitisation | `Asset/AssetDetails/Bond/SecuritisationCategory`, `Asset/AssetDetails/CommercialPaper/SecuritisationCategory` |
 | 58 Subordinated debt | `Asset/AssetDetails/Bond/Seniority` |
 | 61 Strike price | `Asset/AssetDetails/Bond/ConvertibleBond/ConversionPrice` |
 | 62 Conversion factor | `Asset/AssetDetails/Bond/ConvertibleBond/ConversionRatio` |
@@ -321,7 +321,7 @@ Several TPT datapoints can be generated from the regular asset master and portfo
 | 145 Credit sensitivity to expected maturity | `RiskCode/ListedCode` = `CREDIT SENSITIVITY TO EXPECTED MATURITY` |
 | 146 PIK | `Asset/AssetDetails/Bond/PaymentInKind` |
 
-**56 Securitisation** (`SolvencyIISecuritisationCategory`)
+**56 Securitisation** (`SecuritisationCategory`)
 
 | Core value | V8 | V7 |
 |------------|----|----|

@@ -3117,12 +3117,12 @@ Alfanum</xs:documentation>
 Alfanum</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="FundIssuerCode" type="SIIEntityCodeType_V8">
+         <xs:element name="FundIssuerCode" type="LEICodeType">
             <xs:annotation>
                <xs:documentation xml:lang="en">115_Fund_issuer_code
-Alphanum</xs:documentation>
+LEI of the fund issuer (management company). Alphanumeric, 20 characters</xs:documentation>
                <xs:documentation xml:lang="de">115_Fund_issuer_code
-alphanumerisch</xs:documentation>
+LEI des Fondsemittenten (Verwaltungsgesellschaft). Alphanumerisch, 20 Zeichen</xs:documentation>
                <xs:documentation xml:lang="fr">115_Fund_issuer_code
 alphanumérique</xs:documentation>
                <xs:documentation xml:lang="nl">115_Fund_issuer_code
@@ -3187,12 +3187,12 @@ Nazwa jednostki dominującej najwyższego szczebla emitenta funduszu lub klasy j
 Namn på det yttersta moderföretaget till emittenten av fonden eller andelsklassen</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="FundIssuerGroupCode" type="SIIEntityCodeType_V8">
+         <xs:element name="FundIssuerGroupCode" type="LEICodeType">
             <xs:annotation>
                <xs:documentation xml:lang="en">119_Fund_issuer_group_code
-Alphanum</xs:documentation>
+LEI of the ultimate parent of the fund issuer. Alphanumeric, 20 characters</xs:documentation>
                <xs:documentation xml:lang="de">119_Fund_issuer_group_code
-alphanumerisch</xs:documentation>
+LEI der obersten Muttergesellschaft des Fondsemittenten. Alphanumerisch, 20 Zeichen</xs:documentation>
                <xs:documentation xml:lang="fr">119_Fund_issuer_group_code
 alphanumérique</xs:documentation>
                <xs:documentation xml:lang="nl">119_Fund_issuer_group_code
@@ -3230,7 +3230,7 @@ Alfanum</xs:documentation>
          <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="IssuerName" type="xs:string">
+         <xs:element name="IssuerName">
             <xs:annotation>
                <xs:documentation xml:lang="en">46_Issuer_name
 Alpha (max 255)</xs:documentation>
@@ -3254,6 +3254,11 @@ alfabetisk (højst 255)</xs:documentation>
 Alfa (maks. 255)</xs:documentation>
                <xs:documentation xml:lang="sv">46_Issuer_name
 Alfa (max 255)</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="255"/>
+               </xs:restriction>
+            </xs:simpleType>
          </xs:element>
          <xs:element name="IssuerIdentificationCode" type="SIIEntityCodeType_V8">
             <xs:annotation>
@@ -3348,7 +3353,7 @@ Alfanumerisk (max 20)</xs:documentation></xs:annotation>
          <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="NameOfTheGroupOfTheIssuer" type="xs:string">
+         <xs:element name="NameOfTheGroupOfTheIssuer">
             <xs:annotation>
                <xs:documentation xml:lang="en">49_Name_of_the_group_of_the_issuer
 Alpha (max 255)</xs:documentation>
@@ -3372,6 +3377,11 @@ alfabetisk (højst 255)</xs:documentation>
 Alfa (maks. 255)</xs:documentation>
                <xs:documentation xml:lang="sv">49_Name_of_the_group_of_the_issuer
 Alfa (max 255)</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="255"/>
+               </xs:restriction>
+            </xs:simpleType>
          </xs:element>
          <xs:element name="IdentificationOfTheGroup" type="SIIEntityCodeType_V8">
             <xs:annotation>
@@ -3466,7 +3476,7 @@ Alfanumerisk (max 20)</xs:documentation></xs:annotation>
          <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="IssuerNameOfTheUnderlyingAsset" type="xs:string">
+         <xs:element name="IssuerNameOfTheUnderlyingAsset">
             <xs:annotation>
                <xs:documentation xml:lang="en">80_Issuer_name_of_the_underlying_asset
 Alpha (max 255)</xs:documentation>
@@ -3490,6 +3500,11 @@ alfabetisk (højst 255)</xs:documentation>
 Alfa (maks. 255)</xs:documentation>
                <xs:documentation xml:lang="sv">80_Issuer_name_of_the_underlying_asset
 Alfa (max 255)</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="255"/>
+               </xs:restriction>
+            </xs:simpleType>
          </xs:element>
          <xs:element name="IssuerIdentificationCodeOfTheUnderlyingAsset" type="SIIEntityCodeType_V8">
             <xs:annotation>
@@ -3584,7 +3599,7 @@ Alfanumerisk (max 20)</xs:documentation></xs:annotation>
          <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="NameOfTheGroupOfTheIssuerOfTheUnderlyingAsset" type="xs:string">
+         <xs:element name="NameOfTheGroupOfTheIssuerOfTheUnderlyingAsset">
             <xs:annotation>
                <xs:documentation xml:lang="en">83_Name_of_the_group_of_the_issuer_of_the_underlying_asset
 Alpha (max 255)</xs:documentation>
@@ -3608,6 +3623,11 @@ alfabetisk (højst 255)</xs:documentation>
 Alfa (maks. 255)</xs:documentation>
                <xs:documentation xml:lang="sv">83_Name_of_the_group_of_the_issuer_of_the_underlying_asset
 Alfa (max 255)</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="255"/>
+               </xs:restriction>
+            </xs:simpleType>
          </xs:element>
          <xs:element name="IdentificationOfTheGroupOfTheUnderlyingAsset" type="SIIEntityCodeType_V8">
             <xs:annotation>
@@ -15065,7 +15085,7 @@ För prissättning med chockmodellering.</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
-                                    <xs:element minOccurs="0" name="BondFloorConvertibleInstrumentOnly" type="xs:decimal">
+                                    <xs:element minOccurs="0" name="BondFloor" type="xs:decimal">
                                        <xs:annotation>
                                           <xs:appinfo source="@since 4.2.12"/>
                                           <xs:documentation xml:lang="en">127_Bond_floor_(convertible_instrument_only)
@@ -15092,7 +15112,7 @@ liczba zmiennoprzecinkowa</xs:documentation>
 decimaltal med flytande decimaltecken</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="OptionPremiumConvertibleInstrumentOnly" type="xs:decimal">
+                                    <xs:element minOccurs="0" name="OptionPremium" type="xs:decimal">
                                        <xs:annotation>
                                           <xs:appinfo source="@since 4.2.12"/>
                                           <xs:documentation xml:lang="en">128_Option_premium_(convertible_instrument_only)
@@ -15181,7 +15201,7 @@ Alfanumerisk (4)</xs:documentation></xs:annotation>
                                  <xs:documentation xml:lang="sv">A69 68 - Använd ISIN, CUSIP, eller OtherSecurityCodes/Name (för kodifieringssystem) för BLOOMBERG, TELEKURS eller intern kod</xs:documentation>
                               </xs:annotation>
                            </xs:element>
-                           <xs:element name="NameOfTheUnderlyingAsset" type="xs:string">
+                           <xs:element name="NameOfTheUnderlyingAsset">
                               <xs:annotation>
                                  <xs:documentation xml:lang="en">70_Name_of_the_underlying_asset
 Alpha (max 255)</xs:documentation>
@@ -15205,6 +15225,11 @@ alfabetisk (højst 255)</xs:documentation>
 Alfa (maks. 255)</xs:documentation>
                                  <xs:documentation xml:lang="sv">70_Name_of_the_underlying_asset
 Alfa (max 255)</xs:documentation></xs:annotation>
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:string">
+                                    <xs:maxLength value="255"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
                            </xs:element>
                            <xs:element name="Valuation">
                            	<xs:annotation>
@@ -15805,7 +15830,7 @@ Ska specificeras***********</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
-                  <xs:element minOccurs="0" name="PlaceOfDeposit" type="xs:string">
+                  <xs:element minOccurs="0" name="PlaceOfDeposit" type="ISOCountryCodeType">
                      <xs:annotation>
                         <xs:documentation xml:lang="en">107_Place_of_deposit
 ISO code</xs:documentation>
@@ -20285,7 +20310,8 @@ V4.0 (official) dated 13 February 2018
 V5.0 (official) dated 16 January 2020
 V6.0 (official) dated 10 January 2022
 V7.0 (official) dated 25 November 2024
-V8.0 (official) dated 8 October 2026</xs:documentation>
+V8.0 (official) dated 8 October 2026
+The element carries the version number only (V8.0); the official label of the template published by FinDatEx on 28 October 2026 is "V8.0 (official) dated 8 October 2026"</xs:documentation>
                <xs:documentation xml:lang="de">1000_TPT_Version
 V2.0 (offiziell); vom 9. Januar 2015
 V3.0 (offiziell) vom 12. Oktober 2015
@@ -20293,7 +20319,8 @@ V4.0 (offiziell) vom 13. Februar 2018
 V5.0 (offiziell) vom 16. Januar 2020
 V6.0 (offiziell) vom 10. Januar 2022
 V7.0 (offiziell) vom 25. November 2024
-V8.0 (offiziell) vom 8. Oktober 2026</xs:documentation>
+V8.0 (offiziell) vom 8. Oktober 2026
+Das Element enthält nur die Versionsnummer (V8.0); die offizielle Bezeichnung der von FinDatEx am 28. Oktober 2026 veröffentlichten Vorlage lautet "V8.0 (official) dated 8 October 2026"</xs:documentation>
                <xs:documentation xml:lang="fr">1000_TPT_Version
 V2.0 (officielle) ; du 9 janvier 2015
 V3.0 (officielle) du 12 octobre 2015
@@ -20397,7 +20424,7 @@ ISIN preferowany, jeśli jest dostępny.</xs:documentation>
 ISIN föredras när det är tillgängligt.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="PortfolioName" type="xs:string">
+         <xs:element name="PortfolioName">
             <xs:annotation>
                <xs:documentation xml:lang="en">3_Portfolio_name
 Alphanum (max 255)</xs:documentation>
@@ -20421,6 +20448,11 @@ alfanumerisk (højst 255)</xs:documentation>
 Alfanum (maks. 255)</xs:documentation>
                <xs:documentation xml:lang="sv">3_Portfolio_name
 Alfanum (max 255)</xs:documentation></xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="255"/>
+               </xs:restriction>
+            </xs:simpleType>
          </xs:element>
          <xs:element name="PortfolioCurrency" type="ISOCurrencyCodeType">
             <xs:annotation>

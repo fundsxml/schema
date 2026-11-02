@@ -447,7 +447,7 @@ One `PRIIPsKID` per document (fund, compartment or group of share classes and la
 | V5 | `TripartiteTemplateSolvencyIIType_V5` |
 | V6 (deprecated) | `TripartiteTemplateSolvencyIIType_V6` |
 | V7 | `TripartiteTemplateSolvencyIIType_V7` |
-| V8 (FinDatEx version of 2026-10-08) | `TripartiteTemplateSolvencyIIType_V8` |
+| V8 (FinDatEx version of 2026-10-08, published 2026-10-28; mandatory from the end-of-March 2027 production) | `TripartiteTemplateSolvencyIIType_V8` |
 
 Each version is a separate element below `RegulatoryReportings/IndirectReporting`, e.g. `TripartiteTemplateSolvencyII_V7`. The element names below are those of V7; V8 uses names derived from the official FinDatEx labels (e.g. `NetAssetValuationInPortfolioCurrency` instead of `TotalNetAssets`).
 

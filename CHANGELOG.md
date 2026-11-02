@@ -41,7 +41,7 @@ Credit, securitisation and convertible bond characteristics in the asset master 
 
 Asset master data (`FundsXML4_AssetMasterData.xsd`):
 
-- `Asset/AssetDetails/Bond/SolvencyIISecuritisationCategory` and `Asset/AssetDetails/CommercialPaper/SolvencyIISecuritisationCategory` – securitisation category under Delegated Regulation (EU) 2015/35, new type `SolvencyIISecuritisationCategoryType` with the values `NotAssessed`, `STSSenior`, `STSNonSenior`, `Resecuritisation`, `NonSTSSenior`, `NonSTSNonSenior`, `NonSTSOther`, `TransitionalArt178a1`, `TransitionalArt178a3`, `TransitionalArt178a4`, `GuaranteedEIBEIF`, `NotASecuritisation`
+- `Asset/AssetDetails/Bond/SecuritisationCategory` and `Asset/AssetDetails/CommercialPaper/SecuritisationCategory` – securitisation category under Delegated Regulation (EU) 2015/35 (element and type deliberately carry no Solvency II prefix, as the core schema is regulation-neutral), new type `SecuritisationCategoryType` with the values `NotAssessed`, `STSSenior`, `STSNonSenior`, `Resecuritisation`, `NonSTSSenior`, `NonSTSNonSenior`, `NonSTSOther`, `TransitionalArt178a1`, `TransitionalArt178a3`, `TransitionalArt178a4`, `GuaranteedEIBEIF`, `NotASecuritisation`
 - `Asset/AssetDetails/Bond/ExpectedMaturityDate` – expected maturity taking prepayments and option exercise into account; follows `MaturityDate`
 - `Asset/AssetDetails/Bond/Seniority` – ranking in insolvency or resolution: `SeniorSecured`, `SeniorUnsecured`, `SeniorNonPreferred`, `Subordinated`, `Tier2`, `AdditionalTier1`
 - `Asset/AssetDetails/Bond/BailIn` – treatment under a resolution regime: `NotAssessed`, `Statutory`, `Contractual`, `Excluded`, `NotApplicable`

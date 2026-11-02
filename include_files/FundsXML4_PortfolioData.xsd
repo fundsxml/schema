@@ -2897,6 +2897,51 @@ negative - paying premiums</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="DerivativePurpose" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Purpose of a derivative position: Hedging (risk mitigation), EfficientPortfolioManagement (EPM, no hedging purpose) or Investment</xs:documentation>
+					<xs:documentation xml:lang="de">Zweck einer Derivateposition: Hedging (Risikominderung), EfficientPortfolioManagement (EPM, kein Absicherungszweck) oder Investment (Anlage)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Hedging"/>
+						<xs:enumeration value="EfficientPortfolioManagement"/>
+						<xs:enumeration value="Investment"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SystematicRollFlag" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Indicates whether the derivative position is systematically rolled before maturity as part of an ongoing risk mitigation programme</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an, ob die Derivateposition im Rahmen eines laufenden Absicherungsprogramms systematisch vor Fälligkeit gerollt wird</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceOfDeposit" type="ISOCountryCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Country of the place of deposit (custody) of the position</xs:documentation>
+					<xs:documentation xml:lang="de">Land des Verwahrorts (Depotstelle) der Position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ValuationMethod" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Method used to value the position: QuotedPriceSameAsset (quoted market price in active markets for the same asset), QuotedPriceSimilarAsset (quoted market price in active markets for similar assets), AlternativeValuation (alternative valuation methods), AdjustedEquityMethod (adjusted equity method for participations), IFRSEquityMethod (IFRS equity method for participations) or Other</xs:documentation>
+					<xs:documentation xml:lang="de">Methode zur Bewertung der Position: QuotedPriceSameAsset (notierter Marktpreis an aktiven Märkten für dasselbe Asset), QuotedPriceSimilarAsset (notierter Marktpreis an aktiven Märkten für ähnliche Assets), AlternativeValuation (alternative Bewertungsmethoden), AdjustedEquityMethod (angepasste Equity-Methode für Beteiligungen), IFRSEquityMethod (IFRS-Equity-Methode für Beteiligungen) oder Other (sonstige)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="QuotedPriceSameAsset"/>
+						<xs:enumeration value="QuotedPriceSimilarAsset"/>
+						<xs:enumeration value="AlternativeValuation"/>
+						<xs:enumeration value="AdjustedEquityMethod"/>
+						<xs:enumeration value="IFRSEquityMethod"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="CustomAttributes" type="AttributesType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Additional information which does not fit into the nodes above</xs:documentation>

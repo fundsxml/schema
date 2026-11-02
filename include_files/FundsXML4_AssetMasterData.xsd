@@ -1812,6 +1812,40 @@ CR = Crypto</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="InfrastructureInvestmentKind" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Kind of infrastructure investment: Project (infrastructure project entity) or Corporate (infrastructure corporate) as defined in Art. 1 (55a) and (55b) of Delegated Regulation (EU) 2015/35</xs:documentation>
+					<xs:documentation xml:lang="de">Art der Infrastrukturinvestition: Project (Infrastrukturprojektgesellschaft) oder Corporate (Infrastrukturunternehmen) gemäß Art. 1 Nr. 55a und 55b der Delegierten Verordnung (EU) 2015/35</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Project"/>
+						<xs:enumeration value="Corporate"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Type1EquityEligibility" type="EligibilityAssessmentType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Assessment whether the holding (unlisted equity, participation or fund) qualifies for the treatment as type 1 equity within a qualifying unlisted equity portfolio under Art. 168a of Delegated Regulation (EU) 2015/35</xs:documentation>
+					<xs:documentation xml:lang="de">Beurteilung, ob die Beteiligung (nicht börsennotierte Aktie, Beteiligung oder Fonds) für die Behandlung als Typ-1-Aktie in einem qualifizierten Portfolio nicht börsennotierter Aktien nach Art. 168a der Delegierten Verordnung (EU) 2015/35 in Frage kommt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LongTermEquityEligibility" type="EligibilityAssessmentType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Assessment whether the holding (fund or equity held through a dedicated fund) qualifies for the long-term equity investment treatment under Art. 171a and 171d of Delegated Regulation (EU) 2015/35</xs:documentation>
+					<xs:documentation xml:lang="de">Beurteilung, ob die Beteiligung (Fonds oder über einen dedizierten Fonds gehaltene Aktie) für die Behandlung als langfristige Aktieninvestition nach Art. 171a und 171d der Delegierten Verordnung (EU) 2015/35 in Frage kommt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LegislativeProgrammeEligibility" type="EligibilityAssessmentType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Assessment whether the equity qualifies for an investment under a legislative programme with reduced capital charge under Art. 173 of Delegated Regulation (EU) 2015/35</xs:documentation>
+					<xs:documentation xml:lang="de">Beurteilung, ob die Aktie als Investition im Rahmen eines Legislativprogramms mit reduzierter Kapitalanforderung nach Art. 173 der Delegierten Verordnung (EU) 2015/35 in Frage kommt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Ratings" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Rating details of instrument</xs:documentation>
@@ -1845,6 +1879,13 @@ CR = Crypto</xs:documentation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreditQualityStep" type="CreditQualityStepType" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Credit quality step of the asset derived from the external ratings according to the ECAI mapping (0 to 6, 9 = no rating available)</xs:documentation>
+					<xs:documentation xml:lang="de">Bonitätsstufe des Assets, abgeleitet aus den externen Ratings gemäß ECAI-Zuordnung (0 bis 6, 9 = kein Rating verfügbar)</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="RealEstateCompany" type="CompanyType" minOccurs="0">
 				<xs:annotation>
@@ -1895,10 +1936,10 @@ CompanyType + Transparenzkennzeichnung</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="SolvencyIISecuritisationCategoryType">
+	<xs:simpleType name="SecuritisationCategoryType">
 		<xs:annotation>
 			<xs:appinfo source="@since 4.2.12"/>
-			<xs:documentation xml:lang="en">Securitisation category according to the Solvency II Delegated Regulation (EU) 2015/35, which determines the risk factor for the spread risk of securitisation positions
+			<xs:documentation xml:lang="en">Securitisation category according to Delegated Regulation (EU) 2015/35, which determines the risk factor for the spread risk of securitisation positions
 NotAssessed = eligibility for a securitisation treatment not assessed
 STSSenior = Art. 178 (3) and (5): senior position in an STS securitisation
 STSNonSenior = Art. 178 (4) and (6): non-senior position in an STS securitisation
@@ -1910,8 +1951,8 @@ TransitionalArt178a1 = Art. 178a (1) and (2): type 1 securitisation issued befor
 TransitionalArt178a3 = Art. 178a (3): type 1 securitisation issued before 2015-01-18 (former Art. 177 (4))
 TransitionalArt178a4 = Art. 178a (4): type 1 securitisation issued before 2019-01-01 (former Art. 177 (5)), transitional treatment until 2025-12-31
 GuaranteedEIBEIF = Art. 180 (10) and (10a): securitisation position fully, unconditionally and irrevocably guaranteed by the European Investment Fund or the European Investment Bank
-NotASecuritisation = assessed, not a securitisation within the meaning of Solvency II</xs:documentation>
-			<xs:documentation xml:lang="de">Verbriefungskategorie nach der Solvency-II-Durchführungsverordnung, Delegierte Verordnung (EU) 2015/35, die den Risikofaktor für das Spread-Risiko von Verbriefungspositionen bestimmt
+NotASecuritisation = assessed, not a securitisation within the meaning of Delegated Regulation (EU) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="de">Verbriefungskategorie nach der Delegierten Verordnung (EU) 2015/35, die den Risikofaktor für das Spread-Risiko von Verbriefungspositionen bestimmt
 NotAssessed = Eignung für eine Behandlung als Verbriefung nicht geprüft
 STSSenior = Art. 178 (3) und (5): vorrangige Position einer STS-Verbriefung
 STSNonSenior = Art. 178 (4) und (6): nicht vorrangige Position einer STS-Verbriefung
@@ -1923,8 +1964,8 @@ TransitionalArt178a1 = Art. 178a (1) und (2): vor dem 01.01.2019 emittierte Typ-
 TransitionalArt178a3 = Art. 178a (3): vor dem 18.01.2015 emittierte Typ-1-Verbriefung (bisheriger Art. 177 (4))
 TransitionalArt178a4 = Art. 178a (4): vor dem 01.01.2019 emittierte Typ-1-Verbriefung (bisheriger Art. 177 (5)), Übergangsbehandlung bis 31.12.2025
 GuaranteedEIBEIF = Art. 180 (10) und (10a): vom Europäischen Investitionsfonds oder der Europäischen Investitionsbank vollständig, vorbehaltlos und unwiderruflich garantierte Verbriefungsposition
-NotASecuritisation = geprüft, keine Verbriefung im Sinne von Solvency II</xs:documentation>
-			<xs:documentation xml:lang="fr">Catégorie de titrisation selon le règlement délégué Solvabilité II (UE) 2015/35, qui détermine le facteur de risque pour le risque de spread des positions de titrisation
+NotASecuritisation = geprüft, keine Verbriefung im Sinne der Delegierten Verordnung (EU) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="fr">Catégorie de titrisation selon le règlement délégué (UE) 2015/35, qui détermine le facteur de risque pour le risque de spread des positions de titrisation
 NotAssessed = éligibilité à un traitement en tant que titrisation non évaluée
 STSSenior = art. 178 (3) et (5) : position senior d'une titrisation STS
 STSNonSenior = art. 178 (4) et (6) : position non senior d'une titrisation STS
@@ -1936,8 +1977,8 @@ TransitionalArt178a1 = art. 178a (1) et (2) : titrisation de type 1 émise avant
 TransitionalArt178a3 = art. 178a (3) : titrisation de type 1 émise avant le 18/01/2015 (ancien art. 177 (4))
 TransitionalArt178a4 = art. 178a (4) : titrisation de type 1 émise avant le 01/01/2019 (ancien art. 177 (5)), traitement transitoire jusqu'au 31/12/2025
 GuaranteedEIBEIF = art. 180 (10) et (10a) : position de titrisation garantie intégralement, sans condition et irrévocablement par le Fonds européen d'investissement ou la Banque européenne d'investissement
-NotASecuritisation = évalué, pas une titrisation au sens de Solvabilité II</xs:documentation>
-			<xs:documentation xml:lang="nl">Securitisatiecategorie volgens de Solvency II-gedelegeerde verordening (EU) 2015/35, die de risicofactor voor het spreadrisico van securitisatieposities bepaalt
+NotASecuritisation = évalué, pas une titrisation au sens du règlement délégué (UE) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="nl">Securitisatiecategorie volgens Gedelegeerde Verordening (EU) 2015/35, die de risicofactor voor het spreadrisico van securitisatieposities bepaalt
 NotAssessed = geschiktheid voor een behandeling als securitisatie niet beoordeeld
 STSSenior = art. 178 (3) en (5): senior positie in een STS-securitisatie
 STSNonSenior = art. 178 (4) en (6): niet-senior positie in een STS-securitisatie
@@ -1949,8 +1990,8 @@ TransitionalArt178a1 = art. 178a (1) en (2): vóór 01-01-2019 uitgegeven type 1
 TransitionalArt178a3 = art. 178a (3): vóór 18-01-2015 uitgegeven type 1-securitisatie (voormalig art. 177 (4))
 TransitionalArt178a4 = art. 178a (4): vóór 01-01-2019 uitgegeven type 1-securitisatie (voormalig art. 177 (5)), overgangsbehandeling tot 31-12-2025
 GuaranteedEIBEIF = art. 180 (10) en (10a): securitisatiepositie die volledig, onvoorwaardelijk en onherroepelijk gegarandeerd is door het Europees Investeringsfonds of de Europese Investeringsbank
-NotASecuritisation = beoordeeld, geen securitisatie in de zin van Solvency II</xs:documentation>
-			<xs:documentation xml:lang="es">Categoría de titulización según el Reglamento Delegado (UE) 2015/35 de Solvencia II, que determina el factor de riesgo para el riesgo de diferencial de las posiciones de titulización
+NotASecuritisation = beoordeeld, geen securitisatie in de zin van Gedelegeerde Verordening (EU) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="es">Categoría de titulización según el Reglamento Delegado (UE) 2015/35, que determina el factor de riesgo para el riesgo de diferencial de las posiciones de titulización
 NotAssessed = no se ha evaluado la idoneidad para un tratamiento como titulización
 STSSenior = art. 178 (3) y (5): posición preferente de una titulización STS
 STSNonSenior = art. 178 (4) y (6): posición no preferente de una titulización STS
@@ -1962,8 +2003,8 @@ TransitionalArt178a1 = art. 178a (1) y (2): titulización de tipo 1 emitida ante
 TransitionalArt178a3 = art. 178a (3): titulización de tipo 1 emitida antes del 18/01/2015 (antiguo art. 177 (4))
 TransitionalArt178a4 = art. 178a (4): titulización de tipo 1 emitida antes del 01/01/2019 (antiguo art. 177 (5)), tratamiento transitorio hasta el 31/12/2025
 GuaranteedEIBEIF = art. 180 (10) y (10a): posición de titulización garantizada plena, incondicional e irrevocablemente por el Fondo Europeo de Inversiones o el Banco Europeo de Inversiones
-NotASecuritisation = evaluado, no es una titulización en el sentido de Solvencia II</xs:documentation>
-			<xs:documentation xml:lang="it">Categoria di cartolarizzazione secondo il regolamento delegato (UE) 2015/35 di Solvency II, che determina il fattore di rischio per il rischio di spread delle posizioni verso la cartolarizzazione
+NotASecuritisation = evaluado, no es una titulización en el sentido del Reglamento Delegado (UE) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="it">Categoria di cartolarizzazione secondo il regolamento delegato (UE) 2015/35, che determina il fattore di rischio per il rischio di spread delle posizioni verso la cartolarizzazione
 NotAssessed = idoneità a un trattamento come cartolarizzazione non valutata
 STSSenior = art. 178 (3) e (5): posizione senior di una cartolarizzazione STS
 STSNonSenior = art. 178 (4) e (6): posizione non senior di una cartolarizzazione STS
@@ -1975,8 +2016,8 @@ TransitionalArt178a1 = art. 178a (1) e (2): cartolarizzazione di tipo 1 emessa p
 TransitionalArt178a3 = art. 178a (3): cartolarizzazione di tipo 1 emessa prima del 18/01/2015 (ex art. 177 (4))
 TransitionalArt178a4 = art. 178a (4): cartolarizzazione di tipo 1 emessa prima del 01/01/2019 (ex art. 177 (5)), trattamento transitorio fino al 31/12/2025
 GuaranteedEIBEIF = art. 180 (10) e (10a): posizione verso la cartolarizzazione garantita pienamente, incondizionatamente e irrevocabilmente dal Fondo europeo per gli investimenti o dalla Banca europea per gli investimenti
-NotASecuritisation = valutato, non è una cartolarizzazione ai sensi di Solvency II</xs:documentation>
-			<xs:documentation xml:lang="cs">Kategorie sekuritizace podle nařízení v přenesené pravomoci (EU) 2015/35 k Solvency II, která určuje rizikový faktor pro riziko úvěrového rozpětí sekuritizačních pozic
+NotASecuritisation = valutato, non è una cartolarizzazione ai sensi del regolamento delegato (UE) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="cs">Kategorie sekuritizace podle nařízení v přenesené pravomoci (EU) 2015/35, která určuje rizikový faktor pro riziko úvěrového rozpětí sekuritizačních pozic
 NotAssessed = způsobilost pro zacházení jako se sekuritizací nebyla posouzena
 STSSenior = čl. 178 odst. 3 a 5: seniorní pozice v sekuritizaci STS
 STSNonSenior = čl. 178 odst. 4 a 6: neseniorní pozice v sekuritizaci STS
@@ -1988,8 +2029,8 @@ TransitionalArt178a1 = čl. 178a odst. 1 a 2: sekuritizace typu 1 vydaná před 
 TransitionalArt178a3 = čl. 178a odst. 3: sekuritizace typu 1 vydaná před 18. 1. 2015 (dřívější čl. 177 odst. 4)
 TransitionalArt178a4 = čl. 178a odst. 4: sekuritizace typu 1 vydaná před 1. 1. 2019 (dřívější čl. 177 odst. 5), přechodné zacházení do 31. 12. 2025
 GuaranteedEIBEIF = čl. 180 odst. 10 a 10a: sekuritizační pozice plně, bezpodmínečně a neodvolatelně zaručená Evropským investičním fondem nebo Evropskou investiční bankou
-NotASecuritisation = posouzeno, nejde o sekuritizaci ve smyslu Solvency II</xs:documentation>
-			<xs:documentation xml:lang="hu">Értékpapírosítási kategória a Szolvencia II-re vonatkozó (EU) 2015/35 felhatalmazáson alapuló rendelet szerint, amely meghatározza az értékpapírosítási pozíciók hozamfelár-kockázatának kockázati tényezőjét
+NotASecuritisation = posouzeno, nejde o sekuritizaci ve smyslu nařízení v přenesené pravomoci (EU) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="hu">Értékpapírosítási kategória az (EU) 2015/35 felhatalmazáson alapuló rendelet szerint, amely meghatározza az értékpapírosítási pozíciók hozamfelár-kockázatának kockázati tényezőjét
 NotAssessed = az értékpapírosításként való kezelésre való alkalmasság nem került értékelésre
 STSSenior = 178. cikk (3) és (5) bekezdés: STS-értékpapírosítás elsőbbségi pozíciója
 STSNonSenior = 178. cikk (4) és (6) bekezdés: STS-értékpapírosítás nem elsőbbségi pozíciója
@@ -2001,8 +2042,8 @@ TransitionalArt178a1 = 178a. cikk (1) és (2) bekezdés: 2019. 01. 01. előtt ki
 TransitionalArt178a3 = 178a. cikk (3) bekezdés: 2015. 01. 18. előtt kibocsátott 1. típusú értékpapírosítás (korábbi 177. cikk (4) bekezdés)
 TransitionalArt178a4 = 178a. cikk (4) bekezdés: 2019. 01. 01. előtt kibocsátott 1. típusú értékpapírosítás (korábbi 177. cikk (5) bekezdés), átmeneti kezelés 2025. 12. 31-ig
 GuaranteedEIBEIF = 180. cikk (10) és (10a) bekezdés: az Európai Beruházási Alap vagy az Európai Beruházási Bank által teljes mértékben, feltétel nélkül és visszavonhatatlanul garantált értékpapírosítási pozíció
-NotASecuritisation = értékelve, nem minősül értékpapírosításnak a Szolvencia II értelmében</xs:documentation>
-			<xs:documentation xml:lang="da">Securitiseringskategori i henhold til Solvens II-forordningen, delegeret forordning (EU) 2015/35, som bestemmer risikofaktoren for spændrisikoen på securitiseringspositioner
+NotASecuritisation = értékelve, nem minősül értékpapírosításnak az (EU) 2015/35 felhatalmazáson alapuló rendelet értelmében</xs:documentation>
+			<xs:documentation xml:lang="da">Securitiseringskategori i henhold til delegeret forordning (EU) 2015/35, som bestemmer risikofaktoren for spændrisikoen på securitiseringspositioner
 NotAssessed = egnethed til behandling som securitisering ikke vurderet
 STSSenior = art. 178, stk. 3 og 5: senior position i en STS-securitisering
 STSNonSenior = art. 178, stk. 4 og 6: ikke-senior position i en STS-securitisering
@@ -2014,8 +2055,8 @@ TransitionalArt178a1 = art. 178a, stk. 1 og 2: type 1-securitisering udstedt fø
 TransitionalArt178a3 = art. 178a, stk. 3: type 1-securitisering udstedt før 18.01.2015 (tidligere art. 177, stk. 4)
 TransitionalArt178a4 = art. 178a, stk. 4: type 1-securitisering udstedt før 01.01.2019 (tidligere art. 177, stk. 5), overgangsbehandling indtil 31.12.2025
 GuaranteedEIBEIF = art. 180, stk. 10 og 10a: securitiseringsposition, der er fuldt, ubetinget og uigenkaldeligt garanteret af Den Europæiske Investeringsfond eller Den Europæiske Investeringsbank
-NotASecuritisation = vurderet, ikke en securitisering i Solvens II's forstand</xs:documentation>
-			<xs:documentation xml:lang="pl">Kategoria sekurytyzacji zgodnie z rozporządzeniem delegowanym (UE) 2015/35 do Wypłacalność II, która określa współczynnik ryzyka dla ryzyka spreadu pozycji sekurytyzacyjnych
+NotASecuritisation = vurderet, ikke en securitisering som omhandlet i delegeret forordning (EU) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="pl">Kategoria sekurytyzacji zgodnie z rozporządzeniem delegowanym (UE) 2015/35, która określa współczynnik ryzyka dla ryzyka spreadu pozycji sekurytyzacyjnych
 NotAssessed = nie oceniono kwalifikowalności do traktowania jako sekurytyzacja
 STSSenior = art. 178 ust. 3 i 5: pozycja uprzywilejowana w sekurytyzacji STS
 STSNonSenior = art. 178 ust. 4 i 6: pozycja nieuprzywilejowana w sekurytyzacji STS
@@ -2027,8 +2068,8 @@ TransitionalArt178a1 = art. 178a ust. 1 i 2: sekurytyzacja typu 1 wyemitowana pr
 TransitionalArt178a3 = art. 178a ust. 3: sekurytyzacja typu 1 wyemitowana przed 18.01.2015 (dawny art. 177 ust. 4)
 TransitionalArt178a4 = art. 178a ust. 4: sekurytyzacja typu 1 wyemitowana przed 01.01.2019 (dawny art. 177 ust. 5), traktowanie przejściowe do 31.12.2025
 GuaranteedEIBEIF = art. 180 ust. 10 i 10a: pozycja sekurytyzacyjna w pełni, bezwarunkowo i nieodwołalnie gwarantowana przez Europejski Fundusz Inwestycyjny lub Europejski Bank Inwestycyjny
-NotASecuritisation = oceniono, nie jest sekurytyzacją w rozumieniu Wypłacalność II</xs:documentation>
-			<xs:documentation xml:lang="sv">Värdepapperiseringskategori enligt Solvens II-förordningen, delegerad förordning (EU) 2015/35, som bestämmer riskfaktorn för spreadrisken för värdepapperiseringspositioner
+NotASecuritisation = oceniono, nie jest sekurytyzacją w rozumieniu rozporządzenia delegowanego (UE) 2015/35</xs:documentation>
+			<xs:documentation xml:lang="sv">Värdepapperiseringskategori enligt delegerad förordning (EU) 2015/35, som bestämmer riskfaktorn för spreadrisken för värdepapperiseringspositioner
 NotAssessed = lämplighet för behandling som värdepapperisering inte bedömd
 STSSenior = art. 178.3 och 178.5: senior position i en STS-värdepapperisering
 STSNonSenior = art. 178.4 och 178.6: icke-senior position i en STS-värdepapperisering
@@ -2040,7 +2081,7 @@ TransitionalArt178a1 = art. 178a.1 och 178a.2: typ 1-värdepapperisering emitter
 TransitionalArt178a3 = art. 178a.3: typ 1-värdepapperisering emitterad före 2015-01-18 (tidigare art. 177.4)
 TransitionalArt178a4 = art. 178a.4: typ 1-värdepapperisering emitterad före 2019-01-01 (tidigare art. 177.5), övergångsbehandling till 2025-12-31
 GuaranteedEIBEIF = art. 180.10 och 180.10a: värdepapperiseringsposition som är fullt, ovillkorligt och oåterkalleligt garanterad av Europeiska investeringsfonden eller Europeiska investeringsbanken
-NotASecuritisation = bedömd, inte en värdepapperisering i den mening som avses i Solvens II</xs:documentation>
+NotASecuritisation = bedömd, inte en värdepapperisering i den mening som avses i delegerad förordning (EU) 2015/35</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NotAssessed"/>
@@ -2457,8 +2498,8 @@ N ... nominellt belopp</xs:documentation>
 					<xs:sequence>
 						<xs:element name="Type" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation xml:lang="en">Coupon type: fix (fixed), float (variable), zero (zero coupon) or others</xs:documentation>
-								<xs:documentation xml:lang="de">Kupontyp: fix (fest), float (variabel), zero (Nullkupon) oder others (sonstige)</xs:documentation>
+								<xs:documentation xml:lang="en">Coupon type: fix (fixed), float (variable), zero (zero coupon), inflation (inflation-linked: nominal and/or coupon follow an inflation index) or others</xs:documentation>
+								<xs:documentation xml:lang="de">Kupontyp: fix (fest), float (variabel), zero (Nullkupon), inflation (inflationsindexiert: Nominale und/oder Kupon folgen einem Inflationsindex) oder others (sonstige)</xs:documentation>
 								<xs:documentation xml:lang="fr">Type de coupon : fix (fixe), float (variable), zero (zéro coupon) ou others (autres)</xs:documentation>
 								<xs:documentation xml:lang="nl">Coupontype: fix (vast), float (variabel), zero (nulcoupon) of others (overige)</xs:documentation>
 								<xs:documentation xml:lang="es">Tipo de cupón: fix (fijo), float (variable), zero (cupón cero) u others (otros)</xs:documentation>
@@ -2474,6 +2515,7 @@ N ... nominellt belopp</xs:documentation>
 									<xs:enumeration value="fix"/>
 									<xs:enumeration value="float"/>
 									<xs:enumeration value="zero"/>
+									<xs:enumeration value="inflation"/>
 									<xs:enumeration value="others"/>
 								</xs:restriction>
 							</xs:simpleType>
@@ -2536,6 +2578,20 @@ N ... nominellt belopp</xs:documentation>
 								<xs:documentation xml:lang="da">Offset i basispoint ud over BaseIndex</xs:documentation>
 								<xs:documentation xml:lang="pl">Przesunięcie w punktach bazowych w uzupełnieniu do BaseIndex</xs:documentation>
 								<xs:documentation xml:lang="sv">Offset i baspunkter utöver BaseIndex</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CapRate" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo source="@since 4.2.12"/>
+								<xs:documentation xml:lang="en">Upper limit of a variable coupon in percent per annum (cap)</xs:documentation>
+								<xs:documentation xml:lang="de">Obergrenze eines variablen Kupons in Prozent pro Jahr (Cap)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FloorRate" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo source="@since 4.2.12"/>
+								<xs:documentation xml:lang="en">Lower limit of a variable coupon in percent per annum (floor)</xs:documentation>
+								<xs:documentation xml:lang="de">Untergrenze eines variablen Kupons in Prozent pro Jahr (Floor)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -3034,6 +3090,13 @@ STATE ... Statsgaranti</xs:documentation>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="CoveredBondFlag" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="@since 4.2.12"/>
+					<xs:documentation xml:lang="en">Indicates whether the bond is a covered bond, i.e. secured by a cover pool of mortgage or public sector assets under a special legal framework (Directive (EU) 2019/2162, Art. 52(4) Directive 2009/65/EC)</xs:documentation>
+					<xs:documentation xml:lang="de">Gibt an, ob die Anleihe ein gedeckter Schuldtitel (Covered Bond, z. B. Pfandbrief) ist, also durch eine Deckungsmasse aus Hypotheken- oder öffentlichen Forderungen nach einem besonderen gesetzlichen Rahmen besichert ist (Richtlinie (EU) 2019/2162, Art. 52 Abs. 4 Richtlinie 2009/65/EG)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Guarantor" type="CompanyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Guarantor details</xs:documentation>
@@ -3233,20 +3296,20 @@ Boolesk: true/false</xs:documentation>
 					<xs:documentation xml:lang="sv">Antal tranche</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SolvencyIISecuritisationCategory" type="SolvencyIISecuritisationCategoryType" minOccurs="0">
+			<xs:element name="SecuritisationCategory" type="SecuritisationCategoryType" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Securitisation category of the bond under Solvency II. To be delivered for securitisation positions and for structured or collateralised debt securities</xs:documentation>
-					<xs:documentation xml:lang="de">Verbriefungskategorie der Anleihe nach Solvency II. Zu liefern für Verbriefungspositionen sowie für strukturierte oder besicherte Schuldtitel</xs:documentation>
-					<xs:documentation xml:lang="fr">Catégorie de titrisation de l'obligation selon Solvabilité II. À fournir pour les positions de titrisation ainsi que pour les titres de créance structurés ou garantis</xs:documentation>
-					<xs:documentation xml:lang="nl">Securitisatiecategorie van de obligatie volgens Solvency II. Aan te leveren voor securitisatieposities en voor gestructureerde schuldbewijzen of schuldbewijzen met onderpand</xs:documentation>
-					<xs:documentation xml:lang="es">Categoría de titulización del bono según Solvencia II. Debe indicarse para posiciones de titulización y para títulos de deuda estructurados o con garantía real</xs:documentation>
-					<xs:documentation xml:lang="it">Categoria di cartolarizzazione dell'obbligazione secondo Solvency II. Da fornire per le posizioni verso la cartolarizzazione e per i titoli di debito strutturati o garantiti</xs:documentation>
-					<xs:documentation xml:lang="cs">Kategorie sekuritizace dluhopisu podle Solvency II. Uvádí se u sekuritizačních pozic a u strukturovaných nebo zajištěných dluhových cenných papírů</xs:documentation>
-					<xs:documentation xml:lang="hu">A kötvény értékpapírosítási kategóriája a Szolvencia II szerint. Értékpapírosítási pozíciók, valamint strukturált vagy fedezett hitelviszonyt megtestesítő értékpapírok esetén kell megadni</xs:documentation>
-					<xs:documentation xml:lang="da">Securitiseringskategori for obligationen i henhold til Solvens II. Skal leveres for securitiseringspositioner samt for strukturerede eller sikrede gældsinstrumenter</xs:documentation>
-					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji obligacji zgodnie z Wypłacalność II. Należy podać dla pozycji sekurytyzacyjnych oraz dla strukturyzowanych lub zabezpieczonych dłużnych papierów wartościowych</xs:documentation>
-					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för obligationen enligt Solvens II. Ska anges för värdepapperiseringspositioner samt för strukturerade skuldebrev eller skuldebrev med säkerhet</xs:documentation>
+					<xs:documentation xml:lang="en">Securitisation category of the bond according to Delegated Regulation (EU) 2015/35. To be delivered for securitisation positions and for structured or collateralised debt securities</xs:documentation>
+					<xs:documentation xml:lang="de">Verbriefungskategorie der Anleihe nach der Delegierten Verordnung (EU) 2015/35. Zu liefern für Verbriefungspositionen sowie für strukturierte oder besicherte Schuldtitel</xs:documentation>
+					<xs:documentation xml:lang="fr">Catégorie de titrisation de l'obligation selon le règlement délégué (UE) 2015/35. À fournir pour les positions de titrisation ainsi que pour les titres de créance structurés ou garantis</xs:documentation>
+					<xs:documentation xml:lang="nl">Securitisatiecategorie van de obligatie volgens Gedelegeerde Verordening (EU) 2015/35. Aan te leveren voor securitisatieposities en voor gestructureerde schuldbewijzen of schuldbewijzen met onderpand</xs:documentation>
+					<xs:documentation xml:lang="es">Categoría de titulización del bono según el Reglamento Delegado (UE) 2015/35. Debe indicarse para posiciones de titulización y para títulos de deuda estructurados o con garantía real</xs:documentation>
+					<xs:documentation xml:lang="it">Categoria di cartolarizzazione dell'obbligazione secondo il regolamento delegato (UE) 2015/35. Da fornire per le posizioni verso la cartolarizzazione e per i titoli di debito strutturati o garantiti</xs:documentation>
+					<xs:documentation xml:lang="cs">Kategorie sekuritizace dluhopisu podle nařízení v přenesené pravomoci (EU) 2015/35. Uvádí se u sekuritizačních pozic a u strukturovaných nebo zajištěných dluhových cenných papírů</xs:documentation>
+					<xs:documentation xml:lang="hu">A kötvény értékpapírosítási kategóriája az (EU) 2015/35 felhatalmazáson alapuló rendelet szerint. Értékpapírosítási pozíciók, valamint strukturált vagy fedezett hitelviszonyt megtestesítő értékpapírok esetén kell megadni</xs:documentation>
+					<xs:documentation xml:lang="da">Securitiseringskategori for obligationen i henhold til delegeret forordning (EU) 2015/35. Skal leveres for securitiseringspositioner samt for strukturerede eller sikrede gældsinstrumenter</xs:documentation>
+					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji obligacji zgodnie z rozporządzeniem delegowanym (UE) 2015/35. Należy podać dla pozycji sekurytyzacyjnych oraz dla strukturyzowanych lub zabezpieczonych dłużnych papierów wartościowych</xs:documentation>
+					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för obligationen enligt delegerad förordning (EU) 2015/35. Ska anges för värdepapperiseringspositioner samt för strukturerade skuldebrev eller skuldebrev med säkerhet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Seniority" minOccurs="0">
@@ -4336,20 +4399,20 @@ N ... nominellt belopp</xs:documentation>
 					<xs:documentation xml:lang="sv">Anger om obligationen är asset-backed</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SolvencyIISecuritisationCategory" type="SolvencyIISecuritisationCategoryType" minOccurs="0">
+			<xs:element name="SecuritisationCategory" type="SecuritisationCategoryType" minOccurs="0">
 				<xs:annotation>
 					<xs:appinfo source="@since 4.2.12"/>
-					<xs:documentation xml:lang="en">Securitisation category of the commercial paper under Solvency II. To be delivered for securitisation positions and for structured or collateralised debt securities</xs:documentation>
-					<xs:documentation xml:lang="de">Verbriefungskategorie des Commercial Papers nach Solvency II. Zu liefern für Verbriefungspositionen sowie für strukturierte oder besicherte Schuldtitel</xs:documentation>
-					<xs:documentation xml:lang="fr">Catégorie de titrisation du commercial paper selon Solvabilité II. À fournir pour les positions de titrisation ainsi que pour les titres de créance structurés ou garantis</xs:documentation>
-					<xs:documentation xml:lang="nl">Securitisatiecategorie van het commercial paper volgens Solvency II. Aan te leveren voor securitisatieposities en voor gestructureerde schuldbewijzen of schuldbewijzen met onderpand</xs:documentation>
-					<xs:documentation xml:lang="es">Categoría de titulización del commercial paper según Solvencia II. Debe indicarse para posiciones de titulización y para títulos de deuda estructurados o con garantía real</xs:documentation>
-					<xs:documentation xml:lang="it">Categoria di cartolarizzazione del commercial paper secondo Solvency II. Da fornire per le posizioni verso la cartolarizzazione e per i titoli di debito strutturati o garantiti</xs:documentation>
-					<xs:documentation xml:lang="cs">Kategorie sekuritizace komerčního papíru podle Solvency II. Uvádí se u sekuritizačních pozic a u strukturovaných nebo zajištěných dluhových cenných papírů</xs:documentation>
-					<xs:documentation xml:lang="hu">A commercial paper értékpapírosítási kategóriája a Szolvencia II szerint. Értékpapírosítási pozíciók, valamint strukturált vagy fedezett hitelviszonyt megtestesítő értékpapírok esetén kell megadni</xs:documentation>
-					<xs:documentation xml:lang="da">Securitiseringskategori for commercial paper i henhold til Solvens II. Skal leveres for securitiseringspositioner samt for strukturerede eller sikrede gældsinstrumenter</xs:documentation>
-					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji commercial paper zgodnie z Wypłacalność II. Należy podać dla pozycji sekurytyzacyjnych oraz dla strukturyzowanych lub zabezpieczonych dłużnych papierów wartościowych</xs:documentation>
-					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för commercial paper enligt Solvens II. Ska anges för värdepapperiseringspositioner samt för strukturerade skuldebrev eller skuldebrev med säkerhet</xs:documentation>
+					<xs:documentation xml:lang="en">Securitisation category of the commercial paper according to Delegated Regulation (EU) 2015/35. To be delivered for securitisation positions and for structured or collateralised debt securities</xs:documentation>
+					<xs:documentation xml:lang="de">Verbriefungskategorie des Commercial Papers nach der Delegierten Verordnung (EU) 2015/35. Zu liefern für Verbriefungspositionen sowie für strukturierte oder besicherte Schuldtitel</xs:documentation>
+					<xs:documentation xml:lang="fr">Catégorie de titrisation du commercial paper selon le règlement délégué (UE) 2015/35. À fournir pour les positions de titrisation ainsi que pour les titres de créance structurés ou garantis</xs:documentation>
+					<xs:documentation xml:lang="nl">Securitisatiecategorie van het commercial paper volgens Gedelegeerde Verordening (EU) 2015/35. Aan te leveren voor securitisatieposities en voor gestructureerde schuldbewijzen of schuldbewijzen met onderpand</xs:documentation>
+					<xs:documentation xml:lang="es">Categoría de titulización del commercial paper según el Reglamento Delegado (UE) 2015/35. Debe indicarse para posiciones de titulización y para títulos de deuda estructurados o con garantía real</xs:documentation>
+					<xs:documentation xml:lang="it">Categoria di cartolarizzazione del commercial paper secondo il regolamento delegato (UE) 2015/35. Da fornire per le posizioni verso la cartolarizzazione e per i titoli di debito strutturati o garantiti</xs:documentation>
+					<xs:documentation xml:lang="cs">Kategorie sekuritizace komerčního papíru podle nařízení v přenesené pravomoci (EU) 2015/35. Uvádí se u sekuritizačních pozic a u strukturovaných nebo zajištěných dluhových cenných papírů</xs:documentation>
+					<xs:documentation xml:lang="hu">A commercial paper értékpapírosítási kategóriája az (EU) 2015/35 felhatalmazáson alapuló rendelet szerint. Értékpapírosítási pozíciók, valamint strukturált vagy fedezett hitelviszonyt megtestesítő értékpapírok esetén kell megadni</xs:documentation>
+					<xs:documentation xml:lang="da">Securitiseringskategori for commercial paper i henhold til delegeret forordning (EU) 2015/35. Skal leveres for securitiseringspositioner samt for strukturerede eller sikrede gældsinstrumenter</xs:documentation>
+					<xs:documentation xml:lang="pl">Kategoria sekurytyzacji commercial paper zgodnie z rozporządzeniem delegowanym (UE) 2015/35. Należy podać dla pozycji sekurytyzacyjnych oraz dla strukturyzowanych lub zabezpieczonych dłużnych papierów wartościowych</xs:documentation>
+					<xs:documentation xml:lang="sv">Värdepapperiseringskategori för commercial paper enligt delegerad förordning (EU) 2015/35. Ska anges för värdepapperiseringspositioner samt för strukturerade skuldebrev eller skuldebrev med säkerhet</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DayCountConvention" type="DayCountConventionType" minOccurs="0">

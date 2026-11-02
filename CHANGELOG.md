@@ -41,7 +41,7 @@ Credit, securitisation and convertible bond characteristics in the asset master 
 
 Asset master data (`FundsXML4_AssetMasterData.xsd`):
 
-- `Asset/AssetDetails/Bond/SolvencyIISecuritisationCategory` and `Asset/AssetDetails/CommercialPaper/SolvencyIISecuritisationCategory` – securitisation category under Delegated Regulation (EU) 2015/35, new type `SolvencyIISecuritisationCategoryType` with the values `NotAssessed`, `STSSenior`, `STSNonSenior`, `Resecuritisation`, `NonSTSSenior`, `NonSTSNonSenior`, `NonSTSOther`, `TransitionalArt178a1`, `TransitionalArt178a3`, `TransitionalArt178a4`, `GuaranteedEIBEIF`, `NotASecuritisation`
+- `Asset/AssetDetails/Bond/SecuritisationCategory` and `Asset/AssetDetails/CommercialPaper/SecuritisationCategory` – securitisation category under Delegated Regulation (EU) 2015/35 (element and type deliberately carry no Solvency II prefix, as the core schema is regulation-neutral), new type `SecuritisationCategoryType` with the values `NotAssessed`, `STSSenior`, `STSNonSenior`, `Resecuritisation`, `NonSTSSenior`, `NonSTSNonSenior`, `NonSTSOther`, `TransitionalArt178a1`, `TransitionalArt178a3`, `TransitionalArt178a4`, `GuaranteedEIBEIF`, `NotASecuritisation`
 - `Asset/AssetDetails/Bond/ExpectedMaturityDate` – expected maturity taking prepayments and option exercise into account; follows `MaturityDate`
 - `Asset/AssetDetails/Bond/Seniority` – ranking in insolvency or resolution: `SeniorSecured`, `SeniorUnsecured`, `SeniorNonPreferred`, `Subordinated`, `Tier2`, `AdditionalTier1`
 - `Asset/AssetDetails/Bond/BailIn` – treatment under a resolution regime: `NotAssessed`, `Statutory`, `Contractual`, `Excluded`, `NotApplicable`
@@ -64,8 +64,49 @@ Convertible bonds:
 
 Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
 
-- `RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V8` (type `TripartiteTemplateSolvencyIIType_V8`) – Tripartite Template version 8.0 according to the official FinDatEx version of 2026-10-08 (post consultation; draft of 2026-07-07). Against V7, 20 datapoints are removed, issuer identification accepts non-LEI codes, the securitisation category `e` is split into `e1`, `e2` and `e3`, and the datapoints 150 and 151 are new
-- `SIIPositionType_V8`: `DerivativeOrConvertible/OptionCharacteristics/Convertible` with `BondFloorConvertibleInstrumentOnly` (TPT 127) and `OptionPremiumConvertibleInstrumentOnly` (TPT 128), both `xs:decimal` and optional – bond floor and option premium of convertible instruments, as `Convertible/BondFloor` and `Convertible/OptionPremium` in the earlier versions (`SIIPositionType`, `_V6`, `_V7`). Follows `ExerciseType`
+- `RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V8` (type `TripartiteTemplateSolvencyIIType_V8`) – Tripartite Template version 8.0 according to the official FinDatEx version of 2026-10-08 (post consultation; draft of 2026-07-07), published unchanged on 2026-10-28 together with the technical annex. December 2026 production uses V7, V8 is mandatory from the end-of-March 2027 production. Against V7, 20 datapoints are removed, issuer identification accepts non-LEI codes, the securitisation category `e` is split into `e1`, `e2` and `e3`, and the datapoints 150 and 151 are new
+- `SIIPositionType_V8`: `DerivativeOrConvertible/OptionCharacteristics/Convertible` with `BondFloor` (TPT 127) and `OptionPremium` (TPT 128), both `xs:decimal` and optional – bond floor and option premium of convertible instruments, named as in the earlier versions (`SIIPositionType`, `_V6`, `_V7`) and in the FundsXML XPath column of the FinDatEx template. Follows `ExerciseType`
+
+Machine-readable PRIIPs key information document (KID) with ESAP metadata (`FundsXML4_RegulatoryReporting_PRIIPsKID.xsd`, new module). One `PRIIPsKID` per fund or group of share classes with the content sections of Delegated Regulation (EU) 2017/653 (general information, product description, risks and return with summary risk indicator and performance scenarios, costs over time and composition of costs, holding period, complaints, other relevant information) and the metadata for the submission to the European single access point (ESAP) according to Implementing Regulation (EU) 2025/1338. All new nodes are optional, so existing documents remain valid.
+
+- `RegulatoryReportings/IndirectReporting/PRIIPsKIDs/PRIIPsKID` – container, placed next to `PRIIPS` and `PRIIPS_V20`; `DocumentID` is unique within `PRIIPsKIDs` (`xs:unique`)
+- `ControlData/ModuleUsage/Module/Name` – new value `RegulatoryReporting_PRIIPsKID`
+- `FundsXML4_RegulatoryReporting_PRIIPsKID_No.xsd` – stub to exclude the module
+
+New core types (`FundsXML4_Core.xsd`) introduced for reuse by the KID module. The existing anonymous definitions now reference them; the allowed values are unchanged:
+
+- `EarningUseType` (`D`, `P`, `R`) – used by `ShareClassTypeType/EarningUse` and `PRIIPsKID/GeneralInformation/ShareClasses/ShareClass/EarningUse`
+- `SFDRProductTypeType` (`0`, `6`, `8`, `9`) – used by `FundStaticData/SFDRProductType` and `PRIIPsKID/ProductDescription/Objectives/SFDRProductType`
+- `Text140Type`, `Text5000Type` – additional lengths of the text type family
+
+Value constraints in the KID module: holding periods (`PRIIPsKID_PeriodType`) are positive with exactly one unit (`P[1-9][0-9]*[YMD]`, e.g. `P5Y`, `P18M`), returns (`PRIIPsKID_ReturnPercentageType`) cannot be below `-100`, cost rates and cost impacts (`PRIIPsKID_CostPercentageType`) cannot be negative, and a share class must carry at least one identifier (`xs:assert` on `PRIIPsKID_ShareClassType`).
+
+Further source elements for datapoints of the Solvency II Tripartite Template (TPT V8), named without reference to the template; the TPT mapping is documented in `docs/REGULATORY_REPORTING.md`. All new elements are optional.
+
+Core types (`FundsXML4_Core.xsd`):
+
+- `CreditQualityStepType` – credit quality step `0` to `6`, `9` = no rating available
+- `EligibilityAssessmentType` – `NotAssessed`, `Eligible`, `NotEligible`
+
+Asset master data (`FundsXML4_AssetMasterData.xsd`):
+
+- `Asset/AssetDetails/Bond/Coupon/Type` – new value `inflation` for inflation-linked bonds (TPT 32)
+- `Asset/AssetDetails/Bond/Coupon/CapRate` and `FloorRate` – cap and floor of a variable coupon in percent per annum; follow `OffsetBPS` (TPT 42)
+- `Asset/AssetDetails/Bond/CoveredBondFlag` – covered bond (Pfandbrief, Directive (EU) 2019/2162); follows `GuaranteeType` (TPT 55)
+- `Asset/InfrastructureInvestmentKind` (`Project`, `Corporate`), `Asset/Type1EquityEligibility`, `Asset/LongTermEquityEligibility`, `Asset/LegislativeProgrammeEligibility` – assessments under Art. 1 (55a/55b), 168a, 171a/171d and 173 of Delegated Regulation (EU) 2015/35; follow `InfrastructureInvestmentType` (TPT 132, 134, 150, 151)
+- `Asset/CreditQualityStep` (`CreditQualityStepType`) – follows `Ratings` (TPT 59, 89)
+
+Share class (`FundsXML4_ShareClassData.xsd`):
+
+- `ShareClass/LongTermEquityEligibility` – self-assessment of the fund for the long-term equity investment treatment; follows `PEA_EligibleFlag` (TPT 150 for holders of the fund)
+
+Portfolio data (`FundsXML4_PortfolioData.xsd`), `Position` before `CustomAttributes`:
+
+- `DerivativePurpose` (`Hedging`, `EfficientPortfolioManagement`, `Investment`) and `SystematicRollFlag` (TPT 65)
+- `PlaceOfDeposit` – country of the place of deposit (TPT 107)
+- `ValuationMethod` (`QuotedPriceSameAsset`, `QuotedPriceSimilarAsset`, `AlternativeValuation`, `AdjustedEquityMethod`, `IFRSEquityMethod`, `Other`) (TPT 110)
+
+TPT 95 (original portfolio of look-through positions) needs no element: FundsXML keeps the fund hierarchy (investee fund as position of type `ShareClass` with its own `Funds/Fund` block, or `Portfolio/PositionsDecomposed`).
 
 ### Fixed
 
@@ -73,6 +114,7 @@ Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
 - TPT V6, V7 `LookThroughIdentifier` and V8 `OriginalPortfolioIdentification` (TPT 95): type changed from `ISINType` to `xs:string`, as the datapoint allows "ISIN or CUSIP or any other identification"
 - `TripartiteTemplateSolvencyII_V8`: `@since` corrected to 4.2.12, and the non-English documentation named version 7.0 and its date
 - TPT `DerivativeOrConvertible/OptionCharacteristics/ConversionRatio` (V4, V6, V7) and `ConversionFactor` (V8), TPT 62: now optional. The datapoint applies to convertible bonds (CIC 22) only, but the element was mandatory, so an option with `CallPutType`, `StrikePrice` or `ExerciseType` could not be delivered without a dummy value
+- TPT V8 aligned with the published FinDatEx template (2026-10-28): `QRTPortfolioInformation/FundIssuer/FundIssuerCode` (115) and `FundIssuerGroup/FundIssuerGroupCode` (119) are `LEICodeType`, as the technical annex requires LEIs for 115, 119 and 140; `PortfolioName` (3), `IssuerName` (46), `NameOfTheGroupOfTheIssuer` (49), `NameOfTheUnderlyingAsset` (70), `IssuerNameOfTheUnderlyingAsset` (80) and `NameOfTheGroupOfTheIssuerOfTheUnderlyingAsset` (83) are limited to 255 characters; `QRTPositionInformation/PlaceOfDeposit` (107) is an `ISOCountryCodeType`
 - `ControlData/Version`: enumeration value `4.2.12` added, so that documents using the elements introduced in this version can declare it
 
 ### Changed

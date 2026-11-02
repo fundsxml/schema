@@ -1297,6 +1297,19 @@ B ... Boolean</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="EarningUseType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Use of earnings of a share class: D ... Distributing, P ... Partly Distributing, R ... Reinvesting</xs:documentation>
+			<xs:documentation xml:lang="de">Ertragsverwendung einer Anteilklasse: D ... Ausschüttend, P ... Teilausschüttend, R ... Thesaurierend</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="D"/>
+			<xs:enumeration value="P"/>
+			<xs:enumeration value="R"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="EmailAddressType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Email address format validated against RFC 5322 pattern</xs:documentation>
@@ -3088,6 +3101,19 @@ Partiell säkring: Öppen position som eliminerar mindre än 90 % men mer än 0 
 			<xs:minInclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="SFDRProductTypeType">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">SFDR product type - reference to the article of Regulation (EU) 2019/2088: 0 = not in scope of SFDR, 6 = no Art. 8/9 product, 8 = product promoting environmental or social characteristics, 9 = product with sustainable investment objective</xs:documentation>
+			<xs:documentation xml:lang="de">SFDR-Produkttyp - Verweis auf den Artikel der Verordnung (EU) 2019/2088: 0 = nicht im Anwendungsbereich der SFDR, 6 = kein Art.-8/9-Produkt, 8 = Produkt mit ökologischen oder sozialen Merkmalen, 9 = Produkt mit nachhaltigem Anlageziel</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="ShareClassTypeType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Share class type information including distribution policy</xs:documentation>
@@ -3118,7 +3144,7 @@ Partiell säkring: Öppen position som eliminerar mindre än 90 % men mer än 0 
 					<xs:documentation xml:lang="sv">Landspecifik kod för aktieklasstyp</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EarningUse" minOccurs="0">
+			<xs:element name="EarningUse" type="EarningUseType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">D ... Distributing
 P ... Partly Distributing
@@ -3154,14 +3180,6 @@ R ... Reinvesting</xs:documentation>
 P ... delvis utdelande
 R ... återinvesterande</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:length value="1"/>
-						<xs:enumeration value="D"/>
-						<xs:enumeration value="P"/>
-						<xs:enumeration value="R"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Name" type="Text256Type" minOccurs="0">
 				<xs:annotation>
@@ -3296,6 +3314,16 @@ R ... återinvesterande</xs:documentation>
 			<xs:maxLength value="128"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="Text140Type">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Text (max. 140 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">Text (max. 140 Zeichen)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="140"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="Text16Type">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Text (max. 16 characters)</xs:documentation>
@@ -3420,6 +3448,16 @@ R ... återinvesterande</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Text5000Type">
+		<xs:annotation>
+			<xs:appinfo source="@since 4.2.12"/>
+			<xs:documentation xml:lang="en">Text (max. 5000 characters)</xs:documentation>
+			<xs:documentation xml:lang="de">Text (max. 5000 Zeichen)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5000"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="Text64Type">

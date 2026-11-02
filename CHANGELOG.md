@@ -67,6 +67,20 @@ Solvency II TPT V8 (`FundsXML4_RegulatoryReporting_SolvencyII.xsd`):
 - `RegulatoryReportings/IndirectReporting/TripartiteTemplateSolvencyII_V8` (type `TripartiteTemplateSolvencyIIType_V8`) – Tripartite Template version 8.0 according to the official FinDatEx version of 2026-10-08 (post consultation; draft of 2026-07-07). Against V7, 20 datapoints are removed, issuer identification accepts non-LEI codes, the securitisation category `e` is split into `e1`, `e2` and `e3`, and the datapoints 150 and 151 are new
 - `SIIPositionType_V8`: `DerivativeOrConvertible/OptionCharacteristics/Convertible` with `BondFloorConvertibleInstrumentOnly` (TPT 127) and `OptionPremiumConvertibleInstrumentOnly` (TPT 128), both `xs:decimal` and optional – bond floor and option premium of convertible instruments, as `Convertible/BondFloor` and `Convertible/OptionPremium` in the earlier versions (`SIIPositionType`, `_V6`, `_V7`). Follows `ExerciseType`
 
+Machine-readable PRIIPs key information document (KID) with ESAP metadata (`FundsXML4_RegulatoryReporting_PRIIPsKID.xsd`, new module). One `PRIIPsKID` per fund or group of share classes with the content sections of Delegated Regulation (EU) 2017/653 (general information, product description, risks and return with summary risk indicator and performance scenarios, costs over time and composition of costs, holding period, complaints, other relevant information) and the metadata for the submission to the European single access point (ESAP) according to Implementing Regulation (EU) 2025/1338. All new nodes are optional, so existing documents remain valid.
+
+- `RegulatoryReportings/IndirectReporting/PRIIPsKIDs/PRIIPsKID` – container, placed next to `PRIIPS` and `PRIIPS_V20`; `DocumentID` is unique within `PRIIPsKIDs` (`xs:unique`)
+- `ControlData/ModuleUsage/Module/Name` – new value `RegulatoryReporting_PRIIPsKID`
+- `FundsXML4_RegulatoryReporting_PRIIPsKID_No.xsd` – stub to exclude the module
+
+New core types (`FundsXML4_Core.xsd`) introduced for reuse by the KID module. The existing anonymous definitions now reference them; the allowed values are unchanged:
+
+- `EarningUseType` (`D`, `P`, `R`) – used by `ShareClassTypeType/EarningUse` and `PRIIPsKID/GeneralInformation/ShareClasses/ShareClass/EarningUse`
+- `SFDRProductTypeType` (`0`, `6`, `8`, `9`) – used by `FundStaticData/SFDRProductType` and `PRIIPsKID/ProductDescription/Objectives/SFDRProductType`
+- `Text140Type`, `Text5000Type` – additional lengths of the text type family
+
+Value constraints in the KID module: holding periods (`PRIIPsKID_PeriodType`) are positive with exactly one unit (`P[1-9][0-9]*[YMD]`, e.g. `P5Y`, `P18M`), returns (`PRIIPsKID_ReturnPercentageType`) cannot be below `-100`, cost rates and cost impacts (`PRIIPsKID_CostPercentageType`) cannot be negative, and a share class must carry at least one identifier (`xs:assert` on `PRIIPsKID_ShareClassType`).
+
 ### Fixed
 
 - TPT V7 and V8, `Redemption/PIK` (TPT 146): contradicting facets `minInclusive=1` / `maxInclusive=2` removed. The values `0` (no PIK), `3` and `4` of the enumeration were rejected before

@@ -1198,7 +1198,7 @@ Powiel dane InstrumentIssuer, jeśli są identyczne z InstrumentIssuer</xs:docum
 Duplicera InstrumentIssuer-data om identiska med InstrumentIssuer</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="IssuerCountryOfTheUnderlyingAsset" type="ISOCountryCodeType">
+         <xs:element minOccurs="0" name="IssuerCountryOfTheUnderlyingAsset" type="ISOCountryCodeType">
             <xs:annotation>
                <xs:documentation xml:lang="en">86_Issuer_country_of_the_underlying_asset
 Code ISO 3166-1 alpha 2</xs:documentation>
@@ -3230,7 +3230,7 @@ Alfanum</xs:documentation>
          <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="IssuerName">
+         <xs:element minOccurs="0" name="IssuerName">
             <xs:annotation>
                <xs:documentation xml:lang="en">46_Issuer_name
 Alpha (max 255)</xs:documentation>
@@ -3353,7 +3353,7 @@ Alfanumerisk (max 20)</xs:documentation></xs:annotation>
          <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="NameOfTheGroupOfTheIssuer">
+         <xs:element minOccurs="0" name="NameOfTheGroupOfTheIssuer">
             <xs:annotation>
                <xs:documentation xml:lang="en">49_Name_of_the_group_of_the_issuer
 Alpha (max 255)</xs:documentation>
@@ -3476,7 +3476,7 @@ Alfanumerisk (max 20)</xs:documentation></xs:annotation>
          <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="IssuerNameOfTheUnderlyingAsset">
+         <xs:element minOccurs="0" name="IssuerNameOfTheUnderlyingAsset">
             <xs:annotation>
                <xs:documentation xml:lang="en">80_Issuer_name_of_the_underlying_asset
 Alpha (max 255)</xs:documentation>
@@ -3599,7 +3599,7 @@ Alfanumerisk (max 20)</xs:documentation></xs:annotation>
          <xs:documentation xml:lang="sv">Namn och kodifiering av en emittent</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="NameOfTheGroupOfTheIssuerOfTheUnderlyingAsset">
+         <xs:element minOccurs="0" name="NameOfTheGroupOfTheIssuerOfTheUnderlyingAsset">
             <xs:annotation>
                <xs:documentation xml:lang="en">83_Name_of_the_group_of_the_issuer_of_the_underlying_asset
 Alpha (max 255)</xs:documentation>
@@ -3629,7 +3629,7 @@ Alfa (max 255)</xs:documentation></xs:annotation>
                </xs:restriction>
             </xs:simpleType>
          </xs:element>
-         <xs:element name="IdentificationOfTheGroupOfTheUnderlyingAsset" type="SIIEntityCodeType_V8">
+         <xs:element minOccurs="0" name="IdentificationOfTheGroupOfTheUnderlyingAsset" type="SIIEntityCodeType_V8">
             <xs:annotation>
                <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">84_Identification_of_the_group_of_the_underlying_asset
 Alphanumeric (max 20)</xs:documentation>
@@ -13511,17 +13511,17 @@ tal med flytande decimal</xs:documentation>
    </xs:complexType>
    <xs:complexType name="SIIPositionType_V8">
       <xs:annotation>
-         <xs:documentation xml:lang="en">Solvency II position type V8 containing the asset-level data of the Tripartite Template (TPT) V8. Against V7 this type drops A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 and A128, opens the issuer identification to non-LEI codes, splits the securitisation category e into e1, e2 and e3, reduces NACE reporting to a single datapoint and adds A150 and A151.</xs:documentation>
-         <xs:documentation xml:lang="de">Solvency-II-Positionstyp V8 mit den Bestandsdaten des Tripartite Template (TPT) V8. Gegenueber V7 entfallen A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 und A128; die Emittentenidentifikation ist nicht mehr auf den LEI beschraenkt, die Verbriefungskategorie e wird in e1, e2 und e3 geteilt, die NACE-Meldung auf einen Datenpunkt reduziert, neu sind A150 und A151.</xs:documentation>
-         <xs:documentation xml:lang="fr">Type de position Solvabilité II V8 contenant les données au niveau des actifs du Tripartite Template (TPT) V8. Par rapport à la V7, ce type supprime A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 et A128, ouvre l'identification de l'émetteur aux codes autres que le LEI, scinde la catégorie de titrisation e en e1, e2 et e3, réduit la déclaration NACE à un seul point de données et ajoute A150 et A151.</xs:documentation>
-         <xs:documentation xml:lang="nl">Solvabiliteit II-positietype V8 met de gegevens op activaniveau van het Tripartite Template (TPT) V8. Ten opzichte van V7 vervallen in dit type A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 en A128, wordt de identificatie van de emittent opengesteld voor andere codes dan de LEI, wordt de securitisatiecategorie e opgesplitst in e1, e2 en e3, wordt de NACE-rapportage teruggebracht tot één datapunt en worden A150 en A151 toegevoegd.</xs:documentation>
-         <xs:documentation xml:lang="es">Tipo de posición de Solvencia II V8 que contiene los datos a nivel de activo del Tripartite Template (TPT) V8. Con respecto a V7, este tipo suprime A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 y A128, abre la identificación del emisor a códigos distintos del LEI, divide la categoría de titulización e en e1, e2 y e3, reduce la información NACE a un único punto de datos y añade A150 y A151.</xs:documentation>
-         <xs:documentation xml:lang="it">Tipo di posizione Solvibilità II V8 contenente i dati a livello di attività del Tripartite Template (TPT) V8. Rispetto alla V7 questo tipo elimina A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 e A128, apre l'identificazione dell'emittente a codici diversi dal LEI, suddivide la categoria di cartolarizzazione e in e1, e2 ed e3, riduce la segnalazione NACE a un unico punto dati e aggiunge A150 e A151.</xs:documentation>
-         <xs:documentation xml:lang="cs">Typ pozice Solventnost II V8 obsahující údaje šablony Tripartite Template (TPT) V8 na úrovni aktiv. Oproti V7 tento typ vypouští A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 a A128, otevírá identifikaci emitenta i jiným kódům než LEI, rozděluje kategorii sekuritizace e na e1, e2 a e3, omezuje vykazování NACE na jediný datový bod a doplňuje A150 a A151.</xs:documentation>
-         <xs:documentation xml:lang="hu">A Szolvencia II szerinti V8 pozíciótípus, amely a Tripartite Template (TPT) V8 eszközszintű adatait tartalmazza. A V7-hez képest ez a típus elhagyja az A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 és A128 adatpontokat, a kibocsátó azonosítását megnyitja a nem LEI-kódok előtt, az e értékpapírosítási kategóriát e1, e2 és e3 kategóriára bontja, a NACE-adatszolgáltatást egyetlen adatpontra csökkenti, valamint felveszi az A150 és A151 adatpontokat.</xs:documentation>
-         <xs:documentation xml:lang="da">Solvens II-positionstype V8, der indeholder data på aktivniveau fra Tripartite Template (TPT) V8. I forhold til V7 udelader denne type A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 og A128, åbner udstederidentifikationen for koder, der ikke er LEI-koder, opdeler securitiseringskategori e i e1, e2 og e3, begrænser NACE-indberetningen til et enkelt datapunkt og tilføjer A150 og A151.</xs:documentation>
-         <xs:documentation xml:lang="pl">Typ pozycji Wypłacalność II V8 zawierający dane na poziomie aktywów z Tripartite Template (TPT) V8. W porównaniu z V7 typ ten pomija A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 i A128, otwiera identyfikację emitenta na kody inne niż LEI, dzieli kategorię sekurytyzacji e na e1, e2 i e3, ogranicza raportowanie NACE do jednego punktu danych oraz dodaje A150 i A151.</xs:documentation>
-         <xs:documentation xml:lang="sv">Solvens II-positionstyp V8 som innehåller uppgifterna på tillgångsnivå i Tripartite Template (TPT) V8. Jämfört med V7 utgår A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125, A126, A127 och A128 i denna typ, emittentidentifieringen öppnas för andra koder än LEI, värdepapperiseringskategori e delas upp i e1, e2 och e3, NACE-rapporteringen begränsas till en enda datapunkt och A150 och A151 läggs till.</xs:documentation>
+         <xs:documentation xml:lang="en">Solvency II position type V8 containing the asset-level data of the Tripartite Template (TPT) V8. Against V7 this type drops A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 and A126, opens the issuer identification to non-LEI codes, splits the securitisation category e into e1, e2 and e3, reduces NACE reporting to a single datapoint and adds A150 and A151.</xs:documentation>
+         <xs:documentation xml:lang="de">Solvency-II-Positionstyp V8 mit den Bestandsdaten des Tripartite Template (TPT) V8. Gegenueber V7 entfallen A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 und A126; die Emittentenidentifikation ist nicht mehr auf den LEI beschraenkt, die Verbriefungskategorie e wird in e1, e2 und e3 geteilt, die NACE-Meldung auf einen Datenpunkt reduziert, neu sind A150 und A151.</xs:documentation>
+         <xs:documentation xml:lang="fr">Type de position Solvabilité II V8 contenant les données au niveau des actifs du Tripartite Template (TPT) V8. Par rapport à la V7, ce type supprime A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 et A126, ouvre l'identification de l'émetteur aux codes autres que le LEI, scinde la catégorie de titrisation e en e1, e2 et e3, réduit la déclaration NACE à un seul point de données et ajoute A150 et A151.</xs:documentation>
+         <xs:documentation xml:lang="nl">Solvabiliteit II-positietype V8 met de gegevens op activaniveau van het Tripartite Template (TPT) V8. Ten opzichte van V7 vervallen in dit type A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 en A126, wordt de identificatie van de emittent opengesteld voor andere codes dan de LEI, wordt de securitisatiecategorie e opgesplitst in e1, e2 en e3, wordt de NACE-rapportage teruggebracht tot één datapunt en worden A150 en A151 toegevoegd.</xs:documentation>
+         <xs:documentation xml:lang="es">Tipo de posición de Solvencia II V8 que contiene los datos a nivel de activo del Tripartite Template (TPT) V8. Con respecto a V7, este tipo suprime A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 y A126, abre la identificación del emisor a códigos distintos del LEI, divide la categoría de titulización e en e1, e2 y e3, reduce la información NACE a un único punto de datos y añade A150 y A151.</xs:documentation>
+         <xs:documentation xml:lang="it">Tipo di posizione Solvibilità II V8 contenente i dati a livello di attività del Tripartite Template (TPT) V8. Rispetto alla V7 questo tipo elimina A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 e A126, apre l'identificazione dell'emittente a codici diversi dal LEI, suddivide la categoria di cartolarizzazione e in e1, e2 ed e3, riduce la segnalazione NACE a un unico punto dati e aggiunge A150 e A151.</xs:documentation>
+         <xs:documentation xml:lang="cs">Typ pozice Solventnost II V8 obsahující údaje šablony Tripartite Template (TPT) V8 na úrovni aktiv. Oproti V7 tento typ vypouští A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 a A126, otevírá identifikaci emitenta i jiným kódům než LEI, rozděluje kategorii sekuritizace e na e1, e2 a e3, omezuje vykazování NACE na jediný datový bod a doplňuje A150 a A151.</xs:documentation>
+         <xs:documentation xml:lang="hu">A Szolvencia II szerinti V8 pozíciótípus, amely a Tripartite Template (TPT) V8 eszközszintű adatait tartalmazza. A V7-hez képest ez a típus elhagyja az A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 és A126 adatpontokat, a kibocsátó azonosítását megnyitja a nem LEI-kódok előtt, az e értékpapírosítási kategóriát e1, e2 és e3 kategóriára bontja, a NACE-adatszolgáltatást egyetlen adatpontra csökkenti, valamint felveszi az A150 és A151 adatpontokat.</xs:documentation>
+         <xs:documentation xml:lang="da">Solvens II-positionstype V8, der indeholder data på aktivniveau fra Tripartite Template (TPT) V8. I forhold til V7 udelader denne type A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 og A126, åbner udstederidentifikationen for koder, der ikke er LEI-koder, opdeler securitiseringskategori e i e1, e2 og e3, begrænser NACE-indberetningen til et enkelt datapunkt og tilføjer A150 og A151.</xs:documentation>
+         <xs:documentation xml:lang="pl">Typ pozycji Wypłacalność II V8 zawierający dane na poziomie aktywów z Tripartite Template (TPT) V8. W porównaniu z V7 typ ten pomija A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 i A126, otwiera identyfikację emitenta na kody inne niż LEI, dzieli kategorię sekurytyzacji e na e1, e2 i e3, ogranicza raportowanie NACE do jednego punktu danych oraz dodaje A150 i A151.</xs:documentation>
+         <xs:documentation xml:lang="sv">Solvens II-positionstyp V8 som innehåller uppgifterna på tillgångsnivå i Tripartite Template (TPT) V8. Jämfört med V7 utgår A29, A31, A35, A36, A44, A54, A58b, A106, A108, A125 och A126 i denna typ, emittentidentifieringen öppnas för andra koder än LEI, värdepapperiseringskategori e delas upp i e1, e2 och e3, NACE-rapporteringen begränsas till en enda datapunkt och A150 och A151 läggs till.</xs:documentation>
          </xs:annotation>
       <xs:sequence>
          <xs:element name="CICCodeOfTheInstrument">
@@ -20304,94 +20304,26 @@ samma som datapunkt 10 för portföljer som huvudsakligen är investerade i skul
          <xs:element name="TPTVersion">
             <xs:annotation>
                <xs:documentation xml:lang="en">1000_TPT_Version
-V2.0 (official); dated 9 January 2015
-V3.0 (official) dated 12 October 2015
-V4.0 (official) dated 13 February 2018
-V5.0 (official) dated 16 January 2020
-V6.0 (official) dated 10 January 2022
-V7.0 (official) dated 25 November 2024
-V8.0 (official) dated 8 October 2026
-The element carries the version number only (V8.0); the official label of the template published by FinDatEx on 28 October 2026 is "V8.0 (official) dated 8 October 2026"</xs:documentation>
+V8.0 (official) dated 8 October 2026</xs:documentation>
                <xs:documentation xml:lang="de">1000_TPT_Version
-V2.0 (offiziell); vom 9. Januar 2015
-V3.0 (offiziell) vom 12. Oktober 2015
-V4.0 (offiziell) vom 13. Februar 2018
-V5.0 (offiziell) vom 16. Januar 2020
-V6.0 (offiziell) vom 10. Januar 2022
-V7.0 (offiziell) vom 25. November 2024
-V8.0 (offiziell) vom 8. Oktober 2026
-Das Element enthält nur die Versionsnummer (V8.0); die offizielle Bezeichnung der von FinDatEx am 28. Oktober 2026 veröffentlichten Vorlage lautet "V8.0 (official) dated 8 October 2026"</xs:documentation>
+V8.0 (offiziell) vom 8. Oktober 2026</xs:documentation>
                <xs:documentation xml:lang="fr">1000_TPT_Version
-V2.0 (officielle) ; du 9 janvier 2015
-V3.0 (officielle) du 12 octobre 2015
-V4.0 (officielle) du 13 février 2018
-V5.0 (officielle) du 16 janvier 2020
-V6.0 (officielle) du 10 janvier 2022
-V7.0 (officielle) du 25 novembre 2024
 V8.0 (officielle) du 8 octobre 2026</xs:documentation>
                <xs:documentation xml:lang="nl">1000_TPT_Version
-V2.0 (officieel); gedateerd 9 januari 2015
-V3.0 (officieel) gedateerd 12 oktober 2015
-V4.0 (officieel) gedateerd 13 februari 2018
-V5.0 (officieel) gedateerd 16 januari 2020
-V6.0 (officieel) gedateerd 10 januari 2022
-V7.0 (officieel) gedateerd 25 november 2024
 V8.0 (officieel) gedateerd 8 oktober 2026</xs:documentation>
                <xs:documentation xml:lang="es">1000_TPT_Version
-V2.0 (oficial); de fecha 9 de enero de 2015
-V3.0 (oficial) de fecha 12 de octubre de 2015
-V4.0 (oficial) de fecha 13 de febrero de 2018
-V5.0 (oficial) de fecha 16 de enero de 2020
-V6.0 (oficial) de fecha 10 de enero de 2022
-V7.0 (oficial) de fecha 25 de noviembre de 2024
 V8.0 (oficial) de fecha 8 de octubre de 2026</xs:documentation>
                <xs:documentation xml:lang="it">1000_TPT_Version
-V2.0 (ufficiale); del 9 gennaio 2015
-V3.0 (ufficiale) del 12 ottobre 2015
-V4.0 (ufficiale) del 13 febbraio 2018
-V5.0 (ufficiale) del 16 gennaio 2020
-V6.0 (ufficiale) del 10 gennaio 2022
-V7.0 (ufficiale) del 25 novembre 2024
-V8.0 (ufficiale) del 8 ottobre 2026</xs:documentation>
+V8.0 (ufficiale) dell'8 ottobre 2026</xs:documentation>
                <xs:documentation xml:lang="cs">1000_TPT_Version
-V2.0 (oficiální); ze dne 9. ledna 2015
-V3.0 (oficiální) ze dne 12. října 2015
-V4.0 (oficiální) ze dne 13. února 2018
-V5.0 (oficiální) ze dne 16. ledna 2020
-V6.0 (oficiální) ze dne 10. ledna 2022
-V7.0 (oficiální) ze dne 25. listopadu 2024
 V8.0 (oficiální) ze dne 8. října 2026</xs:documentation>
                <xs:documentation xml:lang="hu">1000_TPT_Version
-V2.0 (hivatalos); kelt: 2015. január 9.
-V3.0 (hivatalos), kelt: 2015. október 12.
-V4.0 (hivatalos), kelt: 2018. február 13.
-V5.0 (hivatalos), kelt: 2020. január 16.
-V6.0 (hivatalos), kelt: 2022. január 10.
-V7.0 (hivatalos), kelt: 2024. november 25.
 V8.0 (hivatalos), kelt: 2026. október 8.</xs:documentation>
                <xs:documentation xml:lang="da">1000_TPT_Version
-V2.0 (officiel); dateret 9. januar 2015
-V3.0 (officiel) dateret 12. oktober 2015
-V4.0 (officiel) dateret 13. februar 2018
-V5.0 (officiel) dateret 16. januar 2020
-V6.0 (officiel) dateret 10. januar 2022
-V7.0 (officiel) dateret 25. november 2024
 V8.0 (officiel) dateret 8. oktober 2026</xs:documentation>
                <xs:documentation xml:lang="pl">1000_TPT_Version
-V2.0 (oficjalna); z dnia 9 stycznia 2015 r.
-V3.0 (oficjalna) z dnia 12 października 2015 r.
-V4.0 (oficjalna) z dnia 13 lutego 2018 r.
-V5.0 (oficjalna) z dnia 16 stycznia 2020 r.
-V6.0 (oficjalna) z dnia 10 stycznia 2022 r.
-V7.0 (oficjalna) z dnia 25 listopada 2024 r.
 V8.0 (oficjalna) z dnia 8 października 2026 r.</xs:documentation>
                <xs:documentation xml:lang="sv">1000_TPT_Version
-V2.0 (officiell); daterad den 9 januari 2015
-V3.0 (officiell) daterad den 12 oktober 2015
-V4.0 (officiell) daterad den 13 februari 2018
-V5.0 (officiell) daterad den 16 januari 2020
-V6.0 (officiell) daterad den 10 januari 2022
-V7.0 (officiell) daterad den 25 november 2024
 V8.0 (officiell) daterad den 8 oktober 2026</xs:documentation></xs:annotation>
             <xs:simpleType>
                <xs:restriction base="xs:string">
@@ -20815,17 +20747,17 @@ alfa(1)</xs:documentation></xs:annotation>
                <xs:sequence>
                   <xs:element name="FundIssuer">
                      <xs:annotation>
-                        <xs:documentation xml:lang="en">A117-115 - Name and Code of Fund Issuer</xs:documentation>
-                        <xs:documentation xml:lang="de">A117-115 - Name und Code von Fonds Emittent</xs:documentation>
-                        <xs:documentation xml:lang="fr">A117-115 - Nom et Code de Fonds Émetteur</xs:documentation>
-                        <xs:documentation xml:lang="nl">A117-115 - Naam en Code van Fonds Emittent</xs:documentation>
-                        <xs:documentation xml:lang="es">A117-115 - Nombre y Codigo de Fondo Emisor</xs:documentation>
-                        <xs:documentation xml:lang="it">A117-115 - Nome e codice dell'emittente del fondo</xs:documentation>
-                        <xs:documentation xml:lang="cs">A117-115 - Název a kód emitenta fondu</xs:documentation>
-                        <xs:documentation xml:lang="hu">A117-115 - Az alap kibocsátójának neve és kódja</xs:documentation>
-                        <xs:documentation xml:lang="da">A117-115 - Navn og kode på fondsudsteder</xs:documentation>
-                        <xs:documentation xml:lang="pl">A117-115 - Nazwa i kod emitenta funduszu</xs:documentation>
-                        <xs:documentation xml:lang="sv">A117-115 - Namn och kod för fondens emittent</xs:documentation>
+                        <xs:documentation xml:lang="en">A117-115 - Name and LEI of Fund Issuer</xs:documentation>
+                        <xs:documentation xml:lang="de">A117-115 - Name und LEI von Fonds Emittent</xs:documentation>
+                        <xs:documentation xml:lang="fr">A117-115 - Nom et LEI de Fonds Émetteur</xs:documentation>
+                        <xs:documentation xml:lang="nl">A117-115 - Naam en LEI van Fonds Emittent</xs:documentation>
+                        <xs:documentation xml:lang="es">A117-115 - Nombre y LEI de Fondo Emisor</xs:documentation>
+                        <xs:documentation xml:lang="it">A117-115 - Nome e LEI dell'emittente del fondo</xs:documentation>
+                        <xs:documentation xml:lang="cs">A117-115 - Název a LEI emitenta fondu</xs:documentation>
+                        <xs:documentation xml:lang="hu">A117-115 - Az alap kibocsátójának neve és LEI-kódja</xs:documentation>
+                        <xs:documentation xml:lang="da">A117-115 - Navn og LEI på fondsudsteder</xs:documentation>
+                        <xs:documentation xml:lang="pl">A117-115 - Nazwa i LEI emitenta funduszu</xs:documentation>
+                        <xs:documentation xml:lang="sv">A117-115 - Namn och LEI för fondens emittent</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:complexContent>
@@ -20863,17 +20795,17 @@ Kod ISO 3166-1 alpha-2</xs:documentation></xs:annotation>
                   </xs:element>
                   <xs:element name="FundIssuerGroup" type="FundIssuerGroupType_V8">
                      <xs:annotation>
-                        <xs:documentation xml:lang="en">A121-119 - Name and code of the group the fund issuer belongs to. TPT V8 removed the separate code type (former A120); the code is no longer restricted to an LEI or pre-LEI.</xs:documentation>
-                        <xs:documentation xml:lang="de">A121-119 - Name und Code der Gruppe, zu der der Fondsemittent gehoert. TPT V8 streicht die separate Codeart (vormals A120); der Code ist nicht mehr auf einen LEI oder Pre-LEI beschraenkt.</xs:documentation>
-                        <xs:documentation xml:lang="fr">A121-119 - Nom et code du groupe auquel appartient l'émetteur du fonds. Le TPT V8 a supprimé le type de code distinct (ancien A120) ; le code n'est plus limité à un LEI ou à un pré-LEI.</xs:documentation>
-                        <xs:documentation xml:lang="nl">A121-119 - Naam en code van de groep waartoe de emittent van het fonds behoort. In TPT V8 is het afzonderlijke codetype (voorheen A120) geschrapt; de code is niet langer beperkt tot een LEI of pre-LEI.</xs:documentation>
-                        <xs:documentation xml:lang="es">A121-119 - Nombre y código del grupo al que pertenece el emisor del fondo. TPT V8 suprimió el tipo de código separado (antes A120); el código ya no está limitado a un LEI o pre-LEI.</xs:documentation>
-                        <xs:documentation xml:lang="it">A121-119 - Nome e codice del gruppo a cui appartiene l'emittente del fondo. Il TPT V8 ha eliminato il tipo di codice distinto (ex A120); il codice non è più limitato a un LEI o a un pre-LEI.</xs:documentation>
-                        <xs:documentation xml:lang="cs">A121-119 - Název a kód skupiny, do níž emitent fondu patří. TPT V8 zrušil samostatný typ kódu (dříve A120); kód již není omezen na LEI nebo pre-LEI.</xs:documentation>
-                        <xs:documentation xml:lang="hu">A121-119 - Annak a csoportnak a neve és kódja, amelyhez az alap kibocsátója tartozik. A TPT V8 megszüntette a különálló kódtípust (korábban A120); a kód már nem korlátozódik LEI-re vagy pre-LEI-re.</xs:documentation>
-                        <xs:documentation xml:lang="da">A121-119 - Navn og kode for den koncern, som fondens udsteder tilhører. TPT V8 har fjernet den særskilte kodetype (tidligere A120); koden er ikke længere begrænset til en LEI eller præ-LEI.</xs:documentation>
-                        <xs:documentation xml:lang="pl">A121-119 - Nazwa i kod grupy, do której należy emitent funduszu. W TPT V8 usunięto odrębny typ kodu (dawniej A120); kod nie jest już ograniczony do LEI lub pre-LEI.</xs:documentation>
-                        <xs:documentation xml:lang="sv">A121-119 - Namn och kod för den grupp som fondens emittent tillhör. I TPT V8 togs den separata kodtypen (tidigare A120) bort; koden är inte längre begränsad till LEI eller pre-LEI.</xs:documentation>
+                        <xs:documentation xml:lang="en">A121-119 - Name and LEI of the group the fund issuer belongs to. TPT V8 removed the separate code type (former A120); the code must be an LEI.</xs:documentation>
+                        <xs:documentation xml:lang="de">A121-119 - Name und LEI der Gruppe, zu der der Fondsemittent gehoert. TPT V8 streicht die separate Codeart (vormals A120); der Code muss ein LEI sein.</xs:documentation>
+                        <xs:documentation xml:lang="fr">A121-119 - Nom et LEI du groupe auquel appartient l'émetteur du fonds. Le TPT V8 a supprimé le type de code distinct (ancien A120) ; le code doit être un LEI.</xs:documentation>
+                        <xs:documentation xml:lang="nl">A121-119 - Naam en LEI van de groep waartoe de emittent van het fonds behoort. In TPT V8 is het afzonderlijke codetype (voorheen A120) geschrapt; de code moet een LEI zijn.</xs:documentation>
+                        <xs:documentation xml:lang="es">A121-119 - Nombre y LEI del grupo al que pertenece el emisor del fondo. TPT V8 suprimió el tipo de código separado (antes A120); el código debe ser un LEI.</xs:documentation>
+                        <xs:documentation xml:lang="it">A121-119 - Nome e LEI del gruppo a cui appartiene l'emittente del fondo. Il TPT V8 ha eliminato il tipo di codice distinto (ex A120); il codice deve essere un LEI.</xs:documentation>
+                        <xs:documentation xml:lang="cs">A121-119 - Název a LEI skupiny, do níž emitent fondu patří. TPT V8 zrušil samostatný typ kódu (dříve A120); kód musí být LEI.</xs:documentation>
+                        <xs:documentation xml:lang="hu">A121-119 - Annak a csoportnak a neve és LEI-kódja, amelyhez az alap kibocsátója tartozik. A TPT V8 megszüntette a különálló kódtípust (korábban A120); a kódnak LEI-nek kell lennie.</xs:documentation>
+                        <xs:documentation xml:lang="da">A121-119 - Navn og LEI for den koncern, som fondens udsteder tilhører. TPT V8 har fjernet den særskilte kodetype (tidligere A120); koden skal være en LEI.</xs:documentation>
+                        <xs:documentation xml:lang="pl">A121-119 - Nazwa i LEI grupy, do której należy emitent funduszu. W TPT V8 usunięto odrębny typ kodu (dawniej A120); kod musi być LEI.</xs:documentation>
+                        <xs:documentation xml:lang="sv">A121-119 - Namn och LEI för den grupp som fondens emittent tillhör. I TPT V8 togs den separata kodtypen (tidigare A120) bort; koden måste vara en LEI.</xs:documentation>
                         </xs:annotation>
                   </xs:element>
                   <xs:element name="FundCIC" type="CICCodeType">
@@ -21220,16 +21152,16 @@ Ytterligare datapunkter för att redovisa säkerheter (collateral) i SCR-beräkn
    </xs:complexType>
    <xs:complexType name="TripartiteTemplateSolvencyIIType_V8">
       <xs:annotation>
-         <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">Used for the Tripartite Template (TPT) version 8.0, FinDatEx consultation draft dated 2026-07-07. Key changes against TPT V7: 20 datapoints removed (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); issuer identification opened up to non-LEI codes (A48, A51, A82, A85); securitisation category e split into e1, e2 and e3 (A56); NACE reporting reduced to a single datapoint in the version in force (A148); two new datapoints A150 (LTEI fund eligibility) and A151 (legislative programme investment).</xs:documentation><xs:documentation xml:lang="de">Verwendet fuer das Tripartite Template (TPT) Version 8.0, FinDatEx-Konsultationsentwurf vom 07.07.2026. Wesentliche Aenderungen gegenueber TPT V7: 20 Datenpunkte entfallen (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); die Emittentenidentifikation ist nicht mehr auf den LEI beschraenkt (A48, A51, A82, A85); die Verbriefungskategorie e wird in e1, e2 und e3 geteilt (A56); die NACE-Meldung wird auf einen Datenpunkt in der jeweils geltenden Fassung reduziert (A148); neu sind A150 (LTEI-Faehigkeit des Fonds) und A151 (Investition im Rahmen von Gesetzgebungsprogrammen).</xs:documentation>
-<xs:documentation xml:lang="fr">Utilisé pour le Tripartite Template (TPT) version 8.0, projet soumis à consultation par FinDatEx en date du 07/07/2026. Principales modifications par rapport au TPT V7 : 20 points de données supprimés (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141) ; identification de l'émetteur ouverte aux codes autres que le LEI (A48, A51, A82, A85) ; catégorie de titrisation e scindée en e1, e2 et e3 (A56) ; déclaration NACE réduite à un seul point de données dans la version en vigueur (A148) ; deux nouveaux points de données, A150 (éligibilité du fonds au titre du LTEI) et A151 (investissement relevant d'un programme législatif).</xs:documentation>
-<xs:documentation xml:lang="nl">Gebruikt voor het Tripartite Template (TPT) versie 8.0, consultatieontwerp van FinDatEx van 2026-07-07. Belangrijkste wijzigingen ten opzichte van TPT V7: 20 datapunten geschrapt (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); identificatie van de emittent opengesteld voor andere codes dan de LEI (A48, A51, A82, A85); securitisatiecategorie e opgesplitst in e1, e2 en e3 (A56); NACE-rapportage teruggebracht tot één datapunt in de geldende versie (A148); twee nieuwe datapunten A150 (toelaatbaarheid van het fonds voor LTEI) en A151 (belegging in het kader van een wetgevingsprogramma).</xs:documentation>
-<xs:documentation xml:lang="es">Utilizado para el Tripartite Template (TPT) versión 8.0, borrador de consulta de FinDatEx de fecha 2026-07-07. Principales cambios con respecto a TPT V7: 20 puntos de datos suprimidos (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); identificación del emisor abierta a códigos distintos del LEI (A48, A51, A82, A85); categoría de titulización e dividida en e1, e2 y e3 (A56); información NACE reducida a un único punto de datos en la versión vigente (A148); dos nuevos puntos de datos A150 (admisibilidad del fondo para LTEI) y A151 (inversión en el marco de un programa legislativo).</xs:documentation>
-<xs:documentation xml:lang="it">Utilizzato per il Tripartite Template (TPT) versione 8.0, bozza per consultazione di FinDatEx del 2026-07-07. Principali modifiche rispetto al TPT V7: 20 punti dati eliminati (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); identificazione dell'emittente aperta a codici diversi dal LEI (A48, A51, A82, A85); categoria di cartolarizzazione e suddivisa in e1, e2 ed e3 (A56); segnalazione NACE ridotta a un unico punto dati nella versione vigente (A148); due nuovi punti dati A150 (ammissibilità del fondo come investimento a lungo termine in strumenti di capitale, LTEI) e A151 (investimento nell'ambito di un programma legislativo).</xs:documentation>
-<xs:documentation xml:lang="cs">Používá se pro šablonu Tripartite Template (TPT) verze 8.0, konzultační návrh sdružení FinDatEx ze dne 2026-07-07. Hlavní změny oproti TPT V7: zrušeno 20 datových bodů (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); identifikace emitenta otevřena i jiným kódům než LEI (A48, A51, A82, A85); kategorie sekuritizace e rozdělena na e1, e2 a e3 (A56); vykazování NACE omezeno na jediný datový bod v platné verzi (A148); dva nové datové body A150 (způsobilost fondu jako dlouhodobé kapitálové investice, LTEI) a A151 (investice v rámci legislativního programu).</xs:documentation>
-<xs:documentation xml:lang="hu">A Tripartite Template (TPT) 8.0 változatához használatos, a FinDatEx 2026-07-07-i konzultációs tervezete. A TPT V7-hez képest a legfontosabb változások: 20 adatpont megszűnt (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); a kibocsátó azonosítása megnyílt a nem LEI-kódok előtt (A48, A51, A82, A85); az e értékpapírosítási kategória e1, e2 és e3 kategóriára bomlik (A56); a NACE-adatszolgáltatás egyetlen, a hatályos változat szerinti adatpontra csökkent (A148); két új adatpont: A150 (hosszú távú részvénybefektetési alapként való elismerhetőség) és A151 (jogalkotási programhoz kapcsolódó befektetés).</xs:documentation>
-<xs:documentation xml:lang="da">Anvendes til Tripartite Template (TPT) version 8.0, FinDatEx' høringsudkast dateret 2026-07-07. Vigtigste ændringer i forhold til TPT V7: 20 datapunkter er udgået (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); udstederidentifikationen er åbnet for koder, der ikke er LEI-koder (A48, A51, A82, A85); securitiseringskategori e er opdelt i e1, e2 og e3 (A56); NACE-indberetningen er begrænset til et enkelt datapunkt i den gældende version (A148); to nye datapunkter, A150 (berettigelse som fond for langsigtede aktieinvesteringer) og A151 (investering under lovgivningsprogram).</xs:documentation>
-<xs:documentation xml:lang="pl">Stosowany dla Tripartite Template (TPT) w wersji 8.0, projekt konsultacyjny FinDatEx z dnia 2026-07-07. Najważniejsze zmiany w porównaniu z TPT V7: usunięto 20 punktów danych (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); identyfikację emitenta otwarto na kody inne niż LEI (A48, A51, A82, A85); kategorię sekurytyzacji e podzielono na e1, e2 i e3 (A56); raportowanie NACE ograniczono do jednego punktu danych w obowiązującej wersji (A148); dwa nowe punkty danych: A150 (kwalifikowalność funduszu LTEI) i A151 (inwestycja w ramach programu legislacyjnego).</xs:documentation>
-<xs:documentation xml:lang="sv">Används för Tripartite Template (TPT) version 8.0, FinDatEx samrådsutkast daterat 2026-07-07. Viktiga ändringar jämfört med TPT V7: 20 datapunkter har tagits bort (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A127, A128, A141); emittentidentifieringen har öppnats för andra koder än LEI (A48, A51, A82, A85); värdepapperiseringskategori e har delats upp i e1, e2 och e3 (A56); NACE-rapporteringen har begränsats till en enda datapunkt i gällande version (A148); två nya datapunkter: A150 (LTEI-fondens kvalificering) och A151 (investering inom lagstiftningsprogram).</xs:documentation></xs:annotation>
+         <xs:appinfo source="@since 4.2.12"/><xs:documentation xml:lang="en">Used for the Tripartite Template (TPT) version 8.0, FinDatEx official version dated 8 October 2026. Key changes against TPT V7: 18 datapoints removed (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); issuer identification opened up to non-LEI codes (A48, A51, A82, A85); securitisation category e split into e1, e2 and e3 (A56); NACE reporting reduced to a single datapoint in the version in force (A148); two new datapoints A150 (LTEI fund eligibility) and A151 (legislative programme investment).</xs:documentation><xs:documentation xml:lang="de">Verwendet fuer das Tripartite Template (TPT) Version 8.0, offizielle FinDatEx-Fassung vom 08.10.2026. Wesentliche Aenderungen gegenueber TPT V7: 18 Datenpunkte entfallen (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); die Emittentenidentifikation ist nicht mehr auf den LEI beschraenkt (A48, A51, A82, A85); die Verbriefungskategorie e wird in e1, e2 und e3 geteilt (A56); die NACE-Meldung wird auf einen Datenpunkt in der jeweils geltenden Fassung reduziert (A148); neu sind A150 (LTEI-Faehigkeit des Fonds) und A151 (Investition im Rahmen von Gesetzgebungsprogrammen).</xs:documentation>
+<xs:documentation xml:lang="fr">Utilisé pour le Tripartite Template (TPT) version 8.0, version officielle de FinDatEx en date du 08/10/2026. Principales modifications par rapport au TPT V7 : 18 points de données supprimés (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141) ; identification de l'émetteur ouverte aux codes autres que le LEI (A48, A51, A82, A85) ; catégorie de titrisation e scindée en e1, e2 et e3 (A56) ; déclaration NACE réduite à un seul point de données dans la version en vigueur (A148) ; deux nouveaux points de données, A150 (éligibilité du fonds au titre du LTEI) et A151 (investissement relevant d'un programme législatif).</xs:documentation>
+<xs:documentation xml:lang="nl">Gebruikt voor het Tripartite Template (TPT) versie 8.0, officiële versie van FinDatEx van 2026-10-08. Belangrijkste wijzigingen ten opzichte van TPT V7: 18 datapunten geschrapt (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); identificatie van de emittent opengesteld voor andere codes dan de LEI (A48, A51, A82, A85); securitisatiecategorie e opgesplitst in e1, e2 en e3 (A56); NACE-rapportage teruggebracht tot één datapunt in de geldende versie (A148); twee nieuwe datapunten A150 (toelaatbaarheid van het fonds voor LTEI) en A151 (belegging in het kader van een wetgevingsprogramma).</xs:documentation>
+<xs:documentation xml:lang="es">Utilizado para el Tripartite Template (TPT) versión 8.0, versión oficial de FinDatEx de fecha 2026-10-08. Principales cambios con respecto a TPT V7: 18 puntos de datos suprimidos (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); identificación del emisor abierta a códigos distintos del LEI (A48, A51, A82, A85); categoría de titulización e dividida en e1, e2 y e3 (A56); información NACE reducida a un único punto de datos en la versión vigente (A148); dos nuevos puntos de datos A150 (admisibilidad del fondo para LTEI) y A151 (inversión en el marco de un programa legislativo).</xs:documentation>
+<xs:documentation xml:lang="it">Utilizzato per il Tripartite Template (TPT) versione 8.0, versione ufficiale di FinDatEx del 2026-10-08. Principali modifiche rispetto al TPT V7: 18 punti dati eliminati (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); identificazione dell'emittente aperta a codici diversi dal LEI (A48, A51, A82, A85); categoria di cartolarizzazione e suddivisa in e1, e2 ed e3 (A56); segnalazione NACE ridotta a un unico punto dati nella versione vigente (A148); due nuovi punti dati A150 (ammissibilità del fondo come investimento a lungo termine in strumenti di capitale, LTEI) e A151 (investimento nell'ambito di un programma legislativo).</xs:documentation>
+<xs:documentation xml:lang="cs">Používá se pro šablonu Tripartite Template (TPT) verze 8.0, oficiální verze sdružení FinDatEx ze dne 2026-10-08. Hlavní změny oproti TPT V7: zrušeno 18 datových bodů (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); identifikace emitenta otevřena i jiným kódům než LEI (A48, A51, A82, A85); kategorie sekuritizace e rozdělena na e1, e2 a e3 (A56); vykazování NACE omezeno na jediný datový bod v platné verzi (A148); dva nové datové body A150 (způsobilost fondu jako dlouhodobé kapitálové investice, LTEI) a A151 (investice v rámci legislativního programu).</xs:documentation>
+<xs:documentation xml:lang="hu">A Tripartite Template (TPT) 8.0 változatához használatos, a FinDatEx 2026-10-08-i hivatalos változata. A TPT V7-hez képest a legfontosabb változások: 18 adatpont megszűnt (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); a kibocsátó azonosítása megnyílt a nem LEI-kódok előtt (A48, A51, A82, A85); az e értékpapírosítási kategória e1, e2 és e3 kategóriára bomlik (A56); a NACE-adatszolgáltatás egyetlen, a hatályos változat szerinti adatpontra csökkent (A148); két új adatpont: A150 (hosszú távú részvénybefektetési alapként való elismerhetőség) és A151 (jogalkotási programhoz kapcsolódó befektetés).</xs:documentation>
+<xs:documentation xml:lang="da">Anvendes til Tripartite Template (TPT) version 8.0, FinDatEx' officielle version dateret 2026-10-08. Vigtigste ændringer i forhold til TPT V7: 18 datapunkter er udgået (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); udstederidentifikationen er åbnet for koder, der ikke er LEI-koder (A48, A51, A82, A85); securitiseringskategori e er opdelt i e1, e2 og e3 (A56); NACE-indberetningen er begrænset til et enkelt datapunkt i den gældende version (A148); to nye datapunkter, A150 (berettigelse som fond for langsigtede aktieinvesteringer) og A151 (investering under lovgivningsprogram).</xs:documentation>
+<xs:documentation xml:lang="pl">Stosowany dla Tripartite Template (TPT) w wersji 8.0, wersja oficjalna FinDatEx z dnia 2026-10-08. Najważniejsze zmiany w porównaniu z TPT V7: usunięto 18 punktów danych (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); identyfikację emitenta otwarto na kody inne niż LEI (A48, A51, A82, A85); kategorię sekurytyzacji e podzielono na e1, e2 i e3 (A56); raportowanie NACE ograniczono do jednego punktu danych w obowiązującej wersji (A148); dwa nowe punkty danych: A150 (kwalifikowalność funduszu LTEI) i A151 (inwestycja w ramach programu legislacyjnego).</xs:documentation>
+<xs:documentation xml:lang="sv">Används för Tripartite Template (TPT) version 8.0, FinDatEx officiella version daterad 2026-10-08. Viktiga ändringar jämfört med TPT V7: 18 datapunkter har tagits bort (A17b, A29, A31, A35, A36, A44, A54, A58b, A106, A108, A114, A116, A118, A120, A124, A125, A126, A141); emittentidentifieringen har öppnats för andra koder än LEI (A48, A51, A82, A85); värdepapperiseringskategori e har delats upp i e1, e2 och e3 (A56); NACE-rapporteringen har begränsats till en enda datapunkt i gällande version (A148); två nya datapunkter: A150 (LTEI-fondens kvalificering) och A151 (investering inom lagstiftningsprogram).</xs:documentation></xs:annotation>
       <xs:sequence>
          <xs:element maxOccurs="unbounded" name="Portfolio" type="SolvencyIIPortfolioType_V8">
             <xs:annotation>
